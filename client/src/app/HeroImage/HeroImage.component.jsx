@@ -1,57 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./HeroImage.module.css";
-
-const codeLines = [
-  [
-    { text: "import", type: "keyword" },
-    { text: " ", type: "plain" },
-    { text: "React", type: "object" },
-    { text: " ", type: "plain" },
-    { text: "from", type: "keyword" },
-    { text: " ", type: "plain" },
-    { text: "'react'", type: "string" },
-    { text: ";", type: "plain" },
-  ],
-  [
-    { text: "export", type: "keyword" },
-    { text: " ", type: "plain" },
-    { text: "default", type: "keyword" },
-    { text: " ", type: "plain" },
-    { text: "function", type: "keyword" },
-    { text: " ", type: "plain" },
-    { text: "Hero", type: "function" },
-    { text: "() ", type: "plain" },
-    { text: "{", type: "plain" },
-  ],
-  [
-    { text: "  return", type: "keyword" },
-    { text: " ", type: "plain" },
-    { text: "(", type: "plain" },
-  ],
-  [
-    { text: "    <section>", type: "jsx" },
-  ],
-  [
-    { text: "      <h1>", type: "jsx" },
-    { text: "Full Stack Developer", type: "string" },
-    { text: "</h1>", type: "jsx" },
-  ],
-  [
-    { text: "      <p>", type: "jsx" },
-    { text: "Designing and developing high-performing web experiences", type: "string" },
-    { text: "</p>", type: "jsx" },
-  ],
-  [
-    { text: "    </section>", type: "jsx" },
-  ],
-  [
-    { text: "  );", type: "plain" },
-  ],
-  [
-    { text: "}", type: "plain" },
-  ],
-];
+import { codeLines } from "./CodeLines";
 
 const HeroImage = () => {
   // For syntax highlighting

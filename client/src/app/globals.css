@@ -1,6 +1,40 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  /* Blues */
+  --blue-900: #003a8c;
+  --blue-800: #0054c9; /* main */
+  --blue-700: #1b89e2; /* main */
+  --blue-600: #269be6;
+  --blue-500: #69baf2; /* main */
+  --blue-400: #8cccf5;
+  --blue-300: #a7d8fa;
+  --blue-200: #cbe7fc;
+  --blue-100: #e6f4fe;
+  /* Accent */
+  --accent-blue: #cbd5f5;
+
+  /* Greys */
+  --grey-900: #181a20;
+  --grey-800: #23272f;
+  --grey-700: #2d313a;
+  --grey-600: #444857;
+  --grey-500: #666a7a;
+  --grey-400: #999ca8;
+  --grey-300: #b0b0b0;
+  --grey-200: #e0e0e0;
+  --grey-100: #f5f6fa;
+
+  /* Text */
+  --text-primary: #ededed;
+  --text-secondary: #b0b0b0;
+  --text-inverse: #181a20;
+
+  /* Other */
+  --success: #4ec9b0;
+  --warning: #d7ba7d;
+  --error: #ce9178;
 }
 
 @media (prefers-color-scheme: dark) {

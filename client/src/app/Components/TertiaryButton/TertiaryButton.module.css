@@ -1,0 +1,21 @@
+.tertiaryButton {
+  background: transparent;
+  color: var(--blue-700);
+  border: none;
+  border-radius: 0;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition:
+    color 0.2s,
+    text-decoration 0.2s;
+  outline: none;
+  display: inline-block;
+  text-decoration: none;
+}
+.tertiaryButton:hover,
+.tertiaryButton:focus {
+  color: var(--blue-800);
+  text-decoration: underline;
+}

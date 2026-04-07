@@ -1,0 +1,21 @@
+.primaryButton {
+  background: var(--blue-500);
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 0.75rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    box-shadow 0.2s;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.08);
+  outline: none;
+  display: inline-block;
+}
+.primaryButton:hover,
+.primaryButton:focus {
+  background: var(--blue-700);
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.12);
+}
