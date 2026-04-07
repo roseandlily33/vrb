@@ -1,12 +1,17 @@
 import HeroImage from "./HomeComponents/HeroImage/HeroImage.component";
-import styles from "./page.module.css";
+import AboutMe from "./HomeComponents/AboutMe/AboutMe.component";
+import Services from "./HomeComponents/Services/Services.component";
+import Projects from "./HomeComponents/Projects/Projects.component";
+import Testimonial from "./HomeComponents/Testimonial.component";
 
 export default function Home() {
   return (
-    // <div className={styles.page}>
     <main>
       <HeroImage />
+      <AboutMe />
+      <Services />
+      <Projects />
+      <Testimonial />
     </main>
-    // </div>
   );
 }

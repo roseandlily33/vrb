@@ -1,0 +1,101 @@
+.projectsSection {
+  padding: 4rem 2rem;
+  margin: 3rem auto;
+}
+
+.heading {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--grey-900);
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.carousel {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.projectCard {
+  display: flex;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  align-items: stretch;
+  min-height: 260px;
+}
+
+.imageWrapper {
+  flex: 1 1 260px;
+  min-width: 220px;
+  max-width: 340px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.projectImage {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 1.5rem 0 0 1.5rem;
+}
+
+.projectDetails {
+  flex: 2 1 400px;
+  padding: 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.projectName {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--blue-800);
+  margin-bottom: 0.7rem;
+}
+
+.projectDescription {
+  font-size: 1.1rem;
+  color: var(--grey-800);
+  margin-bottom: 1.2rem;
+}
+
+.techList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.techItem {
+  background: var(--blue-100);
+  color: var(--blue-800);
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  padding: 0.3em 0.9em;
+}
+
+.learnMoreLink {
+  align-self: flex-start;
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .projectCard {
+    flex-direction: column;
+    min-height: unset;
+  }
+  .imageWrapper {
+    max-width: 100%;
+    border-radius: 1.5rem 1.5rem 0 0;
+  }
+  .projectImage {
+    border-radius: 1.5rem 1.5rem 0 0;
+  }
+  .projectDetails {
+    padding: 1.2rem 1rem;
+  }
+}

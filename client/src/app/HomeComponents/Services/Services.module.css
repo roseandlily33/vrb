@@ -1,0 +1,41 @@
+.servicesSection {
+  background: var(--grey-200);
+  padding: 4rem 2rem;
+  margin: 3rem auto;
+}
+
+.heading {
+  font-weight: 700;
+  color: var(--grey-900);
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.cardsWrapper {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.bottomButton {
+    display: flex;
+    justify-content: end;
+}
+
+.cardsWrapper > * {
+  flex: 1 1 300px;
+  min-width: 260px;
+  max-width: 350px;
+}
+
+@media (max-width: 900px) {
+  .servicesSection {
+    padding: 2rem 0.5rem;
+  }
+  .cardsWrapper {
+    gap: 1.2rem;
+  }
+  .heading {
+    font-size: 1.5rem;
+  }
+}

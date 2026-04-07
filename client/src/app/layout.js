@@ -17,17 +17,19 @@ export const metadata = {
   title: "VRB Web Design & Development",
   description:
     "Crafting high-performing web experiences with a focus on design, development, and user experience.",
-    icons : {
-      icon: "/favicon.ico",
-    }
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
-      <Navbar />
-      <body>{children}</body>
-      <Footer />
+      <body>
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
