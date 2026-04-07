@@ -1,24 +1,29 @@
 import designPackage from './designPackage';
-import Card from '@/app/Components/Card/Card.component';
 import styles from './DesignPackage.module.css';
+import { FaCheckCircle } from 'react-icons/fa';
 
 export default function DesignPackage() {
     const pkg = designPackage[0];
     return (
         <section className={styles.designSection}>
-            <h2 className={styles.heading}>{pkg.title}</h2>
-            <div className={styles.metaRow}>
-                <span className={styles.price}>{pkg.startingAt}</span>
-                <span className={styles.timeline}>{pkg.timeline}</span>
-            </div>
-            <Card className={styles.card}>
+            <div className={styles.packageBox}>
+                <div className={styles.headerRow}>
+                    <h2 className={styles.heading}>{pkg.title}</h2>
+                    <div className={styles.metaRow}>
+                        <span className={styles.price}>{pkg.startingAt}</span>
+                        <span className={styles.timeline}>{pkg.timeline}</span>
+                    </div>
+                </div>
                 <p className={styles.desc}>{pkg.description}</p>
                 <ul className={styles.featuresList}>
                     {pkg.features.map((feature) => (
-                        <li key={feature} className={styles.featureItem}>{feature}</li>
+                        <li key={feature} className={styles.featureItem}>
+                            <FaCheckCircle className={styles.icon} />
+                            <span>{feature}</span>
+                        </li>
                     ))}
                 </ul>
-            </Card>
+            </div>
         </section>
     );
 }
