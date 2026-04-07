@@ -1,10 +1,6 @@
 .cta2Section {
   background: linear-gradient(120deg, var(--blue-700) 0%, var(--blue-500) 100%);
-  border-radius: 2rem;
-  box-shadow: 0 2px 24px 0 rgba(24, 26, 32, 0.1);
   padding: 3.5rem 2rem;
-  margin: 3rem auto;
-  max-width: 900px;
   position: relative;
   overflow: hidden;
   display: flex;
@@ -46,12 +42,28 @@
   letter-spacing: 0.01em;
 }
 
+.cta2ButtonRow {
+  display: flex;
+  gap: 1.2rem;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+}
 .cta2Button {
   font-size: 1.1rem;
   padding: 0.9em 2.2em;
   border-radius: 0.7em;
   font-weight: 700;
   box-shadow: 0 2px 12px 0 rgba(38, 155, 230, 0.1);
+  min-width: 170px;
+}
+
+.cta2Booking {
+  color: #fff;
+  font-size: 1.02rem;
+  font-weight: 500;
+  opacity: 0.85;
+  margin-top: 0.2rem;
+  text-align: center;
 }
 
 .cta2Shapes {
@@ -99,9 +111,14 @@
   .cta2Subtext {
     font-size: 1rem;
   }
+  .cta2ButtonRow {
+    flex-direction: column;
+    gap: 0.7rem;
+  }
   .cta2Button {
     font-size: 1rem;
     padding: 0.7em 1.5em;
+    min-width: 0;
   }
   .cta2Circle {
     width: 70px;

@@ -1,0 +1,158 @@
+.packagesSection {
+  width: 100%;
+  max-width: 1200px;
+  margin: 3rem auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heading {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: var(--blue-900);
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.meta {
+  color: var(--grey-700);
+  font-size: 1.1rem;
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 2rem;
+  width: 100%;
+  transition:
+    opacity 0.25s,
+    transform 0.25s;
+}
+
+.packageCard {
+  min-height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  transition: box-shadow 0.2s;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+.cardTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--blue-100);
+}
+.cardPrice {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--blue-500);
+  background: var(--blue-100);
+  border-radius: 0.7em;
+  padding: 0.2em 0.8em;
+}
+.cardMeta {
+  color: var(--grey-400);
+  font-size: 1rem;
+  margin-bottom: 0.7rem;
+}
+.cardDesc {
+  color: var(--grey-200);
+  font-size: 1.08rem;
+  margin-bottom: 1.2rem;
+}
+
+/* Tabbed view */
+.tabsWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tabs {
+  display: flex;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.tab {
+  background: var(--blue-100);
+  color: var(--blue-900);
+  border: none;
+  border-radius: 1.2em 1.2em 0 0;
+  padding: 0.7em 1.7em;
+  font-size: 1.08rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.18s,
+    color 0.18s;
+  margin-bottom: -2px;
+}
+.tab:hover:not(:disabled) {
+  background: var(--blue-200);
+}
+.activeTab {
+  background: var(--blue-700);
+  color: #fff;
+  cursor: default;
+}
+.detailCard {
+  min-width: 320px;
+  max-width: 600px;
+  margin: 0 auto;
+  animation: fadeInUp 0.3s;
+}
+.featuresList {
+  margin: 1.2rem 0 1.5rem 0;
+  padding-left: 1.2em;
+  color: var(--blue-100);
+}
+.featureItem {
+  margin-bottom: 0.5em;
+  font-size: 1.05rem;
+  list-style: disc;
+}
+.hideBtn {
+  margin-top: 1.2rem;
+  background: var(--grey-700);
+  color: #fff;
+}
+
+/* Animations */
+.fadeIn {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.25s,
+    transform 0.25s;
+}
+.fadeOut {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.25s,
+    transform 0.25s;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

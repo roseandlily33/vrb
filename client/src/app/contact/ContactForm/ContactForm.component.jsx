@@ -32,9 +32,9 @@ export default function ContactForm() {
 
   return (
     <form className={styles.contactForm} onSubmit={handleSubmit}>
-      <h1>Let's work together</h1>
+      <h1>Let&apos;s work together</h1>
       <p>
-        I'm currently available for freelance work and open to new
+        I&apos;m currently available for freelance work and open to new
         opportunities.
       </p>
       <Input

@@ -1,0 +1,125 @@
+/* Animation base state */
+.stepCard {
+  opacity: 0;
+  transform: translateY(40px);
+}
+/* .animated {
+  /* marker class for animation */
+/* }  */
+.visible {
+  animation: fadeInUpProcess 0.7s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+@keyframes fadeInUpProcess {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.processSection {
+  width: 100%;
+  max-width: 1100px;
+  margin: 3rem auto 0 auto;
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--blue-900);
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.stepsWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.stepCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 2.5rem;
+  padding: 1.5rem 0;
+  min-height: 120px;
+  position: relative;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  transition: background 0.2s;
+}
+.left {
+  flex-direction: row;
+}
+.right {
+  flex-direction: row-reverse;
+}
+.stepNumber {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--blue-500);
+  background: var(--blue-100);
+  border-radius: 50%;
+  width: 3.2em;
+  height: 3.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0.2em;
+  box-shadow: 0 2px 8px 0 rgba(38, 155, 230, 0.08);
+  transition:
+    transform 0.3s cubic-bezier(0.23, 1, 0.32, 1),
+    box-shadow 0.3s;
+  position: relative;
+  z-index: 2;
+}
+.stepCard:hover .stepNumber {
+  transform: scale(1.13) rotate(-6deg);
+  box-shadow:
+    0 0 0 8px var(--blue-200),
+    0 4px 24px 0 rgba(38, 155, 230, 0.18);
+  background: var(--blue-200);
+  color: var(--blue-900);
+}
+.stepContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0.2rem 0 0.2rem 0;
+}
+.stepTitle {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--blue-600);
+  margin-bottom: 0.2em;
+  letter-spacing: -0.5px;
+}
+.stepDesc {
+  color: var(--grey-400);
+  font-size: 1.08rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .stepCard {
+    flex-direction: column !important;
+    gap: 1.2rem;
+    padding: 1.2rem 1rem;
+    align-items: stretch;
+  }
+  .stepNumber {
+    margin: 0 auto 0.5em auto;
+  }
+}

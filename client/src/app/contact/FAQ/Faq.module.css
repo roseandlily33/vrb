@@ -3,7 +3,7 @@
   margin: 3rem auto 0 auto;
   /* background: var(--blue-100); */
   background: var(--grey-100);
-  padding: 2.2rem 1.5rem 2rem 1.5rem;
+  padding: 2.2rem 4.5rem;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -11,7 +11,7 @@
 
 .faqHeading {
   font-weight: 700;
-  color: var(--blue-900);
+  color: var(--blue-800);
   margin-bottom: 1.5rem;
 }
 
