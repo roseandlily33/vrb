@@ -1,0 +1,119 @@
+.cta2Section {
+  background: linear-gradient(120deg, var(--blue-700) 0%, var(--blue-500) 100%);
+  border-radius: 2rem;
+  box-shadow: 0 2px 24px 0 rgba(24, 26, 32, 0.1);
+  padding: 3.5rem 2rem;
+  margin: 3rem auto;
+  max-width: 900px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cta2Content {
+  z-index: 2;
+  text-align: center;
+  width: 100%;
+}
+
+.cta2Heading {
+  font-size: 2.2rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 1.2rem;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+
+.cta2Accent {
+  color: var(--blue-100);
+  background: rgba(255, 255, 255, 0.13);
+  padding: 0.1em 0.5em;
+  border-radius: 0.6em;
+  margin-left: 0.3em;
+  font-size: 1.1em;
+  font-weight: 900;
+  box-shadow: 0 2px 8px 0 rgba(38, 155, 230, 0.08);
+}
+
+.cta2Subtext {
+  font-size: 1.15rem;
+  color: #f5f6fa;
+  margin-bottom: 2.2rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+}
+
+.cta2Button {
+  font-size: 1.1rem;
+  padding: 0.9em 2.2em;
+  border-radius: 0.7em;
+  font-weight: 700;
+  box-shadow: 0 2px 12px 0 rgba(38, 155, 230, 0.1);
+}
+
+.cta2Shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.cta2Circle {
+  position: absolute;
+  left: -60px;
+  top: 30px;
+  width: 120px;
+  height: 120px;
+  background: var(--blue-300);
+  opacity: 0.18;
+  border-radius: 50%;
+  filter: blur(2px);
+}
+
+.cta2Triangle {
+  position: absolute;
+  right: -40px;
+  bottom: 20px;
+  width: 0;
+  height: 0;
+  border-left: 60px solid transparent;
+  border-right: 60px solid transparent;
+  border-top: 80px solid var(--blue-100);
+  opacity: 0.13;
+  filter: blur(1px);
+}
+
+@media (max-width: 700px) {
+  .cta2Section {
+    padding: 2rem 0.5rem;
+  }
+  .cta2Heading {
+    font-size: 1.3rem;
+  }
+  .cta2Subtext {
+    font-size: 1rem;
+  }
+  .cta2Button {
+    font-size: 1rem;
+    padding: 0.7em 1.5em;
+  }
+  .cta2Circle {
+    width: 70px;
+    height: 70px;
+    left: -30px;
+    top: 10px;
+  }
+  .cta2Triangle {
+    border-left: 30px solid transparent;
+    border-right: 30px solid transparent;
+    border-top: 40px solid var(--blue-100);
+    right: -20px;
+    bottom: 10px;
+  }
+}

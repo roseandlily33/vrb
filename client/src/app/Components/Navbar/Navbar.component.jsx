@@ -2,14 +2,15 @@
 import React, { useState } from "react";
 import styles from "./Navbar.module.css";
 import PrimaryButton from "../PrimaryButton/PrimaryButton.component";
+import Link from "next/link";
 
 const navLinks = [
-  { label: "Home", href: "#home" },
-  { label: "Services", href: "#services" },
-  { label: "Work", href: "#work" },
-  { label: "About", href: "#about" },
-  { label: "Process", href: "#process" },
-  { label: "Contact", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "Services", href: "/services" },
+  { label: "Work", href: "/work" },
+  { label: "About", href: "/about" },
+  { label: "Process", href: "/process" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const Navbar = () => {
@@ -35,13 +36,11 @@ const Navbar = () => {
       <div className={`${styles.links} ${open ? styles.open : ""}`}>
         {navLinks.map((link) =>
           link.label === "Contact" ? (
-            <PrimaryButton
-              key={link.label}
-              onClick={() => setOpen(false)}
-              href={link.href}
-            >
-              {link.label}
-            </PrimaryButton>
+            <Link href={link.href} key={link.label} passHref>
+              <PrimaryButton onClick={() => setOpen(false)}>
+                {link.label}
+              </PrimaryButton>
+            </Link>
           ) : (
             <a
               key={link.label}

@@ -40,15 +40,13 @@ export default function Services() {
             <p className={styles.serviceDescription}>{service.description}</p>
             <div className={styles.bottomButton}>
               <Link href="/services">
-                <a className={styles.linkButton}>
-                  <TertiaryButton as="span">
-                    Learn More{" "}
-                    <FiArrowRight
-                      style={{ marginLeft: 6, verticalAlign: "middle" }}
-                      aria-hidden="true"
-                    />
-                  </TertiaryButton>
-                </a>
+                <TertiaryButton as="span" className={styles.linkButton}>
+                  Learn More{" "}
+                  <FiArrowRight
+                    style={{ marginLeft: 6, verticalAlign: "middle" }}
+                    aria-hidden="true"
+                  />
+                </TertiaryButton>
               </Link>
             </div>
           </Card>
