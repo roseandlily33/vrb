@@ -19,7 +19,7 @@ const Navbar = () => {
     <nav className={styles.navbar}>
       <div className={styles.logoContainer}>
         <a href="#home" aria-label="Home">
-          <img src="/VRBLogo.jpg" alt="VRB Logo" className={styles.logo} />
+          <img src="/VRBLogo.png" alt="VRB Logo" className={styles.logo} />
         </a>
       </div>
       <button
@@ -38,7 +38,6 @@ const Navbar = () => {
             <PrimaryButton
               key={link.label}
               onClick={() => setOpen(false)}
-              className={styles.navButton}
               href={link.href}
             >
               {link.label}

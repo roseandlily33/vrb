@@ -16,7 +16,8 @@
 }
 .secondaryButton:hover,
 .secondaryButton:focus {
-  color: #fff;
-  background: var(--blue-800);
-  border: 4px double var(--blue-800);
+  color: var(--grey-800);
+  background: white;
+  /* background: var(--blue-800); */
+  border: 4px double var(--blue-700);
 }

@@ -50,7 +50,11 @@
   justify-content: center;
   z-index: 2;
 }
-
+.buttonGroup {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
 .editorWindow {
   /* background: var(--grey-800); */
   /* border-radius: 16px; */

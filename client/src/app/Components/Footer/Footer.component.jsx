@@ -15,7 +15,7 @@ const Footer = () => (
     <div className={styles.footerContent}>
       <div className={styles.logoSection}>
         <a href="#home" aria-label="Home">
-          <img src="/VRBLogo.jpg" alt="VRB Logo" className={styles.logo} />
+          <img src="/VRBLogo.png" alt="VRB Logo" className={styles.logo} />
         </a>
       </div>
       <nav className={styles.linksSection} aria-label="Footer Navigation">
