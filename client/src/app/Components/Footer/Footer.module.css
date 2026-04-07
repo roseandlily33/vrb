@@ -13,10 +13,10 @@
   width: 100%;
   max-width: 1200px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 2rem;
+  gap: 2.5rem;
   margin-bottom: 1rem;
   padding: 0 2rem;
 }
@@ -24,6 +24,7 @@
 .logoSection {
   display: flex;
   align-items: center;
+  flex: 0 0 auto;
 }
 
 .logo {
@@ -33,10 +34,24 @@
   display: block;
 }
 
+.navGroups {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.7rem;
+}
+
 .linksSection {
   display: flex;
-  gap: 2rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 0.2rem;
+}
+
+.externalLinks {
+  display: flex;
+  gap: 1.2rem;
   align-items: center;
 }
 
@@ -45,11 +60,16 @@
   text-decoration: none;
   font-size: 1rem;
   font-weight: 500;
-  transition: color 0.2s;
+  transition:
+    color 0.2s,
+    text-decoration 0.2s;
+  padding: 0.1em 0.2em;
+  border-radius: 0.3em;
 }
 .footerLink:hover {
   color: var(--blue-700);
   text-decoration: underline;
+  background: var(--blue-50);
 }
 
 .copyright {
@@ -57,4 +77,24 @@
   font-size: 0.95rem;
   text-align: center;
   margin-top: 0.5rem;
+  width: 100%;
+}
+
+@media (max-width: 700px) {
+  .footerContent {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.2rem;
+    padding: 0 0.5rem;
+  }
+  .navGroups {
+    align-items: center;
+    width: 100%;
+  }
+  .linksSection,
+  .externalLinks {
+    justify-content: center;
+    width: 100%;
+    gap: 1rem;
+  }
 }
