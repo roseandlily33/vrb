@@ -1,0 +1,83 @@
+.contactInfoSection {
+  width: 30%;
+  background: var(--blue-100);
+  border-radius: 1.5rem;
+  box-shadow: 0 2px 16px 0 rgba(24, 26, 32, 0.06);
+  padding: 2.2rem 1.5rem 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.heading {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--blue-900);
+  margin-bottom: 1.5rem;
+}
+
+.infoList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  font-size: 1.08rem;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--blue-200);
+  border-radius: 50%;
+  width: 2.2em;
+  height: 2.2em;
+  min-width: 2.2em;
+  min-height: 2.2em;
+  box-shadow: 0 1px 4px 0 rgba(38, 155, 230, 0.08);
+}
+
+.icon {
+  color: var(--blue-700);
+  font-size: 1.3em;
+}
+
+.infoLabel {
+  font-weight: 600;
+  color: var(--blue-900);
+  margin-right: 0.2em;
+}
+
+.infoValue {
+  color: var(--grey-900);
+  font-weight: 500;
+  word-break: break-all;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.infoValue:hover {
+  color: var(--blue-700);
+  text-decoration: underline;
+}
+
+@media (max-width: 700px) {
+  .contactInfoSection {
+    padding: 1.2rem 0.7rem 1.2rem 0.7rem;
+  }
+  .heading {
+    font-size: 1.1rem;
+  }
+  .infoItem {
+    font-size: 0.98rem;
+  }
+}

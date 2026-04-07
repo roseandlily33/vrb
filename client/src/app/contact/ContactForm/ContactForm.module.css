@@ -1,0 +1,14 @@
+.contactForm {
+  width: 60%;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+@media (min-width: 900px) {
+  .contactForm {
+    width: 50%;
+    min-width: 400px;
+  }
+}
