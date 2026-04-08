@@ -1,0 +1,7 @@
+.projectGrid {
+    display: flex;
+    gap: 2rem;
+    justify-content: space-between;
+    margin: 2rem;
+    
+}
