@@ -2,6 +2,7 @@ import styles from "./page.module.css";
 import Hero from "../Components/Hero/Hero.component";
 import Card from "../Components/Card/Card.component";
 import Link from "next/link";
+import PortfolioLink from "./PortfolioLink/PortfolioLink.component";
 export default function Work() {
   const projects = [
     {
@@ -23,15 +24,13 @@ export default function Work() {
       <div className={styles.projectGrid}>
         {projects.map((project, index) => (
           <Link href={`/${project.link}`} key={index}>
-          <Card
-            key={index}
-            className={styles.projectCard}
-          >
-            <h2>{project.projectName}</h2>
-          </Card>
+            <Card key={index} className={styles.projectCard}>
+              <h2>{project.projectName}</h2>
+            </Card>
           </Link>
         ))}
       </div>
+      <PortfolioLink />
     </main>
   );
 }
