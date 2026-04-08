@@ -1,0 +1,136 @@
+.cta4Section {
+  width: 100%;
+  background: var(--blue-50, #f8fbfd);
+  padding: 3.5rem 0 3.5rem 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.cta4Content {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.cta4Heading {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: var(--blue-900);
+  text-align: center;
+  margin-bottom: 0.7rem;
+  letter-spacing: -1px;
+}
+.cta4Accent {
+  color: var(--blue-500);
+}
+.cta4Subtext {
+  color: var(--grey-400);
+  font-size: 1.13rem;
+  text-align: center;
+  margin-bottom: 2.1rem;
+  max-width: 520px;
+}
+.cta4ButtonRow {
+  display: flex;
+  gap: 1.2rem;
+  margin-bottom: 1.3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.cta4Button {
+  min-width: 160px;
+  font-size: 1.07rem;
+}
+.cta4Booking {
+  color: var(--blue-400);
+  font-size: 1.01rem;
+  margin-top: 0.2rem;
+  text-align: center;
+}
+
+.cta4Shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+.cta4Blob {
+  position: absolute;
+  left: 4%;
+  bottom: 12%;
+  width: 110px;
+  height: 80px;
+  background: radial-gradient(
+    circle at 60% 40%,
+    var(--blue-200),
+    var(--blue-100) 70%,
+    transparent 100%
+  );
+  border-radius: 60% 40% 60% 40% / 50% 60% 40% 50%;
+  opacity: 0.5;
+  filter: blur(2px);
+}
+.cta4Diamond {
+  position: absolute;
+  right: 8%;
+  top: 14%;
+  width: 54px;
+  height: 54px;
+  background: var(--blue-300);
+  transform: rotate(45deg);
+  opacity: 0.35;
+  border-radius: 0.7rem;
+}
+.cta4Dots {
+  position: absolute;
+  right: 16%;
+  bottom: 18%;
+  width: 54px;
+  height: 18px;
+  display: flex;
+  gap: 10px;
+  opacity: 0.25;
+}
+.cta4Dots::before,
+.cta4Dots::after,
+.cta4Dots span {
+  content: "";
+  display: block;
+  width: 14px;
+  height: 14px;
+  background: var(--blue-400);
+  border-radius: 50%;
+}
+.cta4Dots span {
+  background: var(--blue-200);
+}
+
+@media (max-width: 700px) {
+  .cta4Section {
+    padding: 2.2rem 0 2.2rem 0;
+  }
+  .cta4Heading {
+    font-size: 1.3rem;
+  }
+  .cta4Content {
+    padding: 0 0.5rem;
+  }
+  .cta4ButtonRow {
+    flex-direction: column;
+    gap: 0.7rem;
+    width: 100%;
+  }
+  .cta4Button {
+    width: 100%;
+    min-width: 0;
+  }
+}

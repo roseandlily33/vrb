@@ -12,7 +12,7 @@ const navLinks = [
 ];
 
 const externalLinks = [
-    { label: "Portfolio", href: "https://victoriabarnes.ca", external: true },
+    { label: "Portfolio", href: "https://victoriabenoit-portfolio.onrender.com", external: true },
 ];
 
 

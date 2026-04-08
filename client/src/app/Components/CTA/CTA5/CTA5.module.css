@@ -1,0 +1,141 @@
+.cta5Section {
+  width: 100%;
+  background: var(--blue-50, #f8fbfd);
+  padding: 3.5rem 0 3.5rem 0;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.cta5Content {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 2;
+}
+
+.cta5Heading {
+  font-size: 2.1rem;
+  font-weight: 800;
+  color: var(--blue-900);
+  text-align: center;
+  margin-bottom: 0.7rem;
+  letter-spacing: -1px;
+}
+.cta5Accent {
+  color: var(--blue-500);
+}
+.cta5Subtext {
+  color: var(--grey-400);
+  font-size: 1.13rem;
+  text-align: center;
+  margin-bottom: 2.1rem;
+  max-width: 520px;
+}
+.cta5ButtonRow {
+  display: flex;
+  gap: 1.2rem;
+  margin-bottom: 1.3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.cta5Booking {
+  color: var(--blue-400);
+  font-size: 1.01rem;
+  margin-top: 0.2rem;
+  text-align: center;
+}
+
+.cta5Shapes {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+.cta5Wave {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 180px;
+  height: 60px;
+  background: none;
+  opacity: 0.4;
+}
+.cta5Wave::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--blue-200) 60%, var(--blue-100) 100%);
+  border-radius: 0 0 90px 90px;
+  clip-path: polygon(
+    0 60%,
+    20% 80%,
+    40% 60%,
+    60% 80%,
+    80% 60%,
+    100% 80%,
+    100% 100%,
+    0 100%
+  );
+}
+.cta5Star {
+  position: absolute;
+  right: 10%;
+  top: 13%;
+  width: 44px;
+  height: 44px;
+  background: var(--blue-300);
+  clip-path: polygon(
+    50% 0%,
+    61% 35%,
+    98% 35%,
+    68% 57%,
+    79% 91%,
+    50% 70%,
+    21% 91%,
+    32% 57%,
+    2% 35%,
+    39% 35%
+  );
+  opacity: 0.32;
+}
+.cta5Circle {
+  position: absolute;
+  right: 18%;
+  bottom: 18%;
+  width: 54px;
+  height: 54px;
+  background: var(--blue-100);
+  border-radius: 50%;
+  opacity: 0.3;
+  filter: blur(0.5px);
+}
+
+@media (max-width: 700px) {
+  .cta5Section {
+    padding: 2.2rem 0 2.2rem 0;
+  }
+  .cta5Heading {
+    font-size: 1.3rem;
+  }
+  .cta5Content {
+    padding: 0 0.5rem;
+  }
+  .cta5ButtonRow {
+    flex-direction: column;
+    gap: 0.7rem;
+    width: 100%;
+  }
+  .cta5Button {
+    width: 100%;
+    min-width: 0;
+  }
+}
