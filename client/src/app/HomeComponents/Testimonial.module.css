@@ -1,39 +1,34 @@
 .testimonialSection {
-  background: var(--blue-300);
+  background: var(--grey-100);
   color: var(--blue-900);
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 500px;
-  /* border: 2px solid red; */
-  /* background-image: url('/Cords.png'); */
-  /* background-repeat: no-repeat; */
-  /* background-size: cover; */
-  /* background-position: left; */
+  align-items: center;
 }
 
 .testimonialText {
   font-size: 1.3rem;
   font-weight: 500;
   line-height: 1.7;
-  text-align: center;
   max-width: 65%;
   height: 100%;
   letter-spacing: 0.01em;
   font-style: italic;
   padding-top: 0.5em;
   color: var(--blue-900);
-  background: #fff;
-  box-shadow: 0 4px 24px 0 rgba(38, 155, 230, 0.08);
-  border: 1.5px solid var(--blue-100);
   padding: 2.5rem;
-  border-top-right-radius: 999px;
-  border-bottom-right-radius: 999px;
   /* border: 2px solid orange; */
   display: flex;
   flex-direction: column;
 }
-
+.authorImage {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1rem;
+}
 .bigQuote {
   color: var(--blue-200);
   font-size: 4rem;
@@ -50,8 +45,8 @@
 .authorWrapper {
   margin-top: 2rem;
   width: 100%;
-  /* display: flex; */
-  /* justify-content: center; */
+  display: flex;
+  align-items: center;
 }
 
 .testimonialAuthor {

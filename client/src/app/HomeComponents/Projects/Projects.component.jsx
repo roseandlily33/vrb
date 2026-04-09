@@ -6,27 +6,27 @@ import { useState } from "react";
 
 const projects = [
   {
-    name: "Portfolio Website",
+    name: "Yoda Safety Services",
     description:
-      "A modern, responsive portfolio to showcase my work and skills.",
-    tech: ["Next.js", "React", "CSS Modules"],
-    image: "/portfolio.png",
-    link: "/projects/portfolio",
+      "End-to-end training platform with payments, course management, form workflows, automated certifications, and a company dashboard for tracking progress and performance.",
+    tech: ["React", "Mongo DB","CSS Modules"],
+    image: "/YodaSafetyServices/Pages/Home.png",
+    link: "/case-study/yoda-safety-services",
   },
   {
-    name: "E-commerce Platform",
-    description: "A scalable e-commerce solution with custom admin dashboard.",
-    tech: ["React", "Node.js", "MongoDB"],
-    image: "/ecommerce.png",
-    link: "/projects/ecommerce",
+    name: "Inspection Pal",
+    description: "Front End development project started from scratch, built with Gatsby and styled with CSS Modules.",
+    tech: ["Gatsby", "Design"],
+    image: "/InspectionPal/Home.png",
+    link: "/case-study/inspection-pal",
   },
   {
-    name: "Design System",
+    name: "Ariel Boesener Performance Horses",
     description:
-      "Reusable UI components and design tokens for rapid development.",
-    tech: ["Storybook", "Styled Components", "TypeScript"],
-    image: "/designsystem.png",
-    link: "/projects/designsystem",
+      "A redesign project, redid organization, navigation and made other improvements.",
+    tech: ["Design"],
+    image: "/ArielPerformance/Phase2/Home.png",
+    link: "/case-study/ariel-performance-horses",
   },
 ];
 

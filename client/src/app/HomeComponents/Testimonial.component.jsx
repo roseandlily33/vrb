@@ -12,7 +12,14 @@ export default function Testimonial() {
         </span>
         {testimonial}
         <div className={styles.authorWrapper}>
-          <span className={styles.testimonialAuthor}>Ariel Boesener</span>
+          <img
+            src="/ArielPerformance/ArielLogo.webp"
+            alt="Ariel Performance Horses Logo"
+            className={styles.authorImage}
+          />
+          <span className={styles.testimonialAuthor}>
+            Ariel Boesener Performance Horses
+          </span>
         </div>
       </blockquote>
     </section>
