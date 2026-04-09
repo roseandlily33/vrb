@@ -1,0 +1,26 @@
+.metadataBar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: 1.08rem;
+  font-weight: 600;
+  color: var(--blue-900);
+  margin: 2.5rem;
+}
+
+.separator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bar {
+  width: 2px;
+  height: 1.2rem;
+  background: #fff;
+  border-radius: 2px;
+  border: 1.5px solid var(--blue-300);
+  box-shadow: 0 1px 4px 0 rgba(38, 155, 230, 0.08);
+  margin: 0 0.5rem;
+}

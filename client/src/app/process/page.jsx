@@ -9,8 +9,10 @@ export default function Process() {
   return (
     <main>
       <Hero
-        title="My Process"
-        subText="From idea to launch, here's how I build high performing web applications"
+        topMeta="Process"
+        title="From idea to launch, here's how I build high performing web applications"
+        highlight="high performing"
+        subText="Every project follows a structured approach focused on performance, usability, and real results"
       />
       <Timeline />
       <Steps />

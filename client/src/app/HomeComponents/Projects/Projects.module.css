@@ -29,14 +29,16 @@
   flex: 1 1 260px;
   min-width: 220px;
   max-width: 340px;
-  max-height: 400px;
+  max-height: 200px;
   display: flex;
+  box-shadow: 0 2px 16px 0 rgba(38, 155, 230, 0.08);
 }
 
 .projectImage {
   width: 100%;
   height: auto;
   object-fit: cover;
+  object-position: top;
   border-radius: 12px;
 }
 
@@ -77,10 +79,9 @@
   padding: 0.3em 0.9em;
 }
 
-.learnMoreLink {
-  align-self: flex-start;
-  text-decoration: none;
-}
+/* .learnMoreLink {
+ 
+} */
 
 @media (max-width: 900px) {
   .projectCard {

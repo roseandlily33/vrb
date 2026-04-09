@@ -3,32 +3,7 @@ import styles from "./Projects.module.css";
 import TertiaryButton from "@/app/Components/TertiaryButton/TertiaryButton.component";
 import { FiArrowRight, FiArrowLeft } from "react-icons/fi";
 import { useState } from "react";
-
-const projects = [
-  {
-    name: "Yoda Safety Services",
-    description:
-      "End-to-end training platform with payments, course management, form workflows, automated certifications, and a company dashboard for tracking progress and performance.",
-    tech: ["React", "Mongo DB","CSS Modules"],
-    image: "/YodaSafetyServices/Pages/Home.png",
-    link: "/case-study/yoda-safety-services",
-  },
-  {
-    name: "Inspection Pal",
-    description: "Front End development project started from scratch, built with Gatsby and styled with CSS Modules.",
-    tech: ["Gatsby", "Design"],
-    image: "/InspectionPal/Home.png",
-    link: "/case-study/inspection-pal",
-  },
-  {
-    name: "Ariel Boesener Performance Horses",
-    description:
-      "A redesign project, redid organization, navigation and made other improvements.",
-    tech: ["Design"],
-    image: "/ArielPerformance/Phase2/Home.png",
-    link: "/case-study/ariel-performance-horses",
-  },
-];
+import { projects } from "@/app/Components/projectList";
 
 export default function Projects() {
   const [current, setCurrent] = useState(0);

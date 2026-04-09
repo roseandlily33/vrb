@@ -11,9 +11,10 @@ export default function Services() {
   return (
     <main className={styles.servicesPage}>
       <Hero
-        title="Services designed to bring your ideas to life"
-        highlight="designed"
-        subText="Custom websites designed to grow your business."
+        topMeta="Services"
+        title="Custom websites built to grow your business"
+        highlight="grow"
+        subText="Focused on performance, scalability, and user experience"
       />
       <Packages />
       <DesignPackage />
