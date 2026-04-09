@@ -1,11 +1,15 @@
 .testimonialSection {
-  background: var(--grey-100);
+  background: var(--blue-300);
   color: var(--blue-900);
-  padding: 3rem 2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  height: 500px;
+  /* border: 2px solid red; */
+  /* background-image: url('/Cords.png'); */
+  /* background-repeat: no-repeat; */
+  /* background-size: cover; */
+  /* background-position: left; */
 }
 
 .testimonialText {
@@ -13,18 +17,21 @@
   font-weight: 500;
   line-height: 1.7;
   text-align: center;
-  max-width: 700px;
-  margin: 0 auto;
+  max-width: 65%;
+  height: 100%;
   letter-spacing: 0.01em;
   font-style: italic;
-  position: relative;
   padding-top: 0.5em;
   color: var(--blue-900);
   background: #fff;
-  border-radius: 1.5rem;
   box-shadow: 0 4px 24px 0 rgba(38, 155, 230, 0.08);
   border: 1.5px solid var(--blue-100);
-  padding: 2.5rem 2rem 2rem 2rem;
+  padding: 2.5rem;
+  border-top-right-radius: 999px;
+  border-bottom-right-radius: 999px;
+  /* border: 2px solid orange; */
+  display: flex;
+  flex-direction: column;
 }
 
 .bigQuote {
@@ -32,10 +39,10 @@
   font-size: 4rem;
   font-weight: 900;
   line-height: 1;
-  position: absolute;
-  left: 0;
-  top: -0.2em;
-  transform: translateX(-1.2em);
+  /* position: absolute; */
+  /* left: 0; */
+  /* top: -0.2em; */
+  /* transform: translateX(-1.2em); */
   font-family: serif;
   z-index: 1;
 }
@@ -43,8 +50,8 @@
 .authorWrapper {
   margin-top: 2rem;
   width: 100%;
-  display: flex;
-  justify-content: center;
+  /* display: flex; */
+  /* justify-content: center; */
 }
 
 .testimonialAuthor {
