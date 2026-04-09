@@ -1,9 +1,9 @@
 .splitLayout {
   display: flex;
-  width: 100%;
   max-width: 900px;
   margin: 0 auto;
   gap: 2.5rem;
+  padding: 4rem 2rem;
   align-items: flex-start;
 }
 
@@ -13,11 +13,13 @@
   margin: 0;
   min-width: 210px;
   max-width: 260px;
+  max-height: 300px;
+  overflow-y: scroll;
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 0.3em;
-  background: var(--blue-50, #f8fbfd);
+  background: var(--blue-100, #f8fbfd);
   border-radius: 1rem;
   box-shadow: 0 2px 12px 0 rgba(38, 155, 230, 0.07);
   padding: 1.2rem 0.5rem;
@@ -48,11 +50,11 @@
 
 .extraDetail {
   flex: 1;
-  background: var(--blue-50, #f8fbfd);
+  background: var(--blue-100, #f8fbfd);
   border-radius: 1rem;
   box-shadow: 0 2px 12px 0 rgba(38, 155, 230, 0.07);
   padding: 2rem 1.5rem 1.5rem 1.5rem;
-  min-height: 180px;
+  min-height: 300px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -65,7 +67,7 @@
   letter-spacing: -0.5px;
 }
 .extraDesc {
-  color: var(--grey-400);
+  color: var(--grey-500);
   font-size: 1.04rem;
   line-height: 1.5;
 }
@@ -109,7 +111,6 @@
   font-size: 2rem;
   font-weight: 800;
   color: var(--blue-900);
-  margin-bottom: 2.5rem;
   text-align: center;
 }
 
@@ -144,7 +145,7 @@
   letter-spacing: -0.5px;
 }
 .extraDesc {
-  color: var(--grey-400);
+  color: var(--grey-500);
   font-size: 1.04rem;
   line-height: 1.5;
 }

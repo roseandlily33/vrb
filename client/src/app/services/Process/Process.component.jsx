@@ -33,7 +33,7 @@ export default function Process() {
             if (ref) observer.observe(ref);
         });
         return () => observer.disconnect();
-    }, [stepRefs.current]);
+    }, []);
 
     return (
         <section className={styles.processSection}>
@@ -45,13 +45,13 @@ export default function Process() {
                         ref={el => stepRefs.current[idx] = el}
                         data-idx={idx}
                         className={
-                            `${styles.stepCard} ${idx % 2 === 0 ? styles.left : styles.right} ${styles.animated} ${visible[idx] ? styles.visible : ''}`
+                            `${styles.stepCard} ${styles.animated} ${visible[idx] ? styles.visible : ''}`
                         }
                         style={{
                             animationDelay: `${0.15 + idx * 0.15}s`,
                         }}
                     >
-                        <div className={styles.stepNumber}>{step.step}</div>
+                        <div className={styles.stepLabel}>{`${step.step}`}</div>
                         <div className={styles.stepContent}>
                             <h3 className={styles.stepTitle}>{step.title}</h3>
                             <p className={styles.stepDesc}>{step.description}</p>

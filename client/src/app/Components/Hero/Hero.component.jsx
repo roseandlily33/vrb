@@ -1,3 +1,5 @@
+
+import Image from "next/image";
 import styles from "./Hero.module.css";
 
 const Hero = ({ title, highlight, subText }) => {
@@ -10,6 +12,14 @@ const Hero = ({ title, highlight, subText }) => {
         {after}
       </h1>
       <p className={styles.subText}>{subText}</p>
+      <Image
+        src="/squares.png"
+        alt="Squares background"
+        className={styles.squaresBG}
+        width={600}
+        height={600}
+        priority
+      />
     </section>
   );
 };

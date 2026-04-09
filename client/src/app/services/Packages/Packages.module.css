@@ -52,7 +52,7 @@
 .cardTitle {
   font-size: 1.3rem;
   font-weight: 700;
-  color: var(--blue-100);
+  color: var(--blue-900);
 }
 .cardPrice {
   font-size: 1.1rem;
@@ -68,7 +68,7 @@
   margin-bottom: 0.7rem;
 }
 .cardDesc {
-  color: var(--grey-200);
+  color: var(--blue-900);
   font-size: 1.08rem;
   margin-bottom: 1.2rem;
 }
@@ -118,12 +118,13 @@
 .featuresList {
   margin: 1.2rem 0 1.5rem 0;
   padding-left: 1.2em;
-  color: var(--blue-100);
+  color: var(--blue-900);
 }
 .featureItem {
   margin-bottom: 0.5em;
   font-size: 1.05rem;
   list-style: disc;
+  color: var(--blue-900);
 }
 .hideBtn {
   margin-top: 1.2rem;

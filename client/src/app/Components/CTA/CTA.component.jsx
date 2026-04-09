@@ -1,5 +1,6 @@
 import styles from './CTA.module.css';
-import PrimaryButton from '@/app/Components/PrimaryButton/PrimaryButton.component';
+// import PrimaryButton from '@/app/Components/PrimaryButton/PrimaryButton.component';
+import CTAButton from '@/app/Components/CTAButton/CTAButton.component';
 import { FiSend } from 'react-icons/fi';
 
 export default function CTA() {
@@ -12,13 +13,9 @@ export default function CTA() {
                 <p className={styles.ctaSubtext}>
                     Let’s talk about your project and how I can help you bring your vision to life.
                 </p>
-                <PrimaryButton className={styles.ctaButton}>
+                <CTAButton>
                     Start Your Project <FiSend style={{ marginLeft: 8, verticalAlign: 'middle' }} aria-hidden="true" />
-                </PrimaryButton>
-            </div>
-            <div className={styles.ctaShapes} aria-hidden="true">
-                <div className={styles.ctaCircle} />
-                <div className={styles.ctaSquare} />
+                </CTAButton>
             </div>
         </section>
     );

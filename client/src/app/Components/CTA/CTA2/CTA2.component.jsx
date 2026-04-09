@@ -1,5 +1,6 @@
 import SecondaryButton from "../../SecondaryButton/SecondaryButton.component";
-import PrimaryButton from "@/app/Components/PrimaryButton/PrimaryButton.component";
+import TertiaryButton from "../../TertiaryButton/TertiaryButton.component";
+import CTAButton from "../../CTAButton/CTAButton.component";
 import { FiEye, FiMessageCircle } from "react-icons/fi";
 import styles from "./CTA2.module.css";
 
@@ -7,20 +8,20 @@ export default function CTA2() {
   return (
     <section className={styles.cta2Section}>
       <div className={styles.cta2Content}>
-        <h2 className={styles.cta2Heading}>Ready to get started?</h2>
+        <h2 className={styles.cta2Heading}>Here&apos;s how I can help</h2>
         <p className={styles.cta2Subtext}>
-          Let’s connect and turn your ideas into reality. I’m excited to help
-          you build something impactful.
+          Let’s connect and turn your ideas into reality. I&apos;m excited to
+          help you build something impactful.
         </p>
         <div className={styles.cta2ButtonRow}>
-          <PrimaryButton className={styles.cta2Button}>
+          <CTAButton>
             See My Work{" "}
             <FiEye
               style={{ marginLeft: 8, verticalAlign: "middle" }}
               aria-hidden="true"
             />
-          </PrimaryButton>
-          <SecondaryButton className={styles.cta2Button}>
+          </CTAButton>
+          <SecondaryButton>
             Contact Me{" "}
             <FiMessageCircle
               style={{ marginLeft: 8, verticalAlign: "middle" }}
@@ -31,10 +32,6 @@ export default function CTA2() {
         <div className={styles.cta2Booking}>
           Typically booking 2–4 weeks in advance
         </div>
-      </div>
-      <div className={styles.cta2Shapes} aria-hidden="true">
-        <div className={styles.cta2Circle} />
-        <div className={styles.cta2Triangle} />
       </div>
     </section>
   );

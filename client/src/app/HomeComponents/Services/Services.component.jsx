@@ -25,6 +25,9 @@ export default function Services() {
   return (
     <section className={styles.servicesSection}>
       <h2 className={styles.heading}>Services I offer</h2>
+      <div className={styles.subtext}>
+        From design to development, I offer end-to-end digital services.
+      </div>
       <div className={styles.cardsWrapper}>
         {eachService?.map((service) => (
           <Card key={service.title} className={styles.serviceCard}>
@@ -32,7 +35,7 @@ export default function Services() {
               style={{
                 paddingBottom: "1rem",
                 borderBottom: "1px solid var(--grey-400)",
-                color: "var(--blue-100)",
+                color: "var(--blue-600)",
               }}
             >
               {service.title}
@@ -40,7 +43,7 @@ export default function Services() {
             <p className={styles.serviceDescription}>{service.description}</p>
             <div className={styles.bottomButton}>
               <Link href="/services">
-                <TertiaryButton as="span" className={styles.linkButton}>
+                <TertiaryButton as="span">
                   Learn More{" "}
                   <FiArrowRight
                     style={{ marginLeft: 6, verticalAlign: "middle" }}

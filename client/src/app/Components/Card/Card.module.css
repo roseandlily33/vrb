@@ -1,9 +1,9 @@
 .card {
-  background: linear-gradient(135deg, var(--grey-800) 0%, var(--grey-700) 100%);
+  background: linear-gradient(135deg, var(--blue-100) 0%, var(--blue-200) 100%);
   border-radius: 25px;
-  box-shadow: 0 2px 16px 0 rgba(24, 26, 32, 0.08);
+  box-shadow: 0 2px 16px 0 rgba(38, 155, 230, 0.08);
   padding: 2rem;
-  color: var(--text-primary);
+  color: var(--blue-900);
   transition: box-shadow 0.2s;
   display: flex;
   flex-direction: column;
@@ -11,5 +11,5 @@
 }
 
 .card:hover {
-  box-shadow: 0 4px 32px 0 rgba(24, 26, 32, 0.16);
+  box-shadow: 0 4px 32px 0 rgba(38, 155, 230, 0.16);
 }

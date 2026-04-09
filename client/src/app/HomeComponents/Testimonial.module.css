@@ -1,6 +1,6 @@
 .testimonialSection {
-  background: var(--blue-900);
-  color: #fff;
+  background: var(--grey-100);
+  color: var(--blue-900);
   padding: 3rem 2rem;
   display: flex;
   flex-direction: column;
@@ -19,10 +19,16 @@
   font-style: italic;
   position: relative;
   padding-top: 0.5em;
+  color: var(--blue-900);
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px 0 rgba(38, 155, 230, 0.08);
+  border: 1.5px solid var(--blue-100);
+  padding: 2.5rem 2rem 2rem 2rem;
 }
 
 .bigQuote {
-  color: var(--blue-100);
+  color: var(--blue-200);
   font-size: 4rem;
   font-weight: 900;
   line-height: 1;
@@ -42,7 +48,7 @@
 }
 
 .testimonialAuthor {
-  color: var(--blue-100);
+  color: var(--blue-700);
   font-size: 1.1rem;
   font-weight: 700;
   letter-spacing: 0.03em;
@@ -55,7 +61,7 @@
   }
   .testimonialText {
     font-size: 1rem;
-    padding: 0 0.2rem 0 1.2em;
+    padding: 1.2rem 0.5rem 1rem 1.2em;
   }
   .bigQuote {
     font-size: 2.5rem;

@@ -1,6 +1,6 @@
 .tertiaryButton {
   background: transparent;
-  color: var(--blue-500);
+  color: var(--blue-700);
   border: none;
   border-radius: 0;
   padding: 0.5rem 1rem;
@@ -18,4 +18,13 @@
 .tertiaryButton:focus {
   color: var(--blue-800);
   text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .tertiaryButton {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.98rem;
+    height: 40px;
+    min-height: 40px;
+  }
 }

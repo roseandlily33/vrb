@@ -1,6 +1,8 @@
 import React from "react";
 import styles from "./Footer.module.css";
-
+import TertiaryButton from "../TertiaryButton/TertiaryButton.component";
+import Link from "next/link";
+import { FiArrowUpRight } from "react-icons/fi";
 
 const navLinks = [
     { label: "Home", href: "#home" },
@@ -10,11 +12,6 @@ const navLinks = [
     { label: "Process", href: "#process" },
     { label: "Contact", href: "#contact" },
 ];
-
-const externalLinks = [
-    { label: "Portfolio", href: "https://victoriabenoit-portfolio.onrender.com", external: true },
-];
-
 
 const Footer = () => (
     <footer className={styles.footer}>
@@ -33,22 +30,17 @@ const Footer = () => (
                     ))}
                 </nav>
                 <div className={styles.externalLinks}>
-                    {externalLinks.map((link) => (
-                        <a
-                            key={link.label}
-                            href={link.href}
-                            className={styles.footerLink}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            {link.label}
-                        </a>
-                    ))}
+                    <Link href="https://victoriabenoit-portfolio.onrender.com" target="_blank" rel="noopener noreferrer" passHref>
+                        <TertiaryButton as="a">
+                            My Portfolio <FiArrowUpRight style={{ marginLeft: 8, verticalAlign: "middle" }} aria-hidden="true" />
+                        </TertiaryButton>
+                    </Link>
                 </div>
             </div>
         </div>
         <div className={styles.copyright}>
-            &copy; {new Date().getFullYear()} VRB Web Design and Development. All rights reserved.
+            &copy; {new Date().getFullYear()} VRB Web Design and Development. All
+            rights reserved.
         </div>
     </footer>
 );

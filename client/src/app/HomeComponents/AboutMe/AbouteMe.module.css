@@ -1,9 +1,9 @@
 .aboutMeSection {
   padding: 4rem 5rem;
-  margin: 2rem auto;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  /* border: 2px solid red; */
 }
 
 .topText {
@@ -33,7 +33,7 @@
   height: 2px;
   background: var(--grey-400);
   margin: 1.5rem 0;
-  border-radius: 2px;
+  /* border-radius: 2px; */
 }
 
 .bottomText {

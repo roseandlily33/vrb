@@ -21,3 +21,11 @@
   /* background: var(--blue-800); */
   border: 4px double var(--blue-700);
 }
+@media (max-width: 600px) {
+  .secondaryButton {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.98rem;
+    height: 40px;
+    min-height: 40px;
+  }
+}
