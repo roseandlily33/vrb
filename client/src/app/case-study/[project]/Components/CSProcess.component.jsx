@@ -9,8 +9,19 @@ const STEPS = [
     { key: "launch", label: "Launch" },
 ];
 
-const CSProcess = ({ content }) => {
+const CSProcess = (props) => {
     const [activeStep, setActiveStep] = useState(0);
+
+    // Support both old (content object) and new (individual step props) usage
+    let stepContent;
+    if (props.content) {
+        // Old usage: content is an object with keys
+        stepContent = props.content[STEPS[activeStep].key];
+    } else {
+        // New usage: individual props for each step
+        const key = STEPS[activeStep].key;
+        stepContent = props[key];
+    }
 
     return (
         <section className={styles.processTabs}>
@@ -21,7 +32,7 @@ const CSProcess = ({ content }) => {
                 onStepClick={setActiveStep}
             />
             <div style={{ marginTop: "2.2rem" }}>
-                {content && content[STEPS[activeStep].key]}
+                {stepContent}
             </div>
         </section>
     );

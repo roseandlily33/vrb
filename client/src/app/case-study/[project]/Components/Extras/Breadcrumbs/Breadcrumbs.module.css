@@ -1,0 +1,17 @@
+.breadcrumbs {
+  font-size: 1rem;
+}
+.link {
+  color: var(--blue-700);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+.link:hover {
+  color: var(--blue-500);
+  text-decoration: underline;
+}
+.current {
+  color: var(--grey-700);
+  font-weight: 600;
+}

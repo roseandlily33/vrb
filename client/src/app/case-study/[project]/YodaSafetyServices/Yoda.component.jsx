@@ -7,11 +7,14 @@ import CSProcess from "../Components/CSProcess.component";
 import CSResults from "../Components/CSResults.component";
 import CSTechnologies from "../Components/CSTechnologies.component";
 import KeyFeatures from "../Components/CSKeyFeatures.component";
+import { results } from "./results";
 import { pages } from "./pages";
+import Breadcrumbs from "../Components/Extras/Breadcrumbs/Breadcrumbs.component";
 
 const Yoda = () => {
   return (
     <section className={styles.mainContainer}>
+      <Breadcrumbs current="Yoda Safety Services" />
       <CSHero
         img="/YodaSafetyServices/Logo.png"
         companyName="Yoda Safety Services"
@@ -34,65 +37,17 @@ const Yoda = () => {
           "Interactive Form Upload & Instance System, saves the completed form, can query, filter and search on all the forms for a company",
         ]}
       />
-      <CSProblem problemDescription="The client approached us to build a comprehensive training platform from the ground up, with features for payments, course management, and automated certifications. The challenge was to design and implement a solution tailored to their unique workflow." />
-      <CSProcess
-        content={{
-          discovery: (
-            <>
-              <p>
-                We started with in-depth meetings to understand the client's
-                needs and mapped out the platform's core requirements.
-              </p>
-              <p>
-                Stakeholder interviews and workflow analysis helped define the
-                project scope and priorities.
-              </p>
-            </>
-          ),
-          design: (
-            <>
-              <p>
-                Wireframes and prototypes were created to visualize the user
-                journey and interface.
-              </p>
-              <img
-                src="/YodaSafetyServices/DesignMock.png"
-                alt="Design mockup"
-                style={{ maxWidth: "100%", borderRadius: 12 }}
-              />
-              <p>
-                Feedback loops with the client ensured the design matched their
-                vision and branding.
-              </p>
-            </>
-          ),
-          development: (
-            <>
-              <p>
-                The platform was built using a modern tech stack, focusing on
-                scalability and security.
-              </p>
-              <p>
-                We implemented features like course management, payments, and
-                automated certifications.
-              </p>
-            </>
-          ),
-          launch: (
-            <>
-              <p>
-                After thorough testing, the platform was launched smoothly and
-                on schedule.
-              </p>
-              <p>
-                We provided training and documentation to ensure a seamless
-                handoff to the client.
-              </p>
-            </>
-          ),
-        }}
+      <CSProblem
+        homeSrc="/YodaSafetyServices/Pages/Home.png"
+        problemDescription="The client approached us to build a comprehensive training platform from the ground up, with features for payments, course management, and automated certifications. The challenge was to design and implement a solution tailored to their unique workflow."
       />
-      <CSResults />
+      <CSProcess
+        discovery="We began with a series of collaborative meetings to deeply understand the client’s training workflows, compliance needs, and business goals. Through stakeholder interviews and process mapping, we identified pain points in their existing manual systems and gathered requirements for course management, user roles, and certification automation. This phase resulted in a clear, prioritized roadmap for the platform’s core features."
+        design="Wireframes and interactive prototypes were developed to visualize the user journey for both administrators and trainees. We focused on intuitive navigation, responsive layouts, and clear calls to action. The design process included regular feedback sessions with the client to ensure alignment with their brand and operational needs, resulting in a modern, accessible interface tailored to their audience."
+        development="We built the platform using a modern tech stack, including React for the frontend and Express/MongoDB for the backend. Key features include secure payment processing, automated email notifications, and a robust admin dashboard for managing courses and companies."
+        launch="Deployed with render, with a custom domain url"
+      />
+      <CSResults results={results} />
       <CSTechnologies
         technologies={[
           "react",
