@@ -12,46 +12,46 @@ export const pages = [
 export const beforePages = [
   {
     url: "/ArielPerformance/Before/4Squares.png",
-    description: "",
+    description: "4 squares detailing services",
   },
   {
     url: "/ArielPerformance/Before/6Squares.png",
-    description: "",
+    description: "6 squares detailing services",
   },
   {
     url: "/ArielPerformance/Before/BeforeTestimonials.png",
-    description: "",
+    description: "Before testimonials section",
   },
   {
     url: "/ArielPerformance/Before/Footer.png",
-    description: "",
+    description: "Before footer section",
   },
   {
     url: "/ArielPerformance/Before/MidNav.png",
-    description: "",
+    description: "Before mid navigation section",
   },
   {
     url: "/ArielPerformance/Before/Mobile.png",
-    description: "",
+    description: "Before mobile view",
   },
 ];
 
 export const afterPages = [
   {
-    url: "/ArielPerformance/After/4Squares.png",
-    description: "",
+    url: "/ArielPerformance/Phase2/4Squares.png",
+    description: "4 squares detailing services",
   },
   {
-    url: "/ArielPerformance/After/Home.png",
-    description: "",
+    url: "/ArielPerformance/Phase2/Home.png",
+    description: "Redesigned home page",
   },
   {
-    url: "/ArielPerformance/After/Mobile.png",
-    description: "",
+    url: "/ArielPerformance/Phase2/Mobile.png",
+    description: "Redesigned mobile view",
   },
   {
-    url: "/ArielPerformance/After/Services.png",
-    description: "",
+    url: "/ArielPerformance/Phase2/Services.png",
+    description: "Redesigned services section",
   },
 ];
 export const mockupPages = [

@@ -17,10 +17,12 @@ const Ariel = () => {
     <section className={styles.mainContainer}>
       <Breadcrumbs current="Ariel Performance Horses" />
       <CSHero
-        img="/ArielPerformanceHorses/ArielLogo.webp"
+        img="/ArielPerformance/ArielLogo.webp"
         companyName="Ariel Boesener Performance Horses"
         date="2025"
         type="Design"
+        status="Completed"
+        title="Redesigning a Website for Clarity and Usability"
         role="UX/UI Designer: collaborated with client to create design mockups"
       />
       <CSKeyFeatures
@@ -31,12 +33,11 @@ const Ariel = () => {
           "Navigation Improvements",
         ]}
       />
-      <CSProblem problemDescription="The existing site was cluttered, difficult to navigate, and visually inconsistent with the brand. Poor content organization and unclear navigation made it hard for users to find key information. The goal was to simplify the structure, improve navigation, and create a more cohesive, user-friendly experience." />
-      <CSBeforeAndAfter
-        beforePages={beforePages}
-        afterPages={afterPages}
-        mockupPages={mockupPages}
+      <CSProblem
+        homeSrc="/ArielPerformance/Phase2/Home.png"
+        problemDescription="The existing site was cluttered, difficult to navigate, and visually inconsistent with the brand. Poor content organization and unclear navigation made it hard for users to find key information. The goal was to simplify the structure, improve navigation, and create a more cohesive, user-friendly experience."
       />
+      <CSBeforeAndAfter beforeImages={beforePages} afterImages={afterPages} />
       <CSProcess
         discovery="The approach centered on improving usability through better structure and clarity. I analyzed the existing site to identify navigation issues, inconsistent design elements, and gaps in content hierarchy. From there, I restructured the layout and refined the visual direction to create a more cohesive, user-friendly experience aligned with the brand."
         design="The design phase centered on restructuring the user interface to improve clarity and usability. I established a clear content hierarchy, refined the layout for better flow, and updated the visual style to align more closely with the brand. The result was a more cohesive, intuitive experience that makes information easier to find and navigate."

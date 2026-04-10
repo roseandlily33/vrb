@@ -3,7 +3,7 @@ import styles from "./Breadcrumbs.module.css";
 
 const Breadcrumbs = ({ current }) => {
   return (
-    <section className={styles.breadcrumbs} aria-label="Breadcrumb">
+    <nav className={styles.breadcrumbs} aria-label="Breadcrumb">
       <ol
         style={{
           display: "flex",
@@ -24,7 +24,7 @@ const Breadcrumbs = ({ current }) => {
           {current}
         </li>
       </ol>
-    </section>
+    </nav>
   );
 };
 

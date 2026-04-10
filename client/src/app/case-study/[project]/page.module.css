@@ -34,7 +34,7 @@
   /* padding-left: 2rem; */
 }
 .mainContainer section {
-  padding: 5rem 4rem;
+  padding: 3rem 6rem;
 }
 /* Hero Section */
 .metaLabel {
@@ -164,7 +164,7 @@
 
 /* Before and After Secion */
 .beforeAndAfter {
-  border: 2px solid green;
+  /* border: 2px solid green; */
 }
 
 /* Process */

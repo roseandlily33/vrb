@@ -15,13 +15,13 @@ const Carousel = ({ slides }) => {
             <div className={styles.carouselContainer}>
                 <div className={styles.slide}>
                     <img
-                        src={slides[current].url}
-                        alt={slides[current].desc || `Slide ${current + 1}`}
+                        src={slides[current]?.url}
+                        alt={slides[current]?.desc || slides[current]?.description || `Slide ${current + 1}`}
                         className={styles.slideImage}
                         style={{ cursor: "zoom-in" }}
                         onClick={() => setFullscreen(true)}
                     />
-                    <div className={styles.slideDesc}>{slides[current].desc}</div>
+                    <div className={styles.slideDesc}>{slides[current]?.desc || slides[current]?.description}</div>
                 </div>
                 <div className={styles.carouselNav}>
                     <button className={styles.carouselButton} onClick={prev} aria-label="Previous slide">&#8592;</button>
@@ -43,11 +43,11 @@ const Carousel = ({ slides }) => {
                     <div className={styles.fullscreenContent} onClick={e => e.stopPropagation()}>
                         <button className={styles.fullscreenClose} onClick={() => setFullscreen(false)} aria-label="Close fullscreen">&times;</button>
                         <img
-                            src={slides[current].url}
-                            alt={slides[current].desc || `Slide ${current + 1}`}
+                            src={slides[current]?.url}
+                            alt={slides[current]?.desc || slides[current]?.description || `Slide ${current + 1}`}
                             className={styles.fullscreenImage}
                         />
-                        <div className={styles.fullscreenDesc}>{slides[current].desc}</div>
+                        <div className={styles.fullscreenDesc}>{slides[current]?.desc || slides[current]?.description}</div>
                     </div>
                 </div>
             )}
