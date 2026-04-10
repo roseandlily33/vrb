@@ -19,7 +19,7 @@ const Navbar = () => {
     return (
         <nav className={styles.navbar}>
             <div className={styles.logoContainer}>
-                <a href="/home" aria-label="Home">
+                <a href="/" aria-label="Home">
                     <img src="/VRBLogo.png" alt="VRB Logo" className={styles.logo} />
                 </a>
             </div>

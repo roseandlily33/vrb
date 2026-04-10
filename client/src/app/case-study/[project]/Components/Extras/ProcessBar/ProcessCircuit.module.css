@@ -1,0 +1,115 @@
+.wrapper {
+  width: 100%;
+  overflow: visible;
+}
+
+.svg {
+  width: 100%;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+
+/* Base path */
+.path {
+  stroke: #2f8fe8;
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  /* animation setup */
+  stroke-dasharray: 1600;
+  stroke-dashoffset: 1600;
+}
+
+/* Base nodes */
+.node {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.outerCircle {
+  fill: #f5f9ff;
+  stroke: #2f8fe8;
+  stroke-width: 8;
+}
+
+.innerCircle {
+  fill: #f5f9ff;
+}
+
+/* Triggered animations */
+.visible .path {
+  animation: drawPath 2.2s ease forwards;
+}
+
+.visible .node1 {
+  animation: popNode 0.45s ease forwards;
+  animation-delay: 0.35s;
+}
+
+.visible .node2 {
+  animation: popNode 0.45s ease forwards;
+  animation-delay: 0.85s;
+}
+
+.visible .node3 {
+  animation: popNode 0.45s ease forwards;
+  animation-delay: 1.35s;
+}
+
+.visible .node4 {
+  animation: popNode 0.45s ease forwards;
+  animation-delay: 1.85s;
+}
+
+@keyframes drawPath {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes popNode {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  70% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .path {
+    stroke-width: 6;
+  }
+
+  .outerCircle {
+    stroke-width: 6;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .wrapper {
+    overflow-x: auto;
+  }
+
+  .svg {
+    min-width: 800px;
+  }
+}
+.active .outerCircle {
+  filter: drop-shadow(0 0 8px rgba(47, 143, 232, 0.35));
+}
+
+.active .innerCircle {
+  fill: #2f8fe8;
+}

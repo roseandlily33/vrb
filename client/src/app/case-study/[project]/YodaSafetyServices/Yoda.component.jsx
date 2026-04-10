@@ -6,6 +6,8 @@ import CSProblem from "../Components/CSProblem.component";
 import CSProcess from "../Components/CSProcess.component";
 import CSResults from "../Components/CSResults.component";
 import CSTechnologies from "../Components/CSTechnologies.component";
+import KeyFeatures from "../Components/CSKeyFeatures.component";
+import { pages } from "./pages";
 
 const Yoda = () => {
   return (
@@ -14,6 +16,23 @@ const Yoda = () => {
         img="/YodaSafetyServices/Logo.png"
         companyName="Yoda Safety Services"
         link="https://yodasafetyservices.com/"
+        date="2024 - Present"
+        status="In Progress"
+        title="Building a Comprehensive Training Platform"
+        type="Web Application"
+        role="Lead developer: collaborated with client to define requirements, built and deployed the platform."
+      />
+      <KeyFeatures
+        keyFeatures={[
+          "Course enrollment and progress tracking",
+          "Secure online payments with paypal and certificate downloads with user details",
+          "Automated email notifications and reminders",
+          "Company Management; manager can assign courses, track progress, and manage company details, as well as a form management system",
+          "Subcontractor Management",
+          "Responsive design for mobile, tablet, and desktop",
+          "Admin dashboard for course, company, newsletter and user management",
+          "Interactive Form Upload & Instance System, saves the completed form, can query, filter and search on all the forms for a company",
+        ]}
       />
       <CSProblem problemDescription="The client approached us to build a comprehensive training platform from the ground up, with features for payments, course management, and automated certifications. The challenge was to design and implement a solution tailored to their unique workflow." />
       <CSProcess
@@ -74,8 +93,28 @@ const Yoda = () => {
         }}
       />
       <CSResults />
-      <CSTechnologies />
-      <CSKeyPages />
+      <CSTechnologies
+        technologies={[
+          "react",
+          "react-router-dom",
+          "styled-components",
+          "express",
+          "mongodb",
+          "mongoose",
+          "morgan",
+          "helmet",
+          "dotenv",
+          "bcrypt",
+          "cors",
+          "jsonwebtoken",
+          "multer",
+          "nodemailer",
+          "nodemailer-express-handlebars",
+          "uuid",
+          "render",
+        ]}
+      />
+      <CSKeyPages pages={pages} />
       <CTA2 />
     </section>
   );

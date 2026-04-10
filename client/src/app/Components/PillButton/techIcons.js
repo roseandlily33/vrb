@@ -1,0 +1,43 @@
+import {
+  FaReact,
+//   FaNodeJs,
+//   FaDatabase,
+  FaLock,
+  FaEnvelope,
+//   FaCloud,
+  FaCogs,
+  FaKey,
+  FaUserShield,
+//   FaTools,
+} from "react-icons/fa";
+import {
+  SiStyledcomponents,
+  SiMongodb,
+  SiMongoose,
+  SiExpress,
+  SiDotenv,
+  SiJsonwebtokens,
+//   SiMulter,
+//   SiNodemailer,
+  SiRender,
+} from "react-icons/si";
+
+export const techIconMap = {
+  react: FaReact,
+  "react-router-dom": FaReact,
+  "styled-components": SiStyledcomponents,
+  express: SiExpress,
+  mongodb: SiMongodb,
+  mongoose: SiMongoose,
+  morgan: FaCogs,
+  helmet: FaUserShield,
+  dotenv: SiDotenv,
+  bcrypt: FaLock,
+  cors: FaKey,
+  jsonwebtoken: SiJsonwebtokens,
+//   multer: SiMulter,
+//   nodemailer: SiNodemailer,
+  "nodemailer-express-handlebars": FaEnvelope,
+  uuid: FaKey,
+  render: SiRender,
+};

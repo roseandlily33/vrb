@@ -1,7 +1,8 @@
 import { useState } from "react";
 import styles from "../page.module.css";
+import ProcessCircuit from "./Extras/ProcessBar/ProcessCircuit";
 
-const TABS = [
+const STEPS = [
     { key: "discovery", label: "Discovery" },
     { key: "design", label: "Design" },
     { key: "development", label: "Development" },
@@ -9,29 +10,18 @@ const TABS = [
 ];
 
 const CSProcess = ({ content }) => {
-    const [activeTab, setActiveTab] = useState(TABS[0].key);
+    const [activeStep, setActiveStep] = useState(0);
 
     return (
         <section className={styles.processTabs}>
             <h2>Process</h2>
-            <div className={styles.tabGroup}>
-                {TABS.map((tab, idx) => (
-                    <button
-                        key={tab.key}
-                        onClick={() => setActiveTab(tab.key)}
-                        className={
-                            styles.tabButton +
-                            (activeTab === tab.key ? ' ' + styles.activeTab : '') +
-                            (idx === 0 ? ' ' + styles.firstTab : '') +
-                            (idx === TABS.length - 1 ? ' ' + styles.lastTab : '')
-                        }
-                    >
-                        {tab.label}
-                    </button>
-                ))}
-            </div>
-            <div>
-                {content && content[activeTab]}
+            <ProcessCircuit
+                activeStep={activeStep + 1}
+                steps={STEPS}
+                onStepClick={setActiveStep}
+            />
+            <div style={{ marginTop: "2.2rem" }}>
+                {content && content[STEPS[activeStep].key]}
             </div>
         </section>
     );

@@ -8,7 +8,7 @@ export default function CTA2() {
   return (
     <section className={styles.cta2Section}>
       <div className={styles.cta2Content}>
-        <h2 className={styles.cta2Heading}>Here&apos;s how I can help</h2>
+        <h3 className={styles.cta2Heading}>Here&apos;s how I can help</h3>
         <p className={styles.cta2Subtext}>
           Let’s connect and turn your ideas into reality. I&apos;m excited to
           help you build something impactful.

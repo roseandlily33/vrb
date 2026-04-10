@@ -5,11 +5,24 @@
   justify-content: space-between;
   padding: 0.5rem 2rem;
   background: var(--background);
-  position: relative;
+  position: sticky;
+  top: 0;
   height: 120px;
   z-index: 10;
   /* border: 2px solid red; */
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.04);
+  border-bottom-left-radius: 25px;
+  border-bottom-right-radius: 25px;
+  transition:
+    height 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+    backdrop-filter 0.22s cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 0.22s;
+}
+
+.scrolled {
+  height: 72px;
+  backdrop-filter: blur(10px) saturate(1.2);
+  box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.08);
 }
 
 .logoContainer {
@@ -26,7 +39,7 @@
 
 .links {
   display: flex;
-    align-items: center;
+  align-items: center;
   /* border: 2px solid red; */
   gap: 2.5rem;
 }
