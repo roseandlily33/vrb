@@ -1,9 +1,10 @@
 "use client";
 import { useState } from "react";
 import { PackageInfo } from "./packageList";
-import Card from '@/app/Components/Card/Card.component';
-import PrimaryButton from '@/app/Components/PrimaryButton/PrimaryButton.component';
-import styles from './Packages.module.css';
+import { FaArrowRight } from "react-icons/fa";
+import Card from "@/app/Components/Card/Card.component";
+import TertiaryButton from "@/app/Components/TertiaryButton/TertiaryButton.component";
+import styles from "./Packages.module.css";
 
 export default function Packages() {
     const [selectedIdx, setSelectedIdx] = useState(null);
@@ -33,8 +34,13 @@ export default function Packages() {
         return (
             <section className={styles.packagesSection}>
                 <h2 className={styles.heading}>Project Packages</h2>
-                <p className={styles.meta}>Transparent pricing, clear deliverables, and a process tailored to your needs.</p>
-                <div className={`${styles.cardGrid} ${animating ? styles.fadeOut : styles.fadeIn}`}>
+                <p className={styles.meta}>
+                    Transparent pricing, clear deliverables, and a process tailored to
+                    your needs.
+                </p>
+                <div
+                    className={`${styles.cardGrid} ${animating ? styles.fadeOut : styles.fadeIn}`}
+                >
                     {PackageInfo.map((pkg, idx) => (
                         <Card key={pkg.title} className={styles.packageCard}>
                             <div className={styles.cardHeader}>
@@ -43,9 +49,16 @@ export default function Packages() {
                             </div>
                             <div className={styles.cardMeta}>{pkg.timeline}</div>
                             <p className={styles.cardDesc}>{pkg.description}</p>
-                            <PrimaryButton onClick={() => handleLearnMore(idx)}>
-                                Learn More
-                            </PrimaryButton>
+                            <TertiaryButton onClick={() => handleLearnMore(idx)}>
+                                Learn More{" "}
+                                <FaArrowRight
+                                    style={{
+                                        marginLeft: "0.5em",
+                                        fontSize: "1em",
+                                        verticalAlign: "-2px",
+                                    }}
+                                />
+                            </TertiaryButton>
                         </Card>
                     ))}
                 </div>
@@ -57,12 +70,14 @@ export default function Packages() {
     const pkg = PackageInfo[selectedIdx];
     return (
         <section className={styles.packagesSection}>
-            <div className={`${styles.tabsWrapper} ${animating ? styles.fadeOut : styles.fadeIn}`}>
+            <div
+                className={`${styles.tabsWrapper} ${animating ? styles.fadeOut : styles.fadeIn}`}
+            >
                 <div className={styles.tabs}>
                     {PackageInfo.map((p, idx) => (
                         <button
                             key={p.title}
-                            className={`${styles.tab} ${idx === selectedIdx ? styles.activeTab : ''}`}
+                            className={`${styles.tab} ${idx === selectedIdx ? styles.activeTab : ""}`}
                             onClick={() => setSelectedIdx(idx)}
                             disabled={idx === selectedIdx}
                         >
@@ -79,12 +94,12 @@ export default function Packages() {
                     <p className={styles.cardDesc}>{pkg.description}</p>
                     <ul className={styles.featuresList}>
                         {pkg.features.map((feature) => (
-                            <li key={feature} className={styles.featureItem}>{feature}</li>
+                            <li key={feature} className={styles.featureItem}>
+                                {feature}
+                            </li>
                         ))}
                     </ul>
-                    <PrimaryButton onClick={handleHideInfo}>
-                        Hide Info
-                    </PrimaryButton>
+                    <TertiaryButton onClick={handleHideInfo}>Hide Info</TertiaryButton>
                 </Card>
             </div>
         </section>

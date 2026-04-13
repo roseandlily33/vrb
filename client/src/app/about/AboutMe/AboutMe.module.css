@@ -28,6 +28,43 @@
   align-items: flex-end;
 }
 
+.aboutMeBadges > *:nth-child(1) {
+  transform: translateY(0px);
+}
+.aboutMeBadges > *:nth-child(2) {
+  transform: translateY(12px);
+}
+.aboutMeBadges > *:nth-child(3) {
+  transform: translateY(24px);
+}
+.aboutMeBadges > *:nth-child(4) {
+  transform: translateY(36px);
+}
+
+@media (max-width: 900px) {
+  .aboutMeBadges > *:nth-child(2) {
+    transform: translateY(7px);
+  }
+  .aboutMeBadges > *:nth-child(3) {
+    transform: translateY(14px);
+  }
+  .aboutMeBadges > *:nth-child(4) {
+    transform: translateY(21px);
+  }
+}
+
+@media (max-width: 600px) {
+  .aboutMeBadges > *:nth-child(2) {
+    transform: translateY(4px);
+  }
+  .aboutMeBadges > *:nth-child(3) {
+    transform: translateY(8px);
+  }
+  .aboutMeBadges > *:nth-child(4) {
+    transform: translateY(12px);
+  }
+}
+
 .aboutMeBadge {
   background: var(--blue-50, #e3f0fa);
   color: var(--blue-800, #1a365d);
@@ -42,9 +79,7 @@
 }
 
 .aboutMeSection h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--blue-800, #1a365d);
+  color: var(--blue-900, #1a365d);
   margin-bottom: 1.5rem;
 }
 

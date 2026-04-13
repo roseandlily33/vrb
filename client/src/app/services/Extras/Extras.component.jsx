@@ -10,6 +10,7 @@ export default function Extras() {
   return (
     <section className={styles.extrasSection}>
       <h2 className={styles.heading}>Extras & Add-Ons</h2>
+      <p className={styles.subtext}>Enhance your project with optional add-ons and extra services—choose what fits your needs.</p>
       <div className={styles.splitLayout}>
         <ul className={styles.extrasList}>
           {extrasList.map((item, idx) => (

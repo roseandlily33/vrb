@@ -13,8 +13,6 @@
 
 }
 .focusList h3 {
-  font-size: 1.5rem;
-  font-weight: 700;
   color: var(--blue-800, #1a365d);
   margin-bottom: 1.2rem;
 }

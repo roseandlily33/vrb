@@ -48,6 +48,8 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.18rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  margin-bottom: 28px;
 }
 .title {
   /* color: var(--white); */
@@ -102,7 +104,8 @@
 }
 
 @keyframes softGlow {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.82;
   }
   50% {

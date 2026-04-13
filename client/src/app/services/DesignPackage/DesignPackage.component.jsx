@@ -9,6 +9,7 @@ export default function DesignPackage() {
             <div className={styles.packageBox}>
                 <div className={styles.headerRow}>
                     <h2 className={styles.heading}>{pkg.title}</h2>
+                    <div className={styles.subtext}>Only need design? This package is for you.</div>
                     <div className={styles.metaRow}>
                         <span className={styles.price}>{pkg.startingAt}</span>
                         <span className={styles.timeline}>{pkg.timeline}</span>
