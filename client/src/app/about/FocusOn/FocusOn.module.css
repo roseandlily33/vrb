@@ -1,10 +1,22 @@
 .focusList {
   list-style: none;
-  padding: 0;
-  margin: 2rem 0 2.5rem 0;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+  /* padding: 4rem 6rem; */
+  /* margin: 4rem 6rem; */
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+  gap: 1rem;
+  
+  /* border: 2px solid red; */
+
+}
+.focusList h3 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--blue-800, #1a365d);
+  margin-bottom: 1.2rem;
 }
 
 .focusItem {
@@ -16,12 +28,27 @@
   position: relative;
 }
 .focusItem::before {
-  content: "→";
+  content: "";
+  display: inline-block;
   position: absolute;
   left: 0;
-  top: 0.1rem;
-  color: var(--blue-500, #4299e1);
-  font-size: 1.1rem;
+  top: 0.18rem;
+  width: 1.35em;
+  height: 1.35em;
+  background: var(--blue-100, #e3f0fa);
+  border-radius: 50%;
+  box-shadow: 0 1px 4px 0 rgba(38, 155, 230, 0.08);
+}
+
+.focusItem::after {
+  content: "\2714";
+  position: absolute;
+  left: 0.32em;
+  top: 0.18em;
+  color: var(--blue-800, #1a365d);
+  font-size: 0.95em;
+  font-weight: bold;
+  z-index: 1;
 }
 
 @media (max-width: 600px) {

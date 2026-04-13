@@ -1,12 +1,44 @@
 .aboutMeSection {
-  background: var(--blue-50, #f7faff);
-  border-radius: 1.2rem;
-  box-shadow: 0 2px 12px 0 rgba(38, 155, 230, 0.07);
-  padding: 3rem 2.5rem;
-  margin: 2.5rem 0 3.5rem 0;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 3.5rem;
+  padding: 4rem 6rem;
+  margin: 0 auto 3.5rem auto;
+}
+
+.aboutMeLeft {
+  flex: 2;
+}
+
+.aboutMeRight {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1.2rem;
+  margin-top: 2.5rem;
+}
+
+.aboutMeBadges {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  align-items: flex-end;
+}
+
+.aboutMeBadge {
+  background: var(--blue-50, #e3f0fa);
+  color: var(--blue-800, #1a365d);
+  font-weight: 600;
+  font-size: 1.08rem;
+  border-radius: 2rem;
+  padding: 0.6rem 1.5rem;
+  box-shadow: 0 2px 8px 0 rgba(38, 155, 230, 0.07);
+  border: 1.5px solid var(--blue-100, #cbe7fa);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
 }
 
 .aboutMeSection h2 {
@@ -23,6 +55,21 @@
   margin-bottom: 1.2rem;
 }
 
+@media (max-width: 900px) {
+  .aboutMeSection {
+    flex-direction: column;
+    gap: 2.5rem;
+    padding: 2.5rem 1.5rem;
+  }
+  .aboutMeRight {
+    align-items: flex-start;
+    margin-top: 0;
+  }
+  .aboutMeBadges {
+    align-items: flex-start;
+  }
+}
+
 @media (max-width: 600px) {
   .aboutMeSection {
     padding: 2rem 1rem;
@@ -32,5 +79,9 @@
   }
   .aboutMeSection p {
     font-size: 1rem;
+  }
+  .aboutMeBadge {
+    font-size: 0.98rem;
+    padding: 0.5rem 1.1rem;
   }
 }

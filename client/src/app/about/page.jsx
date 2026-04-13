@@ -22,13 +22,11 @@ building high-performing, user-first
       <AboutMe />
       <div className={styles.sideBySide}>
         <HowIWork />
-
         <FocusOn />
       </div>
-      <WhyMe />
       <ExperienceSnapshot />
+      <WhyMe />
       <ToolsTechnologies />
-
       <CTA3 />
     </main>
   );
