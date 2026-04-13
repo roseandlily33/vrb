@@ -1,0 +1,41 @@
+.tools {
+  background: var(--blue-900);
+  color: var(--white);
+  padding: 4rem 6rem;
+}
+
+.tools h2 {
+  padding-bottom: 0.5rem;
+  /* font-size: 2.2rem; */
+  font-weight: 700;
+}
+.tools p {
+  padding-bottom: 1rem;
+  color: var(--grey-100);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.skillSection {
+  margin-bottom: 2.5rem;
+}
+
+.skillsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.2rem 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.skillCard {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.skillSection h3 {
+  margin-bottom: 1rem;
+  font-weight: 600;
+  color: var(--blue-400);
+  font-size: 1.25rem;
+}

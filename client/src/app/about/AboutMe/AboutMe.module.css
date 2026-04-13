@@ -1,0 +1,36 @@
+.aboutMeSection {
+  background: var(--blue-50, #f7faff);
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 12px 0 rgba(38, 155, 230, 0.07);
+  padding: 3rem 2.5rem;
+  margin: 2.5rem 0 3.5rem 0;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.aboutMeSection h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--blue-800, #1a365d);
+  margin-bottom: 1.5rem;
+}
+
+.aboutMeSection p {
+  font-size: 1.15rem;
+  color: var(--grey-800, #2d3748);
+  line-height: 1.7;
+  margin-bottom: 1.2rem;
+}
+
+@media (max-width: 600px) {
+  .aboutMeSection {
+    padding: 2rem 1rem;
+  }
+  .aboutMeSection h2 {
+    font-size: 1.4rem;
+  }
+  .aboutMeSection p {
+    font-size: 1rem;
+  }
+}
