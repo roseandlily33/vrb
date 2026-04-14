@@ -1,0 +1,6 @@
+.processTabs {
+  padding: var(--section-lg);
+}
+.processTabs h2 {
+    margin-bottom: 1rem;
+}
