@@ -6,6 +6,9 @@ import Process from "./Process/Process.component";
 import Retainers from "./Retainers/Retainers.component";
 import Extras from "./Extras/Extras.component";
 import Hero from "../Components/Hero/Hero.component";
+import Links from "./Links/Links.component";
+import MiniFaq from "./MiniFaq/MiniFaq.component";
+import TrustedBy from "./TrustedBy/TrustedBy.component";
 
 export default function Services() {
   return (
@@ -16,11 +19,14 @@ export default function Services() {
         highlight="grow"
         subText="Focused on performance, scalability, and user experience"
       />
+      <Links />
       <Packages />
+      <TrustedBy />
       <DesignPackage />
       <Process />
       <Retainers />
       <Extras />
+      <MiniFaq />
       <CTA2 />
     </main>
   );

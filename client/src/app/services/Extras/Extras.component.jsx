@@ -8,7 +8,7 @@ export default function Extras() {
   const selected = extrasList[selectedIdx];
 
   return (
-    <section className={styles.extrasSection}>
+    <section className={styles.extrasSection} id="extras">
       <h2 className={styles.heading}>Extras & Add-Ons</h2>
       <p className={styles.subtext}>Enhance your project with optional add-ons and extra services—choose what fits your needs.</p>
       <div className={styles.splitLayout}>

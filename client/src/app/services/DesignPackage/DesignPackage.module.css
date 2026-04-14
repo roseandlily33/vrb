@@ -1,19 +1,204 @@
+.seeMoreBtn {
+  margin-top: 1.2rem;
+  background: var(--blue-100);
+  color: var(--blue-700);
+  font-weight: 700;
+  font-size: 1.08rem;
+  border: none;
+  border-radius: 1.2em;
+  padding: 0.7em 1.7em;
+  cursor: pointer;
+  transition:
+    background 0.18s,
+    color 0.18s;
+  box-shadow: 0 1px 4px 0 rgba(38, 155, 230, 0.07);
+}
+.seeMoreBtn:hover,
+.seeMoreBtn:focus {
+  background: var(--blue-200);
+  color: var(--blue-900);
+  outline: none;
+}
+.featuredCard {
+  /* border: 3px solid var(--blue-400, #4299e1); */
+  box-shadow: 0 6px 32px 0 rgba(38, 155, 230, 0.13);
+  transform: scale(1.06);
+  z-index: 2;
+  position: relative;
+}
+@media (max-width: 900px) {
+  .featuredCard {
+    transform: scale(1.03);
+  }
+}
+.bestFor {
+  font-size: 1.01rem;
+  color: var(--blue-400);
+  font-weight: 600;
+  margin-bottom: 0.5em;
+}
+.bestFor span {
+  color: var(--blue-700);
+  font-weight: 700;
+}
+.timeline {
+  color: var(--grey-400);
+  font-size: 1rem;
+  margin-bottom: 0.7rem;
+}
+.price {
+  font-size: 1.08rem;
+  font-weight: 700;
+  color: var(--blue-500);
+  background: var(--blue-100);
+  border-radius: 0.7em;
+  padding: 0.18em 0.7em;
+  margin-left: 0.7em;
+}
+.tabsWrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.tabs {
+  display: flex;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.tab {
+  background: var(--blue-100);
+  color: var(--blue-900);
+  border: none;
+  border-radius: 1.2em 1.2em 0 0;
+  padding: 0.7em 1.7em;
+  font-size: 1.08rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.18s,
+    color 0.18s;
+  margin-bottom: -2px;
+}
+.tab:hover:not(:disabled) {
+  background: var(--blue-200);
+}
+.activeTab {
+  background: var(--blue-700);
+  color: #fff;
+  cursor: default;
+}
+.detailCard {
+  min-width: 320px;
+  max-width: 600px;
+  margin: 0 auto;
+  animation: fadeInUp 0.3s;
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.fadeIn {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.25s,
+    transform 0.25s;
+}
+.fadeOut {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.25s,
+    transform 0.25s;
+}
 .subtext {
   font-size: 1.04rem;
   color: var(--blue-500, #4299e1);
   font-weight: 500;
-  margin-bottom: 0.2rem;
-  margin-top: -0.5rem;
-  letter-spacing: 0.01em;
-  text-align: left;
+  margin-bottom: 2rem;
 }
+
 .designSection {
   width: 100%;
   display: flex;
-  /* flex-direction: column; */
+  flex-direction: column;
   align-items: center;
-  background: #f7f7f7;
   padding: 4rem 6rem;
+}
+
+.heading {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--blue-900);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.packagesGrid {
+  display: flex;
+  gap: 2.5rem;
+  width: 100%;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.packageBox {
+  background: var(--blue-50, #f8fbfd);
+  border-radius: 1.2rem;
+  /* border-left: 6px solid var(--blue-400, #4299e1); */
+  box-shadow: 0 2px 16px 0 rgba(38, 155, 230, 0.08);
+  padding: 2.2rem 2rem 2rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  min-width: 290px;
+  max-width: 370px;
+  flex: 1 1 320px;
+  position: relative;
+  height: 100%;
+  min-height: 340px;
+}
+
+.headerRow {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: flex-start;
+  margin-bottom: 0.2rem;
+}
+
+.packageTitle {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--blue-900);
+  margin-bottom: 0.1rem;
+  text-align: left;
+  letter-spacing: -0.5px;
+}
+
+.popularBadge {
+  display: inline-block;
+  background: linear-gradient(90deg, #4299e1 60%, #90cdf4 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.98rem;
+  padding: 0.22em 1.1em;
+  border-radius: 1.2em;
+  margin: 0.5em 0 0.5em 0;
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 8px 0 rgba(38, 155, 230, 0.1);
+  border: 2.5px double #fff;
+  position: relative;
+  z-index: 2;
 }
 
 .packageBox {
@@ -55,9 +240,6 @@
   font-size: 1.08rem;
   font-weight: 700;
   color: var(--blue-500);
-  background: var(--blue-100);
-  border-radius: 0.7em;
-  padding: 0.18em 0.7em;
 }
 .timeline {
   color: var(--grey-400);

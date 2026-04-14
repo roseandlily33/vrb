@@ -1,0 +1,63 @@
+.trustedSection {
+  width: 100%;
+  padding: 4rem 6rem;
+  text-align: center;
+  background: linear-gradient(135deg, #f8fafc 0%, #f3f4f6 100%);
+}
+
+.heading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--blue-900, #1a365d);
+  margin-bottom: 2.2rem;
+}
+
+.logoRow {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 3.5rem;
+}
+
+.logoCol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.7rem;
+  min-width: 120px;
+  /* max-width: 140px; */
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+  transition: filter 0.18s;
+}
+
+.logoImg {
+  height: 64px;
+  width: 120px;
+  object-fit: contain;
+  filter: grayscale(1) brightness(0.85);
+  opacity: 0.8;
+  transition:
+    filter 0.18s,
+    opacity 0.18s;
+  /* background: #f7f7f7; */
+  /* border-radius: 0.5rem; */
+  padding: 0.3rem;
+  box-sizing: border-box;
+}
+.companyName {
+  font-size: 1.01rem;
+  color: var(--grey-500, #718096);
+  margin-top: 0.2rem;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.01em;
+}
+.logoLink:hover .logoImg,
+.logoLink:focus .logoImg {
+  filter: grayscale(0) brightness(1);
+  opacity: 1;
+}

@@ -3,6 +3,7 @@ export const PackageInfo = [
     title: "Website Essentials",
     startingAt: "$2,800",
     timeline: "2–4 weeks",
+    bestFor: 'establishing online presence',
     description:
       "A clean, professional website to establish your online presence and communicate your core message.",
     features: [
@@ -20,6 +21,7 @@ export const PackageInfo = [
     title: "Professional Website",
     startingAt: "$5,500",
     timeline: "4–8 weeks",
+    bestFor: 'growing businesses',
     description:
       "A fully customized website designed to support business growth with enhanced functionality and flexibility.",
     features: [
@@ -37,6 +39,7 @@ export const PackageInfo = [
     title: "Custom Platform",
     startingAt: "$12,000",
     timeline: "3–6 months",
+    bestFor: 'complex needs & long-term growth',
     description:
       "A fully bespoke web platform built around your business needs, workflows, and long-term goals.",
     features: [

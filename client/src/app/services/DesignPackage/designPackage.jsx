@@ -1,22 +1,38 @@
-const designPackage = [
+const designPackages = [
   {
-    title: "Design Foundation",
-    startingAt: "$1,800",
-    timeline: "1–3 weeks",
+    title: "Design Essentials",
+    startingAt: "$1,200",
+    timeline: "1–2 weeks",
     description:
-      "A strong visual and strategic foundation for your brand or website before development begins.",
+      "A focused design package to establish a clean, professional visual direction for your website.",
+    bestFor: "Small businesses or early-stage brands needing a polished starting point",
     features: [
       "Brand & design consultation",
       "Basic site map / information architecture",
       "Responsive design considerations",
-      "Full brand colour palette & style guide",
-      "Typography selection",
-      "1–2 high-fidelity design mockups",
-      "Logo refinement or moodboard (if needed)",
-      "Up to 2 rounds of revisions",
+      "Typography & colour direction",
+      "1 high-fidelity design mockup",
+      "1–2 rounds of revisions",
     ],
-    // Estimated: ~20–30 hours
+  },
+  {
+    title: "Design Foundation",
+    startingAt: "$1,800",
+    timeline: "2–3 weeks",
+    description:
+      "A complete visual and strategic foundation designed to support a high-performing, scalable website.",
+    bestFor: "Businesses looking for a strong UX/UI system before development",
+    features: [
+      "In-depth brand & UX strategy session",
+      "Full site map & user flow planning",
+      "Responsive design system",
+      "Full brand colour palette & style guide",
+      "Typography system & hierarchy",
+      "2–3 high-fidelity design mockups",
+      "Logo refinement or moodboard (if needed)",
+      "Up to 2–3 rounds of revisions",
+    ],
+    highlight: "Most Popular",
   },
 ];
-
-export default designPackage;
+export default designPackages;

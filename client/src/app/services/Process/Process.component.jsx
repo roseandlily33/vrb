@@ -8,33 +8,21 @@ import { FiArrowRight } from "react-icons/fi";
 
 export default function Process() {
   return (
-    <section className={styles.processSection}>
-      <div className={styles.sideBySide}>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "flex-start",
-            // gap: "0.5rem",
-          }}
-        >
-          <h3 className={styles.heading}>My Process</h3>
-          <span style={{ marginBottom: "1rem", color: "var(--grey-400)" }}>
-            Timelines may vary based on your project’s scope and
-            requirements{" "}
-          </span>
-        </div>
-        <Link href="/process" passHref>
-          <TertiaryButton as="a">
-            See more about the full process
-            <FiArrowRight
-              style={{ marginLeft: 8, verticalAlign: "middle" }}
-              aria-hidden="true"
-            />
-          </TertiaryButton>
-        </Link>
-      </div>
+    <section className={styles.processSection} id="process">
+      <h3 className={styles.heading}>My Process</h3>
+      <span style={{ color: "var(--grey-400)" }}>
+        Timelines may vary based on your project’s scope and requirements{" "}
+      </span>
       <Timeline />
+      <Link href="/process" passHref>
+        <TertiaryButton as="a" style={{ fontSize: "0.8rem" }}>
+          See more about the full process
+          <FiArrowRight
+            style={{ marginLeft: 8, verticalAlign: "middle" }}
+            aria-hidden="true"
+          />
+        </TertiaryButton>
+      </Link>
     </section>
   );
 }

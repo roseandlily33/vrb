@@ -2,6 +2,7 @@ export const Retainer = [
   {
     name: "Mini",
     base: "Monthly Retainer",
+    bestFor: 'growing businesses',
     description:
       "Ongoing support and updates for your website, including content changes, security updates, and performance monitoring.",
     features: [
@@ -16,6 +17,7 @@ export const Retainer = [
   {
     name: "Boost",
     base: "Quarterly Retainer",
+    bestFor: 'ongoing support',
     description:
       "Comprehensive support and updates for your website every quarter, including content changes, security updates, and performance monitoring.",
     features: [
@@ -31,6 +33,7 @@ export const Retainer = [
   {
     name: "Momentum",
     base: "Annual Retainer",
+    bestFor: 'scaling teams',
     description:
       "Full-year support and updates for your website, including content changes, security updates, performance monitoring, and strategic planning.",
     features: [
