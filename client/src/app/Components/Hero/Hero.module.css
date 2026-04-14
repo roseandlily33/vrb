@@ -1,5 +1,6 @@
 .blue {
   color: var(--blue-800) !important;
+  /* color: var(--accent-blue) !important; */
   /* border: 2px solid red; */
 }
 

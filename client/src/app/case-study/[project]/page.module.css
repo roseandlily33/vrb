@@ -1,3 +1,111 @@
+/* Phases Section */
+.phasesSection {
+  width: 100%;
+  margin: 3.5rem 0 2.5rem 0;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.phasesHeading {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--blue-900);
+  margin-bottom: 2.5rem;
+  text-align: center;
+}
+
+.phasesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2.2rem;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.phaseCard {
+  background: var(--blue-50, #f8fbfd);
+  border-radius: 1.2rem;
+  box-shadow: 0 2px 16px 0 rgba(38, 155, 230, 0.08);
+  padding: 2.2rem 2rem 2rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  min-width: 0;
+  position: relative;
+  border-left: 6px solid var(--blue-400, #4299e1);
+  transition:
+    box-shadow 0.18s,
+    transform 0.18s;
+}
+.phaseCard:hover {
+  box-shadow: 0 8px 32px 0 rgba(38, 155, 230, 0.13);
+  transform: translateY(-4px) scale(1.02);
+}
+.phaseHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 0.2rem;
+}
+.phaseBadge {
+  display: inline-block;
+  background: linear-gradient(90deg, #4299e1 60%, #90cdf4 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.08rem;
+  padding: 0.22em 1.1em;
+  border-radius: 1.2em;
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 8px 0 rgba(38, 155, 230, 0.1);
+  border: 2.5px double #fff;
+  position: relative;
+  z-index: 2;
+}
+.phaseDesc {
+  color: var(--grey-700);
+  font-size: 1.09rem;
+  margin-bottom: 0.7rem;
+  text-align: left;
+}
+.phasePoints {
+  margin: 0.5rem 0 0 0;
+  padding-left: 1.2em;
+  color: var(--blue-900);
+  font-size: 1rem;
+  list-style: disc;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+.phasePoint {
+  color: var(--blue-700);
+  font-size: 1.05rem;
+  margin-bottom: 0.1em;
+}
+
+@media (max-width: 1000px) {
+  .phasesGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+@media (max-width: 700px) {
+  .phasesGrid {
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
+  }
+  .phasesSection {
+    padding: 0 0.5rem;
+  }
+  .phaseCard {
+    padding: 1.2rem 0.7rem 1rem 1rem;
+  }
+  .phasesHeading {
+    font-size: 1.3rem;
+  }
+}
 /* Two-column grid for features */
 .featuresGrid {
   display: grid;
