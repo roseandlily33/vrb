@@ -1,9 +1,5 @@
 .whyMeSection {
-  /* padding: 8rem 18rem; */
-  padding: 4rem 6rem;
-  /* text-align: center; */
-  /* position: relative; */
-  /* background: var(--blue-100); */
+  padding: var(--section-lg);
 }
 
 .whyMeList {
@@ -12,13 +8,12 @@
   margin: 2.2rem 0 0 0;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   gap: 1.1rem;
 }
 
 .whyMeList li {
-  font-size: 1.13rem;
-  color: var(--grey-800, #2d3748);
+  /* font-size: 1.13rem; */
+  color: var(--grey-800);
   display: flex;
   /* align-items: center; */
   gap: 0.7rem;
@@ -26,22 +21,19 @@
 }
 
 .check {
-  color: var(--blue-500, #4299e1);
+  color: var(--blue-500);
   font-size: 1.25rem;
   font-weight: bold;
   display: inline-block;
   margin-right: 0.2rem;
 }
 .whyMeSection h3 {
-  font-size: 1.7rem;
-  font-weight: 700;
-  color: var(--blue-900, #1a365d);
   margin-bottom: 1.2rem;
 }
 
 .whyMeSection p {
   font-size: 1.15rem;
-  color: var(--grey-800, #2d3748);
+  color: var(--grey-800);
   line-height: 1.7;
   margin-bottom: 0;
 }

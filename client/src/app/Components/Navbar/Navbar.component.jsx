@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import styles from "./Navbar.module.css";
 import PrimaryButton from "../PrimaryButton/PrimaryButton.component";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
     { label: "Home", href: "/" },
@@ -15,6 +16,7 @@ const navLinks = [
 
 const Navbar = () => {
     const [open, setOpen] = useState(false);
+    const pathname = usePathname();
 
     return (
         <nav className={styles.navbar}>
@@ -34,19 +36,35 @@ const Navbar = () => {
                 <span className={styles.bar}></span>
             </button>
             <div className={`${styles.links} ${open ? styles.open : ""}`}>
-                {navLinks.map((link) =>
+                {navLinks.map((link) => (
                     link.label === "Contact" ? (
-                        <Link href={link.href} key={link.label}>
-                            <PrimaryButton onClick={() => setOpen(false)}>
-                                {link.label}
-                            </PrimaryButton>
+                        <Link
+                            href={link.href}
+                            key={link.label}
+                            className={
+                                styles.contactBtn +
+                                (pathname === link.href ? " " + styles.contactActive : "")
+                            }
+                            onClick={() => setOpen(false)}
+                            aria-current={pathname === link.href ? "page" : undefined}
+                        >
+                            {link.label}
                         </Link>
                     ) : (
-                        <Link href={link.href} key={link.label} className={styles.navLink} onClick={() => setOpen(false)}>
+                        <Link
+                            href={link.href}
+                            key={link.label}
+                            className={
+                                styles.navLink +
+                                (pathname === link.href ? " " + styles.active : "")
+                            }
+                            onClick={() => setOpen(false)}
+                            aria-current={pathname === link.href ? "page" : undefined}
+                        >
                             {link.label}
                         </Link>
                     )
-                )}
+                ))}
             </div>
         </nav>
     );

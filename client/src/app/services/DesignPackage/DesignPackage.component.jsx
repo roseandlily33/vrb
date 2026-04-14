@@ -1,6 +1,6 @@
 "use client";
 import designPackages from './designPackage';
-import styles from './DesignPackage.module.css';
+import styles from '../Packages/Packages.module.css';
 import { FaCheckCircle, FaArrowRight } from 'react-icons/fa';
 import { useState } from 'react';
 
@@ -29,37 +29,28 @@ export default function DesignPackage() {
     // Card grid view
     if (selectedIdx === null) {
         return (
-            <section className={styles.designSection} id="design">
+            <section className={styles.packagesSection} id="design">
                 <h2 className={styles.heading}>Design Packages</h2>
-                <div className={styles.subtext} style={{ marginTop: '2.2rem' }}>Only need design? These packages are for you.</div>
-                <div className={`${styles.packagesGrid} ${animating ? styles.fadeOut : styles.fadeIn}`}>
+                <p className={styles.meta}>Only need design? These packages are for you.</p>
+                <div className={`${styles.cardGrid} ${animating ? styles.fadeOut : styles.fadeIn}`}>
                     {designPackages.map((pkg, idx) => (
                         <div
                             key={pkg.title}
                             className={
-                                styles.packageBox +
-                                (pkg.highlight ? ' ' + styles.featuredCard : '')
+                                styles.packageCard +
+                                (pkg.highlight || idx === 1 ? ' ' + styles.featuredCard : '')
                             }
-                            style={{ height: '100%', minHeight: 340, display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}
                         >
-                            <div className={styles.headerRow}>
-                                <h3 className={styles.packageTitle}>{pkg.title}</h3>
+                            <div className={styles.cardHeader}>
+                                <h3 className={styles.cardTitle}>{pkg.title}</h3>
+                                <span className={styles.cardPrice}>Starting at {pkg.startingAt}</span>
                             </div>
                             <div className={styles.bestFor}>Best for <span>{pkg.bestFor}</span></div>
-                            <span className={styles.price}>Starting at {pkg.startingAt}</span>
-                            <div className={styles.timeline}>{pkg.timeline}</div>
-                            <p className={styles.desc}>{pkg.description}</p>
-                            {/* Hide checkmarks in grid view */}
-                            <ul className={styles.featuresList} style={{ display: 'none' }}>
-                                {pkg.features.map((feature) => (
-                                    <li key={feature} className={styles.featureItem}>
-                                        <FaCheckCircle className={styles.icon} />
-                                        <span>{feature}</span>
-                                    </li>
-                                ))}
-                            </ul>
+                            <div className={styles.cardMeta}>{pkg.timeline}</div>
+                            <p className={styles.cardDesc}>{pkg.description}</p>
                             <button
-                                className={styles.seeMoreBtn}
+                                className={styles.hideBtn}
+                                style={{ marginTop: '1.2rem', background: 'var(--blue-100)', color: 'var(--blue-700)', fontWeight: 700, fontSize: '1.08rem', border: 'none', borderRadius: '1.2em', padding: '0.7em 1.7em', cursor: 'pointer', boxShadow: '0 1px 4px 0 rgba(38, 155, 230, 0.07)' }}
                                 onClick={() => handleSeeMore(idx)}
                             >
                                 See More{' '}
@@ -78,7 +69,7 @@ export default function DesignPackage() {
     // Tabbed detail view
     const pkg = designPackages[selectedIdx];
     return (
-        <section className={styles.designSection}>
+        <section className={styles.packagesSection}>
             <div className={`${styles.tabsWrapper} ${animating ? styles.fadeOut : styles.fadeIn}`}>
                 <div className={styles.tabs}>
                     {designPackages.map((p, idx) => (
@@ -94,20 +85,20 @@ export default function DesignPackage() {
                 </div>
                 <div className={styles.detailCard}>
                     <div className={styles.cardHeader}>
-                        <h3 className={styles.packageTitle}>{pkg.title}</h3>
-                        <span className={styles.price}>{pkg.startingAt}</span>
+                        <h3 className={styles.cardTitle}>{pkg.title}</h3>
+                        <span className={styles.cardPrice}>{pkg.startingAt}</span>
                     </div>
-                    <div className={styles.timeline}>{pkg.timeline}</div>
-                    <p className={styles.desc}>{pkg.description}</p>
+                    <div className={styles.cardMeta}>{pkg.timeline}</div>
+                    <p className={styles.cardDesc}>{pkg.description}</p>
                     <ul className={styles.featuresList}>
                         {pkg.features.map((feature) => (
                             <li key={feature} className={styles.featureItem}>
-                                <FaCheckCircle className={styles.icon} />
-                                <span>{feature}</span>
+                                <FaCheckCircle style={{ color: 'var(--blue-400)', marginRight: '0.5em', fontSize: '1em', verticalAlign: '-2px' }} />
+                                {feature}
                             </li>
                         ))}
                     </ul>
-                    <button className={styles.seeMoreBtn} onClick={handleHideInfo}>
+                    <button className={styles.hideBtn} onClick={handleHideInfo}>
                         Hide Info
                     </button>
                 </div>

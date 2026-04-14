@@ -1,12 +1,10 @@
-
 .contactPage {
-    padding: 5rem 0rem;
-    margin: 0 auto;
     width: 100%;
 }
 .sideBySide {
     display: flex;
     justify-content: space-around;
     gap: 2rem;
+    padding: var(--section-xs);
     /* border: 2px solid red; */
 }

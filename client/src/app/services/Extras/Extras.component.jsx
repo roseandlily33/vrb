@@ -26,11 +26,17 @@ export default function Extras() {
                 if (e.key === "Enter" || e.key === " ") setSelectedIdx(idx);
               }}
             >
+              {item.icon && (
+                <item.icon style={{ fontSize: "1.08em", marginRight: "0.5em", verticalAlign: "-2px", opacity: 0.8 }} />
+              )}
               {item.title}
             </li>
           ))}
         </ul>
         <div className={styles.extraDetail}>
+          {selected.icon && (
+            <selected.icon className={styles.extraIcon} />
+          )}
           <h3 className={styles.extraTitle}>{selected.title}</h3>
           <p className={styles.extraDesc}>{selected.description}</p>
         </div>

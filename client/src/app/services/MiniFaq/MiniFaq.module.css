@@ -1,7 +1,7 @@
 .faqSection {
   width: 100%;
-  padding: 4rem 6rem;
-  /* text-align: center; */
+  padding: var(--section-sm);
+  background: var(--grey-50);
 }
 
 .heading {

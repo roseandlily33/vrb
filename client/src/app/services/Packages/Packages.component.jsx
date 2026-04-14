@@ -51,13 +51,13 @@ export default function Packages() {
             >
               <div className={styles.cardHeader}>
                 <h3 className={styles.cardTitle}>{pkg.title}</h3>
+                <span className={styles.cardPrice}>
+                  Starting at {pkg.startingAt}
+                </span>
               </div>
               <div className={styles.bestFor}>
                 Best for <span>{pkg.bestFor}</span>
               </div>
-              <span className={styles.cardPrice}>
-                Starting at {pkg.startingAt}
-              </span>
 
               <div className={styles.cardMeta}>{pkg.timeline}</div>
               <p className={styles.cardDesc}>{pkg.description}</p>

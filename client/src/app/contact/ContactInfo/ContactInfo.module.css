@@ -1,9 +1,9 @@
 .contactInfoSection {
   width: 30%;
-  background: var(--blue-100);
+  background: var(--blue-50);
   border-radius: 1.5rem;
   box-shadow: 0 2px 16px 0 rgba(24, 26, 32, 0.06);
-  padding: 2.2rem 1.5rem 2rem 1.5rem;
+  padding: var(--section-xxs);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
