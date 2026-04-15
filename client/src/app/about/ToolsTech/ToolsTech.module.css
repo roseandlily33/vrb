@@ -6,23 +6,23 @@
 }
 
 .tools h3 {
-  padding-bottom: 0.5rem;
+  padding-bottom: var(--space-xs);
 }
 .tools p {
-  padding-bottom: 1rem;
+  padding-bottom: var(--space-m);
   color: var(--grey-100);
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .skillSection {
-  margin-bottom: 2.5rem;
+  margin-bottom: var(--space-xxl);
 }
 
 .skillsGrid {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.2rem 1.5rem;
-  margin-bottom: 0.5rem;
+  gap: var(--space-m) var(--space-);
+  margin-bottom: var(--space-xs);
 }
 
 .skillCard {
@@ -33,8 +33,8 @@
 }
 
 .skillSection h3 {
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-m);
   font-weight: 600;
   color: var(--blue-400);
-  font-size: 1.25rem;
+  /* font-size: var(--space-l); */
 }

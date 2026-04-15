@@ -1,18 +1,15 @@
 .splitLayout {
   display: grid;
-  grid-template-columns: 60% 40%;
-  gap: 2.5rem;
-  margin-top: 1rem;
+  grid-template-columns: 40% 60%;
+  gap: var(--space-xl);
+  margin-top: var(--space-m);
   align-items: flex-start;
 }
 .extrasSection {
   width: 100%;
-  /* max-width: 1100px; */
   padding: var(--section-xl);
-  /* padding: 2rem 1rem; */
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   /* border: 2px solid red; */
 }
 
@@ -25,17 +22,17 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 0.3em;
-  background: var(--grey-100, #f8fbfd);
-  border-radius: 1rem;
-  box-shadow: 0 2px 12px 0 rgba(38, 155, 230, 0.07);
+  gap: var(--space-xs);
+  background: var(--grey-100);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
   padding: 1.2rem 0.5rem;
 }
 
 .listItem {
-  padding: 0.7em 1.1em;
-  border-radius: 0.7em;
-  font-size: 1.07rem;
+  padding: var(--space-s) var(--space-m);
+  border-radius: var(--radius-sm);
+  /* font-size: 1.07rem; */
   color: var(--grey-700);
   cursor: pointer;
   transition:
@@ -44,43 +41,44 @@
   outline: none;
   border: none;
 }
-.listItem:hover,
-.listItem:focus {
+.listItem:not(.selected):hover,
+.listItem:not(.selected):focus {
   background: var(--grey-100);
-  color: var(--grey-900);
+  color: var(--grey-600);
 }
 .selected {
-  background: var(--grey-600);
+  background: var(--grey-500);
   color: var(--grey-100);
   font-weight: 700;
 }
-
 .extraDetail {
-  background: var(--grey-100, #f8fbfd);
-  border-radius: 1.1rem;
-  box-shadow: 0 2px 16px 0 rgba(38, 155, 230, 0.1);
-  padding: 1.1rem 1.1rem 0.9rem 1.1rem;
+  background: var(--grey-100);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-xs);
+  padding: var(--space-m);
   min-height: 120px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   margin-left: 0;
+  gap: var(--space-m);
 }
 
-.extraIcon {
-  font-size: 2.2rem;
-  color: var(--grey-700);
-  margin-bottom: 0.5rem;
-  opacity: 0.8;
+.extraTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 0.7em;
 }
+
+
 .extraTitle {
   color: var(--blue-700);
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-m);
 }
 .extraDesc {
   color: var(--grey-500);
-  font-size: 1.04rem;
+  font-size: var(--space-m);
   line-height: 1.5;
 }
 
@@ -88,7 +86,7 @@
   .splitLayout {
     display: flex;
     flex-direction: column;
-    gap: 1.2rem;
+    gap: var(--space-m);
     max-width: 100%;
   }
   .extrasList {
@@ -96,17 +94,17 @@
     min-width: 0;
     max-width: 100%;
     overflow-x: auto;
-    border-radius: 0.7rem;
-    padding: 0.7rem 0.2rem;
-    gap: 0.2em;
+    /* border-radius: 0.7rem; */
+    padding: var(--space-m) var(--space-xxs);
+    gap: var(--space-xxs);
   }
   .listItem {
     white-space: nowrap;
-    font-size: 1rem;
-    padding: 0.6em 0.9em;
+    /* font-size: 1rem; */
+    padding: var(--space-s) var(--space-m);
   }
   .extraDetail {
-    padding: 1.2rem 1rem 1rem 1rem;
+    padding: var(--space-m);
     min-height: 120px;
   }
 }
@@ -115,21 +113,22 @@
   /* font-size: 2rem; */
   font-weight: 800;
   color: var(--blue-900);
+  margin-bottom: var(--space-s);
   /* text-align: center; */
 }
 
 .extrasGrid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-  gap: 2rem;
+  gap: var(--space-xl);
   width: 100%;
 }
 
 .extraCard {
-  background: var(--grey-100, #f8fbfd);
-  border-radius: 1.1rem;
-  box-shadow: 0 2px 16px 0 rgba(38, 155, 230, 0.08);
-  padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+  background: var(--grey-50);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-sm);
+  padding: var(--space-l);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -139,27 +138,27 @@
 }
 .extraCard:hover {
   transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 6px 32px 0 rgba(38, 155, 230, 0.13);
+  box-shadow: var(--shadow-md);
 }
 .extraTitle {
   font-size: 1.18rem;
   font-weight: 700;
   color: var(--grey-700);
-  margin-bottom: 0.5em;
+  margin-bottom: var(--space-xs);
   letter-spacing: -0.5px;
 }
 .extraDesc {
   color: var(--grey-500);
-  font-size: 1.04rem;
+  font-size: var(--space-m);
   line-height: 1.5;
 }
 
 @media (max-width: 700px) {
   .extrasGrid {
     grid-template-columns: 1fr;
-    gap: 1.1rem;
+    gap: var(--space-m);
   }
   .extraCard {
-    padding: 1.1rem 0.8rem 0.8rem 0.8rem;
+    padding: var(--space-s);
   }
 }

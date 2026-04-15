@@ -1,26 +1,26 @@
 .servicesSection {
-  background: var(--grey-100);
-  padding: 4rem 2rem;
+  /* background: var(--grey-100); */
+  padding: var(--section-md);
 }
 
 .heading {
-  font-weight: 700;
-  color: var(--grey-500);
-  margin-bottom: 1.5rem;
-  text-align: center;
+  /* font-weight: 700; */
+  /* color: var(--grey-500); */
+  margin-bottom: var(--space-s);
+  /* text-align: center; */
 }
 .subtext {
     color: var(--grey-700);
-    font-size: 1.1rem;
-    text-align: center;
-    margin-bottom: 3rem;
+    /* font-size: 1.1rem; */
+    /* text-align: center; */
+    margin-bottom: var(--space-xxl);
 }
 
 .cardsWrapper {
   display: flex;
-  gap: 2rem;
-  justify-content: center;
-  flex-wrap: wrap;
+  gap: var(--space-l);
+  /* justify-content: center; */
+  /* flex-wrap: wrap; */
 }
 .bottomButton {
     display: flex;
@@ -35,12 +35,12 @@
 
 @media (max-width: 900px) {
   .servicesSection {
-    padding: 2rem 0.5rem;
+    padding: var(--section-sm);
   }
   .cardsWrapper {
-    gap: 1.2rem;
+    gap: var(--space-l);
   }
-  .heading {
-    font-size: 1.5rem;
-  }
+  /* .heading { */
+    /* font-size: 1.5rem; */
+  /* } */
 }

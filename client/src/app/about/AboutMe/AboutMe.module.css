@@ -3,9 +3,8 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 3.5rem;
+  gap: var(--space-xxl);
   padding: var(--section-lg);
-  /* margin: 0 auto 3.5rem auto; */
 }
 
 .aboutMeLeft {
@@ -17,14 +16,14 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 1.2rem;
-  margin-top: 2.5rem;
+  gap: var(--space-l);
+  margin-top: var(--space-xxl);
 }
 
 .aboutMeBadges {
   display: flex;
   flex-direction: column;
-  gap: 1.1rem;
+  gap: var(--space-m);
   align-items: flex-end;
 }
 
@@ -66,12 +65,12 @@
 }
 
 .aboutMeBadge {
-  background: var(--blue-50, #e3f0fa);
-  color: var(--blue-800, #1a365d);
+  background: var(--blue-50);
+  color: var(--blue-800);
   font-weight: 600;
   font-size: 1.08rem;
-  border-radius: 2rem;
-  padding: 0.6rem 1.5rem;
+  border-radius: var(--radius-sm);
+  padding: var(--space-xs) var(--space-l);
   box-shadow: 0 2px 8px 0 rgba(38, 155, 230, 0.07);
   border: 1.5px solid var(--blue-100, #cbe7fa);
   letter-spacing: 0.01em;
@@ -80,21 +79,21 @@
 
 .aboutMeSection h2 {
   color: var(--blue-900, #1a365d);
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--space-l);
 }
 
 .aboutMeSection p {
-  font-size: 1.15rem;
+  /* font-size: 1.15rem; */
   color: var(--grey-800, #2d3748);
   line-height: 1.7;
-  margin-bottom: 1.2rem;
+  margin-bottom: var(--space-l);
 }
 
 @media (max-width: 900px) {
   .aboutMeSection {
     flex-direction: column;
-    gap: 2.5rem;
-    padding: 2.5rem 1.5rem;
+    gap: var(--space-xxl);
+    padding: var(--space-xl) var(--space-l);
   }
   .aboutMeRight {
     align-items: flex-start;
@@ -107,16 +106,16 @@
 
 @media (max-width: 600px) {
   .aboutMeSection {
-    padding: 2rem 1rem;
+    padding: var(--space-xl) var(--space-m);
   }
-  .aboutMeSection h2 {
-    font-size: 1.4rem;
-  }
-  .aboutMeSection p {
+  /* .aboutMeSection h2 {
+    font-size: var(--space-l);
+  } */
+  /* .aboutMeSection p {
     font-size: 1rem;
-  }
+  } */
   .aboutMeBadge {
     font-size: 0.98rem;
-    padding: 0.5rem 1.1rem;
+    padding:var(--space-xs) var(--space-m);
   }
 }

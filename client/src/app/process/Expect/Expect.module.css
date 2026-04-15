@@ -9,11 +9,11 @@
 
 .heading {
   text-align: center;
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-m);
 
 }
 .span {
-  margin-bottom: 3rem;
+  margin-bottom: var(--space-xxl);
 }
 .expectList {
   list-style: none;
@@ -21,17 +21,17 @@
   margin: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem 2.5rem;
+  gap: var(--space-m) var(--space-l);
   max-width: 600px;
   justify-items: start;
 }
 
 .expectItem {
-  font-size: 1.13rem;
+  font-size: var(--space-m);
   color: var(--grey-800);
   display: flex;
   align-items: flex-start;
-  gap: 0.7em;
+  gap: var(--space-s);
   font-weight: 500;
   justify-content: flex-start;
   max-width: 260px;
@@ -40,8 +40,8 @@
 
 .check {
   color: var(--blue-500);
-  font-size: 1.25em;
-  margin-right: 0.3em;
+  font-size: var(--space-l);
+  margin-right: var(--space-xxs);
   font-weight: 700;
   flex-shrink: 0;
 }

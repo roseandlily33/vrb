@@ -26,7 +26,7 @@ const faq = [
 export default function MiniFaq() {
     return (
         <section className={styles.faqSection}>
-            <h2 className={styles.heading}>Mini FAQ</h2>
+            <h3 className={styles.heading}>Mini FAQ</h3>
             <ul className={styles.faqList}>
                 {faq.map((item, idx) => (
                     <li key={idx} className={styles.faqItem}>

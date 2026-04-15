@@ -2,9 +2,9 @@
   position: relative;
   width: 100%;
   height: 180px;
-  border-radius: 1rem 1rem 0 0;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
   overflow: hidden;
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--space-xs);
 }
 
 .projectImage {
@@ -12,7 +12,7 @@
   height: 100%;
   object-fit: cover;
   object-position: top;
-  border-radius: 1rem 1rem 0 0;
+  border-radius: var(--radius-sm) var(--radius-sm)0 0;
   display: block;
 }
 
@@ -24,7 +24,7 @@
   height: 100%;
   background: rgba(120, 120, 120, 0.35);
   transition: opacity 0.25s;
-  border-radius: 1rem 1rem 0 0;
+  border-radius:var(--radius-sm) var(--radius-sm)m 0 0;
   pointer-events: none;
   z-index: 1;
 }
@@ -32,26 +32,26 @@
 /* New custom card styles */
 .projectGrid {
   display: flex;
-  gap: 2.5rem;
+  gap: var(--space-xl);
   justify-content: space-between;
-  margin-block: 7rem;
-  margin-inline: 2rem;
+  margin-block: var(--space-xxxxl);
+  margin-inline:var(--space-xl);
   flex-wrap: wrap;
 }
 
 .projectCard {
   display: flex;
   flex-direction: column;
-  border-radius: 1.5rem;
+  border-radius: var(--radius-md);
   overflow: hidden;
   height: 400px;
   min-width: 320px;
   width: 400px;
   max-width: 100%;
-  box-shadow: 0 4px 24px 0 rgba(38, 155, 230, 0.12);
+  box-shadow: var(--shadow-md);
   background: var(--white);
   position: relative;
-  margin-bottom: 2rem;
+  margin-bottom: var(--space-xl);
   transition:
     box-shadow 0.2s,
     transform 0.2s;
@@ -76,19 +76,19 @@
   align-items: flex-end;
   justify-content: flex-start;
   position: relative;
-  padding: 2rem 2rem 1.5rem 2rem;
+  padding: var(--section-xxs);
   border: none;
 }
 
 .projectCardContent {
   position: relative;
   z-index: 2;
-  color: #fff;
+  color: var(--white);
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 0.7rem;
+  gap: var(--space-s);
   border: none;
 }
 
@@ -96,34 +96,34 @@
   display: inline-block;
   background: var(--blue-100);
   color: var(--blue-800);
-  font-size: 0.92rem;
+  /* font-size: 0.92rem; */
   font-weight: 600;
-  border-radius: 0.7rem;
-  padding: 0.25em 1em;
-  margin-bottom: 0.2rem;
-  box-shadow: 0 1px 4px 0 rgba(38, 155, 230, 0.1);
+  border-radius: var(--radius-sm);
+  padding: var(--space-xxs) var(--space-m);
+  margin-bottom: var(--space-xxs);
+  box-shadow: var(--shadow-xs);
 }
 
 .projectCardContent h3 {
-  font-size: 1.35rem;
+  /* font-size: 1.35rem; */
   font-weight: 700;
-  margin: 0 0 0.2rem 0;
-  color: #fff;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 0 var(--space-xxs) 0;
+  color: var(--white);
+  text-shadow:  var(--shadow-xs);
 }
 .projectCardContent p {
-  font-size: 1.05rem;
+  /* font-size: 1.05rem; */
   color: var(--grey-100);
-  margin: 0 0 0.2rem 0;
+  margin: 0 0 var(--space-xxs) 0;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
 .projectCardFooter {
-  background: #fff;
+  background: var(--white);
   height: 50px;
   min-height: 50px;
   max-height: 50px;
-  padding: 0 2rem;
+  padding: 0 var(--space-xl);
   display: flex;
   align-items: center;
   justify-content: center;

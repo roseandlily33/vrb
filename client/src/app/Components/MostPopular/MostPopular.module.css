@@ -1,0 +1,25 @@
+.mostPopularBadge {
+  display: inline-flex;
+  align-items: center;
+  font-weight: 700;
+  font-size: 0.98em;
+  letter-spacing: 0.01em;
+  margin-left: 0.5em;
+  background: linear-gradient(90deg, #4299e1 60%, #90cdf4 100%);
+  color: var(--white);
+  padding: var(--space-xxs) var(--space-m);
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.01em;
+  box-shadow: var(--shadow-sm);
+  border: 2.5px double var(--white);
+  position: absolute;
+  top: var(--space-m);
+  right:var(--space-m);
+  z-index: 3;
+  margin: 0;
+}
+
+.starIcon {
+  display: inline-block;
+  margin-right: 0.3em;
+}

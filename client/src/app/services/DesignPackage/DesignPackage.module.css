@@ -1,12 +1,12 @@
 .seeMoreBtn {
-  margin-top: 1.2rem;
+  margin-top: var(--space-l);
   background: var(--blue-100);
   color: var(--blue-700);
   font-weight: 700;
-  font-size: 1.08rem;
+  /* font-size: 1.08rem; */
   border: none;
-  border-radius: 1.2em;
-  padding: 0.7em 1.7em;
+  border-radius: var(--radius-md);
+  padding: var(--space-s) var(--space-l);
   cursor: pointer;
   transition:
     background 0.18s,
@@ -21,7 +21,7 @@
 }
 .featuredCard {
   /* border: 3px solid var(--blue-400, #4299e1); */
-  box-shadow: 0 6px 32px 0 rgba(38, 155, 230, 0.13);
+  box-shadow: var(--shadow-md);
   transform: scale(1.06);
   z-index: 2;
   position: relative;
@@ -32,10 +32,10 @@
   }
 }
 .bestFor {
-  font-size: 1.01rem;
+  font-size: var(--space-m);
   color: var(--blue-400);
   font-weight: 600;
-  margin-bottom: 0.5em;
+  margin-bottom:var(--space-s);
 }
 .bestFor span {
   color: var(--blue-700);
@@ -43,17 +43,17 @@
 }
 .timeline {
   color: var(--grey-400);
-  font-size: 1rem;
-  margin-bottom: 0.7rem;
+  font-size: var(--space-m);
+  margin-bottom: var(--space-s);
 }
 .price {
   font-size: 1.08rem;
   font-weight: 700;
   color: var(--blue-500);
   background: var(--blue-100);
-  border-radius: 0.7em;
-  padding: 0.18em 0.7em;
-  margin-left: 0.7em;
+  border-radius: var(--radius-md);
+  padding: var(--space-xxs) var(--space-s);
+  margin-left: var(--space-s);
 }
 .tabsWrapper {
   width: 100%;
@@ -63,8 +63,8 @@
 }
 .tabs {
   display: flex;
-  gap: 1.2rem;
-  margin-bottom: 2rem;
+  gap: var(--space-m);
+  margin-bottom: var(--space-xl);
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -73,7 +73,7 @@
   color: var(--blue-900);
   border: none;
   border-radius: 1.2em 1.2em 0 0;
-  padding: 0.7em 1.7em;
+  padding: var(--space-xxs) var(--space-s);
   font-size: 1.08rem;
   font-weight: 700;
   cursor: pointer;
@@ -87,7 +87,7 @@
 }
 .activeTab {
   background: var(--blue-700);
-  color: #fff;
+  color: var(--white);
   cursor: default;
 }
 .detailCard {
@@ -122,9 +122,9 @@
 }
 .subtext {
   font-size: 1.04rem;
-  color: var(--blue-500, #4299e1);
+  color: var(--blue-500);
   font-weight: 500;
-  margin-bottom: 2rem;
+  margin-bottom: var(--space-xl);
 }
 
 .designSection {
@@ -136,30 +136,28 @@
 }
 
 .heading {
-  font-size: 2rem;
-  font-weight: 800;
   color: var(--blue-900);
-  margin-bottom: 1.5rem;
+  margin-bottom:var(--space-l);
   text-align: center;
 }
 
 .packagesGrid {
   display: flex;
-  gap: 2.5rem;
+  gap: var(--space-xl);
   width: 100%;
   justify-content: center;
   flex-wrap: wrap;
 }
 
 .packageBox {
-  background: var(--blue-50, #f8fbfd);
-  border-radius: 1.2rem;
+  background: var(--blue-50);
+  border-radius:var(--radius-md);
   /* border-left: 6px solid var(--blue-400, #4299e1); */
-  box-shadow: 0 2px 16px 0 rgba(38, 155, 230, 0.08);
-  padding: 2.2rem 2rem 2rem 2.2rem;
+  box-shadow: var(--shadow-sm);
+  padding: var(--section-xxs);
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: var(--space-l);
   min-width: 290px;
   max-width: 370px;
   flex: 1 1 320px;
@@ -171,16 +169,16 @@
 .headerRow {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--space-xs);
   align-items: flex-start;
-  margin-bottom: 0.2rem;
+  margin-bottom: var(--space-xxs);
 }
 
 .packageTitle {
-  font-size: 1.3rem;
+  font-size: var(--space-l);
   font-weight: 700;
   color: var(--blue-900);
-  margin-bottom: 0.1rem;
+  margin-bottom: var(--space-xxs);
   text-align: left;
   letter-spacing: -0.5px;
 }
@@ -192,96 +190,90 @@
   font-weight: 700;
   font-size: 0.98rem;
   padding: 0.22em 1.1em;
-  border-radius: 1.2em;
-  margin: 0.5em 0 0.5em 0;
+  border-radius: var(--radius-pill);
+  margin: var(--space-xs) 0 var(--space-xs) 0;
   letter-spacing: 0.01em;
-  box-shadow: 0 2px 8px 0 rgba(38, 155, 230, 0.1);
+  box-shadow: var(--shadow-xs);
   border: 2.5px double #fff;
   position: relative;
   z-index: 2;
 }
 
 .packageBox {
-  /* width: 70%; */
-  /* background: var(--blue-50, #f8fbfd); */
-  /* border-radius: 1.2rem; */
-  /* border-left: 6px solid var(--blue-400); */
-  /* box-shadow: 0 2px 16px 0 rgba(38, 155, 230, 0.08); */
-  /* padding: 2.2rem 2rem 2rem 2.2rem; */
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: var(--space-l);
 }
 
 .headerRow {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: var(--space-xs);
   align-items: flex-start;
-  margin-bottom: 0.2rem;
+  margin-bottom: var(--space-xxs);
 }
 
 .heading {
-  font-size: 2rem;
-  font-weight: 800;
+  /* font-size: 2rem; */
+  /* font-weight: 800; */
   color: var(--blue-900);
-  margin-bottom: 0.1rem;
+  margin-bottom:var(--space-xxs);
   text-align: left;
-  letter-spacing: -1px;
+  /* letter-spacing: -1px; */
 }
 
 .metaRow {
   display: flex;
-  gap: 1.1rem;
-  margin-bottom: 0.2rem;
+  gap: var(--space-m);
+  margin-bottom:var(--space-xxs);
   align-items: center;
 }
 .price {
-  font-size: 1.08rem;
+  /* font-size: 1.08rem; */
   font-weight: 700;
   color: var(--blue-500);
 }
 .timeline {
   color: var(--grey-400);
-  font-size: 0.98rem;
+  /* font-size: 0.98rem; */
   align-self: center;
 }
 .desc {
   color: var(--grey-400);
-  font-size: 1.09rem;
-  margin-bottom: 0.7rem;
+  /* font-size: 1.09rem; */
+  margin-bottom: var(--space-m);
   text-align: left;
 }
 .featuresList {
-  margin: 0.5rem 0 0 0;
+  margin: var(--space-xs) 0 0 0;
   padding: 0;
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
+  gap: var(--space-xs);
 }
 .featureItem {
   display: flex;
   align-items: center;
-  gap: 0.7em;
+  gap: var(--space-s);
   color: var(--blue-700);
-  font-size: 1.05rem;
-  margin-bottom: 0.1em;
+  /* font-size: 1.05rem; */
+  margin-bottom: var(--space-xxs);
 }
 .icon {
   color: var(--blue-400);
-  font-size: 1.1em;
+  /* font-size: 1.1em; */
   flex-shrink: 0;
 }
 
 @media (max-width: 700px) {
   .designSection {
-    padding: 1.2rem 0.2rem;
+    /* padding: 1.2rem 0.2rem; */
   }
   .packageBox {
-    padding: 1.2rem 0.7rem 1rem 1rem;
+    /* padding: 1.2rem 0.7rem 1rem 1rem; */
   }
   .heading {
-    font-size: 1.3rem;
+    /* font-size: 1.3rem; */
   }
 }

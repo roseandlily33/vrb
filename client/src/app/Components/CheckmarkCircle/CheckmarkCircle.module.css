@@ -1,0 +1,14 @@
+.circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.2em;
+  height: 2.2em;
+  border-radius: 50%;
+  background: var(--blue-100, #e6f4fe);
+  box-shadow: 0 2px 8px 0 rgba(38, 155, 230, 0.07);
+}
+
+.icon {
+  display: block;
+}

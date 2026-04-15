@@ -1,9 +1,9 @@
 .contactForm {
   width: 60%;
-  padding: 2.5rem 2rem;
+  padding: var(--section-xxs);
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: var(--space-m);
 }
 
 @media (min-width: 900px) {

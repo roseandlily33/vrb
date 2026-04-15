@@ -1,28 +1,38 @@
 .projectsSection {
-  padding: 4rem 2rem;
-  margin: 3rem auto;
+  padding: var(--section-md);
+  /* margin: 3rem auto; */
 }
 
 .heading {
-  font-size: 2.2rem;
-  font-weight: 700;
-  color: var(--grey-900);
-  margin-bottom: 2.5rem;
+  /* font-size: 2.2rem; */
+  /* font-weight: 700; */
+  /* color: var(--grey-900); */
+  margin-bottom: var(--space-xl);
   text-align: center;
 }
 
 .carousel {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: var(--space-xl);
 }
 
 .projectCard {
   display: flex;
-  border-radius: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  /* border-radius: var(--radius-md); */
   overflow: hidden;
   align-items: stretch;
-  min-height: 260px;
+    flex: 1 1 260px;
+  /* min-width: 220px; */
+  /* max-width: 340px; */
+  max-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 2px solid red; */
 }
 
 .imageWrapper {
@@ -31,7 +41,9 @@
   max-width: 340px;
   max-height: 200px;
   display: flex;
-  box-shadow: 0 2px 16px 0 rgba(38, 155, 230, 0.08);
+  border: var(--border-light);
+  box-shadow: var(--shadow-sm);
+  /* border: 2px solid red; */
 }
 
 .projectImage {
@@ -39,50 +51,46 @@
   height: auto;
   object-fit: cover;
   object-position: top;
-  border-radius: 12px;
+  border-radius: var(--radius-m);
+  /* border: 2px solid red; */
 }
 
 .projectDetails {
   flex: 2 1 400px;
-  padding: 2rem 2.5rem;
+  padding: var(--section-xxs);
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .projectName {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--blue-800);
-  margin-bottom: 0.7rem;
+  /* font-size: 1.5rem; */
+  /* font-weight: 700; */
+  color: var(--blue-900);
+  margin-bottom: var(--space-xs);
 }
 
 .projectDescription {
-  font-size: 1.1rem;
+  /* font-size: 1.1rem; */
   color: var(--grey-800);
-  margin-bottom: 1.2rem;
+  margin-bottom: var(--space-m);
 }
 
 .techList {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem;
-  margin-bottom: 1.5rem;
+  gap: var(--space-s);
+  margin-bottom: var(--space-l);
 }
 
 .techItem {
   background: var(--blue-100);
   color: var(--blue-800);
-  font-size: 0.95rem;
+  font-size: var(--space-m);
   font-weight: 600;
-  border-radius: 0.5rem;
-  padding: 0.3em 0.9em;
+  border-radius: var(--radius-sm);
+  padding: var(--space-xs) var(--space-s);
 }
-
-/* .learnMoreLink {
- 
-} */
-
 @media (max-width: 900px) {
   .projectCard {
     flex-direction: column;
@@ -93,9 +101,9 @@
     border-radius: 1.5rem 1.5rem 0 0;
   }
   .projectImage {
-    border-radius: 1.5rem 1.5rem 0 0;
+    border-radius: var(--radius-md) var(--radius-md) 0 0;
   }
   .projectDetails {
-    padding: 1.2rem 1rem;
+    padding: var(--space-m);
   }
 }

@@ -1,6 +1,7 @@
 .processTabs {
-  padding: var(--section-lg);
+  padding: 4rem 12rem;
+  /* border: 2px solid red; */
 }
 .processTabs h2 {
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-m);
 }

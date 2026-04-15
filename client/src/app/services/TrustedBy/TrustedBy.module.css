@@ -1,29 +1,32 @@
 .trustedSection {
   width: 100%;
-  padding: var(--section-sm);
+  padding: var(--section-lg);
   text-align: center;
-  background: linear-gradient(180deg, var(--blue-50), #ffffff);
+  background: var(--background-gradient);
 }
 
 .heading {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--blue-900, #1a365d);
-  margin-bottom: 2.2rem;
+  /* font-size: var(--space-l); */
+  /* font-weight: 700; */
+  color: var(--grey-600);
+  font-weight: 500;
+  text-transform: lowercase;
+  letter-spacing: 0.03rem;
+  margin-bottom: var(--space-xl);
 }
 
 .logoRow {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  gap: 3.5rem;
+  gap: var(--space-xxl);
 }
 
 .logoCol {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.7rem;
+  gap: var(--space-s);
   min-width: 120px;
   /* max-width: 140px; */
 }
@@ -45,13 +48,13 @@
     opacity 0.18s;
   /* background: #f7f7f7; */
   /* border-radius: 0.5rem; */
-  padding: 0.3rem;
+  padding: var(--space-xxs);
   box-sizing: border-box;
 }
 .companyName {
-  font-size: 1.01rem;
-  color: var(--grey-500, #718096);
-  margin-top: 0.2rem;
+  font-size: var(--space-m);
+  color: var(--grey-500);
+  margin-top: var(--space-xxs);
   font-weight: 500;
   text-align: center;
   letter-spacing: 0.01em;

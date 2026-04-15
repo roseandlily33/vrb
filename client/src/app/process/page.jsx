@@ -34,28 +34,48 @@ export default function Process() {
             marginTop: "2.2rem",
             minHeight: 120,
             display: "flex",
-            flexDirection: 'column',
-            gap: "1rem",
+            flexDirection: 'row',
+            gap: "2.5rem",
+            alignItems: 'flex-start',
           }}
         >
-          <h3
+          <span
             style={{
-              color: "var(--blue-700)",
-              fontWeight: 700,
+              fontSize: '6.5rem',
+              fontWeight: 800,
+              background: 'linear-gradient(90deg, var(--blue-700), var(--blue-400))',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              letterSpacing: '-2px',
+              lineHeight: 1,
+              minWidth: '7.5rem',
+              display: 'block',
+              marginTop: '0.1em',
             }}
           >
-            {PROCESS_STEPS[activeStep].label}
-          </h3>
-          <h5>{PROCESS_STEPS[activeStep].microHeading}</h5>
-          <p
-            style={{
-              color: "var(--grey-500)",
-              fontSize: "1.04rem",
-              lineHeight: 1.5,
-            }}
-          >
-            {PROCESS_STEPS[activeStep].description}
-          </p>
+            {String(activeStep + 1).padStart(2, '0')}
+          </span>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <h3
+              style={{
+                color: "var(--blue-700)",
+                fontWeight: 700,
+              }}
+            >
+              {PROCESS_STEPS[activeStep].label}
+            </h3>
+            <h5>{PROCESS_STEPS[activeStep].microHeading}</h5>
+            <p
+              style={{
+                color: "var(--grey-500)",
+                fontSize: "1.04rem",
+                lineHeight: 1.5,
+              }}
+            >
+              {PROCESS_STEPS[activeStep].description}
+            </p>
+          </div>
         </div>
       </section>
       <Expect />

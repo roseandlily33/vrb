@@ -1,4 +1,4 @@
-
+"use client";
 import styles from "./Timelines.module.css";
 import { FaSearch, FaPencilRuler, FaCode, FaRocket } from "react-icons/fa";
 
