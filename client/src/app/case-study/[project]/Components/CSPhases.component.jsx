@@ -1,7 +1,9 @@
 import styles from "../page.module.css";
+import Carousel from "./Extras/Carousel/Carousel";
 import { PhaseDescriptions } from "../ArielPerformanceHorses/pages";
 
-export default function CSPhases() {
+// phaseImages: { [phase: string]: { url, description }[] }
+export default function CSPhases({ phaseImages = {} }) {
     return (
         <section className={styles.phasesSection}>
             <h2 className={styles.phasesHeading}>Project Phases</h2>
@@ -18,6 +20,11 @@ export default function CSPhases() {
                                     <li key={pt} className={styles.phasePoint}>{pt}</li>
                                 ))}
                             </ul>
+                        )}
+                        {phaseImages[phase.phase] && phaseImages[phase.phase].length > 0 && (
+                            <div style={{ marginTop: "1.2rem" }}>
+                                <Carousel slides={phaseImages[phase.phase]} />
+                            </div>
                         )}
                     </div>
                 ))}

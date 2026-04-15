@@ -88,13 +88,8 @@ export const mockupPages = [
 
 export const PhaseDescriptions = [
   {
-    phase: 'Phase 2',
+    phase: 'Phase 1',
     description: 'Discussed goals of the project, where to take it and what some current issues were.'
-  }
-  {
-    phase: "Phase 2",
-    description:
-      "Starting to get a feel for the brand and the content, and started to make some small changes to the layout and design",
   },
   {
     phase: "Phase 2",

@@ -1,5 +1,6 @@
 "use client";
 import styles from "./PortfolioLink.module.css";
+import CTAButton from "@/app/Components/CTAButton/CTAButton.component";
 import PrimaryButton from "@/app/Components/PrimaryButton/PrimaryButton.component";
 
 const PortfolioLink = () => {
@@ -16,9 +17,11 @@ const PortfolioLink = () => {
           rel="noopener noreferrer"
           style={{ textDecoration: "none" }}
         >
-          <PrimaryButton>View Portfolio</PrimaryButton>
+          <CTAButton>View Portfolio</CTAButton>
         </a>
       </div>
+        <span>This takes you to my portfolio on a different site</span>
+
     </section>
   );
 };

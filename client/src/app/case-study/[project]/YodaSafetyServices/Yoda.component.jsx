@@ -1,3 +1,4 @@
+"use client";
 import styles from "../page.module.css";
 import CSHero from "../Components/CSHero.component";
 import CTA2 from "@/app/Components/CTA/CTA2/CTA2.component";
