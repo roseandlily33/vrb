@@ -1,4 +1,4 @@
-
+import CheckmarkCircle from '../../Components/CheckmarkCircle/CheckmarkCircle.component';
 import styles from "./Expect.module.css";
 
 const EXPECT_LIST = [
@@ -18,7 +18,7 @@ export default function Expect() {
             <ul className={styles.expectList}>
                 {EXPECT_LIST.map((item) => (
                     <li className={styles.expectItem} key={item}>
-                        <span className={styles.check}>✔</span> {item}
+                        <CheckmarkCircle />{item}
                     </li>
                 ))}
             </ul>

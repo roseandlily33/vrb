@@ -23,8 +23,9 @@ export default function Services() {
       <Packages />
       <TrustedBy />
       {/* <DesignPackage /> */}
-      <Process />
       <Retainers />
+      <Process />
+
       <Extras />
       <MiniFaq />
       <CTA2 />

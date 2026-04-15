@@ -36,27 +36,26 @@ export default function Process() {
             display: "flex",
             flexDirection: 'row',
             gap: "2.5rem",
-            alignItems: 'flex-start',
           }}
         >
           <span
             style={{
-              fontSize: '6.5rem',
+              fontSize: '10rem',
               fontWeight: 800,
+              minHeight: '100%',
               background: 'linear-gradient(90deg, var(--blue-700), var(--blue-400))',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
               letterSpacing: '-2px',
               lineHeight: 1,
-              minWidth: '7.5rem',
               display: 'block',
               marginTop: '0.1em',
+              // border: '2px solid blue',
             }}
           >
             {String(activeStep + 1).padStart(2, '0')}
           </span>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', justifyContent: 'center' }}>
             <h3
               style={{
                 color: "var(--blue-700)",
