@@ -10,7 +10,7 @@ const ToolsTechnologies = () => {
             <p>Focused on building high-performance, scalable web applications using modern technologies</p>
             {Object.entries(skills).map(([section, skillList]) => (
                 <div key={section} className={styles.skillSection}>
-                    <h3>{section}</h3>
+                    <h4>{section}</h4>
                     <div className={styles.skillsGrid}>
                         {skillList.map((skill, index) => (
                             <div key={index} className={styles.skillCard}>

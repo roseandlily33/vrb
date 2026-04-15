@@ -69,7 +69,7 @@
 }
 
 .experienceText {
-  font-size:var(--space-m);˝
+  font-size:var(--space-m);
   color: var(--grey-800, #2d3748);
   line-height: 1.7;
   margin: 0;
@@ -78,9 +78,6 @@
 @media (max-width: 600px) {
   .experienceSection {
     padding: var(--space-l) var(--space-s);
-  }
-  .experienceSection h2 {
-    font-size: 1.15rem;
   }
   .experienceItem {
     font-size: var(--space-m);

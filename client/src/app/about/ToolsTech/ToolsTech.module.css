@@ -21,7 +21,7 @@
 .skillsGrid {
   display: flex;
   flex-wrap: wrap;
-  gap: var(--space-m) var(--space-);
+  gap: var(--space-m);
   margin-bottom: var(--space-xs);
 }
 
@@ -32,7 +32,7 @@
   padding: 0;
 }
 
-.skillSection h3 {
+.skillSection h4 {
   margin-bottom: var(--space-m);
   font-weight: 600;
   color: var(--blue-400);

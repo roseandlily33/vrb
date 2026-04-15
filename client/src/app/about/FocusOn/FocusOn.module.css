@@ -24,30 +24,10 @@
   margin-bottom: var(--space-m);
   padding-left: var(--space-xl);;
   position: relative;
-}
-.focusItem::before {
-  content: "";
-  display: inline-block;
-  position: absolute;
-  left: 0;
-  top: 0.18rem;
-  width: 1.35em;
-  height: 1.35em;
-  background: var(--blue-100, #e3f0fa);
-  border-radius: var(--radius-pill);
-  box-shadow: var(--shadow-sm);
+  display: flex;
+  gap: var(--space-m);
 }
 
-.focusItem::after {
-  content: "\2714";
-  position: absolute;
-  left: 0.32em;
-  top: 0.18em;
-  color: var(--blue-800, #1a365d);
-  /* font-size: var(--space-m); */
-  font-weight: bold;
-  z-index: 1;
-}
 
 @media (max-width: 600px) {
   .focusList {

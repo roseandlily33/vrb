@@ -1,4 +1,5 @@
 import styles from "./FocusOn.module.css";
+import CheckmarkIcon from '../../Components/CheckmarkCircle/CheckmarkCircle.component';
 
 const FocusOn = () => {
   const focuses = [
@@ -12,7 +13,7 @@ const FocusOn = () => {
       <h3>What I Focus On</h3>
       {focuses.map((focus, index) => (
         <li key={index} className={styles.focusItem}>
-          {focus}
+          <CheckmarkIcon />{focus}
         </li>
       ))}
     </ul>
