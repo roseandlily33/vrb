@@ -12,6 +12,7 @@
     box-shadow 0.2s;
   appearance: none;
   cursor: pointer;
+  margin-bottom: var(--space-l);
 }
 
 .select:focus {

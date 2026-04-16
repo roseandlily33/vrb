@@ -1,6 +1,6 @@
 .faqSection {
   background: var(--grey-50);
-  padding: var(--section-md);
+  padding: var(--section-lg);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -41,10 +41,55 @@
   align-items: center;
   justify-content: space-between;
   cursor: pointer;
-  transition: background 0.15s;
+  transition:
+    background 0.18s,
+    box-shadow 0.18s;
+  border-radius: var(--radius-md);
 }
-.faqQuestion:hover {
-  background: var(--blue-200);
+.faqQuestion:hover,
+.faqQuestion:focus-visible {
+  background: var(--blue-100);
+  box-shadow: 0 2px 12px rgba(27, 137, 226, 0.07);
+}
+/* Still have questions section */
+
+.stillHaveQuestions {
+  margin-top: var(--space-xxl);
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-m);
+  width: 100%;
+  /* margin-bottom: var(--space-l); */
+  position: relative;
+  overflow: visible;
+}
+
+.stillHaveQuestions p {
+  color: var(--blue-800);
+  font-weight: 700;
+  font-size: 1.13rem;
+  margin-bottom: 0;
+  letter-spacing: 0.01em;
+}
+
+.getInTouchLink {
+  color: var(--blue-700);
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.08rem;
+  margin-left: var(--space-s);
+  padding: 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  transition: color 0.18s;
+  display: inline;
+}
+.getInTouchLink:hover {
+  color: var(--blue-900);
 }
 
 .chevron {
@@ -66,7 +111,7 @@
   max-height: 0;
   opacity: 0;
   overflow: hidden;
-  padding-top: var(--space-m);
+  padding: var(--space-l);
 }
 .faqAnswer.open {
   max-height: 300px;
@@ -88,5 +133,13 @@
   }
   .faqAnswer {
     font-size: var(--space-m);
+  }
+  .stillHaveQuestions {
+    padding: var(--space-l) var(--space-s);
+    border-left: 4px solid var(--blue-700);
+    border-radius: var(--radius-md);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
   }
 }

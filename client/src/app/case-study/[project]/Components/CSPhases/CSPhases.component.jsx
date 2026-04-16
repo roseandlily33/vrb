@@ -1,6 +1,6 @@
-import styles from "../page.module.css";
-import Carousel from "./Extras/Carousel/Carousel";
-import { PhaseDescriptions } from "../ArielPerformanceHorses/pages";
+import styles from "./CSPhases.module.css";
+import Carousel from "../Extras/Carousel/Carousel";
+import { PhaseDescriptions } from "../../ArielPerformanceHorses/pages";
 
 // phaseImages: { [phase: string]: { url, description }[] }
 export default function CSPhases({ phaseImages = {} }) {

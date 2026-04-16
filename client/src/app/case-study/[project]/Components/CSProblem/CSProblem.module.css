@@ -1,0 +1,8 @@
+/* Problem Section */
+.problem {
+  margin-top: var(--space-l);
+  margin-bottom: var(--space-l);
+  padding: var(--space-m) 0 var(--space-xs) 0;
+  background: var(--white);
+  /* border-bottom: 1.5px solid var(--blue-100); */
+}

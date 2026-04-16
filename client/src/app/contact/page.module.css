@@ -4,6 +4,7 @@
 .sideBySide {
   display: flex;
   justify-content: space-around;
+  align-items: center;
   gap: var(--space-xl);
   padding: var(--section-xs);
   /* border: 2px solid red; */

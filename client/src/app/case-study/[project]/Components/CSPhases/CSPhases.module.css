@@ -1,0 +1,104 @@
+/* Phases Section */
+.phasesSection {
+  width: 100%;
+  margin: var(--space-xxl) 0 var(--space-xl) 0;
+  padding: 0 var(--space-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.phasesHeading {
+  margin-bottom: var(--space-xl);
+  text-align: center;
+}
+
+.phasesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--space-xl);
+  width: 100%;
+  max-width: 1100px;
+}
+
+.phaseCard {
+  background: var(--blue-50, #f8fbfd);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  padding: var(--section-xxs);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  min-width: 0;
+  position: relative;
+  transition:
+    box-shadow 0.18s,
+    transform 0.18s;
+}
+.phaseCard:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-4px) scale(1.02);
+}
+.phaseHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  margin-bottom: var(--space-xxs);
+}
+.phaseBadge {
+  display: inline-block;
+  background: linear-gradient(90deg, #4299e1 60%, #90cdf4 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.08rem;
+  padding: 0.22em 1.1em;
+  border-radius: 1.2em;
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 8px 0 rgba(38, 155, 230, 0.1);
+  border: 2.5px double #fff;
+  position: relative;
+  z-index: 2;
+}
+.phaseDesc {
+  color: var(--grey-700);
+  font-size: var(--space-m);
+  margin-bottom: var(--space-s);
+  text-align: left;
+}
+.phasePoints {
+  margin: var(--space-xs) 0 0 0;
+  padding-left: var(--space-m);
+  color: var(--blue-900);
+  font-size: var(--space-m);
+  list-style: disc;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+.phasePoint {
+  color: var(--blue-700);
+  font-size: var(--space-m);
+  margin-bottom: var(--space-xxs);
+}
+
+@media (max-width: 1000px) {
+  .phasesGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-l);
+  }
+}
+@media (max-width: 700px) {
+  .phasesGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-m);
+  }
+  .phasesSection {
+    padding: 0 var(--space-xs);
+  }
+  .phaseCard {
+    padding: var(--space-m) var(--space-s) var(--space-m) var(--space-m);
+  }
+  .phasesHeading {
+    font-size: var(--space-l);
+  }
+}

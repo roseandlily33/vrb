@@ -1,13 +1,13 @@
 "use client";
 import styles from "../page.module.css";
-import CSHero from "../Components/CSHero.component";
+import CSHero from "../Components/CSHero/CSHero.component";
 import CTA2 from "@/app/Components/CTA/CTA2/CTA2.component";
 import CSKeyPages from "../Components/CSKeyPages.component";
-import CSProblem from "../Components/CSProblem.component";
+import CSProblem from "../Components/CSProblem/CSProblem.component";
 import CSProcess from "../Components/CSProcess.component";
 import CSResults from "../Components/CSResults.component";
-import CSTechnologies from "../Components/CSTechnologies.component";
-import KeyFeatures from "../Components/CSKeyFeatures.component";
+import CSTechnologies from "../Components/CSTechnologies/CSTechnologies.component";
+import KeyFeatures from "../Components/CSKeyFeatures/CSKeyFeatures.component";
 import { results } from "./results";
 import { pages } from "./pages";
 import Breadcrumbs from "../Components/Extras/Breadcrumbs/Breadcrumbs.component";

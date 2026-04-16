@@ -24,27 +24,34 @@ const contactDetails = [
 export default function ContactInfo() {
   return (
     <aside className={styles.contactInfoSection}>
-      <h3 className={styles.heading}>Contact Information</h3>
       <ul className={styles.infoList}>
         {contactDetails.map((item) => (
           <li className={styles.infoItem} key={item.label}>
             <span className={styles.iconWrapper}>{item.icon}</span>
-            <span className={styles.infoLabel}>{item.label}:</span>
-            {item.link ? (
-              <a
-                href={item.link}
-                className={styles.infoValue}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {item.value}
-              </a>
-            ) : (
-              <span className={styles.infoValue}>{item.value}</span>
-            )}
+            <div className={styles.infoTextBlock}>
+              <span className={styles.infoLabel}>{item.label}</span>
+              {item.link ? (
+                <a
+                  href={item.link}
+                  className={styles.infoValue}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {item.value}
+                </a>
+              ) : (
+                <span className={styles.infoValue}>{item.value}</span>
+              )}
+            </div>
           </li>
         ))}
       </ul>
+      <p className={styles.booking}>
+        Currently booking in 2-4 weeks in advance, depending on the project
+        scope and requirements. Please reach out to discuss your project
+        timeline and availability.
+      </p>
+      <p className={styles.responseTime}>I typically respond to inquiries within 24-48 hours.</p>
     </aside>
   );
 }

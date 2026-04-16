@@ -13,7 +13,7 @@ export default function Faq() {
 
   return (
     <section className={styles.faqSection}>
-      <h3 className={styles.faqHeading}>Frequently Asked Questions</h3>
+      <h3 className={styles.faqHeading}>Questions you might have</h3>
       <ul className={styles.faqList}>
         {faqQuestions?.map((item, idx) => (
           <li className={styles.faqItem} key={item.question}>
@@ -40,6 +40,10 @@ export default function Faq() {
           </li>
         ))}
       </ul>
+      <div className={styles.stillHaveQuestions}>
+        <p>Still have questions?</p>
+        <a href="/contact" className={styles.getInTouchLink}>Get in touch</a>
+      </div>
     </section>
   );
 }

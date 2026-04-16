@@ -1,11 +1,10 @@
-import styles from '../page.module.css';
-import { FaCheckCircle } from "react-icons/fa";
+import styles from './CSKeyFeatures.module.css';
 const CSKeyFeatures = ({ keyFeatures }) => {
   return (
     <section className={styles.features}>
-      <div className={styles.rightTitle} style={{ marginBlock: "1.1rem" }}>
-        <FaCheckCircle /> Key Features
-      </div>
+      <h4 className={styles.rightTitle}>
+         Key Features
+      </h4>
       <ul className={styles.featuresGrid}>
         {keyFeatures?.map((feature, index) => (
           <li key={index}>{feature}</li>

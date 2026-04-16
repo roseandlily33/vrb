@@ -31,7 +31,7 @@ export default function ContactForm() {
   };
 
   return (
-    <form className={styles.contactForm} onSubmit={handleSubmit}>
+    <form className={styles.contactForm} onSubmit={handleSubmit} id="contact">
       <h1>Let&apos;s work together</h1>
       <p>
         I&apos;m currently available for freelance work and open to new
@@ -54,6 +54,14 @@ export default function ContactForm() {
         placeholder="you@email.com"
         required
       />
+      <Textarea
+        label="Message"
+        name="message"
+        value={form.message}
+        onChange={handleChange}
+        placeholder="Tell me about your project..."
+        required
+      />
       <Select
         name="service"
         value={form.service}
@@ -68,14 +76,7 @@ export default function ContactForm() {
         <option value="performance">Performance</option>
         <option value="other">Other</option>
       </Select>
-      <Textarea
-        label="Message"
-        name="message"
-        value={form.message}
-        onChange={handleChange}
-        placeholder="Tell me about your project..."
-        required
-      />
+
       <PrimaryButton type="submit" disabled={submitting}>
         {submitting ? "Sending..." : submitted ? "Sent!" : "Send Message"}
       </PrimaryButton>

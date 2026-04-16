@@ -1,4 +1,4 @@
-import styles from "../page.module.css";
+import styles from "./CSProblem.module.css";
 
 const CSProblem = ({ problemDescription, homeSrc }) => {
   return (

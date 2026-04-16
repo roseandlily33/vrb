@@ -1,10 +1,17 @@
-import styles from "../page.module.css";
+import styles from "./CSTechnologies.module.css";
 import PillButton from "@/app/Components/PillButton/PillButton.component";
 const CSTechnologies = ({ technologies = [] }) => {
   return (
     <section className={styles.technologies}>
       <h2>Technologies Used</h2>
-      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.8rem', marginTop: '1.2rem' }}>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          gap: "0.8rem",
+          marginTop: "1.2rem",
+        }}
+      >
         {technologies?.map((t) => (
           <PillButton key={t} tech={t}>
             {t}

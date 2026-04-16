@@ -1,4 +1,4 @@
-import styles from "../page.module.css";
+import styles from "./CSHero.module.css";
 import PrimaryButton from "@/app/Components/PrimaryButton/PrimaryButton.component";
 import {
     FaCalendarAlt,
@@ -41,30 +41,26 @@ const CSHero = ({
                 )}
             </div>
             <div className={styles.right}>
-                <div className={styles.metaRow}>
-                    <div className={`${styles.rightTitle} ${styles.metaLabel}`}>
-                        <FaCalendarAlt /> Date
-                    </div>
-                    <div className={styles.metaValue}><p>{date}</p></div>
-                </div>
-                <div className={styles.metaRow}>
-                    <div className={`${styles.rightTitle} ${styles.metaLabel}`}>
-                        <FaCheckCircle /> Status
-                    </div>
-                    <div className={styles.metaValue}><p>{status}</p></div>
-                </div>
-                <div className={styles.metaRow}>
-                    <div className={`${styles.rightTitle} ${styles.metaLabel}`}>
-                        <FaBriefcase /> Type
-                    </div>
-                    <div className={styles.metaValue}><p>{type}</p></div>
-                </div>
-                <div className={styles.metaRow}>
-                    <div className={`${styles.rightTitle} ${styles.metaLabel}`}>
-                        <FaUserTie /> Role
-                    </div>
-                    <div className={styles.metaValue}><p>{role}</p></div>
-                </div>
+                <table className={styles.metaTable}>
+                    <tbody>
+                        <tr>
+                            <td className={`${styles.rightTitle} ${styles.metaLabel}`}><FaCalendarAlt /> Date</td>
+                            <td className={styles.metaValue}>{date}</td>
+                        </tr>
+                        <tr>
+                            <td className={`${styles.rightTitle} ${styles.metaLabel}`}><FaCheckCircle /> Status</td>
+                            <td className={styles.metaValue}>{status}</td>
+                        </tr>
+                        <tr>
+                            <td className={`${styles.rightTitle} ${styles.metaLabel}`}><FaBriefcase /> Type</td>
+                            <td className={styles.metaValue}>{type}</td>
+                        </tr>
+                        <tr>
+                            <td className={`${styles.rightTitle} ${styles.metaLabel}`}><FaUserTie /> Role</td>
+                            <td className={styles.metaValue}>{role}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </section>
     );
