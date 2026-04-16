@@ -1,41 +1,72 @@
+
 .expectSection {
   width: 100%;
-  padding: var(--section-lg);
+  padding: var(--section-xl);
   display: flex;
   flex-direction: column;
   align-items: center;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
+  /* border: 2px solid red; */
 }
 
 .heading {
-  text-align: center;
-  margin-bottom: var(--space-m);
+  /* text-align: left; */
+  margin-bottom: var(--space-xxxl);
+  /* border: 2px solid yellow; */
+}
 
-}
-.span {
-  margin-bottom: var(--space-xxl);
-}
 .expectList {
   list-style: none;
   padding: 0;
   margin: 0;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-l);
-  max-width: 900px;
+  column-gap: var(--space-xxl);
+  row-gap: var(--space-l);
+  max-width: 1000px;
   justify-items: start;
+  /* border: 2px solid orange; */
+  width: 100%;
+  align-items: start;
 }
 
 .expectItem {
-  font-size: var(--space-m);
-  color: var(--grey-800);
+  color: var(--blue-700);
   display: flex;
   align-items: flex-start;
-  gap: var(--space-m);
-  font-weight: 500;
   justify-content: flex-start;
   max-width: 460px;
   line-height: 1.7;
+  background: none;
+  font-size: 1.08rem;
+  font-weight: 400;
+  padding: 0;
+  transition:
+    transform var(--transition-fast),
+    color var(--transition-fast);
+}
+.expectItem:hover {
+  /* color: var(--blue-700); */
+  transform: translateY(4px);
+}
+
+.itemContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+}
+
+.itemTitle {
+  font-size: 1.13rem;
+  font-weight: 700;
+  color: var(--blue-800);
+  margin-bottom: 0.1em;
+}
+
+.itemDescription {
+  font-size: 1.01rem;
+  color: var(--grey-700);
+  margin: 0;
 }
 
 .check {
@@ -44,4 +75,24 @@
   margin-right: var(--space-xxs);
   font-weight: 700;
   flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .expectSection {
+    padding: var(--section-md);
+  }
+  .expectList {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+    column-gap: 0;
+    row-gap: var(--space-m);
+  }
+  .expectItem {
+    max-width: 100%;
+    font-size: 1rem;
+  }
+  .heading {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-xl);
+  }
 }

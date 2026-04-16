@@ -1,7 +1,71 @@
+
 .processTabs {
   padding: 4rem 12rem;
   /* border: 2px solid red; */
 }
 .processTabs h2 {
-    margin-bottom: var(--space-m);
+  margin-bottom: var(--space-xs);
+  color: var(--grey-600);
+  text-transform: uppercase;
+  letter-spacing: 0.12rem;
+  font-size: 1.2rem;
+}
+.processTabs p {
+  font-size: 1rem;
+  text-transform: lowercase;
+  font-weight: 500;
+  color: var(--grey-500);
+}
+.description {
+  margin-top: var(--space-xxxxl);
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--space-l);
+}
+.number {
+  font-size: 10rem;
+  font-weight: 800;
+  min-width: 11rem;
+  background: linear-gradient(90deg, var(--blue-700), var(--blue-400));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  letter-spacing: -2px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  /* border: 2px solid red; */
+}
+.descriptionText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .processTabs {
+    padding: 2rem 1rem;
+  }
+  .description {
+    flex-direction: column;
+    width: 100%;
+    gap: var(--space-m);
+    margin-top: var(--space-xxl);
+    align-items: flex-start;
+    padding: 0 0.5rem;
+  }
+  .number {
+    font-size: 4.5rem;
+    min-width: 4.5rem;
+    align-self: flex-start;
+    justify-content: flex-start;
+  }
+  .descriptionText {
+    gap: var(--space-s);
+  }
 }

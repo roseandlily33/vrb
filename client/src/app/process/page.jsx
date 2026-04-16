@@ -29,33 +29,11 @@ export default function Process() {
           steps={PROCESS_STEPS}
           onStepClick={setActiveStep}
         />
-        <div
-          style={{
-            marginTop: "2.2rem",
-            minHeight: 120,
-            display: "flex",
-            flexDirection: 'row',
-            gap: "2.5rem",
-          }}
-        >
-          <span
-            style={{
-              fontSize: '10rem',
-              fontWeight: 800,
-              minHeight: '100%',
-              background: 'linear-gradient(90deg, var(--blue-700), var(--blue-400))',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              letterSpacing: '-2px',
-              lineHeight: 1,
-              display: 'block',
-              marginTop: '0.1em',
-              // border: '2px solid blue',
-            }}
-          >
-            {String(activeStep + 1).padStart(2, '0')}
+        <div className={styles.description}>
+          <span className={styles.number}>
+            {String(activeStep + 1).padStart(2, "0")}
           </span>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', justifyContent: 'center' }}>
+          <div className={styles.descriptionText}>
             <h3
               style={{
                 color: "var(--blue-700)",
