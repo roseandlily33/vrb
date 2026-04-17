@@ -8,7 +8,7 @@ export default function CTA3() {
         <section className={styles.cta3Section}>
             <div className={styles.cta3Content}>
                 <h2 className={styles.cta3Heading}>
-                    <span className={styles.cta3Accent}>Let’s work {' '}</span> together on your
+                   Let’s work together on your
                     next project
                 </h2>
                 <p className={styles.cta3Subtext}>

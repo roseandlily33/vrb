@@ -42,6 +42,8 @@
 .cardContent {
   color: var(--grey-800);
   font-size: 1.04rem;
+  line-height: 1.6rem;
+  /* border: 1px solid red; */
 }
 /* Process */
 .processTabs {

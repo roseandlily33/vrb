@@ -3,18 +3,24 @@
   /* border: 2px solid red; */
   display: flex;
   flex-direction: column;
+  background: var(--grey-50, #f9fafb);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl) var(--space-l);
 }
 .rightTitle {
   font-weight: 700;
   color: var(--grey-700);
   margin-bottom: var(--space-l);
 }
-.features ul {
+.featuresGrid {
   margin: var(--space-xs) 0 0 0;
   padding-left: 0;
   color: var(--grey-800);
   font-size: var(--space-m);
   list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-m) var(--space-xl);
 }
 
 .featureItem {
@@ -23,9 +29,9 @@
   gap: 0.7em;
   margin-bottom: var(--space-xs);
   padding: 0.7em 1em;
-  border-radius: var(--radius-md);
-  background: var(--blue-50);
-  box-shadow: 0 1px 4px rgba(38, 155, 230, 0.04);
+  /* border-radius: var(--radius-md); */
+  /* background: var(--blue-50); */
+  /* box-shadow: 0 1px 4px rgba(38, 155, 230, 0.04); */
   font-size: 1.04rem;
 }
 

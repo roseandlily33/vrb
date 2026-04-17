@@ -15,7 +15,7 @@ const CSProblem = ({ problemDescription, homeSrc }) => {
           <p className="eyebrowHeader">Problem</p>
           <h2>The challenge we needed to solve</h2>
           {/* <h2>Problem Statement</h2> */}
-          <p>{problemDescription}</p>
+          <p className={styles.prob}>{problemDescription}</p>
         </div>
         {homeSrc && (
           <div

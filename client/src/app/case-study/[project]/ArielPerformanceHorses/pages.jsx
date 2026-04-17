@@ -12,27 +12,27 @@ export const pages = [
 export const beforePages = [
   {
     url: "/ArielPerformance/Before/4Squares.png",
-    description: "4 squares detailing services",
+    description: "Overview of the original four-square services layout.",
   },
   {
     url: "/ArielPerformance/Before/6Squares.png",
-    description: "6 squares detailing services",
+    description: "Expanded six-square layout detailing all services.",
   },
   {
     url: "/ArielPerformance/Before/BeforeTestimonials.png",
-    description: "Before testimonials section",
+    description: "The testimonials section as it appeared before redesign.",
   },
   {
     url: "/ArielPerformance/Before/Footer.png",
-    description: "Before footer section",
+    description: "The original footer section prior to updates.",
   },
   {
     url: "/ArielPerformance/Before/MidNav.png",
-    description: "Before mid navigation section",
+    description: "The mid-navigation section before improvements.",
   },
   {
     url: "/ArielPerformance/Before/Mobile.png",
-    description: "Before mobile view",
+    description: "Mobile view of the site before the redesign.",
   },
 ];
 
@@ -40,27 +40,27 @@ export const afterPages = [
   {
     url: "/ArielPerformance/Phase3/ArielTrainingPhase3.png",
     description:
-      "Phase 3: Training page. Removed unnecessary content and shifted layout around for a less repetative look",
+      "Phase 3: Updated training page with a cleaner layout and reduced content for improved clarity.",
   },
   {
     url: "/ArielPerformance/Phase3/ArielHomePhase3.png",
-    description: "Phase 3: Reorganized the home page, added things such as extra padding, & achievements.",
+    description: "Phase 3: Reorganized home page with added padding and new achievements section.",
   },
   {
     url: "/ArielPerformance/Phase2/4Squares.png",
-    description: "Phase 2: 4 squares detailing services",
+    description: "Phase 2: Refined four-square services layout for better visual hierarchy.",
   },
   {
     url: "/ArielPerformance/Phase2/Home.png",
-    description: "Phase 2: Redesigned home page",
+    description: "Phase 2: Redesigned home page for a more modern and cohesive look.",
   },
   {
     url: "/ArielPerformance/Phase2/Mobile.png",
-    description: "Phase 2: Redesigned mobile view",
+    description: "Phase 2: Enhanced mobile view for improved usability and aesthetics.",
   },
   {
     url: "/ArielPerformance/Phase2/Services.png",
-    description: "Phase 2: Redesigned services section",
+    description: "Phase 2: Redesigned services section with clearer structure and branding.",
   },
 ];
 export const mockupPages = [
@@ -89,25 +89,26 @@ export const mockupPages = [
 export const PhaseDescriptions = [
   {
     phase: 'Phase 1',
-    description: 'Discussed goals of the project, where to take it and what some current issues were.'
+    description:
+      'Collaborated with the client to define project goals, identify key directions, and discuss current challenges.'
   },
   {
     phase: "Phase 2",
     description:
-      "Starting to reorganize and get a cohesive brand and look going",
+      "Began establishing a cohesive brand identity and visual style.",
     points: [
-      "Took a look at the navigation, reorganized it",
-      "Came up with a new colour scheme and fonts",
-      "Took a look at the actual content that was very good",
+      "Reviewed and reorganized the site navigation for better usability.",
+      "Developed a new color palette and selected complementary fonts.",
+      "Evaluated and refined the existing content, which was already strong.",
     ],
   },
   {
     phase: "Phase 3",
     description:
-      "Started to reorganize content and shift the layout around for a less repetative look",
+      "Focused on restructuring content and optimizing the layout for a more engaging, less repetitive experience.",
     points: [
-      "Within the mockups I went with the black and gold colour scheme, the black can easily be replace with navy if desired",
-      "Through the training page, I took out a lot of the content, it was very card and word heavy",
+      "Adopted a black and gold color scheme in the mockups, with flexibility to switch to navy if preferred.",
+      "Streamlined the training page by removing excess content, reducing visual clutter and wordiness.",
     ],
   },
 ];

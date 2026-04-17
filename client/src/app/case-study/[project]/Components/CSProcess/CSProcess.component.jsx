@@ -37,7 +37,7 @@ const CSProcess = (props) => {
                     <div
                         key={step.key}
                         className={styles.processCard}
-                        style={{ opacity: activeStep === idx ? 1 : 0.7 }}
+                        style={{ opacity: activeStep === idx ? 1 : 0.6 }}
                     >
                         <div className={styles.cardLabel}>
                             <span className={styles.cardIndex}>{idx + 1}.</span> {step.label}

@@ -10,18 +10,58 @@ const Carousel = ({ slides }) => {
     const prev = () => setCurrent((c) => (c === 0 ? total - 1 : c - 1));
     const next = () => setCurrent((c) => (c === total - 1 ? 0 : c + 1));
 
+    // Helper to get slide index with wrap-around
+    const getIdx = (idx) => (idx + total) % total;
+
     return (
         <>
             <div className={styles.carouselContainer}>
-                <div className={styles.slide}>
-                    <img
-                        src={slides[current]?.url}
-                        alt={slides[current]?.desc || slides[current]?.description || `Slide ${current + 1}`}
-                        className={styles.slideImage}
-                        style={{ cursor: "zoom-in" }}
-                        onClick={() => setFullscreen(true)}
-                    />
-                    <div className={styles.slideDesc}>{slides[current]?.desc || slides[current]?.description}</div>
+                <div className={styles.carouselTrack}>
+                    {/* Previous Slide */}
+                    {total > 1 && (
+                        <div
+                            className={styles.slideSide}
+                            style={{ left: 0 }}
+                            onClick={prev}
+                            aria-label="Previous slide"
+                            role="button"
+                            tabIndex={0}
+                        >
+                            <img
+                                src={slides[getIdx(current - 1)]?.url}
+                                alt={slides[getIdx(current - 1)]?.desc || slides[getIdx(current - 1)]?.description || `Slide ${getIdx(current - 1) + 1}`}
+                                className={styles.slideImageSide}
+                            />
+                        </div>
+                    )}
+                    {/* Center/Main Slide */}
+                    <div className={styles.slideCenter}>
+                        <img
+                            src={slides[current]?.url}
+                            alt={slides[current]?.desc || slides[current]?.description || `Slide ${current + 1}`}
+                            className={styles.slideImageCenter}
+                            style={{ cursor: "zoom-in" }}
+                            onClick={() => setFullscreen(true)}
+                        />
+                        <div className={styles.slideDesc}>{slides[current]?.desc || slides[current]?.description}</div>
+                    </div>
+                    {/* Next Slide */}
+                    {total > 1 && (
+                        <div
+                            className={styles.slideSide}
+                            style={{ right: 0 }}
+                            onClick={next}
+                            aria-label="Next slide"
+                            role="button"
+                            tabIndex={0}
+                        >
+                            <img
+                                src={slides[getIdx(current + 1)]?.url}
+                                alt={slides[getIdx(current + 1)]?.desc || slides[getIdx(current + 1)]?.description || `Slide ${getIdx(current + 1) + 1}`}
+                                className={styles.slideImageSide}
+                            />
+                        </div>
+                    )}
                 </div>
                 <div className={styles.carouselNav}>
                     <button className={styles.carouselButton} onClick={prev} aria-label="Previous slide">&#8592;</button>

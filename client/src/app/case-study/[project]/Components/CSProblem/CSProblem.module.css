@@ -6,3 +6,7 @@
   background: var(--white);
   /* border-bottom: 1.5px solid var(--blue-100); */
 }
+.prob {
+  line-height: 1.7;
+  max-width: 850px;
+}
