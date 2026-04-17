@@ -3,3 +3,7 @@
   background: var(--blue-900);
   color: var(--white);
 }
+
+.technologies h2 {
+    margin-bottom: var(--space-xxl);
+}

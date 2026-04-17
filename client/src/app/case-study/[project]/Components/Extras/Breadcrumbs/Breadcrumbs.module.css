@@ -1,6 +1,7 @@
 .breadcrumbs {
   font-size: var(--space-m);
-  padding: var(--section-sm);
+  padding: 3rem 6rem 0 6rem;
+  /* border: 2px solid red; */
 }
 .link {
   color: var(--blue-700);

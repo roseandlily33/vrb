@@ -3,7 +3,9 @@ import Carousel from "./Extras/Carousel/Carousel";
 const CSKeyPages = ({ pages }) => {
   return (
     <section className={styles.keyPages}>
-      <h2>Key Pages</h2>
+      {/* <h2>Key Pages</h2> */}
+      <p className="eyebrowHeader">Key Pages</p>
+      <h2>A closer look at the platform</h2>
       <div>
         {pages?.length > 0 ? (
           <Carousel slides={pages} />

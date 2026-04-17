@@ -1,11 +1,11 @@
 .fullscreenOverlay {
-  position: fixed;
+  position: fixed !important;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   background: rgba(20, 40, 80, 0.85);
-  z-index: 1000;
+  z-index: 3000;
   display: flex;
   align-items: center;
   justify-content: center;

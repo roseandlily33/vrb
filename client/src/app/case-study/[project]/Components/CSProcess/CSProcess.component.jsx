@@ -1,6 +1,6 @@
 import { useState } from "react";
-import styles from "../page.module.css";
-import ProcessCircuit from "./Extras/ProcessBar/ProcessCircuit";
+import styles from "./CSProcess.module.css";
+import ProcessCircuit from "../Extras/ProcessBar/ProcessCircuit";
 
 const STEPS = [
     { key: "discovery", label: "Discovery" },
@@ -25,14 +25,28 @@ const CSProcess = (props) => {
 
     return (
         <section className={styles.processTabs}>
-            <h2>Process</h2>
+            <p className="eyebrowHeader">Process</p>
+            <h2>How this project came together</h2>
             <ProcessCircuit
                 activeStep={activeStep + 1}
                 steps={STEPS}
                 onStepClick={setActiveStep}
             />
-            <div style={{ marginTop: "2.2rem" }}>
-                {stepContent}
+            <div className={styles.cardsContainer}>
+                {STEPS.map((step, idx) => (
+                    <div
+                        key={step.key}
+                        className={styles.processCard}
+                        style={{ opacity: activeStep === idx ? 1 : 0.7 }}
+                    >
+                        <div className={styles.cardLabel}>
+                            <span className={styles.cardIndex}>{idx + 1}.</span> {step.label}
+                        </div>
+                        <div className={styles.cardContent}>
+                            {props.content ? props.content[step.key] : props[step.key]}
+                        </div>
+                    </div>
+                ))}
             </div>
         </section>
     );

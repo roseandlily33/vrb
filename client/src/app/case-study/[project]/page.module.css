@@ -16,12 +16,8 @@
   /* padding-left: 2rem; */
 }
 .mainContainer section {
-  padding: var(--section-md);
+  padding: var(--section-lg);
 }
 
-/* Process */
-.processTabs {
-  padding: var(--space-m) 0 var(--space-xs) 0;
-  /* border-bottom: 1.5px solid var(--blue-100); */
-}
+
 

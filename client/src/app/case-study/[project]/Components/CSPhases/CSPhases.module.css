@@ -5,12 +5,10 @@
   padding: 0 var(--space-xl);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
 }
-
-.phasesHeading {
-  margin-bottom: var(--space-xl);
-  text-align: center;
+.phasesSection h2 {
+  margin-bottom: var(--space-xxl);
 }
 
 .phasesGrid {
@@ -57,7 +55,6 @@
   box-shadow: 0 2px 8px 0 rgba(38, 155, 230, 0.1);
   border: 2.5px double #fff;
   position: relative;
-  z-index: 2;
 }
 .phaseDesc {
   color: var(--grey-700);

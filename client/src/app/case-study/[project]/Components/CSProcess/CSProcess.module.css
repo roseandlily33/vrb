@@ -1,0 +1,49 @@
+.cardIndex {
+  color: var(--blue-600);
+  font-weight: 700;
+  margin-right: 0.5em;
+  font-size: 1.2rem;
+}
+/* Cards container for process steps */
+.cardsContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-l);
+  margin-top: 2.2rem;
+}
+
+.processCard {
+  background: var(--white);
+  /* box-shadow: var(--shadow-xs); */
+  padding: var(--space-l) var(--space-xl);
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition:
+    box-shadow 0.18s,
+    opacity 0.18s;
+}
+@media (max-width: 900px) {
+  .cardsContainer {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cardLabel {
+  font-weight: 700;
+  color: var(--blue-800);
+  margin-bottom: var(--space-s);
+  font-size: 1.2rem;
+  letter-spacing: 0.01em;
+  /* border: 2px solid red; */
+}
+
+.cardContent {
+  color: var(--grey-800);
+  font-size: 1.04rem;
+}
+/* Process */
+.processTabs {
+  padding: var(--space-m) 0 var(--space-xs) 0;
+}

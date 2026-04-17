@@ -3,13 +3,29 @@ import styles from "./CSProblem.module.css";
 const CSProblem = ({ problemDescription, homeSrc }) => {
   return (
     <section className={styles.problem}>
-      <div style={{ display: "flex", flexDirection: "row", alignItems: "flex-start", gap: "2.5rem" }}>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "flex-start",
+          gap: "2.5rem",
+        }}
+      >
         <div style={{ flex: 2 }}>
-          <h2>Problem Statement</h2>
+          <p className="eyebrowHeader">Problem</p>
+          <h2>The challenge we needed to solve</h2>
+          {/* <h2>Problem Statement</h2> */}
           <p>{problemDescription}</p>
         </div>
         {homeSrc && (
-          <div style={{ flex: 1, display: "flex", justifyContent: "flex-end", alignItems: "flex-start" }}>
+          <div
+            style={{
+              flex: 1,
+              display: "flex",
+              justifyContent: "flex-end",
+              alignItems: "flex-start",
+            }}
+          >
             <img
               src={homeSrc}
               alt="home page screenshot"
