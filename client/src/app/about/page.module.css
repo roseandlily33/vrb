@@ -1,4 +1,24 @@
 .sideBySide {
-    display: flex;
-    gap: var(--space-xl);
+  display: flex;
+  flex-direction: row;
+  background: var(--blue-50);
+  width: 100%;
+  overflow: hidden;
+  gap: var(--space-xl);
+}
+
+.sideBySideDivider {
+  width: 1px;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--grey-200),
+    transparent
+  );
+  min-height: 100px;
+  align-self: stretch;
+}
+.sideBySide > * {
+  flex: 1 1 auto;
+  min-width: 0;
 }

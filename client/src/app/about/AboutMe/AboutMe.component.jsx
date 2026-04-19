@@ -10,28 +10,26 @@ const AboutMe = () => {
   ];
   return (
     <section className={styles.aboutMeSection}>
-      <div className={styles.aboutMeLeft}>
-        <h2>About Me</h2>
-        <p>
-          I’m a full stack developer focused on building high-performance,
-          user-focused web applications. I enjoy turning complex ideas into
-          clean, scalable solutions that are both efficient and easy to use.
-        </p>
-        <p>
-          With experience across both design and development, I approach
-          projects with a strong focus on performance, usability, and long-term
-          maintainability. My goal is to create products that not only look
-          good, but work reliably in real-world use.
-        </p>
+      <p className="eyebrowHeader">About Me</p>
+      <h2>A bit about me</h2>
+      <div className={styles.aboutMeBadges}>
+        {items.map((item, idx) => (
+          <div key={idx} className={styles.aboutMeBadge}>
+            <span>{item}</span>
+          </div>
+        ))}
       </div>
-      <div className={styles.aboutMeRight}>
-        <div className={styles.aboutMeBadges}>
-          {items.map((item, idx) => (
-            <PillButton key={idx}><span>{item}</span></PillButton>
-            // <span key={idx} className={styles.aboutMeBadge}>{item}</span>
-          ))}
-        </div>
-      </div>
+      <p className={styles.paragraph}>
+        I build web applications that are fast, scalable, and designed with real
+        users in mind. I enjoy taking complex ideas and turning them into clean,
+        intuitive solutions that are easy to use and built to last.
+      </p>
+      <p className={styles.paragraph}>
+        With experience across both design and development, I approach every
+        project with a focus on performance, usability, and long-term
+        maintainability — making sure what gets built not only looks good, but
+        works reliably in the real world.
+      </p>
     </section>
   );
 };

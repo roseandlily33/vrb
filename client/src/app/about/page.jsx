@@ -22,6 +22,7 @@ building high-performing, user-first
       <AboutMe />
       <div className={styles.sideBySide}>
         <HowIWork />
+        <div className={styles.sideBySideDivider} />
         <FocusOn />
       </div>
       <ExperienceSnapshot />

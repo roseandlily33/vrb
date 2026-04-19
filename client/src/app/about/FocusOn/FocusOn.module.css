@@ -1,20 +1,15 @@
 .focusList {
   list-style: none;
-  /* padding: 4rem 6rem; */
-  /* margin: 4rem 6rem; */
   width: 50%;
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
   justify-content: center;
-  gap: var(--space-m);
-  
   /* border: 2px solid red; */
 
 }
 .focusList h3 {
-  color: var(--blue-800, #1a365d);
-  margin-bottom: var(--space-m);
+  color: var(--blue-900);
+  margin-bottom: var(--space-l);
 }
 
 .focusItem {

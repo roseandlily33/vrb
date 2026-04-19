@@ -1,50 +1,23 @@
 .howIWorkSection {
-  background: var(--grey-50);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
-  padding:  var(--section-xs);
-  margin: var(--section-sm);
+  /* padding:  var(--section-xs); */
+  margin: var(--section-md);
   width: 50%;
+  /* border: 2px solid red; */
 
 }
 
 .howIWorkSection h3 {
-  color: var(--blue-800);
-  margin-bottom: var(--space-m);
+  color: var(--blue-900);
+  margin-bottom: var(--space-l);
 }
 
-.focusList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+.paragraph {
+  max-width: 80%;
 }
 
-.focusItem {
-  font-size: var(--space-m);
-  color: var(--grey-800);
-  line-height: 1.7;
-  margin-bottom: var(--space-m);
-  padding-left: var(--space-xl);
-  position: relative;
-}
-.focusItem::before {
-  content: "✔";
-  position: absolute;
-  left: 0;
-  top: 0.1rem;
-  color: var(--blue-500);
-  font-size: var(--space-m);
-}
 
 @media (max-width: 600px) {
   .howIWorkSection {
     padding: var(--space-xl) var(--space-s);
-  }
-  /* .howIWorkSection h3 {
-    font-size: 1.15rem;
-  } */
-  .focusItem {
-    font-size: var(--space-m);
-    padding-left:var(--space-l);
   }
 }

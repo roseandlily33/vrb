@@ -2,7 +2,8 @@
   background: var(--blue-900);
   color: var(--white);
   padding: var(--section-md);
-  border-bottom: 6px solid var(--blue-500);
+  border-bottom: 6px solid var(--blue-500); 
+  border-top: 1px solid rgba(255,255,255,0.05);
 }
 
 .tools h3 {
