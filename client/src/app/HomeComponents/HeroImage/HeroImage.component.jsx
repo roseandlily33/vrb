@@ -72,9 +72,9 @@ const HeroImage = () => {
   return (
     <section className={styles.splitMain}>
       <section className={styles.leftPane}>
-        <h1 className={styles.heroTitle}>Full Stack Developer</h1>
+        <h1 className={styles.heroTitle}>Building fast, user-focused web experiences</h1>
         <p className={styles.heroSubtitle}>
-          Designing and developing high-performing web experiences
+          Designing and developing applications that are clean, scalable, and built to last.
         </p>
         <div className={styles.buttonGroup}>
           <Link href="/contact">

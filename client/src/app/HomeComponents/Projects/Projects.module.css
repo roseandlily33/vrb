@@ -1,5 +1,13 @@
+.headerGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-l);
+}
 .projectsSection {
-  padding: var(--section-md);
+  padding: var(--section-lg);
+  border: 1px solid rgba(0, 0, 0, 0.05);
   /* margin: 3rem auto; */
 }
 
@@ -14,7 +22,7 @@
 .carousel {
   display: flex;
   flex-direction: column;
-  gap: var(--space-xl);
+  gap: var(--space-xxl);
 }
 
 .projectCard {
@@ -25,7 +33,7 @@
   /* border-radius: var(--radius-md); */
   overflow: hidden;
   align-items: stretch;
-    flex: 1 1 260px;
+  flex: 1 1 260px;
   /* min-width: 220px; */
   /* max-width: 340px; */
   max-height: 200px;

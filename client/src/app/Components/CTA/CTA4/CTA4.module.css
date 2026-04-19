@@ -1,7 +1,7 @@
 .cta4Section {
   width: 100%;
   background: var(--blue-50, #f8fbfd);
-  padding: 3.5rem 0 3.5rem 0;
+  padding: var(--section-xl);
   position: relative;
   overflow: hidden;
   display: flex;

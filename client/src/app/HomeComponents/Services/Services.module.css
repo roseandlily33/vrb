@@ -1,19 +1,20 @@
 .servicesSection {
   /* background: var(--grey-100); */
-  padding: var(--section-md);
+  padding: var(--section-lg);
+  border: 1px solid rgba(0,0,0,0.05);
 }
 
 .heading {
   /* font-weight: 700; */
   /* color: var(--grey-500); */
-  margin-bottom: var(--space-s);
+  margin-bottom: var(--space-m);
   /* text-align: center; */
 }
 .subtext {
     color: var(--grey-700);
     /* font-size: 1.1rem; */
     /* text-align: center; */
-    margin-bottom: var(--space-xxl);
+    margin-bottom: var(--space-xxxl);
 }
 
 .cardsWrapper {

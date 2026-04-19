@@ -1,10 +1,12 @@
 .testimonialSection {
   background: var(--grey-50);
+  /* background: var(--background-gradient); */
   color: var(--blue-900);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: var(--section-sm);
 }
 
 .testimonialText {
@@ -23,11 +25,11 @@
   flex-direction: column;
 }
 .authorImage {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-right: var(--space-,);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: var(--space-,);
 }
 .bigQuote {
   color: var(--accent-blue);
@@ -55,6 +57,10 @@
   font-weight: 700;
   letter-spacing: 0.03em;
   font-style: normal;
+}
+.testimonialAuthor:hover {
+  text-decoration: underline;
+  color: var(--blue-400);
 }
 
 @media (max-width: 700px) {

@@ -17,9 +17,12 @@ export default function Testimonial() {
             alt="Ariel Performance Horses Logo"
             className={styles.authorImage}
           />
-          <span className={styles.testimonialAuthor}>
+          <a
+            href="/case-study/ariel-performance-horses"
+            className={styles.testimonialAuthor}
+          >
             Ariel Boesener Performance Horses
-          </span>
+          </a>
         </div>
       </blockquote>
     </section>

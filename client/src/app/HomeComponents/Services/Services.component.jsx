@@ -24,6 +24,8 @@ export default function Services() {
     ];
     return (
         <section className={styles.servicesSection}>
+             <p className="eyebrowHeader">Services</p>
+      {/* <h3>What I Focus On </h3> */}
             <h2 className={styles.heading}>Services I offer</h2>
             <div className={styles.subtext}>
                 From design to development, I offer end-to-end digital services.

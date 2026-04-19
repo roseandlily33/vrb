@@ -1,6 +1,6 @@
 .ctaSection {
   background: linear-gradient(120deg, var(--blue-100) 0%, var(--blue-300) 100%);
-  padding: 4.5rem 2rem;
+  padding: var(--section-xl);
   position: relative;
   overflow: hidden;
   display: flex;

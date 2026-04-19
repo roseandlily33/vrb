@@ -1,8 +1,9 @@
 .aboutMeSection {
-  padding: var(--section-md);
+  /* padding: var(--section-md); */
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  /* align-items: flex-start; */
+  justify-content: center;
   /* border: 2px solid red; */
 }
 
@@ -11,12 +12,23 @@
   flex-direction: column;
   gap: var(--space-xs);
   margin-bottom: var(--space-l);
+  /* border: 2px solid red; */
+  padding: 6rem 6rem 2rem 6rem;
+  /* border-bottom: 2px solid var(--grey-400); */
 }
-
+/* .divider {
+  width: 90%;
+  height: 2px;
+  background: var(--grey-400);
+  margin: 0 auto var(--space-l) auto;
+  border-radius: 2px;
+} */
 .introLine {
-  /* font-weight: 600; */
+  font-weight: 600; 
   line-height: 1.8;
-  color: var(--grey-900);
+ color: var(--grey-900); 
+ max-width: 80%;
+ /* border: 2px solid red; */
 }
 .blue {
   color: var(--blue-800);
@@ -25,16 +37,19 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  /* 6rem 6rem; */
+  padding: 1rem 0 0 6rem;
+  /* border: 2px solid orange; */
   /* border: 2px solid red; */
 }
 
-.divider {
+/* .divider {
   width: 100%;
   height: 2px;
   background: var(--grey-400);
-  margin: var(--space-l) 0;
-  /* border-radius: 2px; */
-}
+  margin: var(--space-l) 0; */
+/* border-radius: 2px; */
+/* } */
 
 .bottomText {
   /* font-size: 1.1rem; */

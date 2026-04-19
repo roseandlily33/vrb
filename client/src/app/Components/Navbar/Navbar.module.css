@@ -1,5 +1,5 @@
 .contactBtn {
-  background: var(--blue-500);
+  background: var(--blue-600);
   color: #fff;
   border: none;
   border-radius: 25px;
@@ -19,7 +19,7 @@
 }
 .contactBtn:hover,
 .contactBtn:focus {
-  background: var(--blue-700);
+  background: var(--blue-300);
   color: #fff;
 }
 .contactActive {
@@ -46,7 +46,7 @@
   color: var(--blue-700);
 }
 .active {
-  border-bottom: double 4px var(--blue-500);
+  border-bottom: solid 2px var(--blue-500);
   border-radius: 0;
   color: var(--blue-700);
 }

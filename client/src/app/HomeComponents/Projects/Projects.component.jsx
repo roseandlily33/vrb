@@ -17,7 +17,10 @@ export default function Projects() {
 
   return (
     <section className={styles.projectsSection}>
-      <h2 className={styles.heading}>Featured Projects</h2>
+      <div className={styles.headerGroup}>
+        <p className="eyebrowHeader">Work</p>
+        <h2 className={styles.heading}>Featured Projects</h2>
+      </div>
       <div
         className={styles.carousel}
         style={{
