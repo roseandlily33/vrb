@@ -223,4 +223,7 @@ a {
   font-size: 0.8rem;
   letter-spacing: 0.08em;
   margin-bottom: 0.5rem;
+   letter-spacing: 0.08em;
+  font-size: 0.75rem;
+  color: var(--grey-500);
 }

@@ -13,7 +13,7 @@
   gap: var(--space-xs);
   margin-bottom: var(--space-l);
   /* border: 2px solid red; */
-  padding: 6rem 6rem 2rem 6rem;
+  padding: 6rem 6rem 0rem 6rem;
   /* border-bottom: 2px solid var(--grey-400); */
 }
 /* .divider {

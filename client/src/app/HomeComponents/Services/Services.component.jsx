@@ -35,9 +35,9 @@ export default function Services() {
                     <Card key={service.title} className={styles.serviceCard}>
                         <h3
                             style={{
-                                paddingBottom: "1rem",
-                                borderBottom: "1px solid var(--grey-400)",
-                                color: "var(--blue-600)",
+                                paddingBottom: "var(--space-s)",
+                                // borderBottom: "1px solid var(--grey-400)",
+                                color: "var(--grey-600)",
                             }}
                         >
                             {service.title}

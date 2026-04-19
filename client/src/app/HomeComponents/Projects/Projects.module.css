@@ -6,7 +6,7 @@
   margin-bottom: var(--space-l);
 }
 .projectsSection {
-  padding: var(--section-lg);
+  padding: var(--section-xl);
   border: 1px solid rgba(0, 0, 0, 0.05);
   /* margin: 3rem auto; */
 }

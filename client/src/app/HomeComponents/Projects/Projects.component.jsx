@@ -18,7 +18,7 @@ export default function Projects() {
   return (
     <section className={styles.projectsSection}>
       <div className={styles.headerGroup}>
-        <p className="eyebrowHeader">Work</p>
+        {/* <p className="eyebrowHeader">Work</p> */}
         <h2 className={styles.heading}>Featured Projects</h2>
       </div>
       <div
