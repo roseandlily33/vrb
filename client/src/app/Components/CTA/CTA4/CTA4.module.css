@@ -1,15 +1,18 @@
 .cta4Section {
   width: 100%;
   background: var(--blue-50, #f8fbfd);
-  padding: var(--section-xl);
+  padding: var(--section-lg);
   position: relative;
   overflow: hidden;
   display: flex;
   justify-content: center;
+  border-radius: var(--radius-lg);
+  border: 1px solid rgba(27, 137, 226, 0.12);
 }
 
 .cta4Content {
   width: 100%;
+  max-width: 760px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -17,60 +20,72 @@
   z-index: 2;
 }
 
+.eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--grey-500);
+  margin-bottom: 0.5rem;
+}
+
 .cta4Heading {
-  font-size: 2.1rem;
+  font-size: 2rem;
   font-weight: 800;
-  color: var(--blue-900);
+  color: var(--grey-900);
   text-align: center;
-  margin-bottom: 0.7rem;
-  letter-spacing: -1px;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
 }
-.cta4Accent {
-  color: var(--blue-500);
-}
+
 .cta4Subtext {
-  color: var(--grey-400);
-  font-size: 1.13rem;
+  color: var(--grey-700);
+  font-size: 1.08rem;
   text-align: center;
-  margin-bottom: 2.1rem;
-  max-width: 520px;
+  margin: 0 auto 2rem;
+  max-width: 56ch;
+  line-height: 1.7;
 }
+
 .cta4ButtonRow {
   display: flex;
-  gap: 1.2rem;
-  margin-bottom: 1.3rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
   flex-wrap: wrap;
   justify-content: center;
 }
-.cta4Button {
-  min-width: 160px;
-  font-size: 1.07rem;
-}
+
 .cta4Booking {
-  color: var(--blue-400);
-  font-size: 1.01rem;
+  color: var(--grey-500);
+  font-size: 0.95rem;
   margin-top: 0.2rem;
   text-align: center;
+  line-height: 1.5;
 }
-
-
-
-
-
 
 @media (max-width: 700px) {
   .cta4Section {
-    padding: 2.2rem 0 2.2rem 0;
+    padding: var(--section-md);
   }
+
   .cta4Heading {
-    font-size: 1.3rem;
+    font-size: 1.6rem;
   }
+
+  .cta4Subtext {
+    font-size: 1rem;
+  }
+
   .cta4Content {
     padding: 0 0.5rem;
   }
+
   .cta4ButtonRow {
     flex-direction: column;
     gap: 0.7rem;
     width: 100%;
+    align-items: center;
   }
 }

@@ -1,10 +1,13 @@
+"use client";
+import {useRouter} from 'next/navigation';
 import SecondaryButton from "../../SecondaryButton/SecondaryButton.component";
-import TertiaryButton from "../../TertiaryButton/TertiaryButton.component";
+// import TertiaryButton from "../../TertiaryButton/TertiaryButton.component";
 import CTAButton from "../../CTAButton/CTAButton.component";
 import { FiEye, FiMessageCircle } from "react-icons/fi";
 import styles from "./CTA2.module.css";
 
 export default function CTA2() {
+  const router = useRouter();
   function getBookingWindow() {
     const now = new Date();
 
@@ -33,7 +36,7 @@ export default function CTA2() {
         </p>
 
         <div className={styles.cta2ButtonRow}>
-          <CTAButton>
+          <CTAButton onClick={() => router.push('/work')}>
             See My Work
             <FiEye
               style={{ marginLeft: 8, verticalAlign: "middle" }}
@@ -41,7 +44,7 @@ export default function CTA2() {
             />
           </CTAButton>
 
-          <SecondaryButton>
+          <SecondaryButton onClick={() => router.push('/contact')}>
             Contact Me
             <FiMessageCircle
               style={{ marginLeft: 8, verticalAlign: "middle" }}

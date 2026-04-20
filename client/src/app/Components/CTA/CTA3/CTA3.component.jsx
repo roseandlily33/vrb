@@ -1,9 +1,12 @@
+"use client";
+import {useRouter }from 'next/navigation';
 import SecondaryButton from "../../SecondaryButton/SecondaryButton.component";
 import { FiMessageCircle } from "react-icons/fi";
 import Link from "next/link";
 import styles from "./CTA3.module.css";
 
 export default function CTA3() {
+    const router = useRouter();
   function getBookingWindow() {
     const now = new Date();
 
@@ -32,15 +35,13 @@ export default function CTA3() {
         </p>
 
         <div className={styles.cta3ButtonRow}>
-          <Link href="/services" passHref>
-            <SecondaryButton as="a">
+            <SecondaryButton onClick={() => router.push('/services')} >
               View Packages
               <FiMessageCircle
                 style={{ marginLeft: 8, verticalAlign: "middle" }}
                 aria-hidden="true"
               />
             </SecondaryButton>
-          </Link>
         </div>
 
         <div className={styles.cta3Booking}>{getBookingWindow()}</div>
