@@ -5,33 +5,52 @@ import { FiEye, FiMessageCircle } from "react-icons/fi";
 import styles from "./CTA2.module.css";
 
 export default function CTA2() {
+  function getBookingWindow() {
+    const now = new Date();
+
+    const start = new Date(now.getFullYear(), now.getMonth() + 1, 1);
+    const end = new Date(now.getFullYear(), now.getMonth() + 2, 1);
+
+    const formatter = new Intl.DateTimeFormat("en-US", {
+      month: "long",
+      year: "numeric",
+    });
+
+    return `Currently booking ${formatter.format(start)}–${formatter.format(end)}`;
+  }
   return (
     <section className={styles.cta2Section}>
       <div className={styles.cta2Content}>
-        <h3 className={styles.cta2Heading}>Here&apos;s how I can help</h3>
+        <span className={styles.eyebrow}>Let’s Work Together</span>
+
+        <h2 className={styles.cta2Heading}>
+          Ready to move your project forward?
+        </h2>
+
         <p className={styles.cta2Subtext}>
-          Let’s connect and turn your ideas into reality. I&apos;m excited to
-          help you build something impactful.
+          Whether you need a strategic website, a custom build, or a clearer
+          starting point, I can help you shape the right solution.
         </p>
+
         <div className={styles.cta2ButtonRow}>
           <CTAButton>
-            See My Work{" "}
+            See My Work
             <FiEye
               style={{ marginLeft: 8, verticalAlign: "middle" }}
               aria-hidden="true"
             />
           </CTAButton>
+
           <SecondaryButton>
-            Contact Me{" "}
+            Contact Me
             <FiMessageCircle
               style={{ marginLeft: 8, verticalAlign: "middle" }}
               aria-hidden="true"
             />
           </SecondaryButton>
         </div>
-        <div className={styles.cta2Booking}>
-          Typically booking 2–4 weeks in advance
-        </div>
+
+        <div className={styles.cta2Booking}>{getBookingWindow()}</div>
       </div>
     </section>
   );

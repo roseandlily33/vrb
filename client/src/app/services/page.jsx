@@ -1,6 +1,6 @@
 import styles from "./page.module.css";
 import Packages from "./Packages/Packages.component";
-// import DesignPackage from "./DesignPackage/DesignPackage.component";
+import DesignPackage from "./DesignPackage/DesignPackage.component";
 import CTA2 from "../Components/CTA/CTA2/CTA2.component";
 import Process from "./Process/Process.component";
 import Retainers from "./Retainers/Retainers.component";
@@ -21,11 +21,10 @@ export default function Services() {
       />
       <Links />
       <Packages />
+      <DesignPackage />
       <TrustedBy />
-      {/* <DesignPackage /> */}
       <Retainers />
       <Process />
-
       <Extras />
       <MiniFaq />
       <CTA2 />

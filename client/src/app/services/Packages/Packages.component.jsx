@@ -34,100 +34,47 @@ export default function Packages() {
   if (selectedIdx === null) {
     // Split packages by type
     const websitePackages = PackageInfo.filter((pkg) => pkg.type === "website");
-    const designPackages = PackageInfo.filter((pkg) => pkg.type === "design");
     return (
       <section className={styles.packagesSection} id="packages">
-        {/* Website Packages Header */}
+        <span className="eyebrowHeader">Packages</span>
         <h2 className={styles.heading}>Project Packages</h2>
         <p className={styles.meta}>
           Transparent pricing, clear deliverables, and a process tailored to
           your needs.
         </p>
-        {/* Website Packages Row */}
+
         <div
           className={`${styles.cardGrid} ${animating ? styles.fadeOut : styles.fadeIn}`}
-          style={{ marginBottom: "2.5rem", flexWrap: "wrap" }}
         >
           {websitePackages.map((pkg, idx) => (
             <Card
               key={pkg.title + pkg.type}
-              className={
-                styles.packageCard +
-                (pkg.highlight || idx === 1 ? " " + styles.featuredCard : "")
-              }
+              className={`${styles.packageCard} ${
+                pkg.highlight || idx === 1 ? styles.featuredCard : ""
+              }`}
             >
-              <div className={styles.cardHeader}>
-                <h3 className={styles.cardTitle}>{pkg.title}</h3>
-                {pkg.highlight && (
-                  <div style={{ marginBottom: "0.5em" }}>
-                    <MostPopular>{pkg.highlight}</MostPopular>
-                  </div>
-                )}
+              <div className={styles.cardTop}>
+                <div className={styles.cardHeader}>
+                  <h3 className={styles.cardTitle}>{pkg.title}</h3>
+                  {pkg.highlight && <MostPopular>{pkg.highlight}</MostPopular>}
+                </div>
+
+                <div className={styles.bestFor}>
+                  Best for <span>{pkg.bestFor}</span>
+                </div>
+
+                <span className={styles.cardPrice}>
+                  Starting at {pkg.startingAt}
+                </span>
+                <div className={styles.cardMeta}>Approx. {pkg.timeline}</div>
+
+                <p className={styles.cardDesc}>{pkg.description}</p>
               </div>
-              <div className={styles.bestFor}>
-                Best for <span>{pkg.bestFor}</span>
-              </div>
-              <span className={styles.cardPrice}>
-                Starting at {pkg.startingAt}
-              </span>
-              <div className={styles.cardMeta}>Approx. {pkg.timeline}</div>
-              <p className={styles.cardDesc}>{pkg.description}</p>
+
               <TertiaryButton
                 onClick={() => handleLearnMore(PackageInfo.indexOf(pkg))}
               >
-                Learn More{" "}
-                <FaArrowRight
-                  style={{
-                    marginLeft: "0.5em",
-                    fontSize: "1em",
-                    verticalAlign: "-2px",
-                  }}
-                />
-              </TertiaryButton>
-            </Card>
-          ))}
-        </div>
-        {/* Subheader for Design Packages */}
-        <h3
-          style={{
-            margin: "0 0 1.2rem 0",
-            color: "var(--blue-900)",
-            fontWeight: 700,
-            fontSize: "1.25rem",
-          }}
-        >
-          Only need design?
-        </h3>
-        {/* Design Packages Row */}
-        <div className={styles.cardGrid}>
-          {designPackages.map((pkg, idx) => (
-            <Card
-              key={pkg.title + pkg.type}
-              className={
-                styles.packageCard +
-                (pkg.highlight ? " " + styles.featuredCard : "")
-              }
-            >
-              <div className={styles.cardHeader}>
-                <h3 className={styles.cardTitle}>{pkg.title}</h3>
-                {pkg.highlight && (
-                  <div style={{ marginBottom: "0.5em" }}>
-                    <MostPopular>{pkg.highlight}</MostPopular>
-                  </div>
-                )}
-              </div>
-              <div className={styles.bestFor}>
-                Best for <span>{pkg.bestFor}</span>
-              </div>
-              <span className={styles.cardPrice}>
-                Starting at {pkg.startingAt}
-              </span>
-              <div className={styles.cardMeta}>Approx. {pkg.timeline}</div>
-              <p className={styles.cardDesc}>{pkg.description}</p>
-              <TertiaryButton
-                onClick={() => handleLearnMore(PackageInfo.indexOf(pkg))}
-              >
-                Learn More{" "}
+                See what’s included
                 <FaArrowRight
                   style={{
                     marginLeft: "0.5em",
@@ -158,30 +105,54 @@ export default function Packages() {
               onClick={() => setSelectedIdx(idx)}
               disabled={idx === selectedIdx}
             >
-              {p.title}{" "}
-              <span
-                style={{ fontSize: "0.85em", color: "#888", fontWeight: 400 }}
-              >
-                ({p.type === "design" ? "Design" : "Website"})
+              <span className={styles.tabTitle}>{p.title}</span>
+              <span className={styles.tabType}>
+                {p.type === "design" ? "Design" : "Website"}
               </span>
             </button>
           ))}
         </div>
+
         <Card className={styles.detailCard}>
-          <div className={styles.cardHeader}>
-            <h3 className={styles.cardTitle}>{pkg.title}</h3>
-            <span className={styles.cardPrice}>{pkg.startingAt}</span>
+          <div className={styles.detailTop}>
+            <div className={styles.cardHeader}>
+              <div>
+                <h3 className={styles.cardTitle}>{pkg.title}</h3>
+                <div className={styles.bestFor}>
+                  Best for <span>{pkg.bestFor}</span>
+                </div>
+              </div>
+
+              {pkg.highlight && <MostPopular>{pkg.highlight}</MostPopular>}
+            </div>
+
+            <div className={styles.detailMetaRow}>
+              <span className={styles.cardPrice}>
+                Starting at {pkg.startingAt}
+              </span>
+              <span className={styles.detailDivider}>•</span>
+              <span className={styles.cardMeta}>Approx. {pkg.timeline}</span>
+            </div>
+
+            <p className={styles.cardDesc}>{pkg.description}</p>
           </div>
-          <div className={styles.cardMeta}>{pkg.timeline}</div>
-          <p className={styles.cardDesc}>{pkg.description}</p>
-          <ul className={styles.featuresList}>
-            {pkg.features.map((feature) => (
-              <li key={feature} className={styles.featureItem}>
-                {feature}
-              </li>
-            ))}
-          </ul>
-          <TertiaryButton onClick={handleHideInfo}>Hide Info</TertiaryButton>
+
+          <div className={styles.detailBody}>
+            <h4 className={styles.includesTitle}>What’s included</h4>
+            <ul className={styles.featuresList}>
+              {pkg.features.map((feature) => (
+                <li key={feature} className={styles.featureItem}>
+                  {feature}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className={styles.detailActions}>
+            <TertiaryButton onClick={handleHideInfo}>
+              Hide details
+            </TertiaryButton>
+          </div>
         </Card>
       </div>
     </section>

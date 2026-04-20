@@ -1,72 +1,76 @@
 .packagesSection {
   width: 100%;
-  padding: var(--section-md);
+  padding: var(--section-lg); /* ↑ was md */
   display: flex;
   flex-direction: column;
 }
 
 .heading {
-  margin-bottom: var(--space-xs);
+  margin-bottom: 0.75rem;
 }
 
 .meta {
   color: var(--grey-700);
-  margin-bottom: var(--space-xl);
-  /* text-align: center; */
+  max-width: 680px;
+  margin-bottom: 3rem; /* ↑ more breathing room */
 }
 
+/* --- GRID --- */
 .cardGrid {
   display: flex;
-  /* border: 2px solid red; */
-  gap: var(--space-l);
+  gap: 2rem; /* ↑ from var spacing */
   width: 100%;
   justify-content: center;
-  margin-block: var(--space-xl);
-  margin-block: var(--space-xl);
-  transition: all 0.25s ease;
-  transition:
-    opacity 0.25s,
-    transform 0.25s;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  margin-bottom: 3.5rem; /* ↑ bigger section separation */
 }
 
+/* --- CARD --- */
 .packageCard {
-  min-height: 340px;
+  position: relative;
+  flex: 1 1 320px;
+  max-width: 380px;
+  min-height: 420px; /* ↑ more breathing room */
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  transition:
-    box-shadow 0.2s,
-    border 0.2s,
-    transform 0.2s;
-  border: 2px solid transparent;
-  box-shadow: var(--shadow-sm);
-  border-radius: var(--border-sm);
-  padding: var(--space-xl) var(--space-l);
-  background: linear-gradient(180deg, var(--blue-50) 0%, #ffffff 100%);
+  justify-content: space-between;
+  padding: 2rem 1.75rem; /* ↑ slightly more */
   background: #ffffff;
   border: 1px solid var(--grey-border);
   border-radius: var(--radius-md);
-  padding: var(--space-xl);
   box-shadow: var(--shadow-xs);
-  transition: all 0.25s ease;
-  /* border: 1px solid var(--blue-300); */
+  transition:
+    box-shadow 0.25s ease,
+    transform 0.25s ease,
+    border-color 0.25s ease;
 }
 
+.packageCard:hover {
+  transform: translateY(-5px); /* ↑ slightly stronger */
+  box-shadow: var(--shadow-md);
+}
+
+/* --- FEATURED --- */
 .featuredCard {
-  /* border: 3px solid var(--blue-400, #4299e1); */
-  z-index: 2;
-  background: linear-gradient(180deg, #ffffff 0%, var(--blue-50) 100%);
-  box-shadow: var(--shadow-sm);
-  transform: scale(1.02);
+  transform: scale(1.03); /* ↑ slightly more presence */
+  border-color: rgba(27, 137, 226, 0.25);
+
   background: linear-gradient(
     180deg,
-    rgba(27, 137, 226, 0.08),
-    transparent 40%
+    rgba(27, 137, 226, 0.12) 0%,
+    rgba(255, 255, 255, 1) 45%
   );
-  box-shadow: var(--shadow-md);
-  box-shadow: 0 20px 50px rgba(0, 84, 201, 0.12);
+
+  box-shadow: 0 25px 60px rgba(0, 84, 201, 0.18);
+  z-index: 2;
 }
+
+.featuredCard:hover {
+  transform: scale(1.03) translateY(-5px);
+}
+
+/* subtle glow */
 .featuredCard::before {
   content: "";
   position: absolute;
@@ -74,141 +78,184 @@
   border-radius: var(--radius-md);
   background: radial-gradient(
     circle at top,
-    rgba(27, 137, 226, 0.08),
-    transparent 60%
+    rgba(27, 137, 226, 0.15),
+    transparent 65%
   );
+  pointer-events: none;
 }
 
-@media (max-width: 900px) {
-  .featuredCard {
-    transform: scale(1.03);
-  }
+/* --- CONTENT GROUPING --- */
+.cardTop {
+  width: 100%;
+  margin-bottom: 1.5rem; /* NEW: separates content from CTA */
 }
 
 .cardHeader {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: space-between;
+  gap: 1rem;
   width: 100%;
-  margin-bottom: var(--space-xs);
-  gap: var(--space-s);
-}
-.cardTitle {
-  font-size: 1.3rem;
-  font-weight: 700;
-  color: var(--blue-900);
-  margin-bottom: 0;
-}
-.cardPrice {
-  /* background: var(--blue-100); */
-  /* color: var(--blue-800); */
-  /* padding: var(--space-xs) var(--space-m); */
-  /* border-radius: var(--radius-pill); */
-  font-size: var(--space-m);
-  font-weight: 600;
-}
-.bestFor {
-  color: var(--blue-700);
-  font-weight: 500;
-  /* margin-top: var(--space-m); */
-}
-.bestFor span {
-  color: var(--blue-700);
-  font-weight: 700;
-}
-/* The timeline */
-.cardMeta {
-  color: var(--grey-500);
-  /* font-size: var(--space-m); */
-  /* margin-top: var(--space-xs); */
-}
-.cardDesc {
-  /* margin-top: var(--space-m); */
-  line-height: 1.6;
-  color: var(--grey-700);
+  margin-bottom: 0.75rem;
 }
 
-/* Tabbed view */
+.cardTitle {
+  font-size: 1.35rem; /* ↑ slightly */
+  font-weight: 700;
+  color: var(--grey-900);
+  margin: 0;
+}
+
+/* --- TEXT HIERARCHY --- */
+.bestFor {
+  color: var(--grey-700);
+  font-weight: 500;
+  margin-bottom: 0.75rem; /* ↑ */
+  line-height: 1.5;
+}
+
+.bestFor span {
+  color: var(--grey-900);
+  font-weight: 700;
+}
+
+.cardPrice {
+  display: inline-block;
+  font-size: 1.1rem; /* ↑ */
+  font-weight: 700;
+  color: var(--grey-900);
+  margin-bottom: 0.4rem;
+}
+
+.cardMeta {
+  color: var(--grey-500);
+  font-size: 0.95rem;
+  margin-bottom: 1rem; /* ↑ more separation */
+}
+
+.cardDesc {
+  color: var(--grey-700);
+  line-height: 1.7; /* ↑ readability */
+  margin-bottom: 1.75rem; /* ↑ key spacing */
+  max-width: 34ch;
+}
+
+/* --- BUTTON SPACING --- */
+.packageCard button {
+  margin-top: auto; /* ensures button stays bottom aligned */
+}
+
+/* ========================= */
+/* TAB VIEW */
+/* ========================= */
+
 .tabsWrapper {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
 .tabs {
   display: flex;
-  gap: var(--space-m);
-  margin-bottom: var(--space-xl);
+  gap: 1rem;
+  margin-bottom: 2.5rem; /* ↑ */
   flex-wrap: wrap;
   justify-content: center;
 }
+
 .tab {
-  background: var(--blue-100);
-  color: var(--blue-900);
-  border: none;
-  border-radius: 1.2em 1.2em 0 0;
-  padding: var(--space-s) var(--space-l);
-  font-size: var(--space-m);
-  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  background: var(--blue-50);
+  border: 1px solid transparent;
+  border-radius: 14px;
+  padding: 0.9rem 1.1rem; /* ↑ */
   cursor: pointer;
-  transition:
-    background 0.18s,
-    color 0.18s;
-  margin-bottom: -2px;
-}
-.tab:hover:not(:disabled) {
-  background: var(--blue-200);
-}
-.activeTab {
-  background: var(--blue-700);
-  color: var(--white);
-  cursor: default;
-}
-.detailCard {
-  min-width: 320px;
-  max-width: 600px;
-  margin: 0 auto;
-  animation: fadeInUp 0.3s;
-}
-.featuresList {
-  margin: var(--space-m) 0 var(--space-l) 0;
-  padding-left: var(--space-l);
-  color: var(--blue-900);
-}
-.featureItem {
-  margin-bottom: var(--space-xs);
-  font-size: var(--space-m);
-  list-style: disc;
-  color: var(--blue-900);
-}
-.hideBtn {
-  margin-top: var(--space-m);
-  background: var(--grey-700);
-  color: var(--white);
+  transition: all 0.2s ease;
 }
 
-/* Animations */
+.tab:hover:not(:disabled) {
+  background: var(--blue-100);
+  transform: translateY(-2px);
+}
+
+.activeTab {
+  background: rgba(27, 137, 226, 0.12);
+  border-color: rgba(27, 137, 226, 0.25);
+}
+
+.tabTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.tabType {
+  font-size: 0.8rem;
+  color: var(--grey-500);
+}
+
+/* --- DETAIL CARD --- */
+.detailCard {
+  width: 100%;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 2.25rem; /* ↑ */
+  border: 1px solid var(--grey-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+  animation: fadeInUp 0.3s;
+}
+
+.detailTop {
+  margin-bottom: 2rem; /* ↑ */
+}
+
+.detailMetaRow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem; /* ↑ */
+}
+
+.detailDivider {
+  color: var(--grey-400);
+}
+
+.includesTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+
+.featuresList {
+  margin-bottom: 1.75rem;
+}
+
+.featureItem {
+  position: relative;
+  padding-left: 1.6rem;
+  margin-bottom: 0.9rem; /* ↑ */
+  line-height: 1.6;
+}
+
+.featureItem::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: var(--blue-700);
+  font-weight: 700;
+}
+
+/* --- ANIMATION --- */
 .fadeIn {
   opacity: 1;
   transform: translateY(0);
-  transition:
-    opacity 0.25s,
-    transform 0.25s;
 }
+
 .fadeOut {
   opacity: 0;
   transform: translateY(20px);
-  transition:
-    opacity 0.25s,
-    transform 0.25s;
-}
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }

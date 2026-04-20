@@ -6,7 +6,7 @@ import Expect from "./Expect/Expect.component";
 import ProcessCircuit from "../case-study/[project]/Components/Extras/ProcessBar/ProcessCircuit";
 import { PROCESS_STEPS } from "./processSteps";
 import Tools from "./Tools/Tools.component";
-import CTA3 from "../Components/CTA/CTA3/CTA3.component";
+import CTA4 from "../Components/CTA/CTA4/CTA4.component";
 
 export default function Process() {
   const [activeStep, setActiveStep] = useState(0);
@@ -57,7 +57,7 @@ export default function Process() {
       </section>
       <Expect />
       <Tools />
-      <CTA3 />
+      <CTA4 />
     </main>
   );
 }

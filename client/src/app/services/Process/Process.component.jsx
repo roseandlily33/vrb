@@ -9,20 +9,26 @@ import { FiArrowRight } from "react-icons/fi";
 export default function Process() {
   return (
     <section className={styles.processSection} id="process">
-      <h3 className={styles.heading}>My Process</h3>
-      <span style={{ color: "var(--grey-400)" }}>
-        Timelines may vary based on your project’s scope and requirements{" "}
-      </span>
+      <span className={styles.eyebrow}>Process</span>
+      <h2 className={styles.heading}>My Process</h2>
+      <p className={styles.subtext}>
+        Timelines may vary depending on your project’s scope, complexity, and
+        requirements.
+      </p>
+
       <Timeline />
-      <Link href="/process" passHref>
-        <TertiaryButton as="a" style={{ fontSize: "0.8rem" }}>
-          See more about the full process
-          <FiArrowRight
-            style={{ marginLeft: 8, verticalAlign: "middle" }}
-            aria-hidden="true"
-          />
-        </TertiaryButton>
-      </Link>
+
+      <div className={styles.processCta}>
+        <Link href="/process" passHref>
+          <TertiaryButton as="a" style={{ fontSize: "0.85rem" }}>
+            See more about the full process
+            <FiArrowRight
+              style={{ marginLeft: 8, verticalAlign: "middle" }}
+              aria-hidden="true"
+            />
+          </TertiaryButton>
+        </Link>
+      </div>
     </section>
   );
 }

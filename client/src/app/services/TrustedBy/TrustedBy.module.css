@@ -1,66 +1,72 @@
 .trustedSection {
   width: 100%;
-  padding: var(--section-lg);
+  padding: 3.5rem 0; /* lighter than full sections */
   text-align: center;
-  background: var(--background-gradient);
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
 }
 
+/* --- HEADING --- */
 .heading {
-  /* font-size: var(--space-l); */
-  /* font-weight: 700; */
-  color: var(--grey-600);
-  font-weight: 500;
-  text-transform: lowercase;
-  letter-spacing: 0.03rem;
-  margin-bottom: var(--space-xl);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--grey-500);
+  margin-bottom: 2rem;
 }
 
+/* --- ROW --- */
 .logoRow {
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  gap: var(--space-xxl);
+  align-items: center; /* center instead of flex-end */
+  gap: 3rem; /* slightly tighter + more controlled */
+  flex-wrap: wrap;
 }
 
+/* --- COLUMN --- */
 .logoCol {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: var(--space-s);
-  min-width: 120px;
-  /* max-width: 140px; */
+  gap: 0.5rem;
+  min-width: 110px;
 }
 
+/* --- LINK --- */
 .logoLink {
   display: flex;
   align-items: center;
-  transition: filter 0.18s;
+  justify-content: center;
 }
 
+/* --- IMAGE --- */
 .logoImg {
-  height: 64px;
-  width: 120px;
+  height: 56px; /* slightly smaller = cleaner */
+  width: 110px;
   object-fit: contain;
-  filter: grayscale(1) brightness(0.85);
-  opacity: 0.8;
+
+  filter: grayscale(1) brightness(0.9);
+  opacity: 0.75;
+
   transition:
-    filter 0.18s,
-    opacity 0.18s;
-  /* background: #f7f7f7; */
-  /* border-radius: 0.5rem; */
-  padding: var(--space-xxs);
-  box-sizing: border-box;
+    filter 0.2s ease,
+    opacity 0.2s ease,
+    transform 0.2s ease;
 }
-.companyName {
-  font-size: var(--space-m);
-  color: var(--grey-500);
-  margin-top: var(--space-xxs);
-  font-weight: 500;
-  text-align: center;
-  letter-spacing: 0.01em;
-}
+
 .logoLink:hover .logoImg,
 .logoLink:focus .logoImg {
   filter: grayscale(0) brightness(1);
   opacity: 1;
+  transform: translateY(-2px); /* subtle lift */
+}
+
+/* --- COMPANY NAME --- */
+.companyName {
+  font-size: 0.85rem;
+  color: var(--grey-500);
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.01em;
 }
