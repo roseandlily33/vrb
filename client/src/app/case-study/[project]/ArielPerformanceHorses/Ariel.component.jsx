@@ -21,11 +21,13 @@ const Ariel = () => {
         img="/ArielPerformance/ArielLogo.webp"
         companyName="Ariel Boesener Performance Horses"
         date="2025"
+        link="https://www.arielboesenerperformancehorses.com/"
         type="Design"
         status="Completed"
         title="Redesigning a Website for Clarity and Usability"
         highlightWords={["Clarity", "Usability"]}
         role="UX/UI Designer: collaborated with client to create design mockups"
+        note="I developed multiple design iterations to improve structure, usability, and visual clarity. While implementation is still in progress, the work outlines a strong direction for a more refined user experience."
       />
       <CSKeyFeatures
         keyFeatures={[
@@ -50,8 +52,8 @@ const Ariel = () => {
       <CSPhaseCard
         phaseImages={{
           "Phase 1": beforePages,
-          "Phase 2": afterPages.filter(img => img.url.includes("Phase2")),
-          "Phase 3": afterPages.filter(img => img.url.includes("Phase3")),
+          "Phase 2": afterPages.filter((img) => img.url.includes("Phase2")),
+          "Phase 3": afterPages.filter((img) => img.url.includes("Phase3")),
         }}
       />
       <CSKeyPages pages={pages} />

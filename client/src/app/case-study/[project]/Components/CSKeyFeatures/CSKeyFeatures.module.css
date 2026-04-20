@@ -20,14 +20,14 @@
   list-style: none;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-m) var(--space-xl);
+  gap: var(--space-xs) var(--space-xl);
 }
 
 .featureItem {
   display: flex;
   align-items: flex-start;
   gap: 0.7em;
-  margin-bottom: var(--space-xs);
+  margin-bottom: var(--space-xxs);
   padding: 0.7em 1em;
   /* border-radius: var(--radius-md); */
   /* background: var(--blue-50); */

@@ -19,10 +19,10 @@ export default function Process() {
         subText="Every project follows a structured approach focused on performance, usability, and real results"
       />
       <section className={styles.processTabs}>
-        <h2>Timeline</h2>
+        <p className="eyebrowHeader">Timeline</p>
         <p>
           Most projects are completed within 2–8 weeks depending on scope and
-          complexity.
+          complexity
         </p>
         <ProcessCircuit
           activeStep={activeStep + 1}

@@ -3,17 +3,10 @@
   padding: 4rem 12rem;
   /* border: 2px solid red; */
 }
-.processTabs h2 {
-  margin-bottom: var(--space-xs);
-  color: var(--grey-600);
-  text-transform: uppercase;
-  letter-spacing: 0.12rem;
-  font-size: 1.2rem;
-}
 .processTabs p {
-  font-size: 1rem;
-  text-transform: lowercase;
-  font-weight: 500;
+  /* font-size: 1rem; */
+  /* text-transform: lowercase; */
+  /* font-weight: 500; */
   color: var(--grey-500);
 }
 .description {

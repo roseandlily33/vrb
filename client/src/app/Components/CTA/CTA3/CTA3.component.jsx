@@ -1,12 +1,12 @@
 "use client";
-import {useRouter }from 'next/navigation';
+import { useRouter } from "next/navigation";
 import SecondaryButton from "../../SecondaryButton/SecondaryButton.component";
 import { FiMessageCircle } from "react-icons/fi";
 import Link from "next/link";
 import styles from "./CTA3.module.css";
 
 export default function CTA3() {
-    const router = useRouter();
+  const router = useRouter();
   function getBookingWindow() {
     const now = new Date();
 
@@ -23,7 +23,7 @@ export default function CTA3() {
   return (
     <section className={styles.cta3Section}>
       <div className={styles.cta3Content}>
-        <span className="eyebrowHeader ">Next Step</span>
+        {/* <span className="eyebrowHeader ">Next Step</span> */}
 
         <h2 className={styles.cta3Heading}>
           Looking for the right fit for your project?
@@ -35,13 +35,13 @@ export default function CTA3() {
         </p>
 
         <div className={styles.cta3ButtonRow}>
-            <SecondaryButton onClick={() => router.push('/services')} >
-              View Packages
-              <FiMessageCircle
-                style={{ marginLeft: 8, verticalAlign: "middle" }}
-                aria-hidden="true"
-              />
-            </SecondaryButton>
+          <SecondaryButton onClick={() => router.push("/services")}>
+            View Packages
+            <FiMessageCircle
+              style={{ marginLeft: 8, verticalAlign: "middle" }}
+              aria-hidden="true"
+            />
+          </SecondaryButton>
         </div>
 
         <div className={styles.cta3Booking}>{getBookingWindow()}</div>

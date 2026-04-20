@@ -23,7 +23,7 @@ const CSResults = ({ results }) => {
               marginBottom: "1.5rem",
             }}
           >
-            <h3 style={{  fontWeight: 700, marginBottom: "0.7rem", color: "var(--blue-800)" }}>{result.title}</h3>
+            <h4 style={{  fontWeight: 700, marginBottom: "0.5rem", color: "var(--grey-700)" }}>{result.title}</h4>
             <p style={{ color: "var(--grey-800)", fontSize: "0.9rem" }}>{result.desc}</p>
           </Card>
         ))}
