@@ -10,6 +10,7 @@ export default function Input({
   placeholder,
   error,
   helperText,
+  icon,
   ...rest
 }) {
   return (
@@ -19,16 +20,19 @@ export default function Input({
           {label}
         </label>
       )}
-      <input
-        id={name}
-        name={name}
-        type={type}
-        className={`${styles.input} ${error ? styles.error : ""}`}
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-        {...rest}
-      />
+      <div className={styles.inputIconWrapper}>
+        {icon && <span className={styles.inputIcon}>{icon}</span>}
+        <input
+          id={name}
+          name={name}
+          type={type}
+          className={`${styles.input} ${error ? styles.error : ""}`}
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+          {...rest}
+        />
+      </div>
       {helperText && !error && (
         <div className={styles.helperText}>{helperText}</div>
       )}

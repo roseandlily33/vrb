@@ -23,7 +23,12 @@ export default function Faq() {
               aria-expanded={openIdx === idx}
               aria-controls={`faq-answer-${idx}`}
             >
-              <span>{item.question}</span>
+              <span className={styles.faqQuestionText}>
+                {item.icon && (
+                  <item.icon className={styles.faqIcon} aria-hidden="true" />
+                )}
+                {item.question}
+              </span>
               {openIdx === idx ? (
                 <FiChevronUp className={styles.chevron} />
               ) : (

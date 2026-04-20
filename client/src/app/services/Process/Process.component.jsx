@@ -9,7 +9,7 @@ import { FiArrowRight } from "react-icons/fi";
 export default function Process() {
   return (
     <section className={styles.processSection} id="process">
-      <span className={styles.eyebrow}>Process</span>
+      <span className="eyebrowHeader">Process</span>
       <h2 className={styles.heading}>My Process</h2>
       <p className={styles.subtext}>
         Timelines may vary depending on your project’s scope, complexity, and

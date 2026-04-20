@@ -2,9 +2,11 @@
   width: 30%;
   min-width: 260px;
   max-width: 420px;
-  background: var(--blue-50);
+  background: var(--white);
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
+  box-shadow:
+    0 4px 32px 0 rgba(27, 137, 226, 0.13),
+    0 1.5px 6px 0 rgba(27, 137, 226, 0.09);
   padding: var(--section-xxs);
   display: flex;
   flex-direction: column;
@@ -66,7 +68,7 @@
 }
 
 .infoValue {
-  color: var(--grey-900);
+  color: var(--blue-700);
   font-weight: 500;
   word-break: break-word;
   text-decoration: none;
@@ -78,11 +80,45 @@
   color: var(--blue-700);
   text-decoration: underline;
 }
-.booking {
+ .infoSection {
+  width: 100%;
   margin-top: var(--space-xl);
+  padding-top: var(--space-m);
+  border-top: 1px solid var(--grey-200);
+  display: flex;
+  /* flex-direction: column; */
+  align-items: flex-start;
+  gap: var(--space-m);
 }
-.responseTime {
-  margin-top: var(--space-s);
+
+.infoSectionTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-bottom: 0.1em;
+}
+
+ .infoSectionTitle {
+  font-weight: 700;
+  color: var(--grey-700);
+  /* font-size: 1.13rem; */
+  margin-bottom: var(--space-xs);
+}
+
+.infoSectionText {
+  color: var(--grey-900);
+  font-size: 1.01rem;
+  margin: 0;
+}
+
+.mainTitle {
+  color: var(--blue-900);
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin-bottom: var(--space-l);
+  letter-spacing: -0.01em;
+  width: 100%;
+  text-align: left;
 }
 @media (max-width: 900px) {
   .contactInfoSection {

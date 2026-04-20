@@ -9,6 +9,7 @@ export default function Textarea({
   placeholder,
   error,
   helperText,
+  icon,
   ...rest
 }) {
   return (
@@ -18,15 +19,18 @@ export default function Textarea({
           {label}
         </label>
       )}
-      <textarea
-        id={name}
-        name={name}
-        className={`${styles.textarea} ${error ? styles.error : ""}`}
-        value={value}
-        onChange={onChange}
-        placeholder={placeholder}
-        {...rest}
-      />
+      <div className={styles.textareaIconWrapper}>
+        {icon && <span className={styles.textareaIcon}>{icon}</span>}
+        <textarea
+          id={name}
+          name={name}
+          className={`${styles.textarea} ${error ? styles.error : ""}`}
+          value={value}
+          onChange={onChange}
+          placeholder={placeholder}
+          {...rest}
+        />
+      </div>
       {helperText && !error && (
         <div className={styles.helperText}>{helperText}</div>
       )}

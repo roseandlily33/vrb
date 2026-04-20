@@ -24,7 +24,7 @@ export default function CTA2() {
   return (
     <section className={styles.cta2Section}>
       <div className={styles.cta2Content}>
-        <span className={styles.eyebrow}>Let’s Work Together</span>
+        <span className="eyebrowHeader">Let’s Work Together</span>
 
         <h2 className={styles.cta2Heading}>
           Ready to move your project forward?

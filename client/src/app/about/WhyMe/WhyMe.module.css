@@ -6,9 +6,6 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  /* box-shadow: 0 2px 24px 0 rgba(80, 120, 180, 0.06); */
-  /* border-radius: 18px; */
-  /* background: #fff; */
 }
 
 .whyMeList {
@@ -24,20 +21,6 @@
 }
 
 .whyMeList li {
-  /* color: var(--grey-800);
-  display: flex;
-  align-items: center;
-  gap: var(--space-m);
-  font-weight: 500;
-  justify-content: flex-start;
-  background: var(--grey-50, #f7f8fa);
-  border-radius: 12px;
-  padding: var(--space-s) var(--space-m);
-  box-shadow: 0 1px 6px 0 rgba(80, 120, 180, 0.04);
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;
-  text-align: left; */
   display: flex;
   align-items: center;
   gap: 0.75rem;

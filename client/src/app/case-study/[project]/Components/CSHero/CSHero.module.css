@@ -22,7 +22,7 @@
 .left {
   /* border: 2px solid blue; */
   display: flex;
-  width: 60%;
+  width: 70%;
   flex-direction: column;
   gap: var(--space-xxl);
   /* padding: 2rem; */

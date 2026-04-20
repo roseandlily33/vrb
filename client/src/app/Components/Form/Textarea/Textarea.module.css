@@ -5,6 +5,22 @@
   margin-bottom: var(--space-m);
 }
 
+.textareaIconWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.textareaIcon {
+  position: absolute;
+  left: 1em;
+  top: 1.2em;
+  color: var(--blue-600);
+  font-size: 1.2em;
+  pointer-events: none;
+  z-index: 2;
+}
+
 .label {
   font-weight: 600;
   color: var(--grey-600);
@@ -12,10 +28,11 @@
 }
 
 .textarea {
+  width: 100%;
   min-height: 100px;
-  padding: 0.9em 1.1em;
+  padding: 0.9em 1.1em 0.9em 2.7em;
   border-radius: 0.7em;
-  border: 2px solid var(--grey-300);
+  border: 2px solid var(--grey-200);
   font-size: 1.05rem;
   font-family: inherit;
   color: var(--foreground);

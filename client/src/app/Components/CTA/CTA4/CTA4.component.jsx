@@ -23,7 +23,7 @@ export default function CTA4() {
   return (
     <section className={styles.cta4Section}>
       <div className={styles.cta4Content}>
-        <span className={styles.eyebrow}>Next Project</span>
+        <span className="eyebrowHeader">Next Project</span>
 
         <h2 className={styles.cta4Heading}>
           Have a project like this in mind?

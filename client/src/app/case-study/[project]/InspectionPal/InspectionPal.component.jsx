@@ -19,6 +19,7 @@ const InspectionPal = () => {
         img="/InspectionPal/Logo.png"
         companyName="InspectionPal"
         date="2025"
+        highlightWords={["Marketing Website"]}
         status="Completed"
         title="Rebuilding a High-Performance Marketing Website"
         type="Web Application"

@@ -23,6 +23,7 @@ const Yoda = () => {
         date="2024 - Present"
         status="In Progress"
         title="Building a Comprehensive Training Platform"
+        highlightWords={["Training Platform"]}
         type="Web Application"
         role="Lead developer: collaborated with client to define requirements, built and deployed the platform."
       />

@@ -1,36 +1,23 @@
-
-
 .cta2Section {
   padding: var(--section-lg);
   position: relative;
   overflow: hidden;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: center !important;
+  justify-content: center !important;
   width: 100%;
   background: var(--grey-50);
   border-radius: var(--radius-lg);
   border: 1px solid var(--grey-border);
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%2369baf2' fill-opacity='0.16' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
-
 }
 
 .cta2Content {
   z-index: 2;
-  text-align: center;
+  text-align: center !important;
   width: 100%;
   max-width: 760px;
   position: relative;
-}
-
-.eyebrow {
-  display: inline-block;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--grey-500);
-  margin-bottom: 0.5rem;
 }
 
 .cta2Heading {
@@ -40,6 +27,13 @@
   margin-bottom: 1rem;
   letter-spacing: -0.03em;
   line-height: 1.1;
+  text-align: center !important;
+  /* border: 2px solid red; */
+  display: block !important;
+  margin-left: auto;
+  margin-right: auto;
+  align-self: unset !important;
+  justify-content: unset !important;
 }
 
 .cta2Subtext {

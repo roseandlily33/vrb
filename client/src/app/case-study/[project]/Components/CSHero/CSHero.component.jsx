@@ -39,7 +39,7 @@ const CSHero = ({
                 <div className={styles.sideBySide}>
                     <img
                         src={img}
-                        alt={`${companyName} Hero Image`}
+                        alt={`${companyName} Logo`}
                         className={styles.logo}
                     />
                     <h3 className={styles.heroTitle}>{companyName}</h3>

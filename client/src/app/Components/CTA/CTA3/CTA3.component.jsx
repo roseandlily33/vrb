@@ -23,7 +23,7 @@ export default function CTA3() {
   return (
     <section className={styles.cta3Section}>
       <div className={styles.cta3Content}>
-        <span className={styles.eyebrow}>Next Step</span>
+        <span className="eyebrowHeader ">Next Step</span>
 
         <h2 className={styles.cta3Heading}>
           Looking for the right fit for your project?

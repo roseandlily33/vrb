@@ -10,7 +10,7 @@ import designPackages from './designPackage';
 
 export default function DesignPackage() {
   const [selectedIdx, setSelectedIdx] = useState(null);
-  const [animating, setAnimating] = useState(false);
+  // const [animating, setAnimating] = useState(false);
 
   // Show grid view
   if (selectedIdx === null) {
