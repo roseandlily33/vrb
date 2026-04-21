@@ -89,6 +89,18 @@
   display: block;
 }
 
+@media (max-width: 900px) {
+  .logo {
+    height: 60px;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo {
+    height: 42px;
+  }
+}
+
 .links {
   display: flex;
   align-items: center;

@@ -12,15 +12,6 @@ const Hero = ({ title, highlight, subText, topMeta }) => {
         {after}
       </h1>
       <p className={styles.subText}>{subText}</p>
-      {/* <Image
-        src="/squares.png"
-        alt="Squares background"
-        className={styles.squaresBG}
-        width={600}
-        height={600}
-        priority
-      /> */}
-
       <div className={styles.pixelPattern}>
         <Image
           src="/squares.png"

@@ -6,7 +6,6 @@
   overflow: hidden;
   display: flex;
   justify-content: center;
-  border-radius: var(--radius-lg);
   border: 1px solid rgba(27, 137, 226, 0.12);
 }
 
@@ -25,7 +24,7 @@
   font-weight: 800;
   color: var(--grey-900);
   text-align: center;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1.3rem;
   letter-spacing: -0.03em;
   line-height: 1.1;
 }
@@ -34,15 +33,15 @@
   color: var(--grey-700);
   font-size: 1.08rem;
   text-align: center;
-  margin: 0 auto 2rem;
+  margin: 0 auto 2.5rem;
   max-width: 56ch;
   line-height: 1.7;
 }
 
 .cta4ButtonRow {
   display: flex;
-  gap: 1rem;
-  margin-bottom: 1rem;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -50,7 +49,7 @@
 .cta4Booking {
   color: var(--grey-500);
   font-size: 0.95rem;
-  margin-top: 0.2rem;
+  margin-top: 0.7rem;
   text-align: center;
   line-height: 1.5;
 }
@@ -62,10 +61,12 @@
 
   .cta4Heading {
     font-size: 1.6rem;
+    margin-bottom: 1rem;
   }
 
   .cta4Subtext {
     font-size: 1rem;
+    margin-bottom: 2rem;
   }
 
   .cta4Content {
@@ -74,8 +75,13 @@
 
   .cta4ButtonRow {
     flex-direction: column;
-    gap: 0.7rem;
+    gap: 1rem;
     width: 100%;
     align-items: center;
+    margin-bottom: 1.2rem;
+  }
+
+  .cta4Booking {
+    margin-top: 0.9rem;
   }
 }

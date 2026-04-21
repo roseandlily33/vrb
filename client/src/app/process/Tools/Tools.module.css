@@ -66,10 +66,11 @@
   }
   .heading {
     /* font-size: 1.2rem; */
-    margin-bottom: var(--space-m);
+    margin-bottom: var(--space-l);
   }
   .toolsGrid {
-    gap: var(--space-xs);
+    gap: var(--space-m);
+    row-gap: var(--space-l);
   }
   .toolPill {
     /* font-size: 0.98rem; */

@@ -79,7 +79,8 @@
 
 @media (max-width: 900px) {
   .expectSection {
-    padding: var(--section-md);
+    padding: var(--section-lg);
+    align-items: flex-start;
   }
   .expectList {
     grid-template-columns: 1fr;
@@ -89,10 +90,8 @@
   }
   .expectItem {
     max-width: 100%;
-    font-size: 1rem;
   }
   .heading {
-    font-size: 1.1rem;
     margin-bottom: var(--space-xl);
   }
 }

@@ -88,6 +88,7 @@ small {
     font-size: 0.95rem;
   }
 }
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -137,7 +138,6 @@ small {
   /* Cards */
   --section-xxs: 2.2rem 2rem;
   --section-xs: 2rem 4rem;
-  /* Sections */
   --section-sm: 3rem 6rem;
   --section-md: 4rem 6rem;
   --section-lg: 6rem 6rem;
@@ -196,6 +196,7 @@ body {
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
+
   -moz-osx-font-smoothing: grayscale;
 }
 
@@ -224,4 +225,39 @@ a {
   text-transform: uppercase;
   color: var(--grey-500);
   margin-bottom: 0.5rem;
+}
+@media (max-width: 1200px) {
+  body {
+    border: 2px solid red;
+  }
+  /* :root {
+    --section-sm: 2.2rem 2.5rem;
+    --section-md: 2.7rem 2.5rem;
+    --section-lg: 3.5rem 2.5rem;
+    --section-xl: 4.5rem 2.5rem;
+  } */
+}
+
+@media (max-width: 900px) {
+  body {
+    border: 2px solid orange;
+  }
+  :root {
+    --section-sm: 2rem 2rem;
+    --section-md: 3rem 2rem;
+    --section-lg: 4rem 2rem;
+    --section-xl: 5rem 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  body {
+    border: 2px solid green;
+  }
+  :root {
+    --section-sm: 1rem 1rem;
+    --section-md: 2rem 1rem;
+    --section-lg: 3rem 1rem;
+    --section-xl: 4rem 1rem;
+  }
 }

@@ -1,3 +1,53 @@
+/* Utility classes for desktop/mobile visibility */
+.desktopOnly {
+  display: block;
+}
+.mobileOnly {
+  display: none;
+}
+
+@media (max-width: 700px) {
+  .desktopOnly {
+    display: none !important;
+  }
+  .mobileOnly {
+    display: block;
+    width: 100%;
+  }
+}
+/* Mobile zig-zag process steps */
+.mobileStepsWrapper {
+  display: none;
+}
+
+.mobileStep {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: var(--space-l);
+  margin: 2.2rem 0;
+  width: 100%;
+}
+.mobileStepLeft {
+  flex-direction: row;
+}
+.mobileStepRight {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 700px) {
+  .mobileStepsWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 0.5rem;
+  }
+  .processTabs .description,
+  .processTabs .ProcessCircuit {
+    display: none !important;
+  }
+}
 
 .processTabs {
   padding: 4rem 12rem;
@@ -42,7 +92,7 @@
 
 @media (max-width: 900px) {
   .processTabs {
-    padding: 2rem 1rem;
+    padding: 4rem 1rem;
   }
   .description {
     flex-direction: column;
@@ -53,8 +103,8 @@
     padding: 0 0.5rem;
   }
   .number {
-    font-size: 4.5rem;
-    min-width: 4.5rem;
+    font-size: 4rem;
+    min-width: 4rem;
     align-self: flex-start;
     justify-content: flex-start;
   }

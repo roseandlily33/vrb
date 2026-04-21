@@ -57,8 +57,8 @@
 @media (max-width: 900px) {
   .aboutMeSection {
     flex-direction: column;
-    gap: var(--space-xxl);
-    padding: var(--space-xl) var(--space-l);
+    gap: var(--space-l);
+    padding: var(--space-xl) var(--space-m);
   }
   .aboutMeRight {
     align-items: flex-start;
@@ -66,19 +66,24 @@
   }
   .aboutMeBadges {
     align-items: flex-start;
+    margin-bottom: var(--space-m);
+  }
+  .paragraph {
+    margin-bottom: var(--space-m);
   }
 }
 
 @media (max-width: 600px) {
   .aboutMeSection {
-    padding: var(--space-xl) var(--space-m);
+    padding: var(--space-l) var(--space-xs);
+    gap: var(--space-s);
   }
-  /* .aboutMeSection h2 {
-    font-size: var(--space-l);
-  } */
-  /* .aboutMeSection p {
-    font-size: 1rem;
-  } */
+  .aboutMeBadges {
+    margin-bottom: var(--space-s);
+  }
+  .paragraph {
+    margin-bottom: var(--space-s);
+  }
   .aboutMeBadge {
     font-size: 0.98rem;
     padding: 0 var(--space-m);

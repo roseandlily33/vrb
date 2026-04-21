@@ -7,6 +7,7 @@ import ProcessCircuit from "../case-study/[project]/Components/Extras/ProcessBar
 import { PROCESS_STEPS } from "./processSteps";
 import Tools from "./Tools/Tools.component";
 import CTA4 from "../Components/CTA/CTA4/CTA4.component";
+import ProcessStepsMobile from "./ProcessStepsMobile";
 
 export default function Process() {
   const [activeStep, setActiveStep] = useState(0);
@@ -24,35 +25,40 @@ export default function Process() {
           Most projects are completed within 2–8 weeks depending on scope and
           complexity
         </p>
-        <ProcessCircuit
-          activeStep={activeStep + 1}
-          steps={PROCESS_STEPS}
-          onStepClick={setActiveStep}
-        />
-        <div className={styles.description}>
-          <span className={styles.number}>
-            {String(activeStep + 1).padStart(2, "0")}
-          </span>
-          <div className={styles.descriptionText}>
-            <h3
-              style={{
-                color: "var(--blue-700)",
-                fontWeight: 700,
-              }}
-            >
-              {PROCESS_STEPS[activeStep].label}
-            </h3>
-            <h5>{PROCESS_STEPS[activeStep].microHeading}</h5>
-            <p
-              style={{
-                color: "var(--grey-500)",
-                fontSize: "1.04rem",
-                lineHeight: 1.5,
-              }}
-            >
-              {PROCESS_STEPS[activeStep].description}
-            </p>
+        <div className={styles.desktopOnly}>
+          <ProcessCircuit
+            activeStep={activeStep + 1}
+            steps={PROCESS_STEPS}
+            onStepClick={setActiveStep}
+          />
+          <div className={styles.description}>
+            <span className={styles.number}>
+              {String(activeStep + 1).padStart(2, "0")}
+            </span>
+            <div className={styles.descriptionText}>
+              <h3
+                style={{
+                  color: "var(--blue-700)",
+                  fontWeight: 700,
+                }}
+              >
+                {PROCESS_STEPS[activeStep].label}
+              </h3>
+              <h5>{PROCESS_STEPS[activeStep].microHeading}</h5>
+              <p
+                style={{
+                  color: "var(--grey-500)",
+                  fontSize: "1.04rem",
+                  lineHeight: 1.5,
+                }}
+              >
+                {PROCESS_STEPS[activeStep].description}
+              </p>
+            </div>
           </div>
+        </div>
+        <div className={styles.mobileOnly}>
+          <ProcessStepsMobile steps={PROCESS_STEPS} />
         </div>
       </section>
       <Expect />
