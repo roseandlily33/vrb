@@ -1,173 +1,294 @@
+
+
 .retainersSection {
   width: 100%;
   padding: var(--section-lg);
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: var(--grey-50);
-  border-radius: var(--radius-lg);
-  margin-top: 2rem;
 }
 
-.heading {
+.retainersEyebrow {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue-600);
   margin-bottom: 0.75rem;
   text-align: center;
 }
 
-.meta {
-  color: var(--grey-700);
+.retainersHeading {
+  font-size: 2.65rem;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  color: var(--blue-900);
   text-align: center;
-  max-width: 680px;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
+}
+
+.retainersMeta {
+  max-width: 760px;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  color: var(--grey-600);
+  text-align: center;
+  margin: 0 auto 2.8rem;
 }
 
 .retainersGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  gap: 2rem;
   width: 100%;
+  max-width: 1320px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 2rem;
+  align-items: stretch;
 }
 
+/* CARD BASE */
 .retainerCard {
   position: relative;
-  background: #ffffff;
-  border: 1px solid var(--grey-border);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-xs);
-  padding: 2rem 1.5rem 1.5rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: flex-start;
+  min-height: 640px;
+  padding: 2rem 1.75rem 1.7rem;
+  border-radius: 26px;
+  background: #ffffff;
+  border: 1px solid #e8eef5;
+  box-shadow: 0 6px 24px rgba(15, 35, 65, 0.04);
+  overflow: visible;
   transition:
-    transform var(--transition-fast),
-    box-shadow var(--transition-fast),
-    border-color var(--transition-fast);
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease,
+    background 0.22s ease;
 }
 
 .retainerCard:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 14px 34px rgba(15, 35, 65, 0.07);
 }
 
+/* FEATURED */
 .featuredCard {
-  border-color: rgba(27, 137, 226, 0.2);
-  background: linear-gradient(
-    180deg,
-    rgba(27, 137, 226, 0.08) 0%,
-    rgba(255, 255, 255, 1) 42%
-  );
-  box-shadow: 0 20px 50px rgba(0, 84, 201, 0.12);
+  background: linear-gradient(180deg, #eef6ff 0%, #f8fbff 100%);
+  border: 2px solid #5aa9ff;
+  box-shadow: 0 18px 40px rgba(27, 137, 226, 0.1);
 }
 
-.featuredCard::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: var(--radius-md);
-  background: radial-gradient(
-    circle at top,
-    rgba(27, 137, 226, 0.12),
-    transparent 65%
-  );
-  pointer-events: none;
+.featuredCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 44px rgba(27, 137, 226, 0.14);
 }
 
+/* TOP */
 .cardTop {
-  width: 100%;
-  margin-bottom: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
 }
 
+/* HEADER */
 .headerRow {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
-  width: 100%;
-  margin-bottom: 0.75rem;
+}
+
+.headerRow > div:first-child {
+  flex: 1;
 }
 
 .retainerName {
   display: block;
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--grey-900);
-  letter-spacing: -0.02em;
-  margin-bottom: 0.15rem;
+  margin: 0 0 0.35rem 0;
+  font-size: 1.65rem;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  font-weight: 800;
+  color: #142033;
 }
 
 .retainerBase {
   display: block;
-  font-size: 0.95rem;
-  color: var(--grey-500);
+  font-size: 0.92rem;
+  line-height: 1.4;
+  color: #667085;
   font-weight: 500;
 }
 
+/* PRICE */
 .price {
-  font-size: 1.15rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid #e7edf5;
+  font-size: 2.55rem;
+  line-height: 1;
   font-weight: 800;
-  color: var(--grey-900);
-  margin-bottom: 0.5rem;
+  letter-spacing: -0.04em;
+  color: #0f1f4d;
 }
 
+.price::before {
+  content: "MONTHLY INVESTMENT";
+  font-size: 0.82rem;
+  line-height: 1;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: #6b7280;
+  text-transform: uppercase;
+}
+
+.featuredCard .price {
+  color: #2f80ed;
+}
+
+/* BEST FOR */
 .bestFor {
-  margin-bottom: 0.75rem;
-  color: var(--grey-700);
-  line-height: 1.5;
+  margin: 0;
+  color: #475467;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  font-weight: 500;
+  max-width: 28ch;
 }
 
 .bestFor span {
-  color: var(--grey-900);
+  color: #142033;
   font-weight: 700;
 }
 
+/* DESCRIPTION */
 .description {
-  color: var(--grey-700);
-  font-size: 1rem;
-  margin-bottom: 0;
-  line-height: 1.65;
-  max-width: 36ch;
+  margin: 0;
+  padding-top: 1.3rem;
+  border-top: 1px solid #e7edf5;
+  color: #475467;
+  font-size: 0.98rem;
+  line-height: 1.75;
+  max-width: 30ch;
 }
 
+/* FEATURES */
 .features {
   list-style: none;
-  padding: 0;
-  margin: 0;
+  margin: 1.8rem 0 0;
+  padding: 1.35rem 0 0;
+  border-top: 1px solid #e7edf5;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.85rem;
 }
 
 .featureItem {
   position: relative;
-  padding-left: 1.5rem;
-  color: var(--grey-800);
-  font-size: 1rem;
-  line-height: 1.6;
+  padding-left: 1.55rem;
+  color: #334155;
+  font-size: 0.96rem;
+  line-height: 1.58;
 }
 
 .featureItem::before {
   content: "✓";
   position: absolute;
   left: 0;
-  top: 0;
-  color: var(--blue-700);
-  font-weight: 700;
+  top: 0.02rem;
+  color: #2f80ed;
+  font-size: 0.95rem;
+  font-weight: 800;
 }
 
-@media (max-width: 900px) {
-  .retainersSection {
-    padding: var(--section-md);
+/* MOST POPULAR COMPONENT WRAPPER COMPATIBILITY */
+.headerRow :global(*) {
+  flex-shrink: 0;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1200px) {
+  .retainersHeading {
+    font-size: 2.35rem;
+  }
+
+  .retainerCard {
+    min-height: 610px;
+    padding: 1.85rem 1.5rem 1.55rem;
+  }
+
+  .retainerName {
+    font-size: 1.45rem;
+  }
+
+  .price {
+    font-size: 2.25rem;
+  }
+}
+
+@media (max-width: 980px) {
+  .retainersGrid {
+    grid-template-columns: 1fr;
+    max-width: 700px;
+    margin-inline: auto;
+  }
+
+  .retainerCard {
+    min-height: auto;
+  }
+
+  .description,
+  .bestFor {
+    max-width: 100%;
+  }
+
+  .retainerCard:hover,
+  .featuredCard:hover {
+    transform: none;
   }
 }
 
 @media (max-width: 700px) {
-  .retainersGrid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .retainersSection {
+    padding: var(--section-md);
+  }
+
+  .retainersHeading {
+    font-size: 1.95rem;
+  }
+
+  .retainersMeta {
+    font-size: 1rem;
+    margin-bottom: 2rem;
   }
 
   .retainerCard {
-    padding: 1.5rem;
+    padding: 1.5rem 1.15rem 1.35rem;
+    border-radius: 22px;
+  }
+
+  .retainerName {
+    font-size: 1.3rem;
+  }
+
+  .retainerBase {
+    font-size: 0.88rem;
+  }
+
+  .price {
+    font-size: 1.95rem;
+  }
+
+  .bestFor,
+  .description,
+  .featureItem {
+    font-size: 0.94rem;
+  }
+
+  .features {
+    margin-top: 1.5rem;
+    padding-top: 1.1rem;
   }
 }

@@ -54,6 +54,7 @@ const Ariel = () => {
           "Phase 1": beforePages,
           "Phase 2": afterPages.filter((img) => img.url.includes("Phase2")),
           "Phase 3": afterPages.filter((img) => img.url.includes("Phase3")),
+          "Phase 4": afterPages.filter((img) => img.url.includes("Phase4")),
         }}
       />
       <CSKeyPages pages={pages} />

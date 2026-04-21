@@ -38,6 +38,14 @@ export const beforePages = [
 
 export const afterPages = [
   {
+    url: '/ArielPerformance/Phase4/ArielHomePhase4.png',
+    description: 'Phase 4: Finalized home page with improved layout, new achievements section, and enhanced visual hierarchy.'
+  },
+  {
+    url: "/ArielPerformance/Phase4/ArielTrainingPhase4.png",
+    description: "Phase 4: Finalized training page with improved layout, and enhanced visual hierarchy.",
+  },
+  {
     url: "/ArielPerformance/Phase3/ArielTrainingPhase3.png",
     description:
       "Phase 3: Updated training page with a cleaner layout and reduced content for improved clarity.",
@@ -90,25 +98,21 @@ export const PhaseDescriptions = [
   {
     phase: 'Phase 1',
     description:
-      'Collaborated with the client to define project goals, identify key directions, and discuss current challenges.'
+      'Reviewed the entire site and discussed rebranding, navigation, fonts, and colours. The client already had great content and photos.'
   },
   {
     phase: "Phase 2",
     description:
-      "Began establishing a cohesive brand identity and visual style.",
-    points: [
-      "Reviewed and reorganized the site navigation for better usability.",
-      "Developed a new color palette and selected complementary fonts.",
-      "Evaluated and refined the existing content, which was already strong.",
-    ],
+      "Started implementing new colours, fonts, and navigation improvements. Reorganized and restructured much of the existing content across the pages.",
   },
   {
     phase: "Phase 3",
     description:
-      "Focused on restructuring content and optimizing the layout for a more engaging, less repetitive experience.",
-    points: [
-      "Adopted a black and gold color scheme in the mockups, with flexibility to switch to navy if preferred.",
-      "Streamlined the training page by removing excess content, reducing visual clutter and wordiness.",
-    ],
+      "Focused on layout and content organization. Removed some images and paragraphs, and established a strong structure before finalizing page details.",
+  },
+  {
+    phase: "Phase 4",
+    description:
+      "Finalized the design and colour palette, added icons (horseshoes in the mockups, to be replaced in production), explored new layouts, refined content, and restructured components for a polished result."
   },
 ];

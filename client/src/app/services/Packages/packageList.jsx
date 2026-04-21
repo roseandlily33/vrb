@@ -1,3 +1,4 @@
+import { MdWeb, MdStar, MdBuild } from "react-icons/md";
 
 export const PackageInfo = [
   {
@@ -16,6 +17,7 @@ export const PackageInfo = [
       "Up to 2 rounds of revisions",
     ],
     type: "website",
+    icon: MdWeb,
   },
   {
     title: "Professional Website",
@@ -34,6 +36,7 @@ export const PackageInfo = [
     ],
     type: "website",
     highlight: "Most Popular",
+    icon: MdStar,
   },
   {
     title: "Custom Platform",
@@ -51,5 +54,6 @@ export const PackageInfo = [
       "Ongoing collaboration and support options",
     ],
     type: "website",
+    icon: MdBuild,
   },
 ];

@@ -1,20 +1,22 @@
+/* Centered Most Popular Badge for cards */
 .mostPopularBadge {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
   display: inline-flex;
   align-items: center;
-  font-weight: 700;
-  font-size: 0.98em;
-  letter-spacing: 0.01em;
-  margin-left: 0.5em;
-  background: linear-gradient(90deg, #4299e1 60%, #90cdf4 100%);
-  color: var(--white);
-  padding: var(--space-xxs) var(--space-m);
-  border-radius: var(--radius-pill);
-  letter-spacing: 0.01em;
-  box-shadow: var(--shadow-sm);
-  border: 2.5px double var(--white);
-  position: absolute;
-  top: var(--space-m);
-  right:var(--space-m);
+  justify-content: center;
+  padding: var(--space-s) var(--space-m);
+  min-width: 210px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #56aef8 0%, #409cf0 100%);
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  box-shadow: 0 10px 24px rgba(27, 137, 226, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.78);
   z-index: 3;
   margin: 0;
 }

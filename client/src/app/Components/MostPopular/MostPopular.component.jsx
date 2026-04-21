@@ -1,9 +1,9 @@
 
 import styles from './MostPopular.module.css';
 
-export default function MostPopular({ children = 'Most Popular' }) {
+export default function MostPopular({ children = 'Most Popular', className }) {
     return (
-        <span className={styles.mostPopularBadge}>
+        <span className={`${styles.mostPopularBadge} ${className}`}>
             <svg
                 width="18"
                 height="18"
@@ -13,7 +13,7 @@ export default function MostPopular({ children = 'Most Popular' }) {
                 className={styles.starIcon}
                 aria-hidden="true"
                 focusable="false"
-                style={{ marginRight: '0.4em', verticalAlign: '-2px' }}
+                style={{ marginRight: '0.4em', verticalAlign: '-2px',}}
             >
                 <polygon
                     points="9,1 11,7 17,9 11,11 9,17 7,11 1,9 7,7"
