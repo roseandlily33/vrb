@@ -1,14 +1,14 @@
 .contactForm {
-  width: 70%;
+  width: 60%;
   padding: var(--section-xxs);
   display: flex;
   flex-direction: column;
   gap: var(--space-s);
+  /* border: 2px solid red; */
 }
 
-@media (min-width: 900px) {
+@media (max-width: 900px) {
   .contactForm {
-    width: 50%;
-    min-width: 400px;
+    width: 100%;
   }
 }

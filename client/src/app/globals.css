@@ -243,6 +243,7 @@ a {
     border: 2px solid orange;
   }
   :root {
+    --section-xs: 1rem 2rem;
     --section-sm: 2rem 2rem;
     --section-md: 3rem 2rem;
     --section-lg: 4rem 2rem;
@@ -255,6 +256,7 @@ a {
     border: 2px solid green;
   }
   :root {
+    --section-xs: 1rem 1rem;
     --section-sm: 1rem 1rem;
     --section-md: 2rem 1rem;
     --section-lg: 3rem 1rem;

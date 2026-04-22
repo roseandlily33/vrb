@@ -14,9 +14,6 @@
   margin-bottom: var(--space-xl);
   display: flex;
   align-items: center;
-  /* font-weight: 700; */
-  /* border-left: 2px solid var(--blue-200); */
-  /* padding-left: 2rem; */
 }
 .mainContainer section {
   padding: var(--section-lg);
