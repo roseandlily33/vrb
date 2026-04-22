@@ -25,7 +25,6 @@
 .whyP {
   color: var(--grey-700);
   line-height: 1.75;
-  font-size: 1.05rem;
   max-width: 620px;
   margin: 0 auto;
 }
@@ -86,26 +85,44 @@
   line-height: 1.4;
 }
 
-@media (max-width: 700px) {
-  .whyMeSection {
-    padding: var(--section-md);
-    max-width: 100%;
-  }
-
+@media (max-width: 900px) {
   .whyHeading {
     font-size: 1.65rem;
   }
-
-  .whyP {
-    font-size: 1rem;
-  }
-
   .whyMeList {
     margin-top: 1.5rem;
     max-width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
   }
-
   .whyMeList li {
-    padding: 0.9rem 1rem;
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding: 0.7rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    gap: 0.5rem;
+    transition: none;
+  }
+  .whyMeIcon {
+    margin: 0 auto 0.4rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    box-shadow: none;
+    color: var(--blue-700);
+  }
+  .whyMeText {
+    text-align: center;
+    margin: 0 auto;
   }
 }

@@ -7,6 +7,32 @@
   gap: var(--space-xl);
 }
 
+@media (max-width: 900px) {
+  .sideBySide {
+    flex-direction: column;
+    gap: 0;
+  }
+  .sideBySideDivider {
+    display: none;
+  }
+  .sideBySide > *:not(:first-child) {
+    position: relative;
+  }
+  .sideBySide > *:not(:first-child)::before {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 1.5px;
+    background: linear-gradient(
+      to right,
+      transparent,
+      var(--grey-200),
+      transparent
+    );
+    margin: var(--space-l) 0 var(--space-xl) 0;
+  }
+}
+
 .sideBySideDivider {
   width: 1px;
   background: linear-gradient(

@@ -3,7 +3,6 @@
   margin: var(--section-md);
   width: 50%;
   /* border: 2px solid red; */
-
 }
 
 .howIWorkSection h3 {
@@ -15,9 +14,11 @@
   max-width: 80%;
 }
 
-
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .howIWorkSection {
-    padding: var(--space-xl) var(--space-s);
+    width: 100%;
+  }
+  .paragraph {
+    max-width: 80%;
   }
 }

@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import styles from "./Navbar.module.css";
-import PrimaryButton from "../PrimaryButton/PrimaryButton.component";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -21,9 +20,9 @@ const Navbar = () => {
     return (
         <nav className={styles.navbar}>
             <div className={styles.logoContainer}>
-                <a href="/" aria-label="Home">
+                <Link href="/" aria-label="Home">
                     <img src="/VRBLogo.png" alt="VRB Logo" className={styles.logo} />
-                </a>
+                </Link>
             </div>
             <button
                 className={styles.hamburger}

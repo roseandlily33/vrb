@@ -6,7 +6,7 @@ import PillButton from "@/app/Components/PillButton/PillButton.component";
 const ToolsTechnologies = () => {
     return (
         <section className={styles.tools}>
-            <h3>Tools & Technologies</h3>
+            <h2>Tools & Technologies</h2>
             <p>Focused on building high-performance, scalable web applications using modern technologies</p>
             {Object.entries(skills).map(([section, skillList]) => (
                 <div key={section} className={styles.skillSection}>

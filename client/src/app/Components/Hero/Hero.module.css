@@ -10,7 +10,8 @@
   align-items: center;
   position: relative;
   overflow: hidden;
-  padding: 3.5rem 2.5vw 3.5rem 2.5vw;
+  /* padding: 3.5rem 2.5vw 3.5rem 2.5vw; */
+  padding: var(--section-lg);
 }
 
 .squaresBG {
@@ -130,7 +131,6 @@
 @media (max-width: 900px) {
   .hero {
     height: auto;
-    padding: 2.2rem 4vw 2.2rem 4vw;
   }
   .title {
     width: 90%;
@@ -141,9 +141,9 @@
     letter-spacing: 0.12rem;
   }
   .pixelPattern {
-    width: 90px;
-    min-width: 60px;
-    max-width: 30vw;
+    width: 160px;
+    min-width: 100px;
+    max-width: 40vw;
   }
   .squaresBG {
     width: 110px;
@@ -153,21 +153,18 @@
 }
 
 @media (max-width: 600px) {
-  .hero {
-    padding: 1.2rem 2vw 1.2rem 2vw;
-  }
   .title {
     width: 98%;
-    font-size: 1.35rem;
+    font-size: 1.7rem;
   }
   .topMeta {
     font-size: 0.68rem;
     margin-bottom: 12px;
   }
   .pixelPattern {
-    width: 60px;
-    min-width: 30px;
-    max-width: 18vw;
+    width: 120px;
+    min-width: 70px;
+    max-width: 35vw;
   }
   .subText {
     font-size: 0.85rem;

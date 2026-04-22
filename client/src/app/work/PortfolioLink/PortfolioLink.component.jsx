@@ -20,8 +20,6 @@ const PortfolioLink = () => {
           <CTAButton>View Portfolio</CTAButton>
         </a>
       </div>
-        <span>Opens a new tab</span>
-
     </section>
   );
 };

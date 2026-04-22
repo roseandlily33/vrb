@@ -5,7 +5,6 @@
   flex-direction: column;
   justify-content: center;
   /* border: 2px solid red; */
-
 }
 .focusList h3 {
   color: var(--blue-900);
@@ -17,19 +16,15 @@
   color: var(--grey-800, #2d3748);
   line-height: 1.7;
   margin-bottom: var(--space-m);
-  padding-left: var(--space-xl);;
+  padding-left: var(--space-xl);
   position: relative;
   display: flex;
   gap: var(--space-m);
 }
 
-
-@media (max-width: 600px) {
+@media (max-width: 900px) {
   .focusList {
-    padding-left: var(--space-xs);
-  }
-  .focusItem {
-    /* font-size: var(--space-m); */
-    padding-left: var(--space-l);
+    width: 100%;
+    margin: var(--section-md);
   }
 }
