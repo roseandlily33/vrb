@@ -1,32 +1,29 @@
+
 import styles from "./CSResults.module.css";
 import Card from "@/app/Components/Card/Card.component";
+import * as MdIcons from "react-icons/md";
 
 const CSResults = ({ results }) => {
   return (
     <section className={styles.results}>
-      {/* <h2>Results</h2> */}
-       <p className="eyebrowHeader">results</p>
+      <p className="eyebrowHeader">results</p>
       <h2>What this project delivered</h2>
-      <div style={{ display: "flex", gap: "2rem", flexWrap: "wrap" }}>
-        {results && results.map((result, idx) => (
-          <Card
-            key={idx}
-            style={{
-              padding: "2.5rem",
-              minWidth: 220,
-              maxWidth: 320,
-              flex: "1 1 220px",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-start",
-              justifyContent: "flex-start",
-              marginBottom: "1.5rem",
-            }}
-          >
-            <h4 style={{  fontWeight: 700, marginBottom: "0.5rem", color: "var(--grey-700)" }}>{result.title}</h4>
-            <p style={{ color: "var(--grey-800)", fontSize: "0.9rem" }}>{result.desc}</p>
-          </Card>
-        ))}
+      <div className={styles.cardContainer}>
+        {results &&
+          results.map((result, idx) => {
+            const Icon = result.icon ? MdIcons[`Md${result.icon}`] : null;
+            return (
+              <Card key={idx} className={styles.eachCard}>
+                <div className={styles.iconTitleWrapper}>
+                  {Icon && <Icon className={styles.resultIcon} size={28} />}
+                  <h4>{result.title}</h4>
+                </div>
+                <p style={{ color: "var(--grey-800)", fontSize: "0.9rem" }}>
+                  {result.desc}
+                </p>
+              </Card>
+            );
+          })}
       </div>
     </section>
   );

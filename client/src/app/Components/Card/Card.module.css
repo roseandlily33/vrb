@@ -10,10 +10,10 @@
   gap: 1rem;
   min-width: 300px;
   width: 100%;
-  max-width: 430px;
-  min-height: 200px;
+  /* max-width: 430px; */
+  min-height: 150px;
   height: auto;
-  max-height: 500px;
+  /* max-height: 500px; */
   border: 1px solid var(--blue-200);
   background: linear-gradient(180deg, var(--blue-50) 0%, #ffffff 100%);
   border-radius: var(--radius-md);

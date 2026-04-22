@@ -2,11 +2,18 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./ProcessCircuit.module.css";
 
+
 export default function ProcessCircuit({ activeStep = 1, steps = [], onStepClick }) {
     const wrapperRef = useRef(null);
     const [isVisible, setIsVisible] = useState(false);
+    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
+        setMounted(true);
+    }, []);
+
+    useEffect(() => {
+        if (!mounted) return;
         const element = wrapperRef.current;
         if (!element) return;
 
@@ -23,7 +30,7 @@ export default function ProcessCircuit({ activeStep = 1, steps = [], onStepClick
         observer.observe(element);
 
         return () => observer.disconnect();
-    }, []);
+    }, [mounted]);
 
     // Node positions and labels
     const nodeData = [
@@ -33,10 +40,11 @@ export default function ProcessCircuit({ activeStep = 1, steps = [], onStepClick
         { cx: 1070, cy: 70 },
     ];
 
+    // Only render .visible class after mount to avoid hydration mismatch
     return (
         <div
             ref={wrapperRef}
-            className={`${styles.wrapper} ${isVisible ? styles.visible : ""}`}
+            className={`${styles.wrapper}${mounted && isVisible ? ` ${styles.visible}` : ""}`}
             aria-hidden="false"
         >
             <svg

@@ -8,8 +8,10 @@ import CSKeyPages from "../Components/CSKeyPages.component";
 import CSResults from "../Components/CSResults/CSResults.component";
 import CSKeyFeatures from "../Components/CSKeyFeatures/CSKeyFeatures.component";
 import { results } from "./results";
-import { pages } from "./pages";
+import { pages, PhaseDescriptions } from "./pages";
 import Breadcrumbs from "../Components/Extras/Breadcrumbs/Breadcrumbs.component";
+import BackToTopButton from "@/app/Components/BackToTop/BackToTopButton";
+import CSPhases from "../Components/CSPhases/CSPhases.component";
 
 const InspectionPal = () => {
   return (
@@ -45,12 +47,14 @@ const InspectionPal = () => {
         development="The development phase focused on delivering a fast, optimized, and responsive website. Built with Gatsby and deployed on Netlify, the site was structured for performance and maintainability. Key functionality, including a contact form for capturing inquiries, was integrated alongside performance optimizations such as lazy loading and asset compression to ensure a smooth user experience."
         launch="Deployed with Netlify, with a custom domain url"
       />
+      <CSPhases phasesDescriptions={PhaseDescriptions} />
       <CSResults results={results} />
       <CSTechnologies
         technologies={["gatsby", "styled-components", "netlify"]}
       />
       <CSKeyPages pages={pages} />
       <CTA4 />
+      <BackToTopButton />
     </section>
   );
 };

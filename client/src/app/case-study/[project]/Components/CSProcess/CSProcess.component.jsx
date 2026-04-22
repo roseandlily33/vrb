@@ -27,17 +27,19 @@ const CSProcess = (props) => {
         <section className={styles.processTabs}>
             <p className="eyebrowHeader">Process</p>
             <h2>How this project came together</h2>
-            <ProcessCircuit
-                activeStep={activeStep + 1}
-                steps={STEPS}
-                onStepClick={setActiveStep}
-            />
+            <div className={styles.hideOnMobile}>
+                <ProcessCircuit
+                    activeStep={activeStep + 1}
+                    steps={STEPS}
+                    onStepClick={setActiveStep}
+                />
+            </div>
             <div className={styles.cardsContainer}>
                 {STEPS.map((step, idx) => (
                     <div
                         key={step.key}
                         className={styles.processCard}
-                        style={{ opacity: activeStep === idx ? 1 : 0.6 }}
+                        style={{ opacity: typeof window !== "undefined" && window.innerWidth <= 600 ? 1 : (activeStep === idx ? 1 : 0.6) }}
                     >
                         <div className={styles.cardLabel}>
                             <span className={styles.cardIndex}>{idx + 1}.</span> {step.label}

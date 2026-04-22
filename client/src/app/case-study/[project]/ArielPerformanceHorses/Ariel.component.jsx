@@ -1,7 +1,6 @@
 import styles from "../page.module.css";
 import CSHero from "../Components/CSHero/CSHero.component";
 import CTA3 from "@/app/Components/CTA/CTA3/CTA3.component";
-// import CSBeforeAndAfter from "../Components/CSBeforeAndAfter.component";
 import CSProblem from "../Components/CSProblem/CSProblem.component";
 import CSProcess from "../Components/CSProcess/CSProcess.component";
 import CSTestimonial from "../Components/CSTestimonial.component";
@@ -10,8 +9,9 @@ import CSResults from "../Components/CSResults/CSResults.component";
 import CSKeyFeatures from "../Components/CSKeyFeatures/CSKeyFeatures.component";
 import CSPhaseCard from "../Components/CSPhases/CSPhases.component";
 import { results } from "./result";
-import { beforePages, pages, afterPages } from "./pages";
+import { beforePages, pages, afterPages, PhaseDescriptions} from "./pages";
 import Breadcrumbs from "../Components/Extras/Breadcrumbs/Breadcrumbs.component";
+import BackToTopButton from "@/app/Components/BackToTop/BackToTopButton";
 
 const Ariel = () => {
   return (
@@ -56,11 +56,13 @@ const Ariel = () => {
           "Phase 3": afterPages.filter((img) => img.url.includes("Phase3")),
           "Phase 4": afterPages.filter((img) => img.url.includes("Phase4")),
         }}
+        phasesDescriptions={PhaseDescriptions}
       />
       <CSKeyPages pages={pages} />
       <CSResults results={results} />
       <CSTestimonial testimonial="Working with Victoria Benoit was absolutely transformative for the function and overall experience of my website. Victoria applied an incredible eye for detail, focusing on making the layout more attractive and the overall presentation genuinely eye-catching. Beyond the aesthetics, the improvements to user flow were paramount. She optimized the navigation, making the site dramatically more user-friendly. My website now looks highly professional and provides a seamless experience for visitors. If you are looking for a design expert to refine your project and elevate it from good to outstanding, I highly recommend Victoria! - Ariel Boesener" />
       <CTA3 />
+      <BackToTopButton />
     </section>
   );
 };

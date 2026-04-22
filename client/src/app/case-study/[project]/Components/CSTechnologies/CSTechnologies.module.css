@@ -5,5 +5,17 @@
 }
 
 .technologies h2 {
-    margin-bottom: var(--space-xxl);
+  margin-bottom: var(--space-xxl);
+}
+.techContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-m);
+  margin-top: var(--space-m);
+}
+
+@media screen and (max-width: 900px) {
+  .technologies h2 {
+    margin-bottom: var(--space-l);
+  }
 }

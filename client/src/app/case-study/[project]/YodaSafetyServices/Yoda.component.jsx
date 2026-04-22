@@ -9,8 +9,10 @@ import CSResults from "../Components/CSResults/CSResults.component";
 import CSTechnologies from "../Components/CSTechnologies/CSTechnologies.component";
 import KeyFeatures from "../Components/CSKeyFeatures/CSKeyFeatures.component";
 import { results } from "./results";
-import { pages } from "./pages";
+import { pages, PhaseDescriptions } from "./pages";
 import Breadcrumbs from "../Components/Extras/Breadcrumbs/Breadcrumbs.component";
+import BackToTopButton from "@/app/Components/BackToTop/BackToTopButton";
+import CSPhases from "../Components/CSPhases/CSPhases.component";
 
 const Yoda = () => {
   return (
@@ -49,6 +51,7 @@ const Yoda = () => {
         development="We built the platform using a modern tech stack, including React for the frontend and Express/MongoDB for the backend. Key features include secure payment processing, automated email notifications, and a robust admin dashboard for managing courses and companies."
         launch="Deployed with render, with a custom domain url"
       />
+      <CSPhases phasesDescriptions={PhaseDescriptions} />
       <CSResults results={results} />
       <CSTechnologies
         technologies={[
@@ -73,6 +76,7 @@ const Yoda = () => {
       />
       <CSKeyPages pages={pages} />
       <CTA2 />
+      <BackToTopButton />
     </section>
   );
 };
