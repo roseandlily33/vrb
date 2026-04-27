@@ -6,11 +6,11 @@
   width: 100%;
   margin: 2.5rem auto 0;
   gap: 0.5rem;
-  padding: 0.7rem 1.2rem;
-  background: var(--blue-50, #f7fbff);
-  border-radius: 999px;
-  border: 1.5px solid var(--blue-100, #e7edf5);
-  box-shadow: 0 2px 12px rgba(27, 137, 226, 0.04);
+  /* padding: 0.7rem 1.2rem; */
+  /* background: var(--blue-50, #f7fbff); */
+  /* border-radius: 999px; */
+  /* border: 1.5px solid var(--blue-100, #e7edf5); */
+  /* box-shadow: 0 2px 12px rgba(27, 137, 226, 0.04); */
   transition:
     background-color var(--transition-fast),
     border-color var(--transition-fast),

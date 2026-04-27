@@ -4,13 +4,14 @@
 .sideBySide {
   display: flex;
   justify-content: space-around;
-  align-items: flex-end;
+  /* align-items: flex-end; */
+  align-items: center;
   gap: var(--space-l);
   padding: var(--section-xs);
   background-color: #f9fbfd;
   /* border: 2px solid red; */
 }
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .sideBySide {
     flex-direction: column;
     align-items: center;

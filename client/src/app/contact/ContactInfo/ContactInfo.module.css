@@ -1,5 +1,6 @@
 .contactInfoSection {
   width: 40%;
+  max-height: 600px;
   /* min-width: 260px; */
   /* max-width: 420px; */
   background: var(--white);
@@ -12,6 +13,7 @@
   flex-direction: column;
   align-items: flex-start;
   height: auto;
+  gap: 1rem;
   box-sizing: border-box;
   transition: width 0.2s;
   /* height: 60%; */

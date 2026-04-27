@@ -5,6 +5,7 @@
   width: 100%;
   overflow: hidden;
   gap: var(--space-xl);
+  padding: var(--section-xs);
   /* border: 2px solid blue; */
 }
 

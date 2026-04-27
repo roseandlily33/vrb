@@ -1,18 +1,19 @@
 .tools {
-  background: var(--blue-900);
+  /* background: var(--blue-900); */
+  background: var(--background-six);
   color: var(--white);
   padding: var(--section-lg);
-  border-bottom: 6px solid var(--blue-500); 
-  border-top: 1px solid rgba(255,255,255,0.05);
+  /* border-bottom: 6px solid var(--blue-500);  */
+  /* border-top: 1px solid rgba(255,255,255,0.05); */
 }
 
-.tools h2 {
+.tools h3 {
   padding-bottom: var(--space-xs);
 }
 .tools p {
   padding-bottom: var(--space-m);
   color: var(--grey-100);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0.08); */
 }
 
 .skillSection {

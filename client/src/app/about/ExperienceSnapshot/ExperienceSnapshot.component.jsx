@@ -25,7 +25,7 @@ const ExperienceSnapshot = () => {
     <section className={styles.experienceSection}>
       {/* <p className="eyebrowHeader">Experience</p> */}
       {/* <h3>What I Focus On </h3> */}
-      <h2>Experience Snapshot</h2>
+      <h3>Experience Snapshot</h3>
       <ul className={styles.experienceList}>
         {experience.map((item, index) => (
           <Card key={index} className={styles.experienceItem}>
