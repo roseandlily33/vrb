@@ -1,97 +1,92 @@
 import styles from "./CSHero.module.css";
-// import PrimaryButton from "@/app/Components/PrimaryButton/PrimaryButton.component";
-import {
-    FaCalendarAlt,
-    FaCheckCircle,
-    FaUserTie,
-    FaBriefcase,
-} from "react-icons/fa";
 import TertiaryButton from "@/app/Components/TertiaryButton/TertiaryButton.component";
-import { FiArrowRight, FiInfo } from "react-icons/fi";
-
+import { FiArrowRight } from "react-icons/fi";
 
 function highlightText(text, words, className) {
-    if (!words || words.length === 0) return text;
-    // Escape regex special chars in words
-    const escaped = words.map(w => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
-    const regex = new RegExp(`(${escaped.join('|')})`, 'gi');
-    const parts = text.split(regex);
-    return parts.map((part, i) =>
-        words.some(w => w.toLowerCase() === part.toLowerCase())
-            ? <span key={i} className={className}>{part}</span>
-            : part
-    );
+  if (!words || words.length === 0) return text;
+  // Escape regex special chars in words
+  const escaped = words.map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+  const regex = new RegExp(`(${escaped.join("|")})`, "gi");
+  const parts = text.split(regex);
+  return parts.map((part, i) =>
+    words.some((w) => w.toLowerCase() === part.toLowerCase()) ? (
+      <span key={i} className={className}>
+        {part}
+      </span>
+    ) : (
+      part
+    ),
+  );
 }
 
 const CSHero = ({
-    img,
-    companyName,
-    link,
-    date,
-    status,
-    type,
-    role,
-    title,
-    highlightWords = [],
-    note,
+  img,
+  companyName,
+  link,
+  date,
+  status,
+  type,
+  role,
+  title,
+  highlightWords = [],
+  note,
+  description = "",
 }) => {
-    return (
-        <section className={styles.hero}>
-            <div className={styles.left}>
-                <h1>{highlightText(title, highlightWords, styles.highlighted)}</h1>
-                <div className={styles.sideBySide}>
-                    <img
-                        src={img}
-                        alt={`${companyName} Logo`}
-                        className={styles.logo}
-                    />
-                    <h3 className={styles.heroTitle}>{companyName}</h3>
-                </div>
-                {link && (
-                    <a
-                        href={link}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={styles.heroLink}
-                    >
-                        <TertiaryButton>
-                            <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
-                                Visit Site <FiArrowRight style={{ marginLeft: 6 }} />
-                            </span>
-                        </TertiaryButton>
-                    </a>
-                )}
-            </div>
-            <div className={styles.right}>
-                <table className={styles.metaTable}>
-                    <tbody>
-                        <tr>
-                            <td className={`${styles.rightTitle} ${styles.metaLabel}`}><FaCalendarAlt /> Date</td>
-                            <td className={styles.metaValue}>{date}</td>
-                        </tr>
-                        <tr>
-                            <td className={`${styles.rightTitle} ${styles.metaLabel}`}><FaCheckCircle /> Status</td>
-                            <td className={styles.metaValue}>{status}</td>
-                        </tr>
-                        <tr>
-                            <td className={`${styles.rightTitle} ${styles.metaLabel}`}><FaBriefcase /> Type</td>
-                            <td className={styles.metaValue}>{type}</td>
-                        </tr>
-                        <tr>
-                            <td className={`${styles.rightTitle} ${styles.metaLabel}`}><FaUserTie /> Role</td>
-                            <td className={styles.metaValue}>{role}</td>
-                        </tr>
-                        {note && (
-                            <tr>
-                                <td className={`${styles.rightTitle} ${styles.metaLabel}`}><FiInfo /> Note</td>
-                                <td className={styles.metaValue}>{note}</td>
-                            </tr>
-                        )}
-                    </tbody>
-                </table>
-            </div>
-        </section>
-    );
+  return (
+    <section className={styles.heroCentered}>
+      <h1 className={styles.heroTitleCentered}>
+        {highlightText(title, highlightWords, styles.highlighted)}
+      </h1>
+      {description && <p className={styles.heroDescription}>{description}</p>}
+      <img
+        src={img}
+        alt={`${companyName} Logo`}
+        className={styles.heroLogoLarge}
+      />
+
+      {link && (
+        <a
+          href={link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={styles.heroLinkCentered}
+        >
+          <TertiaryButton>
+            <span
+              style={{ display: "inline-flex", alignItems: "center", gap: 6 }}
+            >
+              <span className={styles.companyBadge}>{companyName}</span>{" "}
+              <FiArrowRight style={{ marginLeft: 6 }} />
+            </span>
+          </TertiaryButton>
+        </a>
+      )}
+      <div className={styles.metaBand}>
+        <div className={styles.metaItem}>
+          <div className={styles.metaValue}>{date}</div>
+          <div className={styles.metaLabel}>Date</div>
+        </div>
+        <div className={styles.metaItem}>
+          <div className={styles.metaValue}>{status}</div>
+          <div className={styles.metaLabel}>Status</div>
+        </div>
+        <div className={styles.metaItem}>
+          <div className={styles.metaValue}>{type}</div>
+          <div className={styles.metaLabel}>Type</div>
+        </div>
+        <div className={styles.metaItem}>
+          <div className={styles.metaValue}>{role}</div>
+          <div className={styles.metaLabel}>Role</div>
+        </div>
+        {note && (
+          <div className={styles.metaItem}>
+            <div className={styles.metaValue}>{note}</div>
+            <div className={styles.metaLabel}>Note</div>
+          </div>
+        )}
+      </div>
+    </section>
+  );
 };
 
 export default CSHero;

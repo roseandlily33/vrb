@@ -32,7 +32,6 @@
 }
 
 .featureIcon {
-  color: var(--blue-500);
   font-size: 1.25em;
   flex-shrink: 0;
   margin-top: 0.1em;

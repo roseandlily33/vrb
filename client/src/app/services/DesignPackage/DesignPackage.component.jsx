@@ -15,8 +15,6 @@ export default function DesignPackage() {
   if (selectedIdx === null) {
     return (
       <section className={styles.designSection}>
-        <div className={styles.designIntro}>
-          <div className={styles.introText}>
             <span className="eyebrowHeader">Design-Only Options</span>
             <h2 className={styles.heading}>Only need design?</h2>
             <p className={styles.meta}>
@@ -24,27 +22,8 @@ export default function DesignPackage() {
               strong visual and strategic foundation to move forward with
               confidence.
             </p>
-          </div>
-        </div>
-
         <div className={styles.designGrid}>
           {designPackages.map((pkg, idx) => {
-            // Palette icon for design packages, lighter color
-            const Icon = () => (
-              <span
-                className={styles.cardIcon}
-                aria-hidden="true"
-                style={{
-                  fontSize: "2.1rem",
-                  color: "var(--blue-200)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-              >
-                🎨
-              </span>
-            );
             return (
               <Card
                 key={pkg.title}
@@ -54,7 +33,6 @@ export default function DesignPackage() {
 
                 <div className={styles.cardTop}>
                   <div className={styles.cardHeader}>
-                    <Icon />
                     <div>
                       <h3 className={styles.cardTitle}>{pkg.title}</h3>
                       <div className={styles.bestFor}>

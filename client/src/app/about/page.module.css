@@ -5,12 +5,14 @@
   width: 100%;
   overflow: hidden;
   gap: var(--space-xl);
+  /* border: 2px solid blue; */
 }
 
 @media (max-width: 900px) {
   .sideBySide {
     flex-direction: column;
     gap: 0;
+    /* border: 2px solid red; */
   }
   .sideBySideDivider {
     display: none;

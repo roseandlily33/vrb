@@ -24,10 +24,11 @@ const Yoda = () => {
         link="https://yodasafetyservices.com/"
         date="2024 - Present"
         status="In Progress"
+        description="A scalable system for managing courses, certifications, and company training workflows."
         title="Building a Comprehensive Training Platform"
         highlightWords={["Training Platform"]}
         type="Web Application"
-        role="Lead developer: collaborated with client to define requirements, built and deployed the platform."
+        role="Lead developer"
       />
       <KeyFeatures
         keyFeatures={[

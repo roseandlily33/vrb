@@ -226,6 +226,36 @@ a {
   color: var(--grey-500);
   margin-bottom: 0.5rem;
 }
+/* Icons */
+.primaryIcon {
+  color: var(--blue-600);
+  opacity: 0.85;
+  margin-right: 8px;
+}
+.primaryIconML {
+  color: var(--blue-600);
+  opacity: 0.85;
+  margin-left: 8px;
+}
+.secondaryIcon {
+  color: var(--grey-500);
+  opacity: 0.85;
+  margin-right: 8px;
+}
+.strongIcon {
+  color: var(--grey-700);
+  margin-right: 8px;
+}
+/* Card Header */
+.cardHeader {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--grey-700);
+  letter-spacing: -0.01em;
+  line-height: 1.1;
+  /* margin-bottom: 0.5em; */
+}
+
 @media (max-width: 1200px) {
   body {
     border: 2px solid red;

@@ -3,7 +3,7 @@
   width: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  padding:  var(--section-md);
   /* border: 2px solid red; */
 }
 .focusList h3 {
@@ -25,6 +25,5 @@
 @media (max-width: 900px) {
   .focusList {
     width: 100%;
-    margin: var(--section-md);
   }
 }

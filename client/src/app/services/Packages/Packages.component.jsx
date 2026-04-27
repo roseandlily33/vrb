@@ -64,7 +64,7 @@ export default function Packages() {
                 )}
                 <div className={styles.cardTop}>
                   <div className={styles.cardHeader}>
-                    <span className={styles.cardIcon}>{Icon && <Icon />}</span>
+                    {/* <span className={styles.cardIcon}>{Icon && <Icon />}</span> */}
                     <div>
                       <h3 className={styles.cardTitle}>{pkg.title}</h3>
                       <div className={styles.bestFor}>{pkg.bestFor}</div>

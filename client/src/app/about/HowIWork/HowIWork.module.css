@@ -1,7 +1,9 @@
 .howIWorkSection {
-  /* padding:  var(--section-xs); */
-  margin: var(--section-md);
+  padding:  var(--section-xs);
   width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   /* border: 2px solid red; */
 }
 

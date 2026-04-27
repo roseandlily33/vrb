@@ -26,7 +26,7 @@ const faq = [
 export default function MiniFaq() {
   return (
     <section className={styles.faqSection}>
-      <span className="eyebrowHeader ">FAQ</span>
+      <span className="eyebrowHeader">FAQ</span>
       <h2 className={styles.heading}>Frequently asked questions</h2>
       <p className={styles.subtext}>
         A few quick answers to common questions about timelines, process, and

@@ -30,9 +30,9 @@ export default function Faq() {
                 {item.question}
               </span>
               {openIdx === idx ? (
-                <FiChevronUp className={styles.chevron} />
+                <FiChevronUp className={`${styles.chevron} primaryIcon`} />
               ) : (
-                <FiChevronDown className={styles.chevron} />
+                <FiChevronDown className={`${styles.chevron} primaryIcon`} />
               )}
             </button>
             <div

@@ -17,20 +17,20 @@ const WhyMe = () => {
 
       <ul className={styles.whyMeList}>
         <li>
-          <span className={styles.whyMeIcon}>
-            <FaLightbulb />
+          <span>
+            <FaLightbulb className="primaryIcon" />
           </span>
           <span className={styles.whyMeText}>Problem-solving mindset</span>
         </li>
         <li>
-          <span className={styles.whyMeIcon}>
-            <FaTachometerAlt />
+          <span>
+            <FaTachometerAlt className="primaryIcon" />
           </span>
           <span className={styles.whyMeText}>Performance-focused</span>
         </li>
         <li>
-          <span className={styles.whyMeIcon}>
-            <FaLayerGroup />
+          <span>
+            <FaLayerGroup className="primaryIcon" />
           </span>
           <span className={styles.whyMeText}>
             Design + development thinking

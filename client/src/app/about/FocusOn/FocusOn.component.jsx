@@ -26,7 +26,7 @@ const FocusOn = () => {
       <h3>What I Focus On </h3>
       {focuses.map((focus, index) => (
         <li key={index} className={styles.focusItem}>
-          <span style={{ marginRight: '0.7em', color: 'var(--blue-500)', fontSize: '1.2em' }}>{focus.icon}</span>
+          <span className="primaryIcon">{focus.icon}</span>
           {focus.text}
         </li>
       ))}

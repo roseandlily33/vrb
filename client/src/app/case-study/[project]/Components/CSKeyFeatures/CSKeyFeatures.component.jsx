@@ -1,4 +1,3 @@
-
 import styles from "./CSKeyFeatures.module.css";
 import { FiCheckCircle } from "react-icons/fi";
 
@@ -10,7 +9,9 @@ const CSKeyFeatures = ({ keyFeatures }) => {
       <ul className={styles.featuresGrid}>
         {keyFeatures?.map((feature, index) => (
           <li key={index} className={styles.featureItem}>
-            <span className={styles.featureIcon}><FiCheckCircle /></span>
+            <span className={styles.featureIcon}>
+              <FiCheckCircle className="primaryIcon" />
+            </span>
             <span>{feature}</span>
           </li>
         ))}

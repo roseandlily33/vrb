@@ -4,6 +4,7 @@ import TertiaryButton from "@/app/Components/TertiaryButton/TertiaryButton.compo
 import { FiArrowRight, FiArrowLeft } from "react-icons/fi";
 import { useState } from "react";
 import { projects } from "@/app/Components/projectList";
+import PillButton from "@/app/Components/PillButton/PillButton.component";
 
 export default function Projects() {
   const [current, setCurrent] = useState(0);
@@ -59,11 +60,12 @@ export default function Projects() {
               <p className={styles.projectDescription}>{project.description}</p>
               <div className={styles.techList}>
                 {project.tech.map((tech) => (
-                  <span className={styles.techItem} key={tech}>
+                  <PillButton as="span" key={tech} className={styles.techItem}>
                     {tech}
-                  </span>
+                  </PillButton>
                 ))}
               </div>
+            
               <a href={project.link} className={styles.learnMoreLink}>
                 <TertiaryButton as="span">
                   Learn More{" "}

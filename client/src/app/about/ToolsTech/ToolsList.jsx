@@ -1,25 +1,16 @@
 import {
-    SiRedux,
-    SiGraphql,
     SiExpress,
     SiMongodb,
     SiMysql,
-    SiGatsby,
-    SiTestinglibrary,
     SiJavascript,
 } from "react-icons/si";
 import { MdAlternateEmail } from "react-icons/md";
 import { RiNextjsFill } from "react-icons/ri";
 import {
     FaReact,
-    FaUniversalAccess,
     FaNodeJs,
     FaRegStar,
-    FaAws,
-    FaHtml5,
-    FaCss3Alt,
     FaPaypal,
-    FaRegFileExcel,
 } from "react-icons/fa";
 
 export const skills = {

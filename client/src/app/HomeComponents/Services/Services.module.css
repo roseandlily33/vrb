@@ -1,27 +1,19 @@
 .servicesSection {
-  /* background: var(--grey-100); */
   padding: var(--section-lg);
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .heading {
-  /* font-weight: 700; */
-  /* color: var(--grey-500); */
   margin-bottom: var(--space-m);
-  /* text-align: center; */
 }
 .subtext {
   color: var(--grey-700);
-  /* font-size: 1.1rem; */
-  /* text-align: center; */
-  margin-bottom: var(--space-xxxl);
+  margin-bottom: var(--space-xxl);
 }
 
 .cardsWrapper {
   display: flex;
   gap: var(--space-l);
-  /* justify-content: center; */
-  /* flex-wrap: wrap; */
 }
 .bottomButton {
   display: flex;
@@ -44,7 +36,4 @@
   .cardsWrapper {
     gap: var(--space-l);
   }
-  /* .heading { */
-  /* font-size: 1.5rem; */
-  /* } */
 }

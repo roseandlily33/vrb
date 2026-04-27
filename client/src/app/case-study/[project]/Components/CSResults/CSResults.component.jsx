@@ -15,8 +15,8 @@ const CSResults = ({ results }) => {
             return (
               <Card key={idx} className={styles.eachCard}>
                 <div className={styles.iconTitleWrapper}>
-                  {Icon && <Icon className={styles.resultIcon} size={28} />}
-                  <h4>{result.title}</h4>
+                  {Icon && <Icon className="secondaryIcon" size={28} />}
+                  <h4 className="cardHeader">{result.title}</h4>
                 </div>
                 <p style={{ color: "var(--grey-800)", fontSize: "0.9rem" }}>
                   {result.desc}

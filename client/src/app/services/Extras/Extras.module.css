@@ -18,11 +18,10 @@
 
 .splitLayout {
   display: grid;
-  grid-template-columns: 260px 1fr; 
+  grid-template-columns: 260px 1fr;
   gap: 2rem;
   align-items: stretch;
 }
-
 
 .extrasList {
   list-style: none;
@@ -133,5 +132,26 @@
 
   .extraDetail {
     padding: 1.5rem;
+  }
+
+  .extrasSelect {
+    width: 100%;
+    padding: 0.85rem 1.1rem;
+    border-radius: var(--radius-md);
+    border: 2px solid var(--blue-400);
+    background: #f7fbff;
+    font-size: 1.08rem;
+    font-weight: 600;
+    color: var(--blue-900);
+    margin-bottom: 1.2rem;
+    box-shadow: 0 2px 8px 0 rgba(38, 155, 230, 0.07);
+    outline: none;
+    transition:
+      border 0.2s,
+      box-shadow 0.2s;
+  }
+  .extrasSelect:focus {
+    border-color: var(--blue-700);
+    box-shadow: 0 0 0 2px var(--blue-200);
   }
 }

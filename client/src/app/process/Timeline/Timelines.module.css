@@ -1,43 +1,65 @@
+.timelineRowsWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  width: 100%;
+  align-items: center;
+  /* border: 2px solid red; */
+}
+
+.timelineRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  width: 100%;
+  justify-items: center;
+  align-items: start;
+  align-items: stretch;
+  /* border: 2px solid blue; */
+}
+
+.labelTimeWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
 .timelineSection {
   width: 100%;
   /* max-width: 1100px; */
   /* margin: 1.5rem auto; */
-  padding: var(--section-md);
+  /* padding: var(--section-md); */
   display: flex;
   flex-direction: column;
   align-items: center;
-}
-
-.timelineWrapper {
-  display: flex;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: center;
-  gap: var(--space-xl);
-  width: 100%;
-  flex-wrap: wrap;
+  /* border: 2px solid red; */
 }
 
 .timelineStep {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   position: relative;
   min-width: 110px;
   flex: 1 1 0;
+  min-height: 140px;
+  height: 100%;
 }
 
 .iconWrapper {
   background: var(--blue-200);
   border-radius: 50%;
   width: 64px;
-  height: 64px;
+  aspect-ratio: 1 / 1;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: var(--space-s);
   box-shadow: 0 2px 8px 0 rgba(38, 155, 230, 0.08);
   transition: transform 0.18s cubic-bezier(0.23, 1, 0.32, 1);
+  min-height: 64px;
+  max-height: 64px;
 }
 
 .iconWrapper:hover,
@@ -75,7 +97,7 @@
   text-align: center;
 }
 .time {
-  font-size:var(--space-m);
+  font-size: var(--space-m);
   color: var(--grey-500);
   margin-bottom: var(--space-xxs);
   text-align: center;
@@ -99,23 +121,55 @@
     align-items: center;
     min-width: 0;
     width: 100%;
-    justify-content: flex-start;
+    justify-content: center;
     margin-bottom: var(--space-xs);
   }
   .iconWrapper {
     margin-bottom: 0;
     margin-right: var(--space-m);
   }
+  .labelTimeWrapper {
+    align-items: center;
+    width: auto;
+    gap: 0.15rem;
+  }
   .label,
   .time {
     margin-bottom: 0;
     margin-top: 0;
-    text-align: left;
+    text-align: center;
+  }
+  .arrow {
+    display: none;
   }
   .arrow {
     position: static;
     transform: none;
     margin-left: var(--space-m);
     margin-top: 0;
+  }
+}
+
+@media (min-width: 901px) {
+  .timelineRowsWrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    width: 100%;
+    align-items: stretch;
+    justify-content: space-between;
+  }
+  .timelineRow {
+    display: flex;
+    flex-direction: row;
+    gap: var(--space-xl);
+    width: 100%;
+    justify-content: space-between;
+    align-items: stretch;
+  }
+  .timelineStep {
+    min-height: 140px;
+    flex: 1 1 0;
+    height: 100%;
   }
 }

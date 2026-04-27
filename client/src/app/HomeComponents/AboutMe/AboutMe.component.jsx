@@ -18,7 +18,7 @@ export default function AboutMe() {
         <p className={styles.bottomText}>
           {features.map((feature, idx) => (
             <span key={feature} style={{ display: "block", marginBottom: 4 }}>
-              <span style={{ color: "var(--blue-600)", fontWeight: 700, marginRight: 8 }}>✓</span>
+              <span className="primaryIcon">✓</span>
               {feature}
             </span>
           ))}
