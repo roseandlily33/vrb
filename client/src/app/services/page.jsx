@@ -17,7 +17,7 @@ export default function Services() {
         topMeta="Services"
         title="Custom websites built to grow your business"
         highlight="grow"
-        subText="Focused on performance, scalability, and user experience"
+        subText="Performance-driven, user-focused, and built to scale with you"
       />
       <Links />
       <Packages />

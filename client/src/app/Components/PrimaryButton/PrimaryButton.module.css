@@ -1,4 +1,4 @@
-.primaryButton {
+/* .primaryButton {
   background: var(--blue-600);
   color: #fff;
   border: none;
@@ -21,4 +21,34 @@
 .primaryButton:focus {
   background: var(--blue-800);
   box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.12);
+} */
+
+.primaryButton {
+  min-height: 54px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  padding: 0 1.7rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 700;
+  border: none;
+  text-decoration: none;
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease,
+    background 0.18s ease,
+    border-color 0.18s ease;
+}
+
+.primaryButton {
+  color: #ffffff;
+  background: linear-gradient(180deg, #2d7dff 0%, #125de3 100%);
+  box-shadow: 0 14px 30px rgba(18, 93, 227, 0.22);
+}
+
+.primaryButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 38px rgba(18, 93, 227, 0.28);
 }

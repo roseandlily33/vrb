@@ -6,7 +6,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: var(--section-sm);
+  padding: var(--section-xs);
 }
 
 .testimonialText {
@@ -19,8 +19,6 @@
   font-style: italic;
   padding-top: var(--space-xs);
   color: var(--blue-900);
-  padding: var(--space-xl);
-  /* border: 2px solid orange; */
   display: flex;
   flex-direction: column;
 }
@@ -29,17 +27,13 @@
   height: 48px;
   border-radius: 50%;
   object-fit: cover;
-  margin-right: var(--space-,);
+  margin-right: var(--space-m);
 }
 .bigQuote {
-  color: var(--accent-blue);
+  color: var(--blue-600);
   font-size: var(--space-xxxl);
   font-weight: 900;
-  line-height: 1;
-  /* position: absolute; */
-  /* left: 0; */
-  /* top: -0.2em; */
-  /* transform: translateX(-1.2em); */
+  line-height: 1.5;
   font-family: serif;
   z-index: 1;
 }

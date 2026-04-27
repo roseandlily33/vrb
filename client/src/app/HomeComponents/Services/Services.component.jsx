@@ -17,9 +17,9 @@ export default function Services() {
         "Intuitive, beautiful interfaces and user experiences that delight and convert.",
     },
     {
-      title: "Performance",
+      title: "Custom Functionality",
       description:
-        "Optimizing your digital products for speed, efficiency, and scalability.",
+        "From user accounts to dashboards and integrations, I build features that go beyond a standard website.",
     },
   ];
   return (

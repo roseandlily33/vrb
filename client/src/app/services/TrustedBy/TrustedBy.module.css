@@ -1,30 +1,21 @@
 .trustedSection {
   width: 100%;
-  padding: 3.5rem 0; /* lighter than full sections */
+  padding: var(--section-md);
   text-align: center;
+  background: var(--grey-50);
   border-top: 1px solid rgba(0, 0, 0, 0.05);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-/* --- HEADING --- */
-.heading {
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--grey-500);
-  margin-bottom: 2rem;
-}
-
-/* --- ROW --- */
 .logoRow {
   display: flex;
   justify-content: center;
-  align-items: center; /* center instead of flex-end */
-  gap: 3rem; /* slightly tighter + more controlled */
+  align-items: center;
+  gap: 3rem; 
   flex-wrap: wrap;
+  margin-top: 2rem;
 }
 
-/* --- COLUMN --- */
 .logoCol {
   display: flex;
   flex-direction: column;
@@ -33,16 +24,14 @@
   min-width: 110px;
 }
 
-/* --- LINK --- */
 .logoLink {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-/* --- IMAGE --- */
 .logoImg {
-  height: 56px; /* slightly smaller = cleaner */
+  height: 56px; 
   width: 110px;
   object-fit: contain;
 
@@ -59,10 +48,8 @@
 .logoLink:focus .logoImg {
   filter: grayscale(0) brightness(1);
   opacity: 1;
-  transform: translateY(-2px); /* subtle lift */
+  transform: translateY(-2px); 
 }
-
-/* --- COMPANY NAME --- */
 .companyName {
   font-size: 0.85rem;
   color: var(--grey-500);

@@ -1,4 +1,3 @@
-/* Utility classes for desktop/mobile visibility */
 .desktopOnly {
   display: block;
 }
@@ -15,7 +14,6 @@
     width: 100%;
   }
 }
-/* Mobile zig-zag process steps */
 .mobileStepsWrapper {
   display: none;
 }
@@ -51,12 +49,9 @@
 
 .processTabs {
   padding: 4rem 12rem;
-  /* border: 2px solid red; */
 }
 .processTabs p {
-  /* font-size: 1rem; */
-  /* text-transform: lowercase; */
-  /* font-weight: 500; */
+
   color: var(--grey-500);
 }
 .description {
@@ -101,6 +96,7 @@
     margin-top: var(--space-xxl);
     align-items: flex-start;
     padding: 0 0.5rem;
+    /* border: 2px solid red; */
   }
   .number {
     font-size: 4rem;

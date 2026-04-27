@@ -15,14 +15,14 @@ export default function AboutMe() {
         </h1>
       </div>
       <div className={styles.bottomAboutMe}>
-        <p className={styles.bottomText}>
+        <div className={styles.bottomText}>
           {features.map((feature, idx) => (
-            <span key={feature} style={{ display: "block", marginBottom: 4 }}>
-              <span className="primaryIcon">✓</span>
+            <span key={feature} className={styles.featureRow}>
+              <span className={styles.iconContainer}>✓</span>
               {feature}
             </span>
           ))}
-        </p>
+        </div>
         <img src="/squares.png" alt="Square" className={styles.logo} />
       </div>
     </section>

@@ -37,8 +37,8 @@ export default function Packages() {
     return (
       <section className={styles.packagesSection} id="packages">
         <span className="eyebrowHeader">Packages</span>
-        <h2 className={styles.heading}>Project Packages</h2>
-        <p className={styles.meta}>
+        <h2 className="heading">Project Packages</h2>
+        <p className="meta">
           Transparent pricing, clear deliverables, and a process tailored to
           your needs.
         </p>
@@ -46,7 +46,6 @@ export default function Packages() {
           className={`${styles.cardGrid} ${animating ? styles.fadeOut : styles.fadeIn}`}
         >
           {websitePackages.map((pkg, idx) => {
-            const Icon = pkg.icon;
             const isFeatured = pkg.highlight || idx === 1;
             return (
               <Card
@@ -64,7 +63,6 @@ export default function Packages() {
                 )}
                 <div className={styles.cardTop}>
                   <div className={styles.cardHeader}>
-                    {/* <span className={styles.cardIcon}>{Icon && <Icon />}</span> */}
                     <div>
                       <h3 className={styles.cardTitle}>{pkg.title}</h3>
                       <div className={styles.bestFor}>{pkg.bestFor}</div>

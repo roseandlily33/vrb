@@ -10,14 +10,12 @@ export default function Process() {
   return (
     <section className={styles.processSection} id="process">
       <span className="eyebrowHeader">Process</span>
-      <h2 className={styles.heading}>My Process</h2>
-      <p className={styles.subtext}>
+      <h2 className="heading">My Process</h2>
+      <p className="meta">
         Timelines may vary depending on your project’s scope, complexity, and
         requirements.
       </p>
-
       <Timeline />
-
       <div className={styles.processCta}>
         <Link href="/process" passHref>
           <TertiaryButton as="a" style={{ fontSize: "0.85rem" }}>

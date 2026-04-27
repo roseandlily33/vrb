@@ -1,65 +1,84 @@
 import MostPopular from "../../Components/MostPopular/MostPopular.component";
-import { FaRegClock } from "react-icons/fa";
-const SelectedDesignPackage = ({ pkg, setSelectedIdx }) => {
-  const Icon = () => (
-    <span
-      className={styles.cardIcon}
-      aria-hidden="true"
-      style={{
-        fontSize: "2.1rem",
-        color: "var(--blue-500)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      🎨
-    </span>
-  );
+import TertiaryButton from "@/app/Components/TertiaryButton/TertiaryButton.component";
+import Card from "@/app/Components/Card/Card.component";
+import styles from "../Packages/Packages.module.css";
+import designPackages from "./designPackage";
+
+const SelectedDesignPackage = ({
+  pkg,
+  selectedIdx,
+  setSelectedIdx,
+  animating,
+  handleHideInfo,
+}) => {
   return (
-    <section className={styles.designSection}>
-      <div className={styles.designIntro}>
-        <div className={styles.introText}>
-          <span className="eyebrowHeader">Design-Only Options</span>
-          <h2 className={styles.heading}>{pkg.title}</h2>
-          <p className={styles.meta}>{pkg.description}</p>
+    <section className={styles.packagesSection}>
+      <div
+        className={`${styles.tabsWrapper} ${animating ? styles.fadeOut : styles.fadeIn}`}
+      >
+        <div className={styles.tabs}>
+          {designPackages.map((p, idx) => (
+            <button
+              key={p.title + p.type}
+              className={`${styles.tab} ${idx === selectedIdx ? styles.activeTab : ""}`}
+              onClick={() => setSelectedIdx(idx)}
+              disabled={idx === selectedIdx}
+              type="button"
+            >
+              <span className={styles.tabTitle}>{p.title}</span>
+              <span className={styles.tabType}>
+                {p.type === "design" ? "Design" : "Website"}
+              </span>
+            </button>
+          ))}
         </div>
-      </div>
-      <div className={styles.detailCard}>
-        <div className={styles.cardHeader}>
-          <span className={styles.cardIcon}>
-            <Icon />
-          </span>
-          <div>
-            <h3 className={styles.cardTitle}>{pkg.title}</h3>
-            <div className={styles.bestFor}>{pkg.bestFor}</div>
+
+        <Card className={styles.detailCard}>
+          {pkg.highlight && (
+            <MostPopular className={styles.mostPopularInside}>{pkg.highlight}</MostPopular>
+          )}
+          <div className={styles.detailTop}>
+            <div className={styles.cardHeader}>
+              <div>
+                <h3 className={styles.cardTitle}>{pkg.title}</h3>
+                <div className={styles.bestFor}>
+                  <b>Best for</b> <span>{pkg.bestFor}</span>
+                </div>
+              </div>
+            </div>
+
+            <div className={styles.detailMetaRow}>
+              <span className={styles.cardPrice}>
+                <b>Starting at</b> {pkg.startingAt}
+              </span>
+              <span className={styles.detailDivider}>•</span>
+              <span className={styles.cardMeta}>
+                <b>Approx.</b> {pkg.timeline}
+              </span>
+            </div>
+
+            <p className={styles.cardDesc}>
+              <b>Description:</b> {pkg.description}
+            </p>
           </div>
-          {pkg.highlight && <div>{pkg.highlight}</div>}
-        </div>
-        <div className={styles.priceSection}>
-          <div className={styles.priceLabel}>STARTING AT</div>
-          <div className={styles.priceValue}>{pkg.startingAt}</div>
-          <div className={styles.timelineRow}>
-            <FaRegClock className={styles.clockIcon} />
-            <span className={styles.timelineText}>Approx. {pkg.timeline}</span>
+
+          <div className={styles.detailBody}>
+            <h4 className={styles.includesTitle}>What’s included</h4>
+            <ul className={styles.featuresList}>
+              {pkg.features.map((feature) => (
+                <li key={feature} className={styles.featureItem}>
+                  {feature}
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
-        <p className={styles.cardDesc}>{pkg.description}</p>
-        <div className={styles.detailBody}>
-          <h4 className={styles.includesTitle}>What’s included</h4>
-          <ul className={styles.featuresList}>
-            {pkg.features.map((feature) => (
-              <li key={feature} className={styles.featureItem}>
-                {feature}
-              </li>
-            ))}
-          </ul>
-        </div>
-        <div className={styles.cardBottomButtonWrapper}>
-          <TertiaryButton onClick={() => setSelectedIdx(null)}>
-            Hide details
-          </TertiaryButton>
-        </div>
+
+          <div className={styles.detailActions}>
+            <TertiaryButton onClick={handleHideInfo}>
+              Hide details
+            </TertiaryButton>
+          </div>
+        </Card>
       </div>
     </section>
   );

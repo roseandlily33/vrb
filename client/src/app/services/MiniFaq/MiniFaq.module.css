@@ -2,19 +2,13 @@
   width: 100%;
   padding: var(--section-lg);
   background: var(--grey-50);
-  border-radius: var(--radius-lg);
-}
-
-.heading {
-  color: var(--grey-900);
-  margin-bottom: 0.5rem;
 }
 
 .subtext {
   color: var(--grey-700);
   max-width: 620px;
   line-height: 1.6;
-  margin-bottom: 2rem;
+  margin-block: var(--space-xs);
 }
 
 .faqList {
@@ -48,7 +42,7 @@
 .question {
   font-weight: 700;
   color: var(--grey-900);
-  margin-bottom: 0.5rem;
+  margin-block: var(--space-xs);
   font-size: 1.05rem;
   line-height: 1.4;
 }

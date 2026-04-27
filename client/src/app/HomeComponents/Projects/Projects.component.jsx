@@ -20,29 +20,13 @@ export default function Projects() {
     <section className={styles.projectsSection}>
       <div className={styles.headerGroup}>
         {/* <p className="eyebrowHeader">Work</p> */}
-        <h2 className={styles.heading}>Featured Projects</h2>
+        {/* <h2 className={styles.heading}>Featured Projects</h2> */}
       </div>
-      <div
-        className={styles.carousel}
-        style={{
-          flexDirection: "row",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+      <div className={styles.carousel}>
         <button
           aria-label="Previous project"
           onClick={goPrev}
-          style={{
-            background: "none",
-            border: "none",
-            cursor: "pointer",
-            padding: "0 1rem",
-            color: "var(--blue-800)",
-            fontSize: "2.2rem",
-            display: "flex",
-            alignItems: "center",
-          }}
+          className={`${styles.navArrow} ${styles.left}`}
         >
           <FiArrowLeft />
         </button>
@@ -65,7 +49,6 @@ export default function Projects() {
                   </PillButton>
                 ))}
               </div>
-            
               <a href={project.link} className={styles.learnMoreLink}>
                 <TertiaryButton as="span">
                   Learn More{" "}
@@ -81,16 +64,7 @@ export default function Projects() {
         <button
           aria-label="Next project"
           onClick={goNext}
-          style={{
-            background: "none",
-            border: "none",
-            cursor: "pointer",
-            padding: "0 1rem",
-            color: "var(--blue-800)",
-            fontSize: "2.2rem",
-            display: "flex",
-            alignItems: "center",
-          }}
+          className={`${styles.navArrow} ${styles.right}`}
         >
           <FiArrowRight />
         </button>

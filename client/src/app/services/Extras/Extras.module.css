@@ -4,22 +4,10 @@
   display: flex;
   flex-direction: column;
 }
-
-.heading {
-  margin-bottom: 0.5rem;
-}
-
-.subtext {
-  color: var(--grey-700);
-  max-width: 600px;
-  margin-bottom: 2.5rem;
-  line-height: 1.6;
-}
-
 .splitLayout {
   display: grid;
   grid-template-columns: 260px 1fr;
-  gap: 2rem;
+  gap: 4rem;
   align-items: stretch;
 }
 
@@ -30,24 +18,19 @@
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
-
   border: 1px solid var(--grey-border);
   border-radius: var(--radius-md);
   background: #ffffff;
 }
 
-/* --- LIST ITEM --- */
 .listItem {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-
   padding: 0.65rem 0.75rem;
   border-radius: var(--radius-sm);
-
   color: var(--grey-700);
   cursor: pointer;
-
   transition:
     background var(--transition-fast),
     color var(--transition-fast),
@@ -63,11 +46,14 @@
   opacity: 0.7;
 }
 
-/* --- SELECTED STATE (important change) --- */
 .selected {
-  background: rgba(27, 137, 226, 0.1);
-  color: var(--grey-900);
-  font-weight: 600;
+  background: linear-gradient(90deg, #eaf3ff 0%, #dbefff 100%);
+  color: var(--blue-900);
+  font-weight: 700;
+  box-shadow: 0 2px 12px rgba(27, 137, 226, 0.07);
+  border: 1.5px solid var(--blue-300);
+  transform: scale(1.03);
+  z-index: 1;
 }
 
 .selected .icon {
@@ -75,34 +61,30 @@
   opacity: 1;
 }
 
-/* --- RIGHT PANEL --- */
 .extraDetail {
   background: #ffffff;
   border: 1px solid var(--grey-border);
   border-radius: var(--radius-md);
   padding: 2rem;
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 1rem;
-
   min-height: 180px;
 }
 
-/* --- ICON --- */
 .extraIcon {
   font-size: 1.5rem;
   color: var(--blue-700);
   margin-bottom: 0.25rem;
 }
 
-/* --- TEXT --- */
 .extraTitle {
-  font-size: 1.25rem;
-  font-weight: 700;
+  font-size: 1.45rem;
+  font-weight: 800;
   color: var(--grey-900);
   margin: 0;
+  letter-spacing: -0.01em;
 }
 
 .extraDesc {
@@ -112,12 +94,11 @@
   max-width: 50ch;
 }
 
-/* --- MOBILE --- */
 @media (max-width: 800px) {
   .splitLayout {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 1.2rem;
   }
 
   .extrasList {
@@ -131,12 +112,15 @@
   }
 
   .extraDetail {
-    padding: 1.5rem;
+    padding: 1.2rem 1rem;
+    min-height: 120px;
+    margin-top: 0.5rem;
+    border-width: 1.5px;
   }
 
   .extrasSelect {
     width: 100%;
-    padding: 0.85rem 1.1rem;
+    padding: 1rem 1.1rem;
     border-radius: var(--radius-md);
     border: 2px solid var(--blue-400);
     background: #f7fbff;
@@ -144,6 +128,7 @@
     font-weight: 600;
     color: var(--blue-900);
     margin-bottom: 1.2rem;
+    margin-top: 0.5rem;
     box-shadow: 0 2px 8px 0 rgba(38, 155, 230, 0.07);
     outline: none;
     transition:

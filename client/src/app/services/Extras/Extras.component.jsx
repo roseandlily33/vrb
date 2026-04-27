@@ -1,19 +1,35 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Extras.module.css";
 import { extrasList } from "./extrasList";
+
+function useMediaQuery(query) {
+  const [matches, setMatches] = useState(() => {
+    if (typeof window === "undefined") return false;
+    return window.matchMedia(query).matches;
+  });
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const media = window.matchMedia(query);
+    const listener = () => setMatches(media.matches);
+    media.addEventListener("change", listener);
+    setMatches(media.matches);
+    return () => media.removeEventListener("change", listener);
+  }, [query]);
+  return matches;
+}
 
 export default function Extras() {
   const [selectedIdx, setSelectedIdx] = useState(0);
 
-  // Detect mobile
-  const isMobile = typeof window !== 'undefined' && window.innerWidth <= 800;
+  // Responsive: update on resize
+  const isMobile = useMediaQuery("(max-width: 800px)");
 
   return (
     <section className={styles.extrasSection} id="extras">
       <span className="eyebrowHeader">Extras</span>
-      <h2 className={styles.heading}>Extras & Add-Ons</h2>
-      <p className={styles.subtext}>
+      <h2 className="heading">Extras & Add-Ons</h2>
+      <p className="meta">
         Enhance your project with optional features and services—choose what fits your needs.
       </p>
 

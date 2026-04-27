@@ -23,6 +23,7 @@ const SelectedPackage = ({
               className={`${styles.tab} ${idx === selectedIdx ? styles.activeTab : ""}`}
               onClick={() => setSelectedIdx(idx)}
               disabled={idx === selectedIdx}
+              type="button"
             >
               <span className={styles.tabTitle}>{p.title}</span>
               <span className={styles.tabType}>
@@ -38,22 +39,19 @@ const SelectedPackage = ({
               <div>
                 <h3 className={styles.cardTitle}>{pkg.title}</h3>
                 <div className={styles.bestFor}>
-                  Best for <span>{pkg.bestFor}</span>
+                  <b>Best for</b> <span>{pkg.bestFor}</span>
                 </div>
               </div>
-
               {pkg.highlight && <MostPopular>{pkg.highlight}</MostPopular>}
             </div>
 
             <div className={styles.detailMetaRow}>
-              <span className={styles.cardPrice}>
-                Starting at {pkg.startingAt}
-              </span>
+              <span className={styles.cardPrice}><b>Starting at</b> {pkg.startingAt}</span>
               <span className={styles.detailDivider}>•</span>
-              <span className={styles.cardMeta}>Approx. {pkg.timeline}</span>
+              <span className={styles.cardMeta}><b>Approx.</b> {pkg.timeline}</span>
             </div>
 
-            <p className={styles.cardDesc}>{pkg.description}</p>
+            <p className={styles.cardDesc}><b>Description:</b> {pkg.description}</p>
           </div>
 
           <div className={styles.detailBody}>

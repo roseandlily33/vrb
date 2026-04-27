@@ -25,7 +25,10 @@ const companies = [
 export default function TrustedBy() {
   return (
     <section className={styles.trustedSection}>
-      <h3 className={styles.heading}>Trusted by </h3>
+      <p className="eyebrowHeader" style={{ marginBottom: "0.5rem" }}>
+        Trusted by
+      </p>
+      <h3 className="heading"> Companies and teams I’ve worked with</h3>
       <div className={styles.logoRow}>
         {companies?.map((company) => (
           <div key={company.name} className={styles.logoCol}>
