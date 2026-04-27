@@ -8,26 +8,34 @@ export default function CTA() {
   const router = useRouter();
   return (
     <section className={styles.ctaSection}>
-      <div className={styles.ctaContent}>
+      <div className={styles.ctaInner}>
+        <p className="eyebrowHeader">Let’s work together</p>
+
         <h2 className={styles.ctaHeading}>
-          Ready to build something that works beautifully?
+          Ready to build something that actually works?
         </h2>
 
         <p className={styles.ctaSubtext}>
-          From strategy and design to development and launch, I create
-          thoughtful digital experiences built around your goals.
+          Whether you need a new website or want to improve what you have, I can
+          help you create something clear, fast, and built to scale.
         </p>
 
-        <CTAButton onClick={() => router.push("/contact")}>
-          Start Your Project
-          <FiSend
-            style={{ marginLeft: 8, verticalAlign: "middle" }}
-            aria-hidden="true"
-          />
-        </CTAButton>
+        <div className={styles.ctaButtons}>
+          <CTAButton onClick={() => router.push("/contact")}>
+            Start Your Project
+            <FiSend
+              style={{ marginLeft: 8, verticalAlign: "middle" }}
+              aria-hidden="true"
+            />
+          </CTAButton>
 
-        <p className={styles.ctaMeta}>
-          Currently booking 1–2 months in advance
+          <a href="/work" className={styles.secondaryBtn}>
+            View My Work
+          </a>
+        </div>
+
+        <p className={styles.ctaNote}>
+          Currently booking projects 1–2 months in advance
         </p>
       </div>
     </section>

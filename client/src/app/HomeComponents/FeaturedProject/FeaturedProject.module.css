@@ -1,0 +1,146 @@
+.projectsSection {
+  width: 100%;
+  padding: var(--section-xl);
+  background: var(--background-one);
+}
+
+.projectsHeader {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.projectsHeader h2 {
+  margin: 0;
+  color: var(--grey-900);
+  letter-spacing: -0.03em;
+}
+
+.featuredProjectCard {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 0;
+  overflow: hidden;
+  border-radius: 30px;
+  background: #ffffff;
+  border: 1px solid #e5eef8;
+  box-shadow: 0 18px 50px rgba(15, 35, 65, 0.08);
+}
+
+.projectImageWrap {
+  /* min-height: 420px; */
+  max-height: 400px;
+  background: var(--blue-50);
+  overflow: hidden;
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+.projectContent {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.projectType {
+  margin: 0 0 0.75rem;
+  color: var(--blue-700);
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.projectContent h3 {
+  margin: 0 0 1rem;
+  color: var(--grey-900);
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+}
+
+.projectContent p {
+  margin: 0;
+  color: var(--grey-700);
+  line-height: 1.75;
+}
+
+.projectTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.6rem;
+}
+
+.projectTags span {
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  background: var(--blue-50);
+  color: var(--blue-700);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.projectLink {
+  margin-top: 2rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: var(--blue-700);
+  font-weight: 800;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.projectLink svg {
+  transition: transform 0.18s ease;
+}
+
+.projectLink:hover svg {
+  transform: translateX(4px);
+}
+
+@media (max-width: 900px) {
+  .featuredProjectCard {
+    grid-template-columns: 1fr;
+  }
+
+  .projectImageWrap {
+    min-height: 300px;
+  }
+
+  .projectContent {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 700px) {
+  .projectsSection {
+    padding: var(--section-lg);
+  }
+
+  .projectsHeader {
+    text-align: left;
+  }
+
+  .projectImageWrap {
+    min-height: 220px;
+  }
+
+  .projectContent {
+    padding: 1.5rem;
+  }
+
+  .projectContent h3 {
+    font-size: 1.55rem;
+  }
+}

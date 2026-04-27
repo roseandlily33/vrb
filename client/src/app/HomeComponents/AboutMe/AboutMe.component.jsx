@@ -1,30 +1,27 @@
 import styles from "./AbouteMe.module.css";
 
 export default function AboutMe() {
-  const features = [
-    "Fast, performance-focused builds",
-    "Clean, scalable architecture",
-    "Thoughtful UX/UI decisions",
-  ];
   return (
-    <section className={styles.aboutMeSection}>
-      <div className={styles.topText}>
-        <h1 className={styles.introLine}>
-          I build <span className={styles.blue}>web experiences</span> that are fast, intuitive, and designed with
-          real users in mind.
-        </h1>
+    <section className={styles.introSection}>
+      <div className={styles.introInner}>
+        <p className="eyebrowHeader">Design meets development</p>
+        <h2>
+          I build <span>web experiences</span> that feel clear, fast, and easy
+          to use.
+        </h2>
+        <p className={styles.introText}>
+          With a background in both design and development, I focus on creating
+          websites and applications that look polished, work reliably, and
+          support real user goals.
+        </p>
+
+        <ul className={styles.introList}>
+          <li>Fast, performance-focused builds</li>
+          <li>Clean, scalable development</li>
+          <li>Thoughtful UX/UI decisions</li>
+        </ul>
       </div>
-      <div className={styles.bottomAboutMe}>
-        <div className={styles.bottomText}>
-          {features.map((feature, idx) => (
-            <span key={feature} className={styles.featureRow}>
-              <span className={styles.iconContainer}>✓</span>
-              {feature}
-            </span>
-          ))}
-        </div>
-        <img src="/squares.png" alt="Square" className={styles.logo} />
-      </div>
+      <div className={styles.pixelAccent} aria-hidden="true"></div>
     </section>
   );
 }

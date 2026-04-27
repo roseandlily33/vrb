@@ -169,6 +169,45 @@ small {
   --transition-normal: 250ms ease;
   --transition-slow: 400ms ease;
   --background-gradient: linear-gradient(180deg, var(--blue-50), #ffffff);
+  --background-hero:
+    radial-gradient(
+      circle at 85% 30%,
+      /* move it right */ rgba(27, 137, 226, 0.1),
+      transparent 35%
+    ),
+    linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  --background-one: linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  --background-two:
+    radial-gradient(
+      circle at 18% 20%,
+      rgba(27, 137, 226, 0.08),
+      transparent 34%
+    ),
+    linear-gradient(180deg, #ffffff 0%, #f8fbff 100%);
+  /* Use this between heavier sections */
+  --background-three: linear-gradient(180deg, #ffffff 0%, #f2f6fc 100%);
+  /* Premium card background */
+  --background-four:
+    radial-gradient(
+      circle at 70% 30%,
+      rgba(27, 137, 226, 0.12),
+      transparent 40%
+    ),
+    linear-gradient(180deg, #ffffff 0%, #f5f9ff 100%);
+  /* Soft brand section */
+  --background-five: linear-gradient(180deg, #f4f8ff 0%, #eaf2ff 100%);
+  --background-six:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(255, 255, 255, 0.06),
+      transparent 40%
+    ),
+    radial-gradient(
+      circle at 20% 80%,
+      rgba(38, 155, 230, 0.15),
+      transparent 45%
+    ),
+    linear-gradient(180deg, var(--blue-900) 0%, var(--blue-950) 100%);
 }
 
 @media (prefers-color-scheme: dark) {

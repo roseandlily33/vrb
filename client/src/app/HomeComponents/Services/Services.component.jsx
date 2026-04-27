@@ -1,58 +1,48 @@
-import Card from "../../Components/Card/Card.component";
+// import Card from "../../Components/Card/Card.component";
 import styles from "./Services.module.css";
-import TertiaryButton from "@/app/Components/TertiaryButton/TertiaryButton.component";
+// import TertiaryButton from "@/app/Components/TertiaryButton/TertiaryButton.component";
 import Link from "next/link";
-import { FiArrowRight } from "react-icons/fi";
+import { FaArrowRight } from "react-icons/fa";
 
 export default function Services() {
-  const eachService = [
+  const services = [
     {
       title: "Web Development",
       description:
-        "Modern, scalable, and performant websites and web apps tailored to your needs.",
+        "Modern, responsive websites built with clean code, strong structure, and long-term scalability in mind.",
     },
     {
       title: "UI/UX Design",
       description:
-        "Intuitive, beautiful interfaces and user experiences that delight and convert.",
+        "Thoughtful interfaces designed around clarity, usability, and a smooth experience for real users.",
     },
     {
       title: "Custom Functionality",
       description:
-        "From user accounts to dashboards and integrations, I build features that go beyond a standard website.",
+        "Features that go beyond a standard website, from integrations and forms to dashboards and user-focused tools.",
     },
   ];
   return (
     <section className={styles.servicesSection}>
-      <p className="eyebrowHeader">Services</p>
-      <h2 className={styles.heading}>Services I offer</h2>
-      <div className={styles.subtext}>
-        From design to development, I offer end-to-end digital services.
+      <div className={styles.servicesHeader}>
+        <p className="eyebrowHeader">Services</p>
+        <h2>Services I offer</h2>
+        <p>
+          From polished websites to custom functionality, I help turn ideas into
+          clean, usable digital experiences.
+        </p>
       </div>
-      <div className={styles.cardsWrapper}>
-        {eachService?.map((service) => (
-          <Card key={service.title} className={styles.serviceCard}>
-            <h3
-              className="cardHeader"
-              style={{
-                paddingBottom: "var(--space-s)",
-              }}
-            >
-              {service.title}
-            </h3>
-            <p className={styles.serviceDescription}>{service.description}</p>
-            <div className={styles.bottomButton}>
-              <Link href="/services">
-                <TertiaryButton as="span">
-                  Learn More{" "}
-                  <FiArrowRight
-                    style={{ marginLeft: 6, verticalAlign: "middle" }}
-                    aria-hidden="true"
-                  />
-                </TertiaryButton>
-              </Link>
-            </div>
-          </Card>
+
+      <div className={styles.servicesGrid}>
+        {services.map((service) => (
+          <article className={styles.serviceCard} key={service.title}>
+            <h3>{service.title}</h3>
+            <p>{service.description}</p>
+
+            <Link href="/services" className={styles.serviceLink}>
+              Learn More <FaArrowRight />
+            </Link>
+          </article>
         ))}
       </div>
     </section>

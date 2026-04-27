@@ -1,12 +1,12 @@
 "use client";
-import {useRouter} from 'next/navigation';
+import { useRouter } from "next/navigation";
 import CTAButton from "../../CTAButton/CTAButton.component";
 import SecondaryButton from "../../SecondaryButton/SecondaryButton.component";
 import { FiArrowRight, FiMail } from "react-icons/fi";
 import styles from "./CTA4.module.css";
 
 export default function CTA4() {
-    const router = useRouter();
+  const router = useRouter();
   function getBookingWindow() {
     const now = new Date();
 
@@ -21,21 +21,22 @@ export default function CTA4() {
     return `Now booking ${formatter.format(start)}–${formatter.format(end)}`;
   }
   return (
-    <section className={styles.cta4Section}>
-      <div className={styles.cta4Content}>
-        <span className="eyebrowHeader">Next Project</span>
+    <section className={styles.ctaSection}>
+      <div className={styles.ctaWrapper}>
+        <div className={styles.ctaLeft}>
+          <p className="eyebrowHeader">Next Project</p>
 
-        <h2 className={styles.cta4Heading}>
-          Have a project like this in mind?
-        </h2>
+          <h2>Have a project in mind?</h2>
 
-        <p className={styles.cta4Subtext}>
-          If you’re looking for a thoughtful, high-performing website built
-          around your goals, I’d love to hear what you’re working on.
-        </p>
+          <p>
+            If you&apos;re looking for a thoughtful, high-performing website
+            built around your goals, I&apos;d love to hear what you&apos;re
+            working on.
+          </p>
+        </div>
 
-        <div className={styles.cta4ButtonRow}>
-          <CTAButton onClick={() => router.push('/services')}>
+        <div className={styles.ctaRight}>
+          <CTAButton onClick={() => router.push("/services")}>
             Start Your Project
             <FiArrowRight
               style={{ marginLeft: 8, verticalAlign: "middle" }}
@@ -43,16 +44,16 @@ export default function CTA4() {
             />
           </CTAButton>
 
-          <SecondaryButton onClick={() => router.push('/contact')}>
+          <SecondaryButton onClick={() => router.push("/contact")}>
             Send an Email
             <FiMail
               style={{ marginLeft: 8, verticalAlign: "middle" }}
               aria-hidden="true"
             />
           </SecondaryButton>
-        </div>
 
-        <div className={styles.cta4Booking}>{getBookingWindow()}</div>
+          <span className={styles.ctaNote}>{getBookingWindow()}</span>
+        </div>
       </div>
     </section>
   );
