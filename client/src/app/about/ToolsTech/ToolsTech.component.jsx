@@ -14,7 +14,7 @@ const ToolsTechnologies = () => {
                     <div className={styles.skillsGrid}>
                         {skillList.map((skill, index) => (
                             <div key={index} className={styles.skillCard}>
-                                <PillButton icon={skill.icon}>
+                                <PillButton icon={skill.icon} key={index}>
                                     <span>{skill.name}</span>
                                 </PillButton>
                             </div>

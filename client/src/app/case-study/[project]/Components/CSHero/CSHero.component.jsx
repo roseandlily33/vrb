@@ -78,13 +78,12 @@ const CSHero = ({
           <div className={styles.metaValue}>{role}</div>
           <div className={styles.metaLabel}>Role</div>
         </div>
-        {note && (
-          <div className={styles.metaItem}>
-            <div className={styles.metaValue}>{note}</div>
-            <div className={styles.metaLabel}>Note</div>
-          </div>
-        )}
       </div>
+      {note && (
+        <div className={styles.heroNote}>
+          <strong>Note:</strong> {note}
+        </div>
+      )}
     </section>
   );
 };

@@ -4,6 +4,7 @@
   align-items: center;
   gap: 1.5rem;
   padding-bottom: var(--space-l);
+  background: var(--background-three);
 }
 .heroLogoLarge {
   width: 110px;

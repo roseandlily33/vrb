@@ -26,7 +26,7 @@ const InspectionPal = () => {
         title="Rebuilding a High-Performance Marketing Website"
         type="Web Application"
         link="https://www.inspectionpal.com/"
-        role="Lead developer: collaborated with client to define requirements, built and deployed the platform."
+        role="Lead developer"
       />
       <CSKeyFeatures
         keyFeatures={[

@@ -15,7 +15,7 @@ const AboutMe = () => {
       <div className={styles.aboutMeBadges}>
         {items.map((item, idx) => (
           // <div key={idx} className={styles.aboutMeBadge}>
-            <PillButton aria-hidden="true" style={{ marginLeft: 8 }}>
+            <PillButton aria-hidden="true" style={{ marginLeft: 8 }} key={idx}>
               {item}
             </PillButton>
           // </div>

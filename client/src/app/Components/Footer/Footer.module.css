@@ -1,101 +1,171 @@
 .footer {
-  width: 100vw;
-  background: var(--white);
-  color: var(--text-primary);
-  padding: 2rem 0 1rem 0;
+  width: 100%;
+  padding-top: 3rem;
+
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px) saturate(1.1);
+
+  border-top: 1px solid rgba(0, 84, 201, 0.08);
+}
+
+/* MAIN LAYOUT */
+.footerInner {
+  /* max-width: 1100px; */
+  margin: 0 auto;
+  padding: 0 3rem 2.5rem;
+
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* BRAND / LEFT */
+.brand {
   display: flex;
   flex-direction: column;
-  /* align-items: center; */
+  align-items: flex-start; /* ← fixes centering issue */
+  gap: 0.8rem;
+  max-width: 360px;
 }
 
-.footerContent {
-  width: 100%;
-  /* max-width: 1200px; */
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 2.5rem;
-  margin-bottom: 1rem;
-  padding: 0 2rem;
+/* LOGO WRAP */
+.logoWrap {
+  display: inline-block;
+  line-height: 0;
 }
 
-.logoSection {
-  display: flex;
-  align-items: center;
-  flex: 0 0 auto;
-}
-
+/* LOGO */
 .logo {
-  height: 60px;
+  height: 92px; /* ↓ scaled down from 148px */
   width: auto;
   object-fit: contain;
   display: block;
 }
 
-.navGroups {
+/* TEXT */
+.tagline {
+  font-size: 0.95rem;
+  color: var(--grey-600);
+  line-height: 1.6;
+}
+
+.availability {
+  font-size: 0.85rem;
+  color: var(--blue-700);
+  font-weight: 600;
+}
+
+/* RIGHT SIDE */
+.footerRight {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  gap: 0.7rem;
+  align-items: flex-end; /* ← aligns everything cleanly */
+  gap: 1.5rem;
 }
 
+/* NAV LINKS */
 .linksSection {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.6rem;
   flex-wrap: wrap;
-  align-items: center;
-  margin-bottom: 0.2rem;
-}
-
-.externalLinks {
-  display: flex;
-  gap: 1.2rem;
-  align-items: center;
+  justify-content: flex-end;
 }
 
 .footerLink {
-  color: var(--grey-600);
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--blue-900);
   text-decoration: none;
-  font-size: 1rem;
-  font-weight: 500;
-  transition:
-    color 0.2s,
-    text-decoration 0.2s;
-  padding: 0.1em 0.2em;
-  border-radius: 0.3em;
+  transition: color 0.18s ease;
 }
+
 .footerLink:hover {
   color: var(--blue-700);
-  text-decoration: underline;
+}
+
+/* SOCIALS */
+.socials {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.socials a {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 999px;
   background: var(--blue-50);
+  color: var(--blue-700);
+
+  font-size: 0.9rem;
+
+  transition:
+    transform 0.18s ease,
+    background 0.18s ease,
+    color 0.18s ease;
 }
 
-.copyright {
-  color: var(--grey-400);
-  font-size: 0.95rem;
-  /* text-align: center; */
-  margin-top: 0.5rem;
-  margin-left: 1rem;
+.socials a:hover {
+  transform: translateY(-2px);
+  background: var(--blue-700);
+  color: #ffffff;
+}
+
+/* PORTFOLIO LINK */
+.portfolioLink {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--blue-700);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(27, 137, 226, 0.3);
+  padding-bottom: 2px;
+  transition: border-color 0.18s ease;
+}
+
+.portfolioLink:hover {
+  border-color: var(--blue-700);
+}
+
+/* BOTTOM BAR */
+.bottomBar {
   width: 100%;
+  padding: 1rem 3rem;
+
+  font-size: 0.78rem;
+  color: var(--grey-500);
+
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+
+  display: flex;
+  justify-content: flex-start; /* ← no more centered feel */
 }
 
+/* MOBILE */
+@media (max-width: 900px) {
+  .footerInner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 0 1.5rem 2rem;
+  }
 
-@media (max-width: 700px) {
-  .footerContent {
-    flex-direction: column;
-    align-items: center;
-    gap: 1.2rem;
-    padding: 0 0.5rem;
+  .footerRight {
+    align-items: flex-start;
   }
-  .navGroups {
-    align-items: center;
-    width: 100%;
+
+  .linksSection {
+    justify-content: flex-start;
   }
-  .linksSection,
-  .externalLinks {
-    justify-content: center;
-    width: 100%;
-    gap: 1rem;
+
+  .logo {
+    height: 72px; /* slightly smaller on mobile */
+  }
+
+  .bottomBar {
+    padding: 1rem 1.5rem;
   }
 }

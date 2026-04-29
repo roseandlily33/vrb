@@ -8,6 +8,7 @@ import TertiaryButton from "../Components/TertiaryButton/TertiaryButton.componen
 import { FiArrowRight } from "react-icons/fi";
 import MetadataBar from "./MetadataBar/MetadataBar.component";
 import React from "react";
+import PillButton from "../Components/PillButton/PillButton.component";
 
 export default function Work() {
   return (
@@ -20,31 +21,34 @@ export default function Work() {
       <MetadataBar />
       <div className={styles.projectGrid}>
         {projects.map((project, index) => (
-          <div key={index} className={styles.projectCard}>
+          <article key={index} className={styles.projectCard}>
             <div
               className={styles.projectCardBg}
-              style={{
-                backgroundImage: `linear-gradient(to top, rgba(0,0,0,0.65) 40%, rgba(0,0,0,0.2) 100%), url(${project.image})`,
-              }}
+              style={{ backgroundImage: `url(${project.image})` }}
             >
+              {project.badge && (
+                <div className={styles.projectBadge}>
+                  <PillButton>{project.badge}</PillButton>
+                </div>
+              )}
               <div className={styles.projectCardContent}>
-                {/* <span className={styles.projectBadge}>{project.tech?.[0]}</span> */}
                 <h3>{project.name}</h3>
                 <p>{project.description}</p>
               </div>
             </div>
+
             <div className={styles.projectCardFooter}>
               <Link href={project.link}>
                 <TertiaryButton>
                   View Case Study{" "}
                   <FiArrowRight
-                    style={{ marginLeft: 6, verticalAlign: "middle" }}
+                    className={styles.arrowIcon}
                     aria-hidden="true"
                   />
                 </TertiaryButton>
               </Link>
             </div>
-          </div>
+          </article>
         ))}
       </div>
       <PortfolioLink />
