@@ -3,39 +3,46 @@
 }
 
 .hero {
-  height: 600px;
+  min-height: 600px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   position: relative;
   overflow: hidden;
   background: var(--background-hero);
-  /* padding: 3.5rem 2.5vw 3.5rem 2.5vw; */
   padding: var(--section-lg);
 }
 
-.squaresBG {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  z-index: 22;
-  width: 220px;
-  height: auto;
-  pointer-events: none;
-  opacity: 0.7;
-  /* border: 2px solid red; */
-}
-.squaresBG {
-  animation: float 6s ease-in-out infinite;
-}
 .subText {
   margin-top: 1rem;
+  max-width: 640px;
   color: var(--grey-600);
   text-align: center;
+  line-height: 1.65;
 }
 
-/* /Pixel */
+.title {
+  width: min(70%, 900px);
+  text-align: center;
+  line-height: 1.35;
+  color: var(--grey-800);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.topMeta {
+  color: var(--grey-400);
+  font-size: 0.95rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  margin-bottom: 28px;
+}
+
+/* Pixel */
 .pixelPattern {
   position: absolute;
   right: 0;
@@ -75,105 +82,109 @@
   animation: shimmerSweep 5.5s ease-in-out infinite;
 }
 
-@keyframes softGlow {
-  0%,
-  100% {
-    opacity: 0.82;
-  }
-  50% {
-    opacity: 1;
-  }
+.squaresBG {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 22;
+  width: 220px;
+  height: auto;
+  pointer-events: none;
+  opacity: 0.7;
+  animation: float 6s ease-in-out infinite;
 }
 
-@keyframes shimmerSweep {
-  0% {
-    transform: translateX(-120%);
-  }
-  45% {
-    transform: translateX(-120%);
-  }
-  72% {
-    transform: translateX(120%);
-  }
-  100% {
-    transform: translateX(120%);
-  }
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0px) translateX(0px);
-  }
-  50% {
-    transform: translateY(-10px) translateX(5px);
-  }
-  100% {
-    transform: translateY(0px) translateX(0px);
-  }
-}
-.topMeta {
-  color: var(--grey-400);
-  font-size: 0.95rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.18rem;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-  margin-bottom: 28px;
-}
-.title {
-  /* color: var(--white); */
-  width: 70%;
-  text-align: center;
-  line-height: 1.5;
-  color: var(--grey-800);
-  margin-left: auto;
-  margin-right: auto;
-}
 @media (max-width: 900px) {
   .hero {
-    height: auto;
+    min-height: 520px;
+    padding: 5rem 2rem 4.5rem;
   }
+
   .title {
-    width: 90%;
-    font-size: 2.1rem;
+    width: min(92%, 720px);
+    font-size: clamp(2rem, 5.2vw, 2.65rem);
+    line-height: 1.28;
   }
+
+  .subText {
+    max-width: 560px;
+    font-size: 0.95rem;
+  }
+
   .topMeta {
     font-size: 0.78rem;
-    letter-spacing: 0.12rem;
+    letter-spacing: 0.14rem;
+    margin-bottom: 1.25rem;
   }
+
   .pixelPattern {
-    width: 160px;
-    min-width: 100px;
-    max-width: 40vw;
+    width: 150px;
+    max-width: 32vw;
   }
+
   .squaresBG {
-    width: 110px;
-    min-width: 60px;
-    max-width: 35vw;
+    width: 125px;
+    max-width: 28vw;
   }
 }
 
 @media (max-width: 600px) {
+  .hero {
+    min-height: 430px;
+    padding: 4rem 1.25rem 3.75rem;
+  }
+
   .title {
-    width: 98%;
-    font-size: 1.7rem;
+    width: 100%;
+    font-size: clamp(1.85rem, 8vw, 2.25rem);
+    line-height: 1.25;
   }
-  .topMeta {
-    font-size: 0.68rem;
-    margin-bottom: 12px;
-  }
-  .pixelPattern {
-    width: 120px;
-    min-width: 70px;
-    max-width: 35vw;
-  }
+
   .subText {
-    font-size: 0.85rem;
-    /* border: 2px solid red; */
+    margin-top: 1rem;
+    max-width: 34ch;
+    font-size: 0.92rem;
+    line-height: 1.6;
   }
+
+  .topMeta {
+    font-size: 0.7rem;
+    letter-spacing: 0.12rem;
+    margin-bottom: 1rem;
+  }
+
+  .pixelPattern {
+    width: 125px;
+    max-width: 38vw;
+    opacity: 0.75;
+  }
+
   .squaresBG {
-    width: 60px;
-    min-width: 30px;
-    max-width: 20vw;
+    width: 95px;
+    max-width: 30vw;
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero {
+    min-height: 410px;
+    padding: 3.5rem 1rem 3.25rem;
+  }
+
+  .title {
+    font-size: clamp(1.7rem, 8vw, 2rem);
+  }
+
+  .subText {
+    font-size: 0.88rem;
+  }
+
+  .pixelPattern {
+    width: 105px;
+  }
+
+  .squaresBG {
+    width: 80px;
   }
 }

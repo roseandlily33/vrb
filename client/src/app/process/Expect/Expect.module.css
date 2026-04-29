@@ -1,96 +1,142 @@
-
 .expectSection {
   width: 100%;
   padding: var(--section-xl);
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-  /* border-top: 1px solid rgba(0, 0, 0, 0.06); */
-  /* background: var(--background-two); */
-  background: var(--background-three);
-  /* border: 2px solid red; */
+  background:
+    radial-gradient(circle at top left, rgba(27, 137, 226, 0.1), transparent 32%),
+    var(--background-three);
+}
+
+.expectHeader {
+  max-width: 720px;
+  margin-bottom: var(--space-xxxl);
 }
 
 .heading {
   text-align: left;
-  margin-bottom: var(--space-xxxl);
+  margin-bottom: var(--space-s);
+}
+
+.intro {
+  max-width: 620px;
+  margin: 0;
+  color: var(--grey-700);
+  font-size: 1.02rem;
+  line-height: 1.7;
 }
 
 .expectList {
   list-style: none;
   padding: 0;
   margin: 0;
+
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  column-gap: var(--space-xxl);
-  row-gap: var(--space-l);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-l);
+
   width: 100%;
-  justify-items: stretch;
-  align-items: start;
 }
 
 .expectItem {
-  color: var(--blue-700);
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  width: 100%;
-  line-height: 1.7;
-  background: none;
-  font-size: 1.08rem;
-  font-weight: 400;
-  padding: 0;
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-m);
+
+  padding: var(--space-l);
+  border-radius: var(--radius-md);
+
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(27, 137, 226, 0.16);
+  box-shadow: var(--shadow-xs);
+
   transition:
     transform var(--transition-fast),
-    color var(--transition-fast);
+    box-shadow var(--transition-fast),
+    border-color var(--transition-fast);
 }
+
 .expectItem:hover {
-  /* color: var(--blue-700); */
-  transform: translateY(4px);
+  transform: translateY(-4px);
+  border-color: rgba(27, 137, 226, 0.32);
+  box-shadow: var(--shadow-md);
+}
+
+.itemNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 2.35rem;
+  height: 2.35rem;
+  border-radius: 999px;
+
+  background: var(--blue-100);
+  color: var(--blue-800);
+
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
 }
 
 .itemContent {
   display: flex;
   flex-direction: column;
-  gap: 0.2em;
+  gap: var(--space-xxs);
 }
 
 .itemTitle {
-  font-size: 1.13rem;
-  font-weight: 700;
+  font-size: 1.08rem;
+  font-weight: 800;
   color: var(--blue-800);
-  margin-bottom: 0.1em;
+  line-height: 1.25;
 }
 
 .itemDescription {
-  font-size: 1.01rem;
+  font-size: 0.98rem;
   color: var(--grey-700);
+  line-height: 1.65;
   margin: 0;
 }
-
-.check {
-  color: var(--blue-500);
-  font-size: var(--space-l);
-  margin-right: var(--space-xxs);
-  font-weight: 700;
-  flex-shrink: 0;
-}
-
 @media (max-width: 900px) {
   .expectSection {
     padding: var(--section-lg);
-    align-items: flex-start;
   }
+
+  .expectHeader {
+    margin-bottom: var(--space-xl);
+  }
+
   .expectList {
     grid-template-columns: 1fr;
-    max-width: 100%;
-    column-gap: 0;
-    row-gap: var(--space-m);
+    gap: var(--space-m);
   }
+
   .expectItem {
-    max-width: 100%;
+    padding: var(--space-m);
   }
-  .heading {
-    margin-bottom: var(--space-xl);
+}
+
+@media (max-width: 600px) {
+  .intro {
+    font-size: 0.95rem;
+  }
+
+  .expectItem {
+    gap: var(--space-s);
+  }
+
+  .itemNumber {
+    width: 2rem;
+    height: 2rem;
+    font-size: 0.74rem;
+  }
+
+  .itemTitle {
+    font-size: 1rem;
+  }
+
+  .itemDescription {
+    font-size: 0.92rem;
   }
 }
