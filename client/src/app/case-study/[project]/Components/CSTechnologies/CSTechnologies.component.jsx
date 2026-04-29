@@ -4,7 +4,7 @@ const CSTechnologies = ({ technologies = [] }) => {
   return (
     <section className={styles.technologies}>
       {/* <h2>Technologies Used</h2> */}
-      {/* <p className="eyebrowHeader">Technologies</p> */}
+      <p className="eyebrowHeader">Technologies</p>
       <h2>Tools & technologies used</h2>
       <div className={styles.techContainer}>
         {technologies?.map((t) => (

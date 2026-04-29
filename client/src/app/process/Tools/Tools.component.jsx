@@ -34,7 +34,9 @@ const tools = [
 export default function Tools() {
   return (
     <section className={styles.toolsSection}>
+      <p className="eyebrowHeader">Technical Toolkit</p>
       <h2 className={styles.heading}>My Tools & Stack</h2>
+      <p className={styles.p}>The core technologies I use to design, build, deploy, and maintain modern web experiences.</p>
       <div className={styles.toolsGrid}>
         {tools.map((tool) => (
         //   <span className={styles.toolPill} key={tool.name}>

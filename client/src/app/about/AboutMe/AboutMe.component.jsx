@@ -11,7 +11,7 @@ const AboutMe = () => {
   return (
     <section className={styles.aboutMeSection}>
       <p className="eyebrowHeader">About Me</p>
-      <h2>A bit about me</h2>
+      <h2 className="header">A bit about me</h2>
       <div className={styles.aboutMeBadges}>
         {items.map((item, idx) => (
           // <div key={idx} className={styles.aboutMeBadge}>

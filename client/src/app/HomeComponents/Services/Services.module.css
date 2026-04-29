@@ -71,10 +71,13 @@
 
 .serviceCard h3 {
   margin: 0 0 1rem;
-  color: var(--grey-900);
+  color: var(--grey-800);
   font-size: 1.35rem;
   font-weight: 800;
   letter-spacing: -0.025em;
+  display: flex;
+  gap: var(--space-xs);
+  align-items: center;
 }
 
 .serviceCard p {

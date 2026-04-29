@@ -257,7 +257,7 @@ a {
 }
 .heading {
   color: var(--grey-900);
-  margin-block: var(--space-xs);
+  margin-block: var(--space-s);
 }
 .eyebrowHeader {
   letter-spacing: 0.08em;
@@ -272,7 +272,7 @@ a {
   color: var(--grey-700);
   max-width: 680px;
   line-height: 1.7;
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-xxl);
 }
 /* Icons */
 .primaryIcon {
@@ -334,10 +334,15 @@ a {
     border: 2px solid green;
   }
   :root {
-    --section-xs: 1rem 1.5rem;
+    /* --section-xs: 1rem 1.5rem;
     --section-sm: 1rem 1.5rem;
     --section-md: 2rem 1.5rem;
     --section-lg: 3rem 1.5rem;
-    --section-xl: 4rem 1.5rem;
+    --section-xl: 4rem 1.5rem; */
+    --section-xs: 1rem 2rem;
+    --section-sm: 2rem 2rem;
+    --section-md: 3rem 2rem;
+    --section-lg: 4rem 2rem;
+    --section-xl: 5rem 2rem;
   }
 }

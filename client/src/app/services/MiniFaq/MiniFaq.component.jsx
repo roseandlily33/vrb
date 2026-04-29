@@ -1,4 +1,5 @@
 import styles from "./MiniFaq.module.css";
+// import { FaQuestionCircle } from "react-icons/fa";
 
 const faq = [
   {
@@ -36,7 +37,10 @@ export default function MiniFaq() {
       <ul className={styles.faqList}>
         {faq.map((item, idx) => (
           <li key={idx} className={styles.faqItem}>
-            <div className={styles.question}>{item.q}</div>
+            <div className={styles.question}>
+              {/* <FaQuestionCircle className="secondaryIcon" style={{marginRight: 8, fontSize: '1.1em', verticalAlign: 'middle'}} /> */}
+              {item.q}
+            </div>
             <div className={styles.answer}>{item.a}</div>
           </li>
         ))}

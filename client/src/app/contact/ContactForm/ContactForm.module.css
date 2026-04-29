@@ -6,7 +6,13 @@
   gap: var(--space-s);
   /* border: 2px solid red; */
 }
-
+.buttonDiv {
+  width: 100%;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 @media (max-width: 900px) {
   .contactForm {
     width: 100%;

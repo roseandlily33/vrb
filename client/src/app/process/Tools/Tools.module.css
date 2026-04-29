@@ -12,9 +12,12 @@
 .heading {
   /* font-size:var(--space-xl); */
   /* font-weight: 800; */
-  margin-bottom: var(--space-xl);
-  color: var(--white);
+  margin-bottom: var(--space-xs);
+  color: var(--blue-100);
   /* text-align: center; */
+}
+.p {
+  margin-bottom: var(--space-xl);
 }
 
 .toolsGrid {

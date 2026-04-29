@@ -97,13 +97,14 @@
   display: flex;
   align-items: center;
   gap: var(--space-m);
-  margin-bottom: 0.1em;
 }
 
  .infoSectionTitle {
   font-weight: 700;
   color: var(--grey-700);
   font-size: 1.13rem;
+  margin-bottom: var(--space-xs);
+
 }
 
 .infoSectionText {

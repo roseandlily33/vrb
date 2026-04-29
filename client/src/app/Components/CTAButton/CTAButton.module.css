@@ -1,18 +1,39 @@
 .orbitalBtn {
   position: relative;
-  padding: 14px 28px;
+  min-height: 54px;
+  width: fit-content;
+  max-width: 240px;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+
+  padding: 0 1.65rem;
   border-radius: 999px;
   border: none;
+
   background: linear-gradient(135deg, #1e6fff, #4da3ff);
   color: white;
+
+  font-size: 1rem;
   font-weight: 600;
+  line-height: 1;
+
   cursor: pointer;
   overflow: visible;
-  font-size: 1.1rem;
   z-index: 1;
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
 }
 
-/* Fixed orbit ring */
+.orbitalBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 38px rgba(18, 93, 227, 0.28);
+}
+
 .orbitalBtn .orbit {
   position: absolute;
   inset: -0.5rem;
@@ -23,7 +44,6 @@
   pointer-events: none;
 }
 
-/* Glowing moving dot */
 .orbitalBtn .orbitDot {
   position: absolute;
   width: 12px;
@@ -31,21 +51,18 @@
   border-radius: 50%;
   background: #ffffff;
   opacity: 0;
+
   box-shadow:
     0 0 0 5px rgba(77, 163, 255, 0.16),
     0 0 12px rgba(77, 163, 255, 1),
     0 0 26px rgba(77, 163, 255, 0.85);
 
-  /* start position */
   offset-distance: 0%;
   offset-rotate: 0deg;
-
-  /* rounded-rectangle orbit path */
   offset-path: inset(0 round 999px);
   -webkit-offset-path: inset(0 round 999px);
 }
 
-/* Hover */
 .orbitalBtn:hover .orbit {
   opacity: 1;
 }
@@ -59,7 +76,67 @@
   from {
     offset-distance: 0%;
   }
+
   to {
     offset-distance: 100%;
+  }
+}
+@media (max-width: 900px) {
+  .orbitalBtn {
+    min-height: 52px;
+    max-width: 240px;
+    padding: 0 1.45rem;
+    font-size: 0.96rem;
+  }
+
+  .orbitalBtn .orbit {
+    inset: -0.42rem;
+  }
+
+  .orbitalBtn .orbitDot {
+    width: 10px;
+    height: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .orbitalBtn {
+    width: 100%;
+    max-width: 100%;
+    min-height: 50px;
+    padding: 0 1.2rem;
+    font-size: 0.92rem;
+  }
+
+  .orbitalBtn .orbit {
+    inset: -0.36rem;
+    border-width: 1.5px;
+  }
+
+  .orbitalBtn .orbitDot {
+    width: 9px;
+    height: 9px;
+
+    box-shadow:
+      0 0 0 4px rgba(77, 163, 255, 0.14),
+      0 0 10px rgba(77, 163, 255, 0.95),
+      0 0 20px rgba(77, 163, 255, 0.75);
+  }
+}
+
+@media (max-width: 380px) {
+  .orbitalBtn {
+    min-height: 48px;
+    font-size: 0.88rem;
+    padding: 0 1rem;
+  }
+
+  .orbitalBtn .orbit {
+    inset: -0.3rem;
+  }
+
+  .orbitalBtn .orbitDot {
+    width: 8px;
+    height: 8px;
   }
 }

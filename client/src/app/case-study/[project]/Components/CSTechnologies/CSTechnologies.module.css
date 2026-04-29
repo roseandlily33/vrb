@@ -6,6 +6,7 @@
 
 .technologies h2 {
   margin-bottom: var(--space-xxl);
+  color: var(--blue-100);
 }
 .techContainer {
   display: flex;

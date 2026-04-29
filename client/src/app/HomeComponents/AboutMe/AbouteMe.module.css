@@ -2,7 +2,7 @@
   position: relative;
   overflow: hidden;
   width: 100%;
-  padding: var(--section-lg);
+  padding: var(--section-xl);
   background: var(--background-one);
 }
 
@@ -12,8 +12,6 @@
   max-width: 1280px;
   margin: 0 auto;
 }
-
-
 
 .introInner h2 {
   margin: 0;
@@ -26,6 +24,35 @@
 
 .introInner h2 span {
   color: var(--blue-700);
+}
+
+.shimmeringText {
+  background: linear-gradient(
+    110deg,
+    var(--blue-300) 0%,
+    var(--blue-500) 15%,
+    var(--blue-700) 35%,
+    var(--blue-100) 50%,
+    var(--blue-700) 65%,
+    var(--blue-500) 85%,
+    var(--blue-300) 100%
+  );
+  background-size: 350% 100%;
+  background-position: 0% 0;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  animation: shimmerGradient 26.2s linear infinite;
+}
+
+@keyframes shimmerGradient {
+  0% {
+    background-position: 0% 0;
+  }
+  100% {
+    background-position: 350% 0;
+  }
 }
 
 .introText {

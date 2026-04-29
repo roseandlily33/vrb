@@ -130,26 +130,31 @@ export default function ContactForm() {
         <option value="performance">Performance</option>
         <option value="other">Other</option>
       </Select>
-
-      <PrimaryButton type="submit" disabled={submitting}>
-        <span style={{ display: "inline-flex", alignItems: "center", gap: 6 }}>
-          <FiSend style={{ marginRight: 6 }} />
-          {submitting ? "Sending..." : "Send Message"}
-        </span>
-      </PrimaryButton>
-      {status && (
-        <p
-          role="status"
-          style={{
-            marginTop: 12,
-            color: status.startsWith("Thank") ? "var(--green-700)" : "var(--red-700)",
-            fontWeight: 600,
-            minHeight: 24,
-          }}
-        >
-          {status}
-        </p>
-      )}
+       <div className={styles.buttonDiv}>
+        <PrimaryButton type="submit" disabled={submitting}>
+          <span
+            style={{ display: "inline-flex", alignItems: "center", gap: 6 }}
+          >
+            <FiSend style={{ marginRight: 6 }} />
+            {submitting ? "Sending..." : "Send Message"}
+          </span>
+        </PrimaryButton>
+        {status && (
+          <p
+            role="status"
+            style={{
+              marginTop: 12,
+              color: status.startsWith("Thank")
+                ? "var(--green-700)"
+                : "var(--red-700)",
+              fontWeight: 600,
+              minHeight: 24,
+            }}
+          >
+            {status}
+          </p>
+        )}
+      </div>
     </form>
   );
 }

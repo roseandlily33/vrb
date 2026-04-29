@@ -21,7 +21,7 @@
 }
 
 .experienceSection h3 {
-  /* color: var(--grey-700); */
+  color: var(--grey-800);
   margin-bottom: var(--space-xl);
 }
 
@@ -58,7 +58,7 @@
 .experienceTitle {
   font-size: 1.25rem;
   font-weight: 600;
-  color: var(--grey-600);
+  color: var(--grey-700);
   margin: 0;
 }
 

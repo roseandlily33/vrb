@@ -1,8 +1,6 @@
-// import Card from "../../Components/Card/Card.component";
 import styles from "./Services.module.css";
-// import TertiaryButton from "@/app/Components/TertiaryButton/TertiaryButton.component";
 import Link from "next/link";
-import { FaArrowRight } from "react-icons/fa";
+import { FaArrowRight, FaCode, FaPalette, FaCogs } from "react-icons/fa";
 
 export default function Services() {
   const services = [
@@ -10,16 +8,19 @@ export default function Services() {
       title: "Web Development",
       description:
         "Modern, responsive websites built with clean code, strong structure, and long-term scalability in mind.",
+      icon: <FaCode className="primaryIcon" />,
     },
     {
       title: "UI/UX Design",
       description:
         "Thoughtful interfaces designed around clarity, usability, and a smooth experience for real users.",
+      icon: <FaPalette className="primaryIcon" />,
     },
     {
       title: "Custom Functionality",
       description:
         "Features that go beyond a standard website, from integrations and forms to dashboards and user-focused tools.",
+      icon: <FaCogs className="primaryIcon" />,
     },
   ];
   return (
@@ -36,7 +37,10 @@ export default function Services() {
       <div className={styles.servicesGrid}>
         {services.map((service) => (
           <article className={styles.serviceCard} key={service.title}>
-            <h3>{service.title}</h3>
+            <h3>
+              {service.icon}
+              {service.title}
+            </h3>
             <p>{service.description}</p>
 
             <Link href="/services" className={styles.serviceLink}>
