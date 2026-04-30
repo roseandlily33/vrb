@@ -1,16 +1,19 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Poppins, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Components/Navbar/Navbar.component";
 import Footer from "./Components/Footer/Footer.component";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+// Font imports and CSS variable setup
+const poppins = Poppins({
+  variable: "--font-poppins",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
 });
 
 export const metadata = {
@@ -22,9 +25,16 @@ export const metadata = {
   },
 };
 
+// To switch fonts, adjust the className below and update globals.css accordingly
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html
+      lang="en"
+      className={`
+        ${poppins.variable}
+        ${inter.variable}
+      `}
+    >
       <body>
         <Navbar />
         {children}

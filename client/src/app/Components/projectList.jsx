@@ -15,7 +15,7 @@ export const projects = [
         tech: ["Gatsby", "Design"],
         image: "/InspectionPal/Home.png",
         link: "/case-study/inspection-pal",
-        badge: "Web Design",
+        badge: "Front-End Design & Dev",
     },
     {
         name: "Ariel Boesener Performance Horses",
@@ -26,4 +26,12 @@ export const projects = [
         link: "/case-study/ariel-performance-horses",
         badge: "UX/UI Design",
     },
+    {
+        name: 'VRB Web Design and Development',
+        description: '',
+        tech: ['Design', 'Next.js'],
+        // image: '/VRB/Home.png',
+        link: '/case-study/vrb-web',
+        badge: 'Front-End Design & Dev',
+    }
 ];
