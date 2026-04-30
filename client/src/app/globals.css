@@ -305,9 +305,9 @@ a {
 }
 
 @media (max-width: 1200px) {
-  body {
-    border: 2px solid red;
-  }
+  /* body { */
+    /* border: 2px solid red; */
+  /* } */
   /* :root {
     --section-sm: 2.2rem 2.5rem;
     --section-md: 2.7rem 2.5rem;
@@ -317,9 +317,9 @@ a {
 }
 
 @media (max-width: 900px) {
-  body {
+  /* body {
     border: 2px solid orange;
-  }
+  } */
   :root {
     --section-xs: 1rem 2rem;
     --section-sm: 2rem 2rem;
@@ -330,9 +330,9 @@ a {
 }
 
 @media (max-width: 600px) {
-  body {
+  /* body {
     border: 2px solid green;
-  }
+  } */
   :root {
     /* --section-xs: 1rem 1.5rem;
     --section-sm: 1rem 1.5rem;

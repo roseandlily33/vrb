@@ -29,8 +29,9 @@ export default function Links({ onSectionClick }) {
       aria-label="Section navigation"
     >
       {sections.map((section, idx) => (
-        <div key={section.label} className={styles.linkGroup}>
+        <>
           <button
+            key={section.label}
             className={styles.linkBtn}
             onClick={() => {
               if (onSectionClick) onSectionClick(section.target);
@@ -44,11 +45,10 @@ export default function Links({ onSectionClick }) {
           >
             {section.label}
           </button>
-
           {idx < sections.length - 1 && (
             <span className={styles.separator} aria-hidden="true"></span>
           )}
-        </div>
+        </>
       ))}
     </nav>
   );
