@@ -1,0 +1,26 @@
+.section {
+	padding: var(--section-lg);
+	border-radius: var(--radius-md);
+	margin-bottom: var(--space-xl);
+	transition: background 0.3s;
+}
+
+.bgOne {
+	background: var(--background-three, #f2f6fc);
+}
+
+.bgTwo {
+	background: var(--background-four, #f5f9ff);
+}
+
+/* Optional: subtle shadow for separation */
+.section {
+	box-shadow: var(--shadow-xs);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+	.section {
+		padding: var(--section-md);
+	}
+}
