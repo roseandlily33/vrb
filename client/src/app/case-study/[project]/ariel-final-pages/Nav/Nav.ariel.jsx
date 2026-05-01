@@ -1,5 +1,7 @@
 import Link from "next/link";
 import styles from "./Nav.module.css";
+import Button from '../Button/Button.ariel';
+
 
 const navLinksLeft = [
   { label: "Gallery", href: "/gallery" },
@@ -17,19 +19,14 @@ export default function Navbar() {
             </Link>
           ))}
         </div>
-
         <Link href="/" className={styles.logoWrap} aria-label="Home">
-          <img src="" alt="Logo" className={styles.logo} />
+          <img src="/ArielPerformance/ArielLogo.webp" alt="Logo" className={styles.logo} />
         </Link>
-
         <div className={styles.navGroup}>
           <Link href="/shop" className={styles.navLink}>
             Shop
           </Link>
-
-          <Link href="/contact" className={styles.contactButton}>
-            Contact Us
-          </Link>
+          <Button>Contact Us </Button>
         </div>
       </nav>
     </header>

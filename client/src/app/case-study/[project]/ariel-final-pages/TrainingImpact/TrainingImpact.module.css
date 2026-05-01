@@ -1,0 +1,133 @@
+.section {
+  background: var(--color-cream-soft);
+  padding: var(--section-xl);
+}
+
+.heading {
+  max-width: 700px;
+  margin: 0 auto var(--space-xxxl);
+  text-align: center;
+}
+
+.eyebrow,
+.cardEyebrow {
+  color: var(--color-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.heading h2,
+.resources h2 {
+  color: var(--text-dark);
+  font-size: clamp(1.9rem, 3vw, 2.6rem);
+  font-weight: 500;
+  line-height: 1.15;
+}
+
+.heading h2 {
+  margin: var(--space-s) 0 var(--space-m);
+}
+
+.heading > p:last-child {
+  color: var(--text-soft);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.impactGrid {
+  max-width: var(--max-width);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-xl);
+}
+
+.card {
+  background: var(--color-white);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-l);
+  min-height: 190px;
+
+  box-shadow: 0 10px 24px rgba(16, 16, 16, 0.07);
+}
+
+.cardTop {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-m);
+  margin: var(--space-xs) 0 var(--space-m);
+}
+
+.cardTop h3 {
+  color: var(--text-dark);
+  font-size: 1rem;
+  line-height: 1.25;
+  font-weight: 600;
+}
+
+.cardTop span {
+  color: var(--color-gold);
+  font-size: 1.7rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.card p {
+  color: var(--text-soft);
+  font-size: 0.84rem;
+  line-height: 1.55;
+}
+
+.divider {
+  width: min(520px, 80%);
+  height: 1px;
+  background: var(--color-gold);
+  margin: var(--space-xxxxl) auto var(--space-xxxl);
+}
+
+.resources {
+  text-align: center;
+}
+
+.resources h2 {
+  margin-bottom: var(--space-xxxl);
+}
+
+.resourceGrid {
+  max-width: 950px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xxl);
+  text-align: left;
+}
+
+@media (max-width: 1000px) {
+  .impactGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .resourceGrid {
+    grid-template-columns: 1fr;
+    max-width: 520px;
+  }
+}
+
+@media (max-width: 650px) {
+  .section {
+    padding: var(--section-md);
+  }
+
+  .impactGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .divider {
+    margin: var(--space-xxxl) auto;
+  }
+}

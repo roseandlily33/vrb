@@ -1,0 +1,68 @@
+.hero {
+  position: relative;
+  min-height: 92vh;
+  display: flex;
+  align-items: center;
+  padding: var(--section-lg);
+  overflow: hidden;
+  background: url("/ArielPerformance/Pictures/Hero1.png") no-repeat center/cover;
+  background-size: cover;
+  background-position: center;
+}
+
+.bg {
+  position: absolute;
+  inset: 0;
+  background: url("/ArielPerformance/Pictures/Hero1.png") no-repeat center/cover;
+  background-color: var(--color-gold);
+  z-index: 0;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.5) 40%,
+    rgba(0, 0, 0, 0.15) 80%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 720px;
+}
+
+.eyebrow {
+  color: var(--color-gold);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-weight: 700;
+  margin-bottom: var(--space-m);
+}
+
+.title {
+  color: var(--color-white);
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  line-height: 1.15;
+  font-weight: 500;
+  margin-bottom: var(--space-xl);
+  /* border: 2px solid red; */
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .hero {
+    padding: var(--section-md);
+    min-height: 80vh;
+  }
+
+  .title {
+    font-size: 2.1rem;
+  }
+}

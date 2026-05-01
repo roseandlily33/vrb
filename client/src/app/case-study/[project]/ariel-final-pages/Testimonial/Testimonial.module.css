@@ -1,0 +1,40 @@
+.section {
+  position: relative;
+  min-height: 360px;
+  padding: var(--section-lg);
+  display: flex;
+  align-items: center;
+
+  /* TEMP background until image is added */
+  background:
+    linear-gradient(
+      90deg,
+      rgba(16, 16, 16, 0.78),
+      rgba(16, 16, 16, 0.45)
+    ),
+    #5f6f55;
+
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  max-width: 560px;
+}
+
+.content blockquote {
+  color: var(--color-white);
+  font-size: clamp(1.45rem, 3vw, 2.4rem);
+  line-height: 1.25;
+  font-weight: 500;
+  margin-bottom: var(--space-l);
+}
+
+.author {
+  color: var(--color-gold-light);
+  font-size: 0.9rem;
+  font-weight: 600;
+}

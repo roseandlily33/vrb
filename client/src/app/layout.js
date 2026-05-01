@@ -1,4 +1,4 @@
-import { Poppins, Inter } from "next/font/google";
+import { Poppins, Inter, Prata, Open_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Components/Navbar/Navbar.component";
 import Footer from "./Components/Footer/Footer.component";
@@ -12,6 +12,18 @@ const poppins = Poppins({
 
 const inter = Inter({
   variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const prata = Prata({
+  variable: "--font-prata",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
+const openSans = Open_Sans({
+  variable: "--font-open-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
 });
@@ -33,6 +45,8 @@ export default function RootLayout({ children }) {
       className={`
         ${poppins.variable}
         ${inter.variable}
+        ${prata.variable}
+        ${openSans.variable}
       `}
     >
       <body>

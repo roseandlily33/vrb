@@ -1,12 +1,12 @@
 import styles from "./HeroServices.module.css";
+import Button from '../Button/Button.ariel';
+
 
 export default function HeroServices() {
   return (
     <section className={styles.hero}>
-      {/* Background layer */}
       <div className={styles.bg} />
-
-      {/* Content */}
+      <div className={styles.overlay} />
       <div className={styles.content}>
         <p className={styles.eyebrow}>Training Programs</p>
 
@@ -19,7 +19,7 @@ export default function HeroServices() {
           gets physical results, builds communication and mutual respect.
         </p>
 
-        <button className={styles.cta}>Contact</button>
+        {/* <Button>Lets get Started </Button> */}
       </div>
     </section>
   );
