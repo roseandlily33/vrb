@@ -119,6 +119,41 @@
   --font-heading:
     var(--font-inter), var(--font-poppins), Arial, Helvetica, sans-serif;
   --font-body: var(--font-poppins);
+
+  /* For Ariel */
+    --color-black: #101010;
+  --color-black-soft: #151515;
+
+  --color-white: #ffffff;
+  --color-off-white: #f7f7f4;
+
+  --color-gold: #d8a04e;
+  --color-gold-light: #e7bc73;
+  --color-gold-dark: #9c6c2f;
+    --color-cream: #f7f2e8;
+  --color-cream-soft: #fbf8f1;
+
+  --card-bg: #ffffff;
+  --card-border: rgba(16, 16, 16, 0.08);
+
+  --text-soft: #5f5a52;
+
+  --color-blue: #18bde8;
+
+  /* Text */
+  --text-primary: #f7f7f4;
+  --text-dark: #101010;
+  --text-muted: #c9c9c9;
+
+  /* Borders / shadows */
+  --border-light: rgba(255, 255, 255, 0.12);
+  --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.18);
+    --navbar-height: 78px;
+  --max-width: 1200px;
+
+  /* Radius */
+  --radius-pill: 999px;
+  --radius-sm: 0.4rem;
 }
 /* Typography */
 

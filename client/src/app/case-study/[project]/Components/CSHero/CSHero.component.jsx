@@ -31,6 +31,7 @@ const CSHero = ({
   highlightWords = [],
   note,
   description = "",
+  finalResults,
 }) => {
   return (
     <section className={styles.heroCentered}>
@@ -56,6 +57,21 @@ const CSHero = ({
               style={{ display: "inline-flex", alignItems: "center", gap: 6 }}
             >
               <span className={styles.companyBadge}>{companyName}</span>{" "}
+              <FiArrowRight style={{ marginLeft: 6 }} />
+            </span>
+          </TertiaryButton>
+        </a>
+      )}
+      {finalResults && (
+          <a
+          href={finalResults}
+          className={styles.heroLinkCentered}
+        >
+          <TertiaryButton>
+            <span
+              style={{ display: "inline-flex", alignItems: "center", gap: 6 }}
+            >
+              <span className={styles.companyBadge}>See final results</span>{" "}
               <FiArrowRight style={{ marginLeft: 6 }} />
             </span>
           </TertiaryButton>

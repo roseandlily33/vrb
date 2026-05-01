@@ -3,7 +3,7 @@
 }
 
 .hero {
-  min-height: 600px;
+  min-height: 650px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -12,6 +12,7 @@
   overflow: hidden;
   background: var(--background-hero);
   padding: var(--section-lg);
+  margin-top: 0;
 }
 
 .subText {

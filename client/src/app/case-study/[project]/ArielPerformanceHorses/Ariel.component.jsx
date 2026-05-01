@@ -9,7 +9,7 @@ import CSResults from "../Components/CSResults/CSResults.component";
 import CSKeyFeatures from "../Components/CSKeyFeatures/CSKeyFeatures.component";
 import CSPhaseCard from "../Components/CSPhases/CSPhases.component";
 import { results } from "./result";
-import { beforePages, pages, afterPages, PhaseDescriptions} from "./pages";
+import { beforePages, pages, afterPages, PhaseDescriptions } from "./pages";
 import Breadcrumbs from "../Components/Extras/Breadcrumbs/Breadcrumbs.component";
 import BackToTopButton from "@/app/Components/BackToTop/BackToTopButton";
 
@@ -27,6 +27,7 @@ const Ariel = () => {
         title="Redesigning a Website for Clarity and Usability"
         highlightWords={["Clarity", "Usability"]}
         role="UX/UI Designer"
+        finalResults="/case-study/ariel-performance-horses/ariel-final-pages"
         note="I developed multiple design iterations to improve structure, usability, and visual clarity. While implementation is still in progress, the work outlines a strong direction for a more refined user experience."
       />
       <CSKeyFeatures

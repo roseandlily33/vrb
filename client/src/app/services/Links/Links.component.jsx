@@ -29,7 +29,7 @@ export default function Links({ onSectionClick }) {
       aria-label="Section navigation"
     >
       {sections.map((section, idx) => (
-        <>
+        <div key={idx}>
           <button
             key={section.label}
             className={styles.linkBtn}
@@ -48,7 +48,7 @@ export default function Links({ onSectionClick }) {
           {idx < sections.length - 1 && (
             <span className={styles.separator} aria-hidden="true"></span>
           )}
-        </>
+        </div>
       ))}
     </nav>
   );
