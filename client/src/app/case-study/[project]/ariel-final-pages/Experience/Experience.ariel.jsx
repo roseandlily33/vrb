@@ -4,14 +4,12 @@ const experiences = [
   {
     year: "2020",
     title: "Florida International Youth Championship",
-    description:
-      "Achieved highly placing scores. With horse Prime Poetry",
+    description: "Achieved highly placing scores. With horse Prime Poetry",
   },
   {
     year: "2019",
     title: "Florida International Youth Championship",
-    description:
-      "Achieved highly placing scores. With horse Winnie Pooh",
+    description: "Achieved highly placing scores. With horse Winnie Pooh",
   },
 ];
 
@@ -22,7 +20,7 @@ export default function Experience() {
         {/* LEFT */}
         <div className={styles.left}>
           <h2>10 +</h2>
-          <p>Years of experience</p>
+          <span className={styles.yearsText}>Years of experience</span>
         </div>
 
         {/* DIVIDER */}

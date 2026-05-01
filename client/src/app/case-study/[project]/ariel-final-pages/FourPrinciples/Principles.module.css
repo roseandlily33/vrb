@@ -2,22 +2,21 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 600px;
+  background: var(--white);
 }
 
-/* LEFT SIDE (image placeholder) */
 .left {
-  background: url('/ArielPerformance/Pictures/SideC.png') center/cover no-repeat;
+  background: url("/ArielPerformance/Pictures/SideC.png") center/cover no-repeat;
   border-right: 6px solid var(--color-white);
 }
 
-/* RIGHT SIDE */
 .right {
-  background: var(--color-cream-soft);
+  /* background: var(--color-cream-soft); */
   padding: var(--section-lg);
-
   display: flex;
   flex-direction: column;
   justify-content: center;
+  margin-top: 2rem;
   /* max-width: 700px; */
 }
 
@@ -29,18 +28,22 @@
   font-size: 0.75rem;
   font-weight: 700;
   margin-bottom: var(--space-xs);
+  font-family: var(--font-open-sans), sans-serif;
 }
 
 .title {
   font-size: 2.2rem;
   color: var(--text-dark);
   margin-bottom: var(--space-s);
+  line-height: 1.12;
+  font-family: var(--font-prata), serif;
 }
 
 .subtitle {
   color: var(--text-soft);
   font-size: 0.9rem;
   margin-bottom: var(--space-xxl);
+  font-family: var(--font-open-sans), sans-serif;
 }
 
 /* List */
@@ -48,21 +51,24 @@
   display: flex;
   flex-direction: column;
   gap: var(--space-xl);
+  font-family: var(--font-open-sans), sans-serif;
 }
 
 .item {
   display: flex;
   gap: var(--space-l);
-    padding-bottom: var(--space-m);
-  border-bottom: 1px solid rgba(0,0,0,0.06);
+  padding-bottom: var(--space-m);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  font-family: var(--font-open-sans), sans-serif;
 }
 
 /* Number */
 .number {
   color: var(--color-gold);
   font-weight: 700;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
   min-width: 40px;
+  font-family: var(--font-open-sans), sans-serif;
 }
 
 /* Text */
@@ -70,12 +76,14 @@
   font-size: 1rem;
   color: var(--text-dark);
   margin-bottom: var(--space-xs);
+  font-family: var(--font-open-sans), sans-serif;
 }
 
 .item p {
   font-size: 0.9rem;
   color: var(--text-soft);
   line-height: 1.6;
+  font-family: var(--font-open-sans), sans-serif;
 }
 .item:last-child {
   border-bottom: none;

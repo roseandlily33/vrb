@@ -13,13 +13,21 @@
   gap: var(--space-m);
 }
 
+.quoteRow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-m);
+  width: 100%;
+}
+
 /* Decorative lines */
 .line {
   width: 80px;
+  min-width: 60px;
   height: 2px;
-  background: var(--color-gold);
-  width: 120px;
-  height: 2px;
+  opacity: 0.6;
   background: linear-gradient(
     to right,
     transparent,
@@ -35,7 +43,18 @@
   line-height: 1.6;
   font-style: italic;
   max-width: 640px;
-    font-family: var(--font-open-sans), sans-serif;
+  font-family: var(--font-open-sans), sans-serif;
+  margin: 0 1rem;
+}
+@media (max-width: 600px) {
+  .quoteRow {
+    flex-direction: column;
+    gap: var(--space-xs);
+  }
+  .line {
+    width: 60px;
+    min-width: 40px;
+  }
 }
 
 /* Author */
@@ -44,5 +63,5 @@
   font-size: 0.85rem;
   font-weight: 600;
   margin-top: var(--space-xs);
-    font-family: var(--font-open-sans), sans-serif;
+  font-family: var(--font-open-sans), sans-serif;
 }

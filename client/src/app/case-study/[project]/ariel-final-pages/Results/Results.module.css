@@ -1,12 +1,13 @@
 .section {
-  background: var(--color-white);
+  /* background: var(--color-white); */
+  background: var(--color-cream-soft);
   padding: var(--section-lg);
 }
 
 .heading {
   text-align: center;
   margin-bottom: var(--space-xxxl);
-  font-family: var(--font-prata), serif;
+  /* font-family: var(--font-prata), serif; */
 }
 
 .eyebrow {
@@ -20,9 +21,9 @@
 
 .heading h2 {
   color: var(--text-dark);
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  /* font-size: clamp(1.8rem, 3vw, 2.6rem); */
   font-weight: 500;
-  line-height: 1.15;
+  line-height: 1.12;
   font-family: var(--font-prata), serif;
 }
 
@@ -47,13 +48,14 @@
 
 .icon {
   color: var(--color-gold);
-  font-size: 2.4rem;
+  font-size: 2.8rem;
   line-height: 1;
+  margin-bottom: var(--space-s);
 }
 
 .resultItem p {
   color: var(--text-soft);
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   line-height: 1.45;
   max-width: 210px;
 }

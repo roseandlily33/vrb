@@ -11,8 +11,14 @@ const sponsors = [
 export default function Sponsers() {
   return (
     <section className={styles.section}>
-      <h2>Our Trusted Partners</h2>
-
+      <div className={styles.headerRow}>
+        <div className={styles.headerText}>
+          <h2>Our Trusted Partners</h2>
+          <p className={styles.description}>
+            We are grateful for the support and collaboration of these outstanding organizations. Their partnership helps us deliver the best for our clients and community.
+          </p>
+        </div>
+      </div>
       <div className={styles.logoGrid}>
         {sponsors.map((sponsor) => (
           <a href="#" key={sponsor.name} className={styles.logoCard}>

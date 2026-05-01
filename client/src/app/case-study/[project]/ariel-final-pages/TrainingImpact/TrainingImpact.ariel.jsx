@@ -38,18 +38,14 @@ const resourceCards = [
   },
 ];
 
-function InfoCard({ eyebrow, title, text }) {
+
+function InfoItem({ eyebrow, title, text }) {
   return (
-    <article className={styles.card}>
-      {eyebrow && <p className={styles.cardEyebrow}>{eyebrow}</p>}
-
-      <div className={styles.cardTop}>
-        <h3>{title}</h3>
-        <span aria-hidden="true">Ω</span>
-      </div>
-
+    <div className={styles.infoItem}>
+      {eyebrow && <span className={styles.cardEyebrow}>{eyebrow}</span>}
+      <h3>{title}</h3>
       <p>{text}</p>
-    </article>
+    </div>
   );
 }
 
@@ -67,7 +63,7 @@ export default function TrainingImpact() {
 
       <div className={styles.impactGrid}>
         {impactCards.map((card) => (
-          <InfoCard key={card.title} {...card} />
+          <InfoItem key={card.title} {...card} />
         ))}
       </div>
 
@@ -75,10 +71,9 @@ export default function TrainingImpact() {
 
       <div className={styles.resources}>
         <h2>Support & Resources</h2>
-
         <div className={styles.resourceGrid}>
           {resourceCards.map((card) => (
-            <InfoCard key={card.title} {...card} />
+            <InfoItem key={card.title} {...card} />
           ))}
         </div>
       </div>

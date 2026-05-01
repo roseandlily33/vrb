@@ -25,7 +25,7 @@
   color: var(--text-dark);
   font-size: clamp(1.9rem, 3vw, 2.6rem);
   font-weight: 500;
-  line-height: 1.15;
+  line-height: 1.12;
   font-family: var(--font-prata), serif;
 }
 
@@ -47,42 +47,29 @@
   gap: var(--space-xl);
 }
 
-.card {
-  background: var(--color-white);
-  border: 1px solid var(--card-border);
-  border-radius: var(--radius-sm);
-  padding: var(--space-l);
-  min-height: 190px;
+.infoItem {
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  min-height: unset;
   font-family: var(--font-open-sans), sans-serif;
-  box-shadow: 0 10px 24px rgba(16, 16, 16, 0.07);
+  box-shadow: none;
+  margin-bottom: var(--space-xl);
 }
 
-.cardTop {
-  display: flex;
-  justify-content: space-between;
-  gap: var(--space-m);
-  margin: var(--space-xs) 0 var(--space-m);
-}
-
-.cardTop h3 {
+.infoItem h3 {
   color: var(--text-dark);
   font-size: 1rem;
   line-height: 1.25;
   font-weight: 600;
   font-family: var(--font-open-sans), sans-serif;
+  margin-bottom: var(--space-xs);
 }
 
-.cardTop span {
-  color: var(--color-gold);
-  font-size: 1.7rem;
-  line-height: 1;
-  flex-shrink: 0;
-  font-family: var(--font-open-sans), sans-serif;
-}
-
-.card p {
+.infoItem p {
   color: var(--text-soft);
-  font-size: 0.84rem;
+  font-size: 0.92rem;
   line-height: 1.55;
   font-family: var(--font-open-sans), sans-serif;
 }

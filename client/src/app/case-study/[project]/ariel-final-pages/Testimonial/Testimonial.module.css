@@ -1,33 +1,52 @@
 .section {
   position: relative;
-  min-height: 360px;
-  padding: var(--section-xl);
+  min-height: 340px;
+  padding: var(--space-xxxl) var(--section-xl);
   display: flex;
   align-items: center;
+  justify-content: center;
   font-family: var(--font-open-sans), sans-serif;
-  background: url("/ArielPerformance/Pictures/Hero1.png");
-  background-size: cover;
-  background-position: center;
+  background: var(--color-white);
   overflow: hidden;
-  border-bottom: 2px solid var(--color-gold);
+  border-bottom: none;
+}
+
+.goldLine {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-gold),
+    transparent
+  );
+  border-radius: 2px;
+  margin: 0 auto var(--space-xl) auto;
+  display: block;
 }
 
 .content {
   position: relative;
   z-index: 1;
-  max-width: 560px;
+  max-width: 660px;
+  width: 100%;
+  text-align: center;
 }
 
 .content blockquote {
-  color: var(--color-white);
-  font-size: clamp(1.45rem, 3vw, 2.4rem);
-  line-height: 1.25;
-  font-weight: 500;
-  margin-bottom: var(--space-l);
+  color: var(--text-dark);
+  font-size: clamp(2.1rem, 4vw, 2.9rem);
+  line-height: 1.12;
+  margin-bottom: var(--space-xl);
+  font-family: var(--font-prata), serif;
+  letter-spacing: -0.01em;
+  background: none;
 }
 
 .author {
-  color: var(--color-gold-light);
-  font-size: 0.9rem;
+  color: var(--color-gold-dark);
+  font-size: 1.1rem;
   font-weight: 600;
+  font-family: var(--font-open-sans), sans-serif;
+  margin-top: var(--space-m);
 }

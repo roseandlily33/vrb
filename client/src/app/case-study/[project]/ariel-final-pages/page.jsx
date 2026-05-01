@@ -37,10 +37,10 @@ const ArielFinal = () => {
       <Navbar />
       <HeroMain />
       <Horsemanship />
-      <Quote />
-      <TrainingImpact />
-      <Sponsers />
       <Experience />
+      <TrainingImpact />
+      <Quote />
+      <Sponsers />
       <Testimonial />
       <CTA1 />
       <Footer />
@@ -65,19 +65,27 @@ const ArielFinal = () => {
 
   return (
     <main>
-      <h1 style={{ textAlign: "center", margin: "2.5rem 0 1.5rem 0", fontSize: "2.2rem", fontWeight: 700, letterSpacing: "0.01em" }}>
+      <h1
+        style={{
+          textAlign: "center",
+          margin: "2.5rem 0 1.5rem 0",
+          fontSize: "2.2rem",
+          fontWeight: 700,
+          letterSpacing: "0.01em",
+        }}
+      >
         Ariel Finished Pages
       </h1>
       <div style={buttonGroupStyle}>
         <PrimaryButton
-          onClick={() => setSelectedPage('home')}
-          style={selectedPage === 'home' ? activeButtonStyle : {}}
+          onClick={() => setSelectedPage("home")}
+          style={selectedPage === "home" ? activeButtonStyle : {}}
         >
           Home
         </PrimaryButton>
         <PrimaryButton
-          onClick={() => setSelectedPage('services')}
-          style={selectedPage === 'services' ? activeButtonStyle : {}}
+          onClick={() => setSelectedPage("services")}
+          style={selectedPage === "services" ? activeButtonStyle : {}}
         >
           Services
         </PrimaryButton>

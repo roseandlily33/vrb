@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr 0.85fr;
   min-height: 600px;
-  background: var(--color-cream-soft);
+  /* background: var(--color-cream-soft); */
   border-bottom: 3px solid var(--color-gold);
 }
 
@@ -13,7 +13,7 @@
 }
 
 .contentInner {
-  max-width: 560px;
+  max-width: 520px;
 }
 
 .eyebrow {
@@ -23,14 +23,16 @@
   font-size: 0.75rem;
   font-weight: 700;
   margin-bottom: var(--space-l);
+  font-family: var(--font-open-sans), sans-serif;
 }
 
 .content h2 {
   color: var(--text-dark);
   font-size: clamp(2.4rem, 4vw, 3.6rem);
   font-weight: 500;
-  line-height: 1.05;
+  line-height: 1.12;
   margin-bottom: var(--space-xxl);
+  font-family: var(--font-prata), serif; 
 }
 
 .textGroup {
@@ -45,11 +47,13 @@
   font-size: 1rem;
   line-height: 1.65;
   font-family: var(--font-open-sans), sans-serif;
+  margin-bottom: var(--space-s);
 }
 
 .question {
   color: var(--text-dark);
   font-weight: 600;
+  font-family: var(--font-open-sans), sans-serif;
 }
 
 .imageBlock {

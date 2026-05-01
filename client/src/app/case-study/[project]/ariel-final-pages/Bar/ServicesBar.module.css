@@ -8,8 +8,8 @@
     rgba(18, 18, 18, 0.95)
   );
   border-bottom: 1px solid var(--border-light);
-  padding: 1.1rem var(--space-xl);
   box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.35);
+  padding: 1.3rem var(--space-xl);
 }
 
 .inner {
@@ -27,12 +27,12 @@
 .itemWrap {
   display: flex;
   align-items: center;
-  gap: var(--space-l);
+  gap: var(--space-xxl);
 }
 
 .item {
   color: var(--text-primary);
-  font-size: 0.85rem;
+  font-size: 0.95rem;
   font-weight: 500;
   letter-spacing: 0.02em;
   white-space: nowrap;
@@ -48,5 +48,58 @@
 .divider {
   width: 1px;
   height: 14px;
-  background: rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.item {
+  position: relative;
+}
+
+.item::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -6px;
+  width: 0%;
+  height: 1px;
+  background: var(--color-gold);
+  transition: width 180ms ease;
+}
+
+.item:hover::after {
+  width: 100%;
+}
+.bar {
+  position: relative;
+  overflow: hidden;
+}
+
+.bar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -30%;
+  width: 30%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-gold-light),
+    transparent
+  );
+  animation: goldSweep 5s ease-in-out infinite;
+}
+
+@keyframes goldSweep {
+  0% {
+    left: -30%;
+  }
+
+  55% {
+    left: 100%;
+  }
+
+  100% {
+    left: 100%;
+  }
 }

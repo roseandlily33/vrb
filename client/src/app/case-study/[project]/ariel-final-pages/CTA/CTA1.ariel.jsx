@@ -1,4 +1,5 @@
 import styles from "./CTA1.module.css";
+import Button from "../Button/Button.ariel";
 
 export default function CTA1() {
   return (
@@ -15,10 +16,7 @@ export default function CTA1() {
           <p className={styles.question}>Want a free consultation?</p>
           <p>Send us a message & we’ll get back to you!</p>
         </div>
-
-        <a href="/contact" className={styles.button}>
-          Contact Us
-        </a>
+        <Button>Contact Us</Button>
       </div>
     </section>
   );
