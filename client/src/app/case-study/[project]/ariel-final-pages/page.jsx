@@ -39,6 +39,8 @@ const ArielFinal = () => {
       <Horsemanship />
       <Quote />
       <TrainingImpact />
+      <Sponsers />
+      <Experience />
       <Testimonial />
       <CTA1 />
       <Footer />

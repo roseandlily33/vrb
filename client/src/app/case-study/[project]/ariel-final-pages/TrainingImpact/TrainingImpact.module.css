@@ -7,6 +7,7 @@
   max-width: 700px;
   margin: 0 auto var(--space-xxxl);
   text-align: center;
+  /* font-family: var(--font-prata), serif; */
 }
 
 .eyebrow,
@@ -16,6 +17,7 @@
   letter-spacing: 0.14em;
   font-size: 0.72rem;
   font-weight: 700;
+  font-family: var(--font-open-sans), sans-serif;
 }
 
 .heading h2,
@@ -24,6 +26,7 @@
   font-size: clamp(1.9rem, 3vw, 2.6rem);
   font-weight: 500;
   line-height: 1.15;
+  font-family: var(--font-prata), serif;
 }
 
 .heading h2 {
@@ -39,7 +42,6 @@
 .impactGrid {
   max-width: var(--max-width);
   margin: 0 auto;
-
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--space-xl);
@@ -51,7 +53,7 @@
   border-radius: var(--radius-sm);
   padding: var(--space-l);
   min-height: 190px;
-
+  font-family: var(--font-open-sans), sans-serif;
   box-shadow: 0 10px 24px rgba(16, 16, 16, 0.07);
 }
 
@@ -67,6 +69,7 @@
   font-size: 1rem;
   line-height: 1.25;
   font-weight: 600;
+  font-family: var(--font-open-sans), sans-serif;
 }
 
 .cardTop span {
@@ -74,12 +77,14 @@
   font-size: 1.7rem;
   line-height: 1;
   flex-shrink: 0;
+  font-family: var(--font-open-sans), sans-serif;
 }
 
 .card p {
   color: var(--text-soft);
   font-size: 0.84rem;
   line-height: 1.55;
+  font-family: var(--font-open-sans), sans-serif;
 }
 
 .divider {

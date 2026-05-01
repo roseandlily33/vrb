@@ -18,7 +18,7 @@ const Vrb = () => {
     <section className={styles.mainContainer}>
       <Breadcrumbs current="VRB Web Design and Development" />
       <CSHero
-        img=""
+        img="/VRBLogo.png"
         companyName="VRB Web Design and Development"
         date="2026"
         status="Complete"
@@ -26,6 +26,7 @@ const Vrb = () => {
         highlightWords={["design and development"]}
         type="Web Application"
         role="Lead developer"
+        seeProcess="/case-study/vrb-web/vrb-process"
       />
       <CSProblem
         homeSrc=""

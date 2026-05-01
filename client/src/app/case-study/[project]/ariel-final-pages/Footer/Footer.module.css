@@ -1,34 +1,26 @@
+
 .footer {
   background: var(--color-black);
   border-top: 4px solid var(--color-gold);
-  padding: var(--section-md) 0;
+  padding: var(--section-lg) 0 var(--section-md) 0;
+  text-align: center;
 }
 
-.inner {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: var(--space-xxl);
-  flex-wrap: wrap;
-}
-
-.logoBlock {
+.centerBlock {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  flex: 1 1 220px;
-  min-width: 180px;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--space-l);
 }
 
 .logoWrap {
-  width: 160px;
-  height: 90px;
-  margin-bottom: var(--space-m);
+  width: 170px;
+  height: 96px;
+  margin: 0 auto var(--space-m) auto;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 .logo {
@@ -39,32 +31,35 @@
 
 .tagline {
   color: var(--text-muted);
-  font-size: 0.9rem;
-  margin-bottom: var(--space-m);
+  font-size: 1.05rem;
+  margin-bottom: 0;
 }
 
-.infoBlock {
+.infoRow {
   display: flex;
-  flex: 2 1 400px;
-  justify-content: space-between;
-  gap: var(--space-xl);
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--space-xxl);
+  margin-bottom: var(--space-m);
   flex-wrap: wrap;
 }
 
-.contact {
+.infoItem {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: var(--space-xs);
+  min-width: 140px;
 }
 
 .phone {
   color: var(--text-primary);
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .email {
   color: var(--color-white);
-  font-size: 0.9rem;
+  font-size: 1rem;
   text-decoration: none;
   border-bottom: 1px solid var(--color-gold);
   width: fit-content;
@@ -74,27 +69,15 @@
   color: var(--color-gold-light);
 }
 
-.copy {
-  color: var(--text-muted);
-  font-size: 0.8rem;
-  margin-top: var(--space-s);
-}
-
-.locationSocials {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: var(--space-s);
-}
-
 .location {
   color: var(--text-primary);
-  font-size: 0.9rem;
+  font-size: 1rem;
 }
 
 .socials {
   display: flex;
   gap: var(--space-s);
+  justify-content: center;
 }
 
 .socials a {
@@ -102,7 +85,7 @@
   height: 36px;
   background: var(--color-gold);
   color: var(--color-black);
-  font-size: 1rem;
+  font-size: 1.1rem;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -116,17 +99,22 @@
   transform: translateY(-2px);
 }
 
-@media (max-width: 900px) {
-  .inner {
-    flex-direction: column;
-    align-items: stretch;
-    gap: var(--space-xl);
-  }
-  .infoBlock {
+.copy {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  margin-top: var(--space-m);
+}
+
+@media (max-width: 700px) {
+  .infoRow {
     flex-direction: column;
     gap: var(--space-m);
   }
-  .locationSocials {
-    align-items: flex-start;
+  .infoItem {
+    min-width: 0;
+  }
+  .logoWrap {
+    width: 120px;
+    height: 64px;
   }
 }

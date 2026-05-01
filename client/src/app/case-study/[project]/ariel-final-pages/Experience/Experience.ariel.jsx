@@ -21,7 +21,7 @@ export default function Experience() {
       <div className={styles.inner}>
         {/* LEFT */}
         <div className={styles.left}>
-          <h2>10+</h2>
+          <h2>10 +</h2>
           <p>Years of experience</p>
         </div>
 

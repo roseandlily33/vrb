@@ -1,22 +1,15 @@
 .section {
   position: relative;
   min-height: 360px;
-  padding: var(--section-lg);
+  padding: var(--section-xl);
   display: flex;
   align-items: center;
-
-  /* TEMP background until image is added */
-  background:
-    linear-gradient(
-      90deg,
-      rgba(16, 16, 16, 0.78),
-      rgba(16, 16, 16, 0.45)
-    ),
-    #5f6f55;
-
+  font-family: var(--font-open-sans), sans-serif;
+  background: url("/ArielPerformance/Pictures/Hero1.png");
   background-size: cover;
   background-position: center;
   overflow: hidden;
+  border-bottom: 2px solid var(--color-gold);
 }
 
 .content {

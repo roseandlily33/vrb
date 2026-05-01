@@ -38,6 +38,7 @@
   white-space: nowrap;
   cursor: default;
   transition: color 180ms ease;
+  font-family: var(--font-open-sans), sans-serif;
 }
 
 .item:hover {

@@ -44,6 +44,7 @@
   letter-spacing: 0.14em;
   font-weight: 700;
   margin-bottom: var(--space-m);
+   font-family: var(--font-open-sans), sans-serif;
 }
 
 /* Title */
@@ -53,6 +54,7 @@
   line-height: 1.15;
   font-weight: 600;
   margin-bottom: var(--space-xl);
+  font-family: var(--font-prata), serif;
 }
 
 /* Description */

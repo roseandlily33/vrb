@@ -14,7 +14,7 @@ export default function Quote() {
 
         <div className={styles.line} />
 
-        <p className={styles.author}>— Ariel</p>
+        <p className={styles.author}>— Ariel Boesener</p>
       </div>
     </section>
   );

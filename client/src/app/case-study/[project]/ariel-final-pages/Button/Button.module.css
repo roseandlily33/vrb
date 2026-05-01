@@ -13,12 +13,14 @@
 
   transition: all 160ms ease;
   cursor: pointer;
+  font-family: var(--font-open-sans), sans-serif;
 }
 
 .primary {
   background: var(--color-gold);
   color: var(--color-white);
   border: 1px solid var(--color-gold);
+  /* font-family: var(--font-open-sans), sans-serif; */
 }
 
 .primary:hover {

@@ -45,6 +45,7 @@
   letter-spacing: 0.14em;
   font-weight: 700;
   margin-bottom: var(--space-m);
+  font-family: var(--font-open-sans), sans-serif;
 }
 
 .title {
@@ -52,6 +53,8 @@
   font-size: clamp(2.4rem, 4vw, 3.4rem);
   line-height: 1.15;
   font-weight: 500;
+  font-family: var(--font-prata), serif;
+
   margin-bottom: var(--space-xl);
   /* border: 2px solid red; */
 }

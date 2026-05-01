@@ -1,11 +1,11 @@
 import styles from "./Sponsers.module.css";
 
 const sponsors = [
-  { name: "Partner One", logo: "/logos/partner-one.png" },
-  { name: "Partner Two", logo: "/logos/partner-two.png" },
-  { name: "Partner Three", logo: "/logos/partner-three.png" },
-  { name: "Partner Four", logo: "/logos/partner-four.png" },
-  { name: "Partner Five", logo: "/logos/partner-five.png" },
+  { name: "Partner One", logo: "/ArielPerformance/Pictures/Sponser1.png" },
+  { name: "Partner Two", logo: "/ArielPerformance/Pictures/Sponser2.png" },
+  { name: "Partner Three", logo: "/ArielPerformance/Pictures/Sponser3.png" },
+  { name: "Partner Four", logo: "/ArielPerformance/Pictures/Sponser4.png" },
+  { name: "Partner Five", logo: "/ArielPerformance/Pictures/Sponser5.png" },
 ];
 
 export default function Sponsers() {

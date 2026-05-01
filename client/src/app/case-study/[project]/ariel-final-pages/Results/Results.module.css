@@ -6,6 +6,7 @@
 .heading {
   text-align: center;
   margin-bottom: var(--space-xxxl);
+  font-family: var(--font-prata), serif;
 }
 
 .eyebrow {
@@ -22,6 +23,7 @@
   font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 500;
   line-height: 1.15;
+  font-family: var(--font-prata), serif;
 }
 
 .resultsGrid {
