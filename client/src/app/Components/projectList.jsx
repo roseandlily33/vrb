@@ -8,15 +8,7 @@ export const projects = [
     link: "/case-study/yoda-safety-services",
     badge: "Web App",
   },
-  {
-    name: "Inspection Pal",
-    description:
-      "Front-end project built from scratch with Gatsby and CSS Modules.",
-    tech: ["Gatsby", "Design"],
-    image: "/InspectionPal/Home.png",
-    link: "/case-study/inspection-pal",
-    badge: "Front-End Design & Dev",
-  },
+
   {
     name: "Ariel Boesener Performance Horses",
     description:
@@ -33,6 +25,15 @@ export const projects = [
     tech: ["Design", "Next.js"],
     image: "/VRB/VrbHome.png",
     link: "/case-study/vrb-web",
+    badge: "Front-End Design & Dev",
+  },
+  {
+    name: "Inspection Pal",
+    description:
+      "Front-end project built from scratch with Gatsby and CSS Modules.",
+    tech: ["Gatsby", "Design"],
+    image: "/InspectionPal/Home.png",
+    link: "/case-study/inspection-pal",
     badge: "Front-End Design & Dev",
   },
 ];
