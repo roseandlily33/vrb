@@ -1,81 +1,55 @@
 .section {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  min-height: 780px;
-  background: var(--color-cream-soft);
-  border-bottom: 4px solid var(--color-gold);
+  grid-template-columns: 1fr 1fr;
+  min-height: 520px;
+  background: var(--color-white);
 }
 
 .imageBlock {
+  min-height: 420px;
+  background: var(--color-grey-soft);
+  background-size: cover;
+  background-position: center;
   background: url("/ArielPerformance/Pictures/SideA.png") center/cover no-repeat;
-  min-height: 480px;
 }
 
 .content {
-  padding: var(--section-lg);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  max-width: 580px;
+  padding: var(--section-lg);
+  max-width: 620px;
+}
+
+.eyebrow {
+  margin: 0 0 var(--space-s);
+  color: var(--color-gold);
+  font-family: var(--font-open-sans), sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .content h2 {
+  margin: 0;
+  max-width: 520px;
   color: var(--text-dark);
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.12;
-  font-weight: 500;
-  max-width: 620px;
-  margin-bottom: var(--space-xl);
   font-family: var(--font-prata), serif;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 500;
+  line-height: 1.08;
+  letter-spacing: -0.02em;
 }
 
-.textGroup {
-  display: grid;
-  gap: var(--space-xs);
-  margin-bottom: var(--space-xl);
-}
-
-.textGroup p {
+.lede {
+  max-width: 430px;
+  margin: var(--space-l) 0 var(--space-xl);
   color: var(--text-soft);
-  font-size: 0.95rem;
-  line-height: 1.6;
   font-family: var(--font-open-sans), sans-serif;
-}
-
-.question {
-  color: var(--text-dark);
-  font-weight: 600;
-}
-
-.button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  background: linear-gradient(
-    180deg,
-    var(--color-gold-light),
-    var(--color-gold)
-  );
-  color: var(--color-white);
-  border: 1px solid var(--color-gold-dark);
-  border-radius: var(--radius-pill);
-
-  padding: 0.65rem 1.5rem;
-  font-size: 0.82rem;
-  font-weight: 600;
-  text-decoration: none;
-
-  box-shadow: 0 3px 0 var(--color-gold-dark);
-  transition:
-    transform 180ms ease,
-    box-shadow 180ms ease;
-}
-
-.button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 5px 0 var(--color-gold-dark);
+  font-size: 0.98rem;
+  line-height: 1.65;
 }
 
 @media (max-width: 850px) {
@@ -83,11 +57,11 @@
     grid-template-columns: 1fr;
   }
 
-  .imageBlock {
-    min-height: 320px;
-  }
-
   .content {
     padding: var(--section-md);
+  }
+
+  .imageBlock {
+    min-height: 320px;
   }
 }

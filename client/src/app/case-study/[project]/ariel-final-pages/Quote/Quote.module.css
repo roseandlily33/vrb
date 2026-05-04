@@ -1,6 +1,15 @@
 .section {
   /* background: var(--color-cream-soft); */
   padding: var(--section-md);
+  background: linear-gradient(
+    135deg,
+    var(--color-grey-soft),
+    rgba(216, 160, 78, 0.08)
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    0 12px 32px rgba(0, 0, 0, 0.04);
+  /* padding-top: var(--space-xxl); */
 }
 
 .inner {
@@ -11,6 +20,7 @@
   flex-direction: column;
   align-items: center;
   gap: var(--space-m);
+  margin-top: var(--space-xl);
 }
 
 .quoteRow {

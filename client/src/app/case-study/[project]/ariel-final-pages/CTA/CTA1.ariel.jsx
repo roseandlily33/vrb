@@ -7,15 +7,15 @@ export default function CTA1() {
       <div className={styles.imageBlock} />
 
       <div className={styles.content}>
-        <h2>
-          Every partnership begins with understanding — let’s take the first
-          step together.
-        </h2>
+        <p className={styles.eyebrow}>Let’s Work Together</p>
 
-        <div className={styles.textGroup}>
-          <p className={styles.question}>Want a free consultation?</p>
-          <p>Send us a message & we’ll get back to you!</p>
-        </div>
+        <h2>Every partnership begins with understanding.</h2>
+
+        <p className={styles.lede}>
+          Book a free consultation and we’ll help you take the next step with
+          clarity and confidence.
+        </p>
+
         <Button>Contact Us</Button>
       </div>
     </section>

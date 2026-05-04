@@ -1,6 +1,7 @@
 .section {
   background: var(--color-white);
   padding: var(--section-lg);
+  margin-top: var(--space-xxxl);
 }
 
 .heading {

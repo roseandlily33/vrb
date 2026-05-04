@@ -18,6 +18,7 @@ import Sponsers from "./Sponsers/Sponsers.ariel";
 import Testimonial from "./Testimonial/Testimonial.ariel";
 import TrainingImpact from "./TrainingImpact/TrainingImpact.ariel";
 import styles from "./page.module.css";
+import SupportAndResources from "./TrainingImpact/Support.ariel";
 
 const ArielFinal = () => {
   const [selectedPage, setSelectedPage] = useState("home");
@@ -40,6 +41,7 @@ const ArielFinal = () => {
       <Horsemanship />
       <Experience />
       <TrainingImpact />
+      <SupportAndResources />
       <Quote />
       <Sponsers />
       <Testimonial />
@@ -48,36 +50,39 @@ const ArielFinal = () => {
     </>
   );
 
-
   return (
     <main>
-     <section className={styles.finishedPagesHeader}>
-  <p className={styles.eyebrow}>Final Results</p>
+      <section className={styles.finishedPagesHeader}>
+        <p className={styles.eyebrow}>Final Results</p>
 
-  <h1 className={styles.title}>Finished Pages</h1>
+        <h1 className={styles.title}>Finished Pages</h1>
 
-  <div className={styles.pageSwitch} role="tablist" aria-label="Finished pages">
-    <button
-      type="button"
-      onClick={() => setSelectedPage("home")}
-      className={`${styles.switchButton} ${
-        selectedPage === "home" ? styles.active : ""
-      }`}
-    >
-      Home
-    </button>
+        <div
+          className={styles.pageSwitch}
+          role="tablist"
+          aria-label="Finished pages"
+        >
+          <button
+            type="button"
+            onClick={() => setSelectedPage("home")}
+            className={`${styles.switchButton} ${
+              selectedPage === "home" ? styles.active : ""
+            }`}
+          >
+            Home
+          </button>
 
-    <button
-      type="button"
-      onClick={() => setSelectedPage("services")}
-      className={`${styles.switchButton} ${
-        selectedPage === "services" ? styles.active : ""
-      }`}
-    >
-      Services
-    </button>
-  </div>
-</section>
+          <button
+            type="button"
+            onClick={() => setSelectedPage("services")}
+            className={`${styles.switchButton} ${
+              selectedPage === "services" ? styles.active : ""
+            }`}
+          >
+            Services
+          </button>
+        </div>
+      </section>
       {selectedPage === "home" && homePage}
       {selectedPage === "services" && servicesPage}
     </main>

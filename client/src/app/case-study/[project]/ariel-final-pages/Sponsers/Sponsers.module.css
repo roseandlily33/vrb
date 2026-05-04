@@ -1,95 +1,96 @@
 .section {
-  background: var(--color-off-white);
-  padding: var(--section-lg);
+  background: var(--color-white);
+  padding: var(--section-xl);
 }
 
-.headerRow {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  margin-bottom: var(--space-xxl);
+.header {
+  max-width: 680px;
+  margin: 0 auto var(--space-xxl);
+  text-align: center;
+   margin-top: var(--space-xl);
+
 }
 
-.headerText {
-  text-align: left;
-  max-width: 880px;
-}
-
-.headerText h2 {
-  color: var(--text-dark);
-  font-size: clamp(1.5rem, 2.5vw, 2rem);
-  font-weight: 500;
-  margin-bottom: var(--space-m);
-  line-height: 1.12;
+.header h2 {
   font-family: var(--font-prata), serif;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 500;
+  color: var(--text-dark);
+  margin-bottom: var(--space-s);
 }
 
 .description {
-  color: var(--grey-700);
-  font-size: 1.08rem;
-  margin-bottom: 0;
-  line-height: 1.6;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--text-soft);
+  max-width: 520px;
+  margin: 0 auto;
 }
 
 .logoGrid {
+  max-width: 900px;
   margin: 0 auto;
+
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: var(--space-xl);
   align-items: center;
 }
 
-.logo {
-  opacity: 0.5;
-  filter: grayscale(1);
+/* LOGO CARD (keep VERY subtle) */
+.logoCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 1.75rem;
+  border-radius: 12px;
+
+  background: rgba(0, 0, 0, 0.015);
+  border: 1px solid rgba(0, 0, 0, 0.04);
+
+  transition: all 0.25s ease;
 }
 
 .logoCard img {
-  max-width: 130px;
-  max-height: 55px;
+  max-height: 40px;
+  max-width: 100%;
   object-fit: contain;
 
-  filter: grayscale(1);
-  opacity: 0.45;
-  transition:
-    filter 180ms ease,
-    opacity 180ms ease,
-    transform 180ms ease;
+  /* makes mismatched logos feel cohesive */
+  filter: grayscale(100%) opacity(0.8);
+  transition: all 0.25s ease;
+}
+
+/* HOVER (subtle but important) */
+.logoCard:hover {
+  transform: translateY(-4px);
+  border-color: rgba(191, 149, 92, 0.25);
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .logoCard:hover img {
-  filter: grayscale(0);
-  opacity: 1;
-  transform: translateY(-2px);
+  filter: grayscale(0%) opacity(1);
 }
 
+/* RESPONSIVE */
 @media (max-width: 900px) {
-  .headerRow {
-    flex-direction: column;
-    align-items: flex-start;
-    margin-bottom: var(--space-xl);
-  }
-  .headerText {
-    max-width: 100%;
-  }
   .logoGrid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-l);
   }
 }
 
 @media (max-width: 600px) {
   .section {
-    padding: var(--section-sm);
+    padding: var(--section-lg);
   }
-  .headerRow {
-    margin-bottom: var(--space-l);
-  }
+
   .logoGrid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-m);
+    grid-template-columns: 1fr;
   }
+
   .logoCard {
-    min-height: 80px;
-    padding: var(--space-m);
+    padding: 1.25rem;
   }
 }
