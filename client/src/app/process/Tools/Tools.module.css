@@ -18,6 +18,7 @@
 }
 .p {
   margin-bottom: var(--space-xl);
+  color: var(--grey-100);
 }
 
 .toolsGrid {

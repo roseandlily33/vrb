@@ -45,53 +45,31 @@ const CSHero = ({
         alt={`${companyName} Logo`}
         className={styles.heroLogoLarge}
       />
+      {(link || finalResults || seeProcess) && (
+        <div className={styles.heroActions}>
+          {link && (
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.primaryAction}
+            >
+              Visit Live Site <FiArrowRight />
+            </a>
+          )}
 
-      {link && (
-        <a
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className={styles.heroLinkCentered}
-        >
-          <TertiaryButton>
-            <span
-              style={{ display: "inline-flex", alignItems: "center", gap: 6 }}
-            >
-              <span className={styles.companyBadge}>{companyName}</span>{" "}
-              <FiArrowRight style={{ marginLeft: 6 }} />
-            </span>
-          </TertiaryButton>
-        </a>
-      )}
-      {finalResults && (
-          <a
-          href={finalResults}
-          className={styles.heroLinkCentered}
-        >
-          <TertiaryButton>
-            <span
-              style={{ display: "inline-flex", alignItems: "center", gap: 6 }}
-            >
-              <span className={styles.companyBadge}>See final results</span>{" "}
-              <FiArrowRight style={{ marginLeft: 6 }} />
-            </span>
-          </TertiaryButton>
-        </a>
-      )}
-       {seeProcess && (
-          <a
-          href={seeProcess}
-          className={styles.heroLinkCentered}
-        >
-          <TertiaryButton>
-            <span
-              style={{ display: "inline-flex", alignItems: "center", gap: 6 }}
-            >
-              <span className={styles.companyBadge}>See Process</span>{" "}
-              <FiArrowRight style={{ marginLeft: 6 }} />
-            </span>
-          </TertiaryButton>
-        </a>
+          {finalResults && (
+            <a href={finalResults} className={styles.secondaryAction}>
+              See Final Results <FiArrowRight />
+            </a>
+          )}
+
+          {seeProcess && (
+            <a href={seeProcess} className={styles.secondaryAction}>
+              See Process <FiArrowRight />
+            </a>
+          )}
+        </div>
       )}
       <div className={styles.metaBand}>
         <div className={styles.metaItem}>

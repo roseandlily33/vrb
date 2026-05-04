@@ -1,6 +1,6 @@
+import Card from "@/app/Components/Card/Card.component";
 import styles from "./Services.module.css";
-import Link from "next/link";
-import { FaArrowRight, FaCode, FaPalette, FaCogs } from "react-icons/fa";
+import { FaCode, FaPalette, FaCogs } from "react-icons/fa";
 
 export default function Services() {
   const services = [
@@ -36,17 +36,13 @@ export default function Services() {
 
       <div className={styles.servicesGrid}>
         {services.map((service) => (
-          <article className={styles.serviceCard} key={service.title}>
-            <h3>
-              {service.icon}
-              {service.title}
-            </h3>
-            <p>{service.description}</p>
-
-            <Link href="/services" className={styles.serviceLink}>
-              Learn More <FaArrowRight />
-            </Link>
-          </article>
+          <Card
+            key={service.title}
+            icon={service.icon}
+            title={service.title}
+            description={service.description}
+            learnMoreLink="/services"
+          />
         ))}
       </div>
     </section>

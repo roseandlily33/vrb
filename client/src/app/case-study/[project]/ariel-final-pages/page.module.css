@@ -1,0 +1,72 @@
+.finishedPagesHeader {
+  text-align: center;
+  padding: var(--section-sm);
+  background: var(--background-one);
+}
+
+.eyebrow {
+  color: var(--blue-700);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+  font-weight: 800;
+  margin-bottom: var(--space-s);
+}
+
+.title {
+  color: var(--blue-950);
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+  margin-bottom: var(--space-xl);
+}
+
+.pageSwitch {
+  width: fit-content;
+  margin: 0 auto;
+
+  display: inline-flex;
+  gap: var(--space-xs);
+
+  padding: 0.35rem;
+  border-radius: 999px;
+  background: var(--blue-50);
+  border: 1px solid rgba(0, 84, 201, 0.12);
+}
+
+.switchButton {
+  border: none;
+  background: transparent;
+  color: var(--blue-900);
+
+  border-radius: 999px;
+  padding: 0.65rem 1.2rem;
+
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 700;
+
+  cursor: pointer;
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.switchButton:hover {
+  color: var(--blue-800);
+  transform: translateY(-1px);
+}
+
+.active {
+  background: var(--blue-800);
+  color: white;
+  box-shadow: 0 8px 20px rgba(0, 84, 201, 0.16);
+}
+
+.active:hover {
+  color: white;
+}
