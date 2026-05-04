@@ -18,9 +18,11 @@ export default function Card({
         {title}
       </h3>
       <p>{description}</p>
-      <Link href={learnMoreLink} className={styles.serviceLink}>
-        Learn More <FaArrowRight />
-      </Link>
+      {learnMoreLink && (
+        <Link href={learnMoreLink} className={styles.serviceLink}>
+          Learn More <FaArrowRight />
+        </Link>
+      )}
     </article>
   );
 }

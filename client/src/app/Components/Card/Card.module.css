@@ -41,7 +41,7 @@
 
 .serviceCard h3 {
   margin: 0 0 1rem;
-  color: var(--grey-800);
+  color: var(--grey-600);
   font-size: 1.35rem;
   font-weight: 800;
   letter-spacing: -0.025em;
@@ -52,7 +52,7 @@
 
 .serviceCard p {
   margin: 0;
-  color: var(--grey-700);
+  color: var(--grey-500);
   line-height: 1.7;
   font-size: 1rem;
 }

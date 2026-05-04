@@ -6,17 +6,17 @@ const experience = [
   {
     title: "Development",
     text: "4+ years of hands-on development experience",
-    icon: <FaCode />,
+    icon: <FaCode className="primaryIcon" />,
   },
   {
     title: "Full-Stack",
     text: "Experience building full-stack applications from scratch",
-    icon: <FaCubes />,
+    icon: <FaCubes className="primaryIcon" />,
   },
   {
     title: "UX & Platforms",
     text: "Worked on platforms, marketing sites, and UX-focused redesigns",
-    icon: <FaPalette />,
+    icon: <FaPalette className="primaryIcon" />,
   },
 ];
 
@@ -28,11 +28,12 @@ const ExperienceSnapshot = () => {
       <h3>Experience Snapshot</h3>
       <ul className={styles.experienceList}>
         {experience.map((item, index) => (
-          <Card key={index} className={styles.experienceItem}>
-            <span className="primaryIcon">{item.icon}</span>
-            <span className={styles.experienceTitle}>{item.title}</span>
-            <span className={styles.experienceText}>{item.text}</span>
-          </Card>
+          <Card
+            key={index}
+            icon={item.icon}
+            title={item.title}
+            description={item.text}
+          />
         ))}
       </ul>
     </section>

@@ -1,13 +1,12 @@
 .section {
   background: var(--color-cream-soft);
-  padding: var(--section-xl);
+  padding: var(--section-lg);
 }
 
 .heading {
-  max-width: 700px;
-  margin: 0 auto var(--space-xxxl);
+  max-width: 760px;
+  margin: 0 auto var(--space-xxl);
   text-align: center;
-  /* font-family: var(--font-prata), serif; */
 }
 
 .eyebrow,
@@ -23,7 +22,7 @@
 .heading h2,
 .resources h2 {
   color: var(--text-dark);
-  font-size: clamp(1.9rem, 3vw, 2.6rem);
+  font-size: clamp(1.9rem, 3vw, 2.65rem);
   font-weight: 500;
   line-height: 1.12;
   font-family: var(--font-prata), serif;
@@ -34,9 +33,11 @@
 }
 
 .heading > p:last-child {
+  max-width: 560px;
+  margin: 0 auto;
   color: var(--text-soft);
-  font-size: 0.92rem;
-  line-height: 1.6;
+  font-size: 0.95rem;
+  line-height: 1.65;
 }
 
 .impactGrid {
@@ -44,41 +45,80 @@
   margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--space-xl);
+  gap: var(--space-l);
 }
 
 .infoItem {
-  background: none;
-  border: none;
-  border-radius: 0;
-  padding: 0;
-  min-height: unset;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+
+  background: rgba(255, 255, 255, 0.58);
+  border: 1px solid rgba(0, 0, 0, 0.055);
+  border-radius: 14px;
+  padding: 1.6rem;
+
   font-family: var(--font-open-sans), sans-serif;
-  box-shadow: none;
-  margin-bottom: var(--space-xl);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.infoItem:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.055);
+  border-color: rgba(191, 149, 92, 0.22);
+}
+
+.cardIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 2rem;
+
+  font-size: 1.75rem;
+  color: var(--color-gold);
+  line-height: 1;
+  margin-top: 0.15rem;
+}
+
+.cardContent {
+  flex: 1;
 }
 
 .infoItem h3 {
   color: var(--text-dark);
-  font-size: 1rem;
-  line-height: 1.25;
-  font-weight: 600;
+  font-size: 1.08rem;
+  line-height: 1.3;
+  font-weight: 700;
   font-family: var(--font-open-sans), sans-serif;
-  margin-bottom: var(--space-xs);
+  margin: 0.35rem 0 0;
+}
+
+.cardLine {
+  display: block;
+  width: 34px;
+  height: 1px;
+  background: var(--color-gold);
+  margin: 0.85rem 0 0.95rem;
+  opacity: 0.75;
 }
 
 .infoItem p {
-  color: var(--text-soft);
+  color: rgba(0, 0, 0, 0.7);
   font-size: 0.92rem;
-  line-height: 1.55;
-  font-family: var(--font-open-sans), sans-serif;
+  line-height: 1.6;
+  margin: 0;
 }
 
 .divider {
-  width: min(520px, 80%);
+  width: min(560px, 82%);
   height: 1px;
-  background: var(--color-gold);
   margin: var(--space-xxxxl) auto var(--space-xxxl);
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(191, 149, 92, 0.65),
+    transparent
+  );
 }
 
 .resources {
@@ -86,16 +126,15 @@
 }
 
 .resources h2 {
-  margin-bottom: var(--space-xxxl);
+  margin-bottom: var(--space-xxl);
 }
 
 .resourceGrid {
-  max-width: 950px;
+  max-width: 980px;
   margin: 0 auto;
-
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-xxl);
+  gap: var(--space-l);
   text-align: left;
 }
 
@@ -106,7 +145,7 @@
 
   .resourceGrid {
     grid-template-columns: 1fr;
-    max-width: 520px;
+    max-width: 560px;
   }
 }
 
@@ -115,8 +154,21 @@
     padding: var(--section-md);
   }
 
+  .heading {
+    margin-bottom: var(--space-xl);
+  }
+
   .impactGrid {
     grid-template-columns: 1fr;
+  }
+
+  .infoItem {
+    padding: 1.25rem;
+  }
+
+  .cardIcon {
+    font-size: 1.45rem;
+    flex-basis: 1.6rem;
   }
 
   .divider {

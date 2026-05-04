@@ -1,4 +1,3 @@
-
 import styles from "./CSResults.module.css";
 import Card from "@/app/Components/Card/Card.component";
 import * as MdIcons from "react-icons/md";
@@ -13,15 +12,12 @@ const CSResults = ({ results }) => {
           results.map((result, idx) => {
             const Icon = result.icon ? MdIcons[`Md${result.icon}`] : null;
             return (
-              <Card key={idx} className={styles.eachCard}>
-                <div className={styles.iconTitleWrapper}>
-                  {Icon && <Icon className="primaryIcon" size={28} />}
-                  <h4 className="cardHeader">{result.title}</h4>
-                </div>
-                <p style={{ color: "var(--grey-800)", fontSize: "0.9rem" }}>
-                  {result.desc}
-                </p>
-              </Card>
+              <Card
+                key={idx}
+                title={result.title}
+                description={result.desc}
+                icon={Icon && <Icon className="primaryIcon" size={28} />}
+              />
             );
           })}
       </div>
