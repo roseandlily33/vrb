@@ -7,9 +7,9 @@
   --blue-950: #001233;
   --blue-900: #001f4d;
   --blue-800: #0054c9; /* main */
-  --blue-700: #1b89e2; /* main */
+  --blue-700: hsl(207, 79%, 50%); /* main */
   --blue-600: #269be6;
-  --blue-500: #69baf2; /* main */
+  --blue-500: hsl(205, 84%, 68%); /* main */
   --blue-400: #8cccf5;
   --blue-300: #a7d8fa;
   --blue-200: #cbe7fc;

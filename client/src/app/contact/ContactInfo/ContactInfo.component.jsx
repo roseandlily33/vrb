@@ -6,8 +6,8 @@ const ContactInfo = () => {
     {
       icon: <FiMail className={styles.icon} aria-hidden="true" />,
       label: "Email",
-      value: "victoria.benoit.dev@gmail.com",
-      link: "mailto:victoria.benoit.dev@gmail.com",
+      value: "victoria@vrbwebdesignanddev.com",
+      link: "mailto:victoria@vrbwebdesignanddev.com",
     },
     {
       icon: <FiPhone className={styles.icon} aria-hidden="true" />,
