@@ -40,13 +40,17 @@ export default function ContactForm() {
       formData.append(key, value);
     });
     formData.append("form-name", "contact");
-
+    formData.append("bot-field", "");
     try {
-      await fetch("/_forms.html", {
+      const response = await fetch("/__forms.html", {
         method: "POST",
-        body: formData,
-        // headers: { Accept: "application/json" },
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString(),
       });
+
+      if (!response.ok) {
+        throw new Error("Form submission failed");
+      }
       setStatus("Thank you! Your message has been sent.");
       setForm({ name: "", email: "", message: "", service: "" });
     } catch (err) {
@@ -130,7 +134,7 @@ export default function ContactForm() {
         <option value="performance">Performance</option>
         <option value="other">Other</option>
       </Select>
-       <div className={styles.buttonDiv}>
+      <div className={styles.buttonDiv}>
         <PrimaryButton type="submit" disabled={submitting}>
           <span
             style={{ display: "inline-flex", alignItems: "center", gap: 6 }}
