@@ -42,10 +42,10 @@ export default function ContactForm() {
     formData.append("form-name", "contact");
 
     try {
-      await fetch("/", {
+      await fetch("/_forms.html", {
         method: "POST",
         body: formData,
-        headers: { Accept: "application/json" },
+        // headers: { Accept: "application/json" },
       });
       setStatus("Thank you! Your message has been sent.");
       setForm({ name: "", email: "", message: "", service: "" });
@@ -63,7 +63,7 @@ export default function ContactForm() {
       id="contact"
       name="contact"
       method="POST"
-      data-netlify="true"
+      // data-netlify="true"
       netlify-honeypot="bot-field"
     >
       {/* Netlify hidden input for form name */}
