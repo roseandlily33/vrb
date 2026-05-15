@@ -2,7 +2,13 @@ import React from "react";
 import styles from "./Footer.module.css";
 import TertiaryButton from "../TertiaryButton/TertiaryButton.component";
 import Link from "next/link";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaEnvelope,
+  FaFacebook,
+  FaInstagram,
+} from "react-icons/fa";
 import { FiArrowUpRight } from "react-icons/fi";
 
 const navLinks = [
@@ -43,11 +49,12 @@ const Footer = () => (
 
         {/* Social / Contact */}
         <div className={styles.socials}>
-          <a href="mailto:your@email.com" aria-label="Email">
+          <a href="mailto:victoria@vrbwebdesignanddev.com" aria-label="Email">
             <FaEnvelope />
           </a>
           <a
-            href="https://github.com/roseandlily33"
+            // href="https://github.com/roseandlily33"
+            href="https://github.com/VRB-Web-Design-and-Development"
             target="_blank"
             rel="noreferrer"
             aria-label="GitHub"
@@ -55,12 +62,28 @@ const Footer = () => (
             <FaGithub />
           </a>
           <a
-            href="https://www.linkedin.com/in/victoria-benoit-3rose3/"
+            href="https://www.linkedin.com/company/116058547/"
             target="_blank"
             rel="noreferrer"
             aria-label="LinkedIn"
           >
             <FaLinkedin />
+          </a>
+          <a
+            href="https://www.facebook.com/profile.php?id=61589721155068"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Facebook"
+          >
+            <FaFacebook />
+          </a>
+          <a
+            href="https://www.instagram.com/vrbwebdesignanddev/"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Instagram"
+          >
+            <FaInstagram />
           </a>
         </div>
 
@@ -86,7 +109,10 @@ const Footer = () => (
 
     {/* Bottom */}
     <div className={styles.bottomBar}>
-      <span>© {new Date().getFullYear()} VRB Web Design and Development. All rights reserved.</span>
+      <span>
+        © {new Date().getFullYear()} VRB Web Design and Development. All rights
+        reserved.
+      </span>
     </div>
   </footer>
 );

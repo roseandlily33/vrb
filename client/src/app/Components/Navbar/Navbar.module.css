@@ -131,12 +131,13 @@
   transform: translateY(-2px);
   box-shadow: 0 14px 30px rgba(27, 137, 226, 0.26);
   color: #ffffff;
+  color: var(--grey-600);
 }
 
 .contactActive {
   background: #ffffff;
-  color: var(--blue-700);
-  border: 1.5px solid var(--blue-500);
+  color: var(--blue-600);
+  border: 1.5px solid var(--blue-600);
   box-shadow: 0 8px 22px rgba(27, 137, 226, 0.14);
 }
 
