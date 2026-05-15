@@ -23,6 +23,7 @@ export default function Card({
           Learn More <FaArrowRight />
         </Link>
       )}
+      {children}
     </article>
   );
 }

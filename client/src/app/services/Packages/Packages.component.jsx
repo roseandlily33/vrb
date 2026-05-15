@@ -11,6 +11,7 @@ import MostPopular from "@/app/Components/MostPopular/MostPopular.component";
 export default function Packages() {
   const [selectedIdx, setSelectedIdx] = useState(null);
   const [animating, setAnimating] = useState(false);
+  console.log("Package INdo", PackageInfo);
 
   // Handle Learn More (animate to tab view)
   const handleLearnMore = (idx) => {
@@ -33,7 +34,6 @@ export default function Packages() {
   // Card grid view
   if (selectedIdx === null) {
     // Split packages by type
-    const websitePackages = PackageInfo.filter((pkg) => pkg.type === "website");
     return (
       <section className={styles.packagesSection} id="packages">
         <span className="eyebrowHeader">Packages</span>
@@ -45,7 +45,7 @@ export default function Packages() {
         <div
           className={`${styles.cardGrid} ${animating ? styles.fadeOut : styles.fadeIn}`}
         >
-          {websitePackages.map((pkg, idx) => {
+          {PackageInfo?.map((pkg, idx) => {
             const isFeatured = pkg.highlight || idx === 1;
             return (
               <Card
@@ -57,10 +57,7 @@ export default function Packages() {
                     : " " + styles.nonFeaturedCard)
                 }
               >
-                {pkg.highlight && (
-                  <MostPopular
-                  >Most Popular</MostPopular>
-                )}
+                {pkg.highlight && <MostPopular>Most Popular</MostPopular>}
                 <div className={styles.cardTop}>
                   <div className={styles.cardHeader}>
                     <div>
