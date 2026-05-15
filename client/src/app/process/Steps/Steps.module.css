@@ -2,13 +2,15 @@
   display: flex;
   align-items: flex-start;
   gap: var(--space-m);
+  /* border: 2px solid */
 }
 
 .stepNumber {
   font-size: var(--space-xxxl);
   font-weight: 900;
   color: var(--blue-100, #b3e0fc);
-  min-width: 1.2em;
+  min-width: 1.2rem;
+  /* border: 2px solid orange; */
   text-align: right;
   line-height: 1;
   margin-top: -0.1em;
@@ -17,6 +19,7 @@
   flex-shrink: 0;
   display: flex;
   align-items: flex-start;
+
   /* border: 2px solid blue; */
 }
 
@@ -27,6 +30,8 @@
   width: 100%;
   max-width: 800px;
   padding: var(--section-md);
+  /* border: 2px solid blue; */
+
 }
 
 .stepsList {
@@ -46,6 +51,8 @@
   border-radius: var(--radius-sm);
   box-shadow: var(--shadow-sm);
   padding: var(--space-l) var(--space-m);
+  /* border: 2px solid blue; */
+
 }
 
 .stepTitle {
@@ -60,6 +67,8 @@
   font-size: 1.07rem;
   line-height: 1.65;
   max-width: 34ch;
+  /* border: 2px solid blue; */
+
 }
 
 @media (max-width: 700px) {

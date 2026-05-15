@@ -67,7 +67,7 @@
 .number {
   font-size: 10rem;
   font-weight: 800;
-  min-width: 11rem;
+  min-width: 14rem;
   background: linear-gradient(90deg, var(--blue-700), var(--blue-400));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

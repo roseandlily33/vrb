@@ -60,6 +60,7 @@
   transition: transform 0.18s cubic-bezier(0.23, 1, 0.32, 1);
   min-height: 64px;
   max-height: 64px;
+  /* border: 2px solid red; */
 }
 
 .iconWrapper:hover,

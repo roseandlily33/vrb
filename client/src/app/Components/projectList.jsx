@@ -14,7 +14,7 @@ export const projects = [
     description:
       "Redesign to improve organization, navigation, and user experience.",
     tech: ["Design"],
-    image: "/ArielPerformance/Phase2/Home.png",
+    image: "/ArielPerformance/Home.png",
     link: "/case-study/ariel-performance-horses",
     badge: "UX/UI Design",
   },
