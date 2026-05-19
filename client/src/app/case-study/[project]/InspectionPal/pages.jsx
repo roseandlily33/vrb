@@ -19,6 +19,10 @@ export const pages = [
     description:
       "Initial page showcasing the starting point of InspectionPal before iterations and improvements.",
   },
+  {
+    url: "/InspectionPal/ContactPageOld.png",
+    description: "Inital concept for the contact page",
+  },
 ];
 export const PhaseDescriptions = [
   {

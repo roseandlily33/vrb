@@ -22,6 +22,13 @@ import SupportAndResources from "./TrainingImpact/Support.ariel";
 
 const ArielFinal = () => {
   const [selectedPage, setSelectedPage] = useState("home");
+  const [theme, setTheme] = useState("theme-black");
+
+  React.useEffect(() => {
+    document.body.classList.remove("theme-black", "theme-navy");
+    document.body.classList.add(theme);
+  }, [theme]);
+
   const servicesPage = (
     <>
       <Navbar />
@@ -65,9 +72,8 @@ const ArielFinal = () => {
           <button
             type="button"
             onClick={() => setSelectedPage("home")}
-            className={`${styles.switchButton} ${
-              selectedPage === "home" ? styles.active : ""
-            }`}
+            className={`${styles.switchButton} ${selectedPage === "home" ? styles.active : ""
+              }`}
           >
             Home
           </button>
@@ -75,13 +81,37 @@ const ArielFinal = () => {
           <button
             type="button"
             onClick={() => setSelectedPage("services")}
-            className={`${styles.switchButton} ${
-              selectedPage === "services" ? styles.active : ""
-            }`}
+            className={`${styles.switchButton} ${selectedPage === "services" ? styles.active : ""
+              }`}
           >
             Services
           </button>
         </div>
+        <button
+          onClick={() =>
+            setTheme((prev) =>
+              prev === "theme-black" ? "theme-navy" : "theme-black"
+            )
+          }
+          style={{
+            marginTop: 24,
+            padding: "0.6em 1.5em",
+            borderRadius: 999,
+            border: "none",
+            background: "var(--color-gold)",
+            color: "#fff",
+            fontWeight: 700,
+            fontSize: "1rem",
+            boxShadow: "0 4px 18px rgba(216, 160, 78, 0.18)",
+            cursor: "pointer",
+            transition: "background 0.18s, transform 0.18s",
+            outline: "none",
+          }}
+          onMouseOver={e => e.currentTarget.style.background = "var(--color-gold-light)"}
+          onMouseOut={e => e.currentTarget.style.background = "var(--color-gold)"}
+        >
+          Switch Colorway
+        </button>
       </section>
       {selectedPage === "home" && homePage}
       {selectedPage === "services" && servicesPage}

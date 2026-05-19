@@ -14,7 +14,7 @@ export default function HeroServices() {
           Ready to connect with your horse on a different level?
         </h1>
 
-        <p className={styles.description}>
+        <p className={styles.text}>
           Learn from someone who's been it. Learn a system of training that
           gets physical results, builds communication and mutual respect.
         </p>

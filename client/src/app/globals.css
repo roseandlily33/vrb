@@ -121,8 +121,6 @@
   --font-body: var(--font-poppins);
 
   /* For Ariel */
-  --color-black: #101010;
-  --color-black-soft: #151515;
 
   --color-white: #ffffff;
   --color-off-white: #f7f7f4;
@@ -134,7 +132,6 @@
   --color-cream-soft: #fcfbf9;
 
   --card-bg: #ffffff;
-  --card-border: rgba(16, 16, 16, 0.08);
   --color-grey-soft: #f3f2ef;
   --color-grey-mid: #eae8e3;
   --text-soft: #5f5a52;
@@ -143,7 +140,6 @@
 
   /* Text */
   --text-primary: #f7f7f4;
-  --text-dark: #101010;
   --text-muted: #c9c9c9;
 
   /* Borders / shadows */
@@ -155,6 +151,22 @@
   /* Radius */
   --radius-pill: 999px;
   --radius-sm: 0.4rem;
+}
+
+/* THEME: Navy/Gold */
+.theme-navy {
+  --color-black: #0a2342;
+  --color-black-soft: #14213d;
+  --card-border: rgba(10, 35, 66, 0.12);
+  --text-dark: #0a2342;
+}
+
+/* THEME: Black/Gold (default) */
+.theme-black {
+  --color-black: #101010;
+  --color-black-soft: #151515;
+  --text-dark: #101010;
+  --card-border: rgba(16, 16, 16, 0.08);
 }
 /* Typography */
 
