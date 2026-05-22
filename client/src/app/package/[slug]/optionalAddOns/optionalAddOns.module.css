@@ -1,0 +1,28 @@
+.addOnsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-m);
+}
+
+.addOnCard {
+  display: flex;
+  align-items: center;
+  gap: var(--space-m);
+  padding: var(--space-l);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  border: 1px solid rgba(0, 84, 201, 0.1);
+  color: var(--grey-700);
+  font-size: 0.95rem;
+  font-weight: 500;
+  line-height: var(--leading-normal);
+  /* border: 2px solid orange; */
+}
+
+.addOnIcon {
+  flex: 0 0 auto;
+  color: var(--blue-700);
+  font-size: 1rem;
+  opacity: 0.85;
+  /* border: 2px solid red; */
+}

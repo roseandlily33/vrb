@@ -9,10 +9,21 @@ export default function Card({
   description,
   className = "",
   children,
+  bare = false,
   ...props
 }) {
+  if (bare) {
+    return (
+      <article className={className} {...props}>
+        {children}
+      </article>
+    );
+  }
   return (
-    <article className={styles.serviceCard} key={title}>
+    <article
+      className={styles.serviceCard + (className ? ` ${className}` : "")}
+      key={title}
+    >
       <h3>
         {icon}
         {title}
