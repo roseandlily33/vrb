@@ -1,9 +1,10 @@
 import React from "react";
 import styles from "./page.module.css";
-import { PackageInfo } from "../../services/Packages/packageList";
-import designPackages from "../../services/DesignPackage/designPackage";
+import { PackageInfo } from "../Packages/packageList";
+import designPackages from "../DesignPackage/designPackage";
 import CTA3 from "../../Components/CTA/CTA3/CTA3.component";
 import OptionalAddOns from "./OptionalAddOns/optionalAddOns.component";
+import Breadcrumbs from "../../case-study/[project]/Components/Extras/Breadcrumbs/Breadcrumbs.component";
 
 export default async function PackagePage({ params, searchParams }) {
   const resolvedParams = await params;
@@ -41,6 +42,7 @@ export default async function PackagePage({ params, searchParams }) {
 
   return (
     <main>
+      <Breadcrumbs current={pkg.title} first="Packages" firstLink="/package" />
       <div className={styles.packagePage}>
         <section className={styles.hero}>
           <div className={styles.heroContent}>

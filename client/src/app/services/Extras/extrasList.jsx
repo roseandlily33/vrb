@@ -34,13 +34,6 @@ export const extrasList = [
             "Boost your site’s speed and efficiency by compressing images, lazy loading content, and optimizing code for faster load times.",
         icon: FaTachometerAlt,
     },
-    // {
-    //     title: "Accessibility Review",
-    //     description:
-    //         "Ensure your website is usable by everyone, including people with disabilities, by following accessibility best practices.",
-    //     // What you do: Check for accessibility issues and compliance.
-    //     // Includes: Color contrast, alt text, keyboard navigation, ARIA labels, screen reader support.
-    // },
     {
         title: "SEO Setup",
         description:

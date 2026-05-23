@@ -1,76 +1,83 @@
-"use client";
-
-import { useRouter } from "next/navigation";
-import { PackageInfo } from "./packageList";
-import { FaArrowRight, FaRegClock } from "react-icons/fa";
-import Card from "@/app/Components/Card/Card.component";
-import TertiaryButton from "@/app/Components/TertiaryButton/TertiaryButton.component";
+import Link from "next/link";
 import styles from "./Packages.module.css";
-import MostPopular from "@/app/Components/MostPopular/MostPopular.component";
+import { FaCode, FaPalette, FaSyncAlt, FaPlus } from "react-icons/fa";
 
-export default function Packages() {
-  const router = useRouter();
-  const handleSeeWhatsIncluded = (pkg) => {
-    const slug = pkg.title.toLowerCase().replace(/\s+/g, "-");
-    router.push(`/package/${slug}?type=web`);
-  };
+const packageGroups = [
+  {
+    icon: FaCode,
+    eyebrow: "Web Projects",
+    title: "Project Packages",
+    description:
+      "Custom websites and platforms for businesses that need a polished, scalable online presence.",
+    meta: "Website Essentials · Professional Website · Custom Platform",
+    href: "/package",
+  },
+  {
+    icon: FaPalette,
+    eyebrow: "UI/UX Design",
+    title: "Design Packages",
+    description:
+      "Interface design, mockups, design systems, and visual direction for websites and digital products.",
+    meta: "Design Essentials · Design Foundation · Design Signature",
+    href: "/package",
+  },
+  {
+    icon: FaSyncAlt,
+    eyebrow: "Ongoing Support",
+    title: "Retainer Packages",
+    description:
+      "Monthly support for updates, improvements, optimization, and continued design or development help.",
+    meta: "Mini · Boost · Momentum",
+    href: "/services/#retainers",
+  },
+  {
+    icon: FaPlus,
+    eyebrow: "Flexible Extras",
+    title: "Extras & Add-Ons",
+    description:
+      "Add focused support like SEO, audits, animations, booking systems, content updates, or integrations.",
+    meta: "Audits · SEO · Integrations · Maintenance",
+    href: "/services/#extras",
+  },
+];
+
+export default function ExplorePackages() {
   return (
-    <section className={styles.packagesSection} id="packages">
-      <span className="eyebrowHeader">Packages</span>
-      <h2 className="heading">Project Packages</h2>
-      <p className="meta">
-        Transparent pricing, clear deliverables, and a process tailored to your
-        needs.
-      </p>
-      <div className={`${styles.cardGrid} `}>
-        {PackageInfo?.map((pkg, idx) => {
-          const isFeatured = pkg.highlight || idx === 1;
+    <section className={styles.section}>
+      <div className={styles.header}>
+        <span className={styles.eyebrow}>Packages</span>
+        <h2>Choose the right starting point</h2>
+        <p>
+          Explore package options based on the type of support you need — from
+          full websites and UI design to retainers and add-ons.
+        </p>
+      </div>
+
+      <div className={styles.grid}>
+        {packageGroups.map((item) => {
+          const Icon = item.icon;
+
           return (
-            <Card
-              key={pkg.title + pkg.type}
-              bare={true}
-              className={
-                styles.packageCard +
-                (isFeatured
-                  ? " " + styles.featuredCard
-                  : " " + styles.nonFeaturedCard)
-              }
-            >
-              {pkg.highlight && <MostPopular>Most Popular</MostPopular>}
-              <div className={styles.cardTop}>
-                <div className={styles.cardHeader}>
-                  <div>
-                    <h3 className={styles.cardTitle}>{pkg.title}</h3>
-                    <div className={styles.bestFor}>{pkg.bestFor}</div>
-                  </div>
-                </div>
-                <div className={styles.priceSection}>
-                  <div className={styles.priceLabel}>STARTING AT</div>
-                  <div className={styles.priceValue}>{pkg.startingAt}</div>
-                  <div className={styles.timelineRow}>
-                    <FaRegClock className={styles.clockIcon} />
-                    <span className={styles.timelineText}>
-                      Approx. {pkg.timeline}
-                    </span>
-                  </div>
-                </div>
-                <p className={styles.cardDesc}>{pkg.description}</p>
+            <Link href={item.href} className={styles.card} key={item.title}>
+              <div className={styles.iconWrap}>
+                <Icon />
               </div>
-              <div className={styles.cardBottomButtonWrapper}>
-                <TertiaryButton onClick={() => handleSeeWhatsIncluded(pkg)}>
-                  See what’s included
-                  <FaArrowRight
-                    style={{
-                      marginLeft: "0.5em",
-                      fontSize: "1em",
-                      verticalAlign: "-2px",
-                    }}
-                  />
-                </TertiaryButton>
+
+              <div>
+                <span className={styles.cardEyebrow}>{item.eyebrow}</span>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+                <small>{item.meta}</small>
               </div>
-            </Card>
+            </Link>
           );
         })}
+      </div>
+
+      <div className={styles.ctaRow}>
+        <Link href="/package" className={styles.primaryLink}>
+          View all packages
+        </Link>
       </div>
     </section>
   );

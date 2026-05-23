@@ -87,6 +87,10 @@ const OptionalAddOns = ({ pkg = {} }) => {
           <div className={styles.sectionHeader}>
             <span className={styles.eyebrow}>Flexible Options</span>
             <h2>Optional Add-Ons</h2>
+            <p>
+              Add extra support, functionality, or design deliverables as your
+              project scope grows.
+            </p>
           </div>
 
           <div className={styles2.addOnsGrid}>

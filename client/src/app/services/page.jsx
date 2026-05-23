@@ -1,6 +1,4 @@
 import styles from "./page.module.css";
-import Packages from "./Packages/Packages.component";
-import DesignPackage from "./DesignPackage/DesignPackage.component";
 import CTA2 from "../Components/CTA/CTA2/CTA2.component";
 import Process from "./Process/Process.component";
 import Retainers from "./Retainers/Retainers.component";
@@ -9,6 +7,7 @@ import Hero from "../Components/Hero/Hero.component";
 import Links from "./Links/Links.component";
 import MiniFaq from "./MiniFaq/MiniFaq.component";
 import TrustedBy from "./TrustedBy/TrustedBy.component";
+import ExplorePackages from "./Packages/Packages.component";
 
 export default function Services() {
   return (
@@ -20,8 +19,7 @@ export default function Services() {
         subText="Performance-driven, user-focused, and built to scale with you"
       />
       <Links />
-      <Packages />
-      <DesignPackage />
+      <ExplorePackages />
       <TrustedBy />
       <Retainers />
       <Process />

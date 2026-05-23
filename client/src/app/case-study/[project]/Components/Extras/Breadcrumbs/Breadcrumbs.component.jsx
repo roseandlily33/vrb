@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "./Breadcrumbs.module.css";
 
-const Breadcrumbs = ({ current }) => {
+const Breadcrumbs = ({ current, first = "Work", firstLink = "/work" }) => {
   return (
     <nav className={styles.breadcrumbs} aria-label="Breadcrumb">
       <ol
@@ -15,8 +15,8 @@ const Breadcrumbs = ({ current }) => {
         }}
       >
         <li>
-          <Link href="/work" className={styles.link}>
-            Work
+          <Link href={firstLink} className={styles.link}>
+            {first}
           </Link>
         </li>
         <li style={{ color: "var(--grey-500)", fontSize: "1.1em" }}>/</li>
