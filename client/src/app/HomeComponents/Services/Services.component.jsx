@@ -26,7 +26,7 @@ export default function Services() {
   return (
     <section className={styles.servicesSection}>
       <div className={styles.servicesHeader}>
-        <p className="eyebrowHeader">Services</p>
+        {/* <p className="eyebrowHeader">Services</p> */}
         <h2>Services I offer</h2>
         <p>
           From polished websites to custom functionality, I help turn ideas into

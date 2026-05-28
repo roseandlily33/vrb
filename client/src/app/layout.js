@@ -1,7 +1,8 @@
-import { Poppins, Inter, Prata, Open_Sans } from "next/font/google";
+import { Poppins, Inter, Prata, Open_Sans, Cormorant_Garamond, Manrope, Playfair_Display } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Components/Navbar/Navbar.component";
 import Footer from "./Components/Footer/Footer.component";
+
 
 // Font imports and CSS variable setup
 const poppins = Poppins({
@@ -28,6 +29,24 @@ const openSans = Open_Sans({
   weight: ["400", "500", "600", "700", "800"],
 });
 
+const cormorantGaramond = Cormorant_Garamond({
+  variable: "--font-cormorant-garamond",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+});
+
+const manrope = Manrope({
+  variable: "--font-manrope",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const playfairDisplay = Playfair_Display({
+  variable: "--font-playfair-display",
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+});
+
 export const metadata = {
   title: "VRB Web Design & Development",
   description:
@@ -47,6 +66,9 @@ export default function RootLayout({ children }) {
         ${inter.variable}
         ${prata.variable}
         ${openSans.variable}
+        ${cormorantGaramond.variable}
+        ${manrope.variable}
+        ${playfairDisplay.variable}
       `}
     >
       <body>

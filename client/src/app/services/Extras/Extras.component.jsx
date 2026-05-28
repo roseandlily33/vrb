@@ -27,7 +27,7 @@ export default function Extras() {
 
   return (
     <section className={styles.extrasSection} id="extras">
-      <span className="eyebrowHeader">Extras</span>
+      {/* <span className="eyebrowHeader">Extras</span> */}
       <h2 className="heading">Extras & Add-Ons</h2>
       <p className="meta">
         Enhance your project with optional features and services—choose what fits your needs.

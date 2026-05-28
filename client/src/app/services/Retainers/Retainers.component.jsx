@@ -6,7 +6,7 @@ import MostPopular from "@/app/Components/MostPopular/MostPopular.component";
 export default function Retainers() {
   return (
     <section className={styles.retainersSection} id="retainers">
-      <span className="eyebrowHeader">Support</span>
+      {/* <span className="eyebrowHeader">Support</span> */}
       <h2 className="heading">Retainer Packages</h2>
       <p className="meta">
         Ongoing support for updates, improvements, and continued growth after

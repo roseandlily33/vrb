@@ -5,7 +5,7 @@ const FeaturedProject = () => {
   return (
     <section className={styles.projectsSection}>
       <div className={styles.projectsHeader}>
-        <p className="eyebrowHeader">Work</p>
+        {/* <p className="eyebrowHeader">Work</p> */}
         <h2 className="header">Featured Project</h2>
       </div>
 

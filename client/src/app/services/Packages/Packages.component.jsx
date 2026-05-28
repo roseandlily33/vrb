@@ -45,7 +45,7 @@ export default function ExplorePackages() {
   return (
     <section className={styles.section}>
       <div className={styles.header}>
-        <span className={styles.eyebrow}>Packages</span>
+        {/* <span className={styles.eyebrow}>Packages</span> */}
         <h2>Choose the right starting point</h2>
         <p>
           Explore package options based on the type of support you need — from

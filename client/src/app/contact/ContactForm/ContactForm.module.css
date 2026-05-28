@@ -1,3 +1,25 @@
+
+.rowFields {
+  display: flex;
+  flex-direction: row;
+  gap: var(--space-s);
+}
+
+.rowFields > * {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 50%;
+}
+
+@media (max-width: 700px) {
+  .rowFields {
+    flex-direction: column;
+    gap: var(--space-s);
+  }
+  .rowFields > * {
+    max-width: 100%;
+  }
+}
 .contactForm {
   width: 60%;
   padding: var(--section-xxs);

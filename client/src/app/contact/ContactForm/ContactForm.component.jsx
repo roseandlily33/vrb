@@ -9,6 +9,8 @@ import {
   FiMessageCircle,
   FiHelpCircle,
   FiSend,
+  FiDollarSign,
+  FiClock,
 } from "react-icons/fi";
 import styles from "./ContactForm.module.css";
 import PrimaryButton from "@/app/Components/PrimaryButton/PrimaryButton.component";
@@ -19,6 +21,8 @@ export default function ContactForm() {
     email: "",
     message: "",
     service: "",
+    budget: "",
+    timeline: "",
   });
   const [status, setStatus] = useState("");
   const [submitting, setSubmitting] = useState(false);
@@ -108,6 +112,24 @@ export default function ContactForm() {
         required
         icon={<FiMessageCircle />}
       />
+      <div className={styles.rowFields}>
+        <Input
+          label="Budget"
+          name="budget"
+          value={form.budget}
+          onChange={handleChange}
+          placeholder="Estimated budget (optional)"
+          icon={<FiDollarSign />}
+        />
+        <Input
+          label="Timeline"
+          name="timeline"
+          value={form.timeline}
+          onChange={handleChange}
+          placeholder="Ideal timeline (optional)"
+          icon={<FiClock />}
+        />
+      </div>
       <label
         htmlFor="service"
         style={{

@@ -2,7 +2,7 @@
   width: 100%;
   background: var(--background-six);
   color: var(--white);
-  padding: var(--section-lg);
+  padding: var(--section-xl);
   display: flex;
   flex-direction: column;
   align-items: start;
