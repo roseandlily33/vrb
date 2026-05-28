@@ -482,13 +482,19 @@ a {
   margin-block: var(--space-s);
 }
 .eyebrowHeader {
-  letter-spacing: 0.08em;
+  /* letter-spacing: 0.08em;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--grey-500);
-  margin-bottom: var(--space-xxs);
+  margin-bottom: var(--space-xxs); */
+  color: var(--blue-700);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.75rem;
+  font-weight: 800;
+  margin-bottom: var(--space-s);
 }
 .meta {
   color: var(--grey-700);

@@ -3,7 +3,6 @@ import React from "react";
 import PackageHero from "./PackageHero/PackageHero.component";
 import Packages from "./Packages/Packages.component";
 import DesignPackage from "./DesignPackage/DesignPackage.component";
-import StyleGuidePreview from "./trial.component";
 
 const PackagesPage = () => {
   return (
@@ -11,7 +10,6 @@ const PackagesPage = () => {
       <PackageHero />
       <Packages />
       <DesignPackage />
-      <StyleGuidePreview />
     </main>
   );
 };

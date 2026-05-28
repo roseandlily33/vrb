@@ -78,7 +78,7 @@ const Footer = () => (
             <FaFacebook />
           </a>
           <a
-            href="https://www.instagram.com/vrbwebdesignanddev/"
+            href="https://www.instagram.com/vrb_webdesignanddev/"
             target="_blank"
             rel="noreferrer"
             aria-label="Instagram"

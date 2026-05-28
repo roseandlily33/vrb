@@ -13,10 +13,8 @@ export default function PackageHero() {
         />
 
         <div className={styles.packagesHeroContent}>
-          <span className={styles.eyebrow}>Packages</span>
-
+          {/* <span className={styles.eyebrow}>Packages</span> */}
           <h1>Packages built to grow with your business.</h1>
-
           <p>
             Explore project, design, and support packages built to help
             businesses launch, improve, and scale their online presence with

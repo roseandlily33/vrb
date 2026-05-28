@@ -59,13 +59,7 @@ export default function DesignPackage() {
                     </div>
                   </div>
                   <p className={styles.cardDesc}>{pkg.description}</p>
-                  <ul className={styles.featuresList}>
-                    {pkg.features.slice(0, 3).map((feature) => (
-                      <li key={feature} className={styles.featureItem}>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
+                
                 </div>
                 <div className={styles.cardBottomButtonWrapper}>
                   <TertiaryButton onClick={() => handleSeeWhatsIncluded(pkg)}>
