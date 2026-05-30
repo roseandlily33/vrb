@@ -1,5 +1,5 @@
 import React from "react";
-import styles2 from "./OptionalAddOns.module.css";
+import styles2 from "./Add.module.css";
 import styles from "../page.module.css";
 // import Card from "@/app/Components/Card/Card.component";
 import {
