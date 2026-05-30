@@ -4,7 +4,7 @@ import { PackageInfo } from "../Packages/packageList";
 import designPackages from "../DesignPackage/designPackage";
 import CTA3 from "../../Components/CTA/CTA3/CTA3.component";
 import Breadcrumbs from "../../case-study/[project]/Components/Extras/Breadcrumbs/Breadcrumbs.component";
-import OptionalAddOns from "./OptionalAddOns/OptionalAddOns.component";
+import OptionalAddOns from "./Add/Add.component";
 
 export default async function PackagePage({ params, searchParams }) {
   const resolvedParams = await params;
