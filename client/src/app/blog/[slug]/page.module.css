@@ -1,0 +1,129 @@
+/* Blog post styles — uses global CSS variables for colors/spacing */
+.page {
+  padding: var(--section-md);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.article {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xxl);
+}
+
+.header {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: var(--space-l);
+  align-items: start;
+  background: transparent;
+}
+
+.headerContent {
+  padding-right: var(--space-m);
+}
+
+.category {
+  color: var(--blue-700);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.8rem;
+  margin-bottom: 0.75rem;
+}
+
+.title {
+  margin: 0 0 1rem 0;
+  color: var(--grey-900);
+  font-size: clamp(1.6rem, 3.6vw, 2.6rem);
+  line-height: 1.08;
+}
+
+.excerpt {
+  color: var(--grey-700);
+  margin-bottom: var(--space-m);
+}
+
+.metaRow {
+  display: flex;
+  gap: 0.5rem;
+  color: var(--grey-500);
+  font-size: 0.95rem;
+}
+
+.headerImage {
+  display: block;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--accent-blue-soft);
+}
+
+.headerImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.content {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: var(--space-l);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(2,6,23,0.04);
+}
+
+.h2 {
+  margin-top: var(--space-l);
+  margin-bottom: var(--space-m);
+  color: var(--grey-900);
+}
+
+.p {
+  margin-bottom: var(--space-m);
+  color: var(--grey-700);
+  line-height: 1.8;
+}
+
+.ul {
+  padding-left: 1.2rem;
+  margin-bottom: var(--space-m);
+}
+
+.li {
+  margin-bottom: 0.5rem;
+}
+
+.inlineImage {
+  margin: var(--space-m) 0;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.inlineImage img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+@media (max-width: 980px) {
+  .header {
+    grid-template-columns: 1fr;
+  }
+
+  .headerImage {
+    order: -1;
+    width: 100%;
+    height: 240px;
+  }
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: var(--section-sm);
+  }
+
+  .content {
+    padding: var(--space-m);
+  }
+}

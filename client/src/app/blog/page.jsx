@@ -1,0 +1,63 @@
+import Link from "next/link";
+import { blogPosts } from "./data/blogPosts";
+import { comparisonExamples } from "./data/tooMuchVsTooLittle";
+import Hero from "../Components/Hero/Hero.component";
+import styles from "./page.module.css";
+
+export default function BlogPage() {
+  return (
+    <main>
+      <Hero
+        topMeta="Blog"
+        highlight="design insights"
+        title="Website tips, design insights, and internet explanations."
+        subText="Helpful articles for small business owners who want to better understand their website and online presence."
+      />
+
+      <section className={styles.postsSection}>
+        <div className={styles.postsGrid}>
+          {blogPosts.map((post) => (
+            <article key={post.slug} className={styles.postCard}>
+              <div className={styles.cardContent}>
+                <p className={styles.category}>{post.category}</p>
+
+                <h3 className={styles.title}>{post.title}</h3>
+
+                <p className={styles.excerpt}>{post.excerpt}</p>
+
+                <div className={styles.metaRow}>
+                  <small className={styles.meta}>{post.date}</small>
+                  <small className={styles.meta}>· {post.readTime}</small>
+                </div>
+              </div>
+
+              <Link href={`/blog/${post.slug}`} className={styles.readLink}>
+                Read Article
+              </Link>
+            </article>
+          ))}
+          {comparisonExamples?.map((post) => (
+            <article key={post.slug} className={styles.postCard}>
+              <div className={styles.cardContent}>
+                <p className={styles.category}>{post.category}</p>
+
+                <h3 className={styles.title}>{post.title}</h3>
+
+                <p className={styles.excerpt}>{post.excerpt}</p>
+
+                <div className={styles.metaRow}>
+                  <small className={styles.meta}>{post.date}</small>
+                  <small className={styles.meta}>· {post.readTime}</small>
+                </div>
+              </div>
+
+              <Link href={`/blog/${post.slug}`} className={styles.readLink}>
+                Read Article
+              </Link>
+            </article>
+          ))}
+        </div>
+      </section>
+    </main>
+  );
+}
