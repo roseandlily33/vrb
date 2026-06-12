@@ -8,7 +8,7 @@ export const comparisonExamples = [
     excerpt:
       "Learn how to use call-to-action buttons effectively without overwhelming visitors with too many choices.",
     category: "Too Much vs Too Little",
-    date: "2026-06-06",
+    date: "2026-06-17",
     readTime: "4 min read",
     featured: true,
     seoTitle: "Too Much vs Too Little: Calls To Action",
@@ -95,7 +95,7 @@ export const comparisonExamples = [
 
     category: "Too Much vs Too Little",
 
-    date: "2026-06-06",
+    date: "2026-07-08",
 
     readTime: "4 min read",
 
@@ -189,7 +189,7 @@ export const comparisonExamples = [
 
     category: "Too Much vs Too Little",
 
-    date: "2026-06-06",
+    date: "2026-07-29",
 
     readTime: "4 min read",
 
@@ -271,7 +271,7 @@ export const comparisonExamples = [
 
     category: "Too Much vs Too Little",
 
-    date: "2026-06-06",
+    date: "2026-08-12",
 
     readTime: "4 min read",
 
@@ -361,7 +361,7 @@ export const comparisonExamples = [
 
     category: "Too Much vs Too Little",
 
-    date: "2026-06-06",
+    date: "2026-09-08",
 
     readTime: "4 min read",
 
@@ -448,7 +448,7 @@ export const comparisonExamples = [
 
     category: "Too Much vs Too Little",
 
-    date: "2026-06-06",
+    date: "2026-07-15",
 
     readTime: "4 min read",
 
@@ -534,7 +534,7 @@ export const comparisonExamples = [
 
     category: "Too Much vs Too Little",
 
-    date: "2026-06-06",
+    date: "2026-06-24",
 
     readTime: "4 min read",
 
@@ -618,7 +618,7 @@ export const comparisonExamples = [
 
     category: "Too Much vs Too Little",
 
-    date: "2026-06-06",
+    date: "2026-08-26",
 
     readTime: "4 min read",
 
@@ -695,7 +695,7 @@ export const comparisonExamples = [
 
     category: "Too Much vs Too Little",
 
-    date: "2026-06-06",
+    date: "2026-08-05",
 
     readTime: "4 min read",
 
@@ -791,7 +791,7 @@ export const comparisonExamples = [
 
     category: "Too Much vs Too Little",
 
-    date: "2026-06-06",
+    date: "2026-08-19",
 
     readTime: "4 min read",
 
@@ -875,7 +875,7 @@ export const comparisonExamples = [
 
     category: "Too Much vs Too Little",
 
-    date: "2026-06-06",
+    date: "2026-09-02",
 
     readTime: "4 min read",
 
@@ -980,7 +980,7 @@ export const comparisonExamples = [
 
     category: "Too Much vs Too Little",
 
-    date: "2026-06-06",
+    date: "2026-09-16",
 
     readTime: "4 min read",
 
@@ -1066,286 +1066,288 @@ export const comparisonExamples = [
     ],
   },
   {
-  id: "social-proof",
-  slug: "too-much-vs-too-little-social-proof",
+    id: "social-proof",
+    slug: "too-much-vs-too-little-social-proof",
 
-  series: "Too Much vs Too Little",
-  topic: "Social Proof",
+    series: "Too Much vs Too Little",
+    topic: "Social Proof",
 
-  title: "Too Much vs Too Little: Social Proof",
+    title: "Too Much vs Too Little: Social Proof",
 
-  excerpt:
-    "How social proof can build confidence when it feels specific and relevant, or become cluttered when too many signals compete at once.",
+    excerpt:
+      "How social proof can build confidence when it feels specific and relevant, or become cluttered when too many signals compete at once.",
 
-  category: "Too Much vs Too Little",
+    category: "Too Much vs Too Little",
 
-  date: "2026-06-06",
+    date: "2026-09-23",
 
-  readTime: "4 min read",
+    readTime: "4 min read",
 
-  featured: false,
+    featured: false,
 
-  seoTitle: "Too Much vs Too Little: Social Proof",
+    seoTitle: "Too Much vs Too Little: Social Proof",
 
-  seoDescription:
-    "Learn how to use social proof clearly on a website so visitors feel more confident without being overwhelmed by too many claims.",
+    seoDescription:
+      "Learn how to use social proof clearly on a website so visitors feel more confident without being overwhelmed by too many claims.",
 
-  bad: {
-    label: "Too Much",
-    title: "Proof Everywhere",
-    description:
-      "When every review, badge, number, and logo appears at once, the page can feel crowded instead of credible.",
-    proofItems: [
-      "500+ Clients",
-      "10K Followers",
-      "Featured Everywhere",
-      "Award Winning",
-      "100% Satisfaction",
-      "Best Rated",
-      "Trusted By All",
-      "Viral Results",
-      "Top Choice",
-      "Client Favourite",
-    ],
-  },
+    bad: {
+      label: "Too Much",
+      title: "Proof Everywhere",
+      description:
+        "When every review, badge, number, and logo appears at once, the page can feel crowded instead of credible.",
+      proofItems: [
+        "500+ Clients",
+        "10K Followers",
+        "Featured Everywhere",
+        "Award Winning",
+        "100% Satisfaction",
+        "Best Rated",
+        "Trusted By All",
+        "Viral Results",
+        "Top Choice",
+        "Client Favourite",
+      ],
+    },
 
-  good: {
-    label: "Balanced",
-    title: "Relevant Proof",
-    description:
-      "Strong social proof supports the decision users are about to make with specific and believable context.",
-    proofItems: [
+    good: {
+      label: "Balanced",
+      title: "Relevant Proof",
+      description:
+        "Strong social proof supports the decision users are about to make with specific and believable context.",
+      proofItems: [
+        {
+          label: "Client Feedback",
+          detail: "A specific quote about the project experience",
+        },
+        {
+          label: "Project Result",
+          detail: "A clearer website structure and easier navigation",
+        },
+        {
+          label: "Relevant Number",
+          detail: "4+ years of design and development experience",
+        },
+        {
+          label: "Portfolio Example",
+          detail: "A real project that matches the service being offered",
+        },
+      ],
+    },
+
+    sections: [
       {
-        label: "Client Feedback",
-        detail: "A specific quote about the project experience",
+        type: "paragraph",
+        content:
+          "Social proof helps visitors feel more confident by showing that other people have trusted, hired, reviewed, or engaged with a business.",
       },
       {
-        label: "Project Result",
-        detail: "A clearer website structure and easier navigation",
+        type: "heading",
+        content: "Too much social proof can feel cluttered",
       },
       {
-        label: "Relevant Number",
-        detail: "4+ years of design and development experience",
+        type: "paragraph",
+        content:
+          "When every number, logo, review, and claim appears at once, visitors may have a harder time knowing which proof actually matters.",
       },
       {
-        label: "Portfolio Example",
-        detail: "A real project that matches the service being offered",
-      },
-    ],
-  },
-
-  sections: [
-    {
-      type: "paragraph",
-      content:
-        "Social proof helps visitors feel more confident by showing that other people have trusted, hired, reviewed, or engaged with a business.",
-    },
-    {
-      type: "heading",
-      content: "Too much social proof can feel cluttered",
-    },
-    {
-      type: "paragraph",
-      content:
-        "When every number, logo, review, and claim appears at once, visitors may have a harder time knowing which proof actually matters.",
-    },
-    {
-      type: "comparisonExample",
-      id: "social-proof",
-    },
-    {
-      type: "heading",
-      content: "The goal is relevant confidence",
-    },
-    {
-      type: "paragraph",
-      content:
-        "Strong social proof is specific, believable, and placed near the decision it supports. It should reduce uncertainty, not add visual noise.",
-    },
-  ],
-},
-{
-  id: "popups",
-  slug: "too-much-vs-too-little-popups",
-
-  series: "Too Much vs Too Little",
-  topic: "Popups",
-
-  title: "Too Much vs Too Little: Popups",
-
-  excerpt:
-    "How popups can support user actions when timed well, or interrupt the experience when they appear too often or too soon.",
-
-  category: "Too Much vs Too Little",
-
-  date: "2026-06-06",
-
-  readTime: "4 min read",
-
-  featured: false,
-
-  seoTitle: "Too Much vs Too Little: Website Popups",
-
-  seoDescription:
-    "Learn how to use website popups thoughtfully so they support user actions without interrupting the experience.",
-
-  bad: {
-    label: "Too Much",
-    title: "Popup Overload",
-    description:
-      "When popups appear too quickly or stack on top of each other, users focus on closing them instead of exploring the page.",
-    popups: [
-      "Join Our Newsletter",
-      "Get 10% Off",
-      "Book Now",
-      "Accept Cookies",
-      "Chat With Us",
-    ],
-  },
-
-  good: {
-    label: "Balanced",
-    title: "Helpful Timing",
-    description:
-      "A useful popup appears at the right moment and supports what the user is already trying to do.",
-    popupTitle: "Need help choosing a package?",
-    popupText:
-      "Book a short consultation and get guidance on the best fit for your project.",
-    primaryButton: "Book Consultation",
-    secondaryButton: "Keep Browsing",
-    examples: [
-      "Exit-intent offers",
-      "Helpful reminders",
-      "Booking prompts",
-      "Relevant discounts",
-    ],
-  },
-
-  sections: [
-    {
-      type: "paragraph",
-      content:
-        "Popups can be useful when they support a user's next step, but they can quickly become frustrating when they interrupt the page too soon.",
-    },
-    {
-      type: "heading",
-      content: "Too many popups interrupt the experience",
-    },
-    {
-      type: "paragraph",
-      content:
-        "If users have to close multiple popups before they can read the page, the popup becomes a barrier instead of a helpful prompt.",
-    },
-    {
-      type: "comparisonExample",
-      id: "popups",
-    },
-    {
-      type: "heading",
-      content: "The goal is helpful timing",
-    },
-    {
-      type: "paragraph",
-      content:
-        "Strong popups are intentional. They appear at the right moment, offer something relevant, and are easy to dismiss.",
-    },
-  ],
-},
-{
-  id: "features",
-  slug: "too-much-vs-too-little-features",
-
-  series: "Too Much vs Too Little",
-  topic: "Features",
-
-  title: "Too Much vs Too Little: Features",
-
-  excerpt:
-    "How website feature sections can either clarify value or overwhelm users with too many disconnected details.",
-
-  category: "Too Much vs Too Little",
-
-  date: "2026-06-06",
-
-  readTime: "4 min read",
-
-  featured: false,
-
-  seoTitle: "Too Much vs Too Little: Website Features",
-
-  seoDescription:
-    "Learn how to structure website features clearly so users understand the value without feeling overwhelmed by too many details.",
-
-  bad: {
-    label: "Too Much",
-    title: "Feature Overload",
-    description:
-      "When every detail is treated like a major feature, users may struggle to understand what actually matters.",
-    features: [
-      "Fast Loading",
-      "Custom Design",
-      "SEO",
-      "Mobile Friendly",
-      "Forms",
-      "Analytics",
-      "Animations",
-      "Blog",
-      "Newsletter",
-      "User Accounts",
-      "Payments",
-      "Admin Dashboard",
-    ],
-  },
-
-  good: {
-    label: "Balanced",
-    title: "Focused Value",
-    description:
-      "A strong feature section groups details into clear benefits users can quickly understand.",
-    features: [
-      {
-        title: "Clear User Experience",
-        detail: "Pages are structured so visitors can understand and take action.",
+        type: "comparisonExample",
+        id: "social-proof",
       },
       {
-        title: "Responsive Design",
-        detail: "Layouts adapt across desktop, tablet, and mobile screens.",
+        type: "heading",
+        content: "The goal is relevant confidence",
       },
       {
-        title: "Built To Support Growth",
-        detail: "The website can expand with new sections, features, and content.",
+        type: "paragraph",
+        content:
+          "Strong social proof is specific, believable, and placed near the decision it supports. It should reduce uncertainty, not add visual noise.",
       },
     ],
   },
+  {
+    id: "popups",
+    slug: "too-much-vs-too-little-popups",
 
-  sections: [
-    {
-      type: "paragraph",
-      content:
-        "Feature sections are meant to explain value, but they can quickly become overwhelming when every small detail is listed separately.",
+    series: "Too Much vs Too Little",
+    topic: "Popups",
+
+    title: "Too Much vs Too Little: Popups",
+
+    excerpt:
+      "How popups can support user actions when timed well, or interrupt the experience when they appear too often or too soon.",
+
+    category: "Too Much vs Too Little",
+
+    date: "2026-09-09",
+
+    readTime: "4 min read",
+
+    featured: false,
+
+    seoTitle: "Too Much vs Too Little: Website Popups",
+
+    seoDescription:
+      "Learn how to use website popups thoughtfully so they support user actions without interrupting the experience.",
+
+    bad: {
+      label: "Too Much",
+      title: "Popup Overload",
+      description:
+        "When popups appear too quickly or stack on top of each other, users focus on closing them instead of exploring the page.",
+      popups: [
+        "Join Our Newsletter",
+        "Get 10% Off",
+        "Book Now",
+        "Accept Cookies",
+        "Chat With Us",
+      ],
     },
-    {
-      type: "heading",
-      content: "Too many features can blur the message",
+
+    good: {
+      label: "Balanced",
+      title: "Helpful Timing",
+      description:
+        "A useful popup appears at the right moment and supports what the user is already trying to do.",
+      popupTitle: "Need help choosing a package?",
+      popupText:
+        "Book a short consultation and get guidance on the best fit for your project.",
+      primaryButton: "Book Consultation",
+      secondaryButton: "Keep Browsing",
+      examples: [
+        "Exit-intent offers",
+        "Helpful reminders",
+        "Booking prompts",
+        "Relevant discounts",
+      ],
     },
-    {
-      type: "paragraph",
-      content:
-        "When a feature section becomes a long list of everything included, users may have a harder time understanding what matters most.",
+
+    sections: [
+      {
+        type: "paragraph",
+        content:
+          "Popups can be useful when they support a user's next step, but they can quickly become frustrating when they interrupt the page too soon.",
+      },
+      {
+        type: "heading",
+        content: "Too many popups interrupt the experience",
+      },
+      {
+        type: "paragraph",
+        content:
+          "If users have to close multiple popups before they can read the page, the popup becomes a barrier instead of a helpful prompt.",
+      },
+      {
+        type: "comparisonExample",
+        id: "popups",
+      },
+      {
+        type: "heading",
+        content: "The goal is helpful timing",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Strong popups are intentional. They appear at the right moment, offer something relevant, and are easy to dismiss.",
+      },
+    ],
+  },
+  {
+    id: "features",
+    slug: "too-much-vs-too-little-features",
+
+    series: "Too Much vs Too Little",
+    topic: "Features",
+
+    title: "Too Much vs Too Little: Features",
+
+    excerpt:
+      "How website feature sections can either clarify value or overwhelm users with too many disconnected details.",
+
+    category: "Too Much vs Too Little",
+
+    date: "2026-09-30",
+
+    readTime: "4 min read",
+
+    featured: false,
+
+    seoTitle: "Too Much vs Too Little: Website Features",
+
+    seoDescription:
+      "Learn how to structure website features clearly so users understand the value without feeling overwhelmed by too many details.",
+
+    bad: {
+      label: "Too Much",
+      title: "Feature Overload",
+      description:
+        "When every detail is treated like a major feature, users may struggle to understand what actually matters.",
+      features: [
+        "Fast Loading",
+        "Custom Design",
+        "SEO",
+        "Mobile Friendly",
+        "Forms",
+        "Analytics",
+        "Animations",
+        "Blog",
+        "Newsletter",
+        "User Accounts",
+        "Payments",
+        "Admin Dashboard",
+      ],
     },
-    {
-      type: "comparisonExample",
-      id: "features",
+
+    good: {
+      label: "Balanced",
+      title: "Focused Value",
+      description:
+        "A strong feature section groups details into clear benefits users can quickly understand.",
+      features: [
+        {
+          title: "Clear User Experience",
+          detail:
+            "Pages are structured so visitors can understand and take action.",
+        },
+        {
+          title: "Responsive Design",
+          detail: "Layouts adapt across desktop, tablet, and mobile screens.",
+        },
+        {
+          title: "Built To Support Growth",
+          detail:
+            "The website can expand with new sections, features, and content.",
+        },
+      ],
     },
-    {
-      type: "heading",
-      content: "The goal is meaningful grouping",
-    },
-    {
-      type: "paragraph",
-      content:
-        "Strong feature sections group related details into clear benefits. Instead of making users decode a long list, they explain why the features matter.",
-    },
-  ],
-}
+
+    sections: [
+      {
+        type: "paragraph",
+        content:
+          "Feature sections are meant to explain value, but they can quickly become overwhelming when every small detail is listed separately.",
+      },
+      {
+        type: "heading",
+        content: "Too many features can blur the message",
+      },
+      {
+        type: "paragraph",
+        content:
+          "When a feature section becomes a long list of everything included, users may have a harder time understanding what matters most.",
+      },
+      {
+        type: "comparisonExample",
+        id: "features",
+      },
+      {
+        type: "heading",
+        content: "The goal is meaningful grouping",
+      },
+      {
+        type: "paragraph",
+        content:
+          "Strong feature sections group related details into clear benefits. Instead of making users decode a long list, they explain why the features matter.",
+      },
+    ],
+  },
 ];

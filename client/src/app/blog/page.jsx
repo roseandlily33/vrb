@@ -5,6 +5,9 @@ import Hero from "../Components/Hero/Hero.component";
 import styles from "./page.module.css";
 
 export default function BlogPage() {
+  const allPosts = [...blogPosts, ...comparisonExamples];
+  const todaysDate = new Date();
+  const filteredPostsByTodaysDate = allPosts.filter((post) => new Date(post.date) <= todaysDate);
   return (
     <main>
       <Hero
@@ -16,27 +19,7 @@ export default function BlogPage() {
 
       <section className={styles.postsSection}>
         <div className={styles.postsGrid}>
-          {blogPosts.map((post) => (
-            <article key={post.slug} className={styles.postCard}>
-              <div className={styles.cardContent}>
-                <p className={styles.category}>{post.category}</p>
-
-                <h3 className={styles.title}>{post.title}</h3>
-
-                <p className={styles.excerpt}>{post.excerpt}</p>
-
-                <div className={styles.metaRow}>
-                  <small className={styles.meta}>{post.date}</small>
-                  <small className={styles.meta}>· {post.readTime}</small>
-                </div>
-              </div>
-
-              <Link href={`/blog/${post.slug}`} className={styles.readLink}>
-                Read Article
-              </Link>
-            </article>
-          ))}
-          {comparisonExamples?.map((post) => (
+          {filteredPostsByTodaysDate.map((post) => (
             <article key={post.slug} className={styles.postCard}>
               <div className={styles.cardContent}>
                 <p className={styles.category}>{post.category}</p>
