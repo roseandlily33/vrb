@@ -33,6 +33,23 @@ export const comparisonExamples = [
       ],
     },
 
+    tooLittle: {
+      label: "Too Little",
+
+      title: "No Clear Next Step",
+
+      description:
+        "When there is no clear call-to-action, users may understand the page but still not know what to do next.",
+
+      // points: [
+      //   "No main button",
+      //   "Next step is unclear",
+      //   "Contact option is hard to find",
+      //   "Users have to guess where to go",
+      //   "The page feels unfinished",
+      // ],
+    },
+
     good: {
       label: "Balanced",
 
@@ -118,6 +135,20 @@ export const comparisonExamples = [
         "Welcome to our company. We offer a wide range of services for businesses of all sizes and industries.",
         "Our team is passionate about quality, creativity, communication, strategy, development, design, support, and long-term success.",
         "We believe every project should be unique, flexible, collaborative, efficient, detailed, professional, and aligned with your goals.",
+      ],
+    },
+    tooLittle: {
+      label: "Too Little",
+
+      title: "Not Enough Information",
+
+      description:
+        "When content is too short, visitors may leave with questions about what you offer or how you can help.",
+
+      contentBlocks: [
+        "Welcome to our website.",
+        "We provide quality services.",
+        "Contact us today.",
       ],
     },
 
@@ -207,6 +238,16 @@ export const comparisonExamples = [
 
       description:
         "When elements are packed together, users struggle to scan and understand what is important.",
+
+      cards: ["Feature One", "Feature Two", "Feature Three", "Feature Four"],
+    },
+    tooLittle: {
+      label: "Too Much",
+
+      title: "Too Much Empty Space",
+
+      description:
+        "Large gaps between sections can make a page feel disconnected and force users to scroll more than necessary.",
 
       cards: ["Feature One", "Feature Two", "Feature Three", "Feature Four"],
     },
@@ -303,6 +344,16 @@ export const comparisonExamples = [
         "Contact",
       ],
     },
+    tooLittle: {
+      label: "Too Little",
+
+      title: "Not Enough Direction",
+
+      description:
+        "When navigation contains too few options, users may struggle to find important pages.",
+
+      links: ["Home", "Menu"],
+    },
 
     good: {
       label: "Balanced",
@@ -385,6 +436,21 @@ export const comparisonExamples = [
         "Sliding Text",
         "Spinning Icon",
         "Floating Card",
+      ],
+    },
+    tooLittle: {
+      label: "Too Little",
+
+      title: "No Visual Feedback",
+
+      description:
+        "Without any animation, interactions can feel flat and users may miss important feedback.",
+
+      items: [
+        "Static Button",
+        "Static Card",
+        "No Hover State",
+        "No Loading State",
       ],
     },
 
@@ -477,6 +543,16 @@ export const comparisonExamples = [
         "How Did You Hear About Us?",
       ],
     },
+    tooLittle: {
+      label: "Too Little",
+
+      title: "Not Enough Information",
+
+      description:
+        "A form should be easy to complete, but it still needs enough information to start the conversation.",
+
+      fields: ["Name", "Message"],
+    },
 
     good: {
       label: "Balanced",
@@ -562,6 +638,16 @@ export const comparisonExamples = [
         "#ec4899",
       ],
     },
+    tooLittle: {
+      label: "Too Little",
+
+      title: "Everything Looks The Same",
+
+      description:
+        "Without enough colour variation, it can be difficult to create hierarchy and guide attention.",
+
+      colours: ["#f5f5f5", "#e5e5e5", "#d5d5d5"],
+    },
 
     good: {
       label: "Balanced",
@@ -637,6 +723,18 @@ export const comparisonExamples = [
       quote: "Great service!",
       author: "Happy Client",
       rating: "★★★★★",
+    },
+    tooLittle: {
+      label: "Too Little",
+
+      title: "No Social Proof",
+
+      description:
+        "Without testimonials, visitors have fewer reasons to trust that others have had a positive experience.",
+
+      quote: "",
+      author: "",
+      rating: "",
     },
 
     good: {
@@ -721,6 +819,16 @@ export const comparisonExamples = [
         "Elite",
         "Enterprise",
       ],
+    },
+    tooLittle: {
+      label: "Too Little",
+
+      title: "Only One Choice",
+
+      description:
+        "A single option may not fit every visitor and can make it harder to find the right solution.",
+
+      plans: ["Website Package"],
     },
 
     good: {
@@ -815,6 +923,16 @@ export const comparisonExamples = [
         "Accept Cookies",
       ],
     },
+    tooLittle: {
+      label: "Too Little",
+
+      title: "No Feedback",
+
+      description:
+        "Users should know when something succeeds, fails, or is loading. Without feedback, the experience can feel uncertain.",
+
+      alerts: [],
+    },
 
     good: {
       label: "Balanced",
@@ -905,6 +1023,16 @@ export const comparisonExamples = [
         "Instagram Feed",
         "Contact",
       ],
+    },
+    tooLittle: {
+      label: "Too Little",
+
+      title: "Missing Key Sections",
+
+      description:
+        "When important sections are missing, visitors may leave before fully understanding what you offer.",
+
+      sections: ["Hero", "Contact"],
     },
 
     good: {
@@ -1009,6 +1137,16 @@ export const comparisonExamples = [
         "Client Favourite",
       ],
     },
+    tooLittle: {
+      label: "Too Little",
+
+      title: "Nothing Builds Trust",
+
+      description:
+        "Without trust signals, visitors may hesitate before taking the next step.",
+
+      signals: ["Contact Form"],
+    },
 
     good: {
       label: "Balanced",
@@ -1108,6 +1246,16 @@ export const comparisonExamples = [
         "Client Favourite",
       ],
     },
+    tooLittle: {
+      label: "Too Little",
+
+      title: "No Proof From Others",
+
+      description:
+        "Visitors often look for signs that others have worked with you before. Without that proof, trust can take longer to build.",
+
+      proofItems: [],
+    },
 
     good: {
       label: "Balanced",
@@ -1202,6 +1350,16 @@ export const comparisonExamples = [
         "Chat With Us",
       ],
     },
+    tooLittle: {
+      label: "Too Little",
+
+      title: "Missed Opportunities",
+
+      description:
+        "A well-timed popup can help guide users. Without them, some opportunities to connect may be missed.",
+
+      popups: [],
+    },
 
     good: {
       label: "Balanced",
@@ -1295,6 +1453,16 @@ export const comparisonExamples = [
         "Payments",
         "Admin Dashboard",
       ],
+    },
+    tooLittle: {
+      label: "Too Little",
+
+      title: "Not Enough Value Shown",
+
+      description:
+        "When too few features are highlighted, visitors may not fully understand what is included.",
+
+      features: ["Custom Design", "Responsive Layout"],
     },
 
     good: {

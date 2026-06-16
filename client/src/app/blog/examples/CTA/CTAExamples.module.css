@@ -38,20 +38,50 @@
   line-height: var(--leading-normal);
 }
 
-.grid {
+.examplesStack {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-xl);
+  gap: var(--space-xxl);
   max-width: 1100px;
   margin: 0 auto;
 }
 
-.card {
+.exampleRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.reverseRow {
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+}
+
+.reverseRow .exampleVisual {
+  order: 2;
+}
+
+.reverseRow .exampleCopy {
+  order: 1;
+}
+
+.exampleVisual,
+.exampleCopy {
   padding: var(--space-xl);
   border: var(--border-light);
   border-radius: var(--radius-lg);
   background: var(--white);
   box-shadow: var(--shadow-sm);
+}
+
+.exampleVisual {
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.exampleCopy {
+  min-height: 260px;
 }
 
 .tag {
@@ -64,7 +94,7 @@
   letter-spacing: 0.08em;
 }
 
-.card h3 {
+.exampleCopy h3 {
   margin: 0 0 var(--space-s);
   color: var(--grey-900);
   font-family: var(--font-heading);
@@ -72,16 +102,76 @@
   line-height: var(--leading-tight);
 }
 
-.card p {
+.exampleCopy p {
   margin: 0 0 var(--space-l);
   color: var(--grey-600);
   line-height: var(--leading-normal);
+}
+
+.pointList {
+  display: grid;
+  gap: var(--space-s);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pointList li {
+  position: relative;
+  padding-left: var(--space-l);
+  color: var(--grey-700);
+  line-height: var(--leading-normal);
+}
+
+.pointList li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.65em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--blue-700);
+}
+
+.missingAction {
+  width: 100%;
+  max-width: 420px;
+  padding: var(--space-xl);
+  border: 1px dashed var(--grey-300);
+  border-radius: var(--radius-lg);
+  background: var(--grey-50);
+}
+
+.fakeHeading,
+.fakeLine,
+.fakeLineShort {
+  border-radius: var(--radius-pill);
+  background: var(--grey-200);
+}
+
+.fakeHeading {
+  width: 70%;
+  height: 28px;
+  margin-bottom: var(--space-m);
+}
+
+.fakeLine {
+  width: 100%;
+  height: 12px;
+  margin-bottom: var(--space-s);
+}
+
+.fakeLineShort {
+  width: 55%;
+  height: 12px;
 }
 
 .buttonMess {
   display: flex;
   flex-wrap: wrap;
   gap: var(--space-s);
+  max-width: 420px;
 }
 
 .badButton,
@@ -112,9 +202,14 @@
   color: var(--white);
 }
 
+.badButton:hover {
+  transform: translateY(-2px);
+}
+
 .focusedAction {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: var(--space-m);
   flex-wrap: wrap;
 }
@@ -147,8 +242,14 @@
     padding: var(--section-sm);
   }
 
-  .grid {
+  .exampleRow,
+  .reverseRow {
     grid-template-columns: 1fr;
+  }
+
+  .reverseRow .exampleVisual,
+  .reverseRow .exampleCopy {
+    order: initial;
   }
 }
 
@@ -157,13 +258,16 @@
     padding: var(--section-xxs);
   }
 
-  .card {
+  .exampleVisual,
+  .exampleCopy {
     padding: var(--space-l);
+    min-height: auto;
   }
 
   .focusedAction {
     align-items: stretch;
     flex-direction: column;
+    width: 100%;
   }
 
   .primaryButton,

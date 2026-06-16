@@ -1,7 +1,7 @@
 import styles from "./Notifications.module.css";
 
 export default function NotificationExamples({ data }) {
-  const { bad, good } = data;
+  const { bad, good, tooLittle } = data;
 
   return (
     <section className={styles.notificationExamples}>
@@ -14,55 +14,87 @@ export default function NotificationExamples({ data }) {
         </p>
       </div>
 
-      <div className={styles.grid}>
-        <article className={styles.card}>
-          <span className={styles.tag}>{bad.label}</span>
-          <h3>{bad.title}</h3>
-          <p>{bad.description}</p>
+      <div className={styles.examplesStack}>
+        <article className={styles.exampleRow}>
+          <div className={styles.exampleVisual}>
+            <div className={styles.tooLittlePreview}>
+              <div className={styles.mockPage}>
+                <div className={styles.mockHeader} />
+                <div className={styles.mockLine} />
+                <div className={styles.mockLineShort} />
 
-          <div className={styles.badPreview}>
-            <div className={styles.mockPage}>
-              <div className={styles.mockHeader} />
-              <div className={styles.mockLine} />
-              <div className={styles.mockLineShort} />
-            </div>
+                <button type="button" className={styles.silentButton}>
+                  Submit Form
+                </button>
 
-            {bad.alerts.map((alert, index) => (
-              <div
-                key={alert}
-                className={`${styles.alertBubble} ${
-                  styles[`alert${index + 1}`]
-                }`}
-              >
-                <span>{alert}</span>
-                <button>×</button>
+                <p className={styles.noFeedback}>No confirmation shown</p>
               </div>
-            ))}
+            </div>
+          </div>
+
+          <div className={styles.exampleCopy}>
+            <span className={styles.tag}>{tooLittle.label}</span>
+            <h3>{tooLittle.title}</h3>
+            <p>{tooLittle.description}</p>
           </div>
         </article>
 
-        <article className={styles.card}>
-          <span className={styles.tag}>{good.label}</span>
-          <h3>{good.title}</h3>
-          <p>{good.description}</p>
-
-          <div className={styles.goodPreview}>
-            <div className={styles.successCard}>
-              <div className={styles.checkIcon}>✓</div>
-              <div>
-                <strong>{good.status}</strong>
-                <p>{good.message}</p>
+        <article className={`${styles.exampleRow} ${styles.reverseRow}`}>
+          <div className={styles.exampleVisual}>
+            <div className={styles.badPreview}>
+              <div className={styles.mockPage}>
+                <div className={styles.mockHeader} />
+                <div className={styles.mockLine} />
+                <div className={styles.mockLineShort} />
               </div>
-            </div>
 
-            <div className={styles.exampleList}>
-              {good.examples.map((item) => (
-                <div key={item} className={styles.exampleItem}>
-                  <span>✓</span>
-                  <p>{item}</p>
+              {bad.alerts.map((alert, index) => (
+                <div
+                  key={alert}
+                  className={`${styles.alertBubble} ${
+                    styles[`alert${index + 1}`]
+                  }`}
+                >
+                  <span>{alert}</span>
+                  <button type="button">×</button>
                 </div>
               ))}
             </div>
+          </div>
+
+          <div className={styles.exampleCopy}>
+            <span className={styles.tag}>{bad.label}</span>
+            <h3>{bad.title}</h3>
+            <p>{bad.description}</p>
+          </div>
+        </article>
+
+        <article className={styles.exampleRow}>
+          <div className={styles.exampleVisual}>
+            <div className={styles.goodPreview}>
+              <div className={styles.successCard}>
+                <div className={styles.checkIcon}>✓</div>
+                <div>
+                  <strong>{good.status}</strong>
+                  <p>{good.message}</p>
+                </div>
+              </div>
+
+              <div className={styles.exampleList}>
+                {good.examples.map((item) => (
+                  <div key={item} className={styles.exampleItem}>
+                    <span>✓</span>
+                    <p>{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.exampleCopy}>
+            <span className={styles.tag}>{good.label}</span>
+            <h3>{good.title}</h3>
+            <p>{good.description}</p>
           </div>
         </article>
       </div>

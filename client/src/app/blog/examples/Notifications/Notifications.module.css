@@ -38,20 +38,42 @@
   line-height: var(--leading-normal);
 }
 
-.grid {
+.examplesStack {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-xl);
+  gap: var(--space-xxl);
   max-width: 1120px;
   margin: 0 auto;
 }
 
-.card {
+.exampleRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.reverseRow .exampleVisual {
+  order: 2;
+}
+
+.reverseRow .exampleCopy {
+  order: 1;
+}
+
+.exampleVisual {
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: var(--space-xl);
   border: var(--border-light);
   border-radius: var(--radius-lg);
   background: var(--white);
   box-shadow: var(--shadow-sm);
+}
+
+.exampleCopy {
+  max-width: 460px;
 }
 
 .tag {
@@ -64,25 +86,40 @@
   text-transform: uppercase;
 }
 
-.card h3 {
+.exampleCopy h3 {
   margin: 0 0 var(--space-s);
   color: var(--grey-900);
   font-family: var(--font-heading);
-  font-size: 1.5rem;
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
   line-height: var(--leading-tight);
 }
 
-.card > p {
-  margin: 0 0 var(--space-l);
+.exampleCopy p {
+  margin: 0;
   color: var(--grey-600);
+  font-size: 1.02rem;
   line-height: var(--leading-normal);
 }
 
+.tooLittlePreview,
 .badPreview,
 .goodPreview {
+  width: 100%;
   min-height: 420px;
   border-radius: var(--radius-lg);
   border: 1px solid var(--grey-200);
+}
+
+.tooLittlePreview {
+  padding: var(--space-l);
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(148, 163, 184, 0.1),
+      transparent 34%
+    ),
+    linear-gradient(180deg, var(--grey-50), var(--white));
+  border-style: dashed;
 }
 
 .badPreview {
@@ -129,6 +166,30 @@
 
 .mockLineShort {
   width: 55%;
+}
+
+.silentButton {
+  margin-top: var(--space-xl);
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: var(--space-s) var(--space-l);
+  background: var(--blue-800);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.noFeedback {
+  margin: var(--space-xl) 0 0;
+  padding: var(--space-m);
+  border-radius: var(--radius-md);
+  background: var(--grey-50);
+  border: 1px dashed var(--grey-300);
+  color: var(--grey-500);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-align: center;
 }
 
 .alertBubble {
@@ -253,6 +314,12 @@
   border-radius: var(--radius-md);
   background: var(--white);
   border: 1px solid var(--grey-200);
+  transition: var(--transition-normal);
+}
+
+.exampleItem:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
 }
 
 .exampleItem span {
@@ -276,8 +343,21 @@
 }
 
 @media (max-width: 900px) {
-  .grid {
+  .notificationExamples {
+    padding: var(--section-sm);
+  }
+
+  .exampleRow {
     grid-template-columns: 1fr;
+  }
+
+  .reverseRow .exampleVisual,
+  .reverseRow .exampleCopy {
+    order: initial;
+  }
+
+  .exampleCopy {
+    max-width: none;
   }
 }
 
@@ -286,10 +366,16 @@
     padding: var(--section-xxs);
   }
 
-  .card,
+  .exampleVisual,
+  .tooLittlePreview,
   .badPreview,
-  .goodPreview {
+  .goodPreview,
+  .successCard {
     padding: var(--space-l);
+  }
+
+  .exampleVisual {
+    min-height: auto;
   }
 
   .alertBubble {

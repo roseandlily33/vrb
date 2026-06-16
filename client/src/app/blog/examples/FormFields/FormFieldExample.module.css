@@ -38,20 +38,42 @@
   line-height: var(--leading-normal);
 }
 
-.grid {
+.examplesStack {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-xl);
+  gap: var(--space-xxl);
   max-width: 1120px;
   margin: 0 auto;
 }
 
-.card {
+.exampleRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.reverseRow .exampleVisual {
+  order: 2;
+}
+
+.reverseRow .exampleCopy {
+  order: 1;
+}
+
+.exampleVisual {
+  min-height: 520px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: var(--space-xl);
   border: var(--border-light);
   border-radius: var(--radius-lg);
   background: var(--white);
   box-shadow: var(--shadow-sm);
+}
+
+.exampleCopy {
+  max-width: 460px;
 }
 
 .tag {
@@ -64,25 +86,36 @@
   text-transform: uppercase;
 }
 
-.card h3 {
+.exampleCopy h3 {
   margin: 0 0 var(--space-s);
   color: var(--grey-900);
   font-family: var(--font-heading);
-  font-size: 1.5rem;
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
   line-height: var(--leading-tight);
 }
 
-.card > p {
-  margin: 0 0 var(--space-l);
+.exampleCopy p {
+  margin: 0;
   color: var(--grey-600);
+  font-size: 1.02rem;
   line-height: var(--leading-normal);
 }
 
+.tooLittleFormMockup,
 .formMockup,
 .cleanFormMockup {
+  width: 100%;
   padding: var(--space-l);
   border-radius: var(--radius-lg);
   border: 1px solid var(--grey-200);
+}
+
+.tooLittleFormMockup {
+  display: grid;
+  gap: var(--space-m);
+  max-width: 420px;
+  background: var(--grey-50);
+  border-style: dashed;
 }
 
 .formMockup {
@@ -104,12 +137,14 @@
   border-color: var(--blue-200);
 }
 
+.tooLittleField,
 .badField,
 .goodField {
   display: grid;
   gap: var(--space-xxs);
 }
 
+.tooLittleField span,
 .badField span,
 .goodField span {
   color: var(--grey-700);
@@ -117,6 +152,7 @@
   font-weight: 700;
 }
 
+.tooLittleField input,
 .badField input,
 .goodField input,
 .goodField textarea {
@@ -125,6 +161,10 @@
   border: 1px solid var(--grey-200);
   background: var(--white);
   font-family: var(--font-body);
+}
+
+.tooLittleField input {
+  padding: var(--space-s) var(--space-m);
 }
 
 .badField input {
@@ -140,6 +180,7 @@
   resize: none;
 }
 
+.tooLittleButton,
 .badButton,
 .goodButton {
   border: none;
@@ -147,6 +188,12 @@
   font-family: var(--font-body);
   font-weight: 700;
   cursor: pointer;
+}
+
+.tooLittleButton {
+  padding: var(--space-s) var(--space-l);
+  background: var(--grey-300);
+  color: var(--grey-800);
 }
 
 .badButton {
@@ -182,8 +229,21 @@
 }
 
 @media (max-width: 900px) {
-  .grid {
+  .formFieldExamples {
+    padding: var(--section-sm);
+  }
+
+  .exampleRow {
     grid-template-columns: 1fr;
+  }
+
+  .reverseRow .exampleVisual,
+  .reverseRow .exampleCopy {
+    order: initial;
+  }
+
+  .exampleCopy {
+    max-width: none;
   }
 }
 
@@ -192,12 +252,18 @@
     padding: var(--section-xxs);
   }
 
-  .card,
+  .exampleVisual,
+  .tooLittleFormMockup,
   .formMockup,
   .cleanFormMockup {
     padding: var(--space-l);
   }
 
+  .exampleVisual {
+    min-height: auto;
+  }
+
+  .tooLittleButton,
   .goodButton,
   .badButton {
     width: 100%;

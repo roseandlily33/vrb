@@ -38,20 +38,42 @@
   line-height: var(--leading-normal);
 }
 
-.grid {
+.examplesStack {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-xl);
+  gap: var(--space-xxl);
   max-width: 1120px;
   margin: 0 auto;
 }
 
-.card {
+.exampleRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.reverseRow .exampleVisual {
+  order: 2;
+}
+
+.reverseRow .exampleCopy {
+  order: 1;
+}
+
+.exampleVisual {
+  min-height: 460px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: var(--space-xl);
   border: var(--border-light);
   border-radius: var(--radius-lg);
   background: var(--white);
   box-shadow: var(--shadow-sm);
+}
+
+.exampleCopy {
+  max-width: 460px;
 }
 
 .tag {
@@ -64,30 +86,117 @@
   text-transform: uppercase;
 }
 
-.card h3 {
+.exampleCopy h3 {
   margin: 0 0 var(--space-s);
   color: var(--grey-900);
   font-family: var(--font-heading);
-  font-size: 1.5rem;
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
   line-height: var(--leading-tight);
 }
 
-.card > p {
+.exampleCopy p {
+  margin: 0;
+  color: var(--grey-600);
+  font-size: 1.02rem;
+  line-height: var(--leading-normal);
+}
+
+/* TOO LITTLE SIDE */
+
+.staticMockup {
+  width: 100%;
+  min-height: 360px;
+  padding: var(--space-l);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(148, 163, 184, 0.1),
+      transparent 35%
+    ),
+    linear-gradient(180deg, var(--grey-50), var(--white));
+  border: 1px dashed var(--grey-300);
+}
+
+.staticCard {
+  padding: var(--space-xl);
+  margin-bottom: var(--space-l);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  border: 1px solid var(--grey-200);
+  box-shadow: var(--shadow-xs);
+}
+
+.staticCard span,
+.previewCard span {
+  display: inline-flex;
+  margin-bottom: var(--space-s);
+  color: var(--blue-700);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.staticCard h4,
+.previewCard h4 {
+  margin: 0 0 var(--space-s);
+  color: var(--blue-950);
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  line-height: var(--leading-tight);
+}
+
+.staticCard p,
+.previewCard p {
   margin: 0 0 var(--space-l);
   color: var(--grey-600);
   line-height: var(--leading-normal);
+}
+
+.staticCard button {
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: var(--space-s) var(--space-l);
+  background: var(--blue-800);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-weight: 700;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+}
+
+.staticFeedbackRow {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-m);
+}
+
+.staticFeedbackItem {
+  padding: var(--space-m);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  border: 1px solid var(--grey-200);
+  color: var(--grey-500);
+  font-size: 0.86rem;
+  font-weight: 700;
 }
 
 /* BAD SIDE */
 
 .chaoticMockup {
   position: relative;
+  width: 100%;
   min-height: 360px;
   overflow: hidden;
   padding: var(--space-l);
   border-radius: var(--radius-lg);
   background:
-    radial-gradient(circle at 20% 20%, rgba(38, 155, 230, 0.16), transparent 35%),
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(38, 155, 230, 0.16),
+      transparent 35%
+    ),
     linear-gradient(180deg, var(--grey-50), var(--white));
   border: 1px solid var(--grey-200);
 }
@@ -174,11 +283,16 @@
 /* GOOD SIDE */
 
 .balancedMockup {
+  width: 100%;
   min-height: 360px;
   padding: var(--space-l);
   border-radius: var(--radius-lg);
   background:
-    radial-gradient(circle at top right, rgba(38, 155, 230, 0.12), transparent 40%),
+    radial-gradient(
+      circle at top right,
+      rgba(38, 155, 230, 0.12),
+      transparent 40%
+    ),
     linear-gradient(180deg, var(--blue-50), var(--white));
   border: 1px solid var(--blue-200);
 }
@@ -191,30 +305,6 @@
   border: 1px solid var(--grey-200);
   box-shadow: var(--shadow-sm);
   animation: softReveal 700ms ease both;
-}
-
-.previewCard span {
-  display: inline-flex;
-  margin-bottom: var(--space-s);
-  color: var(--blue-700);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.previewCard h4 {
-  margin: 0 0 var(--space-s);
-  color: var(--blue-950);
-  font-family: var(--font-heading);
-  font-size: 1.45rem;
-  line-height: var(--leading-tight);
-}
-
-.previewCard p {
-  margin: 0 0 var(--space-l);
-  color: var(--grey-600);
-  line-height: var(--leading-normal);
 }
 
 .previewCard button {
@@ -274,8 +364,21 @@
 }
 
 @media (max-width: 900px) {
-  .grid {
+  .animationExamples {
+    padding: var(--section-sm);
+  }
+
+  .exampleRow {
     grid-template-columns: 1fr;
+  }
+
+  .reverseRow .exampleVisual,
+  .reverseRow .exampleCopy {
+    order: initial;
+  }
+
+  .exampleCopy {
+    max-width: none;
   }
 }
 
@@ -284,12 +387,20 @@
     padding: var(--section-xxs);
   }
 
-  .card,
+  .exampleVisual,
+  .staticMockup,
   .chaoticMockup,
-  .balancedMockup {
+  .balancedMockup,
+  .staticCard,
+  .previewCard {
     padding: var(--space-l);
   }
 
+  .exampleVisual {
+    min-height: auto;
+  }
+
+  .staticFeedbackRow,
   .feedbackRow {
     grid-template-columns: 1fr;
   }

@@ -38,20 +38,42 @@
   line-height: var(--leading-normal);
 }
 
-.grid {
+.examplesStack {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--space-xl);
+  gap: var(--space-xxl);
   max-width: 1120px;
   margin: 0 auto;
 }
 
-.card {
+.exampleRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.reverseRow .exampleVisual {
+  order: 2;
+}
+
+.reverseRow .exampleCopy {
+  order: 1;
+}
+
+.exampleVisual {
+  min-height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: var(--space-xl);
   border: var(--border-light);
   border-radius: var(--radius-lg);
   background: var(--white);
   box-shadow: var(--shadow-sm);
+}
+
+.exampleCopy {
+  max-width: 460px;
 }
 
 .tag {
@@ -64,27 +86,69 @@
   text-transform: uppercase;
 }
 
-.card h3 {
+.exampleCopy h3 {
   margin: 0 0 var(--space-s);
   color: var(--grey-900);
   font-family: var(--font-heading);
-  font-size: 1.5rem;
+  font-size: clamp(1.6rem, 3vw, 2.3rem);
   line-height: var(--leading-tight);
 }
 
-.card > p {
-  margin: 0 0 var(--space-l);
+.exampleCopy p {
+  margin: 0;
   color: var(--grey-600);
+  font-size: 1.02rem;
   line-height: var(--leading-normal);
+}
+
+.tooLittlePreview,
+.planPile,
+.packageGrid {
+  width: 100%;
+  min-height: 430px;
+  padding: var(--space-l);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--grey-200);
+}
+
+.tooLittlePreview {
+  display: grid;
+  align-content: center;
+  gap: var(--space-m);
+  max-width: 420px;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(148, 163, 184, 0.1), transparent 34%),
+    linear-gradient(180deg, var(--grey-50), var(--white));
+  border-style: dashed;
+}
+
+.tooLittlePlan {
+  padding: var(--space-xl);
+  border-radius: var(--radius-lg);
+  background: var(--white);
+  border: 1px solid var(--grey-200);
+  box-shadow: var(--shadow-xs);
+  text-align: center;
+}
+
+.tooLittlePlan strong {
+  display: block;
+  margin-bottom: var(--space-xs);
+  color: var(--grey-800);
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+}
+
+.tooLittlePlan span {
+  color: var(--grey-500);
+  font-size: 0.82rem;
+  font-weight: 700;
 }
 
 .planPile {
   display: grid;
   gap: var(--space-xs);
-  padding: var(--space-l);
-  border-radius: var(--radius-lg);
   background: var(--grey-50);
-  border: 1px solid var(--grey-200);
 }
 
 .badPlan {
@@ -113,12 +177,10 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-m);
-  padding: var(--space-l);
-  border-radius: var(--radius-lg);
   background:
     radial-gradient(circle at top right, rgba(38, 155, 230, 0.12), transparent 40%),
     linear-gradient(180deg, var(--blue-50), var(--white));
-  border: 1px solid var(--blue-200);
+  border-color: var(--blue-200);
 }
 
 .goodPlan {
@@ -127,6 +189,12 @@
   background: var(--white);
   border: 1px solid var(--grey-200);
   box-shadow: var(--shadow-xs);
+  transition: var(--transition-normal);
+}
+
+.goodPlan:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
 }
 
 .goodPlan span {
@@ -173,8 +241,21 @@
 }
 
 @media (max-width: 900px) {
-  .grid {
+  .pricingExamples {
+    padding: var(--section-sm);
+  }
+
+  .exampleRow {
     grid-template-columns: 1fr;
+  }
+
+  .reverseRow .exampleVisual,
+  .reverseRow .exampleCopy {
+    order: initial;
+  }
+
+  .exampleCopy {
+    max-width: none;
   }
 }
 
@@ -183,11 +264,16 @@
     padding: var(--section-xxs);
   }
 
-  .card,
+  .exampleVisual,
+  .tooLittlePreview,
   .planPile,
   .packageGrid,
   .goodPlan {
     padding: var(--space-l);
+  }
+
+  .exampleVisual {
+    min-height: auto;
   }
 
   .badPlan {
