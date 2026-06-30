@@ -70,6 +70,7 @@
   border-radius: var(--radius-lg);
   background: var(--white);
   box-shadow: var(--shadow-sm);
+  overflow: hidden;
 }
 
 .exampleCopy {
@@ -117,10 +118,21 @@
   text-align: center;
 }
 
+.badTestimonialWall {
+  width: 100%;
+  max-width: 460px;
+  display: grid;
+  gap: var(--space-s);
+  padding: var(--space-m);
+  border: 1px solid var(--grey-200);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, var(--grey-50), var(--white));
+}
+
 .badTestimonial {
-  max-width: 430px;
-  padding: var(--space-l);
-  background: var(--grey-50);
+  padding: var(--space-m);
+  background: var(--white);
+  box-shadow: var(--shadow-xs);
 }
 
 .goodTestimonial {
@@ -145,6 +157,11 @@
   letter-spacing: 0.08em;
 }
 
+.badTestimonial .stars {
+  margin-bottom: var(--space-xs);
+  font-size: 0.8rem;
+}
+
 .emptyStars {
   color: var(--grey-400);
 }
@@ -158,9 +175,12 @@
   line-height: var(--leading-normal);
 }
 
-.emptyTestimonial blockquote,
-.badTestimonial blockquote {
+.emptyTestimonial blockquote {
   font-size: 1.1rem;
+}
+
+.badTestimonial blockquote {
+  font-size: 0.95rem;
 }
 
 .goodTestimonial blockquote {
@@ -172,6 +192,11 @@
   margin: var(--space-m) 0 0;
   color: var(--grey-500);
   font-size: 0.9rem;
+}
+
+.badTestimonial p {
+  margin-top: var(--space-xs);
+  font-size: 0.8rem;
 }
 
 .authorBlock {
@@ -219,12 +244,19 @@
 
   .exampleVisual,
   .emptyTestimonial,
-  .badTestimonial,
   .goodTestimonial {
     padding: var(--space-l);
   }
 
   .exampleVisual {
     min-height: auto;
+  }
+
+  .badTestimonialWall {
+    padding: var(--space-s);
+  }
+
+  .badTestimonial {
+    padding: var(--space-s);
   }
 }

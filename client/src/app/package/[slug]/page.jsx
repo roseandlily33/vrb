@@ -27,15 +27,15 @@ export default async function PackagePage({ params, searchParams }) {
   const pkg = list.find((p) => slugify(p.title) === slugify(slug));
 
   if (!pkg) {
-    console.log({
-      type,
-      slug,
-      slugifiedSlug: slugify(slug),
-      availablePackages: list.map((p) => ({
-        title: p.title,
-        slug: slugify(p.title),
-      })),
-    });
+    // console.log({
+    //   type,
+    //   slug,
+    //   slugifiedSlug: slugify(slug),
+    //   availablePackages: list.map((p) => ({
+    //     title: p.title,
+    //     slug: slugify(p.title),
+    //   })),
+    // });
 
     return <div>Could not find this package.</div>;
   }

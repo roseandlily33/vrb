@@ -17,9 +17,9 @@ import PopupExamples from "../examples/Popups/Popups";
 import FeatureExamples from "../examples/Features/Features";
 
 export default function BlogComparisonExample({ id }) {
-  console.log("id", id);
+  // console.log("id", id);
   const example = comparisonExamples.find((example) => example.id === id);
-  console.log("example", example);
+  // console.log("example", example);
   if (!example) return null;
 
   switch (id) {

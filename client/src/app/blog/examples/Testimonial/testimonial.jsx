@@ -33,10 +33,14 @@ export default function TestimonialExample({ data }) {
 
         <article className={`${styles.exampleRow} ${styles.reverseRow}`}>
           <div className={styles.exampleVisual}>
-            <div className={styles.badTestimonial}>
-              <div className={styles.stars}>{bad.rating}</div>
-              <blockquote>“{bad.quote}”</blockquote>
-              <p>{bad.author}</p>
+            <div className={styles.badTestimonialWall}>
+              {bad.testimonials?.map((testimonial, index) => (
+                <div className={styles.badTestimonial} key={index}>
+                  <div className={styles.stars}>★★★★★</div>
+                  <blockquote>“{testimonial.quote}”</blockquote>
+                  <p>{testimonial.author}</p>
+                </div>
+              ))}
             </div>
           </div>
 

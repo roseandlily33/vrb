@@ -398,108 +398,108 @@ export const comparisonExamples = [
       },
     ],
   },
-  {
-    id: "animations",
-    slug: "too-much-vs-too-little-animations",
+  // {
+  //   id: "animations",
+  //   slug: "too-much-vs-too-little-animations",
 
-    series: "Too Much vs Too Little",
-    topic: "Animations",
+  //   series: "Too Much vs Too Little",
+  //   topic: "Animations",
 
-    title: "Too Much vs Too Little: Animations",
+  //   title: "Too Much vs Too Little: Animations",
 
-    excerpt:
-      "How website animations can improve the user experience or become distracting when they are overused.",
+  //   excerpt:
+  //     "How website animations can improve the user experience or become distracting when they are overused.",
 
-    category: "Too Much vs Too Little",
+  //   category: "Too Much vs Too Little",
 
-    date: "2026-09-08",
+  //   date: "2026-09-08",
 
-    readTime: "4 min read",
+  //   readTime: "4 min read",
 
-    featured: false,
+  //   featured: false,
 
-    seoTitle: "Too Much vs Too Little: Website Animations",
+  //   seoTitle: "Too Much vs Too Little: Website Animations",
 
-    seoDescription:
-      "Learn how balanced website animations can guide attention, create flow, and improve user experience without becoming distracting.",
+  //   seoDescription:
+  //     "Learn how balanced website animations can guide attention, create flow, and improve user experience without becoming distracting.",
 
-    bad: {
-      label: "Too Much",
+  //   bad: {
+  //     label: "Too Much",
 
-      title: "Everything Is Moving",
+  //     title: "Everything Is Moving",
 
-      description:
-        "When too many elements animate at once, the page can feel distracting, slow, and harder to use.",
+  //     description:
+  //       "When too many elements animate at once, the page can feel distracting, slow, and harder to use.",
 
-      items: [
-        "Bouncing Button",
-        "Sliding Text",
-        "Spinning Icon",
-        "Floating Card",
-      ],
-    },
-    tooLittle: {
-      label: "Too Little",
+  //     items: [
+  //       "Bouncing Button",
+  //       "Sliding Text",
+  //       "Spinning Icon",
+  //       "Floating Card",
+  //     ],
+  //   },
+  //   tooLittle: {
+  //     label: "Too Little",
 
-      title: "No Visual Feedback",
+  //     title: "No Visual Feedback",
 
-      description:
-        "Without any animation, interactions can feel flat and users may miss important feedback.",
+  //     description:
+  //       "Without any animation, interactions can feel flat and users may miss important feedback.",
 
-      items: [
-        "Static Button",
-        "Static Card",
-        "No Hover State",
-        "No Loading State",
-      ],
-    },
+  //     items: [
+  //       "Static Button",
+  //       "Static Card",
+  //       "No Hover State",
+  //       "No Loading State",
+  //     ],
+  //   },
 
-    good: {
-      label: "Balanced",
+  //   good: {
+  //     label: "Balanced",
 
-      title: "Motion With Purpose",
+  //     title: "Motion With Purpose",
 
-      description:
-        "Subtle animation can guide attention, show feedback, and make interactions feel smoother.",
+  //     description:
+  //       "Subtle animation can guide attention, show feedback, and make interactions feel smoother.",
 
-      items: [
-        "Button Hover",
-        "Card Reveal",
-        "Success Message",
-        "Loading State",
-      ],
-    },
+  //     items: [
+  //       "Button Hover",
+  //       "Card Reveal",
+  //       "Success Message",
+  //       "Loading State",
+  //     ],
+  //   },
 
-    sections: [
-      {
-        type: "paragraph",
-        content:
-          "Website animation should support the user experience. It can help guide attention, show feedback, and make a page feel more polished.",
-      },
-      {
-        type: "heading",
-        content: "Too much animation becomes distracting",
-      },
-      {
-        type: "paragraph",
-        content:
-          "When everything moves, nothing feels important. Too many animations can make a website feel busy, slow, or difficult to focus on.",
-      },
-      {
-        type: "comparisonExample",
-        id: "animations",
-      },
-      {
-        type: "heading",
-        content: "The goal is purposeful motion",
-      },
-      {
-        type: "paragraph",
-        content:
-          "Balanced animation has a reason. It supports feedback, hierarchy, and flow instead of competing for attention.",
-      },
-    ],
-  },
+  //   sections: [
+  //     {
+  //       type: "paragraph",
+  //       content:
+  //         "Website animation should support the user experience. It can help guide attention, show feedback, and make a page feel more polished.",
+  //     },
+  //     {
+  //       type: "heading",
+  //       content: "Too much animation becomes distracting",
+  //     },
+  //     {
+  //       type: "paragraph",
+  //       content:
+  //         "When everything moves, nothing feels important. Too many animations can make a website feel busy, slow, or difficult to focus on.",
+  //     },
+  //     {
+  //       type: "comparisonExample",
+  //       id: "animations",
+  //     },
+  //     {
+  //       type: "heading",
+  //       content: "The goal is purposeful motion",
+  //     },
+  //     {
+  //       type: "paragraph",
+  //       content:
+  //         "Balanced animation has a reason. It supports feedback, hierarchy, and flow instead of competing for attention.",
+  //     },
+  //   ],
+  // },
   {
     id: "form-fields",
     slug: "too-much-vs-too-little-form-fields",
@@ -716,13 +716,32 @@ export const comparisonExamples = [
       "Learn how to use testimonials effectively by adding context, outcomes, and clear social proof without overwhelming users.",
 
     bad: {
-      label: "Too Little",
-      title: "Not Enough Context",
+      label: "Too Much",
+      title: "Wall of Testimonials",
       description:
-        "A short review can be positive, but without details, it may not help visitors understand the experience or outcome.",
-      quote: "Great service!",
-      author: "Happy Client",
-      rating: "★★★★★",
+        "Too many testimonials competing for attention can overwhelm visitors and reduce the impact of each individual review.",
+      testimonials: [
+        {
+          quote: "Amazing service and great communication!",
+          author: "Sarah M.",
+        },
+        {
+          quote: "Highly recommend to anyone looking for quality work.",
+          author: "James R.",
+        },
+        {
+          quote: "Professional from beginning to end.",
+          author: "Lisa T.",
+        },
+        {
+          quote: "Fantastic experience. Would absolutely use them again.",
+          author: "Mark D.",
+        },
+        {
+          quote: "Couldn't be happier with the results!",
+          author: "Emily P.",
+        },
+      ],
     },
     tooLittle: {
       label: "Too Little",
