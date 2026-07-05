@@ -1,0 +1,82 @@
+.wrap {
+  padding: 24px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+.back {
+  background: none;
+  border: 1px solid #ddd;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.card {
+  background: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+  max-width: 900px;
+}
+.meta {
+  color: #555;
+  margin-bottom: 8px;
+}
+.description {
+  margin: 12px 0 16px 0;
+}
+.actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+.btn {
+  background: #0054c9;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.btnDanger {
+  background: #a71d2a;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.error {
+  background: #ffe8e8;
+  color: #a71d2a;
+  padding: 8px;
+  border-radius: 6px;
+  margin: 12px 0;
+}
+.history {
+  margin-top: 18px;
+  max-width: 900px;
+}
+.historyItem {
+  background: #fafafa;
+  padding: 10px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  border: 1px solid #eee;
+}
+.diff {
+  font-size: 12px;
+  color: #333;
+  background: #fff;
+  padding: 8px;
+  border-radius: 6px;
+  overflow: auto;
+  max-height: 220px;
+}
+.meta {
+  font-size: 13px;
+  color: #666;
+}

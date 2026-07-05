@@ -9,7 +9,8 @@ const TodoSchema = new mongoose.Schema(
     },
     title: { type: String, required: true },
     description: { type: String },
-    assignedTo: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+    // assignedTo refers to a company/client id (companyId)
+    assignedTo: { type: mongoose.Schema.Types.ObjectId, ref: "Client" },
     status: {
       type: String,
       enum: ["todo", "in_progress", "done", "blocked"],

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import styles from "../page.module.css";
 import Modal from "../../components/Modal/Modal";
-
+import { EditableField } from "./editableField";
 // modal state for todos and meetings
 const emptyTodo = {
   title: "",
@@ -30,10 +30,34 @@ export default function ClientDashboard() {
   const [todoOpen, setTodoOpen] = useState(false);
   const [editingTodo, setEditingTodo] = useState(null);
   const [todoForm, setTodoForm] = useState(emptyTodo);
+  const [contactOpen, setContactOpen] = useState(false);
+  const [contactForm, setContactForm] = useState({
+    businessName: "",
+    contactName: "",
+    email: "",
+    phone: "",
+    website: "",
+    industry: "",
+    status: "lead",
+    address_street: "",
+    address_city: "",
+    address_province: "",
+    address_postalCode: "",
+    address_country: "Canada",
+    notes: "",
+  });
 
   const [meetingOpen, setMeetingOpen] = useState(false);
+  const [contactEditing, setContactEditing] = useState(false);
   const [editingMeeting, setEditingMeeting] = useState(null);
   const [meetingForm, setMeetingForm] = useState(emptyMeeting);
+
+  const formatKey = (k) => {
+    return String(k)
+      .replace(/([A-Z])/g, " $1")
+      .replace(/_/g, " ")
+      .replace(/^./, (c) => c.toUpperCase());
+  };
 
   useEffect(() => {
     const token =
@@ -97,50 +121,299 @@ export default function ClientDashboard() {
         >
           Back
         </button>
-        <h1>Client Dashboard</h1>
       </div>
 
       {loading ? (
-        <div>Loading...</div>
+        <div className={styles.emptyState}>Loading...</div>
       ) : (
         <div>
           {error && <div className={styles.error}>{error}</div>}
+
           {client && (
             <>
+              <section
+                style={{
+                  marginBottom: 16,
+                  background: "#fff",
+                  padding: 16,
+                  borderRadius: 12,
+                  boxShadow: "0 6px 18px rgba(0,0,0,0.04)",
+                }}
+              >
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "flex-start",
+                    gap: 16,
+                  }}
+                >
+                  <div>
+                    <div className={styles.eyebrow}>Client Dashboard</div>
+                    <h1 style={{ marginTop: 6 }}>
+                      {client.businessName || client.name || "Client"}
+                    </h1>
+                    <div className={styles.clientInfoGrid}>
+                      <EditableField
+                        label="Business Name"
+                        value={
+                          contactEditing
+                            ? contactForm.businessName
+                            : client.businessName
+                        }
+                        editing={contactEditing}
+                        field="businessName"
+                        onChange={(field, value) =>
+                          setContactForm({ ...contactForm, [field]: value })
+                        }
+                      />
+
+                      <EditableField
+                        label="Contact Name"
+                        value={
+                          contactEditing
+                            ? contactForm.contactName
+                            : client.contactName
+                        }
+                        editing={contactEditing}
+                        field="contactName"
+                        onChange={(field, value) =>
+                          setContactForm({ ...contactForm, [field]: value })
+                        }
+                      />
+
+                      <EditableField
+                        label="Email"
+                        value={
+                          contactEditing ? contactForm.email : client.email
+                        }
+                        editing={contactEditing}
+                        field="email"
+                        type="email"
+                        onChange={(field, value) =>
+                          setContactForm({ ...contactForm, [field]: value })
+                        }
+                      />
+
+                      <EditableField
+                        label="Phone"
+                        value={
+                          contactEditing ? contactForm.phone : client.phone
+                        }
+                        editing={contactEditing}
+                        field="phone"
+                        onChange={(field, value) =>
+                          setContactForm({ ...contactForm, [field]: value })
+                        }
+                      />
+
+                      <EditableField
+                        label="Website"
+                        value={
+                          contactEditing ? contactForm.website : client.website
+                        }
+                        editing={contactEditing}
+                        field="website"
+                        onChange={(field, value) =>
+                          setContactForm({ ...contactForm, [field]: value })
+                        }
+                      />
+
+                      <EditableField
+                        label="Industry"
+                        value={
+                          contactEditing
+                            ? contactForm.industry
+                            : client.industry
+                        }
+                        editing={contactEditing}
+                        field="industry"
+                        onChange={(field, value) =>
+                          setContactForm({ ...contactForm, [field]: value })
+                        }
+                      />
+
+                      <EditableField
+                        label="Status"
+                        value={
+                          contactEditing ? contactForm.status : client.status
+                        }
+                        editing={contactEditing}
+                        field="status"
+                        onChange={(field, value) =>
+                          setContactForm({ ...contactForm, [field]: value })
+                        }
+                      />
+
+                      <EditableField
+                        label="Street"
+                        value={
+                          contactEditing
+                            ? contactForm.address_street
+                            : client.address?.street
+                        }
+                        editing={contactEditing}
+                        field="address_street"
+                        onChange={(field, value) =>
+                          setContactForm({ ...contactForm, [field]: value })
+                        }
+                      />
+
+                      <EditableField
+                        label="City"
+                        value={
+                          contactEditing
+                            ? contactForm.address_city
+                            : client.address?.city
+                        }
+                        editing={contactEditing}
+                        field="address_city"
+                        onChange={(field, value) =>
+                          setContactForm({ ...contactForm, [field]: value })
+                        }
+                      />
+
+                      <EditableField
+                        label="Province"
+                        value={
+                          contactEditing
+                            ? contactForm.address_province
+                            : client.address?.province
+                        }
+                        editing={contactEditing}
+                        field="address_province"
+                        onChange={(field, value) =>
+                          setContactForm({ ...contactForm, [field]: value })
+                        }
+                      />
+
+                      <EditableField
+                        label="Postal Code"
+                        value={
+                          contactEditing
+                            ? contactForm.address_postalCode
+                            : client.address?.postalCode
+                        }
+                        editing={contactEditing}
+                        field="address_postalCode"
+                        onChange={(field, value) =>
+                          setContactForm({ ...contactForm, [field]: value })
+                        }
+                      />
+
+                      <EditableField
+                        label="Country"
+                        value={
+                          contactEditing
+                            ? contactForm.address_country
+                            : client.address?.country
+                        }
+                        editing={contactEditing}
+                        field="address_country"
+                        onChange={(field, value) =>
+                          setContactForm({ ...contactForm, [field]: value })
+                        }
+                      />
+
+                      <EditableField
+                        label="Notes"
+                        value={
+                          contactEditing ? contactForm.notes : client.notes
+                        }
+                        editing={contactEditing}
+                        field="notes"
+                        textarea
+                        onChange={(field, value) =>
+                          setContactForm({ ...contactForm, [field]: value })
+                        }
+                      />
+                    </div>
+                   
+                  </div>
+                  <div style={{ minWidth: 220, textAlign: "right" }}>
+                    <div style={{ marginBottom: 8 }}>
+                      Outstanding: <strong>${outstanding}</strong>
+                    </div>
+                    <div>
+                      Total proposals: <strong>${totalProposals}</strong>
+                    </div>
+                </div>
+                </div>
+              </section>
+
               <section className={styles.lists}>
                 <div className={styles.column}>
                   <h4>Proposals</h4>
+
                   {proposals.length === 0 ? (
-                    <div>
+                    <div className={styles.emptyState}>
                       <div>No proposals</div>
-                      <button className={styles.createSmall} onClick={() => router.push(`/clientdashboard/${id}/proposals`)}>Create Proposal</button>
+
+                      <button
+                        className={styles.createSmall}
+                        onClick={() =>
+                          router.push(`/clientdashboard/${id}/proposals`)
+                        }
+                      >
+                        Create Proposal
+                      </button>
                     </div>
                   ) : (
-                    <ul>{proposals.map(p=> <li key={p._id}>{p.title} — {p.pricing?.total || 0} — {p.status}</li>)}</ul>
+                    <ul>
+                      {proposals.map((p) => (
+                        <li key={p._id}>
+                          <strong>{p.title}</strong>
+                          <div>
+                            ${p.pricing?.total || 0} — {p.status}
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
                   )}
                 </div>
 
                 <div className={styles.column}>
-                  <h4>Payments</h4>
+                  <h4>
+                    <a href={`/clientdashboard/${id}/payments`}>Payments</a> &{" "}
+                    <a href={`/clientdashboard/${id}/invoices`}>Invoices</a>
+                  </h4>
+
                   {payments.length === 0 ? (
-                    <div>
+                    <div className={styles.emptyState}>
                       <div>No payments</div>
-                      <button className={styles.createSmall} onClick={() => router.push(`/clientdashboard/${id}/payments`)}>Create Payment</button>
+
+                      <button
+                        className={styles.createSmall}
+                        onClick={() =>
+                          router.push(`/clientdashboard/${id}/payments`)
+                        }
+                      >
+                        Create Payment
+                      </button>
                     </div>
                   ) : (
-                    <ul>{payments.map(px=> <li key={px._id}><button className={styles.link} onClick={()=>router.push(`/clientdashboard/${id}/payments`)}>{px.amount} {px.currency} — {px.status} — {new Date(px.date).toLocaleDateString()}</button></li>)}</ul>
+                    <ul>
+                      {payments.map((px) => (
+                        <li key={px._id}>
+                          <button
+                            className={styles.link}
+                            onClick={() =>
+                              router.push(`/clientdashboard/${id}/payments`)
+                            }
+                          >
+                            {px.amount} {px.currency} — {px.status} —{" "}
+                            {new Date(px.date).toLocaleDateString()}
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
                   )}
                 </div>
 
                 <div className={styles.column}>
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                    }}
-                  >
+                  <div className={styles.sectionTop}>
                     <h4>Todos</h4>
+
                     <button
                       className={styles.createSmall}
                       onClick={() => {
@@ -152,42 +425,44 @@ export default function ClientDashboard() {
                       Add
                     </button>
                   </div>
-                  <ul>
-                    {todos.map((t) => (
-                      <li key={t._id}>
-                        <button
-                          className={styles.link}
-                          onClick={() => {
-                            setEditingTodo(t);
-                            setTodoForm({
-                              title: t.title || "",
-                              description: t.description || "",
-                              assignedTo: t.assignedTo || "",
-                              status: t.status || "todo",
-                              priority: t.priority || "medium",
-                              dueDate: t.dueDate
-                                ? new Date(t.dueDate).toISOString().slice(0, 10)
-                                : "",
-                            });
-                            setTodoOpen(true);
-                          }}
-                        >
-                          {t.title} — {t.status} — {t.priority}
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
+
+                  {todos.length === 0 ? (
+                    <div className={styles.emptyState}>No todos</div>
+                  ) : (
+                    <ul>
+                      {todos.map((t) => (
+                        <li key={t._id}>
+                          <button
+                            className={styles.link}
+                            onClick={() => {
+                              setEditingTodo(t);
+                              setTodoForm({
+                                title: t.title || "",
+                                description: t.description || "",
+                                assignedTo: t.assignedTo || "",
+                                status: t.status || "todo",
+                                priority: t.priority || "medium",
+                                dueDate: t.dueDate
+                                  ? new Date(t.dueDate)
+                                      .toISOString()
+                                      .slice(0, 10)
+                                  : "",
+                              });
+                              setTodoOpen(true);
+                            }}
+                          >
+                            {t.title} — {t.status} — {t.priority}
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
 
                 <div className={styles.column}>
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      alignItems: "center",
-                    }}
-                  >
+                  <div className={styles.sectionTop}>
                     <h4>Meetings</h4>
+
                     <button
                       className={styles.createSmall}
                       onClick={() => {
@@ -199,29 +474,34 @@ export default function ClientDashboard() {
                       Add
                     </button>
                   </div>
-                  <ul>
-                    {meetings.map((m) => (
-                      <li key={m._id}>
-                        <button
-                          className={styles.link}
-                          onClick={() => {
-                            setEditingMeeting(m);
-                            setMeetingForm({
-                              title: m.title || "",
-                              date: m.date
-                                ? new Date(m.date).toISOString().slice(0, 10)
-                                : "",
-                              attendeesText: (m.attendees || []).join(", "),
-                              notes: m.notes || "",
-                            });
-                            setMeetingOpen(true);
-                          }}
-                        >
-                          {m.title} — {new Date(m.date).toLocaleDateString()}
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
+
+                  {meetings.length === 0 ? (
+                    <div className={styles.emptyState}>No meetings</div>
+                  ) : (
+                    <ul>
+                      {meetings.map((m) => (
+                        <li key={m._id}>
+                          <button
+                            className={styles.link}
+                            onClick={() => {
+                              setEditingMeeting(m);
+                              setMeetingForm({
+                                title: m.title || "",
+                                date: m.date
+                                  ? new Date(m.date).toISOString().slice(0, 10)
+                                  : "",
+                                attendeesText: (m.attendees || []).join(", "),
+                                notes: m.notes || "",
+                              });
+                              setMeetingOpen(true);
+                            }}
+                          >
+                            {m.title} — {new Date(m.date).toLocaleDateString()}
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
                 </div>
               </section>
 
@@ -231,15 +511,20 @@ export default function ClientDashboard() {
                 onClose={() => setTodoOpen(false)}
               >
                 <form
+                  className={styles.modalForm}
                   onSubmit={async (e) => {
                     e.preventDefault();
+
                     const token = localStorage.getItem("token");
+
                     try {
                       const payload = { ...todoForm, clientId: id };
                       const method = editingTodo ? "PUT" : "POST";
+
                       const url = editingTodo
                         ? `${API_URL}/api/todos/${editingTodo._id}`
                         : `${API_URL}/api/todos`;
+
                       const res = await fetch(url, {
                         method,
                         headers: {
@@ -248,14 +533,22 @@ export default function ClientDashboard() {
                         },
                         body: JSON.stringify(payload),
                       });
+
                       const j = await res.json();
+
                       if (!res.ok) throw new Error(j.error || "Failed");
+
                       setTodoOpen(false);
-                      // refresh lists
+
                       const tRes = await fetch(
                         `${API_URL}/api/todos?clientId=${id}`,
-                        { headers: { Authorization: `Bearer ${token}` } },
+                        {
+                          headers: {
+                            Authorization: `Bearer ${token}`,
+                          },
+                        },
                       );
+
                       const tJson = await tRes.json();
                       setTodos(tJson.todos || []);
                     } catch (err) {
@@ -269,10 +562,14 @@ export default function ClientDashboard() {
                       required
                       value={todoForm.title}
                       onChange={(e) =>
-                        setTodoForm({ ...todoForm, title: e.target.value })
+                        setTodoForm({
+                          ...todoForm,
+                          title: e.target.value,
+                        })
                       }
                     />
                   </label>
+
                   <label>
                     Description
                     <textarea
@@ -285,12 +582,16 @@ export default function ClientDashboard() {
                       }
                     />
                   </label>
+
                   <label>
                     Status
                     <select
                       value={todoForm.status}
                       onChange={(e) =>
-                        setTodoForm({ ...todoForm, status: e.target.value })
+                        setTodoForm({
+                          ...todoForm,
+                          status: e.target.value,
+                        })
                       }
                     >
                       <option value="todo">todo</option>
@@ -299,12 +600,16 @@ export default function ClientDashboard() {
                       <option value="blocked">blocked</option>
                     </select>
                   </label>
+
                   <label>
                     Priority
                     <select
                       value={todoForm.priority}
                       onChange={(e) =>
-                        setTodoForm({ ...todoForm, priority: e.target.value })
+                        setTodoForm({
+                          ...todoForm,
+                          priority: e.target.value,
+                        })
                       }
                     >
                       <option value="low">low</option>
@@ -312,21 +617,30 @@ export default function ClientDashboard() {
                       <option value="high">high</option>
                     </select>
                   </label>
+
                   <label>
                     Due Date
                     <input
                       type="date"
                       value={todoForm.dueDate}
                       onChange={(e) =>
-                        setTodoForm({ ...todoForm, dueDate: e.target.value })
+                        setTodoForm({
+                          ...todoForm,
+                          dueDate: e.target.value,
+                        })
                       }
                     />
                   </label>
-                  <div style={{ marginTop: 10 }}>
-                    <button type="submit">Save</button>
+
+                  <div className={styles.formActions}>
+                    <button type="submit" className={styles.saveButton}>
+                      Save
+                    </button>
                   </div>
                 </form>
               </Modal>
+
+              {/* Inline contact edit replaces modal */}
 
               <Modal
                 open={meetingOpen}
@@ -334,9 +648,12 @@ export default function ClientDashboard() {
                 onClose={() => setMeetingOpen(false)}
               >
                 <form
+                  className={styles.modalForm}
                   onSubmit={async (e) => {
                     e.preventDefault();
+
                     const token = localStorage.getItem("token");
+
                     try {
                       const payload = {
                         clientId: id,
@@ -349,10 +666,13 @@ export default function ClientDashboard() {
                           : [],
                         notes: meetingForm.notes,
                       };
+
                       const method = editingMeeting ? "PUT" : "POST";
+
                       const url = editingMeeting
                         ? `${API_URL}/api/meeting-notes/${editingMeeting._id}`
                         : `${API_URL}/api/meeting-notes`;
+
                       const res = await fetch(url, {
                         method,
                         headers: {
@@ -361,13 +681,22 @@ export default function ClientDashboard() {
                         },
                         body: JSON.stringify(payload),
                       });
+
                       const j = await res.json();
+
                       if (!res.ok) throw new Error(j.error || "Failed");
+
                       setMeetingOpen(false);
+
                       const mRes = await fetch(
                         `${API_URL}/api/meeting-notes?clientId=${id}`,
-                        { headers: { Authorization: `Bearer ${token}` } },
+                        {
+                          headers: {
+                            Authorization: `Bearer ${token}`,
+                          },
+                        },
                       );
+
                       const mJson = await mRes.json();
                       setMeetings(mJson.meetings || []);
                     } catch (err) {
@@ -388,20 +717,26 @@ export default function ClientDashboard() {
                       }
                     />
                   </label>
+
                   <label>
                     Date
                     <input
                       type="date"
                       value={meetingForm.date}
                       onChange={(e) =>
-                        setMeetingForm({ ...meetingForm, date: e.target.value })
+                        setMeetingForm({
+                          ...meetingForm,
+                          date: e.target.value,
+                        })
                       }
                     />
                   </label>
+
                   <label>
-                    Attendees (comma separated)
+                    Attendees
                     <input
                       value={meetingForm.attendeesText}
+                      placeholder="Comma separated"
                       onChange={(e) =>
                         setMeetingForm({
                           ...meetingForm,
@@ -410,6 +745,7 @@ export default function ClientDashboard() {
                       }
                     />
                   </label>
+
                   <label>
                     Notes
                     <textarea
@@ -422,8 +758,11 @@ export default function ClientDashboard() {
                       }
                     />
                   </label>
-                  <div style={{ marginTop: 10 }}>
-                    <button type="submit">Save</button>
+
+                  <div className={styles.formActions}>
+                    <button type="submit" className={styles.saveButton}>
+                      Save
+                    </button>
                   </div>
                 </form>
               </Modal>

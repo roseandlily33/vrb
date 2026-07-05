@@ -6,6 +6,7 @@
   align-items: center;
   justify-content: center;
   z-index: 9999;
+  /* overflow-y: scroll; */
 }
 .modal {
   background: #fff;
@@ -13,6 +14,9 @@
   width: 520px;
   max-width: 94%;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  /* limit modal height and allow internal scrolling */
+  max-height: 90vh;
+  overflow: auto;
 }
 .header {
   display: flex;
@@ -23,6 +27,9 @@
 }
 .content {
   padding: 16px;
+  /* ensure inner content can scroll if it's long */
+  overflow: auto;
+  max-height: calc(90vh - 64px);
 }
 .close {
   background: none;
