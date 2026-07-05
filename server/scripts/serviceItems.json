@@ -1,0 +1,228 @@
+[
+  {
+    "name": "Website Essentials",
+    "category": "Website",
+    "description":
+      "A professional brochure-style website for small businesses looking to establish an online presence.",
+    "defaultPrice": 2800,
+    "deliverables":
+      "Discovery Session,Responsive Website,2-5 Pages,Contact Form,Basic SEO,Responsive Design,Custom UI Design,2 Revision Rounds,2 Weeks Support"
+  },
+  {
+    "name": "Professional Website",
+    "category": "Website",
+    "description":
+      "A larger custom website with additional pages, branding consultation, and light backend functionality.",
+    "defaultPrice": 5500,
+    "deliverables":
+      "Discovery Session,Responsive Website,Up to 10 Pages,Custom UI Design,Branding Consultation,UX Consultation,Basic Backend Features,SEO Optimization,2 Revision Rounds,2 Weeks Support"
+  },
+  {
+    "name": "Signature Platform",
+    "category": "Website",
+    "description":
+      "A fully custom web application with frontend, backend, authentication, databases, APIs, and advanced workflows.",
+    "defaultPrice": 12000,
+    "deliverables":
+      "Discovery Session,UI/UX Design,Frontend Development,Backend Development,Authentication,Database Setup,API Integration,Dashboard Development,Responsive Design,Testing,Deployment,2 Revision Rounds,2 Weeks Support"
+  },
+
+  {
+    "name": "Design Essentials",
+    "category": "Design",
+    "description":
+      "Foundational branding and interface design for businesses starting their digital presence.",
+    "defaultPrice": 1200,
+    "deliverables":
+      "Discovery Session,Typography,Colour Palette,Basic Style Guide,High Fidelity Mockup,Responsive Layout"
+  },
+  {
+    "name": "Design Foundation",
+    "category": "Design",
+    "description":
+      "A complete design system including user flows, wireframes, branding, and multiple page mockups.",
+    "defaultPrice": 2400,
+    "deliverables":
+      "Discovery Session,Sitemap,User Flows,Wireframes,Typography,Colour Palette,Design System,Style Guide,2-3 High Fidelity Mockups"
+  },
+
+  {
+    "name": "Homepage Design",
+    "category": "Design",
+    "description":
+      "Custom homepage design focused on improving conversions and user experience.",
+    "defaultPrice": 1400,
+    "deliverables":
+      "Homepage Design,Wireframe,Responsive Layout,Desktop Design,Mobile Design,Revision Rounds"
+  },
+
+  {
+    "name": "Landing Page",
+    "category": "Website",
+    "description":
+      "Single-page marketing website focused on lead generation or promoting a service.",
+    "defaultPrice": 1200,
+    "deliverables":
+      "Landing Page,Responsive Design,Call To Action,Contact Form,Basic SEO"
+  },
+
+  {
+    "name": "Contact Page",
+    "category": "Website",
+    "description":
+      "Professionally designed contact page with inquiry forms and business information.",
+    "defaultPrice": 1300,
+    "deliverables":
+      "Contact Form,Business Information,Map Integration,Responsive Design"
+  },
+
+  {
+    "name": "FAQ Page",
+    "category": "Website",
+    "description":
+      "Organized frequently asked questions page to improve customer experience.",
+    "defaultPrice": 1000,
+    "deliverables":
+      "FAQ Layout,Accordion Design,Responsive Design"
+  },
+
+  {
+    "name": "Our Team Page",
+    "category": "Website",
+    "description":
+      "Showcase team members with bios, specialties, and professional information.",
+    "defaultPrice": 1500,
+    "deliverables":
+      "Team Profiles,Staff Cards,Responsive Layout,Contact Links"
+  },
+
+  {
+    "name": "Product Page",
+    "category": "Website",
+    "description":
+      "Custom product showcase page integrated with an external shopping platform if required.",
+    "defaultPrice": 3500,
+    "deliverables":
+      "Product Listings,Filtering,External Shop Integration,Responsive Design"
+  },
+
+  {
+    "name": "Jane App Integration",
+    "category": "Integration",
+    "description":
+      "Integration of Jane App booking into an existing website.",
+    "defaultPrice": 700,
+    "deliverables":
+      "Jane App Integration,Booking Buttons,Appointment Flow Testing"
+  },
+
+  {
+    "name": "Phorest Integration",
+    "category": "Integration",
+    "description":
+      "Integration of Phorest products or services into an existing website.",
+    "defaultPrice": 1200,
+    "deliverables":
+      "Phorest Integration,Product Links,Checkout Flow"
+  },
+
+  {
+    "name": "Email Marketing Setup",
+    "category": "Marketing",
+    "description":
+      "Setup of email marketing platform with branded templates and automation.",
+    "defaultPrice": 2000,
+    "deliverables":
+      "Platform Setup,Newsletter Template,Automation,Signup Forms"
+  },
+
+  {
+    "name": "Newsletter Signup",
+    "category": "Marketing",
+    "description":
+      "Newsletter signup integration connected to an email marketing provider.",
+    "defaultPrice": 700,
+    "deliverables":
+      "Signup Form,Email Integration,Responsive Design"
+  },
+
+  {
+    "name": "Social Media Management",
+    "category": "Marketing",
+    "description":
+      "Monthly social media content planning, creation, posting, and management.",
+    "defaultPrice": 1200,
+    "deliverables":
+      "Content Planning,Graphic Design,Caption Writing,Scheduling,Analytics,Monthly Reporting"
+  },
+
+  {
+    "name": "Content Creation Session",
+    "category": "Marketing",
+    "description":
+      "On-site photography and video session for creating branded social media content.",
+    "defaultPrice": 300,
+    "deliverables":
+      "Photography,Video Capture,Content Planning"
+  },
+
+  {
+    "name": "Logo Recreation",
+    "category": "Branding",
+    "description":
+      "Recreate an existing logo into clean vector artwork with transparent exports.",
+    "defaultPrice": 100,
+    "deliverables":
+      "SVG,PNG,PDF,Transparent Background,Black Version,White Version"
+  },
+
+  {
+    "name": "Logo Design",
+    "category": "Branding",
+    "description":
+      "Custom logo designed specifically for your business and brand identity.",
+    "defaultPrice": 750,
+    "deliverables":
+      "Logo Concepts,Final Logo,SVG,PNG,PDF,Brand Colours"
+  },
+
+  {
+    "name": "Business Card Design",
+    "category": "Print",
+    "description":
+      "Professional business card designed and prepared for commercial printing.",
+    "defaultPrice": 150,
+    "deliverables":
+      "Front Design,Back Design,Print Ready PDF,Bleed Setup"
+  },
+
+  {
+    "name": "Sign Design",
+    "category": "Print",
+    "description":
+      "Custom signage designed for indoor or outdoor business use.",
+    "defaultPrice": 300,
+    "deliverables":
+      "Concept Design,Print Ready File,Large Format Setup"
+  },
+
+  {
+    "name": "Website Maintenance",
+    "category": "Support",
+    "description":
+      "Ongoing website updates, maintenance, and technical support.",
+    "defaultPrice": 150,
+    "deliverables":
+      "Website Updates,Security Checks,Content Changes,Bug Fixes"
+  },
+
+  {
+    "name": "Consultation",
+    "category": "Consulting",
+    "description":
+      "Strategy session to discuss business goals, websites, branding, or digital marketing.",
+    "defaultPrice": 100,
+    "deliverables":
+      "Planning Session,Recommendations,Follow-up Notes"
+  }
+]

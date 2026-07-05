@@ -1,0 +1,43 @@
+.wrap {
+  padding: 20px;
+}
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.back {
+  background: #eee;
+  border: 1px solid #ddd;
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+.edit {
+  background: #0a84ff;
+  color: #fff;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 6px;
+  margin-right: 8px;
+}
+.delete {
+  background: #ffdddd;
+  border: 1px solid #ffbbbb;
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+.form label {
+  display: block;
+  margin-bottom: 8px;
+}
+.form input,
+.form textarea,
+.form select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+}
+.actions {
+  margin-top: 10px;
+}

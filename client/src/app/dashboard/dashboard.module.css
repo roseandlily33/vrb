@@ -1,0 +1,56 @@
+.wrap {
+  padding: 28px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.refresh {
+  padding: 8px 12px;
+  background: #0054c9;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  background: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+}
+
+.card h3 {
+  margin: 0 0 8px 0;
+}
+.card p {
+  font-size: 20px;
+  margin: 0 0 8px 0;
+}
+
+.error {
+  background: #ffe8e8;
+  color: #a71d2a;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.link {
+  background: none;
+  border: none;
+  color: #0054c9;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+}

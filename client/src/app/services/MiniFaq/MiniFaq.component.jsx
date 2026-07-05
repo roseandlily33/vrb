@@ -27,7 +27,6 @@ const faq = [
 export default function MiniFaq() {
   return (
     <section className={styles.faqSection}>
-      {/* <span className="eyebrowHeader">FAQ</span> */}
       <h2 className="heading">Frequently asked questions</h2>
       <p className="meta">
         A few quick answers to common questions about timelines, process, and
@@ -38,7 +37,6 @@ export default function MiniFaq() {
         {faq.map((item, idx) => (
           <li key={idx} className={styles.faqItem}>
             <div className={styles.question}>
-              {/* <FaQuestionCircle className="secondaryIcon" style={{marginRight: 8, fontSize: '1.1em', verticalAlign: 'middle'}} /> */}
               {item.q}
             </div>
             <div className={styles.answer}>{item.a}</div>

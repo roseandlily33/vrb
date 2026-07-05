@@ -1,0 +1,66 @@
+.wrap {
+  padding: 20px;
+}
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.back {
+  background: #eee;
+  border: 1px solid #ddd;
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+.create {
+  background: #0054c9;
+  color: #fff;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+.summary {
+  display: flex;
+  gap: 18px;
+  margin-top: 12px;
+}
+.list {
+  margin-top: 12px;
+}
+.row {
+  display: flex;
+  gap: 12px;
+  padding: 8px;
+  border-bottom: 1px solid #f1f1f1;
+  align-items: center;
+}
+.row div {
+  flex: 1;
+}
+.view {
+  background: #eef;
+  border: 1px solid #cce;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+.delete {
+  background: #ffdddd;
+  border: 1px solid #ffbbbb;
+  padding: 6px 8px;
+  border-radius: 6px;
+}
+.form label {
+  display: block;
+  margin-bottom: 8px;
+}
+.form input,
+.form textarea,
+.form select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+}
+.actions {
+  margin-top: 10px;
+}

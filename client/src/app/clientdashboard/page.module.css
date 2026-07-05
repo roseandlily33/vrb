@@ -1,0 +1,63 @@
+.wrap {
+  padding: 20px;
+}
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.back {
+  background: #eee;
+  border: 1px solid #ddd;
+  padding: 8px 10px;
+  border-radius: 6px;
+}
+.clientInfo {
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+}
+.summaryGrid {
+  display: flex;
+  gap: 12px;
+  margin-top: 12px;
+}
+.card {
+  padding: 12px;
+  border: 1px solid #eaeaea;
+  border-radius: 8px;
+  flex: 1;
+}
+.lists {
+  display: flex;
+  gap: 12px;
+  margin-top: 16px;
+}
+.column {
+  flex: 1;
+  border: 1px solid #eee;
+  padding: 12px;
+  border-radius: 6px;
+}
+.error {
+  color: #b00020;
+}
+
+.link {
+  background: none;
+  border: none;
+  color: #0054c9;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+}
+
+.createSmall {
+  background: #0054c9;
+  color: #fff;
+  border: none;
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}

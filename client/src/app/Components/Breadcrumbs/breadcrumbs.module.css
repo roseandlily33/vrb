@@ -1,0 +1,12 @@
+.breadcrumbs {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 12px;
+}
+.item {
+  margin-right: 6px;
+}
+.sep {
+  margin: 0 6px;
+  color: #999;
+}
