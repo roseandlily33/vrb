@@ -44,7 +44,7 @@ export default function InvoicesList() {
           <h1>Invoices — {invoices.length}</h1>
         </div>
         <div className={styles.headerActions}>
-          <button className={styles.create} onClick={() => router.push(`/clientdashboard/${id}/payments`)}>
+          <button className={styles.create} onClick={() => router.push(`/clientdashboard/${id}/invoices/create`)}>
             Create Invoice
           </button>
         </div>

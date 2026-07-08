@@ -63,15 +63,13 @@ export default function DashboardPage() {
         fetch(`${API_URL}/api/social-posts`, { headers }),
       ];
 
-      if (user && user.role === "admin")
+      if (user && user.role === "admin") {
         endpoints.push(fetch(`${API_URL}/api/users`, { headers }));
+      }
 
       const results = await Promise.all(
-        endpoints.map((p) =>
-          p.then((r) => r.json().then((j) => ({ ok: r.ok, body: j }))),
-        ),
+        endpoints.map((p) => p.then((r) => r.json().then((j) => ({ ok: r.ok, body: j })))),
       );
-
       setData({
         clients: results[0]?.ok ? results[0].body.clients || [] : [],
         proposals: results[1]?.ok ? results[1].body.proposals || [] : [],
@@ -105,6 +103,95 @@ export default function DashboardPage() {
 
     fetchAll();
   }, []);
+
+  // Revenue calculations
+  const totalReceived = data.payments
+    .filter((p) => p.status === "completed")
+    .reduce((s, p) => s + (Number(p.amount) || 0), 0);
+
+  const totalPending = data.payments
+    .filter((p) => p.status !== "completed")
+    .reduce((s, p) => s + (Number(p.amount) || 0), 0);
+
+  const exportAll = async () => {
+    await fetchAll();
+
+    const sections = [
+      { key: "clients", rows: data.clients },
+      { key: "proposals", rows: data.proposals },
+      { key: "templates", rows: data.templates },
+      { key: "serviceItems", rows: data.serviceItems },
+      { key: "users", rows: data.users },
+      { key: "todos", rows: data.todos },
+      { key: "payments", rows: data.payments },
+      { key: "socialPosts", rows: data.socialPosts },
+    ];
+
+    const csvParts = [];
+
+    const flatten = (obj, prefix = "") => {
+      const out = {};
+      if (obj === null || obj === undefined) return out;
+      for (const k of Object.keys(obj)) {
+        const val = obj[k];
+        const name = prefix ? `${prefix}.${k}` : k;
+        if (val === null || val === undefined) {
+          out[name] = "";
+        } else if (Array.isArray(val)) {
+          out[name] = val.map((v) => (typeof v === "object" ? JSON.stringify(v) : String(v))).join("; ");
+        } else if (typeof val === "object" && !(val instanceof Date)) {
+          Object.assign(out, flatten(val, name));
+        } else if (val instanceof Date) {
+          out[name] = val.toISOString();
+        } else {
+          out[name] = String(val);
+        }
+      }
+      return out;
+    };
+
+    const escapeCell = (v) => {
+      if (v === null || v === undefined) return "";
+      const s = String(v);
+      // double quotes inside must be doubled
+      const doubled = s.replace(/"/g, '""');
+      return `"${doubled}"`;
+    };
+
+    const toCsv = (arr) => {
+      if (!arr || arr.length === 0) return null;
+      const flattened = arr.map((r) => flatten(r || {}));
+      const keys = Array.from(new Set(flattened.flatMap((r) => Object.keys(r))));
+      const header = keys.map((k) => escapeCell(k)).join(",");
+      const lines = flattened.map((r) =>
+        keys
+          .map((k) => escapeCell(r[k] ?? ""))
+          .join(","),
+      );
+      return [header, ...lines].join("\n");
+    };
+
+    for (const sec of sections) {
+      const csv = toCsv(sec.rows);
+      if (csv) {
+        csvParts.push(`"=== ${sec.key} ==="`);
+        csvParts.push(csv);
+      }
+    }
+
+    // Add BOM so Excel recognizes UTF-8 and opens correctly
+    const content = "\uFEFF" + csvParts.join("\n\n");
+    const blob = new Blob([content], { type: "text/csv;charset=utf-8;" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    const now = new Date().toISOString().slice(0, 10);
+    a.download = `vrb-data-export-${now}.csv`;
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+  };
 
   // Calendar state and helpers
   const [calendarMonth, setCalendarMonth] = useState(() => {
@@ -215,6 +302,10 @@ export default function DashboardPage() {
               Refresh
             </button>
 
+            <button onClick={exportAll} className={styles.btnSecondary}>
+              Export CSV
+            </button>
+
             <button onClick={handleLogout} className={styles.btnGhost}>
               Logout
             </button>
@@ -238,6 +329,16 @@ export default function DashboardPage() {
                 <strong>
                   {data.todos.filter((t) => t.status !== "done").length}
                 </strong>
+              </article>
+
+              <article className={styles.statCard}>
+                <span>Total Received</span>
+                <strong>${totalReceived.toFixed(2)}</strong>
+              </article>
+
+              <article className={styles.statCard}>
+                <span>Pending Payments</span>
+                <strong>${totalPending.toFixed(2)}</strong>
               </article>
 
               <article className={styles.statCard}>

@@ -330,14 +330,84 @@ export default function ClientDashboard() {
                     </div>
                    
                   </div>
-                  <div style={{ minWidth: 220, textAlign: "right" }}>
-                    <div style={{ marginBottom: 8 }}>
-                      Outstanding: <strong>${outstanding}</strong>
+                    <div style={{ minWidth: 220, textAlign: "right" }}>
+                      <div style={{ marginBottom: 8 }}>
+                        Outstanding: <strong>${outstanding}</strong>
+                      </div>
+                      <div>
+                        Total proposals: <strong>${totalProposals}</strong>
+                      </div>
+                      <div style={{ marginTop: 8 }}>
+                        {!contactEditing ? (
+                          <button
+                            onClick={() => {
+                              setContactForm({
+                                businessName: client.businessName || "",
+                                contactName: client.contactName || "",
+                                email: client.email || "",
+                                phone: client.phone || "",
+                                website: client.website || "",
+                                industry: client.industry || "",
+                                status: client.status || "lead",
+                                address_street: (client.address && client.address.street) || "",
+                                address_city: (client.address && client.address.city) || "",
+                                address_province: (client.address && client.address.province) || "",
+                                address_postalCode: (client.address && client.address.postalCode) || "",
+                                address_country: (client.address && client.address.country) || "Canada",
+                                notes: client.notes || "",
+                              });
+                              setContactEditing(true);
+                            }}
+                            aria-label="Edit contact"
+                            style={{ background: "transparent", border: "none", fontSize: 18, cursor: "pointer" }}
+                          >
+                            ✏️
+                          </button>
+                        ) : (
+                          <div style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
+                            <button
+                              className={styles.saveButton}
+                              onClick={async () => {
+                                const token = localStorage.getItem("token");
+                                try {
+                                  const payload = {
+                                    businessName: contactForm.businessName,
+                                    contactName: contactForm.contactName,
+                                    email: contactForm.email,
+                                    phone: contactForm.phone,
+                                    website: contactForm.website,
+                                    industry: contactForm.industry,
+                                    status: contactForm.status,
+                                    address: {
+                                      street: contactForm.address_street,
+                                      city: contactForm.address_city,
+                                      province: contactForm.address_province,
+                                      postalCode: contactForm.address_postalCode,
+                                      country: contactForm.address_country,
+                                    },
+                                    notes: contactForm.notes,
+                                  };
+                                  const res = await fetch(`${API_URL}/api/clients/${id}`, {
+                                    method: "PUT",
+                                    headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+                                    body: JSON.stringify(payload),
+                                  });
+                                  const j = await res.json();
+                                  if (!res.ok) throw new Error(j.error || "Save failed");
+                                  setClient(j.client || null);
+                                  setContactEditing(false);
+                                } catch (err) {
+                                  alert(err.message || "Error");
+                                }
+                              }}
+                            >
+                              Save
+                            </button>
+                            <button className={styles.createSmall} onClick={() => setContactEditing(false)}>Cancel</button>
+                          </div>
+                        )}
+                      </div>
                     </div>
-                    <div>
-                      Total proposals: <strong>${totalProposals}</strong>
-                    </div>
-                </div>
                 </div>
               </section>
 
@@ -430,31 +500,73 @@ export default function ClientDashboard() {
                     <div className={styles.emptyState}>No todos</div>
                   ) : (
                     <ul>
-                      {todos.map((t) => (
-                        <li key={t._id}>
-                          <button
-                            className={styles.link}
-                            onClick={() => {
-                              setEditingTodo(t);
-                              setTodoForm({
-                                title: t.title || "",
-                                description: t.description || "",
-                                assignedTo: t.assignedTo || "",
-                                status: t.status || "todo",
-                                priority: t.priority || "medium",
-                                dueDate: t.dueDate
-                                  ? new Date(t.dueDate)
-                                      .toISOString()
-                                      .slice(0, 10)
-                                  : "",
-                              });
-                              setTodoOpen(true);
-                            }}
-                          >
-                            {t.title} — {t.status} — {t.priority}
-                          </button>
-                        </li>
-                      ))}
+                      {todos.map((t) => {
+                        const done = t.status === "done";
+                        const prio = t.priority || "medium";
+                        return (
+                          <li key={t._id} className={done ? styles.todoDone : ""}>
+                            <div className={styles.todoItem}>
+                              <button
+                                className={styles.todoToggle}
+                                aria-label={done ? "Mark as not done" : "Mark as done"}
+                                onClick={async (e) => {
+                                  e.stopPropagation();
+                                  const token = localStorage.getItem("token");
+                                  try {
+                                    const body = {
+                                      status: done ? "todo" : "done",
+                                      completedAt: done ? null : new Date().toISOString(),
+                                    };
+                                    const res = await fetch(`${API_URL}/api/todos/${t._id}`, {
+                                      method: "PUT",
+                                      headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+                                      body: JSON.stringify(body),
+                                    });
+                                    const j = await res.json();
+                                    if (!res.ok) throw new Error(j.error || "Failed");
+                                    // update local list
+                                    setTodos((prev) => prev.map((it) => (it._id === t._id ? j.todo || { ...it, ...body } : it)));
+                                  } catch (err) {
+                                    alert(err.message || "Error");
+                                  }
+                                }}
+                              >
+                                {done ? "✔️" : "○"}
+                              </button>
+
+                              <div className={`${styles.priorityDot} ${styles[`prio_${prio}`]}`} />
+
+                              <button
+                                className={styles.link}
+                                style={{ display: "block", width: "100%" }}
+                                onClick={() => {
+                                  setEditingTodo(t);
+                                  setTodoForm({
+                                    title: t.title || "",
+                                    description: t.description || "",
+                                    assignedTo: t.assignedTo || "",
+                                    status: t.status || "todo",
+                                    priority: t.priority || "medium",
+                                    dueDate: t.dueDate
+                                      ? new Date(t.dueDate).toISOString().slice(0, 10)
+                                      : "",
+                                  });
+                                  setTodoOpen(true);
+                                }}
+                              >
+                                <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
+                                  <span style={{ fontWeight: 700 }}>{t.title}</span>
+                                  {t.description && (
+                                    <span style={{ fontSize: 12, color: "#666", marginTop: 6 }}>
+                                      {String(t.description).slice(0, 80)}{String(t.description).length > 80 ? "…" : ""}
+                                    </span>
+                                  )}
+                                </div>
+                              </button>
+                            </div>
+                          </li>
+                        );
+                      })}
                     </ul>
                   )}
                 </div>
