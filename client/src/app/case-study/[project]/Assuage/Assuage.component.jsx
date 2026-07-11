@@ -3,13 +3,9 @@ import CSHero from "../Components/CSHero/CSHero.component";
 import CTA3 from "@/app/Components/CTA/CTA3/CTA3.component";
 import CSProblem from "../Components/CSProblem/CSProblem.component";
 import CSProcess from "../Components/CSProcess/CSProcess.component";
-import CSTestimonial from "../Components/CSTestimonial.component";
 import CSKeyPages from "../Components/CSKeyPages.component";
-import CSResults from "../Components/CSResults/CSResults.component";
 import CSKeyFeatures from "../Components/CSKeyFeatures/CSKeyFeatures.component";
-import CSPhaseCard from "../Components/CSPhases/CSPhases.component";
-import { results } from "./result";
-import { beforePages, pages, afterPages, PhaseDescriptions } from "./pages";
+import { pages,  } from "./pages";
 import Breadcrumbs from "../Components/Extras/Breadcrumbs/Breadcrumbs.component";
 import BackToTopButton from "@/app/Components/BackToTop/BackToTopButton";
 
@@ -50,7 +46,9 @@ const Assuage = () => {
         development="This project concluded at the design stage. The deliverables consisted of polished, high-fidelity mockups intended to guide a future website implementation."
         launch="As this was a design exploration project, no production website was developed or launched at this stage."
       />
+      <CSKeyPages pages={pages} />
       <BackToTopButton />
+      <CTA3 />
     </section>
   );
 };

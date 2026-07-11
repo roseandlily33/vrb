@@ -1,8 +1,9 @@
 export const socialMediaList = [
   {
-    name: "Social Essentials",
-    price: 500,
+    title: "Social Essentials",
+    startingAt: "$500",
     timeline: "Monthly",
+    bestFor: "Businesses establishing a consistent social presence",
     description:
       "A great starting point for businesses looking to establish a consistent and professional presence on social media.",
     features: [
@@ -15,13 +16,27 @@ export const socialMediaList = [
       "Monthly performance summary",
       "One round of revisions",
       "Content supplied by the client or provided digitally",
-      "On-site content creation available as an add-on",
     ],
+    type: "marketing",
+    whatsIncluded: [
+      "Up to 4 custom posts per month (1 per week)",
+      "Monthly content planning",
+      "Custom branded graphics",
+      "Caption writing",
+      "Hashtag research",
+      "Post scheduling and publishing",
+      "Monthly performance summary",
+    ],
+    revisionLimits: "1 round",
+    supportPeriod: "Ongoing monthly",
+    optionalAddOns: ["On-site content creation"],
+    note: "Content can be supplied by the client or produced by us as an add-on",
   },
   {
-    name: "Social Growth",
-    price: 850,
+    title: "Social Growth",
+    startingAt: "$850",
     timeline: "Monthly",
+    bestFor: "Businesses increasing consistency and engagement",
     description:
       "Designed for businesses ready to increase consistency and build stronger engagement with their audience.",
     features: [
@@ -34,13 +49,24 @@ export const socialMediaList = [
       "Monthly analytics report",
       "Two rounds of revisions",
       "Content coordination with the client",
-      "On-site content creation available upon request",
     ],
+    type: "marketing",
+    whatsIncluded: [
+      "Up to 8 custom posts per month (2 per week)",
+      "Monthly content planning meeting",
+      "Custom branded graphics and carousel posts",
+      "Monthly analytics report",
+    ],
+    revisionLimits: "2 rounds",
+    supportPeriod: "Ongoing monthly",
+    optionalAddOns: ["On-site content creation"],
+    note: "Content coordination and reporting included",
   },
   {
-    name: "Social Signature",
-    price: 1200,
+    title: "Social Signature",
+    startingAt: "$1,200",
     timeline: "Monthly",
+    bestFor: "Businesses wanting a comprehensive social program",
     description:
       "A comprehensive social media management package for businesses looking to stay active, build trust, and grow their online presence.",
     features: [
@@ -53,7 +79,17 @@ export const socialMediaList = [
       "Priority support",
       "Up to three rounds of revisions",
       "Content planning and coordination",
-      "On-site content creation available through a custom monthly agreement",
     ],
+    type: "marketing",
+    whatsIncluded: [
+      "Up to 12 custom posts per month (3 per week)",
+      "Monthly content strategy session",
+      "Custom graphics, promotional posts, and carousel designs",
+      "Monthly performance report with recommendations",
+    ],
+    revisionLimits: "Up to 3 rounds",
+    supportPeriod: "Ongoing monthly",
+    optionalAddOns: ["On-site content creation (custom agreement)"],
+    note: "Priority support and strategic planning included",
   },
 ];

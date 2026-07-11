@@ -1,5 +1,5 @@
 import Link from "next/link";
-import styles from "./PlumbingCaseStudy.module.css";
+import styles from "./NewLine.module.css";
 
 const services = [
   "Brand refinement",
@@ -111,7 +111,7 @@ function ImagePlaceholder({
   );
 }
 
-export default function PlumbingCaseStudy() {
+export default function NewLineCaseStudy() {
   return (
     <main className={styles.page}>
       <section className={styles.hero}>

@@ -1,8 +1,9 @@
 export const Retainer = [
   {
-    name: "Mini",
-    base: "Monthly Retainer",
-    bestFor: 'growing businesses',
+    title: "Mini",
+    startingAt: "$400",
+    timeline: "Monthly",
+    bestFor: "Growing businesses",
     description:
       "Ongoing support and updates for your website, including content changes, security updates, and performance monitoring.",
     features: [
@@ -12,12 +13,23 @@ export const Retainer = [
       "Performance optimization",
       "Priority support",
     ],
-    price: "$400",
+    type: "retainer",
+    whatsIncluded: [
+      "Up to 5 hours of support per month",
+      "Content updates and edits",
+      "Security monitoring and updates",
+      "Performance optimization",
+    ],
+    revisionLimits: "N/A",
+    supportPeriod: "Ongoing",
+    optionalAddOns: [],
+    note: "Monthly retainer for basic site support",
   },
   {
-    name: "Boost",
-    base: "Quarterly Retainer",
-    bestFor: 'ongoing support',
+    title: "Boost",
+    startingAt: "$1,200",
+    timeline: "Quarterly",
+    bestFor: "Ongoing support",
     description:
       "Comprehensive support and updates for your website every quarter, including content changes, security updates, and performance monitoring.",
     features: [
@@ -28,12 +40,22 @@ export const Retainer = [
       "Priority support",
       "Quarterly performance reports",
     ],
-    price: "$1200",
+    type: "retainer",
+    whatsIncluded: [
+      "Up to 15 hours of support per quarter",
+      "Security monitoring and updates",
+      "Quarterly performance reports",
+    ],
+    revisionLimits: "N/A",
+    supportPeriod: "Ongoing",
+    optionalAddOns: [],
+    note: "Quarterly retainer with reporting",
   },
   {
-    name: "Momentum",
-    base: "Annual Retainer",
-    bestFor: 'scaling teams',
+    title: "Momentum",
+    startingAt: "$4,800",
+    timeline: "Annual",
+    bestFor: "Scaling teams",
     description:
       "Full-year support and updates for your website, including content changes, security updates, performance monitoring, and strategic planning.",
     features: [
@@ -45,6 +67,16 @@ export const Retainer = [
       "Quarterly performance reports",
       "Annual strategic planning session",
     ],
-    price: "$4,800",
+    type: "retainer",
+    whatsIncluded: [
+      "Up to 60 hours of support per year",
+      "Security monitoring and updates",
+      "Quarterly performance reports",
+      "Annual strategic planning session",
+    ],
+    revisionLimits: "N/A",
+    supportPeriod: "Annual",
+    optionalAddOns: [],
+    note: "Annual retainer for comprehensive ongoing support",
   },
 ];

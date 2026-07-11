@@ -36,4 +36,22 @@ export const projects = [
     link: "/case-study/inspection-pal",
     badge: "Front-End Design & Dev",
   },
+  {
+    name: "Assuage Wellness Centre",
+    description:
+      "Exploring two visual directions for a modern wellness website with high-fidelity mockups.",
+    tech: ["Design"],
+    image: "/Assuage/AssuageHome.png",
+    link: "/case-study/assuage",
+    badge: "UX/UI Design",
+  },
+  {
+    name: "New Line Plumbing, Heating & Construction",
+    description:
+      "Website redesign to improve user experience, navigation, and content organization.",
+    tech: ["Design"],
+    image: "/NewLine/NewLineHome.png",
+    link: "/case-study/newline",
+    badge: "UX/UI Design",
+  },
 ];
