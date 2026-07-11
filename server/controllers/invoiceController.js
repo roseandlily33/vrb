@@ -46,10 +46,30 @@ async function createInvoice(req, res, next) {
 
     // generate a sequential invoice number using counters collection
     // start value set so next number will be 3 (since you already have 2 existing invoices)
-    const counterDoc = await Counter.findOneAndUpdate(
-      { _id: "invoice" },
-      { $inc: { seq: 1 }, $setOnInsert: { seq: 2 } },
-      { new: true, upsert: true },
+    // Ensure a counter document exists, then increment it.
+    // This two-step approach avoids conflicting update operators and is compatible
+    // with mongoose versions that don't accept pipeline updates by default.
+    const existingCounter = await Counter.findById("invoice");
+    if (!existingCounter) {
+      try {
+        // create with seq:2 so that after increment the first invoice is 3
+        await Counter.create({ _id: "invoice", seq: 2 });
+      } catch (e) {
+        // ignore duplicate key errors from concurrent creates
+        if (
+          !(
+            e.code === 11000 ||
+            (e.name === "MongoServerError" && e.code === 11000)
+          )
+        )
+          throw e;
+      }
+    }
+
+    const counterDoc = await Counter.findByIdAndUpdate(
+      "invoice",
+      { $inc: { seq: 1 } },
+      { returnDocument: "after" },
     );
     const number = counterDoc.seq;
     const padded = String(number).padStart(4, "0");
@@ -170,7 +190,7 @@ async function updateInvoice(req, res, next) {
         dueDate,
         status,
       },
-      { new: true },
+      { returnDocument: "after" },
     )
       .populate("clientId")
       .populate("lineItems.serviceItemId");

@@ -8,173 +8,449 @@ const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
 
 export default function InvoicePreview() {
   const { id, invoiceId } = useParams();
-  const router = useRouter();
-  const [loading, setLoading] = useState(true);
-  const [invoice, setInvoice] = useState(null);
-  const [isEditing, setIsEditing] = useState(false);
-  const [editable, setEditable] = useState(null);
-  const [openPayment, setOpenPayment] = useState(false);
+const router = useRouter();
+
+const [loading, setLoading] = useState(true);
+const [invoice, setInvoice] = useState(null);
+const [isEditing, setIsEditing] = useState(false);
+const [editable, setEditable] = useState(null);
+const [openPayment, setOpenPayment] = useState(false);
+const [payments, setPayments] = useState([]);
   const docRef = useRef(null);
-  const [paymentForm, setPaymentForm] = useState({
-    amount: "",
-    currency: "CAD",
-    method: "card",
-    status: "pending",
-    date: "",
-    notes: "",
-  });
 
-  useEffect(() => {
+const [paymentForm, setPaymentForm] = useState({
+  amount: "",
+  currency: "CAD",
+  method: "card",
+  status: "pending",
+  date: "",
+  notes: "",
+});
+
+useEffect(() => {
+  if (invoiceId) {
     fetchInvoice();
-  }, [invoiceId]);
+  }
+}, [invoiceId]);
 
-  const fetchInvoice = async () => {
-    setLoading(true);
-    const token = localStorage.getItem("token");
-    try {
-      const res = await fetch(`${API_URL}/api/invoices/${invoiceId}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
-      const j = await res.json();
-      if (!res.ok) throw new Error(j.error || "Failed");
-      setInvoice(j.invoice);
-      setEditable(j.invoice);
-      setPaymentForm((prev) => ({
-        ...prev,
-        amount: j.invoice.total || 0,
-        currency: j.invoice.currency || "CAD",
-      }));
-    } catch (err) {
-      console.error(err);
-      alert(err.message || "Failed to load");
+useEffect(() => {
+  if (invoice && invoice.clientId) fetchPayments();
+}, [invoice]);
+
+const fetchInvoice = async () => {
+  setLoading(true);
+
+  const token = localStorage.getItem("token");
+
+  try {
+    const res = await fetch(`${API_URL}/api/invoices/${invoiceId}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error(data.error || "Failed to load invoice");
     }
-    setLoading(false);
-  };
 
-  const startEdit = () => {
-    setEditable(JSON.parse(JSON.stringify(invoice)));
-    setIsEditing(true);
-  };
+    const loadedInvoice = data.invoice;
 
-  const cancelEdit = () => {
+    setInvoice(loadedInvoice);
     setEditable(null);
     setIsEditing(false);
-  };
 
-  const saveEdit = async () => {
-    const token = localStorage.getItem("token");
-    try {
-      // prepare payload
-      const body = {
-        currency: editable.currency,
-        title: editable.title,
-        description: editable.description,
-        issuer: editable.issuer,
-        terms: editable.terms,
-        lineItems: editable.lineItems.map((li) => ({
-          description: li.description,
-          serviceItemId: li.serviceItemId,
-          quantity: li.quantity,
-          unitPrice: li.unitPrice,
-          custom: li.custom || false,
-        })),
-        tax: Number(editable.tax || 0),
-        notes: editable.notes,
-        dueDate: editable.dueDate,
-        status: editable.status,
+    setPaymentForm((prev) => ({
+      ...prev,
+      amount: loadedInvoice.total || 0,
+      currency: loadedInvoice.currency || "CAD",
+    }));
+  } catch (err) {
+    console.error(err);
+    alert(err.message || "Failed to load invoice");
+  } finally {
+    setLoading(false);
+  }
+};
+
+const fetchPayments = async () => {
+  if (!invoice || !invoice.clientId) return;
+  const token = localStorage.getItem("token");
+
+  try {
+    const res = await fetch(`${API_URL}/api/payments?clientId=${invoice.clientId._id}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    });
+
+    const j = await res.json();
+    if (!res.ok) throw new Error(j.error || 'Failed to load payments');
+
+    const forInvoice = (j.payments || []).filter((p) => String(p.invoiceId) === String(invoice._id) && p.status === 'completed');
+    setPayments(forInvoice);
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+const startEdit = () => {
+  if (!invoice) return;
+
+  const invoiceCopy = structuredClone
+    ? structuredClone(invoice)
+    : JSON.parse(JSON.stringify(invoice));
+
+  setEditable({
+    ...invoiceCopy,
+    issuer: {
+      name:
+        invoiceCopy.issuer?.name ||
+        "VRB Web Design and Development",
+      address:
+        invoiceCopy.issuer?.address ||
+        "Halifax, Nova Scotia",
+      email:
+        invoiceCopy.issuer?.email ||
+        "victoria@vrbwebdesignanddev.com",
+      phone:
+        invoiceCopy.issuer?.phone ||
+        "(902) 817-1001",
+      website:
+        invoiceCopy.issuer?.website ||
+        "www.vrbwebdesignanddev.com",
+    },
+    lineItems: (invoiceCopy.lineItems || []).map((item) => ({
+      ...item,
+      quantity: Number(item.quantity || 0),
+      unitPrice: Number(item.unitPrice || 0),
+      total:
+        Number(item.total) ||
+        Number(item.quantity || 0) * Number(item.unitPrice || 0),
+    })),
+  });
+
+  setIsEditing(true);
+};
+
+const addLineItem = () => {
+  setEditable((prev) => {
+    if (!prev) return prev;
+
+    const next = { ...(prev || {}) };
+    next.lineItems = next.lineItems || [];
+    next.lineItems.push({ description: '', quantity: 1, unitPrice: 0, total: 0, custom: true });
+    return next;
+  });
+
+  setIsEditing(true);
+};
+
+const cancelEdit = () => {
+  setEditable(null);
+  setIsEditing(false);
+};
+
+const updateEditableField = (field, value) => {
+  setEditable((prev) => {
+    if (!prev) return prev;
+
+    return {
+      ...prev,
+      [field]: value,
+    };
+  });
+};
+
+const updateIssuerField = (field, value) => {
+  setEditable((prev) => {
+    if (!prev) return prev;
+
+    return {
+      ...prev,
+      issuer: {
+        ...(prev.issuer || {}),
+        [field]: value,
+      },
+    };
+  });
+};
+
+const updateLineItem = (index, field, value) => {
+  setEditable((prev) => {
+    if (!prev) return prev;
+
+    const nextLineItems = (prev.lineItems || []).map((item, itemIndex) => {
+      if (itemIndex !== index) return item;
+
+      const updatedItem = {
+        ...item,
+        [field]:
+          field === "quantity" || field === "unitPrice"
+            ? Number(value || 0)
+            : value,
       };
 
-      const res = await fetch(`${API_URL}/api/invoices/${invoice._id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(body),
-      });
-      const j = await res.json();
-      if (!res.ok) throw new Error(j.error || "Failed to update");
-      setInvoice(j.invoice);
-      setEditable(j.invoice);
-      setIsEditing(false);
-    } catch (err) {
-      alert(err.message || "Save failed");
-    }
-  };
+      const quantity = Number(updatedItem.quantity || 0);
+      const unitPrice = Number(updatedItem.unitPrice || 0);
 
-  const printInvoice = () => {
-    if (!docRef.current) return window.print();
-    const content = docRef.current.outerHTML;
-    const cssLinks = Array.from(document.querySelectorAll('link[rel="stylesheet"], style'))
-      .map((n) => n.outerHTML)
-      .join('\n');
-    const win = window.open('', '_blank');
-    if (!win) return alert('Please allow popups to print the invoice');
-    win.document.open();
-    win.document.write(`<!doctype html><html><head><meta charset="utf-8">${cssLinks}</head><body>${content}</body></html>`);
-    win.document.close();
-    win.focus();
-    setTimeout(() => {
-      try {
-        win.print();
-        win.close();
-      } catch (e) {
-        console.error(e);
-      }
-    }, 300);
-  };
-
-  // recompute editable totals when line items or tax change
-  React.useEffect(() => {
-    if (!isEditing || !editable) return;
-    const subtotal = (editable.lineItems || []).reduce((s, it) => s + (Number(it.total || 0)), 0);
-    const tax = Number(editable.tax || 0);
-    const total = +(subtotal + tax);
-    setEditable((prev) => ({ ...prev, subtotal, total }));
-  }, [isEditing, editable && JSON.stringify(editable.lineItems), editable && editable.tax]);
-
-  const handlePaymentCreate = async (e) => {
-    e.preventDefault();
-    const token = localStorage.getItem("token");
-    try {
-      const body = {
-        ...paymentForm,
-        clientId: id,
-        amount: Number(paymentForm.amount),
-        date: paymentForm.date || undefined,
-        invoiceId: invoice._id,
+      return {
+        ...updatedItem,
+        total: Number((quantity * unitPrice).toFixed(2)),
       };
-      const res = await fetch(`${API_URL}/api/payments`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(body),
-      });
-      const j = await res.json();
-      if (!res.ok) throw new Error(j.error || "Failed");
-      setOpenPayment(false);
-      router.push(`/clientdashboard/${id}/payments`);
-    } catch (err) {
-      alert(err.message || "Error");
-    }
-  };
+    });
 
-  if (loading) return <div className={styles.wrap}>Loading...</div>;
-  if (!invoice) return <div className={styles.wrap}>No invoice</div>;
+    const subtotal = nextLineItems.reduce(
+      (sum, item) => sum + Number(item.total || 0),
+      0
+    );
+
+    const tax = Number(prev.tax || 0);
+    const total = subtotal + tax;
+
+    return {
+      ...prev,
+      lineItems: nextLineItems,
+      subtotal: Number(subtotal.toFixed(2)),
+      total: Number(total.toFixed(2)),
+    };
+  });
+};
+
+const updateTax = (value) => {
+  const tax = Number(value || 0);
+
+  setEditable((prev) => {
+    if (!prev) return prev;
+
+    const subtotal = (prev.lineItems || []).reduce(
+      (sum, item) => sum + Number(item.total || 0),
+      0
+    );
+
+    return {
+      ...prev,
+      tax,
+      subtotal: Number(subtotal.toFixed(2)),
+      total: Number((subtotal + tax).toFixed(2)),
+    };
+  });
+};
+
+const saveEdit = async () => {
+  if (!editable || !invoice?._id) return;
+
+  const token = localStorage.getItem("token");
+
+  try {
+    const body = {
+      currency: editable.currency,
+      title: editable.title,
+      description: editable.description,
+      issuer: editable.issuer,
+      terms: editable.terms,
+      lineItems: (editable.lineItems || []).map((item) => ({
+        description: item.description,
+        serviceItemId: item.serviceItemId || undefined,
+        quantity: Number(item.quantity || 0),
+        unitPrice: Number(item.unitPrice || 0),
+        custom: item.custom || false,
+      })),
+      tax: Number(editable.tax || 0),
+      notes: editable.notes,
+      dueDate: editable.dueDate || null,
+      status: editable.status,
+    };
+
+    const res = await fetch(`${API_URL}/api/invoices/${invoice._id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(body),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error(data.error || "Failed to update invoice");
+    }
+
+    setInvoice(data.invoice);
+    setEditable(null);
+    setIsEditing(false);
+  } catch (err) {
+    console.error(err);
+    alert(err.message || "Save failed");
+  }
+};
+
+const submitAndMarkPaid = async () => {
+  if (!invoice) return;
+
+  if (!invoice.issuedAt) {
+    if (!confirm('Invoice has no issued date. Set issued date to today?')) return;
+  }
+
+  if (!invoice.dueDate) {
+    if (!confirm('Invoice has no due date. Continue without due date?')) return;
+  }
+
+  const paidSoFar = payments.reduce((s, p) => s + Number(p.amount || 0), 0);
+  const balance = Number((invoice.total || 0) - paidSoFar);
+  const token = localStorage.getItem('token');
+
+  try {
+    if (balance > 0) {
+      const payRes = await fetch(`${API_URL}/api/payments`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+        body: JSON.stringify({ clientId: invoice.clientId._id, amount: balance, currency: invoice.currency || 'CAD', method: 'other', status: 'completed', date: new Date(), invoiceId: invoice._id }),
+      });
+
+      const pj = await payRes.json();
+      if (!payRes.ok) throw new Error(pj.error || 'Failed to create payment');
+    }
+
+    const body = { status: 'paid' };
+    if (!invoice.issuedAt) body.issuedAt = new Date();
+
+    const res = await fetch(`${API_URL}/api/invoices/${invoice._id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${token}` },
+      body: JSON.stringify(body),
+    });
+
+    const j = await res.json();
+    if (!res.ok) throw new Error(j.error || 'Failed to update invoice');
+
+    setInvoice(j.invoice);
+    await fetchPayments();
+    alert('Invoice marked as paid');
+  } catch (err) {
+    console.error(err);
+    alert(err.message || 'Failed to submit');
+  }
+};
+
+const deleteInvoice = async () => {
+  const confirmed = window.confirm(
+    "Delete this invoice? This action cannot be undone."
+  );
+
+  if (!confirmed) return;
+
+  const token = localStorage.getItem("token");
+
+  try {
+    const res = await fetch(`${API_URL}/api/invoices/${invoice._id}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error(data.error || "Delete failed");
+    }
+
+    router.push(`/clientdashboard/${id}/invoices`);
+  } catch (err) {
+    console.error(err);
+    alert(err.message || "Delete failed");
+  }
+};
+
+const printInvoice = () => {
+  if (isEditing) {
+    alert("Please save or cancel your changes before printing.");
+    return;
+  }
+
+  window.print();
+};
+
+const handlePaymentCreate = async (e) => {
+  e.preventDefault();
+
+  const token = localStorage.getItem("token");
+
+  try {
+    const body = {
+      ...paymentForm,
+      clientId: id,
+      amount: Number(paymentForm.amount),
+      date: paymentForm.date || undefined,
+      invoiceId: invoice._id,
+    };
+
+    const res = await fetch(`${API_URL}/api/payments`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify(body),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok) {
+      throw new Error(data.error || "Failed to create payment");
+    }
+
+    setOpenPayment(false);
+    router.push(`/clientdashboard/${id}/payments`);
+  } catch (err) {
+    console.error(err);
+    alert(err.message || "Error creating payment");
+  }
+};
+
+const formatDate = (date) => {
+  if (!date) return "";
+
+  return new Date(date).toLocaleDateString("en-CA", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
+};
+
+const formatMoney = (value) => {
+  return Number(value || 0).toLocaleString("en-CA", {
+    style: "currency",
+    currency: invoice?.currency || "CAD",
+  });
+};
+
+if (loading) {
+  return <div className={styles.wrap}>Loading...</div>;
+}
+
+if (!invoice) {
+  return <div className={styles.wrap}>No invoice found.</div>;
+}
+
+const displayedInvoice =
+  isEditing && editable
+    ? editable
+    : invoice;
 
   return (
   <main className={styles.wrap}>
     <div className={styles.header}>
       <button
+        type="button"
         className={styles.back}
         onClick={() => router.push(`/clientdashboard/${id}/payments`)}
       >
         Back
       </button>
 
-      <div>
+      <div className={styles.pageHeading}>
         <span className={styles.eyebrow}>Invoice Preview</span>
         <h1>Invoice — {invoice.invoiceId}</h1>
       </div>
@@ -182,116 +458,168 @@ export default function InvoicePreview() {
       <div className={styles.headerActions}>
         {!isEditing ? (
           <>
-            <button className={styles.create} onClick={() => setOpenPayment(true)}>
+            <button
+              type="button"
+              className={styles.create}
+              onClick={() => setOpenPayment(true)}
+            >
               Add Payment
             </button>
-            <button className={styles.print} onClick={() => printInvoice()}>
+
+            <button
+              type="button"
+              className={styles.print}
+              onClick={printInvoice}
+            >
               Print / Download
             </button>
-            <button className={styles.delete} onClick={async ()=>{
-              if(!confirm('Delete this invoice? This action cannot be undone.')) return;
-              const token = localStorage.getItem('token');
-              try {
-                const res = await fetch(`${API_URL}/api/invoices/${invoice._id}`, { method: 'DELETE', headers: { Authorization: `Bearer ${token}` } });
-                const j = await res.json();
-                if(!res.ok) throw new Error(j.error || 'Delete failed');
-                router.push(`/clientdashboard/${id}/invoices`);
-              } catch(err) { alert(err.message || 'Delete failed'); }
-            }}>
+
+            <button
+              type="button"
+              className={styles.delete}
+              onClick={deleteInvoice}
+            >
               Delete Invoice
             </button>
-            <button className={styles.view} onClick={startEdit}>
+
+            <button
+              type="button"
+              className={styles.create}
+              onClick={submitAndMarkPaid}
+            >
+              Submit / Mark Paid
+            </button>
+
+            <button
+              type="button"
+              className={styles.view}
+              onClick={startEdit}
+            >
               Edit Invoice
             </button>
           </>
         ) : (
           <>
-            <button className={styles.create} onClick={saveEdit}>
+            <button
+              type="button"
+              className={styles.create}
+              onClick={addLineItem}
+            >
+              Add Item
+            </button>
+
+            <button
+              type="button"
+              className={styles.create}
+              onClick={saveEdit}
+            >
               Save
             </button>
-            <button className={styles.delete} onClick={cancelEdit}>
-              Cancel
+
+            <button
+              type="button"
+              className={styles.create}
+              onClick={submitAndMarkPaid}
+            >
+              Submit / Mark Paid
+            </button>
+
+            <button
+              type="button"
+              className={styles.delete}
+              onClick={cancelEdit}
+            >
+              Cancel - here
             </button>
           </>
         )}
       </div>
     </div>
 
-    <section className={styles.invoiceDocument}>
+    <section
+      className={styles.invoiceDocument}
+      ref={docRef}
+    >
       <div className={styles.invoiceTop}>
         <div className={styles.brandBlock}>
           <div className={styles.logoPlaceholder}>
-            <img src="/VRBLogo.png" alt="Logo" />
+            <img
+              src="/VRBLogo.png"
+              alt="VRB Web Design and Development"
+            />
           </div>
 
           {!isEditing ? (
-            <div>
-              <h2>VRB Web Design and Development</h2>
-              <p>Halifax, Nova Scotia</p>
-              <p>victoria@vrbwebdesignanddev.com</p>
-              <p>(902) 817-1001</p>
-              <p>www.vrbwebdesignanddev.com</p>
+            <div className={styles.issuerDetails}>
+              <h2>
+                {invoice.issuer?.name ||
+                  "VRB Web Design and Development"}
+              </h2>
+
+              <p>
+                {invoice.issuer?.address ||
+                  "Halifax, Nova Scotia"}
+              </p>
+
+              <p>
+                {invoice.issuer?.email ||
+                  "victoria@vrbwebdesignanddev.com"}
+              </p>
+
+              <p>
+                {invoice.issuer?.phone ||
+                  "(902) 817-1001"}
+              </p>
+
+              <p>
+                {invoice.issuer?.website ||
+                  "www.vrbwebdesignanddev.com"}
+              </p>
             </div>
           ) : (
             <div className={styles.issuerForm}>
               <input
+                type="text"
                 placeholder="Your business name"
-                value={editable.issuer?.name || ""}
+                value={editable?.issuer?.name || ""}
                 onChange={(e) =>
-                  setEditable({
-                    ...editable,
-                    issuer: { ...(editable.issuer || {}), name: e.target.value },
-                  })
+                  updateIssuerField("name", e.target.value)
                 }
               />
 
               <input
+                type="text"
                 placeholder="Business address"
-                value={editable.issuer?.address || ""}
+                value={editable?.issuer?.address || ""}
                 onChange={(e) =>
-                  setEditable({
-                    ...editable,
-                    issuer: {
-                      ...(editable.issuer || {}),
-                      address: e.target.value,
-                    },
-                  })
+                  updateIssuerField("address", e.target.value)
                 }
               />
 
               <input
+                type="email"
                 placeholder="Email"
-                value={editable.issuer?.email || ""}
+                value={editable?.issuer?.email || ""}
                 onChange={(e) =>
-                  setEditable({
-                    ...editable,
-                    issuer: { ...(editable.issuer || {}), email: e.target.value },
-                  })
+                  updateIssuerField("email", e.target.value)
                 }
               />
 
               <input
+                type="text"
                 placeholder="Phone"
-                value={editable.issuer?.phone || ""}
+                value={editable?.issuer?.phone || ""}
                 onChange={(e) =>
-                  setEditable({
-                    ...editable,
-                    issuer: { ...(editable.issuer || {}), phone: e.target.value },
-                  })
+                  updateIssuerField("phone", e.target.value)
                 }
               />
 
               <input
+                type="text"
                 placeholder="Website"
-                value={editable.issuer?.website || ""}
+                value={editable?.issuer?.website || ""}
                 onChange={(e) =>
-                  setEditable({
-                    ...editable,
-                    issuer: {
-                      ...(editable.issuer || {}),
-                      website: e.target.value,
-                    },
-                  })
+                  updateIssuerField("website", e.target.value)
                 }
               />
             </div>
@@ -301,38 +629,65 @@ export default function InvoicePreview() {
         <div className={styles.invoiceMetaCard}>
           <h3>Invoice</h3>
 
-          <div>
+          <div className={styles.metaRow}>
             <span>Invoice No.</span>
             <strong>{invoice.invoiceId || "INV-0000"}</strong>
           </div>
 
-          <div>
+          <div className={styles.metaRow}>
             <span>Issued</span>
-            <strong>{new Date(invoice.issuedAt).toLocaleDateString()}</strong>
+            <strong>{formatDate(invoice.issuedAt)}</strong>
           </div>
 
-          <div>
+          <div className={styles.metaRow}>
             <span>Due</span>
+
             {!isEditing ? (
               <strong>
                 {invoice.dueDate
-                  ? new Date(invoice.dueDate).toLocaleDateString()
+                  ? formatDate(invoice.dueDate)
                   : "Due date"}
               </strong>
             ) : (
               <input
                 type="date"
-                value={editable?.dueDate ? editable.dueDate.split("T")[0] : ""}
+                value={
+                  editable?.dueDate
+                    ? String(editable.dueDate).split("T")[0]
+                    : ""
+                }
                 onChange={(e) =>
-                  setEditable({ ...editable, dueDate: e.target.value })
+                  updateEditableField("dueDate", e.target.value)
                 }
               />
             )}
           </div>
 
-          <div>
+          <div className={styles.metaRow}>
             <span>Status</span>
-            <strong>{invoice.status || "Unpaid"}</strong>
+
+            {!isEditing ? (
+              <strong className={styles.status}>
+                {invoice.status || "Unpaid"}
+              </strong>
+            ) : (
+              <select
+                value={editable?.status || "unpaid"}
+                onChange={(e) =>
+                  updateEditableField("status", e.target.value)
+                }
+              >
+                <option value="draft">Draft</option>
+                <option value="unpaid">Unpaid</option>
+                <option value="pending">Pending</option>
+                <option value="partially_paid">
+                  Partially Paid
+                </option>
+                <option value="paid">Paid</option>
+                <option value="overdue">Overdue</option>
+                <option value="cancelled">Cancelled</option>
+              </select>
+            )}
           </div>
         </div>
       </div>
@@ -343,6 +698,7 @@ export default function InvoicePreview() {
             <h2 className={styles.invoiceTitle}>
               {invoice.title || "Invoice for Services"}
             </h2>
+
             <p className={styles.invoiceDescription}>
               {invoice.description ||
                 "Thank you for your business. Please see the invoice details below."}
@@ -352,18 +708,18 @@ export default function InvoicePreview() {
           <div className={styles.editTitleBlock}>
             <input
               className={styles.titleInput}
-              value={editable.title || ""}
+              value={editable?.title || ""}
               onChange={(e) =>
-                setEditable({ ...editable, title: e.target.value })
+                updateEditableField("title", e.target.value)
               }
               placeholder="Invoice title"
             />
 
             <textarea
               className={styles.descInput}
-              value={editable.description || ""}
+              value={editable?.description || ""}
               onChange={(e) =>
-                setEditable({ ...editable, description: e.target.value })
+                updateEditableField("description", e.target.value)
               }
               placeholder="Invoice description"
             />
@@ -374,20 +730,59 @@ export default function InvoicePreview() {
       <div className={styles.billGrid}>
         <div className={styles.billCard}>
           <span className={styles.cardLabel}>Bill To</span>
-          <h3>{invoice.clientId?.businessName || invoice.clientId?.name || "Client Name"}</h3>
-          <p>{invoice.clientId?.email || "client@email.com"}</p>
-          <p>{invoice.clientId?.phone || "Client phone number"}</p>
-          <p>{invoice.clientId?.address?.street || "Client address"}</p>
-          <p>{invoice.clientId?.address?.city || "Client city"}</p>
-          <p>{invoice.clientId?.address?.postalCode || "Client postal code"}</p>
+
+          <h3>
+            {invoice.clientId?.businessName ||
+              invoice.clientId?.name ||
+              "Client Name"}
+          </h3>
+
+          {invoice.clientId?.email && (
+            <p>{invoice.clientId.email}</p>
+          )}
+
+          {invoice.clientId?.phone && (
+            <p>{invoice.clientId.phone}</p>
+          )}
+
+          {invoice.clientId?.address?.street && (
+            <p>{invoice.clientId.address.street}</p>
+          )}
+
+          {(invoice.clientId?.address?.city ||
+            invoice.clientId?.address?.province ||
+            invoice.clientId?.address?.postalCode) && (
+            <p>
+              {[
+                invoice.clientId?.address?.city,
+                invoice.clientId?.address?.province,
+                invoice.clientId?.address?.postalCode,
+              ]
+                .filter(Boolean)
+                .join(", ")}
+            </p>
+          )}
         </div>
 
         <div className={styles.billCard}>
-          <span className={styles.cardLabel}>Payment Details</span>
-          <p><strong>Payment Method:</strong> E-transfer / Cheque / Cash</p>
-          <p><strong>Send Payment To:</strong> vrose834@gmail.com</p>
-          {/* <p><strong>Currency:</strong> {invoice.currency || "CAD"}</p> */}
-          {/* <p><strong>Tax:</strong> HST / GST placeholder</p> */}
+          <span className={styles.cardLabel}>
+            Payment Details
+          </span>
+
+          <p>
+            <strong>Payment Method:</strong>{" "}
+            E-transfer / Cheque / Cash
+          </p>
+
+          <p>
+            <strong>Send Payment To:</strong>{" "}
+            vrose834@gmail.com
+          </p>
+
+          <p>
+            <strong>Currency:</strong>{" "}
+            {displayedInvoice.currency || "CAD"}
+          </p>
         </div>
       </div>
 
@@ -399,150 +794,162 @@ export default function InvoicePreview() {
           <div>Total</div>
         </div>
 
-        {(isEditing ? editable?.lineItems || [] : invoice.lineItems).map(
-          (li, idx) => (
-            <div
-              key={li._id || li.description || idx}
-              className={styles.invoiceTableRow}
-            >
-              <div>
-                {isEditing ? (
-                  <input
-                    value={li.description}
-                    onChange={(e) => {
-                      const v = e.target.value;
-                      setEditable((prev) => ({
-                        ...prev,
-                        lineItems: prev.lineItems.map((it, i) =>
-                          i === idx ? { ...it, description: v } : it
-                        ),
-                      }));
-                    }}
-                  />
-                ) : (
-                  li.description
-                )}
-              </div>
-
-              <div>
-                {isEditing ? (
-                  <input
-                    type="number"
-                    value={li.quantity}
-                    onChange={(e) => {
-                      const q = Number(e.target.value || 0);
-                      setEditable((prev) => ({
-                        ...prev,
-                        lineItems: prev.lineItems.map((it, i) =>
-                          i === idx
-                            ? {
-                                ...it,
-                                quantity: q,
-                                total: +(q * (it.unitPrice || 0)),
-                              }
-                            : it
-                        ),
-                      }));
-                    }}
-                  />
-                ) : (
-                  li.quantity
-                )}
-              </div>
-
-              <div>
-                {isEditing ? (
-                  <input
-                    type="number"
-                    value={li.unitPrice}
-                    onChange={(e) => {
-                      const u = Number(e.target.value || 0);
-                      setEditable((prev) => ({
-                        ...prev,
-                        lineItems: prev.lineItems.map((it, i) =>
-                          i === idx
-                            ? {
-                                ...it,
-                                unitPrice: u,
-                                total: +(u * (it.quantity || 1)),
-                              }
-                            : it
-                        ),
-                      }));
-                    }}
-                  />
-                ) : (
-                  `$${Number(li.unitPrice || 0).toFixed(2)}`
-                )}
-              </div>
-
-              <div>
-                ${Number(li.total || 0).toFixed(2)}
-              </div>
+        {(displayedInvoice.lineItems || []).map((item, index) => (
+          <div
+            key={item._id || `${item.description}-${index}`}
+            className={styles.invoiceTableRow}
+          >
+            <div className={styles.descriptionColumn}>
+              {isEditing ? (
+                <input
+                  type="text"
+                  value={item.description || ""}
+                  onChange={(e) =>
+                    updateLineItem(
+                      index,
+                      "description",
+                      e.target.value
+                    )
+                  }
+                />
+              ) : (
+                item.description
+              )}
             </div>
-          )
-        )}
+
+            <div>
+              {isEditing ? (
+                <input
+                  type="number"
+                  min="0"
+                  step="1"
+                  value={item.quantity ?? 0}
+                  onChange={(e) =>
+                    updateLineItem(
+                      index,
+                      "quantity",
+                      e.target.value
+                    )
+                  }
+                />
+              ) : (
+                item.quantity
+              )}
+            </div>
+
+            <div>
+              {isEditing ? (
+                <input
+                  type="number"
+                  min="0"
+                  step="0.01"
+                  value={item.unitPrice ?? 0}
+                  onChange={(e) =>
+                    updateLineItem(
+                      index,
+                      "unitPrice",
+                      e.target.value
+                    )
+                  }
+                />
+              ) : (
+                formatMoney(item.unitPrice)
+              )}
+            </div>
+
+            <div>{formatMoney(item.total)}</div>
+          </div>
+        ))}
       </div>
+
+      {isEditing && (
+        <div style={{ maxWidth: 980, margin: '0 auto', padding: '0.5rem 0', textAlign: 'right' }}>
+          <button type="button" className={styles.create} onClick={addLineItem}>
+            Add Item
+          </button>
+        </div>
+      )}
 
       <div className={styles.invoiceBottom}>
         <div className={styles.invoiceNotesBlock}>
-          <h4>Notes</h4>
-          {!isEditing ? (
-            <p>
-              {invoice.notes ||
-                "Thank you for choosing my services. Please reach out if you have any questions about this invoice."}
-            </p>
-          ) : (
-            <textarea
-              value={editable.notes || ""}
-              onChange={(e) =>
-                setEditable({ ...editable, notes: e.target.value })
-              }
-            />
-          )}
+          <div className={styles.notesSection}>
+            <h4>Notes</h4>
 
-          <h4>Terms</h4>
-          {!isEditing ? (
-            <p>
-              {invoice.terms ||
-                "Payment is due by the listed due date. Late payments may be subject to additional fees."}
-            </p>
-          ) : (
-            <textarea
-              value={editable.terms || ""}
-              onChange={(e) =>
-                setEditable({ ...editable, terms: e.target.value })
-              }
-            />
-          )}
+            {!isEditing ? (
+              <p>
+                {invoice.notes ||
+                  "Thank you for choosing my services. Please reach out if you have any questions about this invoice."}
+              </p>
+            ) : (
+              <textarea
+                value={editable?.notes || ""}
+                onChange={(e) =>
+                  updateEditableField("notes", e.target.value)
+                }
+              />
+            )}
+          </div>
+
+          <div className={styles.notesSection}>
+            <h4>Terms</h4>
+
+            {!isEditing ? (
+              <p>
+                {invoice.terms ||
+                  "Payment is due by the listed due date. Late payments may be subject to additional fees."}
+              </p>
+            ) : (
+              <textarea
+                value={editable?.terms || ""}
+                onChange={(e) =>
+                  updateEditableField("terms", e.target.value)
+                }
+              />
+            )}
+          </div>
         </div>
 
         <div className={styles.invoiceTotalsCard}>
           <div>
             <span>Subtotal</span>
             <strong>
-              ${(isEditing ? editable.subtotal || 0 : invoice.subtotal || 0).toFixed(2)}
+              {formatMoney(displayedInvoice.subtotal)}
             </strong>
           </div>
 
           <div>
             <span>Tax</span>
-            <strong>
-              ${(isEditing ? editable.tax || 0 : invoice.tax || 0).toFixed(2)}
-            </strong>
+
+            {isEditing ? (
+              <input
+                type="number"
+                min="0"
+                step="0.01"
+                value={editable?.tax ?? 0}
+                onChange={(e) => updateTax(e.target.value)}
+              />
+            ) : (
+              <strong>{formatMoney(invoice.tax)}</strong>
+            )}
           </div>
 
           <div className={styles.grandTotal}>
             <span>Total Due</span>
             <strong>
-              ${(isEditing ? editable.total || 0 : invoice.total || 0).toFixed(2)}
+              {formatMoney(displayedInvoice.total)}
             </strong>
           </div>
         </div>
       </div>
 
       <div className={styles.invoiceFooter}>
-        <p>Your Business Name • your@email.com • yourwebsite.com</p>
+        <p>
+          VRB Web Design &amp; Development
+          <span>•</span>
+          victoria@vrbwebdesignanddev.com
+          <span>•</span>
+          www.vrbwebdesignanddev.com
+        </p>
       </div>
     </section>
 
@@ -551,17 +958,24 @@ export default function InvoicePreview() {
       title="Create Payment"
       onClose={() => setOpenPayment(false)}
     >
-      <form onSubmit={handlePaymentCreate} className={styles.form}>
+      <form
+        onSubmit={handlePaymentCreate}
+        className={styles.form}
+      >
         <label>
           Amount
           <input
             required
+            type="number"
+            min="0"
+            step="0.01"
             value={paymentForm.amount}
             onChange={(e) =>
-              setPaymentForm({ ...paymentForm, amount: e.target.value })
+              setPaymentForm((prev) => ({
+                ...prev,
+                amount: e.target.value,
+              }))
             }
-            type="number"
-            step="0.01"
           />
         </label>
 
@@ -570,11 +984,14 @@ export default function InvoicePreview() {
           <select
             value={paymentForm.currency}
             onChange={(e) =>
-              setPaymentForm({ ...paymentForm, currency: e.target.value })
+              setPaymentForm((prev) => ({
+                ...prev,
+                currency: e.target.value,
+              }))
             }
           >
-            <option>CAD</option>
-            <option>USD</option>
+            <option value="CAD">CAD</option>
+            <option value="USD">USD</option>
           </select>
         </label>
 
@@ -583,12 +1000,19 @@ export default function InvoicePreview() {
           <select
             value={paymentForm.method}
             onChange={(e) =>
-              setPaymentForm({ ...paymentForm, method: e.target.value })
+              setPaymentForm((prev) => ({
+                ...prev,
+                method: e.target.value,
+              }))
             }
           >
-            <option value="card">card</option>
-            <option value="bank_transfer">bank_transfer</option>
-            <option value="cash">cash</option>
+            <option value="card">Card</option>
+            <option value="bank_transfer">
+              Bank transfer
+            </option>
+            <option value="cash">Cash</option>
+            <option value="cheque">Cheque</option>
+            <option value="etransfer">E-transfer</option>
           </select>
         </label>
 
@@ -597,11 +1021,14 @@ export default function InvoicePreview() {
           <select
             value={paymentForm.status}
             onChange={(e) =>
-              setPaymentForm({ ...paymentForm, status: e.target.value })
+              setPaymentForm((prev) => ({
+                ...prev,
+                status: e.target.value,
+              }))
             }
           >
-            <option value="pending">pending</option>
-            <option value="completed">completed</option>
+            <option value="pending">Pending</option>
+            <option value="completed">Completed</option>
           </select>
         </label>
 
@@ -611,7 +1038,10 @@ export default function InvoicePreview() {
             type="date"
             value={paymentForm.date}
             onChange={(e) =>
-              setPaymentForm({ ...paymentForm, date: e.target.value })
+              setPaymentForm((prev) => ({
+                ...prev,
+                date: e.target.value,
+              }))
             }
           />
         </label>
@@ -621,18 +1051,25 @@ export default function InvoicePreview() {
           <textarea
             value={paymentForm.notes}
             onChange={(e) =>
-              setPaymentForm({ ...paymentForm, notes: e.target.value })
+              setPaymentForm((prev) => ({
+                ...prev,
+                notes: e.target.value,
+              }))
             }
           />
         </label>
 
         <div className={styles.actions}>
-          <button type="submit" className={styles.create}>
+          <button
+            type="submit"
+            className={styles.create}
+          >
             Create
           </button>
         </div>
       </form>
     </Modal>
   </main>
+
 );
 }

@@ -1,29 +1,58 @@
 "use client";
-
 import { useRouter } from "next/navigation";
 import { PackageInfo } from "./packageList";
+import designPackages from "../DesignPackage/designPackage";
 import { FaArrowRight, FaRegClock } from "react-icons/fa";
 import Card from "@/app/Components/Card/Card.component";
 import TertiaryButton from "@/app/Components/TertiaryButton/TertiaryButton.component";
 import styles from "./Packages.module.css";
+// import Retainers from "../../services/Retainers/Retainers.component";
+// import Extras from "../../services/Extras/Extras.component";
+import { Retainer } from "../../services/Retainers/retainerList.jsx";
+import { extrasList } from "../../services/Extras/extrasList.jsx";
+import { socialMediaList } from "../../services/SocialMedia/socialMedia.jsx";
 import MostPopular from "@/app/Components/MostPopular/MostPopular.component";
+import { slugify } from "../../../lib/slugify";
 
-export default function Packages() {
+export default function Packages({ type = "web" }) {
   const router = useRouter();
+  const list =
+    type === "design"
+      ? designPackages
+      : type === "marketing"
+        ? socialMediaList
+        : type === "retainer"
+          ? Retainer
+          : type === "extras"
+            ? extrasList
+            : PackageInfo;
+
   const handleSeeWhatsIncluded = (pkg) => {
-    const slug = pkg.title.toLowerCase().replace(/\s+/g, "-");
-    router.push(`/package/${slug}?type=web`);
+    const slug = slugify(pkg.title || pkg.name || "");
+    router.push(`/package/${slug}?type=${type}`);
   };
+
+  const heading =
+    type === "design"
+      ? "Design Packages"
+      : type === "marketing"
+        ? "Marketing Packages"
+        : type === "retainer"
+          ? "Retainer Packages"
+          : type === "extras"
+            ? "Extras & Add-Ons"
+            : "Project Packages";
+
   return (
     <section className={styles.packagesSection} id="packages">
       <span className="eyebrowHeader">Packages</span>
-      <h2 className="heading">Project Packages</h2>
+      <h2 className="heading">{heading}</h2>
       <p className="meta">
         Transparent pricing, clear deliverables, and a process tailored to your
         needs.
       </p>
       <div className={`${styles.cardGrid} `}>
-        {PackageInfo?.map((pkg, idx) => {
+        {list?.map((pkg, idx) => {
           const isFeatured = pkg.highlight || idx === 1;
           return (
             <Card

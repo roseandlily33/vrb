@@ -20,6 +20,18 @@ const companies = [
     alt: "Yoda Safety Services Logo",
     href: "/case-study/yoda-safety-services",
   },
+  {
+    name: 'Assuage Wellness Centre',
+    img: '/Assuage/AssuageLogoLong.png',
+    alt: 'Assuage Wellness Centre Logo',
+    href: '/case-study/assuage-wellness-centre',
+  },
+  {
+    name: 'New Line',
+    img: '/NewLine/NewLineLogoNew.png',
+    alt: 'NewLine Plumbing, Heating & Construction Logo',
+    href: '/case-study/newline-plumbing-heating-construction',
+  }
 ];
 
 export default function TrustedBy() {

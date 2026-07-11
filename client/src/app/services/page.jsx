@@ -1,8 +1,8 @@
 import styles from "./page.module.css";
 import CTA2 from "../Components/CTA/CTA2/CTA2.component";
 import Process from "./Process/Process.component";
-import Retainers from "./Retainers/Retainers.component";
-import Extras from "./Extras/Extras.component";
+// import Retainers from "./Retainers/Retainers.component";
+// import Extras from "./Extras/Extras.component";
 import Hero from "../Components/Hero/Hero.component";
 import Links from "./Links/Links.component";
 import MiniFaq from "./MiniFaq/MiniFaq.component";
@@ -20,10 +20,10 @@ export default function Services() {
       />
       <Links />
       <ExplorePackages />
-      <TrustedBy />
-      <Retainers />
+      {/* <Retainers /> */}
       <Process />
-      <Extras />
+      <TrustedBy />
+      {/* <Extras /> */}
       <MiniFaq />
       <CTA2 />
     </main>

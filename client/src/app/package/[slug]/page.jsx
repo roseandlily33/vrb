@@ -5,26 +5,28 @@ import designPackages from "../DesignPackage/designPackage";
 import CTA3 from "../../Components/CTA/CTA3/CTA3.component";
 import Breadcrumbs from "../../case-study/[project]/Components/Extras/Breadcrumbs/Breadcrumbs.component";
 import OptionalAddOns from "./Add/Add.component";
+import { slugify } from "../../../lib/slugify";
 
 export default async function PackagePage({ params, searchParams }) {
-  const resolvedParams = await params;
+  const resolvedParams = params;
   const resolvedSearchParams = await searchParams;
 
   const type = resolvedSearchParams?.type || "web";
-  const slug = resolvedParams?.slug || "";
-
-  const slugify = (str = "") =>
-    str
-      .toString()
-      .toLowerCase()
-      .trim()
-      .replace(/[^a-z0-9\s-]/g, "")
-      .replace(/[\s-]+/g, "-")
-      .replace(/^-+|-+$/g, "");
+  const slug = String(resolvedParams?.slug || "");
 
   const list = type === "design" ? designPackages : PackageInfo;
 
-  const pkg = list.find((p) => slugify(p.title) === slugify(slug));
+  const incoming = slugify(decodeURIComponent(slug));
+
+  const pkg = list.find((p) => {
+    const titleSlug = slugify(p.title || p.name || "");
+    const explicitSlug = slugify(p.slug || "");
+    return (
+      titleSlug === incoming ||
+      explicitSlug === incoming ||
+      titleSlug === slugify(decodeURIComponent(slug))
+    );
+  });
 
   if (!pkg) {
     // console.log({
@@ -37,7 +39,23 @@ export default async function PackagePage({ params, searchParams }) {
     //   })),
     // });
 
-    return <div>Could not find this package.</div>;
+    return (
+      <main style={{ padding: "2rem" }}>
+        <h2>Could not find this package.</h2>
+        <p>
+          Requested <strong>slug</strong>: {slug} <br />
+          Requested <strong>type</strong>: {type}
+        </p>
+        <h3>Available packages for type: {type}</h3>
+        <ul>
+          {list.map((p) => (
+            <li key={p.title}>
+              {p.title} — <em>{slugify(p.title)}</em>
+            </li>
+          ))}
+        </ul>
+      </main>
+    );
   }
 
   return (

@@ -1,22 +1,23 @@
 .linksBar {
+  width: 100%;
+  margin: 0;
+  padding: var(--space-md) 0;
+  box-sizing: border-box;
+  /* background: linear-gradient(180deg, var(--blue-50, #f7fbff), var(--white)); */
+  /* border-bottom: 1px solid var(--blue-100, #e7edf5); */
+  /* box-shadow: 0 6px 18px rgba(15, 32, 63, 0.04); */
+  position: relative;
+  z-index: 20;
+}
+
+.linksBar .inner {
+  max-width: 1200px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  width: 100%;
-  margin: 2.5rem auto 0;
-  gap: 0.5rem;
-  /* padding: 0.7rem 1.2rem; */
-  /* background: var(--blue-50, #f7fbff); */
-  /* border-radius: 999px; */
-  /* border: 1.5px solid var(--blue-100, #e7edf5); */
-  /* box-shadow: 0 2px 12px rgba(27, 137, 226, 0.04); */
-  transition:
-    background-color var(--transition-fast),
-    border-color var(--transition-fast),
-    box-shadow var(--transition-fast),
-    transform var(--transition-fast),
-    opacity var(--transition-fast);
+  gap: 0.6rem;
+  padding: 0 0.5rem;
 }
 
 .linkGroup {
@@ -25,24 +26,27 @@
 }
 
 .linkBtn {
-  background: none;
-  border: none;
+  display: inline-block;
+  text-decoration: none;
   color: var(--blue-900);
   font-size: 0.98rem;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1;
   cursor: pointer;
-  padding: 0 1.1rem;
-  border-radius: 0;
-  transition: color var(--transition-fast);
-  box-shadow: none;
-  outline: none;
+  padding: 0.55rem 1rem;
+  border-radius: 6px;
+  transition:
+    color var(--transition-fast),
+    background-color var(--transition-fast),
+    transform var(--transition-fast);
+  background: transparent;
 }
 
 .linkBtn:hover,
 .linkBtn:focus-visible {
-  color: var(--blue-500);
-  text-decoration: underline;
+  color: var(--white);
+  text-decoration: none;
+  transform: translateY(-1px);
 }
 
 .separator {
@@ -56,33 +60,18 @@
 
 /* Pinned bottom state */
 .linksBarPinned {
-  position: fixed;
-  left: 50%;
-  bottom: 0.5rem;
-  transform: translateX(-50%);
-  width: auto;
-  max-width: 98vw;
-  padding: 0.28rem 0.22rem;
-  border-radius: 999px;
-  background: rgba(18, 24, 38, 0.88);
-  border: 1px solid rgba(255, 255, 255, 0.14);
-  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  z-index: 1000;
+  position: sticky;
+  top: 0;
+  left: 0;
+  transform: none;
+  padding: 0.35rem 0.5rem;
+  border-bottom: 0;
 }
 
 /* In pinned state, the OUTER bar is the pill, not each link */
 .linksBarPinned .linkBtn {
-  background: none;
-  border: none;
-  box-shadow: none;
-  color: var(--white);
-  padding: 0 0.7rem;
-  border-radius: 0;
-  font-size: 0.84rem;
-  min-width: 0;
-  max-width: 100vw;
+  color: var(--blue-900);
+  background: transparent;
 }
 
 .linksBarPinned .linkBtn:hover,
@@ -100,64 +89,20 @@
   margin: 0 0.13rem;
 }
 
-@media (max-width: 700px) {
-  .linksBar {
-    gap: 0;
-    margin-top: var(--space-xl);
-    padding: 0 0.2rem;
-    background: none;
-    border-radius: 0;
-    border: none;
-    box-shadow: none;
+@media (max-width: 900px) {
+  .linksBar .inner {
+    justify-content: flex-start;
     overflow-x: auto;
-    justify-content: center;
     scrollbar-width: none;
   }
 
-  .linksBar::-webkit-scrollbar {
+  .linksBar .inner::-webkit-scrollbar {
     display: none;
   }
 
   .linkBtn {
+    padding: 0.5rem 0.8rem;
     font-size: 0.92rem;
-    padding: 0 0.7rem;
     white-space: nowrap;
-    flex-shrink: 0;
-    background: none;
-    border-radius: 0;
-    border: none;
-  }
-
-  .separator {
-    width: 1.5px;
-    height: 1.3em;
-    background: var(--accent-blue);
-    margin: 0 0.2rem;
-    border-radius: 999px;
-    display: inline-block;
-  }
-
-  .linksBarPinned {
-    bottom: 1.1rem;
-    padding: 0.38rem 0.38rem;
-    max-width: 98vw;
-    background: rgba(18, 24, 38, 0.88);
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, 0.14);
-    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-  }
-
-  .linksBarPinned .linkBtn {
-    padding: 0 0.7rem;
-    font-size: 0.84rem;
-    min-width: 0;
-    max-width: 100vw;
-    color: var(--white);
-    font-weight: 700;
-    background: none;
-    border: none;
-    border-radius: 0;
   }
 }

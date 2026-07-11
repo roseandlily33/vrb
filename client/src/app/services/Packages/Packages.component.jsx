@@ -10,7 +10,7 @@ const packageGroups = [
     description:
       "Custom websites and platforms for businesses that need a polished, scalable online presence.",
     meta: "Website Essentials · Professional Website · Custom Platform",
-    href: "/package",
+    href: "/package?type=web",
   },
   {
     icon: FaPalette,
@@ -19,7 +19,16 @@ const packageGroups = [
     description:
       "Interface design, mockups, design systems, and visual direction for websites and digital products.",
     meta: "Design Essentials · Design Foundation · Design Signature",
-    href: "/package",
+    href: "/package?type=design",
+  },
+  {
+    icon: FaSyncAlt,
+    eyebrow: "Social Media & Marketing",
+    title: "Marketing Packages",
+    description:
+      "Social media management, content creation, and marketing support to grow your online presence.",
+    meta: "Social Media Essentials · Marketing Strategy · Content Creation",
+    href: "/package?type=marketing",
   },
   {
     icon: FaSyncAlt,
@@ -28,7 +37,7 @@ const packageGroups = [
     description:
       "Monthly support for updates, improvements, optimization, and continued design or development help.",
     meta: "Mini · Boost · Momentum",
-    href: "/services/#retainers",
+    href: "/package?type=retainer",
   },
   {
     icon: FaPlus,
@@ -37,7 +46,7 @@ const packageGroups = [
     description:
       "Add focused support like SEO, audits, animations, booking systems, content updates, or integrations.",
     meta: "Audits · SEO · Integrations · Maintenance",
-    href: "/services/#extras",
+    href: "/package?type=extras",
   },
 ];
 
