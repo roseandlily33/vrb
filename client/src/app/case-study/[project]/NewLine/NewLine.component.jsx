@@ -112,6 +112,21 @@ function ImagePlaceholder({
 }
 
 export default function NewLineCaseStudy() {
+  const showComingSoon = true; // set to false to show full case study
+
+  if (showComingSoon) {
+    return (
+      <main className={styles.page}>
+        <div style={{ minHeight: '40vh', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '3rem' }}>
+          <div style={{ textAlign: 'center' }}>
+            <h1>Coming soon</h1>
+            <p>This case study is being prepared and will be available shortly.</p>
+            <Link href="/projects" className={styles.secondaryButton}>Back to projects</Link>
+          </div>
+        </div>
+      </main>
+    );
+  }
   return (
     <main className={styles.page}>
       <section className={styles.hero}>

@@ -13,7 +13,6 @@ const Assuage = () => {
   return (
     <section className={styles.mainContainer}>
       <Breadcrumbs current="Assuage Wellness Centre" />
-
       <CSHero
         img="/Assuage/AssuageLogoCircle.png"
         companyName="Assuage Wellness Centre"
@@ -23,7 +22,8 @@ const Assuage = () => {
         title="Exploring Two Visual Directions for a Modern Wellness Website"
         highlightWords={["Visual", "Wellness"]}
         role="UX/UI Designer"
-        finalResults="/case-study/assuage/assuage-final-pages"
+        seeProcess={false}
+        // finalResults="/case-study/assuage/assuage-final-pages"
         note="This project focused on exploring multiple design directions for a future website redesign. I developed two distinct concepts, one centered around a modern spa experience and another focused on wellness, before refining the strongest ideas into a polished homepage concept."
       />
       <CSKeyFeatures
