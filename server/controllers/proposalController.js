@@ -33,7 +33,7 @@ exports.getProposal = async (req, res, next) => {
 exports.updateProposal = async (req, res, next) => {
   try {
     const p = await Proposal.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
+      returnDocument: "after",
     });
     if (!p) return res.status(404).json({ error: "Not found" });
     res.json({ proposal: p });

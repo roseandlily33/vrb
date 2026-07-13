@@ -31,7 +31,7 @@ exports.getTemplate = async (req, res, next) => {
 exports.updateTemplate = async (req, res, next) => {
   try {
     const tpl = await Template.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
+      returnDocument: "after",
     });
     if (!tpl) return res.status(404).json({ error: "Not found" });
     res.json({ template: tpl });

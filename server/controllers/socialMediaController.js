@@ -106,7 +106,7 @@ exports.updatePost = async (req, res, next) => {
         status,
         postedAt,
       },
-      { new: true },
+      { returnDocument: "after" },
     );
     if (!updated) return res.status(404).json({ error: "Not found" });
 

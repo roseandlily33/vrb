@@ -35,16 +35,14 @@ exports.createUser = async (req, res, next) => {
       password: hashed,
       role: role || "user",
     });
-    res
-      .status(201)
-      .json({
-        user: {
-          id: user._id,
-          name: user.name,
-          email: user.email,
-          role: user.role,
-        },
-      });
+    res.status(201).json({
+      user: {
+        id: user._id,
+        name: user.name,
+        email: user.email,
+        role: user.role,
+      },
+    });
   } catch (err) {
     next(err);
   }
@@ -56,7 +54,7 @@ exports.updateUser = async (req, res, next) => {
     if (update.password)
       update.password = await bcrypt.hash(update.password, 10);
     const user = await User.findByIdAndUpdate(req.params.id, update, {
-      new: true,
+      returnDocument: "after",
     }).select("-password");
     if (!user) return res.status(404).json({ error: "Not found" });
     res.json({ user });

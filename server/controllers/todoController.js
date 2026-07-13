@@ -37,7 +37,7 @@ exports.updateTodo = async (req, res, next) => {
     // sanitize assignedTo empty string before update
     if (req.body && req.body.assignedTo === "") delete req.body.assignedTo;
     const todo = await Todo.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
+      returnDocument: "after",
     });
     if (!todo) return res.status(404).json({ error: "Not found" });
     res.json({ todo });

@@ -2,6 +2,9 @@ import React from "react";
 import styles from "./page.module.css";
 import { PackageInfo } from "../Packages/packageList";
 import designPackages from "../DesignPackage/designPackage";
+import { socialMediaList } from "../../services/SocialMedia/socialMedia";
+import { Retainer } from "../../services/Retainers/retainerList";
+import { extrasList } from "../../services/Extras/extrasList";
 import CTA3 from "../../Components/CTA/CTA3/CTA3.component";
 import Breadcrumbs from "../../case-study/[project]/Components/Extras/Breadcrumbs/Breadcrumbs.component";
 import OptionalAddOns from "./Add/Add.component";
@@ -14,19 +17,56 @@ export default async function PackagePage({ params, searchParams }) {
   const type = resolvedSearchParams?.type || "web";
   const slug = String(resolvedParams?.slug || "");
 
-  const list = type === "design" ? designPackages : PackageInfo;
+  let resolvedType = type;
+
+  let list =
+    resolvedType === "design"
+      ? designPackages
+      : resolvedType === "marketing"
+      ? socialMediaList
+      : resolvedType === "retainer"
+      ? Retainer
+      : resolvedType === "extras"
+      ? extrasList
+      : PackageInfo;
 
   const incoming = slugify(decodeURIComponent(slug));
 
-  const pkg = list.find((p) => {
-    const titleSlug = slugify(p.title || p.name || "");
-    const explicitSlug = slugify(p.slug || "");
-    return (
-      titleSlug === incoming ||
-      explicitSlug === incoming ||
-      titleSlug === slugify(decodeURIComponent(slug))
+  function matchesIncoming(p) {
+    const candidates = new Set();
+    if (p.title) candidates.add(slugify(p.title));
+    if (p.name) candidates.add(slugify(p.name));
+    if (p.slug) candidates.add(slugify(p.slug));
+    // also include raw title lower/trim variant
+    if (p.title) candidates.add(
+      String(p.title).toLowerCase().trim().replace(/\s+/g, "-")
     );
-  });
+    return candidates.has(incoming);
+  }
+
+  let pkg = list.find((p) => matchesIncoming(p));
+
+  // Fallback: if not found in the selected type, search all known lists
+  if (!pkg) {
+    const allLists = [
+      { key: "design", list: designPackages },
+      { key: "marketing", list: socialMediaList },
+      { key: "retainer", list: Retainer },
+      { key: "extras", list: extrasList },
+      { key: "web", list: PackageInfo },
+    ];
+
+    for (const entry of allLists) {
+      const found = entry.list.find((p) => matchesIncoming(p));
+
+      if (found) {
+        pkg = found;
+        resolvedType = entry.key;
+        list = entry.list;
+        break;
+      }
+    }
+  }
 
   if (!pkg) {
     // console.log({
@@ -43,9 +83,15 @@ export default async function PackagePage({ params, searchParams }) {
       <main style={{ padding: "2rem" }}>
         <h2>Could not find this package.</h2>
         <p>
-          Requested <strong>slug</strong>: {slug} <br />
+          Requested <strong>slug</strong>: {slug || <em>(empty)</em>} <br />
+          Computed <strong>incoming</strong> slug: {incoming || <em>(empty)</em>}<br />
           Requested <strong>type</strong>: {type}
         </p>
+
+        <details style={{marginTop:12}}>
+          <summary style={{cursor:'pointer'}}>Debug: route data</summary>
+          <pre style={{whiteSpace:'pre-wrap', fontSize:12, marginTop:8}}>{JSON.stringify({ params: resolvedParams, searchParams: resolvedSearchParams }, null, 2)}</pre>
+        </details>
         <h3>Available packages for type: {type}</h3>
         <ul>
           {list.map((p) => (
@@ -63,10 +109,16 @@ export default async function PackagePage({ params, searchParams }) {
       <Breadcrumbs current={pkg.title} first="Packages" firstLink="/package" />
       <div className={styles.packagePage}>
         <section className={styles.hero}>
-          <div className={styles.heroContent}>
-            <span className={styles.eyebrow}>
-              {type === "design" ? "Design Package" : "Development Package"}
-            </span>
+              <div className={styles.heroContent}>
+                <span className={styles.eyebrow}>
+                  {resolvedType === "design" ? "Design Package" : "Development Package"}
+                </span>
+
+                {resolvedType !== type && (
+                  <div style={{fontSize:12, color:'#666', marginTop:6}}>
+                    Showing package from <strong>{resolvedType}</strong> (requested <strong>{type}</strong>)
+                  </div>
+                )}
 
             <h1 className={styles.title}>{pkg.title}</h1>
 

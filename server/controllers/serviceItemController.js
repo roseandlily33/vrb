@@ -65,7 +65,7 @@ exports.updateItem = async (req, res, next) => {
     const updated = await ServiceItem.findByIdAndUpdate(
       req.params.id,
       req.body,
-      { new: true },
+      { returnDocument: "after" },
     );
     const changes = computeChanges(before, updated.toObject());
     await ServiceItemHistory.create({
@@ -93,7 +93,7 @@ exports.archiveItem = async (req, res, next) => {
         archivedAt: new Date(),
         archivedBy: req.user && req.user._id,
       },
-      { new: true },
+      { returnDocument: "after" },
     );
     const changes = computeChanges(before, updated.toObject());
     await ServiceItemHistory.create({
@@ -117,7 +117,7 @@ exports.unarchiveItem = async (req, res, next) => {
     const updated = await ServiceItem.findByIdAndUpdate(
       req.params.id,
       { archived: false, archivedAt: null, archivedBy: null },
-      { new: true },
+      { returnDocument: "after" },
     );
     const changes = computeChanges(before, updated.toObject());
     await ServiceItemHistory.create({

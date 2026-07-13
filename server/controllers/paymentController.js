@@ -33,7 +33,7 @@ exports.getPayment = async (req, res, next) => {
 exports.updatePayment = async (req, res, next) => {
   try {
     const payment = await Payment.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
+      returnDocument: "after",
     });
     if (!payment) return res.status(404).json({ error: "Not found" });
     res.json({ payment });

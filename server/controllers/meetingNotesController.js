@@ -35,7 +35,7 @@ exports.updateMeeting = async (req, res, next) => {
     const meeting = await MeetingNotes.findByIdAndUpdate(
       req.params.id,
       req.body,
-      { new: true },
+      { returnDocument: "after" },
     );
     if (!meeting) return res.status(404).json({ error: "Not found" });
     res.json({ meeting });

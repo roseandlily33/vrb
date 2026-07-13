@@ -50,7 +50,7 @@ exports.update = async (req, res, next) => {
       update.doneAt = done ? new Date() : null;
     }
     const it = await InstagramPost.findByIdAndUpdate(req.params.id, update, {
-      new: true,
+      returnDocument: "after",
     });
     if (!it) return res.status(404).json({ error: "Not found" });
     res.json({ item: it });
