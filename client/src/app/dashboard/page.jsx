@@ -59,7 +59,8 @@ export default function DashboardPage() {
         fetch(`${API_URL}/api/proposal-templates`, { headers }),
         fetch(`${API_URL}/api/service-items`, { headers }),
         fetch(`${API_URL}/api/todos`, { headers }),
-        fetch(`${API_URL}/api/payments`, { headers }),
+        fetch(`${API_URL}/api/payments/all`, { headers }),
+        fetch(`${API_URL}/api/invoices/all`, { headers }),
         fetch(`${API_URL}/api/social-posts`, { headers }),
       ];
 
@@ -70,6 +71,12 @@ export default function DashboardPage() {
       const results = await Promise.all(
         endpoints.map((p) => p.then((r) => r.json().then((j) => ({ ok: r.ok, body: j })))),
       );
+      const failed = results
+        .map((r, i) => ({ ok: !!r?.ok, body: r?.body, index: i }))
+        .filter((r) => !r.ok);
+      if (failed.length > 0) {
+        console.warn("Dashboard fetch had failing endpoints:", failed);
+      }
       setData({
         clients: results[0]?.ok ? results[0].body.clients || [] : [],
         proposals: results[1]?.ok ? results[1].body.proposals || [] : [],
@@ -77,11 +84,12 @@ export default function DashboardPage() {
         serviceItems: results[3]?.ok ? results[3].body.items || [] : [],
         todos: results[4]?.ok ? results[4].body.todos || [] : [],
         payments: results[5]?.ok ? results[5].body.payments || [] : [],
-        socialPosts: results[6]?.ok ? results[6].body.posts || [] : [],
+        invoices: results[6]?.ok ? results[6].body.invoices || [] : [],
+        socialPosts: results[7]?.ok ? results[7].body.posts || [] : [],
         users:
           user && user.role === "admin"
-            ? results[6]?.ok
-              ? results[6].body.users || []
+            ? results[results.length - 1]?.ok
+              ? results[results.length - 1].body.users || []
               : []
             : [],
       });
@@ -105,13 +113,26 @@ export default function DashboardPage() {
   }, []);
 
   // Revenue calculations
-  const totalReceived = data.payments
-    .filter((p) => p.status === "completed")
-    .reduce((s, p) => s + (Number(p.amount) || 0), 0);
+  const parseAmount = (v) => {
+    if (v === null || v === undefined) return 0;
+    const s = String(v).trim();
+    if (s === "") return 0;
+    // remove any currency symbols or commas
+    const cleaned = s.replace(/[^0-9.\-]/g, "");
+    const n = parseFloat(cleaned);
+    return Number.isFinite(n) ? n : 0;
+  };
 
-  const totalPending = data.payments
-    .filter((p) => p.status !== "completed")
-    .reduce((s, p) => s + (Number(p.amount) || 0), 0);
+  const totalReceived = (data.payments || []).reduce((s, p) => {
+    return s + parseAmount(p.amount);
+  }, 0);
+
+  const totalAmount = (data.invoices || []).reduce(
+    (s, inv) => s + parseAmount(inv.total ?? inv.subtotal ?? 0),
+    0,
+  );
+
+  const unpaid = Math.max(0, totalAmount - totalReceived);
 
   const exportAll = async () => {
     await fetchAll();
@@ -121,6 +142,7 @@ export default function DashboardPage() {
       { key: "proposals", rows: data.proposals },
       { key: "templates", rows: data.templates },
       { key: "serviceItems", rows: data.serviceItems },
+      { key: "invoices", rows: data.invoices },
       { key: "users", rows: data.users },
       { key: "todos", rows: data.todos },
       { key: "payments", rows: data.payments },
@@ -332,23 +354,18 @@ export default function DashboardPage() {
               </article>
 
               <article className={styles.statCard}>
-                <span>Total Received</span>
+                <span>Total Invoiced</span>
+                <strong>${totalAmount.toFixed(2)}</strong>
+              </article>
+
+              <article className={styles.statCard}>
+                <span>Paid</span>
                 <strong>${totalReceived.toFixed(2)}</strong>
               </article>
 
               <article className={styles.statCard}>
-                <span>Pending Payments</span>
-                <strong>${totalPending.toFixed(2)}</strong>
-              </article>
-
-              <article className={styles.statCard}>
-                <span>Proposals</span>
-                <strong>{data.proposals.length}</strong>
-              </article>
-
-              <article className={styles.statCard}>
-                <span>Payments</span>
-                <strong>{data.payments.length}</strong>
+                <span>Unpaid</span>
+                <strong>${unpaid.toFixed(2)}</strong>
               </article>
             </section>
 
@@ -391,19 +408,7 @@ export default function DashboardPage() {
 
                   <div>
                     <span>Outstanding balance</span>
-                    <strong>
-                      $
-                      {Math.max(
-                        0,
-                        data.proposals.reduce(
-                          (s, p) => s + (p.pricing?.total || 0),
-                          0,
-                        ) -
-                          data.payments
-                            .filter((px) => px.status === "completed")
-                            .reduce((s, p) => s + (p.amount || 0), 0),
-                      )}
-                    </strong>
+                    <strong>${unpaid.toFixed(2)}</strong>
                   </div>
                 </div>
 

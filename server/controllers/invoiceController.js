@@ -122,12 +122,23 @@ async function listInvoices(req, res, next) {
   }
 }
 
+async function getAllInvoices(req, res, next) {
+  try {
+    const invoices = await Invoice.find().sort({ createdAt: -1 });
+    console.log("getAllInvoices: returning", invoices.length, "invoices");
+    res.json({ invoices });
+  } catch (err) {
+    next(err);
+  }
+}
+
 module.exports = {
   createInvoice,
   getInvoice,
   listInvoices,
   updateInvoice,
   deleteInvoice,
+  getAllInvoices,
 };
 
 async function deleteInvoice(req, res, next) {
@@ -153,6 +164,7 @@ async function updateInvoice(req, res, next) {
       tax = 0,
       notes,
       dueDate,
+      issuedAt,
       status,
     } = req.body;
 
@@ -188,6 +200,7 @@ async function updateInvoice(req, res, next) {
         total,
         notes,
         dueDate,
+        issuedAt: issuedAt ? new Date(issuedAt) : undefined,
         status,
       },
       { returnDocument: "after" },

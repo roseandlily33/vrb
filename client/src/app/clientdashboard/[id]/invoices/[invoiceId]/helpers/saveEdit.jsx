@@ -17,7 +17,7 @@ export const saveEdit = async ({ editable, invoice, setInvoice, setEditable, set
         unitPrice: Number(item.unitPrice || 0),
         custom: item.custom || false,
       })),
-      tax: 0, // tax disabled for now
+      tax: Number(editable.tax || 0),
       notes: editable.notes,
       dueDate: editable.dueDate || null,
       issuedAt: editable.issuedAt || null,

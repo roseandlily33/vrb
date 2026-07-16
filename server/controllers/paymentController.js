@@ -51,3 +51,13 @@ exports.deletePayment = async (req, res, next) => {
     next(err);
   }
 };
+
+exports.getAllPayments = async (req, res, next) => {
+  try {
+    const payments = await Payment.find().sort({ date: -1 });
+    console.log("getAllPayments: returning", payments.length, "payments");
+    res.json({ payments });
+  } catch (err) {
+    next(err);
+  }
+};

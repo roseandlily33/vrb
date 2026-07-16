@@ -12,6 +12,8 @@ export default function PaymentsPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(true);
   const [payments, setPayments] = useState([]);
+  const [invoices, setInvoices] = useState([]);
+  const [receipts, setReceipts] = useState([]);
   const [client, setClient] = useState(null);
   const [serviceItems, setServiceItems] = useState([]);
   const [form, setForm] = useState({
@@ -33,15 +35,21 @@ export default function PaymentsPage() {
     const token = localStorage.getItem("token");
     const headers = { Authorization: `Bearer ${token}` };
     try {
-      const [cRes, pRes] = await Promise.all([
-        fetch(`${API_URL}/api/clients/${id}`, { headers }),
-        fetch(`${API_URL}/api/payments?clientId=${id}`, { headers }),
-      ]);
+      const [cRes, pRes, iRes, rRes] = await Promise.all([
+          fetch(`${API_URL}/api/clients/${id}`, { headers }),
+          fetch(`${API_URL}/api/payments?clientId=${id}`, { headers }),
+          fetch(`${API_URL}/api/invoices?clientId=${id}`, { headers }),
+          fetch(`${API_URL}/api/receipts?clientId=${id}`, { headers }),
+        ]);
       if (!cRes.ok) throw new Error("Failed to load client");
       const cJson = await cRes.json();
       const pJson = await pRes.json();
+      const iJson = iRes.ok ? await iRes.json() : { invoices: [] };
+      const rJson = rRes.ok ? await rRes.json() : { receipts: [] };
       setClient(cJson.client);
       setPayments(pJson.payments || []);
+      setInvoices(iJson.invoices || []);
+      setReceipts(rJson.receipts || []);
       // prefetch service items for invoice creation
       try {
         const siRes = await fetch(`${API_URL}/api/service-items`, { headers });
@@ -59,11 +67,9 @@ export default function PaymentsPage() {
     }
   };
 
-  const total = payments.reduce((s, p) => s + (p.amount || 0), 0);
-  const paid = payments
-    .filter((p) => p.status === "completed")
-    .reduce((s, p) => s + (p.amount || 0), 0);
-  const unpaid = Math.max(0, total - paid);
+  const totalInvoices = invoices.reduce((s, inv) => s + (inv.total || inv.subtotal || 0), 0);
+  const paid = payments.reduce((s, p) => s + Number(p.amount || 0), 0);
+  const unpaid = Math.max(0, totalInvoices - paid);
 
   const handleCreate = async (e) => {
     e.preventDefault();
@@ -131,7 +137,7 @@ export default function PaymentsPage() {
         </button>
 
         <div>
-          <span className={styles.eyebrow}>Invoices & Payments</span>
+          <span className={styles.eyebrow}>Invoices & Payments & Receipts</span>
           <h1>Payments — {client?.businessName || client?.name}</h1>
         </div>
 
@@ -149,6 +155,12 @@ export default function PaymentsPage() {
           >
             Create Payment
           </button>
+          <button
+            onClick={() => router.push(`/clientdashboard/${id}/receipts/create`)}
+            className={styles.createSecondary}
+          >
+            Create Receipt
+          </button>
         </div>
       </div>
 
@@ -158,8 +170,8 @@ export default function PaymentsPage() {
         <div>
           <section className={styles.summary}>
             <article>
-              <span>Total</span>
-              <strong>${total}</strong>
+              <span>Invoices</span>
+              <strong>${totalInvoices}</strong>
             </article>
 
             <article>
@@ -171,6 +183,40 @@ export default function PaymentsPage() {
               <span>Unpaid</span>
               <strong>${unpaid}</strong>
             </article>
+          </section>
+
+          <section className={styles.list}>
+            <div className={styles.listHeader}>
+              <h2>Receipts</h2>
+            </div>
+
+            {receipts.length === 0 ? (
+              <div className={styles.emptyState}>No receipts yet</div>
+            ) : (
+              <div className={styles.paymentTable}>
+                <div className={styles.tableHead}>
+                  <div>Receipt #</div>
+                  <div>Amount</div>
+                  <div>Date</div>
+                  <div>Linked Payment</div>
+                  <div>Action</div>
+                </div>
+
+                {receipts.map((r) => (
+                  <div key={r._id} className={styles.row}>
+                    <div>{r.receiptNumber || '—'}</div>
+                    <div>{(r.amount || 0).toFixed ? (r.amount || 0).toFixed(2) : r.amount}</div>
+                    <div>{r.issuedAt ? new Date(r.issuedAt).toLocaleDateString() : '—'}</div>
+                    <div>{r.paymentId ? (
+                      <button className={styles.link} onClick={() => router.push(`/clientdashboard/${id}/payments/${r.paymentId}`)}>{r.paymentId}</button>
+                    ) : '—'}</div>
+                    <div>
+                      <button className={styles.createSmall} onClick={() => router.push(`/clientdashboard/${id}/receipts/${r._id}`)}>View</button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </section>
 
           <section className={styles.list}>
@@ -225,6 +271,62 @@ export default function PaymentsPage() {
                         onClick={() => handleDelete(p._id)}
                       >
                         Delete
+                      </button>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
+          </section>
+
+          <section className={styles.list}>
+            <div className={styles.listHeader}>
+              <h2>Invoices</h2>
+            </div>
+
+            {invoices.length === 0 ? (
+              <div className={styles.emptyState}>No invoices yet</div>
+            ) : (
+              <div className={styles.paymentTable}>
+                <div className={styles.tableHead}>
+                  <div>Invoice</div>
+                  <div>Title</div>
+                  <div>Total</div>
+                  <div>Status</div>
+                  <div>Due</div>
+                  <div>Action</div>
+                </div>
+
+                {invoices.map((inv) => (
+                  <div key={inv._id} className={styles.row}>
+                    <div>
+                      <button
+                        className={styles.link}
+                        onClick={() => router.push(`/clientdashboard/${id}/invoices/${inv._id}`)}
+                      >
+                        {inv.invoiceId || "—"}
+                      </button>
+                    </div>
+
+                    <div>{inv.title || "—"}</div>
+
+                    <div>
+                      {(inv.total || inv.subtotal || 0).toFixed
+                        ? (inv.total || inv.subtotal || 0).toFixed(2)
+                        : inv.total || inv.subtotal || 0
+                      } {inv.currency || "CAD"}
+                    </div>
+
+                    <div>{inv.status || "—"}</div>
+
+                    <div>{inv.dueDate ? new Date(inv.dueDate).toLocaleDateString() : "—"}</div>
+
+                    <div>
+                      <button
+                        className={styles.createSmall}
+                        onClick={() => router.push(`/clientdashboard/${id}/invoices/${inv._id}`)}
+                      >
+                        View
                       </button>
                     </div>
                   </div>

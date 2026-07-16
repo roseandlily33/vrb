@@ -1,4 +1,4 @@
-export const updateTax = (value) => {
+export const updateTax = (setEditable, value) => {
   const tax = Number(value || 0);
 
   setEditable((prev) => {

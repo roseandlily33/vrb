@@ -202,6 +202,10 @@
 .formHeader h2 {
   margin: 0;
 }
+.list {
+  /* border: 2px solid red; */
+  margin-top: 2rem;
+}
 
 .invoiceMeta {
   display: flex;
@@ -229,6 +233,7 @@
   display: grid;
   grid-template-columns: 60% 40%; /* left column wider for editing, right for preview */
   gap: var(--space-xl);
+  margin-top: 3rem;
 }
 
 .invoicePanel {

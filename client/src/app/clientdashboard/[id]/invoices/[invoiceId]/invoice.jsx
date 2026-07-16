@@ -18,14 +18,12 @@ const InvoiceTemplate = ({
   updateTax,
   payments,
 }) => {
-  const paidSoFar = (payments || []).reduce(
-    (s, p) => s + Number(p.amount || 0),
-    0,
-  );
+  const paidSoFar = (payments || []).reduce((s, p) => s + Number(p.amount || 0), 0);
 
-  const remaining = Number(
-    (Number(displayedInvoice?.subtotal || 0) - paidSoFar).toFixed(2),
-  );
+  const subtotal = Number(displayedInvoice?.subtotal || 0);
+  const taxAmount = Number(displayedInvoice?.tax || 0);
+  const invoiceTotal = Number(displayedInvoice?.total ?? subtotal + taxAmount);
+  const remaining = Number((invoiceTotal - paidSoFar).toFixed(2));
   return (
     <>
       <section className={styles.invoiceDocument} ref={docRef}>
@@ -46,6 +44,7 @@ const InvoiceTemplate = ({
                 <p>(902) 817-1001</p>
 
                 <p>www.vrbwebdesignanddev.com</p>
+                <p>HST# </p>
               </div>
             ) : (
               <div className={styles.issuerForm}>
@@ -349,7 +348,7 @@ const InvoiceTemplate = ({
               <strong>{formatMoney(displayedInvoice.subtotal)}</strong>
             </div>
 
-            {/* <div>
+            <div>
               <span>Tax</span>
 
               {isEditing ? (
@@ -361,9 +360,9 @@ const InvoiceTemplate = ({
                   onChange={(e) => updateTax(setEditable, e.target.value)}
                 />
               ) : (
-                <strong>{formatMoney(invoice.tax)}</strong>
+                <strong>{formatMoney(taxAmount)}</strong>
               )}
-            </div> */}
+            </div>
 
             <div>
               <span>Payments</span>

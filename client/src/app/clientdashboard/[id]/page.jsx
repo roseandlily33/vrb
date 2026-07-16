@@ -25,6 +25,7 @@ export default function ClientDashboard() {
   const [client, setClient] = useState(null);
   const [proposals, setProposals] = useState([]);
   const [payments, setPayments] = useState([]);
+  const [invoices, setInvoices] = useState([]);
   const [todos, setTodos] = useState([]);
   const [meetings, setMeetings] = useState([]);
   const [todoOpen, setTodoOpen] = useState(false);
@@ -72,10 +73,11 @@ export default function ClientDashboard() {
       setLoading(true);
       setError("");
       try {
-        const [cRes, pRes, payRes, tRes, mRes] = await Promise.all([
+        const [cRes, pRes, payRes, iRes, tRes, mRes] = await Promise.all([
           fetch(`${API_URL}/api/clients/${id}`, { headers }),
           fetch(`${API_URL}/api/proposals?clientId=${id}`, { headers }),
           fetch(`${API_URL}/api/payments?clientId=${id}`, { headers }),
+          fetch(`${API_URL}/api/invoices?clientId=${id}`, { headers }),
           fetch(`${API_URL}/api/todos?clientId=${id}`, { headers }),
           fetch(`${API_URL}/api/meeting-notes?clientId=${id}`, { headers }),
         ]);
@@ -84,12 +86,14 @@ export default function ClientDashboard() {
         const cJson = await cRes.json();
         const pJson = await pRes.json();
         const payJson = await payRes.json();
+        const iJson = iRes.ok ? await iRes.json() : { invoices: [] };
         const tJson = await tRes.json();
         const mJson = await mRes.json();
 
         setClient(cJson.client);
         setProposals(pJson.proposals || []);
         setPayments(payJson.payments || []);
+        setInvoices(iJson.invoices || []);
         setTodos(tJson.todos || []);
         setMeetings(mJson.meetings || []);
       } catch (err) {
@@ -107,10 +111,14 @@ export default function ClientDashboard() {
     (s, p) => s + ((p.pricing && p.pricing.total) || 0),
     0,
   );
-  const totalPayments = payments
-    .filter((px) => px.status === "completed")
-    .reduce((s, p) => s + (p.amount || 0), 0);
+  const totalPayments = payments.reduce((s, p) => s + Number(p.amount || 0), 0);
   const outstanding = Math.max(0, totalProposals - totalPayments);
+  const totalInvoices = invoices.reduce(
+    (s, inv) => s + (inv.total || inv.subtotal || 0),
+    0,
+  );
+  const paidInvoices = totalPayments; // sum of completed payments
+  const unpaidInvoices = Math.max(0, totalInvoices - paidInvoices);
 
   return (
     <main className={styles.wrap}>
@@ -328,86 +336,119 @@ export default function ClientDashboard() {
                         }
                       />
                     </div>
-                   
                   </div>
-                    <div style={{ minWidth: 220, textAlign: "right" }}>
-                      <div style={{ marginBottom: 8 }}>
-                        Outstanding: <strong>${outstanding}</strong>
-                      </div>
-                      <div>
-                        Total proposals: <strong>${totalProposals}</strong>
-                      </div>
-                      <div style={{ marginTop: 8 }}>
-                        {!contactEditing ? (
-                          <button
-                            onClick={() => {
-                              setContactForm({
-                                businessName: client.businessName || "",
-                                contactName: client.contactName || "",
-                                email: client.email || "",
-                                phone: client.phone || "",
-                                website: client.website || "",
-                                industry: client.industry || "",
-                                status: client.status || "lead",
-                                address_street: (client.address && client.address.street) || "",
-                                address_city: (client.address && client.address.city) || "",
-                                address_province: (client.address && client.address.province) || "",
-                                address_postalCode: (client.address && client.address.postalCode) || "",
-                                address_country: (client.address && client.address.country) || "Canada",
-                                notes: client.notes || "",
-                              });
-                              setContactEditing(true);
-                            }}
-                            aria-label="Edit contact"
-                            style={{ background: "transparent", border: "none", fontSize: 18, cursor: "pointer" }}
-                          >
-                            ✏️
-                          </button>
-                        ) : (
-                          <div style={{ display: "flex", gap: 8, justifyContent: "flex-end" }}>
-                            <button
-                              className={styles.saveButton}
-                              onClick={async () => {
-                                const token = localStorage.getItem("token");
-                                try {
-                                  const payload = {
-                                    businessName: contactForm.businessName,
-                                    contactName: contactForm.contactName,
-                                    email: contactForm.email,
-                                    phone: contactForm.phone,
-                                    website: contactForm.website,
-                                    industry: contactForm.industry,
-                                    status: contactForm.status,
-                                    address: {
-                                      street: contactForm.address_street,
-                                      city: contactForm.address_city,
-                                      province: contactForm.address_province,
-                                      postalCode: contactForm.address_postalCode,
-                                      country: contactForm.address_country,
-                                    },
-                                    notes: contactForm.notes,
-                                  };
-                                  const res = await fetch(`${API_URL}/api/clients/${id}`, {
-                                    method: "PUT",
-                                    headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-                                    body: JSON.stringify(payload),
-                                  });
-                                  const j = await res.json();
-                                  if (!res.ok) throw new Error(j.error || "Save failed");
-                                  setClient(j.client || null);
-                                  setContactEditing(false);
-                                } catch (err) {
-                                  alert(err.message || "Error");
-                                }
-                              }}
-                            >
-                              Save
-                            </button>
-                            <button className={styles.createSmall} onClick={() => setContactEditing(false)}>Cancel</button>
-                          </div>
-                        )}
-                      </div>
+                  <div style={{ minWidth: 220, textAlign: "right" }}>
+                    <div style={{ marginBottom: 8 }}>
+                      Invoices total: <strong>${totalInvoices}</strong>
                     </div>
+                    <div>
+                      Paid: <strong>${paidInvoices}</strong>
+                    </div>
+                    <div>
+                      Unpaid: <strong>${unpaidInvoices}</strong>
+                    </div>
+                    <div style={{ marginTop: 8 }}>
+                      {!contactEditing ? (
+                        <button
+                          onClick={() => {
+                            setContactForm({
+                              businessName: client.businessName || "",
+                              contactName: client.contactName || "",
+                              email: client.email || "",
+                              phone: client.phone || "",
+                              website: client.website || "",
+                              industry: client.industry || "",
+                              status: client.status || "lead",
+                              address_street:
+                                (client.address && client.address.street) || "",
+                              address_city:
+                                (client.address && client.address.city) || "",
+                              address_province:
+                                (client.address && client.address.province) ||
+                                "",
+                              address_postalCode:
+                                (client.address && client.address.postalCode) ||
+                                "",
+                              address_country:
+                                (client.address && client.address.country) ||
+                                "Canada",
+                              notes: client.notes || "",
+                            });
+                            setContactEditing(true);
+                          }}
+                          aria-label="Edit contact"
+                          style={{
+                            background: "transparent",
+                            border: "none",
+                            fontSize: 18,
+                            cursor: "pointer",
+                          }}
+                        >
+                          ✏️
+                        </button>
+                      ) : (
+                        <div
+                          style={{
+                            display: "flex",
+                            gap: 8,
+                            justifyContent: "flex-end",
+                          }}
+                        >
+                          <button
+                            className={styles.saveButton}
+                            onClick={async () => {
+                              const token = localStorage.getItem("token");
+                              try {
+                                const payload = {
+                                  businessName: contactForm.businessName,
+                                  contactName: contactForm.contactName,
+                                  email: contactForm.email,
+                                  phone: contactForm.phone,
+                                  website: contactForm.website,
+                                  industry: contactForm.industry,
+                                  status: contactForm.status,
+                                  address: {
+                                    street: contactForm.address_street,
+                                    city: contactForm.address_city,
+                                    province: contactForm.address_province,
+                                    postalCode: contactForm.address_postalCode,
+                                    country: contactForm.address_country,
+                                  },
+                                  notes: contactForm.notes,
+                                };
+                                const res = await fetch(
+                                  `${API_URL}/api/clients/${id}`,
+                                  {
+                                    method: "PUT",
+                                    headers: {
+                                      "Content-Type": "application/json",
+                                      Authorization: `Bearer ${token}`,
+                                    },
+                                    body: JSON.stringify(payload),
+                                  },
+                                );
+                                const j = await res.json();
+                                if (!res.ok)
+                                  throw new Error(j.error || "Save failed");
+                                setClient(j.client || null);
+                                setContactEditing(false);
+                              } catch (err) {
+                                alert(err.message || "Error");
+                              }
+                            }}
+                          >
+                            Save
+                          </button>
+                          <button
+                            className={styles.createSmall}
+                            onClick={() => setContactEditing(false)}
+                          >
+                            Cancel
+                          </button>
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 </div>
               </section>
 
@@ -478,6 +519,33 @@ export default function ClientDashboard() {
                       ))}
                     </ul>
                   )}
+                  {/* Invoices (show a short list) */}
+                  <div style={{ marginTop: 12 }}>
+                    <h5 style={{ margin: "8px 0" }}>Recent invoices</h5>
+
+                    {invoices && invoices.length > 0 ? (
+                      <ul>
+                        {invoices.slice(0, 5).map((inv) => (
+                          <li key={inv._id}>
+                            <button
+                              className={styles.link}
+                              onClick={() =>
+                                router.push(`/clientdashboard/${id}/invoices`)
+                              }
+                            >
+                              {inv.invoiceId || "—"} —{" "}
+                              {inv.total || inv.subtotal || 0}{" "}
+                              {inv.currency || "CAD"}
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <div style={{ color: "#666", fontSize: 14 }}>
+                        No invoices
+                      </div>
+                    )}
+                  </div>
                 </div>
 
                 <div className={styles.column}>
@@ -504,28 +572,48 @@ export default function ClientDashboard() {
                         const done = t.status === "done";
                         const prio = t.priority || "medium";
                         return (
-                          <li key={t._id} className={done ? styles.todoDone : ""}>
+                          <li
+                            key={t._id}
+                            className={done ? styles.todoDone : ""}
+                          >
                             <div className={styles.todoItem}>
                               <button
                                 className={styles.todoToggle}
-                                aria-label={done ? "Mark as not done" : "Mark as done"}
+                                aria-label={
+                                  done ? "Mark as not done" : "Mark as done"
+                                }
                                 onClick={async (e) => {
                                   e.stopPropagation();
                                   const token = localStorage.getItem("token");
                                   try {
                                     const body = {
                                       status: done ? "todo" : "done",
-                                      completedAt: done ? null : new Date().toISOString(),
+                                      completedAt: done
+                                        ? null
+                                        : new Date().toISOString(),
                                     };
-                                    const res = await fetch(`${API_URL}/api/todos/${t._id}`, {
-                                      method: "PUT",
-                                      headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
-                                      body: JSON.stringify(body),
-                                    });
+                                    const res = await fetch(
+                                      `${API_URL}/api/todos/${t._id}`,
+                                      {
+                                        method: "PUT",
+                                        headers: {
+                                          "Content-Type": "application/json",
+                                          Authorization: `Bearer ${token}`,
+                                        },
+                                        body: JSON.stringify(body),
+                                      },
+                                    );
                                     const j = await res.json();
-                                    if (!res.ok) throw new Error(j.error || "Failed");
+                                    if (!res.ok)
+                                      throw new Error(j.error || "Failed");
                                     // update local list
-                                    setTodos((prev) => prev.map((it) => (it._id === t._id ? j.todo || { ...it, ...body } : it)));
+                                    setTodos((prev) =>
+                                      prev.map((it) =>
+                                        it._id === t._id
+                                          ? j.todo || { ...it, ...body }
+                                          : it,
+                                      ),
+                                    );
                                   } catch (err) {
                                     alert(err.message || "Error");
                                   }
@@ -534,7 +622,9 @@ export default function ClientDashboard() {
                                 {done ? "✔️" : "○"}
                               </button>
 
-                              <div className={`${styles.priorityDot} ${styles[`prio_${prio}`]}`} />
+                              <div
+                                className={`${styles.priorityDot} ${styles[`prio_${prio}`]}`}
+                              />
 
                               <button
                                 className={styles.link}
@@ -548,17 +638,36 @@ export default function ClientDashboard() {
                                     status: t.status || "todo",
                                     priority: t.priority || "medium",
                                     dueDate: t.dueDate
-                                      ? new Date(t.dueDate).toISOString().slice(0, 10)
+                                      ? new Date(t.dueDate)
+                                          .toISOString()
+                                          .slice(0, 10)
                                       : "",
                                   });
                                   setTodoOpen(true);
                                 }}
                               >
-                                <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-start" }}>
-                                  <span style={{ fontWeight: 700 }}>{t.title}</span>
+                                <div
+                                  style={{
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    alignItems: "flex-start",
+                                  }}
+                                >
+                                  <span style={{ fontWeight: 700 }}>
+                                    {t.title}
+                                  </span>
                                   {t.description && (
-                                    <span style={{ fontSize: 12, color: "#666", marginTop: 6 }}>
-                                      {String(t.description).slice(0, 80)}{String(t.description).length > 80 ? "…" : ""}
+                                    <span
+                                      style={{
+                                        fontSize: 12,
+                                        color: "#666",
+                                        marginTop: 6,
+                                      }}
+                                    >
+                                      {String(t.description).slice(0, 80)}
+                                      {String(t.description).length > 80
+                                        ? "…"
+                                        : ""}
                                     </span>
                                   )}
                                 </div>

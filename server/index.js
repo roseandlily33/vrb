@@ -27,6 +27,7 @@ app.use("/api/meeting-notes", require("./routes/meetingNotes"));
 app.use("/api/invoices", require("./routes/invoices"));
 app.use("/api/social-posts", require("./routes/socialPosts"));
 app.use("/api/instagram-posts", require("./routes/instagramPosts"));
+app.use("/api/receipts", require("./routes/receipts"));
 
 // Health check
 app.get("/health", (req, res) => res.json({ ok: true }));
