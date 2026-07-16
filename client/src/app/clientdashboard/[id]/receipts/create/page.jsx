@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
-import styles from "../invoices/[invoiceId]/page.module.css";
+import styles from '../../invoices/[invoiceId]/page.module.css';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
 

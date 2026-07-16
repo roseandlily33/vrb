@@ -1,0 +1,341 @@
+/* Invoice Create Page Styles
+   Clean, organized, and aligned with root tokens/colors.
+*/
+
+.wrap {
+  min-height: 100vh;
+  padding: var(--section-md);
+  background: var(--background-one);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-xl);
+  margin-bottom: var(--space-xl);
+}
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: var(--space-xs);
+  color: var(--blue-700);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.back,
+.create,
+.createSmall,
+.delete {
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+  border-radius: var(--radius-pill);
+  transition: var(--transition-fast);
+}
+
+.back {
+  background: var(--grey-100);
+  color: var(--grey-700);
+  padding: 0.65rem 0.95rem;
+}
+
+.create {
+  background: var(--blue-800);
+  color: var(--white);
+  padding: 0.75rem 1rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.createSmall {
+  background: var(--blue-700);
+  color: var(--white);
+  padding: 0.45rem 0.85rem;
+}
+
+.inlineForm {
+  margin-top: var(--space-xxl);
+  background: white;
+  border-radius: var(--radius-lg);
+  border: var(--border-light);
+  box-shadow: var(--shadow-md);
+  padding: var(--space-xl);
+}
+
+.invoiceMeta {
+  display: flex;
+  gap: var(--space-l);
+  align-items: end;
+  margin-bottom: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.invoiceMeta label {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+}
+
+.taxPill {
+  background: var(--blue-50);
+  color: var(--blue-800);
+  padding: 0.8rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.invoiceGrid {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  gap: var(--space-xl);
+  margin-top: 3rem;
+}
+
+.invoicePanel {
+  background: var(--grey-25);
+  border-radius: var(--radius-lg);
+  padding: var(--space-l);
+  border: var(--border-light);
+}
+
+.invoicePanel h4 {
+  margin-top: 0;
+}
+
+.invoiceDetails {
+  display: grid;
+  gap: var(--space-m);
+}
+
+/* ensure invoice title input matches rounded style used elsewhere */
+.invoiceDetails input {
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  border: var(--border-medium);
+  margin-left: 2rem;
+}
+
+.serviceSection {
+  margin-top: var(--space-l);
+}
+
+.serviceList {
+  display: grid;
+  gap: var(--space-s);
+  max-height: 300px;
+  overflow: auto;
+}
+
+.serviceItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-m);
+  background: white;
+  border-radius: var(--radius-md);
+}
+
+.serviceItem span {
+  color: var(--grey-500);
+  font-size: 0.85rem;
+}
+
+.customItem {
+  margin-top: var(--space-xl);
+}
+
+.customGrid {
+  display: grid;
+  grid-template-columns: 2fr 1fr auto;
+  gap: var(--space-s);
+  align-items: start;
+}
+
+.invoiceItems {
+  display: grid;
+  gap: var(--space-s);
+}
+
+.invoiceItem {
+  display: grid;
+  grid-template-columns: 2fr 80px 120px 100px auto;
+  gap: var(--space-s);
+  align-items: center;
+}
+
+.itemDescription {
+  width: 100%;
+}
+.itemQty {
+  width: 70px;
+}
+.itemPrice {
+  width: 100px;
+}
+.itemTotal {
+  text-align: right;
+  font-weight: 700;
+}
+
+.internalCostToggle {
+  margin-top: var(--space-xs);
+}
+
+.costTrackingFields {
+  display: grid;
+  gap: var(--space-s);
+  grid-template-columns: repeat(3, 1fr);
+  margin-top: var(--space-s);
+}
+
+.internalValue {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-xs) 0;
+}
+
+.invoiceTotals {
+  margin-top: var(--space-xl);
+  border-top: var(--border-light);
+  padding-top: var(--space-l);
+}
+.invoiceTotals > div {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-s);
+}
+.grandTotal {
+  font-size: 1.15rem;
+}
+
+.invoiceNotes {
+  margin-top: var(--space-l);
+}
+
+.previewSummary {
+  display: grid;
+  gap: var(--space-s);
+}
+
+/* responsive */
+@media (max-width: 1000px) {
+  .invoiceGrid {
+    grid-template-columns: 1fr;
+  }
+  .customGrid {
+    grid-template-columns: 1fr;
+  }
+  .invoiceItem {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .wrap {
+    padding: var(--section-xxs);
+  }
+  .header {
+    flex-direction: column;
+  }
+}
+
+/* Form inputs default styles - reuse root tokens */
+.form input,
+.form select,
+.form textarea,
+.invoiceDetails textarea,
+.invoiceNotes textarea,
+.customGrid textarea,
+.invoiceMeta input,
+.invoiceMeta select,
+.notesField textarea,
+.invoiceItem input,
+.customGrid input {
+  width: 100%;
+  border: var(--border-medium);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  background: white;
+}
+
+.form input:focus,
+.form textarea:focus,
+.form select:focus,
+.invoiceMeta input:focus,
+.invoiceMeta select:focus,
+.invoiceItem input:focus,
+.customGrid input:focus {
+  outline: none;
+  border-color: var(--blue-600);
+  box-shadow: 0 0 0 4px rgba(38, 155, 230, 0.12);
+}
+
+/* small utility */
+.muted {
+  color: var(--grey-500);
+  font-size: 0.9rem;
+}
+
+/* Mini invoice styles for right column */
+.miniInvoice {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: var(--space-s);
+  border: var(--border-light);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
+.miniHeader {
+  padding: 0.25rem 0;
+}
+
+.miniItems {
+  display: grid;
+  gap: 0.5rem;
+  max-height: 240px;
+  overflow: auto;
+}
+
+.miniItem {
+  display: grid;
+  grid-template-columns: 1fr 40px 70px 70px;
+  gap: 0.5rem;
+  align-items: center;
+}
+.miniDesc {
+  font-size: 0.95rem;
+  color: var(--grey-800);
+}
+.miniQty {
+  text-align: center;
+  color: var(--grey-600);
+}
+.miniPrice {
+  text-align: right;
+  color: var(--grey-600);
+}
+.miniTotal {
+  text-align: right;
+  font-weight: 700;
+}
+
+.miniTotals {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  border-top: var(--border-light);
+  padding-top: var(--space-s);
+}
+
+.createWrapper {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: var(--space-s);
+}

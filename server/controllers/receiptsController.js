@@ -22,7 +22,9 @@ exports.createReceipt = async (req, res, next) => {
 
     const r = await Receipt.create({
       clientId,
-      paymentIds: paymentIdsNormalized.length ? paymentIdsNormalized : undefined,
+      paymentIds: paymentIdsNormalized.length
+        ? paymentIdsNormalized
+        : undefined,
       receiptNumber,
       amount,
       currency: currency || "CAD",

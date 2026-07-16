@@ -44,7 +44,7 @@ const InvoiceTemplate = ({
                 <p>(902) 817-1001</p>
 
                 <p>www.vrbwebdesignanddev.com</p>
-                <p>HST# </p>
+                <p>HST# 77932 7972 RT0001</p>
               </div>
             ) : (
               <div className={styles.issuerForm}>
@@ -251,60 +251,80 @@ const InvoiceTemplate = ({
             <div>Total</div>
           </div>
 
-          {(displayedInvoice?.lineItems || [])?.map((item, index) => (
-            <div
-              key={item?._id || `${item?.description}-${index}`}
-              className={styles.invoiceTableRow}
-            >
-              <div className={styles.descriptionColumn}>
-                {isEditing ? (
-                  <input
-                    type="text"
-                    value={item?.description || ""}
-                    onChange={(e) =>
-                      updateLineItem(setEditable, index, "description", e.target.value)
-                    }
-                  />
-                ) : (
-                  item?.description
-                )}
-              </div>
+          {(displayedInvoice?.lineItems || [])?.map((item, index) => {
+            const key = item?._id || `${item?.description}-${index}`;
+            const unitCost = item?.costTracking?.unitCost || 0;
+            const totalCost = item?.costTracking?.totalCost || 0;
+            const lineProfit = Number((item?.total || 0) - (totalCost || 0)).toFixed(2);
 
-              <div>
-                {isEditing ? (
-                  <input
-                    type="number"
-                    min="0"
-                    step="1"
-                    value={item?.quantity ?? 0}
-                    onChange={(e) =>
-                      updateLineItem(setEditable, index, "quantity", e.target.value)
-                    }
-                  />
-                ) : (
-                  item?.quantity
-                )}
-              </div>
+            return (
+              <React.Fragment key={key}>
+                <div className={styles.invoiceTableRow}>
+                  <div className={styles.descriptionColumn}>
+                    {isEditing ? (
+                      <input
+                        type="text"
+                        value={item?.description || ""}
+                        onChange={(e) =>
+                          updateLineItem(setEditable, index, "description", e.target.value)
+                        }
+                      />
+                    ) : (
+                      item?.description
+                    )}
+                  </div>
 
-              <div>
-                {isEditing ? (
-                  <input
-                    type="number"
-                    min="0"
-                    step="0.01"
-                    value={item?.unitPrice ?? 0}
-                    onChange={(e) =>
-                      updateLineItem(setEditable, index, "unitPrice", e.target.value)
-                    }
-                  />
-                ) : (
-                  formatMoney(item?.unitPrice)
-                )}
-              </div>
+                  <div>
+                    {isEditing ? (
+                      <input
+                        type="number"
+                        min="0"
+                        step="1"
+                        value={item?.quantity ?? 0}
+                        onChange={(e) =>
+                          updateLineItem(setEditable, index, "quantity", e.target.value)
+                        }
+                      />
+                    ) : (
+                      item?.quantity
+                    )}
+                  </div>
 
-              <div>{formatMoney(item?.total)}</div>
-            </div>
-          ))}
+                  <div>
+                    {isEditing ? (
+                      <input
+                        type="number"
+                        min="0"
+                        step="0.01"
+                        value={item?.unitPrice ?? 0}
+                        onChange={(e) =>
+                          updateLineItem(setEditable, index, "unitPrice", e.target.value)
+                        }
+                      />
+                    ) : (
+                      formatMoney(item?.unitPrice)
+                    )}
+                  </div>
+
+                  <div>{formatMoney(item?.total)}</div>
+                </div>
+
+                <div className={`${styles.lineDetails} ${styles.noPrint}`}>
+                  {item?.costTracking?.enabled ? (
+                    <div>
+                      <strong>Cost:</strong> {formatMoney(totalCost)} •
+                      <strong> Unit cost:</strong> {formatMoney(unitCost)} •
+                      <strong> Profit:</strong> {formatMoney(Number(lineProfit))}
+                    </div>
+                  ) : (
+                    <div>
+                      <em>No cost tracking for this line</em>
+                    </div>
+                  )}
+                </div>
+              </React.Fragment>
+            );
+          })}
         </div>
 
         <div className={styles.invoiceBottom}>

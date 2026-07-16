@@ -27,20 +27,38 @@ async function createInvoice(req, res, next) {
     } = req.body;
     if (!clientId) return res.status(400).json({ error: "clientId required" });
 
-    // compute totals and normalize line items
+    // compute totals and normalize line items, including optional cost tracking
     const normalized = lineItems.map((li) => {
       const qty = Number(li.quantity || 1);
       const unit = Number(li.unitPrice || 0);
+
+      const costTracking = li.costTracking || {};
+      const enabled = !!costTracking.enabled;
+      const unitCost = Number(costTracking.unitCost || 0);
+      const totalCost = enabled ? +(qty * unitCost) : undefined;
+
       return {
         description: li.description || "",
         serviceItemId: li.serviceItemId || undefined,
         quantity: qty,
         unitPrice: unit,
         total: +(qty * unit),
+        costTracking: {
+          enabled,
+          supplier: costTracking.supplier,
+          unitCost: unitCost || undefined,
+          totalCost: totalCost,
+          markupRate: costTracking.markupRate,
+        },
       };
     });
 
     const subtotal = normalized.reduce((s, i) => s + (i.total || 0), 0);
+    const totalCost = normalized.reduce(
+      (s, i) => s + (i.costTracking?.totalCost || 0),
+      0,
+    );
+
     const taxAmount = Number(tax || 0);
     const total = +(subtotal + taxAmount);
 
@@ -91,6 +109,15 @@ async function createInvoice(req, res, next) {
       terms,
       dueDate,
     });
+    // Set cents and profit-related fields prior to save so they persist
+    invoice.subtotalCents = Math.round(subtotal * 100);
+    invoice.taxCents = Math.round(taxAmount * 100);
+    invoice.totalCents = Math.round(total * 100);
+    invoice.totalCostCents = Math.round(totalCost * 100);
+    invoice.grossProfitCents = Math.round((total - totalCost) * 100);
+    invoice.amountPaidCents = 0;
+    invoice.balanceDueCents = invoice.totalCents;
+
     await invoice.save();
 
     res.status(201).json({ invoice });
@@ -168,10 +195,16 @@ async function updateInvoice(req, res, next) {
       status,
     } = req.body;
 
-    // normalize incoming line items
+    // normalize incoming line items and compute costs/profits
     const normalized = lineItems.map((li) => {
       const qty = Number(li.quantity || 1);
       const unit = Number(li.unitPrice || 0);
+
+      const costTracking = li.costTracking || {};
+      const enabled = !!costTracking.enabled;
+      const unitCost = Number(costTracking.unitCost || 0);
+      const totalCost = enabled ? +(qty * unitCost) : undefined;
+
       return {
         description: li.description || "",
         serviceItemId: li.serviceItemId || undefined,
@@ -179,10 +212,21 @@ async function updateInvoice(req, res, next) {
         unitPrice: unit,
         total: +(qty * unit),
         custom: li.custom || false,
+        costTracking: {
+          enabled,
+          supplier: costTracking.supplier,
+          unitCost: unitCost || undefined,
+          totalCost: totalCost,
+          markupRate: costTracking.markupRate,
+        },
       };
     });
 
     const subtotal = normalized.reduce((s, i) => s + (i.total || 0), 0);
+    const totalCost = normalized.reduce(
+      (s, i) => s + (i.costTracking?.totalCost || 0),
+      0,
+    );
     const taxAmount = Number(tax || 0);
     const total = +(subtotal + taxAmount);
 
@@ -202,6 +246,12 @@ async function updateInvoice(req, res, next) {
         dueDate,
         issuedAt: issuedAt ? new Date(issuedAt) : undefined,
         status,
+        // cents and profit fields
+        subtotalCents: Math.round(subtotal * 100),
+        taxCents: Math.round(taxAmount * 100),
+        totalCents: Math.round(total * 100),
+        totalCostCents: Math.round(totalCost * 100),
+        grossProfitCents: Math.round((total - totalCost) * 100),
       },
       { returnDocument: "after" },
     )

@@ -1,8 +1,19 @@
 import React from "react";
-import styles from "../invoices/[invoiceId]/page.module.css";
+import styles from "../../invoices/[invoiceId]/page.module.css";
 
-const ReceiptTemplate = ({ receipt, editable, isEditing, setEditable, formatMoney, formatDate, payments }) => {
-  const paidFromPayments = (receipt.paymentIds || []).reduce((s, p) => s + Number(p.amount || 0), 0);
+const ReceiptTemplate = ({
+  receipt,
+  editable,
+  isEditing,
+  setEditable,
+  formatMoney,
+  formatDate,
+  payments,
+}) => {
+  const paidFromPayments = (receipt.paymentIds || []).reduce(
+    (s, p) => s + Number(p.amount || 0),
+    0,
+  );
   const amount = Number(receipt.amount || 0);
 
   return (
@@ -50,7 +61,8 @@ const ReceiptTemplate = ({ receipt, editable, isEditing, setEditable, formatMone
           <ul>
             {receipt.paymentIds.map((p) => (
               <li key={p._id}>
-                {p._id} — {formatMoney(p.amount)} — {new Date(p.date).toLocaleDateString()}
+                {p._id} — {formatMoney(p.amount)} —{" "}
+                {new Date(p.date).toLocaleDateString()}
               </li>
             ))}
           </ul>

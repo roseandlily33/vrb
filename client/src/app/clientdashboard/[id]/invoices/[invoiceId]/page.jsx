@@ -137,7 +137,12 @@ export default function InvoicePreview() {
                 type="button"
                 className={styles.delete}
                 onClick={() =>
-                  deleteInvoice(displayedInvoice._id, router, API_URL)
+                  deleteInvoice({
+                    invoice: displayedInvoice,
+                    id,
+                    API_URL,
+                    router,
+                  })
                 }
               >
                 Delete Invoice

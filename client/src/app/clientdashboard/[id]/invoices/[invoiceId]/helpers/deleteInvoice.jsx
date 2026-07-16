@@ -1,4 +1,4 @@
-export const deleteInvoice = async () => {
+export const deleteInvoice = async ({ invoice, id, API_URL, router }) => {
   const confirmed = window.confirm(
     "Delete this invoice? This action cannot be undone."
   );

@@ -260,11 +260,28 @@
   font-weight: 800;
 }
 
+/* hide UI-only details in print */
+.noPrint {
+  display: none !important;
+  visibility: hidden !important;
+}
 .invoiceTableRow {
   min-height: 58px;
   padding: var(--space-m) var(--space-l);
   border-bottom: var(--border-light);
   box-sizing: border-box;
+}
+
+/* UI-only line details that should not appear in print */
+.lineDetails {
+  padding: 0.5rem var(--space-l);
+  font-size: 0.9rem;
+  color: var(--grey-600);
+  background: transparent;
+}
+
+.noPrint {
+  /* visible on screen by default; hidden in print via @media print override */
 }
 
 .invoiceTableRow:nth-child(odd) {
