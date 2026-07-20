@@ -1,0 +1,148 @@
+/* Mini invoice preview styles extracted for the right-column preview */
+
+.invoicePanel {
+  background: var(--grey-25);
+  border-radius: var(--radius-lg);
+  padding: var(--space-l);
+  border: var(--border-light);
+  /* border: 2px solid red; */
+}
+
+.invoicePanel h4 {
+  margin-top: 0;
+}
+
+.previewSummary {
+  display: grid;
+  gap: var(--space-s);
+}
+
+.miniInvoice {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: var(--space-s);
+  border: var(--border-light);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-s);
+}
+
+.miniHeader {
+  padding: 0.25rem 0;
+}
+
+.miniItems {
+  display: grid;
+  gap: 0.5rem;
+  max-height: 240px;
+  overflow: auto;
+}
+
+.miniItem {
+  display: grid;
+  grid-template-columns: 1fr 40px 70px 70px;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.miniDesc {
+  font-size: 0.95rem;
+  color: var(--grey-800);
+}
+
+.miniQty {
+  text-align: center;
+  color: var(--grey-600);
+}
+
+.miniPrice {
+  text-align: right;
+  color: var(--grey-600);
+}
+
+.miniTotal {
+  text-align: right;
+  font-weight: 700;
+}
+
+.miniTotals {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  border-top: var(--border-light);
+  padding-top: var(--space-s);
+}
+
+.createWrapper {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: var(--space-s);
+}
+
+/* Hide helper/internal UI when printing */
+.noPrint {
+  display: block;
+}
+
+@media print {
+  .noPrint {
+    display: none !important;
+    visibility: hidden !important;
+  }
+}
+
+/* Additional layout styles to better mirror the full invoice template */
+.miniHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-s);
+}
+
+.miniHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.miniLogo {
+  width: 72px;
+  height: 36px;
+  display: block;
+}
+
+.miniIssuer {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.78rem;
+  color: var(--grey-600);
+  line-height: 1.1;
+}
+
+.miniMeta {
+  text-align: right;
+  font-size: 0.85rem;
+  color: var(--grey-800);
+}
+
+.miniTotals > div {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-s);
+}
+
+.miniTotals strong {
+  font-weight: 800;
+}
+
+.miniInvoice .miniItems {
+  max-height: 160px;
+}
+
+.miniItem .miniDesc {
+  font-size: 0.9rem;
+}
+
+.miniItem .miniTotal {
+  font-size: 0.95rem;
+}

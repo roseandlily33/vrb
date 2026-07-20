@@ -18,11 +18,23 @@ const InvoiceTemplate = ({
   updateTax,
   payments,
 }) => {
-  const paidSoFar = (payments || []).reduce((s, p) => s + Number(p.amount || 0), 0);
+  console.log("Invoice", invoice);
+  const paidSoFar = (payments || []).reduce(
+    (s, p) => s + Number(p.amount || 0),
+    0,
+  );
 
   const subtotal = Number(displayedInvoice?.subtotal || 0);
-  const taxAmount = Number(displayedInvoice?.tax || 0);
-  const invoiceTotal = Number(displayedInvoice?.total ?? subtotal + taxAmount);
+  const taxAmount = Number(
+    (displayedInvoice?.tax ??
+      Number(
+        ((subtotal * (displayedInvoice?.taxRate || 0)) / 100).toFixed(2),
+      )) ||
+      0,
+  );
+  const invoiceTotal = Number(
+    displayedInvoice?.total ?? Number((subtotal + taxAmount).toFixed(2)),
+  );
   const remaining = Number((invoiceTotal - paidSoFar).toFixed(2));
   return (
     <>
@@ -52,35 +64,45 @@ const InvoiceTemplate = ({
                   type="text"
                   placeholder="Your business name"
                   value={editable?.issuer?.name || ""}
-                  onChange={(e) => updateIssuerField(setEditable, "name", e.target.value)}
+                  onChange={(e) =>
+                    updateIssuerField(setEditable, "name", e.target.value)
+                  }
                 />
 
                 <input
                   type="text"
                   placeholder="Business address"
                   value={editable?.issuer?.address || ""}
-                  onChange={(e) => updateIssuerField(setEditable, "address", e.target.value)}
+                  onChange={(e) =>
+                    updateIssuerField(setEditable, "address", e.target.value)
+                  }
                 />
 
                 <input
                   type="email"
                   placeholder="Email"
                   value={editable?.issuer?.email || ""}
-                  onChange={(e) => updateIssuerField(setEditable, "email", e.target.value)}
+                  onChange={(e) =>
+                    updateIssuerField(setEditable, "email", e.target.value)
+                  }
                 />
 
                 <input
                   type="text"
                   placeholder="Phone"
                   value={editable?.issuer?.phone || ""}
-                  onChange={(e) => updateIssuerField(setEditable, "phone", e.target.value)}
+                  onChange={(e) =>
+                    updateIssuerField(setEditable, "phone", e.target.value)
+                  }
                 />
 
                 <input
                   type="text"
                   placeholder="Website"
                   value={editable?.issuer?.website || ""}
-                  onChange={(e) => updateIssuerField(setEditable, "website", e.target.value)}
+                  onChange={(e) =>
+                    updateIssuerField(setEditable, "website", e.target.value)
+                  }
                 />
               </div>
             )}
@@ -102,7 +124,9 @@ const InvoiceTemplate = ({
                 <input
                   type="date"
                   value={
-                    editable?.issuedAt ? String(editable.issuedAt).split("T")[0] : ""
+                    editable?.issuedAt
+                      ? String(editable.issuedAt).split("T")[0]
+                      : ""
                   }
                   onChange={(e) =>
                     updateEditableField(setEditable, "issuedAt", e.target.value)
@@ -118,19 +142,19 @@ const InvoiceTemplate = ({
                 <strong>
                   {invoice.dueDate ? formatDate(invoice.dueDate) : "Due date"}
                 </strong>
-                ) : (
-              <input
-                type="date"
-                value={
-                  editable?.dueDate
-                    ? String(editable.dueDate).split("T")[0]
-                    : ""
-                }
-                onChange={(e) =>
-                  updateEditableField(setEditable, "dueDate", e.target.value)
-                }
-              />
-            )}
+              ) : (
+                <input
+                  type="date"
+                  value={
+                    editable?.dueDate
+                      ? String(editable.dueDate).split("T")[0]
+                      : ""
+                  }
+                  onChange={(e) =>
+                    updateEditableField(setEditable, "dueDate", e.target.value)
+                  }
+                />
+              )}
             </div>
 
             <div className={styles.metaRow}>
@@ -177,7 +201,9 @@ const InvoiceTemplate = ({
               <input
                 className={styles.titleInput}
                 value={editable?.title || ""}
-                onChange={(e) => updateEditableField(setEditable, "title", e.target.value)}
+                onChange={(e) =>
+                  updateEditableField(setEditable, "title", e.target.value)
+                }
                 placeholder="Invoice title"
               />
 
@@ -185,7 +211,11 @@ const InvoiceTemplate = ({
                 className={styles.descInput}
                 value={editable?.description || ""}
                 onChange={(e) =>
-                  updateEditableField(setEditable, "description", e.target.value)
+                  updateEditableField(
+                    setEditable,
+                    "description",
+                    e.target.value,
+                  )
                 }
                 placeholder="Invoice description"
               />
@@ -255,7 +285,9 @@ const InvoiceTemplate = ({
             const key = item?._id || `${item?.description}-${index}`;
             const unitCost = item?.costTracking?.unitCost || 0;
             const totalCost = item?.costTracking?.totalCost || 0;
-            const lineProfit = Number((item?.total || 0) - (totalCost || 0)).toFixed(2);
+            const lineProfit = Number(
+              (item?.total || 0) - (totalCost || 0),
+            ).toFixed(2);
 
             return (
               <React.Fragment key={key}>
@@ -266,7 +298,12 @@ const InvoiceTemplate = ({
                         type="text"
                         value={item?.description || ""}
                         onChange={(e) =>
-                          updateLineItem(setEditable, index, "description", e.target.value)
+                          updateLineItem(
+                            setEditable,
+                            index,
+                            "description",
+                            e.target.value,
+                          )
                         }
                       />
                     ) : (
@@ -282,7 +319,12 @@ const InvoiceTemplate = ({
                         step="1"
                         value={item?.quantity ?? 0}
                         onChange={(e) =>
-                          updateLineItem(setEditable, index, "quantity", e.target.value)
+                          updateLineItem(
+                            setEditable,
+                            index,
+                            "quantity",
+                            e.target.value,
+                          )
                         }
                       />
                     ) : (
@@ -298,7 +340,12 @@ const InvoiceTemplate = ({
                         step="0.01"
                         value={item?.unitPrice ?? 0}
                         onChange={(e) =>
-                          updateLineItem(setEditable, index, "unitPrice", e.target.value)
+                          updateLineItem(
+                            setEditable,
+                            index,
+                            "unitPrice",
+                            e.target.value,
+                          )
                         }
                       />
                     ) : (
@@ -308,19 +355,66 @@ const InvoiceTemplate = ({
 
                   <div>{formatMoney(item?.total)}</div>
                 </div>
+                <div
+                  // ${styles.noPrint}
+                  className={`${styles.lineDetails} `}
+                >
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      gap: "1rem",
+                    }}
+                  >
+                    <div>
+                      <div>
+                        <strong>Charging:</strong>{" "}
+                        {formatMoney(item?.unitPrice)} × {item?.quantity} ={" "}
+                        {formatMoney(item?.total)}
+                      </div>
+                      <div>
+                        <strong>Taxable:</strong>{" "}
+                        {item?.itemType !== "reimbursable" ? "Yes" : "No"}
+                      </div>
+                    </div>
 
-                <div className={`${styles.lineDetails} ${styles.noPrint}`}>
-                  {item?.costTracking?.enabled ? (
                     <div>
-                      <strong>Cost:</strong> {formatMoney(totalCost)} •
-                      <strong> Unit cost:</strong> {formatMoney(unitCost)} •
-                      <strong> Profit:</strong> {formatMoney(Number(lineProfit))}
+                      {/* <p>cost tracking</p> */}
+                      {item?.costTracking?.enabled === true ? (
+                        <>
+                          <div>
+                            <strong>Supplier:</strong>{" "}
+                            {item.costTracking.supplier || "—"}
+                          </div>
+                          <div>
+                            <strong>Unit cost:</strong> {formatMoney(unitCost)}
+                          </div>
+                          <div>
+                            <strong>Total cost:</strong>{" "}
+                            {formatMoney(totalCost)}
+                          </div>
+                          <div>
+                            <strong>Markup %:</strong>{" "}
+                            {item.costTracking.markupRate ?? "—"}
+                          </div>
+                        </>
+                      ) : (
+                        <div>
+                          <em>No cost tracking for this line</em>
+                        </div>
+                      )}
                     </div>
-                  ) : (
-                    <div>
-                      <em>No cost tracking for this line</em>
+
+                    <div style={{ textAlign: "right" }}>
+                      <div>
+                        <strong>Profit:</strong>{" "}
+                        {formatMoney(Number(lineProfit))}
+                      </div>
+                      <div style={{ color: "var(--grey-600)" }}>
+                        <small>Gross = charge − cost</small>
+                      </div>
                     </div>
-                  )}
+                  </div>
                 </div>
               </React.Fragment>
             );
@@ -340,7 +434,9 @@ const InvoiceTemplate = ({
               ) : (
                 <textarea
                   value={editable?.notes || ""}
-                  onChange={(e) => updateEditableField(setEditable, "notes", e.target.value)}
+                  onChange={(e) =>
+                    updateEditableField(setEditable, "notes", e.target.value)
+                  }
                 />
               )}
             </div>
@@ -356,7 +452,9 @@ const InvoiceTemplate = ({
               ) : (
                 <textarea
                   value={editable?.terms || ""}
-                  onChange={(e) => updateEditableField(setEditable, "terms", e.target.value)}
+                  onChange={(e) =>
+                    updateEditableField(setEditable, "terms", e.target.value)
+                  }
                 />
               )}
             </div>

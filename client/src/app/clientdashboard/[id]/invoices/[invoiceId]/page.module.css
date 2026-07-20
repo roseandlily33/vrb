@@ -8,12 +8,13 @@
 
 .header {
   width: 100%;
-  max-width: 980px;
+  /* max-width: 980px; */
   margin: 0 auto var(--space-l);
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: var(--space-l);
+  /* border: 2px solid red; */
 }
 
 .pageHeading {
@@ -277,11 +278,8 @@
   padding: 0.5rem var(--space-l);
   font-size: 0.9rem;
   color: var(--grey-600);
-  background: transparent;
-}
-
-.noPrint {
-  /* visible on screen by default; hidden in print via @media print override */
+  /* border: 2px solid red; */
+  /* background: transparent; */
 }
 
 .invoiceTableRow:nth-child(odd) {

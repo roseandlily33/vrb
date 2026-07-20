@@ -10,6 +10,70 @@ function generateInvoiceId() {
   return `${y}-${n}`;
 }
 
+// Resolve and normalize line items; fetch ServiceItem pricing when required.
+async function resolveLineItems(items) {
+  const out = [];
+
+  for (const li of items || []) {
+    const qty = Number(li.quantity || 1);
+
+    // decide whether to use provided unitPrice or model price
+    let unit = Number(li.unitPrice || 0);
+    const useModelPrice = li.useModelPrice === true;
+
+    if ((unit === 0 || useModelPrice) && li.serviceItemId) {
+      try {
+        const si = await ServiceItem.findById(li.serviceItemId).lean();
+        if (si) {
+          // basic resolution: prefer defaultPrice; future: handle pricingType/options
+          unit = Number(si.defaultPrice || unit || 0);
+        }
+      } catch (e) {
+        // ignore and fall back to provided unit
+      }
+    }
+
+    const costTracking = li.costTracking || {};
+    const enabled = !!costTracking.enabled;
+    let unitCost = Number(costTracking.unitCost || 0);
+
+    // if unitCost missing but totalCost provided, derive unitCost
+    const providedTotalCost = Number(costTracking.totalCost || 0);
+    if ((!unitCost || unitCost === 0) && providedTotalCost) {
+      unitCost = Number((providedTotalCost / (qty || 1)).toFixed(2));
+    }
+
+    const totalCost = enabled
+      ? Number((qty * (unitCost || 0)).toFixed(2))
+      : undefined;
+
+    // compute markup rate if possible
+    let markupRate = Number(costTracking.markupRate || 0);
+    if (unitCost > 0 && unit > 0) {
+      markupRate = Number(((unit / unitCost - 1) * 100).toFixed(2));
+    }
+
+    out.push({
+      description: li.description || "",
+      serviceItemId: li.serviceItemId || undefined,
+      quantity: qty,
+      unitPrice: unit,
+      total: Number((qty * unit).toFixed(2)),
+      costTracking: {
+        enabled,
+        supplier: costTracking.supplier,
+        unitCost: unitCost || undefined,
+        totalCost: totalCost,
+        markupRate,
+      },
+      custom: li.custom || false,
+      itemType: li.itemType || "service",
+    });
+  }
+
+  return out;
+}
+
 async function createInvoice(req, res, next) {
   try {
     const {
@@ -27,31 +91,7 @@ async function createInvoice(req, res, next) {
     } = req.body;
     if (!clientId) return res.status(400).json({ error: "clientId required" });
 
-    // compute totals and normalize line items, including optional cost tracking
-    const normalized = lineItems.map((li) => {
-      const qty = Number(li.quantity || 1);
-      const unit = Number(li.unitPrice || 0);
-
-      const costTracking = li.costTracking || {};
-      const enabled = !!costTracking.enabled;
-      const unitCost = Number(costTracking.unitCost || 0);
-      const totalCost = enabled ? +(qty * unitCost) : undefined;
-
-      return {
-        description: li.description || "",
-        serviceItemId: li.serviceItemId || undefined,
-        quantity: qty,
-        unitPrice: unit,
-        total: +(qty * unit),
-        costTracking: {
-          enabled,
-          supplier: costTracking.supplier,
-          unitCost: unitCost || undefined,
-          totalCost: totalCost,
-          markupRate: costTracking.markupRate,
-        },
-      };
-    });
+    const normalized = await resolveLineItems(lineItems);
 
     const subtotal = normalized.reduce((s, i) => s + (i.total || 0), 0);
     const totalCost = normalized.reduce(
@@ -195,32 +235,8 @@ async function updateInvoice(req, res, next) {
       status,
     } = req.body;
 
-    // normalize incoming line items and compute costs/profits
-    const normalized = lineItems.map((li) => {
-      const qty = Number(li.quantity || 1);
-      const unit = Number(li.unitPrice || 0);
-
-      const costTracking = li.costTracking || {};
-      const enabled = !!costTracking.enabled;
-      const unitCost = Number(costTracking.unitCost || 0);
-      const totalCost = enabled ? +(qty * unitCost) : undefined;
-
-      return {
-        description: li.description || "",
-        serviceItemId: li.serviceItemId || undefined,
-        quantity: qty,
-        unitPrice: unit,
-        total: +(qty * unit),
-        custom: li.custom || false,
-        costTracking: {
-          enabled,
-          supplier: costTracking.supplier,
-          unitCost: unitCost || undefined,
-          totalCost: totalCost,
-          markupRate: costTracking.markupRate,
-        },
-      };
-    });
+    // resolve and normalize incoming line items (fetch model prices when needed)
+    const normalized = await resolveLineItems(lineItems);
 
     const subtotal = normalized.reduce((s, i) => s + (i.total || 0), 0);
     const totalCost = normalized.reduce(

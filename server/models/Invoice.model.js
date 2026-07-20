@@ -328,7 +328,9 @@ InvoiceSchema.pre("validate", function calculateInvoiceTotals() {
   this.taxCents = Math.round((this.tax || 0) * 100);
   this.totalCents = Math.round((this.total || 0) * 100);
   this.totalCostCents = Math.round((this.trackedCosts || 0) * 100);
-  this.grossProfitCents = Math.round(((this.total || 0) - (this.trackedCosts || 0)) * 100);
+  this.grossProfitCents = Math.round(
+    ((this.total || 0) - (this.trackedCosts || 0)) * 100,
+  );
 
   // synchronous pre-validate hook -- no callback invocation
 });
