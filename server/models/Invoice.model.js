@@ -51,25 +51,88 @@ const LineItemSchema = new mongoose.Schema({
       trim: true,
     },
 
+    /*
+    Supplier price before supplier HST.
+    Store the actual discounted amount you paid.
+  */
     unitCost: {
       type: Number,
+      default: 0,
       min: 0,
     },
 
-    totalCost: {
+    /*
+    Quantity × unitCost, before supplier HST.
+  */
+    subtotalCost: {
       type: Number,
+      default: 0,
       min: 0,
     },
 
+    supplierTaxLabel: {
+      type: String,
+      default: "HST",
+      trim: true,
+    },
+
+    /*
+    Store 14 for 14%, not 0.14.
+  */
+    supplierTaxRate: {
+      type: Number,
+      default: 14,
+      min: 0,
+    },
+
+    /*
+    Actual supplier HST allocated to this line item.
+    Allow this to be entered manually because supplier invoices
+    may round tax at the invoice level.
+  */
+    supplierTax: {
+      type: Number,
+      default: 0,
+      min: 0,
+    },
+
+    /*
+    Supplier subtotal plus supplier HST.
+  */
+    totalPaid: {
+      type: Number,
+      default: 0,
+      min: 0,
+    },
+
+    /*
+    Client price before HST minus supplier subtotal before HST.
+  */
+    grossProfit: {
+      type: Number,
+      default: 0,
+    },
+
+    /*
+    Markup on cost:
+    profit ÷ supplier subtotal × 100
+  */
     markupRate: {
       type: Number,
+      default: 0,
       min: 0,
     },
-  },
 
-  custom: {
-    type: Boolean,
-    default: false,
+    /*
+    Margin on selling price:
+    profit ÷ client line total × 100
+  */
+    grossMarginRate: {
+      type: Number,
+      default: 0,
+      min: 0,
+      max: 100,
+    },
   },
 });
 
@@ -144,6 +207,57 @@ const InvoiceSchema = new mongoose.Schema(
     lineItems: {
       type: [LineItemSchema],
       default: [],
+    },
+    /*
+  INTERNAL PURCHASING AND PROFITABILITY
+  Do not expose through client-facing APIs.
+*/
+
+    supplierSubtotalCents: {
+      type: Number,
+      default: 0,
+      min: 0,
+      select: false,
+    },
+
+    supplierTaxPaidCents: {
+      type: Number,
+      default: 0,
+      min: 0,
+      select: false,
+    },
+
+    supplierTotalPaidCents: {
+      type: Number,
+      default: 0,
+      min: 0,
+      select: false,
+    },
+
+    grossProfitCents: {
+      type: Number,
+      default: 0,
+      select: false,
+    },
+
+    grossMarginRate: {
+      type: Number,
+      default: 0,
+      min: 0,
+      max: 100,
+      select: false,
+    },
+
+    /*
+  Informational estimate:
+  customer HST collected minus supplier HST paid.
+  Your actual GST/HST return may include other sales,
+  expenses, adjustments, or credits.
+*/
+    netTaxCents: {
+      type: Number,
+      default: 0,
+      select: false,
     },
 
     /* convenience numeric totals (dollars) kept for client APIs */
@@ -294,45 +408,152 @@ const InvoiceSchema = new mongoose.Schema(
 );
 
 InvoiceSchema.pre("validate", function calculateInvoiceTotals() {
-  let subtotal = 0;
-  let trackedCosts = 0;
+  let subtotalCents = 0;
+  let supplierSubtotalCents = 0;
+  let supplierTaxPaidCents = 0;
 
   for (const item of this.lineItems || []) {
-    item.total = Number((item.quantity * item.unitPrice).toFixed(2));
+    const quantity = Number(item.quantity || 0);
+    const unitPriceCents = Math.round(Number(item.unitPrice || 0) * 100);
 
-    subtotal += item.total;
+    /*
+      CLIENT-FACING LINE TOTAL
+    */
+    const lineTotalCents = quantity * unitPriceCents;
 
+    item.total = lineTotalCents / 100;
+    subtotalCents += lineTotalCents;
+
+    /*
+      INTERNAL COST TRACKING
+    */
     if (item.costTracking?.enabled) {
-      const unitCost = item.costTracking.unitCost || 0;
-
-      item.costTracking.totalCost = Number(
-        (item.quantity * unitCost).toFixed(2),
+      const unitCostCents = Math.round(
+        Number(item.costTracking.unitCost || 0) * 100,
       );
 
-      trackedCosts += item.costTracking.totalCost;
+      const lineSupplierSubtotalCents = quantity * unitCostCents;
+
+      /*
+        Prefer a manually entered supplier tax amount when available.
+        Otherwise calculate it using the supplier tax rate.
+      */
+      const enteredSupplierTax = Number(item.costTracking.supplierTax);
+
+      const supplierTaxCents = Number.isFinite(enteredSupplierTax)
+        ? Math.round(enteredSupplierTax * 100)
+        : Math.round(
+            lineSupplierSubtotalCents *
+              (Number(item.costTracking.supplierTaxRate || 0) / 100),
+          );
+
+      const supplierTotalPaidCents =
+        lineSupplierSubtotalCents + supplierTaxCents;
+
+      const lineGrossProfitCents = lineTotalCents - lineSupplierSubtotalCents;
+
+      const markupRate =
+        lineSupplierSubtotalCents > 0
+          ? (lineGrossProfitCents / lineSupplierSubtotalCents) * 100
+          : 0;
+
+      const grossMarginRate =
+        lineTotalCents > 0 ? (lineGrossProfitCents / lineTotalCents) * 100 : 0;
+
+      item.costTracking.subtotalCost = lineSupplierSubtotalCents / 100;
+
+      item.costTracking.supplierTax = supplierTaxCents / 100;
+
+      item.costTracking.totalPaid = supplierTotalPaidCents / 100;
+
+      item.costTracking.grossProfit = lineGrossProfitCents / 100;
+
+      item.costTracking.markupRate = Number(markupRate.toFixed(2));
+
+      item.costTracking.grossMarginRate = Number(grossMarginRate.toFixed(2));
+
+      supplierSubtotalCents += lineSupplierSubtotalCents;
+      supplierTaxPaidCents += supplierTaxCents;
     } else {
-      item.costTracking.totalCost = undefined;
+      item.costTracking.subtotalCost = 0;
+      item.costTracking.supplierTax = 0;
+      item.costTracking.totalPaid = 0;
+      item.costTracking.grossProfit = 0;
+      item.costTracking.markupRate = 0;
+      item.costTracking.grossMarginRate = 0;
     }
   }
 
-  this.subtotal = Number(subtotal.toFixed(2));
-
-  this.tax = Number((this.subtotal * (this.taxRate / 100)).toFixed(2));
-
-  this.total = Number((this.subtotal + this.tax).toFixed(2));
-
-  this.trackedCosts = Number(trackedCosts.toFixed(2));
-
-  // update cents fields so API responses can rely on both dollars and cents
-  this.subtotalCents = Math.round((this.subtotal || 0) * 100);
-  this.taxCents = Math.round((this.tax || 0) * 100);
-  this.totalCents = Math.round((this.total || 0) * 100);
-  this.totalCostCents = Math.round((this.trackedCosts || 0) * 100);
-  this.grossProfitCents = Math.round(
-    ((this.total || 0) - (this.trackedCosts || 0)) * 100,
+  /*
+    CLIENT INVOICE TOTALS
+  */
+  const discountCents = Math.min(
+    Math.round(Number(this.discountCents || 0)),
+    subtotalCents,
   );
 
-  // synchronous pre-validate hook -- no callback invocation
+  const taxableSubtotalCents = subtotalCents - discountCents;
+
+  const taxCents = Math.round(
+    taxableSubtotalCents * (Number(this.taxRate || 0) / 100),
+  );
+
+  const totalCents = taxableSubtotalCents + taxCents;
+
+  /*
+    PAYMENT TOTALS
+  */
+  const amountPaidCents = Math.min(
+    Math.round(Number(this.amountPaidCents || 0)),
+    totalCents,
+  );
+
+  const balanceDueCents = Math.max(totalCents - amountPaidCents, 0);
+
+  /*
+    INTERNAL TOTALS
+  */
+  const supplierTotalPaidCents = supplierSubtotalCents + supplierTaxPaidCents;
+
+  /*
+    Profit excludes:
+    - HST collected from the customer
+    - supplier HST potentially recoverable as an ITC
+  */
+  const grossProfitCents = taxableSubtotalCents - supplierSubtotalCents;
+
+  const grossMarginRate =
+    taxableSubtotalCents > 0
+      ? (grossProfitCents / taxableSubtotalCents) * 100
+      : 0;
+
+  const netTaxCents = taxCents - supplierTaxPaidCents;
+
+  /*
+    CENT FIELDS
+  */
+  this.subtotalCents = subtotalCents;
+  this.taxableSubtotalCents = taxableSubtotalCents;
+  this.taxCents = taxCents;
+  this.totalCents = totalCents;
+  this.amountPaidCents = amountPaidCents;
+  this.balanceDueCents = balanceDueCents;
+
+  this.supplierSubtotalCents = supplierSubtotalCents;
+  this.supplierTaxPaidCents = supplierTaxPaidCents;
+  this.supplierTotalPaidCents = supplierTotalPaidCents;
+  this.grossProfitCents = grossProfitCents;
+  this.grossMarginRate = Number(grossMarginRate.toFixed(2));
+  this.netTaxCents = netTaxCents;
+
+  /*
+    LEGACY DOLLAR FIELDS
+  */
+  this.subtotal = subtotalCents / 100;
+  this.tax = taxCents / 100;
+  this.total = totalCents / 100;
+  this.trackedCosts = supplierSubtotalCents / 100;
+  this.totalCostCents = supplierSubtotalCents;
 });
 
 module.exports = mongoose.model("Invoice", InvoiceSchema);

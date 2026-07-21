@@ -3,71 +3,126 @@ const Client = require("../models/Client.model");
 const ServiceItem = require("../models/ServiceItem.model");
 const Counter = require("../models/Counter.model");
 
-function generateInvoiceId() {
-  // Simple YYYY-<random 5 digits> scheme
-  const y = new Date().getFullYear();
-  const n = Math.floor(10000 + Math.random() * 90000);
-  return `${y}-${n}`;
-}
-
 // Resolve and normalize line items; fetch ServiceItem pricing when required.
 async function resolveLineItems(items) {
   const out = [];
 
   for (const li of items || []) {
-    const qty = Number(li.quantity || 1);
+    const qty = Number(li.quantity ?? 1);
 
-    // decide whether to use provided unitPrice or model price
-    let unit = Number(li.unitPrice || 0);
+    let unitPrice = Number(li.unitPrice ?? 0);
     const useModelPrice = li.useModelPrice === true;
 
-    if ((unit === 0 || useModelPrice) && li.serviceItemId) {
+    if ((unitPrice === 0 || useModelPrice) && li.serviceItemId) {
       try {
-        const si = await ServiceItem.findById(li.serviceItemId).lean();
-        if (si) {
-          // basic resolution: prefer defaultPrice; future: handle pricingType/options
-          unit = Number(si.defaultPrice || unit || 0);
+        const serviceItem = await ServiceItem.findById(li.serviceItemId).lean();
+
+        if (serviceItem) {
+          unitPrice = Number(serviceItem.defaultPrice ?? unitPrice ?? 0);
         }
-      } catch (e) {
-        // ignore and fall back to provided unit
+      } catch (error) {
+        // Keep the manually supplied price if the ServiceItem lookup fails.
       }
     }
 
-    const costTracking = li.costTracking || {};
-    const enabled = !!costTracking.enabled;
-    let unitCost = Number(costTracking.unitCost || 0);
+    const incomingCostTracking = li.costTracking || {};
+    const enabled = incomingCostTracking.enabled === true;
 
-    // if unitCost missing but totalCost provided, derive unitCost
-    const providedTotalCost = Number(costTracking.totalCost || 0);
-    if ((!unitCost || unitCost === 0) && providedTotalCost) {
-      unitCost = Number((providedTotalCost / (qty || 1)).toFixed(2));
-    }
+    let costTracking = {
+      enabled: false,
+    };
 
-    const totalCost = enabled
-      ? Number((qty * (unitCost || 0)).toFixed(2))
-      : undefined;
+    if (enabled) {
+      let unitCost = Number(incomingCostTracking.unitCost ?? 0);
 
-    // compute markup rate if possible
-    let markupRate = Number(costTracking.markupRate || 0);
-    if (unitCost > 0 && unit > 0) {
-      markupRate = Number(((unit / unitCost - 1) * 100).toFixed(2));
+      /*
+        Backwards compatibility:
+        If the form supplied a total cost but not a unit cost,
+        derive the unit cost.
+      */
+      const providedTotalCost = Number(incomingCostTracking.totalCost ?? 0);
+
+      if (unitCost === 0 && providedTotalCost > 0 && qty > 0) {
+        unitCost = Number((providedTotalCost / qty).toFixed(2));
+      }
+
+      const totalCost = Number((qty * unitCost).toFixed(2));
+
+      /*
+        Keep supplier tax as entered.
+
+        This is useful because a supplier invoice may calculate and
+        round tax across the whole order rather than per line item.
+      */
+      // const supplierTax =
+      //   incomingCostTracking.supplierTax !== undefined &&
+      //   incomingCostTracking.supplierTax !== null &&
+      //   incomingCostTracking.supplierTax !== ""
+      //     ? Number(incomingCostTracking.supplierTax)
+      //     : undefined;
+
+      const supplierTaxRate = Number(
+        incomingCostTracking.supplierTaxRate ?? 14,
+      );
+
+      // allow an explicitly provided supplierTax (useful when supplier rounded differently)
+      let supplierTax = undefined;
+      if (
+        incomingCostTracking.supplierTax !== undefined &&
+        incomingCostTracking.supplierTax !== null &&
+        incomingCostTracking.supplierTax !== ""
+      ) {
+        const parsed = Number(incomingCostTracking.supplierTax);
+        if (Number.isFinite(parsed)) supplierTax = parsed;
+      }
+
+      const calculatedSupplierTax =
+        supplierTax !== undefined
+          ? Number(supplierTax.toFixed(2))
+          : Number((totalCost * (supplierTaxRate / 100)).toFixed(2));
+
+      const totalPaid = Number((totalCost + calculatedSupplierTax).toFixed(2));
+
+      const lineTotal = Number((qty * unitPrice).toFixed(2));
+
+      /*
+        Profit excludes supplier HST because supplier HST is tracked
+        separately as a potential input tax credit.
+      */
+      const grossProfit = Number((lineTotal - totalCost).toFixed(2));
+
+      const markupRate =
+        totalCost > 0
+          ? Number(((grossProfit / totalCost) * 100).toFixed(2))
+          : 0;
+
+      costTracking = {
+        enabled: true,
+        supplier: incomingCostTracking.supplier?.trim() || undefined,
+
+        unitCost,
+        totalCost,
+
+        supplierTaxLabel: incomingCostTracking.supplierTaxLabel || "HST",
+
+        supplierTaxRate,
+        supplierTax: calculatedSupplierTax,
+        totalPaid,
+
+        markupRate,
+        grossProfit,
+      };
     }
 
     out.push({
-      description: li.description || "",
+      description: li.description?.trim() || "",
       serviceItemId: li.serviceItemId || undefined,
-      quantity: qty,
-      unitPrice: unit,
-      total: Number((qty * unit).toFixed(2)),
-      costTracking: {
-        enabled,
-        supplier: costTracking.supplier,
-        unitCost: unitCost || undefined,
-        totalCost: totalCost,
-        markupRate,
-      },
-      custom: li.custom || false,
       itemType: li.itemType || "service",
+      quantity: qty,
+      unitPrice,
+      total: Number((qty * unitPrice).toFixed(2)),
+      costTracking,
+      custom: li.custom === true,
     });
   }
 
@@ -82,99 +137,170 @@ async function createInvoice(req, res, next) {
       title,
       description,
       issuer,
+      clientSnapshot,
       lineItems = [],
-      tax = 0,
+
+      taxRate = 14,
+      taxLabel = "HST",
+      discountCents = 0,
+
       notes,
+      internalNotes,
+      paymentTerms,
       terms,
-
       dueDate,
+      issuedAt,
+      status,
     } = req.body;
-    if (!clientId) return res.status(400).json({ error: "clientId required" });
 
-    const normalized = await resolveLineItems(lineItems);
+    if (!clientId) {
+      return res.status(400).json({
+        error: "clientId required",
+      });
+    }
 
-    const subtotal = normalized.reduce((s, i) => s + (i.total || 0), 0);
-    const totalCost = normalized.reduce(
-      (s, i) => s + (i.costTracking?.totalCost || 0),
-      0,
-    );
+    const normalizedLineItems = await resolveLineItems(lineItems);
 
-    const taxAmount = Number(tax || 0);
-    const total = +(subtotal + taxAmount);
-
-    // generate a sequential invoice number using counters collection
-    // start value set so next number will be 3 (since you already have 2 existing invoices)
-    // Ensure a counter document exists, then increment it.
-    // This two-step approach avoids conflicting update operators and is compatible
-    // with mongoose versions that don't accept pipeline updates by default.
+    /*
+      Generate sequential invoice number.
+    */
     const existingCounter = await Counter.findById("invoice");
+
     if (!existingCounter) {
       try {
-        // create with seq:2 so that after increment the first invoice is 3
-        await Counter.create({ _id: "invoice", seq: 2 });
-      } catch (e) {
-        // ignore duplicate key errors from concurrent creates
-        if (
-          !(
-            e.code === 11000 ||
-            (e.name === "MongoServerError" && e.code === 11000)
-          )
-        )
-          throw e;
+        await Counter.create({
+          _id: "invoice",
+          seq: 2,
+        });
+      } catch (error) {
+        const isDuplicate =
+          error.code === 11000 ||
+          (error.name === "MongoServerError" && error.code === 11000);
+
+        if (!isDuplicate) {
+          throw error;
+        }
       }
     }
 
     const counterDoc = await Counter.findByIdAndUpdate(
       "invoice",
-      { $inc: { seq: 1 } },
-      { returnDocument: "after" },
+      {
+        $inc: {
+          seq: 1,
+        },
+      },
+      {
+        returnDocument: "after",
+      },
     );
+
+    if (!counterDoc) {
+      throw new Error("Unable to generate invoice number");
+    }
+
     const number = counterDoc.seq;
-    const padded = String(number).padStart(4, "0");
-    const invoiceId = padded;
+    const invoiceId = String(number).padStart(4, "0");
 
     const invoice = new Invoice({
       clientId,
       number,
       invoiceId,
+
       currency,
       title,
       description,
+
+      clientSnapshot,
       issuer,
-      lineItems: normalized,
-      subtotal,
-      tax: taxAmount,
-      total,
+
+      lineItems: normalizedLineItems,
+
+      taxRate: Number(taxRate ?? 14),
+      taxLabel,
+      discountCents: Number(discountCents ?? 0),
+
       notes,
-      terms,
-      dueDate,
+      internalNotes,
+
+      /*
+        Allows your older frontend field name to continue working.
+      */
+      paymentTerms: paymentTerms ?? terms,
+
+      dueDate: dueDate || undefined,
+      issuedAt: issuedAt ? new Date(issuedAt) : undefined,
+
+      status: status || "draft",
+
+      amountPaidCents: 0,
     });
-    // Set cents and profit-related fields prior to save so they persist
-    invoice.subtotalCents = Math.round(subtotal * 100);
-    invoice.taxCents = Math.round(taxAmount * 100);
-    invoice.totalCents = Math.round(total * 100);
-    invoice.totalCostCents = Math.round(totalCost * 100);
-    invoice.grossProfitCents = Math.round((total - totalCost) * 100);
-    invoice.amountPaidCents = 0;
-    invoice.balanceDueCents = invoice.totalCents;
 
     await invoice.save();
 
-    res.status(201).json({ invoice });
-  } catch (err) {
-    next(err);
+    // const populatedInvoice = await Invoice.findById(invoice._id)
+    //   .populate("clientId")
+    //   .populate("lineItems.serviceItemId");
+    const populatedInvoice = await Invoice.findById(invoice._id)
+      .select(
+        "+totalCostCents " +
+          "+grossProfitCents " +
+          "+supplierSubtotalCents " +
+          "+supplierTaxPaidCents " +
+          "+supplierTotalPaidCents " +
+          "+grossMarginRate " +
+          "+netTaxCents " +
+          "+internalNotes",
+      )
+      .populate("clientId")
+      .populate("lineItems.serviceItemId");
+
+    res.status(201).json({
+      invoice: populatedInvoice,
+    });
+  } catch (error) {
+    next(error);
   }
 }
 
+// async function getInvoice(req, res, next) {
+//   try {
+//     const inv = await Invoice.findById(req.params.id)
+//       .populate("clientId")
+//       .populate("lineItems.serviceItemId");
+//     if (!inv) return res.status(404).json({ error: "Not found" });
+//     res.json({ invoice: inv });
+//   } catch (err) {
+//     next(err);
+//   }
+// }
 async function getInvoice(req, res, next) {
   try {
-    const inv = await Invoice.findById(req.params.id)
+    const invoice = await Invoice.findById(req.params.id)
+      .select(
+        "+totalCostCents " +
+          "+grossProfitCents " +
+          "+supplierSubtotalCents " +
+          "+supplierTaxPaidCents " +
+          "+supplierTotalPaidCents " +
+          "+grossMarginRate " +
+          "+netTaxCents " +
+          "+internalNotes",
+      )
       .populate("clientId")
       .populate("lineItems.serviceItemId");
-    if (!inv) return res.status(404).json({ error: "Not found" });
-    res.json({ invoice: inv });
-  } catch (err) {
-    next(err);
+
+    if (!invoice) {
+      return res.status(404).json({
+        error: "Not found",
+      });
+    }
+
+    res.json({
+      invoice,
+    });
+  } catch (error) {
+    next(error);
   }
 }
 
@@ -220,63 +346,136 @@ async function deleteInvoice(req, res, next) {
 
 async function updateInvoice(req, res, next) {
   try {
-    const id = req.params.id;
+    const invoice = await Invoice.findById(req.params.id).select(
+      "+totalCostCents " +
+        "+grossProfitCents " +
+        "+supplierSubtotalCents " +
+        "+supplierTaxPaidCents " +
+        "+supplierTotalPaidCents " +
+        "+grossMarginRate " +
+        "+netTaxCents " +
+        "+internalNotes",
+    );
+
+    if (!invoice) {
+      return res.status(404).json({
+        error: "Not found",
+      });
+    }
+
     const {
+      clientId,
       currency,
       title,
       description,
       issuer,
-      terms,
-      lineItems = [],
-      tax = 0,
+      clientSnapshot,
+
+      lineItems,
+
+      taxRate,
+      taxLabel,
+      discountCents,
+
+      amountPaidCents,
+
       notes,
+      internalNotes,
+      paymentTerms,
+      terms,
+
       dueDate,
       issuedAt,
+      paidAt,
       status,
     } = req.body;
 
-    // resolve and normalize incoming line items (fetch model prices when needed)
-    const normalized = await resolveLineItems(lineItems);
+    if (lineItems !== undefined) {
+      invoice.lineItems = await resolveLineItems(lineItems);
+    }
 
-    const subtotal = normalized.reduce((s, i) => s + (i.total || 0), 0);
-    const totalCost = normalized.reduce(
-      (s, i) => s + (i.costTracking?.totalCost || 0),
-      0,
-    );
-    const taxAmount = Number(tax || 0);
-    const total = +(subtotal + taxAmount);
+    if (clientId !== undefined) {
+      invoice.clientId = clientId;
+    }
 
-    const updated = await Invoice.findByIdAndUpdate(
-      id,
+    if (currency !== undefined) {
+      invoice.currency = currency;
+    }
+
+    if (title !== undefined) {
+      invoice.title = title;
+    }
+
+    if (description !== undefined) {
+      invoice.description = description;
+    }
+
+    if (issuer !== undefined) {
+      invoice.issuer = issuer;
+    }
+
+    if (clientSnapshot !== undefined) {
+      invoice.clientSnapshot = clientSnapshot;
+    }
+
+    if (taxRate !== undefined) {
+      invoice.taxRate = Number(taxRate);
+    }
+
+    if (taxLabel !== undefined) {
+      invoice.taxLabel = taxLabel;
+    }
+
+    if (discountCents !== undefined) {
+      invoice.discountCents = Number(discountCents);
+    }
+
+    if (amountPaidCents !== undefined) {
+      invoice.amountPaidCents = Number(amountPaidCents);
+    }
+
+    if (notes !== undefined) {
+      invoice.notes = notes;
+    }
+
+    if (internalNotes !== undefined) {
+      invoice.internalNotes = internalNotes;
+    }
+
+    if (paymentTerms !== undefined || terms !== undefined) {
+      invoice.paymentTerms = paymentTerms ?? terms;
+    }
+
+    if (dueDate !== undefined) {
+      invoice.dueDate = dueDate ? new Date(dueDate) : undefined;
+    }
+
+    if (issuedAt !== undefined) {
+      invoice.issuedAt = issuedAt ? new Date(issuedAt) : undefined;
+    }
+
+    if (paidAt !== undefined) {
+      invoice.paidAt = paidAt ? new Date(paidAt) : undefined;
+    }
+
+    if (status !== undefined) {
+      invoice.status = status;
+    }
+    await invoice.save();
+
+    await invoice.populate([
       {
-        title,
-        description,
-        issuer,
-        terms,
-        currency,
-        lineItems: normalized,
-        subtotal,
-        tax: taxAmount,
-        total,
-        notes,
-        dueDate,
-        issuedAt: issuedAt ? new Date(issuedAt) : undefined,
-        status,
-        // cents and profit fields
-        subtotalCents: Math.round(subtotal * 100),
-        taxCents: Math.round(taxAmount * 100),
-        totalCents: Math.round(total * 100),
-        totalCostCents: Math.round(totalCost * 100),
-        grossProfitCents: Math.round((total - totalCost) * 100),
+        path: "clientId",
       },
-      { returnDocument: "after" },
-    )
-      .populate("clientId")
-      .populate("lineItems.serviceItemId");
+      {
+        path: "lineItems.serviceItemId",
+      },
+    ]);
 
-    if (!updated) return res.status(404).json({ error: "Not found" });
-    res.json({ invoice: updated });
-  } catch (err) {
-    next(err);
+    res.json({
+      invoice,
+    });
+  } catch (error) {
+    next(error);
   }
 }
