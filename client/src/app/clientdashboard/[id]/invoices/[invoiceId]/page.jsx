@@ -48,6 +48,46 @@ export default function InvoicePreview() {
     }
   }, [invoiceId]);
 
+  const createReceipt = async () => {
+    if (!invoice) return;
+    setLoading(true);
+    const token = localStorage.getItem("token");
+    try {
+      const body = {
+        clientId: invoice.clientId?._id || invoice.clientId,
+        invoiceId: invoice._id,
+        amount: Number(
+          displayedInvoice.total ?? displayedInvoice.subtotal ?? 0,
+        ),
+        currency: displayedInvoice.currency || "CAD",
+        receiptNumber: `RC-${displayedInvoice.invoiceId || displayedInvoice._id}`,
+        issuedAt: new Date(),
+        notes: `Receipt for invoice ${displayedInvoice.invoiceId || displayedInvoice._id}`,
+      };
+
+      const res = await fetch(`${API_URL}/api/receipts`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(body),
+      });
+
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Create receipt failed");
+      const r = data.receipt;
+      router.push(
+        `/clientdashboard/${id}/invoices/${displayedInvoice._id}/receipts/${r._id}`,
+      );
+    } catch (err) {
+      console.error(err);
+      alert(err.message || "Create receipt failed");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
     if (invoice && invoice.clientId)
       fetchPayments(invoice, setPayments, API_URL);
@@ -157,7 +197,13 @@ export default function InvoicePreview() {
               >
                 Submit / Mark Paid
               </button>
-
+              <button
+                type="button"
+                className={styles.view}
+                onClick={createReceipt}
+              >
+                Make Receipt
+              </button>
               <button
                 type="button"
                 className={styles.view}

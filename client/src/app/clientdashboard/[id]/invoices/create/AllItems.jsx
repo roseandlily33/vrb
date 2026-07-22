@@ -12,6 +12,10 @@ const AllItems = ({
   loading,
   trackedCosts,
   grossMarginAfterTrackedCosts,
+  grossProfit,
+  estimatedNetTax,
+  supplierTotalPaid,
+  supplierTaxPaid,
 }) => {
   return (
     <>
@@ -85,6 +89,22 @@ const AllItems = ({
           <div>
             <span>Sales before HST</span>
             <strong>${subtotal?.toFixed(2)}</strong>
+          </div>
+          <div>
+            <span>Estimated net tax</span>
+            <strong>${estimatedNetTax?.toFixed(2)}</strong>
+          </div>
+          <div>
+            <span>Gross Profit</span>
+            <strong>${grossProfit?.toFixed(2)}</strong>
+          </div>
+          <div>
+            <span>Supplier Total Paid</span>
+            <strong>${supplierTotalPaid?.toFixed(2)}</strong>
+          </div>
+          <div>
+            <span>Supplier Tax Paid</span>
+            <strong>${supplierTaxPaid?.toFixed(2)}</strong>
           </div>
 
           <div>

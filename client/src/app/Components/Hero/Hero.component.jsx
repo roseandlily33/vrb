@@ -14,8 +14,8 @@ const Hero = ({ title, highlight, subText, topMeta }) => {
       <p className={styles.subText}>{subText}</p>
       <div className={styles.pixelPattern}>
         <Image
-          src="/squares.png"
-          alt="Sqaures image"
+          src="/pixels.svg"
+          alt="Pixels image"
           width={380}
           height={380}
           priority

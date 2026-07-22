@@ -5,13 +5,27 @@ export const updateLineItem = (setEditable, index, field, value) => {
     const nextLineItems = (prev.lineItems || []).map((item, itemIndex) => {
       if (itemIndex !== index) return item;
 
-      const updatedItem = {
-        ...item,
-        [field]:
+      // support nested fields like "costTracking.unitCost"
+      const updatedItem = { ...item };
+      if (field.includes(".")) {
+        const parts = field.split(".");
+        let target = updatedItem;
+        for (let i = 0; i < parts.length - 1; i++) {
+          const p = parts[i];
+          if (target[p] === undefined) target[p] = {};
+          target = target[p];
+        }
+        const last = parts[parts.length - 1];
+        target[last] =
+          last === "quantity" || last === "unitPrice" || last === "unitCost"
+            ? Number(value || 0)
+            : value;
+      } else {
+        updatedItem[field] =
           field === "quantity" || field === "unitPrice"
             ? Number(value || 0)
-            : value,
-      };
+            : value;
+      }
 
       const quantity = Number(updatedItem.quantity || 0);
       const unitPrice = Number(updatedItem.unitPrice || 0);

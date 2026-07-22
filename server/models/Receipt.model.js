@@ -13,6 +13,10 @@ const ReceiptSchema = new mongoose.Schema(
         ref: "Payment",
       },
     ],
+    invoiceId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Invoice",
+    },
     receiptNumber: { type: String },
     amount: { type: Number, required: true },
     currency: { type: String, default: "CAD" },

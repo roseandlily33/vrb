@@ -10,13 +10,35 @@ export const saveEdit = async ({ editable, invoice, setInvoice, setEditable, set
       description: editable.description,
       issuer: editable.issuer,
       terms: editable.terms,
-      lineItems: (editable.lineItems || []).map((item) => ({
-        description: item.description,
-        serviceItemId: item.serviceItemId || undefined,
-        quantity: Number(item.quantity || 0),
-        unitPrice: Number(item.unitPrice || 0),
-        custom: item.custom || false,
-      })),
+      lineItems: (editable.lineItems || []).map((item) => {
+        const costTracking = item.costTracking || {};
+
+        const ct = costTracking.enabled
+          ? {
+              enabled: true,
+              supplier: costTracking.supplier || undefined,
+              unitCost: Number(costTracking.unitCost || 0),
+              totalCost: Number(costTracking.totalCost || 0),
+              supplierTaxLabel: costTracking.supplierTaxLabel || undefined,
+              supplierTaxRate: Number(costTracking.supplierTaxRate || 0),
+              supplierTax:
+                costTracking.supplierTax !== undefined &&
+                costTracking.supplierTax !== null &&
+                costTracking.supplierTax !== ""
+                  ? Number(costTracking.supplierTax)
+                  : undefined,
+            }
+          : { enabled: false };
+
+        return {
+          description: item.description,
+          serviceItemId: item.serviceItemId || undefined,
+          quantity: Number(item.quantity || 0),
+          unitPrice: Number(item.unitPrice || 0),
+          custom: item.custom || false,
+          costTracking: ct,
+        };
+      }),
       tax: Number(editable.tax || 0),
       notes: editable.notes,
       dueDate: editable.dueDate || null,

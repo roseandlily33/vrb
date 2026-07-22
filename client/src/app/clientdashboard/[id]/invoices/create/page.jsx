@@ -17,10 +17,10 @@ const createInvoiceItem = ({
   unitPrice = 0,
   custom = false,
   itemType = "service",
-  costTracking: incomingCostTracking = undefined,
+  costTracking: incomingCostTracking,
 }) => {
-  const safeQuantity = Number(quantity || 0);
-  const safeUnitPrice = Number(unitPrice || 0);
+  const safeQuantity = Number(quantity ?? 1);
+  const safeUnitPrice = Number(unitPrice ?? 0);
 
   return {
     localId:
@@ -37,12 +37,21 @@ const createInvoiceItem = ({
     custom,
     itemType,
 
-    costTracking: incomingCostTracking || {
+    costTracking: {
       enabled: false,
       supplier: "",
       unitCost: 0,
       totalCost: 0,
+
+      supplierTaxLabel: "HST",
+      supplierTaxRate: 14,
+      supplierTax: 0,
+      totalPaid: 0,
+
       markupRate: 0,
+      grossProfit: 0,
+
+      ...(incomingCostTracking || {}),
     },
   };
 };
@@ -67,12 +76,20 @@ export default function InvoiceCreate() {
     title: "",
     description: "",
     unitPrice: "",
+
     costTracking: {
       enabled: false,
       supplier: "",
       unitCost: "",
       totalCost: 0,
+
+      supplierTaxLabel: "HST",
+      supplierTaxRate: 14,
+      supplierTax: "",
+      totalPaid: 0,
+
       markupRate: "",
+      grossProfit: 0,
     },
   });
 
@@ -133,36 +150,68 @@ export default function InvoiceCreate() {
           costTracking: updatedCostTracking,
         };
 
-        const quantity = Number(updatedItem.quantity || 0);
-        const unitPrice = Number(updatedItem.unitPrice || 0);
+        const quantity = Number(updatedItem.quantity ?? 0);
+        const unitPrice = Number(updatedItem.unitPrice ?? 0);
 
         updatedItem.total = Number((quantity * unitPrice).toFixed(2));
 
         if (updatedCostTracking.enabled) {
-          // prefer an explicitly provided unitCost; if only totalCost provided, derive unitCost
-          const providedTotalCost = Number(updatedCostTracking.totalCost || 0);
-          let unitCost = Number(updatedCostTracking.unitCost || 0);
+          const providedTotalCost = Number(updatedCostTracking.totalCost ?? 0);
 
-          if ((!unitCost || unitCost === 0) && providedTotalCost) {
-            unitCost = Number((providedTotalCost / (quantity || 1)).toFixed(2));
-            updatedCostTracking.unitCost = unitCost;
+          let unitCost = Number(updatedCostTracking.unitCost ?? 0);
+
+          if (unitCost === 0 && providedTotalCost > 0 && quantity > 0) {
+            unitCost = Number((providedTotalCost / quantity).toFixed(2));
           }
 
-          // ensure totalCost is consistent with unitCost * qty
-          updatedCostTracking.totalCost = Number((unitCost * quantity).toFixed(2));
+          const totalCost = Number((unitCost * quantity).toFixed(2));
 
-          // compute markupRate when possible (based on unitPrice and unitCost)
-          if (unitCost > 0 && unitPrice > 0) {
-            updatedCostTracking.markupRate = Number(
-              ((unitPrice / unitCost - 1) * 100).toFixed(2),
-            );
-          } else {
-            updatedCostTracking.markupRate = Number(
-              updatedCostTracking.markupRate || 0,
-            );
-          }
+          const supplierTaxRate = Number(
+            updatedCostTracking.supplierTaxRate ?? 14,
+          );
+
+          const supplierTaxWasEntered =
+            updatedCostTracking.supplierTax !== undefined &&
+            updatedCostTracking.supplierTax !== null &&
+            updatedCostTracking.supplierTax !== "";
+
+          const enteredSupplierTax = Number(updatedCostTracking.supplierTax);
+
+          const supplierTax =
+            supplierTaxWasEntered && Number.isFinite(enteredSupplierTax)
+              ? Number(enteredSupplierTax.toFixed(2))
+              : Number((totalCost * (supplierTaxRate / 100)).toFixed(2));
+
+          const totalPaid = Number((totalCost + supplierTax).toFixed(2));
+
+          const grossProfit = Number(
+            (updatedItem.total - totalCost).toFixed(2),
+          );
+
+          const markupRate =
+            totalCost > 0
+              ? Number(((grossProfit / totalCost) * 100).toFixed(2))
+              : 0;
+
+          updatedCostTracking.unitCost = unitCost;
+          updatedCostTracking.totalCost = totalCost;
+
+          updatedCostTracking.supplierTaxLabel =
+            updatedCostTracking.supplierTaxLabel || "HST";
+
+          updatedCostTracking.supplierTaxRate = supplierTaxRate;
+
+          updatedCostTracking.supplierTax = supplierTax;
+          updatedCostTracking.totalPaid = totalPaid;
+          updatedCostTracking.grossProfit = grossProfit;
+          updatedCostTracking.markupRate = markupRate;
         } else {
+          updatedCostTracking.unitCost = 0;
           updatedCostTracking.totalCost = 0;
+          updatedCostTracking.supplierTax = 0;
+          updatedCostTracking.totalPaid = 0;
+          updatedCostTracking.grossProfit = 0;
+          updatedCostTracking.markupRate = 0;
         }
 
         updatedItem.costTracking = updatedCostTracking;
@@ -198,17 +247,53 @@ export default function InvoiceCreate() {
   const addCustomItem = () => {
     const title = customItem.title.trim();
     const description = customItem.description.trim();
-    const unitPrice = Number(customItem.unitPrice || 0);
+    const unitPrice = Number(customItem.unitPrice ?? 0);
 
     if (!title) {
       alert("Add a title for the custom item.");
       return;
     }
 
-    if (unitPrice < 0) {
+    if (!Number.isFinite(unitPrice) || unitPrice < 0) {
       alert("Unit price cannot be negative.");
       return;
     }
+
+    const enabled = customItem.costTracking?.enabled === true;
+
+    const unitCost = enabled
+      ? Number(customItem.costTracking.unitCost ?? 0)
+      : 0;
+
+    const totalCost = enabled ? Number(unitCost.toFixed(2)) : 0;
+
+    const supplierTaxRate = enabled
+      ? Number(customItem.costTracking.supplierTaxRate ?? 14)
+      : 14;
+
+    const supplierTaxWasEntered =
+      customItem.costTracking.supplierTax !== undefined &&
+      customItem.costTracking.supplierTax !== null &&
+      customItem.costTracking.supplierTax !== "";
+
+    const enteredSupplierTax = Number(customItem.costTracking.supplierTax);
+
+    const supplierTax = enabled
+      ? supplierTaxWasEntered && Number.isFinite(enteredSupplierTax)
+        ? Number(enteredSupplierTax.toFixed(2))
+        : Number((totalCost * (supplierTaxRate / 100)).toFixed(2))
+      : 0;
+
+    const totalPaid = Number((totalCost + supplierTax).toFixed(2));
+
+    const grossProfit = enabled
+      ? Number((unitPrice - totalCost).toFixed(2))
+      : 0;
+
+    const markupRate =
+      enabled && totalCost > 0
+        ? Number(((grossProfit / totalCost) * 100).toFixed(2))
+        : 0;
 
     setInvoiceItems((currentItems) => [
       ...currentItems,
@@ -219,20 +304,25 @@ export default function InvoiceCreate() {
         unitPrice,
         custom: true,
         itemType: "other",
+
         costTracking: {
-          enabled: Boolean(customItem.costTracking?.enabled),
-          supplier: customItem.costTracking?.enabled
-            ? customItem.costTracking.supplier || ""
+          enabled,
+
+          supplier: enabled
+            ? customItem.costTracking.supplier?.trim() || ""
             : "",
-          unitCost: customItem.costTracking?.enabled
-            ? Number(customItem.costTracking.unitCost || 0)
-            : 0,
-          totalCost: customItem.costTracking?.enabled
-            ? Number(customItem.costTracking.totalCost || 0)
-            : 0,
-          markupRate: customItem.costTracking?.enabled
-            ? Number(customItem.costTracking.markupRate || 0)
-            : 0,
+
+          unitCost,
+          totalCost,
+
+          supplierTaxLabel: customItem.costTracking.supplierTaxLabel || "HST",
+
+          supplierTaxRate,
+          supplierTax,
+          totalPaid,
+
+          markupRate,
+          grossProfit,
         },
       }),
     ]);
@@ -241,12 +331,20 @@ export default function InvoiceCreate() {
       title: "",
       description: "",
       unitPrice: "",
+
       costTracking: {
         enabled: false,
         supplier: "",
         unitCost: "",
         totalCost: 0,
+
+        supplierTaxLabel: "HST",
+        supplierTaxRate: 14,
+        supplierTax: "",
+        totalPaid: 0,
+
         markupRate: "",
+        grossProfit: 0,
       },
     });
   };
@@ -281,9 +379,31 @@ export default function InvoiceCreate() {
     );
   }, [invoiceItems]);
 
-  const grossMarginAfterTrackedCosts = useMemo(() => {
+  const supplierTaxPaid = useMemo(() => {
+    return Number(
+      invoiceItems
+        .reduce((sum, item) => {
+          if (!item.costTracking?.enabled) {
+            return sum;
+          }
+
+          return sum + Number(item.costTracking.supplierTax ?? 0);
+        }, 0)
+        .toFixed(2),
+    );
+  }, [invoiceItems]);
+
+  const supplierTotalPaid = useMemo(() => {
+    return Number((trackedCosts + supplierTaxPaid).toFixed(2));
+  }, [trackedCosts, supplierTaxPaid]);
+
+  const grossProfit = useMemo(() => {
     return Number((subtotal - trackedCosts).toFixed(2));
   }, [subtotal, trackedCosts]);
+
+  const estimatedNetTax = useMemo(() => {
+    return Number((tax - supplierTaxPaid).toFixed(2));
+  }, [tax, supplierTaxPaid]);
 
   const handleCreate = async () => {
     if (!invoiceItems.length) {
@@ -291,12 +411,18 @@ export default function InvoiceCreate() {
       return;
     }
 
-    const invalidItem = invoiceItems.find(
-      (item) =>
+    const invalidItem = invoiceItems.find((item) => {
+      const quantity = Number(item.quantity);
+      const unitPrice = Number(item.unitPrice);
+
+      return (
         !item.title?.trim() ||
-        Number(item.quantity) <= 0 ||
-        Number(item.unitPrice) < 0,
-    );
+        !Number.isFinite(quantity) ||
+        quantity <= 0 ||
+        !Number.isFinite(unitPrice) ||
+        unitPrice < 0
+      );
+    });
 
     if (invalidItem) {
       alert(
@@ -314,67 +440,111 @@ export default function InvoiceCreate() {
         clientId: id,
         currency: invoiceMeta.currency,
         dueDate: invoiceMeta.dueDate || undefined,
+
         title: invoiceMeta.title.trim() || undefined,
+
         description: invoiceMeta.description.trim() || undefined,
+
         notes: invoiceMeta.notes.trim() || undefined,
-        taxRate,
 
-        lineItems: invoiceItems.map((item) => ({
-          serviceItemId: item.serviceItemId || undefined,
-          description:
-            item.title?.trim() || item.description?.trim() || "Invoice item",
-          quantity: Number(item.quantity || 1),
-          unitPrice: Number(item.unitPrice || 0),
-          total: Number(item.total || 0),
-          custom: Boolean(item.custom),
-          itemType: item.itemType || "service",
+        taxRate: Number(taxRate),
+        taxLabel: "HST",
 
-          costTracking: (() => {
-            const ct = item.costTracking || {};
-            const enabled = Boolean(ct.enabled);
-            if (!enabled) return { enabled: false, supplier: "", unitCost: 0, totalCost: 0, markupRate: 0 };
+        lineItems: invoiceItems.map((item) => {
+          const quantity = Number(item.quantity ?? 1);
+          const unitPrice = Number(item.unitPrice ?? 0);
 
-            const quantity = Number(item.quantity || 1);
-            const unitPrice = Number(item.unitPrice || 0);
-            let unitCost = Number(ct.unitCost || 0);
-            const providedTotalCost = Number(ct.totalCost || 0);
+          const costTracking = item.costTracking || {};
 
-            if ((!unitCost || unitCost === 0) && providedTotalCost) {
-              unitCost = Number((providedTotalCost / (quantity || 1)).toFixed(2));
-            }
+          const enabled = costTracking.enabled === true;
 
-            const totalCost = Number((unitCost * quantity).toFixed(2));
-
-            let markupRate = Number(ct.markupRate || 0);
-            if (unitCost > 0 && unitPrice > 0) {
-              markupRate = Number(((unitPrice / unitCost - 1) * 100).toFixed(2));
-            }
-
+          if (!enabled) {
             return {
+              serviceItemId: item.serviceItemId || undefined,
+
+              description:
+                item.title?.trim() ||
+                item.description?.trim() ||
+                "Invoice item",
+
+              quantity,
+              unitPrice,
+
+              custom: Boolean(item.custom),
+              itemType: item.itemType || "service",
+
+              costTracking: {
+                enabled: false,
+              },
+            };
+          }
+
+          let unitCost = Number(costTracking.unitCost ?? 0);
+
+          const providedTotalCost = Number(costTracking.totalCost ?? 0);
+
+          if (unitCost === 0 && providedTotalCost > 0 && quantity > 0) {
+            unitCost = Number((providedTotalCost / quantity).toFixed(2));
+          }
+
+          const totalCost = Number((unitCost * quantity).toFixed(2));
+
+          const supplierTaxRate = Number(costTracking.supplierTaxRate ?? 14);
+
+          const supplierTaxWasEntered =
+            costTracking.supplierTax !== undefined &&
+            costTracking.supplierTax !== null &&
+            costTracking.supplierTax !== "";
+
+          const enteredSupplierTax = Number(costTracking.supplierTax);
+
+          const supplierTax =
+            supplierTaxWasEntered && Number.isFinite(enteredSupplierTax)
+              ? Number(enteredSupplierTax.toFixed(2))
+              : Number((totalCost * (supplierTaxRate / 100)).toFixed(2));
+
+          return {
+            serviceItemId: item.serviceItemId || undefined,
+
+            description:
+              item.title?.trim() || item.description?.trim() || "Invoice item",
+
+            quantity,
+            unitPrice,
+
+            custom: Boolean(item.custom),
+            itemType: item.itemType || "service",
+
+            costTracking: {
               enabled: true,
-              supplier: ct.supplier?.trim() || "",
+
+              supplier: costTracking.supplier?.trim() || undefined,
+
               unitCost,
               totalCost,
-              markupRate,
-            };
-          })(),
-        })),
 
-        subtotal,
-        tax,
-        total,
+              supplierTaxLabel: costTracking.supplierTaxLabel || "HST",
+
+              supplierTaxRate,
+              supplierTax,
+            },
+          };
+        }),
       };
 
       const response = await fetch(`${API_URL}/api/invoices`, {
         method: "POST",
+
         headers: {
           "Content-Type": "application/json",
+
           ...(token
             ? {
                 Authorization: `Bearer ${token}`,
               }
             : {}),
         },
+
         body: JSON.stringify(body),
       });
 
@@ -407,7 +577,6 @@ export default function InvoiceCreate() {
           <span className={styles.eyebrow}>Create Invoice</span>
           <h1>New Invoice</h1>
         </div>
-
       </div>
       <div style={{ display: "flex" }}>
         <section className={styles.inlineForm}>
@@ -432,6 +601,7 @@ export default function InvoiceCreate() {
               updateInvoiceItem={updateInvoiceItem}
               invoiceMeta={invoiceMeta}
               setInvoiceMeta={setInvoiceMeta}
+              removeInvoiceItem={removeInvoiceItem}
             />
           </div>
         </section>
@@ -446,8 +616,12 @@ export default function InvoiceCreate() {
             subtotal={subtotal}
             tax={tax}
             loading={loading}
+            grossProfit={grossProfit}
+            estimatedNetTax={estimatedNetTax}
+            supplierTotalPaid={supplierTotalPaid}
+            supplierTaxPaid={supplierTaxPaid}
             trackedCosts={trackedCosts}
-            grossMarginAfterTrackedCosts={grossMarginAfterTrackedCosts}
+            // grossMarginAfterTrackedCosts={grossMarginAfterTrackedCosts}
           />
         </aside>
       </div>

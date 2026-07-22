@@ -2,14 +2,16 @@
 import React, { useEffect, useState, useRef } from "react";
 import { useParams, useRouter } from "next/navigation";
 import styles from "../../invoices/[invoiceId]/page.module.css";
-import ReceiptTemplate from "./receipt";
-
+import { fetchPayments } from "../../invoices/[invoiceId]/helpers/fetchPayments";
+import ReceiptTemplate from "../../invoices/[invoiceId]/receipts/[receiptId]/receipt";
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
 
-export default function ReceiptPage() {
+export default function ReceiptDirectPage() {
   const { id, receiptId } = useParams();
   const router = useRouter();
   const [loading, setLoading] = useState(true);
+  const [invoice, setInvoice] = useState(null);
+  const [payments, setPayments] = useState([]);
   const [receipt, setReceipt] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
   const [editable, setEditable] = useState(null);
@@ -29,6 +31,13 @@ export default function ReceiptPage() {
       const data = await res.json();
       if (!res.ok) throw new Error(data.error || "Failed to load receipt");
       setReceipt(data.receipt);
+      if (data.receipt && data.receipt.invoiceId) {
+        // fetch related invoice once after receipt is loaded and then fetch payments for that invoice
+        const inv = await fetchInvoice(data.receipt.invoiceId);
+        if (inv) {
+          fetchPayments(inv, setPayments, API_URL);
+        }
+      }
       setEditable(null);
       setIsEditing(false);
     } catch (err) {
@@ -38,10 +47,30 @@ export default function ReceiptPage() {
       setLoading(false);
     }
   };
+  const fetchInvoice = async (invoiceId) => {
+    if (!invoiceId) return;
+    setLoading(true);
+    const token = localStorage.getItem("token");
+    try {
+      const res = await fetch(`${API_URL}/api/invoices/${invoiceId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Failed to load invoice");
+      setInvoice(data.invoice);
+      return data.invoice;
+    } catch (err) {
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const startEdit = () => {
     if (!receipt) return;
-    const copy = structuredClone ? structuredClone(receipt) : JSON.parse(JSON.stringify(receipt));
+    const copy = structuredClone
+      ? structuredClone(receipt)
+      : JSON.parse(JSON.stringify(receipt));
     setEditable(copy);
     setIsEditing(true);
   };
@@ -56,12 +85,17 @@ export default function ReceiptPage() {
         currency: editable.currency || "CAD",
         issuedAt: editable.issuedAt || undefined,
         notes: editable.notes || undefined,
-        paymentIds: (editable.paymentIds || []).map((p) => (typeof p === "string" ? p : p._id)).filter(Boolean),
+        paymentIds: (editable.paymentIds || [])
+          .map((p) => (typeof p === "string" ? p : p._id))
+          .filter(Boolean),
       };
 
       const res = await fetch(`${API_URL}/api/receipts/${receipt._id}`, {
         method: "PUT",
-        headers: { "Content-Type": "application/json", Authorization: `Bearer ${token}` },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
         body: JSON.stringify(body),
       });
       const data = await res.json();
@@ -117,10 +151,23 @@ export default function ReceiptPage() {
   if (loading) return <div className={styles.wrap}>Loading...</div>;
   if (!receipt) return <div className={styles.wrap}>No receipt found.</div>;
 
+  const displayedInvoice = {
+    ...receipt,
+    subtotal: receipt.amount,
+    total: receipt.amount,
+    currency: receipt.currency,
+    title: receipt.notes || `Receipt ${receipt.receiptNumber || ""}`,
+  };
+
   return (
     <main className={styles.wrap}>
       <div className={styles.header}>
-        <button className={styles.back} onClick={() => router.push(`/clientdashboard/${id}/payments`)}>Back</button>
+        <button
+          className={styles.back}
+          onClick={() => router.push(`/clientdashboard/${id}/payments`)}
+        >
+          Back
+        </button>
         <div className={styles.pageHeading}>
           <span className={styles.eyebrow}>Receipt</span>
           <h1>Receipt — {receipt.receiptNumber || receipt._id}</h1>
@@ -129,22 +176,46 @@ export default function ReceiptPage() {
         <div className={styles.headerActions}>
           {!isEditing ? (
             <>
-              <button className={styles.print} onClick={printDoc}>Print / Download</button>
-              <button className={styles.view} onClick={startEdit}>Edit Receipt</button>
-              <button className={styles.delete} onClick={del}>Delete Receipt</button>
+              <button className={styles.print} onClick={printDoc}>
+                Print / Download
+              </button>
+              <button className={styles.view} onClick={startEdit}>
+                Edit Receipt
+              </button>
+              <button className={styles.delete} onClick={del}>
+                Delete Receipt
+              </button>
             </>
           ) : (
             <>
-              <button className={styles.print} onClick={save}>Save</button>
-              <button className={styles.delete} onClick={() => { setIsEditing(false); setEditable(null); }}>Cancel</button>
+              <button className={styles.print} onClick={save}>
+                Save
+              </button>
+              <button
+                className={styles.delete}
+                onClick={() => {
+                  setIsEditing(false);
+                  setEditable(null);
+                }}
+              >
+                Cancel
+              </button>
             </>
           )}
         </div>
       </div>
 
-      <ReceiptTemplate receipt={isEditing && editable ? editable : receipt} editable={editable} isEditing={isEditing} formatMoney={formatMoney} formatDate={formatDate} payments={receipt.paymentIds || []} />
+      <ReceiptTemplate
+        invoice={invoice}
+        displayedInvoice={displayedInvoice}
+        receipt={receipt}
+        formatMoney={formatMoney}
+        formatDate={formatDate}
+        docRef={docRef}
+        payments={payments}
+      />
 
-      {isEditing && editable && (
+      {/* {isEditing && editable && (
         <div style={{ padding: 16 }}>
           <label>
             Receipt Number
@@ -166,7 +237,7 @@ export default function ReceiptPage() {
             <textarea value={editable.notes || ""} onChange={(e) => setEditable({ ...editable, notes: e.target.value })} />
           </label>
         </div>
-      )}
+      )} */}
     </main>
   );
 }

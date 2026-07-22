@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./page.module.css";
-
-import Modal from "../../../../components/Modal/Modal";
+import LineItems from "./lineItems";
+// import Modal from "../../../../components/Modal/Modal";
 
 const InvoiceTemplate = ({
   invoice,
@@ -39,6 +39,11 @@ const InvoiceTemplate = ({
   return (
     <>
       <section className={styles.invoiceDocument} ref={docRef}>
+        {(invoice?.status === "paid" || remaining <= 0) && (
+          <div className={styles.paidWatermark} aria-hidden>
+            PAID
+          </div>
+        )}
         <div className={styles.invoiceTop}>
           <div className={styles.brandBlock}>
             <div className={styles.logoPlaceholder}>
@@ -354,67 +359,33 @@ const InvoiceTemplate = ({
                   </div>
 
                   <div>{formatMoney(item?.total)}</div>
-                </div>
-                <div
-                  // ${styles.noPrint}
-                  className={`${styles.lineDetails} `}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "space-between",
-                      gap: "1rem",
-                    }}
-                  >
-                    <div>
-                      <div>
-                        <strong>Charging:</strong>{" "}
-                        {formatMoney(item?.unitPrice)} × {item?.quantity} ={" "}
-                        {formatMoney(item?.total)}
-                      </div>
-                      <div>
-                        <strong>Taxable:</strong>{" "}
-                        {item?.itemType !== "reimbursable" ? "Yes" : "No"}
-                      </div>
-                    </div>
-
-                    <div>
-                      {/* <p>cost tracking</p> */}
-                      {item?.costTracking?.enabled === true ? (
-                        <>
-                          <div>
-                            <strong>Supplier:</strong>{" "}
-                            {item.costTracking.supplier || "—"}
-                          </div>
-                          <div>
-                            <strong>Unit cost:</strong> {formatMoney(unitCost)}
-                          </div>
-                          <div>
-                            <strong>Total cost:</strong>{" "}
-                            {formatMoney(totalCost)}
-                          </div>
-                          <div>
-                            <strong>Markup %:</strong>{" "}
-                            {item.costTracking.markupRate ?? "—"}
-                          </div>
-                        </>
-                      ) : (
-                        <div>
-                          <em>No cost tracking for this line</em>
-                        </div>
-                      )}
-                    </div>
-
-                    <div style={{ textAlign: "right" }}>
-                      <div>
+                  <LineItems
+                    item={item}
+                    unitCost={unitCost}
+                    styles={styles}
+                    formatMoney={formatMoney}
+                    isEditing={isEditing}
+                    index={index}
+                    updateLineItem={updateLineItem}
+                    setEditable={setEditable}
+                  />
+                  {item?.costTracking?.enabled === true && (
+                    <div
+                      style={{ textAlign: "right" }}
+                      className={styles.noPrint}
+                    >
+                      <div className={styles.noPrint}>
                         <strong>Profit:</strong>{" "}
                         {formatMoney(Number(lineProfit))}
                       </div>
-                      <div style={{ color: "var(--grey-600)" }}>
+                      <div
+                        style={{ color: "var(--grey-600)" }}
+                        className={styles.noPrint}
+                      >
                         <small>Gross = charge − cost</small>
                       </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               </React.Fragment>
             );
@@ -484,16 +455,43 @@ const InvoiceTemplate = ({
 
             <div>
               <span>Payments</span>
-              <strong>-{formatMoney(paidSoFar)}</strong>
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "flex-end",
+                  alignItems: "flex-end",
+                  alignSelf: "flex-end",
+                  alignContent: "flex-end",
+                  gap: "1rem",
+                  textAlign: "right",
+                }}
+              >
+                {(payments || []).map((p, i) => (
+                  <div key={p?._id || i}>
+                    <span style={{ color: "var(--grey1)", fontWeight: "bold" }}>
+                      - {formatMoney(p?.amount || 0)}
+                    </span>
+                    <br />
+                    <span>
+                      {p?.date ? formatDate(p.date) : ""}
+                      {p?.method ? ` - (${p.method})` : ""}
+                    </span>
+                  </div>
+                ))}
+              </div>
             </div>
 
+            <div>
+              <span>Paid</span>
+              <strong>{formatMoney(paidSoFar)}</strong>
+            </div>
             <div className={styles.grandTotal}>
               <span>Total Due</span>
               <strong>{formatMoney(remaining)}</strong>
             </div>
           </div>
         </div>
-
         <div className={styles.invoiceFooter}>
           <p>
             VRB Web Design &amp; Development

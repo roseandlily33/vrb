@@ -117,13 +117,13 @@ export default function PaymentCreate() {
             />
           </label>
 
-          <label>
+          {/* <label>
             Invoice ID (optional)
             <input
               value={form.invoiceId}
               onChange={(e) => setForm({ ...form, invoiceId: e.target.value })}
             />
-          </label>
+          </label> */}
 
           <label>
             Notes

@@ -261,10 +261,12 @@
   font-weight: 800;
 }
 
-/* hide UI-only details in print */
-.noPrint {
-  display: none !important;
-  visibility: hidden !important;
+/* hide UI-only details only in print */
+@media print {
+  .noPrint {
+    display: none !important;
+    visibility: hidden !important;
+  }
 }
 .invoiceTableRow {
   min-height: 58px;
@@ -795,6 +797,29 @@
   .invoiceDocument textarea,
   .invoiceDocument select {
     display: none !important;
+  }
+
+  /* Paid watermark */
+  .paidWatermark {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-18deg);
+    font-size: 6rem;
+    color: rgba(0, 128, 0, 0.18);
+    font-weight: 900;
+    pointer-events: none;
+    z-index: 40;
+    letter-spacing: 0.2rem;
+  }
+
+  @media print {
+    .paidWatermark {
+      color: rgba(0, 128, 0, 0.18) !important;
+      font-size: 120pt !important;
+      transform: translate(-50%, -50%) rotate(-18deg) !important;
+      z-index: 9999 !important;
+    }
   }
 
   /* ensure table header and rows stay horizontal and header background prints */
