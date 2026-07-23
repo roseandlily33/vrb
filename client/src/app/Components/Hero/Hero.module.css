@@ -21,6 +21,7 @@
   color: var(--grey-600);
   text-align: center;
   line-height: 1.65;
+  z-index: 5;
 }
 
 .title {
@@ -33,8 +34,8 @@
   font-size: clamp(2.8rem, 6vw, 5.2rem);
   color: var(--blue-950);
   font-weight: 800;
+  z-index: 5;
 }
-
 
 .topMeta {
   color: var(--grey-400);
@@ -44,19 +45,25 @@
   letter-spacing: 0.14rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.06);
   margin-bottom: 18px;
+  z-index: 5;
 }
 
 /* Pixel */
 .pixelPattern {
   position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 180px;
+  left: 0;
+  top: 0;
+  width: min(42vw, 560px);
+  height: 620px;
   pointer-events: none;
-  opacity: 0.9;
-  z-index: 2;
   overflow: hidden;
-  animation: softGlow 6s ease-in-out infinite;
+  opacity: 0.28;
+}
+
+.pixelImage {
+  object-fit: contain;
+  object-position: left top;
+  transform: translateX(-65px);
 }
 
 .pixelPattern img,
@@ -67,23 +74,43 @@
   height: auto;
 }
 
+/* soft fade on left edge so the dense pixels blend into the hero text */
+.pixelPattern::before {
+  content: "";
+  position: absolute;
+  left: -22%;
+  top: 0;
+  bottom: 0;
+  width: 40%;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.85) 100%
+  );
+  mix-blend-mode: lighten;
+  transform: translateX(-6%);
+}
+
 .pixelShimmer {
   position: absolute;
   inset: 0;
   pointer-events: none;
-  z-index: 1;
+  z-index: 3;
   background: linear-gradient(
     115deg,
     transparent 0%,
-    transparent 38%,
-    rgba(255, 255, 255, 0.08) 46%,
-    rgba(255, 255, 255, 0.35) 50%,
-    rgba(255, 255, 255, 0.08) 54%,
-    transparent 62%,
+    transparent 40%,
+    rgba(255, 255, 255, 0.06) 48%,
+    rgba(255, 255, 255, 0.22) 52%,
+    rgba(255, 255, 255, 0.06) 56%,
+    transparent 64%,
     transparent 100%
   );
-  transform: translateX(-120%);
-  animation: shimmerSweep 5.5s ease-in-out infinite;
+  transform: translateX(-140%);
+  animation: shimmerSweep 6.2s ease-in-out infinite;
+  filter: blur(6px);
+  opacity: 0.9;
 }
 
 .squaresBG {
@@ -122,8 +149,8 @@
   }
 
   .pixelPattern {
-    width: 150px;
-    max-width: 32vw;
+    width: min(42vw, 420px);
+    max-width: 420px;
   }
 
   .squaresBG {
@@ -158,9 +185,9 @@
   }
 
   .pixelPattern {
-    width: 125px;
-    max-width: 38vw;
-    opacity: 0.75;
+    width: min(52vw, 360px);
+    max-width: 360px;
+    opacity: 0.8;
   }
 
   .squaresBG {
@@ -185,7 +212,7 @@
   }
 
   .pixelPattern {
-    width: 105px;
+    width: min(62vw, 300px);
   }
 
   .squaresBG {

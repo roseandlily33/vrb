@@ -11,11 +11,8 @@ import OptionalAddOns from "./Add/Add.component";
 import { slugify } from "../../../lib/slugify";
 
 export default async function PackagePage({ params, searchParams }) {
-  const resolvedParams = params;
-  const resolvedSearchParams = await searchParams;
-
-  const type = resolvedSearchParams?.type || "web";
-  const slug = String(resolvedParams?.slug || "");
+  const { slug } = await params;
+  const { type = "web" } = await searchParams;
 
   let resolvedType = type;
 
@@ -30,7 +27,7 @@ export default async function PackagePage({ params, searchParams }) {
       ? extrasList
       : PackageInfo;
 
-  const incoming = slugify(decodeURIComponent(slug));
+  const incoming = slugify(decodeURIComponent(String(slug || "")));
 
   function matchesIncoming(p) {
     const candidates = new Set();
