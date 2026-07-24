@@ -15,7 +15,7 @@ import { submitAndMarkPaid } from "./helpers/submitAndMarkPaid";
 import { startEdit } from "./helpers/startEdit";
 import { fetchPayments } from "./helpers/fetchPayments";
 import { cancelEdit } from "./helpers/cancelEdit";
-import AddAPayment from "./addAPayment";
+// import AddAPayment from "./addAPayment";
 import { updateLineItem } from "./helpers/updateLineItem";
 import { updateTax } from "./helpers/updateTax";
 
@@ -274,13 +274,13 @@ export default function InvoicePreview() {
         updateTax={updateTax}
       />
 
-      <AddAPayment
+      {/* <AddAPayment
         open={openPayment}
         onClose={() => setOpenPayment(false)}
         invoice={invoice}
         apiUrl={API_URL}
         onCreated={() => fetchPayments(invoice, setPayments, API_URL)}
-      />
+      /> */}
     </main>
   );
 }
