@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import styles from "../page.module.css";
-import Modal from "../../components/Modal/Modal";
+// import Modal from "../../components/Modal/Modal";
 import { EditableField } from "./editableField";
 // modal state for todos and meetings
 const emptyTodo = {
@@ -726,7 +726,7 @@ export default function ClientDashboard() {
                 </div>
               </section>
 
-              <Modal
+              {/* <Modal
                 open={todoOpen}
                 title={editingTodo ? "Edit Todo" : "Create Todo"}
                 onClose={() => setTodoOpen(false)}
@@ -859,10 +859,10 @@ export default function ClientDashboard() {
                     </button>
                   </div>
                 </form>
-              </Modal>
+              </Modal> */}
 
               {/* Inline contact edit replaces modal */}
-
+{/* 
               <Modal
                 open={meetingOpen}
                 title={editingMeeting ? "Edit Meeting" : "Create Meeting"}
@@ -986,7 +986,7 @@ export default function ClientDashboard() {
                     </button>
                   </div>
                 </form>
-              </Modal>
+              </Modal> */}
             </>
           )}
         </div>

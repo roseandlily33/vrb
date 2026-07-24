@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import Modal from '../../../components/Modal/Modal';
+// import Modal from '../../../components/Modal/Modal';
 import styles from './proposals.module.css';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
@@ -115,7 +115,7 @@ export default function ProposalsPage() {
         </div>
       )}
 
-      <Modal open={open} title="Create Proposal" onClose={()=>setOpen(false)}>
+      {/* <Modal open={open} title="Create Proposal" onClose={()=>setOpen(false)}>
         <form onSubmit={handleCreate} className={styles.form}>
           <label>Proposal Number<input required value={form.proposalNumber} onChange={e=>setForm({...form,proposalNumber:e.target.value})} /></label>
           <label>Title<input required value={form.title} onChange={e=>setForm({...form,title:e.target.value})} /></label>
@@ -127,7 +127,7 @@ export default function ProposalsPage() {
           <label>Tax Rate (%)<input type="number" step="0.01" value={form.taxRate} onChange={e=>setForm({...form,taxRate:e.target.value})} /></label>
           <div className={styles.actions}><button type="submit">Create</button></div>
         </form>
-      </Modal>
+      </Modal> */}
     </main>
   );
 }

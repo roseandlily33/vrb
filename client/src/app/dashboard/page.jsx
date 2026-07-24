@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
-import Modal from "../components/Modal/Modal";
+import Modal from "../Components/Modal/Modal";
 import styles from "./dashboard.module.css";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";

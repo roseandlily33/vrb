@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import Modal from "../components/Modal/Modal";
+import Modal from "../Components/Modal/Modal";
 import styles from "./service-items.module.css";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
