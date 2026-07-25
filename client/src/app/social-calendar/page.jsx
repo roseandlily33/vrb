@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import styles from "./social-calendar.module.css";
-import Modal from "../../Components/Modal/Modal";
+// import Modal from "../../Components/Modal/Modal";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
 
@@ -148,7 +148,7 @@ export default function SocialCalendarPage() {
       )}
 
       {/* Edit Modal */}
-      {showEditModal && (
+      {/* {showEditModal && (
         <Modal title={editing ? 'Edit Post' : 'Create Post'} onClose={() => setShowEditModal(false)}>
           <form onSubmit={handleSave} className={styles.modalForm}>
             <label>Client
@@ -167,10 +167,10 @@ export default function SocialCalendarPage() {
             </div>
           </form>
         </Modal>
-      )}
+      )} */}
 
       {/* Delete confirmation modal */}
-      {deleteTarget && (
+      {/* {deleteTarget && (
         <Modal title="Confirm Delete" onClose={() => setDeleteTarget(null)}>
           <div style={{paddingBottom: '1rem'}}>Are you sure you want to delete this post?</div>
           <div style={{display:'flex', gap:8}}>
@@ -178,7 +178,7 @@ export default function SocialCalendarPage() {
             <button className={styles.btnGhost} onClick={()=> setDeleteTarget(null)}>Cancel</button>
           </div>
         </Modal>
-      )}
+      )} */}
     </main>
   );
 }
