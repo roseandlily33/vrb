@@ -7,7 +7,9 @@ import styles from "./page.module.css";
 export default function BlogPage() {
   const allPosts = [...blogPosts, ...comparisonExamples];
   const todaysDate = new Date();
-  const filteredPostsByTodaysDate = allPosts.filter((post) => new Date(post.date) <= todaysDate);
+  const filteredPostsByTodaysDate = allPosts.filter(
+    (post) => new Date(post.date) <= todaysDate,
+  );
   return (
     <main>
       <Hero
@@ -18,7 +20,8 @@ export default function BlogPage() {
       />
 
       <section className={styles.postsSection}>
-        <div className={styles.postsGrid}>
+        <h3>Blog is currently under development</h3>
+        {/* <div className={styles.postsGrid}>
           {filteredPostsByTodaysDate.map((post) => (
             <article key={post.slug} className={styles.postCard}>
               <div className={styles.cardContent}>
@@ -32,14 +35,14 @@ export default function BlogPage() {
                   <small className={styles.meta}>{post.date}</small>
                   <small className={styles.meta}>· {post.readTime}</small>
                 </div>
-              </div>
+              </div> */}
 
-              <Link href={`/blog/${post.slug}`} className={styles.readLink}>
+        {/* <Link href={`/blog/${post.slug}`} className={styles.readLink}>
                 Read Article
               </Link>
             </article>
           ))}
-        </div>
+        </div> */}
       </section>
     </main>
   );
