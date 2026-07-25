@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-// import Modal from '../../../../components/Modal/Modal';
+import Modal from '../../../../Components/Modal/Modal'
 import styles from '../proposalDetail.module.css';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
@@ -93,7 +93,7 @@ export default function ProposalDetail() {
         </div>
       )}
 
-      {/* <Modal open={open} title="Edit Proposal" onClose={()=>setOpen(false)}>
+      <Modal open={open} title="Edit Proposal" onClose={()=>setOpen(false)}>
         <form onSubmit={handleSave} className={styles.form}>
           <label>Title<input required value={form.title} onChange={e=>setForm({...form,title:e.target.value})} /></label>
           <label>Status<select value={form.status} onChange={e=>setForm({...form,status:e.target.value})}><option value="draft">draft</option><option value="sent">sent</option><option value="viewed">viewed</option><option value="accepted">accepted</option><option value="declined">declined</option></select></label>
@@ -103,7 +103,7 @@ export default function ProposalDetail() {
           <label>Tax Rate (%)<input type="number" step="0.01" value={form.taxRate} onChange={e=>setForm({...form,taxRate:e.target.value})} /></label>
           <div className={styles.actions}><button type="submit">Save</button></div>
         </form>
-      </Modal> */}
+      </Modal>
     </main>
   );
 }

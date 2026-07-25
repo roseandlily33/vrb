@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
 // import Modal from '../../../components/Modal/Modal';
-import styles from './proposals.module.css';
+import styles from './proposalDetail.module.css';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
 
