@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import ProtectedRoute from "../components/ProtectedRoute/ProtectedRoute";
+import ProtectedRoute from "../Components/ProtectedRoute/ProtectedRoute";
 import Modal from "../Components/Modal/Modal";
 import styles from "./dashboard.module.css";
 

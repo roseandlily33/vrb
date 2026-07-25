@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import styles from './create.module.css';
-import Breadcrumbs from '../components/Breadcrumbs/Breadcrumbs';
+import Breadcrumbs from '../Components/Breadcrumbs/Breadcrumbs';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:4000';
 
