@@ -1,5 +1,6 @@
 import styles from "../page.module.css";
 import CSHero from "../Components/CSHero/CSHero.component";
+import CSTopMenu from "../Components/CSTopMenu/CSTopMenu.component";
 import CTA3 from "@/app/Components/CTA/CTA3/CTA3.component";
 import CSProblem from "../Components/CSProblem/CSProblem.component";
 import CSProcess from "../Components/CSProcess/CSProcess.component";
@@ -13,6 +14,22 @@ const Assuage = () => {
   return (
     <section className={styles.mainContainer}>
       <Breadcrumbs current="Assuage Wellness Centre" />
+      <CSTopMenu
+        activeKey="web"
+        items={[
+          {
+            key: "web",
+            label: "Web Design",
+            description: "Homepage, UI concepts and layout decisions.",
+          },
+          {
+            key: "social",
+            label: "Social Media",
+            description: "Social post concepts and marketing assets.",
+            href: "/case-study/assuage/social-media",
+          },
+        ]}
+      />
       <CSHero
         img="/Assuage/AssuageLogoCircle.png"
         companyName="Assuage Wellness Centre"

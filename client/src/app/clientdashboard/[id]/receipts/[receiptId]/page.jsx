@@ -3,6 +3,7 @@ import React, { useEffect, useState, useRef } from "react";
 import { useParams, useRouter } from "next/navigation";
 import styles from "../../invoices/[invoiceId]/page.module.css";
 import { fetchPayments } from "../../invoices/[invoiceId]/helpers/fetchPayments";
+import { formatDate } from "../../invoices/[invoiceId]/helpers/formatDate";
 import ReceiptTemplate from "../../invoices/[invoiceId]/receipts/[receiptId]/receipt";
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
 
@@ -139,14 +140,7 @@ export default function ReceiptDirectPage() {
     return `$${n.toFixed(2)}`;
   };
 
-  const formatDate = (d) => {
-    if (!d) return "";
-    try {
-      return new Date(d).toLocaleDateString();
-    } catch {
-      return String(d);
-    }
-  };
+  // using shared `formatDate` helper imported above
 
   if (loading) return <div className={styles.wrap}>Loading...</div>;
   if (!receipt) return <div className={styles.wrap}>No receipt found.</div>;

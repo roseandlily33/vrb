@@ -21,7 +21,7 @@ const Ariel = () => {
         img="/ArielPerformance/ArielLogo.webp"
         companyName="Ariel Boesener Performance Horses"
         date="2025"
-        link="https://www.arielboesenerperformancehorses.com/"
+        // link="https://www.arielboesenerperformancehorses.com/"
         type="Design"
         status="Completed"
         title="Redesigning a Website for Clarity and Usability"

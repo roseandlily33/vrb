@@ -43,7 +43,7 @@ export const projects = [
     tech: ["Design"],
     image: "/Assuage/AssuageHome.png",
     link: "/case-study/assuage",
-    badge: "UX/UI Design",
+    badge: "Design & Social Media",
   },
   {
     name: "New Line Plumbing, Heating & Construction",

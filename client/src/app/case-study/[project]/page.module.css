@@ -4,6 +4,7 @@
   flex-direction: column;
   margin: 0 auto;
   background: var(--white);
+  /* border: 2px solid red; */
 }
 .mainContainer h1 {
   font-size: 4rem;

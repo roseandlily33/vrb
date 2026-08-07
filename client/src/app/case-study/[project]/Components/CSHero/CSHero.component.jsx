@@ -1,5 +1,5 @@
 import styles from "./CSHero.module.css";
-import TertiaryButton from "@/app/Components/TertiaryButton/TertiaryButton.component";
+// import TertiaryButton from "@/app/Components/TertiaryButton/TertiaryButton.component";
 import { FiArrowRight } from "react-icons/fi";
 
 function highlightText(text, words, className) {
