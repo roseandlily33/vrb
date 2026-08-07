@@ -107,12 +107,13 @@ export default function SocialMediaRoute() {
     <main className={styles.mainContainer}>
       <Breadcrumbs current="Assuage Wellness Centre" />
       <CSTopMenu
-        activeKey="web"
+        activeKey="social"
         items={[
           {
             key: "web",
             label: "Web Design",
             description: "Homepage, UI concepts and layout decisions.",
+            href: "/case-study/assuage",
           },
           {
             key: "social",
@@ -122,15 +123,14 @@ export default function SocialMediaRoute() {
           },
         ]}
       />
-      <div
-        style={{ padding: "var(--space-l) var(--space-m) 0 var(--space-m)" }}
-      >
-        <h1>Assuage Wellness Centre</h1>
+      <div className={styles.caseHeader}>
         <h3>Social Media Posts</h3>
+        <h1>Assuage Wellness Centre</h1>
+        <p className={styles.meta}>
+          Concept social posts and marketing assets for Assuage Wellness Centre.
+        </p>
       </div>
-      <p className={styles.meta}>
-        Concept social posts and marketing assets for Assuage Wellness Centre.
-      </p>
+
       <CSSocialMediaPosts posts={assuagePosts} />
     </main>
   );
