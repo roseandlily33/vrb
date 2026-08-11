@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Modal from '../../../../Components/Modal/Modal';
 import styles from "./page.module.css";
+import { formatDate } from "./helpers/formatDate";
 
 export default function AddAPayment({ open, onClose, invoice, apiUrl, onCreated }) {
   const [paymentForm, setPaymentForm] = useState({
@@ -130,7 +131,7 @@ export default function AddAPayment({ open, onClose, invoice, apiUrl, onCreated 
             <option value="new">Create new payment</option>
             {existingPayments.map((p) => (
               <option key={p._id} value={p._id}>
-                {`${p.amount} — ${p.status || ""} — ${p.date ? new Date(p.date).toLocaleDateString() : ""}`}
+                {`${p.amount} — ${p.status || ""} — ${p.date ? formatDate(p.date) : ""}`}
               </option>
             ))}
           </select>

@@ -3,6 +3,20 @@ const Client = require("../models/Client.model");
 const ServiceItem = require("../models/ServiceItem.model");
 const Counter = require("../models/Counter.model");
 
+// Parse date input from client. If the client sends a date-only string
+// like "YYYY-MM-DD" treat it as a local date (no timezone shift).
+function parseDateInput(val) {
+  if (!val) return undefined;
+  if (typeof val === "string" && /^\d{4}-\d{2}-\d{2}$/.test(val)) {
+    const parts = val.split("-").map((p) => Number(p));
+    const [y, m, d] = parts;
+    // new Date(year, monthIndex, day) constructs a date in local timezone
+    return new Date(y, m - 1, d);
+  }
+  const dt = new Date(val);
+  return isNaN(dt.getTime()) ? undefined : dt;
+}
+
 // Resolve and normalize line items; fetch ServiceItem pricing when required.
 async function resolveLineItems(items) {
   const out = [];
@@ -228,8 +242,8 @@ async function createInvoice(req, res, next) {
       */
       paymentTerms: paymentTerms ?? terms,
 
-      dueDate: dueDate || undefined,
-      issuedAt: issuedAt ? new Date(issuedAt) : undefined,
+      dueDate: dueDate ? parseDateInput(dueDate) : undefined,
+      issuedAt: issuedAt ? parseDateInput(issuedAt) : undefined,
 
       status: status || "draft",
 
@@ -447,15 +461,15 @@ async function updateInvoice(req, res, next) {
     }
 
     if (dueDate !== undefined) {
-      invoice.dueDate = dueDate ? new Date(dueDate) : undefined;
+      invoice.dueDate = dueDate ? parseDateInput(dueDate) : undefined;
     }
 
     if (issuedAt !== undefined) {
-      invoice.issuedAt = issuedAt ? new Date(issuedAt) : undefined;
+      invoice.issuedAt = issuedAt ? parseDateInput(issuedAt) : undefined;
     }
 
     if (paidAt !== undefined) {
-      invoice.paidAt = paidAt ? new Date(paidAt) : undefined;
+      invoice.paidAt = paidAt ? parseDateInput(paidAt) : undefined;
     }
 
     if (status !== undefined) {

@@ -113,6 +113,28 @@ export default function InvoicePreview() {
 
       const loadedInvoice = data.invoice;
 
+      // Normalize date fields to local YYYY-MM-DD strings so the
+      // client UI doesn't shift dates due to timezone conversions.
+      const toDateInputValue = (val) => {
+        if (!val) return null;
+        if (typeof val === "string" && /^\d{4}-\d{2}-\d{2}$/.test(val)) return val;
+        const d = new Date(val);
+        if (isNaN(d.getTime())) return null;
+        // Use UTC components when the server stored UTC midnight values
+        // so the date input reflects the DB date instead of local shift.
+        const y = d.getUTCFullYear();
+        const m = String(d.getUTCMonth() + 1).padStart(2, "0");
+        const day = String(d.getUTCDate()).padStart(2, "0");
+        return `${y}-${m}-${day}`;
+      };
+
+      if (loadedInvoice.issuedAt) {
+        loadedInvoice.issuedAt = toDateInputValue(loadedInvoice.issuedAt);
+      }
+      if (loadedInvoice.dueDate) {
+        loadedInvoice.dueDate = toDateInputValue(loadedInvoice.dueDate);
+      }
+
       setInvoice(loadedInvoice);
       setEditable(null);
       setIsEditing(false);
@@ -222,7 +244,7 @@ export default function InvoicePreview() {
             <>
               <button
                 type="button"
-                className={styles.create}
+                className={styles.print}
                 onClick={() => addLineItem({ setEditable, setIsEditing })}
               >
                 Add Item

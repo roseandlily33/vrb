@@ -36,6 +36,17 @@ const InvoiceTemplate = ({
     displayedInvoice?.total ?? Number((subtotal + taxAmount).toFixed(2)),
   );
   const remaining = Number((invoiceTotal - paidSoFar).toFixed(2));
+
+  const toDateInputValue = (val) => {
+    if (!val) return "";
+    if (typeof val === "string" && /^\d{4}-\d{2}-\d{2}$/.test(val)) return val;
+    const d = new Date(val);
+    if (isNaN(d.getTime())) return "";
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, "0");
+    const day = String(d.getDate()).padStart(2, "0");
+    return `${y}-${m}-${day}`;
+  };
   return (
     <>
       <section className={styles.invoiceDocument} ref={docRef}>
@@ -128,11 +139,7 @@ const InvoiceTemplate = ({
               ) : (
                 <input
                   type="date"
-                  value={
-                    editable?.issuedAt
-                      ? String(editable.issuedAt).split("T")[0]
-                      : ""
-                  }
+                  value={toDateInputValue(editable?.issuedAt)}
                   onChange={(e) =>
                     updateEditableField(setEditable, "issuedAt", e.target.value)
                   }
@@ -150,11 +157,7 @@ const InvoiceTemplate = ({
               ) : (
                 <input
                   type="date"
-                  value={
-                    editable?.dueDate
-                      ? String(editable.dueDate).split("T")[0]
-                      : ""
-                  }
+                  value={toDateInputValue(editable?.dueDate)}
                   onChange={(e) =>
                     updateEditableField(setEditable, "dueDate", e.target.value)
                   }
@@ -287,7 +290,7 @@ const InvoiceTemplate = ({
           </div>
 
           {(displayedInvoice?.lineItems || [])?.map((item, index) => {
-            const key = item?._id || `${item?.description}-${index}`;
+            const key = item?._id || index;
             const unitCost = item?.costTracking?.unitCost || 0;
             const totalCost = item?.costTracking?.totalCost || 0;
             const lineProfit = Number(

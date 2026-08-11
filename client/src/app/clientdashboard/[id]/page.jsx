@@ -1,8 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
+import { formatDate } from "./invoices/[invoiceId]/helpers/formatDate";
 import styles from "../page.module.css";
-// import Modal from "../../components/Modal/Modal";
+import Modal from "../../Components/Modal/Modal";
 import { EditableField } from "./editableField";
 // modal state for todos and meetings
 const emptyTodo = {
@@ -52,13 +53,6 @@ export default function ClientDashboard() {
   const [contactEditing, setContactEditing] = useState(false);
   const [editingMeeting, setEditingMeeting] = useState(null);
   const [meetingForm, setMeetingForm] = useState(emptyMeeting);
-
-  const formatKey = (k) => {
-    return String(k)
-      .replace(/([A-Z])/g, " $1")
-      .replace(/_/g, " ")
-      .replace(/^./, (c) => c.toUpperCase());
-  };
 
   useEffect(() => {
     const token =
@@ -513,7 +507,7 @@ export default function ClientDashboard() {
                             }
                           >
                             {px.amount} {px.currency} — {px.status} —{" "}
-                            {new Date(px.date).toLocaleDateString()}
+                            {formatDate(px.date)}
                           </button>
                         </li>
                       ))}
@@ -717,7 +711,7 @@ export default function ClientDashboard() {
                               setMeetingOpen(true);
                             }}
                           >
-                            {m.title} — {new Date(m.date).toLocaleDateString()}
+                            {m.title} — {formatDate(m.date)}
                           </button>
                         </li>
                       ))}
@@ -726,7 +720,7 @@ export default function ClientDashboard() {
                 </div>
               </section>
 
-              {/* <Modal
+              <Modal
                 open={todoOpen}
                 title={editingTodo ? "Edit Todo" : "Create Todo"}
                 onClose={() => setTodoOpen(false)}
@@ -859,10 +853,10 @@ export default function ClientDashboard() {
                     </button>
                   </div>
                 </form>
-              </Modal> */}
+              </Modal>
 
               {/* Inline contact edit replaces modal */}
-{/* 
+
               <Modal
                 open={meetingOpen}
                 title={editingMeeting ? "Edit Meeting" : "Create Meeting"}
@@ -986,7 +980,7 @@ export default function ClientDashboard() {
                     </button>
                   </div>
                 </form>
-              </Modal> */}
+              </Modal>
             </>
           )}
         </div>

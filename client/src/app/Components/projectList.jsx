@@ -8,7 +8,51 @@ export const projects = [
     link: "/case-study/yoda-safety-services",
     badge: "Web App",
   },
+  {
+    name: "Inspection Pal",
+    description:
+      "Front-end project built from scratch with Gatsby and CSS Modules.",
+    tech: ["Gatsby", "Design"],
+    image: "/InspectionPal/Home.png",
+    link: "/case-study/inspection-pal",
+    badge: "Front-End Design & Dev",
+  },
 
+  {
+    name: "Assuage Wellness Centre",
+    description:
+      "Exploring two visual directions for a modern wellness website with high-fidelity mockups.",
+    tech: ["Design"],
+    image: "/Assuage/AssuageHome.png",
+    link: "/case-study/assuage",
+    badge: "Design & Social Media",
+  },
+  {
+    name: "Harbour Health Collective",
+    description: "",
+    tech: ["Design"],
+    image: "/HarbourHealth/HarbourHealthHome.png",
+    link: "/case-study/harbour-health-collective",
+    badge: "Design & Social Media",
+  },
+  {
+    name: "New Line Plumbing, Heating & Construction",
+    description:
+      "Website redesign to improve user experience, navigation, and content organization.",
+    tech: ["Design"],
+    image: "/NewLine/NewLineHome.png",
+    link: "/case-study/newline",
+    badge: "UX/UI Design",
+  },
+  {
+    name: "Anchor Marine & Mechanical",
+    description:
+      "Website redesign to improve user experience, navigation, and content organization.",
+    tech: ["Design"],
+    image: "/AnchorMarine/AnchorMarineHome.png",
+    link: "/case-study/anchor-marine",
+    badge: "UX/UI Design",
+  },
   {
     name: "Ariel Boesener Performance Horses",
     description:
@@ -26,32 +70,5 @@ export const projects = [
     image: "/VRB/VrbHome.png",
     link: "/case-study/vrb-web",
     badge: "Front-End Design & Dev",
-  },
-  {
-    name: "Inspection Pal",
-    description:
-      "Front-end project built from scratch with Gatsby and CSS Modules.",
-    tech: ["Gatsby", "Design"],
-    image: "/InspectionPal/Home.png",
-    link: "/case-study/inspection-pal",
-    badge: "Front-End Design & Dev",
-  },
-  {
-    name: "Assuage Wellness Centre",
-    description:
-      "Exploring two visual directions for a modern wellness website with high-fidelity mockups.",
-    tech: ["Design"],
-    image: "/Assuage/AssuageHome.png",
-    link: "/case-study/assuage",
-    badge: "Design & Social Media",
-  },
-  {
-    name: "New Line Plumbing, Heating & Construction",
-    description:
-      "Website redesign to improve user experience, navigation, and content organization.",
-    tech: ["Design"],
-    image: "/NewLine/NewLineHome.png",
-    link: "/case-study/newline",
-    badge: "UX/UI Design",
   },
 ];

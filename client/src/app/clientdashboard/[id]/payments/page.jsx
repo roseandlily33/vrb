@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { useParams, useRouter } from "next/navigation";
+import { formatDate } from "../invoices/[invoiceId]/helpers/formatDate";
 // Modal removed: invoice creation will be an inline form
 import { useMemo } from "react";
 import styles from "./payments.module.css";
@@ -206,7 +207,7 @@ export default function PaymentsPage() {
                   <div key={r._id} className={styles.row}>
                     <div>{r.receiptNumber || '—'}</div>
                     <div>{(r.amount || 0).toFixed ? (r.amount || 0).toFixed(2) : r.amount}</div>
-                    <div>{r.issuedAt ? new Date(r.issuedAt).toLocaleDateString() : '—'}</div>
+                    <div>{r.issuedAt ? formatDate(r.issuedAt) : '—'}</div>
                     <div>{r.paymentId ? (
                       <button className={styles.link} onClick={() => router.push(`/clientdashboard/${id}/payments/${r.paymentId}`)}>{r.paymentId}</button>
                     ) : '—'}</div>
@@ -257,7 +258,7 @@ export default function PaymentsPage() {
                       {p.amount} {p.currency}
                     </div>
                     <div>{p.method}</div>
-                    <div>{new Date(p.date).toLocaleDateString()}</div>
+                    <div>{formatDate(p.date)}</div>
                     <div>
                       <span
                         className={`${styles.statusBadge} ${styles[p.status]}`}
@@ -319,7 +320,7 @@ export default function PaymentsPage() {
 
                     <div>{inv.status || "—"}</div>
 
-                    <div>{inv.dueDate ? new Date(inv.dueDate).toLocaleDateString() : "—"}</div>
+                    <div>{inv.dueDate ? formatDate(inv.dueDate) : "—"}</div>
 
                     <div>
                       <button

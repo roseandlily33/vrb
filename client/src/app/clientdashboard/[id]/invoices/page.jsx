@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { formatDate } from "./[invoiceId]/helpers/formatDate";
 import { useParams, useRouter } from "next/navigation";
 import styles from "../payments/payments.module.css";
 
@@ -75,7 +76,7 @@ export default function InvoicesList() {
                     {inv.invoiceId || inv._id}
                   </button>
                 </div>
-                <div>{new Date(inv.issuedAt || inv.createdAt).toLocaleDateString()}</div>
+                <div>{formatDate(inv.issuedAt || inv.createdAt)}</div>
                 <div>${(inv.subtotal || 0).toFixed(2)}</div>
                 <div>${(inv.tax || 0).toFixed(2)}</div>
                 <div>${(inv.total || 0).toFixed(2)}</div>
