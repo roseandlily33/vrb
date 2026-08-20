@@ -1,23 +1,30 @@
 .cta2Section {
-  padding: var(--section-lg);
   position: relative;
-  overflow: hidden;
   display: flex;
   align-items: center !important;
   justify-content: center !important;
-  width: 100%;
-  /* background: var(--blue-50); */
-  border: 1px solid var(--grey-border);
-  /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%2369baf2' fill-opacity='0.16' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E"); */
+  /* full-bleed background while keeping inner content constrained */
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
   background: var(--background-three);
+  padding: var(--section-lg) 0; /* vertical spacing; inner content keeps horizontal padding */
 }
 
 .cta2Content {
   z-index: 2;
   text-align: center !important;
-  width: 100%;
-  max-width: 760px;
   position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  /* padding: var(--section-lg); */
+  box-sizing: border-box;
+  background: transparent;
+  border: 1px solid var(--grey-border);
+  border-radius: 8px;
 }
 
 .cta2Heading {

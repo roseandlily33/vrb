@@ -3,8 +3,14 @@
   /* border: 2px solid red; */
   display: flex;
   flex-direction: column;
-  background: var(--grey-50);
+  /* background: var(--grey-50); */
   padding: var(--section-lg);
+  /* .section { */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--section-lg);
+  /* } */
 }
 .rightTitle {
   font-weight: 700;

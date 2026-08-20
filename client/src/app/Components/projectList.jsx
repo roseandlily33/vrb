@@ -21,37 +21,37 @@ export const projects = [
   {
     name: "Assuage Wellness Centre",
     description:
-      "Exploring two visual directions for a modern wellness website with high-fidelity mockups.",
+      "Exploring two visual directions for a wellness website & social media strategy to increase engagement and reach.",
     tech: ["Design"],
     image: "/Assuage/AssuageHome.png",
     link: "/case-study/assuage",
     badge: "Design & Social Media",
   },
-  {
-    name: "Harbour Health Collective",
-    description: "",
-    tech: ["Design"],
-    image: "/HarbourHealth/HarbourHealthHome.png",
-    link: "/case-study/harbour-health-collective",
-    badge: "Design & Social Media",
-  },
+  // {
+  //   name: "Harbour Health Collective",
+  //   description: "",
+  //   tech: ["Design"],
+  //   image: "/HarbourHealth/HarbourHealthHome.png",
+  //   link: "/case-study/harbour-health-collective",
+  //   badge: "Design & Social Media",
+  // },
   {
     name: "New Line Plumbing, Heating & Construction",
     description:
-      "Website redesign to improve user experience, navigation, and content organization.",
+      "Set of print & business materials, including business cards, signs, invoices & quotes.",
     tech: ["Design"],
-    image: "/NewLine/NewLineHome.png",
+    image: "/NewLine/NewLineInvoice.png",
     link: "/case-study/newline",
-    badge: "UX/UI Design",
+    badge: "Brand Materials",
   },
   {
     name: "Anchor Marine & Mechanical",
     description:
-      "Website redesign to improve user experience, navigation, and content organization.",
+       "Set of print & business materials, including business cards, signs, invoices & quotes.",
     tech: ["Design"],
-    image: "/AnchorMarine/AnchorMarineHome.png",
+    image: "/Anchor/AnchorInvoice.png",
     link: "/case-study/anchor-marine",
-    badge: "UX/UI Design",
+    badge: "Brand Materials",
   },
   {
     name: "Ariel Boesener Performance Horses",

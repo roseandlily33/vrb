@@ -6,7 +6,7 @@ import CSProblem from "../Components/CSProblem/CSProblem.component";
 import CSProcess from "../Components/CSProcess/CSProcess.component";
 import CSKeyPages from "../Components/CSKeyPages.component";
 import CSKeyFeatures from "../Components/CSKeyFeatures/CSKeyFeatures.component";
-import { pages,  } from "./pages";
+import { pages } from "./pages";
 import Breadcrumbs from "../Components/Extras/Breadcrumbs/Breadcrumbs.component";
 import BackToTopButton from "@/app/Components/BackToTop/BackToTopButton";
 

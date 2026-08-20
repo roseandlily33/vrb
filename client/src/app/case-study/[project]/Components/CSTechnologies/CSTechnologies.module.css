@@ -1,12 +1,22 @@
 /* Technologies Section */
 .technologies {
-  background: var(--blue-900);
-  color: var(--white);
+  /* background: var(--blue-900); */
+  /* color: var(--white); */
+  /* .section { */
+  /* width: 100%; */
+  /* max-width: 1200px; */
+  /* margin: 0 auto; */
+  padding: var(--section-lg);
+   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--section-lg);
+/* } */
 }
 
 .technologies h2 {
   margin-bottom: var(--space-xxl);
-  color: var(--blue-100);
+  /* color: var(--blue-100); */
 }
 .techContainer {
   display: flex;

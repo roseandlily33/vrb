@@ -30,7 +30,13 @@ const companies = [
     name: 'New Line',
     img: '/NewLine/NewLineLogoNew.png',
     alt: 'NewLine Plumbing, Heating & Construction Logo',
-    href: '/case-study/newline-plumbing-heating-construction',
+    href: '/case-study/newline',
+  },
+  {
+    name: 'AnchorMarine',
+    img: '/Anchor/AnchorLogo.png',
+    alt: 'Anchor Marine & Mechanical Logo',
+    href: '/case-study/anchor',
   }
 ];
 

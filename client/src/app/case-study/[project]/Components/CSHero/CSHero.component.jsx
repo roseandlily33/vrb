@@ -36,15 +36,29 @@ const CSHero = ({
 }) => {
   return (
     <section className={styles.heroCentered}>
+  {img && (
+    <img
+      src={img}
+      alt=""
+      aria-hidden="true"
+      className={styles.heroWatermark}
+    />
+  )}
+
+  <div className={styles.heroIntro}>
+    <div className={styles.heroContent}>
+      <span className={styles.eyebrow}>
+        {companyName || "Case Study"}
+      </span>
+
       <h1 className={styles.heroTitleCentered}>
         {highlightText(title, highlightWords, styles.highlighted)}
       </h1>
-      {description && <p className={styles.heroDescription}>{description}</p>}
-      <img
-        src={img}
-        alt={`${companyName} Logo`}
-        className={styles.heroLogoLarge}
-      />
+
+      {description && (
+        <p className={styles.heroDescription}>{description}</p>
+      )}
+
       {(link || finalResults || seeProcess) && (
         <div className={styles.heroActions}>
           {link && (
@@ -71,30 +85,38 @@ const CSHero = ({
           )}
         </div>
       )}
-      <div className={styles.metaBand}>
-        <div className={styles.metaItem}>
-          <div className={styles.metaValue}>{date}</div>
-          <div className={styles.metaLabel}>Date</div>
-        </div>
-        <div className={styles.metaItem}>
-          <div className={styles.metaValue}>{status}</div>
-          <div className={styles.metaLabel}>Status</div>
-        </div>
-        <div className={styles.metaItem}>
-          <div className={styles.metaValue}>{type}</div>
-          <div className={styles.metaLabel}>Type</div>
-        </div>
-        <div className={styles.metaItem}>
-          <div className={styles.metaValue}>{role}</div>
-          <div className={styles.metaLabel}>Role</div>
-        </div>
-      </div>
-      {note && (
-        <div className={styles.heroNote}>
-          <strong>Note:</strong> {note}
-        </div>
-      )}
-    </section>
+    </div>
+  </div>
+
+  <div className={styles.metaBand}>
+    <div className={styles.metaItem}>
+      <div className={styles.metaLabel}>Date</div>
+      <div className={styles.metaValue}>{date}</div>
+    </div>
+
+    <div className={styles.metaItem}>
+      <div className={styles.metaLabel}>Status</div>
+      <div className={styles.metaValue}>{status}</div>
+    </div>
+
+    <div className={styles.metaItem}>
+      <div className={styles.metaLabel}>Type</div>
+      <div className={styles.metaValue}>{type}</div>
+    </div>
+
+    <div className={styles.metaItem}>
+      <div className={styles.metaLabel}>Role</div>
+      <div className={styles.metaValue}>{role}</div>
+    </div>
+  </div>
+
+  {note && (
+    <div className={styles.heroNote}>
+      <span className={styles.noteLabel}>Note</span>
+      <p>{note}</p>
+    </div>
+  )}
+</section>
   );
 };
 

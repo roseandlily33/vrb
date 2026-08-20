@@ -1,0 +1,378 @@
+.section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--section-lg);
+}
+
+/* ----------------------------------
+   Intro
+----------------------------------- */
+
+.intro {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr);
+  gap: clamp(3rem, 8vw, 7rem);
+  align-items: end;
+
+  padding-bottom: var(--space-xxl);
+}
+
+.headingBlock {
+  display: flex;
+  flex-direction: column;
+}
+
+.kicker {
+  margin-bottom: var(--space-s);
+
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+
+  color: var(--blue-700);
+}
+
+.title {
+  margin: 0;
+
+  max-width: 12ch;
+
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4vw, 3.8rem);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+
+  color: var(--blue-950);
+}
+
+.summaryWrap {
+  max-width: 650px;
+}
+
+.summary {
+  margin: 0;
+
+  font-size: clamp(1rem, 1.45vw, 1.2rem);
+  line-height: var(--leading-loose);
+
+  color: var(--grey-600);
+}
+
+/* ----------------------------------
+   Metadata
+----------------------------------- */
+
+.metaBar {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  border-top: var(--border-medium);
+  border-bottom: var(--border-medium);
+}
+
+.metaItem {
+  min-width: 0;
+  min-height: 96px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-xs);
+
+  padding: var(--space-l);
+
+  border-right: var(--border-light);
+}
+
+.metaItem:first-child {
+  padding-left: 0;
+}
+
+.metaItem:last-child {
+  border-right: 0;
+}
+
+.metaLabel {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+
+  color: var(--grey-400);
+}
+
+.metaValue {
+  font-family: var(--font-heading);
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.35;
+
+  color: var(--blue-950);
+}
+
+.platforms {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.platform {
+  padding: 0.36rem 0.68rem;
+
+  border-radius: var(--radius-pill);
+
+  background: var(--blue-50);
+  color: var(--blue-800);
+
+  font-size: 0.73rem;
+  font-weight: 600;
+}
+
+/* ----------------------------------
+   Scope cards
+----------------------------------- */
+
+.scope {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: var(--space-l);
+
+  padding-top: var(--space-xxxl);
+}
+
+.scopeCard {
+  position: relative;
+
+  min-width: 0;
+
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+
+  border: var(--border-light);
+  border-radius: var(--radius-lg);
+
+  background: linear-gradient(
+    180deg,
+    rgba(242, 248, 255, 0.7) 0%,
+    rgba(255, 255, 255, 1) 75%
+  );
+
+  overflow: hidden;
+
+  transition:
+    transform var(--transition-normal),
+    box-shadow var(--transition-normal),
+    border-color var(--transition-normal);
+}
+
+.scopeCard:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(27, 138, 228, 0.14);
+
+  box-shadow: var(--shadow-sm);
+}
+
+/* ----------------------------------
+   Card heading
+----------------------------------- */
+
+.scopeHeader {
+  position: relative;
+  z-index: 1;
+
+  padding-bottom: var(--space-l);
+
+  border-bottom: var(--border-light);
+}
+
+.scopeLabel {
+  display: block;
+
+  margin-bottom: var(--space-xs);
+
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+
+  color: var(--blue-700);
+}
+
+.scopeTitle {
+  margin: 0;
+
+  font-family: var(--font-heading);
+  font-size: clamp(1.45rem, 2.2vw, 2rem);
+  font-weight: 600;
+  line-height: var(--leading-tight);
+  letter-spacing: -0.03em;
+
+  color: var(--blue-950);
+}
+
+/* ----------------------------------
+   Lists
+----------------------------------- */
+
+.list {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  column-gap: var(--space-xl);
+
+  margin-top: var(--space-m);
+}
+
+.listItem {
+  min-height: 52px;
+
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+
+  padding: var(--space-s) 0;
+
+  border-bottom: var(--border-light);
+
+  font-size: 0.88rem;
+  line-height: var(--leading-normal);
+
+  color: var(--grey-700);
+}
+
+.marker {
+  width: 6px;
+  height: 6px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: var(--blue-500);
+}
+
+/* ----------------------------------
+   Tablet
+----------------------------------- */
+
+@media (max-width: 900px) {
+  .intro {
+    grid-template-columns: 1fr;
+    gap: var(--space-l);
+  }
+
+  .title {
+    max-width: none;
+  }
+
+  .metaBar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .metaItem {
+    border-bottom: var(--border-light);
+  }
+
+  .metaItem:nth-child(2n) {
+    border-right: 0;
+  }
+
+  .metaItem:first-child {
+    padding-left: var(--space-l);
+  }
+
+  .scope {
+    gap: var(--space-m);
+  }
+
+  .list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ----------------------------------
+   Mobile
+----------------------------------- */
+
+@media (max-width: 650px) {
+  .section {
+    padding: var(--section-sm);
+  }
+
+  .intro {
+    padding-bottom: var(--space-xl);
+  }
+
+  .title {
+    font-size: clamp(2.15rem, 10vw, 3.2rem);
+  }
+
+  .summary {
+    font-size: 1rem;
+  }
+
+  .metaBar {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .metaItem,
+  .metaItem:first-child {
+    min-height: 82px;
+    padding: var(--space-m);
+  }
+
+  .scope {
+    grid-template-columns: 1fr;
+
+    gap: var(--space-m);
+
+    padding-top: var(--space-xxl);
+  }
+
+  .scopeCard {
+    padding: var(--space-xl);
+  }
+
+  .scopeTitle {
+    font-size: 1.5rem;
+  }
+
+  .list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .listItem {
+    min-height: 48px;
+
+    font-size: 0.84rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .metaBar {
+    grid-template-columns: 1fr;
+  }
+
+  .metaItem,
+  .metaItem:first-child {
+    padding: var(--space-m) 0;
+
+    border-right: 0;
+    border-bottom: var(--border-light);
+  }
+
+  .metaItem:last-child {
+    border-bottom: 0;
+  }
+
+  .list {
+    grid-template-columns: 1fr;
+  }
+}

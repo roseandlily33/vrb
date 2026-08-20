@@ -59,5 +59,12 @@
 }
 /* Process */
 .processTabs {
-  padding: var(--space-m) 0 var(--space-xs) 0;
+  /* padding: var(--space-m) 0 var(--space-xs) 0;
+  var(--) */
+  /* .section { */
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--section-lg);
+/* } */
 }
