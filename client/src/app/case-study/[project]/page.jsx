@@ -6,6 +6,7 @@ import Yoda from "./YodaSafetyServices/Yoda.component";
 import Vrb from "./Vrb/Vrb.component";
 import Assuage from "./Assuage/Assuage.component";
 import NewLine from "./NewLine/NewLine.component";
+import Anchor from "./Anchor/Anchor.component";
 
 export default function ProjectPage() {
   const { project } = useParams();
@@ -27,6 +28,9 @@ export default function ProjectPage() {
   }
   if (project === "newline") {
     return <NewLine />;
+  }
+  if (project === "anchor-marine") {
+    return <Anchor />;
   }
   return <h2>No project found</h2>;
 }

@@ -1,0 +1,394 @@
+.section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--section-lg);
+}
+
+/* ----------------------------------
+   Section heading
+----------------------------------- */
+
+.sectionHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-xl);
+
+  margin-bottom: var(--space-xl);
+}
+
+.eyebrow {
+  display: block;
+
+  margin-bottom: var(--space-xs);
+
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  color: var(--blue-700);
+}
+
+.heading {
+  margin: 0;
+
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.5vw, 3.3rem);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+
+  color: var(--blue-950);
+}
+
+.counter {
+  display: flex;
+  align-items: baseline;
+  gap: 0.3rem;
+
+  font-family: var(--font-heading);
+}
+
+.current {
+  font-size: 1.25rem;
+  font-weight: 600;
+
+  color: var(--blue-800);
+}
+
+.divider,
+.total {
+  font-size: 0.8rem;
+  font-weight: 600;
+
+  color: var(--grey-400);
+}
+
+/* ----------------------------------
+   Main showcase
+----------------------------------- */
+
+.showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(330px, 0.65fr);
+
+  min-height: 560px;
+
+  overflow: hidden;
+
+  border: var(--border-light);
+  border-radius: var(--radius-lg);
+
+  background: var(--white);
+
+  box-shadow: var(--shadow-sm);
+}
+
+/* ----------------------------------
+   Visual
+----------------------------------- */
+
+.visual {
+  position: relative;
+
+  min-height: 560px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+
+  overflow: hidden;
+
+  background: var(--background-five);
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+
+  max-height: 500px;
+
+  display: block;
+
+  object-fit: contain;
+}
+
+.visualLabel {
+  position: absolute;
+
+  left: var(--space-l);
+  bottom: var(--space-l);
+
+  padding: 0.42rem 0.72rem;
+
+  border-radius: var(--radius-pill);
+
+  background: rgba(255, 255, 255, 0.9);
+
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  color: var(--blue-900);
+
+  backdrop-filter: blur(8px);
+}
+
+/* ----------------------------------
+   Details
+----------------------------------- */
+
+.details {
+  display: flex;
+  flex-direction: column;
+
+  padding: clamp(1.75rem, 3vw, 3rem);
+}
+
+.detailsTop {
+  padding-bottom: var(--space-xl);
+
+  border-bottom: var(--border-light);
+}
+
+.slideLabel {
+  display: block;
+
+  margin-bottom: var(--space-s);
+
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+
+  color: var(--blue-700);
+}
+
+.title {
+  margin: 0;
+
+  max-width: 12ch;
+
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 2.8vw, 2.7rem);
+  font-weight: 600;
+  line-height: 1.06;
+  letter-spacing: -0.04em;
+
+  color: var(--blue-950);
+}
+
+.description {
+  margin: var(--space-l) 0 0;
+
+  max-width: 46ch;
+
+  font-size: 0.92rem;
+  line-height: var(--leading-loose);
+
+  color: var(--grey-500);
+}
+
+/* ----------------------------------
+   Design decisions
+----------------------------------- */
+
+.decisions {
+  display: flex;
+  flex-direction: column;
+
+  margin-top: var(--space-m);
+}
+
+.decision {
+  padding: var(--space-l) 0;
+
+  border-bottom: var(--border-light);
+}
+
+.decision h4 {
+  margin: 0 0 var(--space-xs);
+
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  font-weight: 600;
+
+  color: var(--blue-950);
+}
+
+.decision p {
+  margin: 0;
+
+  max-width: 42ch;
+
+  font-size: 0.82rem;
+  line-height: var(--leading-loose);
+
+  color: var(--grey-500);
+}
+
+/* ----------------------------------
+   Navigation
+----------------------------------- */
+
+.navigation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-l);
+
+  margin-top: auto;
+  padding-top: var(--space-xl);
+}
+
+.dots {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+
+  padding: 0;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: var(--grey-200);
+
+  cursor: pointer;
+
+  transition:
+    width var(--transition-normal),
+    background var(--transition-normal);
+}
+
+.activeDot {
+  width: 24px;
+
+  border-radius: var(--radius-pill);
+
+  background: var(--blue-700);
+}
+
+.controls {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.control {
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  padding: 0;
+
+  border: var(--border-light);
+  border-radius: 50%;
+
+  background: var(--white);
+  color: var(--blue-900);
+
+  font-size: 1rem;
+
+  cursor: pointer;
+
+  transition:
+    transform var(--transition-fast),
+    background var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.control:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(27, 138, 228, 0.2);
+
+  background: var(--blue-50);
+}
+
+.control:focus-visible,
+.dot:focus-visible {
+  outline: 2px solid var(--blue-700);
+  outline-offset: 3px;
+}
+
+/* ----------------------------------
+   Tablet
+----------------------------------- */
+
+@media (max-width: 900px) {
+  .showcase {
+    grid-template-columns: 1fr;
+
+    min-height: 0;
+  }
+
+  .visual {
+    min-height: 470px;
+  }
+
+  .details {
+    min-height: 430px;
+  }
+
+  .title {
+    max-width: none;
+  }
+}
+
+/* ----------------------------------
+   Mobile
+----------------------------------- */
+
+@media (max-width: 650px) {
+  .section {
+    padding: var(--section-sm);
+  }
+
+  .sectionHeader {
+    align-items: flex-start;
+  }
+
+  .heading {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .visual {
+    min-height: 360px;
+
+    padding: var(--space-xl);
+  }
+
+  .image {
+    max-height: 320px;
+  }
+
+  .visualLabel {
+    left: var(--space-m);
+    bottom: var(--space-m);
+  }
+
+  .details {
+    min-height: 0;
+
+    padding: var(--space-xl);
+  }
+
+  .title {
+    font-size: 1.9rem;
+  }
+
+  .navigation {
+    margin-top: var(--space-xl);
+  }
+}
