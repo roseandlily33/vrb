@@ -6,6 +6,12 @@ import { designElements } from "./designElements";
 
 import CSDesignShowcase from "../Components/CSDesignShowcase/CSDesignShowcase.component";
 
+export const metadata = {
+  title: "Anchor Marine & Mechanical | Branding & Business Design Project",
+  description:
+    "Explore the Anchor project, featuring custom business materials and visual design created to deliver a cohesive, professional brand experience.",
+};
+
 export default function AnchorCaseStudy() {
   return (
     <main className={styles.page}>

@@ -16,8 +16,9 @@ export default function CTA() {
         </h2>
 
         <p className={styles.ctaSubtext}>
-          Whether you need a new website or want to improve what you have, I can
-          help you create something clear, fast, and built to scale.
+          Whether you need a custom website or want to improve what you already
+          have, I can help you create something clear, fast, user-friendly, and
+          built to scale.
         </p>
 
         <div className={styles.ctaButtons}>

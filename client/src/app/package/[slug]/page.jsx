@@ -10,6 +10,70 @@ import Breadcrumbs from "../../case-study/[project]/Components/Extras/Breadcrumb
 import OptionalAddOns from "./Add/Add.component";
 import { slugify } from "../../../lib/slugify";
 
+export async function generateMetadata({ params, searchParams }) {
+  const { slug } = params || {};
+  const { type = "web" } = searchParams || {};
+
+  let resolvedType = type;
+
+  let list =
+    resolvedType === "design"
+      ? designPackages
+      : resolvedType === "marketing"
+        ? socialMediaList
+        : resolvedType === "retainer"
+          ? Retainer
+          : resolvedType === "extras"
+            ? extrasList
+            : PackageInfo;
+
+  const incoming = slugify(decodeURIComponent(String(slug || "")));
+
+  function matchesIncoming(p) {
+    const candidates = new Set();
+    if (p.title) candidates.add(slugify(p.title));
+    if (p.name) candidates.add(slugify(p.name));
+    if (p.slug) candidates.add(slugify(p.slug));
+    if (p.title)
+      candidates.add(String(p.title).toLowerCase().trim().replace(/\s+/g, "-"));
+    return candidates.has(incoming);
+  }
+
+  let pkg = list.find((p) => matchesIncoming(p));
+
+  if (!pkg) {
+    const allLists = [
+      { key: "design", list: designPackages },
+      { key: "marketing", list: socialMediaList },
+      { key: "retainer", list: Retainer },
+      { key: "extras", list: extrasList },
+      { key: "web", list: PackageInfo },
+    ];
+
+    for (const entry of allLists) {
+      const found = entry.list.find((p) => matchesIncoming(p));
+      if (found) {
+        pkg = found;
+        resolvedType = entry.key;
+        list = entry.list;
+        break;
+      }
+    }
+  }
+
+  if (pkg) {
+    return {
+      title: pkg.seoTitle || pkg.title,
+      description: pkg.seoDescription || pkg.description || "",
+    };
+  }
+
+  return {
+    title: "Packages — VRB",
+    description: "Overview of packages available",
+  };
+}
+
 export default async function PackagePage({ params, searchParams }) {
   const { slug } = await params;
   const { type = "web" } = await searchParams;

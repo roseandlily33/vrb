@@ -13,6 +13,11 @@ import { beforePages, pages, afterPages, PhaseDescriptions } from "./pages";
 // import Breadcrumbs from "../Components/Extras/Breadcrumbs/Breadcrumbs.component";
 import BackToTopButton from "@/app/Components/BackToTop/BackToTopButton";
 
+export const metadata = {
+  title: "Ariel Boesener Performance Horses | VRB Web Design & Development Project",
+  description:
+    "Explore the Ariel Boesener Performance Horses project, a web design and development project focused on improving clarity, usability, and visual consistency for a more user-friendly experience.",
+};
 const Ariel = () => {
   return (
     <section className={styles.mainContainer}>

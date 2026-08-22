@@ -22,8 +22,9 @@ const FeaturedProject = () => {
           <p className={styles.projectType}>Full-Stack Platform</p>
           <h3 className="header">Comprehensive Training Platform</h3>
           <p>
-            A custom training platform with course management, secure payments,
-            certificates, company dashboards, and automated workflows.
+            A custom-designed and developed training platform with course
+            management, secure payments, certificates, company dashboards, and
+            automated workflows.
           </p>
 
           <div className={styles.projectTags}>

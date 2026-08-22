@@ -13,6 +13,12 @@ import { pages, PhaseDescriptions } from "./pages";
 import BackToTopButton from "@/app/Components/BackToTop/BackToTopButton";
 import CSPhases from "../Components/CSPhases/CSPhases.component";
 
+export const metadata = {
+  title: "InspectionPal | VRB Web Design & Development Project",
+  description:
+    "Explore the InspectionPal project, a web design and development project focused on rebuilding a high-performance marketing website optimized for speed, accessibility, and user experience.",
+};
+
 const InspectionPal = () => {
   return (
     <section className={styles.mainContainer}>

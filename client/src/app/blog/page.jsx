@@ -4,12 +4,19 @@ import { comparisonExamples } from "./data/tooMuchVsTooLittle";
 import Hero from "../Components/Hero/Hero.component";
 import styles from "./page.module.css";
 
+export const metadata = {
+  title: "Blog | Website Tips, Design Insights, and Internet Explanations",
+  description:
+    "Helpful articles for small business owners who want to better understand their website and online presence.",
+};
+
 export default function BlogPage() {
   const allPosts = [...blogPosts, ...comparisonExamples];
   const todaysDate = new Date();
   const filteredPostsByTodaysDate = allPosts.filter(
     (post) => new Date(post.date) <= todaysDate,
   );
+
   return (
     <main>
       <Hero

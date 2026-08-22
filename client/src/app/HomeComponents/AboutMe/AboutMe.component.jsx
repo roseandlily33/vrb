@@ -6,10 +6,12 @@ export default function AboutMe() {
       <div className={styles.introInner}>
         <p className="eyebrowHeader">Design meets development</p>
         <h2>
-          I build <span className={styles.shimmeringText}>web experiences</span> that feel clear, fast, and easy to use.
+          I design and develop{" "}
+          <span className={styles.shimmeringText}>websites</span> that feel
+          clear, fast, and easy to use.
         </h2>
         <p className={styles.introText}>
-          With a background in both design and development, I focus on creating
+          With a background in both web design and development, I create custom
           websites and applications that look polished, work reliably, and
           support real user goals.
         </p>

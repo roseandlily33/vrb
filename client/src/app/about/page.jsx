@@ -8,6 +8,12 @@ import FocusOn from "./FocusOn/FocusOn.component";
 import HowIWork from "./HowIWork/HowIWork.component";
 import WhyMe from "./WhyMe/WhyMe.component";
 
+export const metadata = {
+  title: "About Your Web Designer & Developer",
+  description:
+    "Learn about the designer and developer behind VRB Web Design & Development, creating custom websites and digital experiences in Halifax and across Canada.",
+};
+
 export default function About() {
   return (
     <main>

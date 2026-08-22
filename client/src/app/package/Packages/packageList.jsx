@@ -3,6 +3,9 @@ import { MdWeb, MdStar, MdBuild } from "react-icons/md";
 export const PackageInfo = [
   {
     title: "Website Essentials",
+    slug: "website-essentials",
+    seoTitle: "Website Essentials | VRB Web Design & Development",
+    seoDescription: "A clean, professional website built to clearly present your business, build trust, and make it easy for potential clients to get in touch.",
     startingAt: "$2,800",
     timeline: "2 - 4 Weeks",
     bestFor: "Small businesses needing a polished online  presence",
@@ -46,6 +49,9 @@ export const PackageInfo = [
   },
   {
     title: "Professional Website",
+    slug: "professional-website",
+    seoTitle: "Professional Website | VRB Web Design & Development",
+    seoDescription: "A fully custom website designed to support growth with improved structure, UX, and expanded functionality.",
     startingAt: "$5,500",
     timeline: "4-8 weeks",
     bestFor:
@@ -100,6 +106,9 @@ export const PackageInfo = [
   },
   {
     title: "Custom Platform",
+    slug: "custom-platform",
+    seoTitle: "Custom Platform | VRB Web Design & Development",
+    seoDescription: "A fully bespoke web platform built for advanced workflows, custom features, and long-term scalability.",
     startingAt: "$12,000",
     timeline: "3-6 months || 8-24 weeks",
     bestFor:

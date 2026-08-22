@@ -15,12 +15,11 @@ const HeroImage = () => {
 
           <h1 className={styles.title}>
             Designing and building fast, user-focused{" "}
-            <span>web experiences.</span>
+            <span>websites.</span>
           </h1>
 
           <p className={styles.subtitle}>
-            I design intuitive interfaces and build scalable web applications
-            that are clean, reliable, and built with real users in mind.
+            Halifax-based web designer and developer creating custom websites and scalable web applications for businesses in Nova Scotia and across Canada.
           </p>
 
           <div className={styles.buttonGroup}>

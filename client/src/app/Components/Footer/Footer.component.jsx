@@ -30,7 +30,7 @@ const Footer = () => (
         </a>
 
         <p className={styles.tagline}>
-          Designing and building clean, scalable web experiences.
+          Designing and building clean, scalable user-focused websites.
         </p>
 
         <p className={styles.availability}>Currently booking new projects</p>

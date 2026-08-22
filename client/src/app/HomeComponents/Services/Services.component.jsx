@@ -7,19 +7,19 @@ export default function Services() {
     {
       title: "Web Development",
       description:
-        "Modern, responsive websites built with clean code, strong structure, and long-term scalability in mind.",
+        "Custom, responsive websites and web applications built with clean code, strong structure, and long-term scalability in mind.",
       icon: <FaCode className="primaryIcon" />,
     },
     {
       title: "UI/UX Design",
       description:
-        "Thoughtful interfaces designed around clarity, usability, and a smooth experience for real users.",
+        "Thoughtful interface and user experience design centred on clarity, usability, accessibility, and real users.",
       icon: <FaPalette className="primaryIcon" />,
     },
     {
       title: "Custom Functionality",
       description:
-        "Features that go beyond a standard website, from integrations and forms to dashboards and user-focused tools.",
+        "Custom website functionality beyond a standard build, from integrations and forms to dashboards and user-focused tools.",
       icon: <FaCogs className="primaryIcon" />,
     },
   ];

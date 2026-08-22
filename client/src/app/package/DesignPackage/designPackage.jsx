@@ -1,6 +1,9 @@
 const designPackages = [
   {
     title: "Design Essentials",
+    slug: "design-essentials",
+    seoTitle: "Design Essentials | VRB Web Design & Development",
+    seoDescription: "A focused design package to establish a polished visual direction and UX foundation.",
     startingAt: "$1,200",
     timeline: "1-2 weeks",
     bestFor:
@@ -42,6 +45,9 @@ const designPackages = [
   },
   {
     title: "Design Foundation",
+    slug: "design-foundation",
+    seoTitle: "Design Foundation | VRB Web Design & Development",
+    seoDescription: "A complete visual and strategic foundation designed to support a scalable, user-focused website.",
     startingAt: "$2,400",
     timeline: "2-4 weeks",
     bestFor:
@@ -84,6 +90,9 @@ const designPackages = [
   },
   {
     title: "Design Signature",
+    slug: "design-signature",
+    seoTitle: "Design Signature | VRB Web Design & Development",
+    seoDescription: "A premium UX/UI design package focused on building a cohesive, scalable, and highly customized digital experience.",
     startingAt: "$4,000",
     timeline: "4-8 weeks",
     bestFor:

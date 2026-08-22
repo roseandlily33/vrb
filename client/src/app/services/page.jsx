@@ -9,6 +9,12 @@ import MiniFaq from "./MiniFaq/MiniFaq.component";
 import TrustedBy from "./TrustedBy/TrustedBy.component";
 import ExplorePackages from "./Packages/Packages.component";
 
+export const metadata = {
+  title: "Web Design & Development Services | VRB Web Design and Development",
+  description:
+    "Explore web design, web development, UI/UX design, UX audits, and social media services for businesses in Halifax and across Canada.",
+};
+
 export default function Services() {
   return (
     <main className={styles.servicesPage}>

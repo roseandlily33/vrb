@@ -1,14 +1,12 @@
-"use client";
-import styles from "./page.module.css";
-import Hero from "../Components/Hero/Hero.component";
-import Link from "next/link";
-import PortfolioLink from "./PortfolioLink/PortfolioLink.component";
-import { projects } from "../Components/projectList";
-import TertiaryButton from "../Components/TertiaryButton/TertiaryButton.component";
-import { FiArrowRight } from "react-icons/fi";
-import MetadataBar from "./MetadataBar/MetadataBar.component";
 import React from "react";
-import PillButton from "../Components/PillButton/PillButton.component";
+import Hero from "../Components/Hero/Hero.component";
+import MetadataBar from "./MetadataBar/MetadataBar.component";
+import WorkPage from "./WorkPage";
+export const metadata = {
+  title: "Work | VRB Web Design & Development",
+  description:
+    "Select web development and design projects by VRB Web Design & Development, a Halifax-based web designer and developer working with businesses locally and remotely across Canada.",
+};
 
 export default function Work() {
   return (
@@ -19,39 +17,7 @@ export default function Work() {
         subText="Focused on performance, UX, and real business impact"
       />
       <MetadataBar />
-      <div className={styles.projectGrid}>
-        {projects.map((project, index) => (
-          <article key={index} className={styles.projectCard}>
-            <div
-              className={styles.projectCardBg}
-              style={{ backgroundImage: `url(${project.image})` }}
-            >
-              {project.badge && (
-                <div className={styles.projectBadge}>
-                  <PillButton>{project.badge}</PillButton>
-                </div>
-              )}
-              <div className={styles.projectCardContent}>
-                <h3>{project.name}</h3>
-                <p>{project.description}</p>
-              </div>
-            </div>
-
-            <div className={styles.projectCardFooter}>
-              <Link href={project.link}>
-                <TertiaryButton>
-                  View Case Study{" "}
-                  <FiArrowRight
-                    className={styles.arrowIcon}
-                    aria-hidden="true"
-                  />
-                </TertiaryButton>
-              </Link>
-            </div>
-          </article>
-        ))}
-      </div>
-      <PortfolioLink />
+      <WorkPage />
     </main>
   );
 }

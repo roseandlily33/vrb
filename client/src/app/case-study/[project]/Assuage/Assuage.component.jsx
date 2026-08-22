@@ -1,6 +1,6 @@
 import styles from "../page.module.css";
 import CSHero from "../Components/CSHero/CSHero.component";
-import CSTopMenu from "../Components/CSTopMenu/CSTopMenu.component";
+// import CSTopMenu from "../Components/CSTopMenu/CSTopMenu.component";
 import CTA3 from "@/app/Components/CTA/CTA3/CTA3.component";
 import CSProblem from "../Components/CSProblem/CSProblem.component";
 import CSProcess from "../Components/CSProcess/CSProcess.component";
@@ -9,6 +9,12 @@ import CSKeyFeatures from "../Components/CSKeyFeatures/CSKeyFeatures.component";
 import { pages } from "./pages";
 // import Breadcrumbs from "../Components/Extras/Breadcrumbs/Breadcrumbs.component";
 import BackToTopButton from "@/app/Components/BackToTop/BackToTopButton";
+
+export const metadata = {
+  title: "Assuage Wellness Centre | UX/UI Design Concept Project",
+  description:
+    "Explore the Assuage Wellness Centre project, a UX/UI design concept focused on creating two distinct visual directions for a future website redesign.",
+};
 
 const Assuage = () => {
   return (
