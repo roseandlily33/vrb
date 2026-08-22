@@ -15,6 +15,7 @@ app.use(morgan("dev"));
 connectDB();
 
 // Routes
+// app.use("/api/sitemap", require('./routes/sitemap'));
 app.use("/api/auth", require("./routes/auth"));
 app.use("/api/clients", require("./routes/clients"));
 app.use("/api/proposals", require("./routes/proposals"));

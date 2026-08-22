@@ -9,14 +9,14 @@ import CSResults from "../Components/CSResults/CSResults.component";
 import CSKeyFeatures from "../Components/CSKeyFeatures/CSKeyFeatures.component";
 import { results } from "./results";
 import { pages, PhaseDescriptions } from "./pages";
-import Breadcrumbs from "../Components/Extras/Breadcrumbs/Breadcrumbs.component";
+// import Breadcrumbs from "../Components/Extras/Breadcrumbs/Breadcrumbs.component";
 import BackToTopButton from "@/app/Components/BackToTop/BackToTopButton";
 import CSPhases from "../Components/CSPhases/CSPhases.component";
 
 const InspectionPal = () => {
   return (
     <section className={styles.mainContainer}>
-      <Breadcrumbs current="InspectionPal" />
+      {/* <Breadcrumbs current="InspectionPal" /> */}
       <CSHero
         img="/InspectionPal/Logo.png"
         companyName="InspectionPal"

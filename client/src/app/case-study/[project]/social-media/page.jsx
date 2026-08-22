@@ -3,7 +3,7 @@ import React from "react";
 import { useParams } from "next/navigation";
 import styles from "./page.module.css";
 import { assuageOverview } from "./assuageOverview";
-import Breadcrumbs from "../Components/Extras/Breadcrumbs/Breadcrumbs.component";
+// import Breadcrumbs from "../Components/Extras/Breadcrumbs/Breadcrumbs.component";
 import CSTopMenu from "../Components/CSTopMenu/CSTopMenu.component";
 import CSSocialMediaPosts from "../Components/CSSocialMediaPosts/CSSocialMediaPosts.component";
 import { assuagePosts } from "./assuagePosts";
@@ -27,7 +27,7 @@ export default function SocialMediaRoute() {
   return (
     <main className={styles.mainContainer}>
       <div className={styles.caseHeader}>
-      <Breadcrumbs current="Assuage Wellness Centre" />
+      {/* <Breadcrumbs current="Assuage Wellness Centre" /> */}
       </div>
       <CSTopMenu
         activeKey="social"

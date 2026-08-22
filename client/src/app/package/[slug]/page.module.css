@@ -1,7 +1,7 @@
 .packagePage {
   width: min(100%, 1180px);
   margin: 0 auto;
-  padding: var(--section-lg);
+  /* padding: var(--section-lg); */
   color: var(--grey-900);
 }
 

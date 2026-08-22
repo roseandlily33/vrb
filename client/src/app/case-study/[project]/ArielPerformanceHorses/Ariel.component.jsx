@@ -10,13 +10,13 @@ import CSKeyFeatures from "../Components/CSKeyFeatures/CSKeyFeatures.component";
 import CSPhaseCard from "../Components/CSPhases/CSPhases.component";
 import { results } from "./result";
 import { beforePages, pages, afterPages, PhaseDescriptions } from "./pages";
-import Breadcrumbs from "../Components/Extras/Breadcrumbs/Breadcrumbs.component";
+// import Breadcrumbs from "../Components/Extras/Breadcrumbs/Breadcrumbs.component";
 import BackToTopButton from "@/app/Components/BackToTop/BackToTopButton";
 
 const Ariel = () => {
   return (
     <section className={styles.mainContainer}>
-      <Breadcrumbs current="Ariel Performance Horses" />
+      {/* <Breadcrumbs current="Ariel Performance Horses" /> */}
       <CSHero
         img="/ArielPerformance/ArielLogo.webp"
         companyName="Ariel Boesener Performance Horses"

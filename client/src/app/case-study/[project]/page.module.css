@@ -2,9 +2,9 @@
 .mainContainer {
   display: flex;
   flex-direction: column;
-  margin: 0 auto;
-  padding: var(--spacing-lg);
-  background: var(--white);
+  /* margin: 0 auto; */
+  /* padding: var(--spacing-lg); */
+  /* background: var(--white); */
   /* border: 2px solid red; */
 }
 .mainContainer h1 {
@@ -21,6 +21,7 @@
   gap: 0.25rem;
   
   text-align: center;
+  /* border: 2px solid orange; */
 }
 
 .caseHeader h3 {
@@ -56,6 +57,10 @@
 }
 .mainContainer section {
   padding: var(--section-lg);
+}
+/* Removes the padding from the first child */
+.mainContainer section:first-child {
+  padding: 0rem 2rem;
 }
 .keyPages {
   border-top: 2px solid var(--accent-blue);

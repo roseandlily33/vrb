@@ -1,6 +1,6 @@
 "use client";
 import styles from "../page.module.css";
-import Breadcrumbs from "../Components/Extras/Breadcrumbs/Breadcrumbs.component";
+// import Breadcrumbs from "../Components/Extras/Breadcrumbs/Breadcrumbs.component";
 import CSHero from "../Components/CSHero/CSHero.component";
 import CTA2 from "@/app/Components/CTA/CTA2/CTA2.component";
 // import CSKeyPages from "../Components/CSKeyPages.component";
@@ -16,7 +16,7 @@ import { PhaseDescriptions } from "./pages";
 const Vrb = () => {
   return (
     <section className={styles.mainContainer}>
-      <Breadcrumbs current="VRB Web Design and Development" />
+      {/* <Breadcrumbs current="VRB Web Design and Development" /> */}
       <CSHero
         img="/VRBLogo.png"
         companyName="VRB Web Design and Development"

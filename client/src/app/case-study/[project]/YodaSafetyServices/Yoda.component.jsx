@@ -10,14 +10,14 @@ import CSTechnologies from "../Components/CSTechnologies/CSTechnologies.componen
 import KeyFeatures from "../Components/CSKeyFeatures/CSKeyFeatures.component";
 import { results } from "./results";
 import { pages, PhaseDescriptions } from "./pages";
-import Breadcrumbs from "../Components/Extras/Breadcrumbs/Breadcrumbs.component";
+// import Breadcrumbs from "../Components/Extras/Breadcrumbs/Breadcrumbs.component";
 import BackToTopButton from "@/app/Components/BackToTop/BackToTopButton";
 import CSPhases from "../Components/CSPhases/CSPhases.component";
 
 const Yoda = () => {
   return (
     <section className={styles.mainContainer}>
-      <Breadcrumbs current="Yoda Safety Services" />
+      {/* <Breadcrumbs current="Yoda Safety Services" /> */}
       <CSHero
         img="/YodaSafetyServices/Logo.png"
         companyName="Yoda Safety Services"

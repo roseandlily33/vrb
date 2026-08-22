@@ -20,12 +20,12 @@ export default async function PackagePage({ params, searchParams }) {
     resolvedType === "design"
       ? designPackages
       : resolvedType === "marketing"
-      ? socialMediaList
-      : resolvedType === "retainer"
-      ? Retainer
-      : resolvedType === "extras"
-      ? extrasList
-      : PackageInfo;
+        ? socialMediaList
+        : resolvedType === "retainer"
+          ? Retainer
+          : resolvedType === "extras"
+            ? extrasList
+            : PackageInfo;
 
   const incoming = slugify(decodeURIComponent(String(slug || "")));
 
@@ -35,9 +35,8 @@ export default async function PackagePage({ params, searchParams }) {
     if (p.name) candidates.add(slugify(p.name));
     if (p.slug) candidates.add(slugify(p.slug));
     // also include raw title lower/trim variant
-    if (p.title) candidates.add(
-      String(p.title).toLowerCase().trim().replace(/\s+/g, "-")
-    );
+    if (p.title)
+      candidates.add(String(p.title).toLowerCase().trim().replace(/\s+/g, "-"));
     return candidates.has(incoming);
   }
 
@@ -81,13 +80,21 @@ export default async function PackagePage({ params, searchParams }) {
         <h2>Could not find this package.</h2>
         <p>
           Requested <strong>slug</strong>: {slug || <em>(empty)</em>} <br />
-          Computed <strong>incoming</strong> slug: {incoming || <em>(empty)</em>}<br />
+          Computed <strong>incoming</strong> slug:{" "}
+          {incoming || <em>(empty)</em>}
+          <br />
           Requested <strong>type</strong>: {type}
         </p>
 
-        <details style={{marginTop:12}}>
-          <summary style={{cursor:'pointer'}}>Debug: route data</summary>
-          <pre style={{whiteSpace:'pre-wrap', fontSize:12, marginTop:8}}>{JSON.stringify({ params: resolvedParams, searchParams: resolvedSearchParams }, null, 2)}</pre>
+        <details style={{ marginTop: 12 }}>
+          <summary style={{ cursor: "pointer" }}>Debug: route data</summary>
+          <pre style={{ whiteSpace: "pre-wrap", fontSize: 12, marginTop: 8 }}>
+            {JSON.stringify(
+              { params: resolvedParams, searchParams: resolvedSearchParams },
+              null,
+              2,
+            )}
+          </pre>
         </details>
         <h3>Available packages for type: {type}</h3>
         <ul>
@@ -103,19 +110,29 @@ export default async function PackagePage({ params, searchParams }) {
 
   return (
     <main>
-      <Breadcrumbs current={pkg.title} first="Packages" firstLink="/package" />
       <div className={styles.packagePage}>
-        <section className={styles.hero}>
-              <div className={styles.heroContent}>
-                <span className={styles.eyebrow}>
-                  {resolvedType === "design" ? "Design Package" : "Development Package"}
-                </span>
+        <div style={{ marginBottom: 44 }}>
+        <Breadcrumbs
+          current={pkg.title}
+          first="Packages"
+          firstLink="/package"
+        />
+        </div>
 
-                {resolvedType !== type && (
-                  <div style={{fontSize:12, color:'#666', marginTop:6}}>
-                    Showing package from <strong>{resolvedType}</strong> (requested <strong>{type}</strong>)
-                  </div>
-                )}
+        <section className={styles.hero}>
+          <div className={styles.heroContent}>
+            <span className={styles.eyebrow}>
+              {resolvedType === "design"
+                ? "Design Package"
+                : "Development Package"}
+            </span>
+
+            {resolvedType !== type && (
+              <div style={{ fontSize: 12, color: "#666", marginTop: 6 }}>
+                Showing package from <strong>{resolvedType}</strong> (requested{" "}
+                <strong>{type}</strong>)
+              </div>
+            )}
 
             <h1 className={styles.title}>{pkg.title}</h1>
 

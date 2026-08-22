@@ -7,29 +7,14 @@ import CSProcess from "../Components/CSProcess/CSProcess.component";
 import CSKeyPages from "../Components/CSKeyPages.component";
 import CSKeyFeatures from "../Components/CSKeyFeatures/CSKeyFeatures.component";
 import { pages } from "./pages";
-import Breadcrumbs from "../Components/Extras/Breadcrumbs/Breadcrumbs.component";
+// import Breadcrumbs from "../Components/Extras/Breadcrumbs/Breadcrumbs.component";
 import BackToTopButton from "@/app/Components/BackToTop/BackToTopButton";
 
 const Assuage = () => {
   return (
     <section className={styles.mainContainer}>
-      <Breadcrumbs current="Assuage Wellness Centre" />
-      <CSTopMenu
-        activeKey="web"
-        items={[
-          {
-            key: "web",
-            label: "Web Design",
-            description: "Homepage, UI concepts and layout decisions.",
-          },
-          {
-            key: "social",
-            label: "Social Media",
-            description: "Social post concepts and marketing assets.",
-            href: "/case-study/assuage/social-media",
-          },
-        ]}
-      />
+      {/* <Breadcrumbs current="Assuage Wellness Centre" /> */}
+     
       <CSHero
         img="/Assuage/AssuageLogoCircle.png"
         companyName="Assuage Wellness Centre"
@@ -40,6 +25,7 @@ const Assuage = () => {
         highlightWords={["Visual", "Wellness"]}
         role="UX/UI Designer"
         seeProcess={false}
+        topMenu={true}
         // finalResults="/case-study/assuage/assuage-final-pages"
         note="This project focused on exploring multiple design directions for a future website redesign. I developed two distinct concepts, one centered around a modern spa experience and another focused on wellness, before refining the strongest ideas into a polished homepage concept."
       />
