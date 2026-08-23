@@ -39,7 +39,7 @@ export const faqQuestions = [
   {
     question: "Who you work with",
     answer:
-      "Who do you typically work with? I work with small businesses, startups, and individuals looking to improve their digital presence.",
+      "I work with businesses in Halifax, throughout Nova Scotia, and remotely across Canada on web design, development, UX/UI, and digital projects.",
     icon: MdGroups,
   },
 ];

@@ -35,8 +35,8 @@ export default function Expect() {
         <p className="eyebrowHeader">Project Standards</p>
         <h2 className={styles.heading}>What you can expect at every stage</h2>
         <p className={styles.intro}>
-          A clear, collaborative process designed to keep your project moving
-          smoothly from first idea to final launch.
+          A clear, collaborative website design process that keeps your project
+          moving smoothly from the first idea to final launch.
         </p>
       </div>
 

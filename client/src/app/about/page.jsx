@@ -9,9 +9,9 @@ import HowIWork from "./HowIWork/HowIWork.component";
 import WhyMe from "./WhyMe/WhyMe.component";
 
 export const metadata = {
-  title: "About Your Web Designer & Developer",
+  title: "Freelance Web Designer Canada | VRB Web Design & Development",
   description:
-    "Learn about the designer and developer behind VRB Web Design & Development, creating custom websites and digital experiences in Halifax and across Canada.",
+    "Freelance web designer and developer based in Halifax, creating thoughtful, high-performing websites and digital experiences for businesses across Canada.",
 };
 
 export default function About() {
@@ -19,11 +19,9 @@ export default function About() {
     <main>
       <Hero
         topMeta="About Me"
-        title="Full Stack Developer focused on
-building high-performing, user-first
-      web experiences"
-        highlight="Full Stack Developer"
-        subText="Combining design and development to create seamless, high-quality user experiences"
+        title="Freelance Web Designer & Developer building high-performing, user-first web experiences"
+        highlight="Freelance Web Designer & Developer"
+        subText="Based in Halifax and working with businesses across Canada, I combine web design and development to create seamless, high-quality digital experiences."
       />
       <AboutMe />
       <div className={styles.sideBySide}>

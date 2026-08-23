@@ -4,17 +4,17 @@ import Card from "@/app/Components/Card/Card.component";
 
 const experience = [
   {
-    title: "Development",
+    title: "Web Design & Development",
     text: "4+ years of hands-on development experience",
     icon: <FaCode className="primaryIcon" />,
   },
   {
-    title: "Full-Stack",
+    title: "Full-Stack Development",
     text: "Experience building full-stack applications from scratch",
     icon: <FaCubes className="primaryIcon" />,
   },
   {
-    title: "UX & Platforms",
+    title: "UX/UI & Platforms",
     text: "Worked on platforms, marketing sites, and UX-focused redesigns",
     icon: <FaPalette className="primaryIcon" />,
   },

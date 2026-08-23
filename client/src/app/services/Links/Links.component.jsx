@@ -4,11 +4,11 @@ import Link from "next/link";
 import styles from "./Links.module.css";
 
 const sections = [
-  { label: "Packages", path: "/services/packages" },
-  { label: "Design", path: "/services/design" },
-  { label: "Process", path: "/services/process" },
-  { label: "Retainers", path: "/services/retainers" },
-  { label: "Extras", path: "/services/extras" },
+  { label: "Packages", path: "/package?type=web" },
+  { label: "Design", path: "/package?type=design" },
+  { label: "Process", path: "/process" },
+  { label: "Retainers", path: "/package?type=retainer" },
+  { label: "Extras", path: "/package?type=extras" },
 ];
 
 export default function Links({ onSectionClick }) {

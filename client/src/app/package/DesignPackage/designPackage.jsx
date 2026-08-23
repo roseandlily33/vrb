@@ -2,15 +2,17 @@ const designPackages = [
   {
     title: "Design Essentials",
     slug: "design-essentials",
-    seoTitle: "Design Essentials | VRB Web Design & Development",
-    seoDescription: "A focused design package to establish a polished visual direction and UX foundation.",
+    seoTitle:
+      "Small Business Website Design Services | VRB Web Design & Development",
+    seoDescription:
+      "Small business website design services for businesses and early-stage brands needing a polished, user-focused visual foundation.",
     startingAt: "$1,200",
     timeline: "1-2 weeks",
     bestFor:
-      "Small businesses or early-stage brands needing a polished starting point",
+      "Small businesses or early-stage brands needing a polished website design foundation",
     description:
-      "A focused design package created to establish a polished visual direction and user experience foundation for your website.",
-    deliverables: "Homepage & Supporting page concept",
+      "A focused website design package for small businesses, created to establish a polished visual direction, thoughtful user experience, and strong foundation for development.",
+    deliverables: "Homepage & supporting page concept",
     features: [
       "Brand & design consultation",
       "Website structure & sitemap planning",
@@ -46,14 +48,16 @@ const designPackages = [
   {
     title: "Design Foundation",
     slug: "design-foundation",
-    seoTitle: "Design Foundation | VRB Web Design & Development",
-    seoDescription: "A complete visual and strategic foundation designed to support a scalable, user-focused website.",
+    seoTitle: "UX UI Design Services | VRB Web Design & Development",
+    seoDescription:
+      "UX UI design services for businesses needing a strategic, user-focused foundation with responsive layouts, visual systems, and high-fidelity designs.",
     startingAt: "$2,400",
     timeline: "2-4 weeks",
     bestFor:
-      "Businesses looking for a strong UX/UI foundation before moving into development.",
+      "Businesses looking for strategic UX/UI design before moving into development.",
     description:
-      "A complete visual and strategic foundation designed to support a scalable, user-focused, and high-performing website experience.",
+      "Strategic UX/UI design services focused on creating a cohesive, scalable, and user-friendly website experience through thoughtful structure and visual design.",
+
     includedMockups: "2-4 high-fidelity page designs",
     features: [
       "In-depth brand & UX strategy session",
@@ -91,14 +95,16 @@ const designPackages = [
   {
     title: "Design Signature",
     slug: "design-signature",
-    seoTitle: "Design Signature | VRB Web Design & Development",
-    seoDescription: "A premium UX/UI design package focused on building a cohesive, scalable, and highly customized digital experience.",
+    seoTitle: "User Experience Design Services | VRB Web Design & Development",
+    seoDescription:
+      "User experience design services for businesses needing a customized, scalable digital experience with advanced UX strategy and interface design.",
+
     startingAt: "$4,000",
     timeline: "4-8 weeks",
     bestFor:
-      "Businesses needing a fully customized UX/UI system and premium digital brand experience before development.",
+      "Businesses needing a fully customized user experience, UX/UI system, and premium digital design before development.",
     description:
-      "A premium UX/UI design package focused on building a cohesive, scalable, and highly customized digital experience — combining strategy, visual identity, and advanced interface design before development begins.",
+      "Premium user experience design services combining UX strategy, visual identity, interface design, and interactive prototypes to create a cohesive and scalable digital experience.",
     includedMockups: "4–8 high-fidelity page or interface mockups",
     features: [
       "Advanced UX & brand strategy sessions",

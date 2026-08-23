@@ -34,23 +34,31 @@ export default function Packages({ type = "web" }) {
 
   const heading =
     type === "design"
-      ? "Design Packages"
+      ? "Choose Your Design Package"
       : type === "marketing"
-        ? "Marketing Packages"
+        ? "Choose Your Marketing Package"
         : type === "retainer"
-          ? "Retainer Packages"
+          ? "Choose Your Retainer Package"
           : type === "extras"
             ? "Extras & Add-Ons"
-            : "Project Packages";
+            : "Choose Your Project Package";
+
+  const description =
+    type === "design"
+      ? "From a focused design starting point to a complete UX/UI system, choose the level of strategy and design support that fits your project."
+      : type === "marketing"
+        ? "Explore social media marketing packages designed to grow your online presence and engage your audience."
+        : type === "retainer"
+          ? "Retainer packages for ongoing support, maintenance, and optimization of your digital projects."
+          : type === "extras"
+            ? "Additional services and add-ons to enhance your project and achieve your goals."
+            : "Custom web development services for businesses that need scalable platforms, advanced functionality, integrations, and tailored workflows.";
 
   return (
     <section className={styles.packagesSection} id="packages">
       <span className="eyebrowHeader">Packages</span>
       <h2 className="heading">{heading}</h2>
-      <p className="meta">
-        Transparent pricing, clear deliverables, and a process tailored to your
-        needs.
-      </p>
+      <p className="meta">{description}</p>
       <div className={`${styles.cardGrid} `}>
         {list?.map((pkg, idx) => {
           const isFeatured = pkg.highlight || idx === 1;

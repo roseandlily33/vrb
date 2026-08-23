@@ -21,7 +21,8 @@ export const extrasList = [
     title: "UI/UX Audit",
     slug: "ui-ux-audit",
     seoTitle: "UI/UX Audit | VRB Web Design & Development",
-    seoDescription: "A thorough review of your website or app to ensure usability, accessibility, and visual consistency.",
+    seoDescription:
+      "A thorough review of your website or app to ensure usability, accessibility, and visual consistency.",
     startingAt: "$900",
     timeline: "1-2 weeks",
     bestFor: "Sites needing usability improvements",
@@ -36,13 +37,15 @@ export const extrasList = [
   {
     title: "Website Redesign",
     slug: "website-redesign",
-    seoTitle: "Website Redesign | VRB Web Design & Development",
-    seoDescription: "Full visual and structural refresh to improve navigation, responsiveness, and user experience.",
+    seoTitle: "Website Redesign Services | VRB Web Design & Development",
+    seoDescription:
+      "Website redesign services for businesses needing a modern, responsive website with improved structure, navigation, usability, and user experience.",
     startingAt: "$4,500",
     timeline: "4-8 weeks",
-    bestFor: "Sites needing a full visual and structural refresh",
+    bestFor:
+      "Businesses with outdated websites needing a complete visual and structural refresh",
     description:
-      "Transform your existing website with a fresh, modern look and improved structure. Enhances navigation, responsiveness, and overall user experience.",
+      "Website redesign services that transform outdated websites with a modern visual direction, improved structure, responsive layouts, and a better overall user experience.",
     type: "extras",
     whatsIncluded: ["UI redesign, content restructuring, and launch support"],
     icon: FaRedo,
@@ -51,7 +54,8 @@ export const extrasList = [
     title: "Performance Optimization",
     slug: "performance-optimization",
     seoTitle: "Performance Optimization | VRB Web Design & Development",
-    seoDescription: "Improve load times and site efficiency through image compression, caching, and code optimizations.",
+    seoDescription:
+      "Improve load times and site efficiency through image compression, caching, and code optimizations.",
     startingAt: "$800",
     timeline: "1-2 weeks",
     bestFor: "Sites needing faster load times",
@@ -65,7 +69,8 @@ export const extrasList = [
     title: "SEO Setup",
     slug: "seo-setup",
     seoTitle: "SEO Setup | VRB Web Design & Development",
-    seoDescription: "Optimize your site for search with meta tags, headings, and site structure improvements.",
+    seoDescription:
+      "Optimize your site for search with meta tags, headings, and site structure improvements.",
     startingAt: "$700",
     timeline: "1-3 weeks",
     bestFor: "Sites that need search visibility",
@@ -79,21 +84,25 @@ export const extrasList = [
     title: "E-Commerce Integration",
     slug: "e-commerce-integration",
     seoTitle: "E-Commerce Integration | VRB Web Design & Development",
-    seoDescription: "Add online shopping features with secure checkout, product pages, and payment gateway integration.",
+    seoDescription:
+      "Add online shopping features with secure checkout, product pages, and payment gateway integration.",
     startingAt: "$3,000",
     timeline: "2-6 weeks",
     bestFor: "Sites adding commerce capabilities",
     description:
       "Add online shopping features using platforms like Shopify or custom solutions. Includes product pages, shopping cart, and secure checkout.",
     type: "extras",
-    whatsIncluded: ["Product pages, cart setup, and payment gateway integration"],
+    whatsIncluded: [
+      "Product pages, cart setup, and payment gateway integration",
+    ],
     icon: FaShoppingCart,
   },
   {
     title: "Blog Setup",
     slug: "blog-setup",
     seoTitle: "Blog Setup | VRB Web Design & Development",
-    seoDescription: "Add a blog with CMS integration and SEO-friendly URLs to support content marketing.",
+    seoDescription:
+      "Add a blog with CMS integration and SEO-friendly URLs to support content marketing.",
     startingAt: "$500",
     timeline: "1-2 weeks",
     bestFor: "Sites adding content channels",
@@ -114,7 +123,8 @@ export const extrasList = [
     title: "API Integration",
     slug: "api-integration",
     seoTitle: "API Integration | VRB Web Design & Development",
-    seoDescription: "Connect your site to external services and data sources with secure API integrations.",
+    seoDescription:
+      "Connect your site to external services and data sources with secure API integrations.",
     startingAt: "$2,000",
     timeline: "2-6 weeks",
     bestFor: "Sites needing external data or services",
@@ -128,7 +138,8 @@ export const extrasList = [
     title: "Maintenance & Support",
     slug: "maintenance-support",
     seoTitle: "Maintenance & Support | VRB Web Design & Development",
-    seoDescription: "Ongoing updates, backups, and minor content changes to keep your site secure and up to date.",
+    seoDescription:
+      "Ongoing updates, backups, and minor content changes to keep your site secure and up to date.",
     startingAt: "$250",
     timeline: "Monthly",
     bestFor: "Sites needing regular upkeep",
@@ -142,7 +153,8 @@ export const extrasList = [
     title: "Content Management System (CMS)",
     slug: "content-management-system",
     seoTitle: "Content Management System | VRB Web Design & Development",
-    seoDescription: "Set up an easy-to-manage CMS so you can edit content without code.",
+    seoDescription:
+      "Set up an easy-to-manage CMS so you can edit content without code.",
     startingAt: "$1,200",
     timeline: "1-3 weeks",
     bestFor: "Sites needing non-technical content editing",
@@ -156,7 +168,8 @@ export const extrasList = [
     title: "Branding & Logo Design",
     slug: "branding-logo-design",
     seoTitle: "Branding & Logo Design | VRB Web Design & Development",
-    seoDescription: "Create or refresh your brand identity including logo, color palette, and basic guidelines.",
+    seoDescription:
+      "Create or refresh your brand identity including logo, color palette, and basic guidelines.",
     startingAt: "$1,200",
     timeline: "2-4 weeks",
     bestFor: "Projects needing refreshed brand identity",
@@ -177,7 +190,8 @@ export const extrasList = [
     title: "Hosting & Deployment",
     slug: "hosting-deployment",
     seoTitle: "Hosting & Deployment | VRB Web Design & Development",
-    seoDescription: "Launch your site with domain setup, SSL, and a deployment pipeline for a secure live site.",
+    seoDescription:
+      "Launch your site with domain setup, SSL, and a deployment pipeline for a secure live site.",
     startingAt: "$300",
     timeline: "1-3 days",
     bestFor: "Sites ready to go live",
@@ -191,7 +205,8 @@ export const extrasList = [
     title: "Training & Documentation",
     slug: "training-documentation",
     seoTitle: "Training & Documentation | VRB Web Design & Development",
-    seoDescription: "Personalized guides and video walkthroughs to help you manage and update your website.",
+    seoDescription:
+      "Personalized guides and video walkthroughs to help you manage and update your website.",
     startingAt: "$400",
     timeline: "1 week",
     bestFor: "Teams needing handoff materials",
@@ -211,7 +226,8 @@ export const extrasList = [
     title: "Website Security Best Practices",
     slug: "website-security-best-practices",
     seoTitle: "Website Security Best Practices | VRB Web Design & Development",
-    seoDescription: "Security review and recommendations to protect user data and improve site safety.",
+    seoDescription:
+      "Security review and recommendations to protect user data and improve site safety.",
     startingAt: "$600",
     timeline: "1-2 weeks",
     bestFor: "Sites that handle user data",
@@ -231,7 +247,8 @@ export const extrasList = [
     title: "Custom Email Solutions",
     slug: "custom-email-solutions",
     seoTitle: "Custom Email Solutions | VRB Web Design & Development",
-    seoDescription: "Set up transactional and marketing email templates and integrations.",
+    seoDescription:
+      "Set up transactional and marketing email templates and integrations.",
     startingAt: "$350",
     timeline: "1-2 weeks",
     bestFor: "Sites needing transactional or marketing emails",
@@ -245,7 +262,8 @@ export const extrasList = [
     title: "Booking System Integration",
     slug: "booking-system-integration",
     seoTitle: "Booking System Integration | VRB Web Design & Development",
-    seoDescription: "Integrate scheduling tools for appointments and confirmations with calendar sync.",
+    seoDescription:
+      "Integrate scheduling tools for appointments and confirmations with calendar sync.",
     startingAt: "$600",
     timeline: "1-3 weeks",
     bestFor: "Service businesses needing scheduling",
@@ -259,7 +277,8 @@ export const extrasList = [
     title: "Website Migration",
     slug: "website-migration",
     seoTitle: "Website Migration | VRB Web Design & Development",
-    seoDescription: "Move your site and content to a new host or platform with minimal disruption.",
+    seoDescription:
+      "Move your site and content to a new host or platform with minimal disruption.",
     startingAt: "$800",
     timeline: "1-2 weeks",
     bestFor: "Sites moving hosts or platforms",
@@ -273,7 +292,8 @@ export const extrasList = [
     title: "Landing Pages",
     slug: "landing-pages",
     seoTitle: "Landing Pages | VRB Web Design & Development",
-    seoDescription: "Create focused campaign pages designed for lead generation and conversions.",
+    seoDescription:
+      "Create focused campaign pages designed for lead generation and conversions.",
     startingAt: "$700",
     timeline: "1-2 weeks",
     bestFor: "Campaigns and lead generation",
@@ -287,7 +307,8 @@ export const extrasList = [
     title: "Content Strategy",
     slug: "content-strategy",
     seoTitle: "Content Strategy | VRB Web Design & Development",
-    seoDescription: "Plan messaging, sitemap, and content structure to improve clarity and user journeys.",
+    seoDescription:
+      "Plan messaging, sitemap, and content structure to improve clarity and user journeys.",
     startingAt: "$900",
     timeline: "2-4 weeks",
     bestFor: "Sites needing clearer messaging",
@@ -301,7 +322,8 @@ export const extrasList = [
     title: "Conversion Optimization",
     slug: "conversion-optimization",
     seoTitle: "Conversion Optimization | VRB Web Design & Development",
-    seoDescription: "Improve conversion rates through A/B suggestions, CTA improvements, and prioritized fixes.",
+    seoDescription:
+      "Improve conversion rates through A/B suggestions, CTA improvements, and prioritized fixes.",
     startingAt: "$900",
     timeline: "2-4 weeks",
     bestFor: "Sites wanting higher conversion rates",
@@ -315,7 +337,8 @@ export const extrasList = [
     title: "Accessibility Review",
     slug: "accessibility-review",
     seoTitle: "Accessibility Review | VRB Web Design & Development",
-    seoDescription: "Review for accessibility best practices including contrast, keyboard navigation, and screen reader support.",
+    seoDescription:
+      "Review for accessibility best practices including contrast, keyboard navigation, and screen reader support.",
     startingAt: "$600",
     timeline: "1-2 weeks",
     bestFor: "Sites prioritizing inclusive access",

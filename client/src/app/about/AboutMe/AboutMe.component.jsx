@@ -15,12 +15,13 @@ const AboutMe = () => {
         <h2 className="header">A bit about me</h2>
 
         <p className={styles.lead}>
-          I design and build websites that feel clear, polished, and easy to use
-          — not just something that looks good in a screenshot.
+          As a freelance web designer and developer, I design and build websites
+          that feel clear, polished, and easy to use, not just something that
+          looks good in a screenshot.
         </p>
 
         <p className={styles.supporting}>
-          I care about the small details — spacing, responsiveness, performance,
+          I care about the small details, spacing, responsiveness, performance,
           and how everything comes together to create a smooth experience from
           start to finish.
         </p>

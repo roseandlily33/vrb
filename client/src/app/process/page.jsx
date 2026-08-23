@@ -1,69 +1,21 @@
-"use client";
-import styles from "./page.module.css";
 import Hero from "../Components/Hero/Hero.component";
-import { useState } from "react";
-import Expect from "./Expect/Expect.component";
-import ProcessCircuit from "../case-study/[project]/Components/Extras/ProcessBar/ProcessCircuit";
-import { PROCESS_STEPS } from "./processSteps";
-import Tools from "./Tools/Tools.component";
-import CTA4 from "../Components/CTA/CTA4/CTA4.component";
-import ProcessStepsMobile from "./ProcessStepsMobile";
+import ProcessInner from "./ProcessInner";
+export const metadata = {
+  title: "Web Design Process | VRB Web Design & Development",
+  description:
+    "Explore my web design process from discovery and strategy through design, development, and launch, focused on creating high-performing websites.",
+};
 
 export default function Process() {
-  const [activeStep, setActiveStep] = useState(0);
   return (
     <main>
       <Hero
         topMeta="Process"
-        title="From idea to launch, here's how I build high performing web applications"
-        highlight="high performing"
-        subText="Every project follows a structured approach focused on performance, usability, and real results"
+        title="From idea to launch, here's how my web design process works."
+        highlight="web design"
+        subText="Every website follows a structured design and development process focused on performance, usability, and real business goals."
       />
-      <section className={styles.processTabs}>
-        {/* <p className="eyebrowHeader">Timeline</p> */}
-        {/* <p>
-          Most projects are completed within 2–8 weeks depending on scope and
-          complexity
-        </p> */}
-        <div className={styles.desktopOnly}>
-          <ProcessCircuit
-            activeStep={activeStep + 1}
-            steps={PROCESS_STEPS}
-            onStepClick={setActiveStep}
-          />
-          <div className={styles.description}>
-            <span className={styles.number}>
-              {String(activeStep + 1).padStart(2, "0")}
-            </span>
-            <div className={styles.descriptionText}>
-              <h3
-                style={{
-                  color: "var(--blue-700)",
-                  fontWeight: 700,
-                }}
-              >
-                {PROCESS_STEPS[activeStep].label}
-              </h3>
-              <h5>{PROCESS_STEPS[activeStep].microHeading}</h5>
-              <p
-                style={{
-                  color: "var(--grey-500)",
-                  fontSize: "1.04rem",
-                  lineHeight: 1.5,
-                }}
-              >
-                {PROCESS_STEPS[activeStep].description}
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className={styles.mobileOnly}>
-          <ProcessStepsMobile steps={PROCESS_STEPS} />
-        </div>
-      </section>
-      <Expect />
-      <Tools />
-      <CTA4 />
+      <ProcessInner />
     </main>
   );
 }
