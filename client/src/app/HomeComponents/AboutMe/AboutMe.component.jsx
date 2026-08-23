@@ -11,9 +11,10 @@ export default function AboutMe() {
           clear, fast, and easy to use.
         </h2>
         <p className={styles.introText}>
-          With a background in both web design and development, I create custom
-          websites and applications that look polished, work reliably, and
-          support real user goals.
+          As a Halifax-based web designer and developer, I create custom
+          websites and scalable web applications for businesses in Nova Scotia
+          and across Canada, combining thoughtful design with clean, reliable
+          development.
         </p>
 
         <ul className={styles.introList}>

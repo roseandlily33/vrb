@@ -9,6 +9,12 @@ import FeaturedProject from "./HomeComponents/FeaturedProject/FeaturedProject.co
 // import CTA3 from "./Components/CTA/CTA3/CTA3.component";
 // import CTA4 from "./Components/CTA/CTA4/CTA4.component";
 
+export const metadata = {
+  title: "Web Design Halifax | VRB Web Design & Development",
+  description:
+    "Halifax web designer and developer creating custom, responsive websites and web applications for businesses in Nova Scotia and across Canada.",
+};
+
 export default function Home() {
   return (
     <main>

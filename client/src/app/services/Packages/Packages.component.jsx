@@ -57,8 +57,9 @@ export default function ExplorePackages() {
         {/* <span className={styles.eyebrow}>Packages</span> */}
         <h2>Choose the right starting point</h2>
         <p>
-          Explore package options based on the type of support you need — from
-          full websites and UI design to retainers and add-ons.
+          Explore web design and development services based on the support you
+          need, from custom websites and UI/UX design to ongoing retainers and
+          add-ons.
         </p>
       </div>
 

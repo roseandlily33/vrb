@@ -10,7 +10,7 @@
   margin-right: -50vw;
   width: 100vw;
   background: var(--background-three);
-  padding: var(--section-lg) 0; /* vertical spacing; inner content keeps horizontal padding */
+  padding: var(--section-lg) ; /* vertical spacing; inner content keeps horizontal padding */
 }
 
 .cta2Content {

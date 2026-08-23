@@ -10,7 +10,7 @@ export default function Process() {
   return (
     <section className={styles.processSection} id="process">
       {/* <span className="eyebrowHeader">Process</span> */}
-      <h2 className="heading">My Process</h2>
+      <h2 className="heading">My Web Design & Development Process</h2>
       <p className="meta">
         Timelines may vary depending on your project’s scope, complexity, and
         requirements.

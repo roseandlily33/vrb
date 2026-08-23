@@ -12,14 +12,14 @@ import ExplorePackages from "./Packages/Packages.component";
 export const metadata = {
   title: "Web Design & Development Services | VRB Web Design and Development",
   description:
-    "Explore web design, web development, UI/UX design, UX audits, and social media services for businesses in Halifax and across Canada.",
+    "Explore web design and development services for businesses, including custom websites, UI/UX design, web applications, e-commerce, and ongoing support.",
 };
 
 export default function Services() {
   return (
     <main className={styles.servicesPage}>
       <Hero
-        topMeta="Services"
+        topMeta="Web design and development services"
         title="Custom websites built to grow your business"
         highlight="grow"
         subText="Performance-driven, user-focused, and built to scale with you"
