@@ -1,6 +1,7 @@
+"use client";
 import styles from "./CSPhases.module.css";
 import Carousel from "../Extras/Carousel/Carousel";
-import { useState } from "react";
+import React, { useState } from "react";
 import TertiaryButton from "@/app/Components/TertiaryButton/TertiaryButton.component";
 
 export default function CSPhases({ phaseImages = {}, phasesDescriptions = [] }) {

@@ -18,6 +18,16 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
 
+  const caseStudyLinks = [
+    { label: "Ariel Performance Horses", href: "/case-study/ariel-performance-horses" },
+    { label: "InspectionPal", href: "/case-study/inspection-pal" },
+    { label: "Yoda Safety Services", href: "/case-study/yoda-safety-services" },
+    { label: "VRB", href: "/case-study/vrb-web" },
+    { label: "Assuage", href: "/case-study/assuage" },
+    { label: "NewLine", href: "/case-study/newline" },
+    { label: "Anchor Marine", href: "/case-study/anchor-marine" },
+  ];
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.logoContainer}>
@@ -65,6 +75,21 @@ const Navbar = () => {
             </Link>
           ),
         )}
+
+        {/* Case study links only visible inside mobile/burger menu */}
+        <div className={styles.extraGroup}>
+          <div className={styles.extraHeader}>Case Studies</div>
+          {caseStudyLinks.map((l) => (
+            <Link
+              href={l.href}
+              key={l.href}
+              className={styles.extraLink}
+              onClick={() => setOpen(false)}
+            >
+              {l.label}
+            </Link>
+          ))}
+        </div>
       </div>
     </nav>
   );

@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import styles from "./CSProcess.module.css";
 import ProcessCircuit from "../Extras/ProcessBar/ProcessCircuit";

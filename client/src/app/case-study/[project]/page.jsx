@@ -1,3 +1,4 @@
+"use client";
 import { useParams } from "next/navigation";
 import { ProjectMetadata } from "./projectMetadata";
 import Ariel from "./ArielPerformanceHorses/Ariel.component";

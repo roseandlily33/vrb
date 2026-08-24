@@ -52,6 +52,25 @@
   gap: 2rem;
 }
 
+.extraGroup {
+  display: none; /* hidden on desktop */
+}
+
+.extraHeader {
+  font-size: 0.85rem;
+  color: var(--blue-700);
+  margin: 0.5rem 0 0.25rem 0;
+  font-weight: 700;
+}
+
+.extraLink {
+  display: block;
+  padding: 0.65rem 0;
+  color: var(--blue-900);
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
 /* NAV LINKS */
 .navLink {
   position: relative;
@@ -216,6 +235,16 @@
     transition:
       opacity 0.2s ease,
       transform 0.2s ease;
+  }
+
+  .extraGroup {
+    display: block;
+  }
+
+  .extraLink {
+    padding-left: 0.5rem;
+    color: var(--blue-700);
+    border-radius: 10px;
   }
 
   .open {

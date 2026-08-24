@@ -1,6 +1,7 @@
+"use client";
+import React, { useState, useCallback, useEffect } from "react";
 import styles from "./CSProblem.module.css";
 
-import React, { useState, useCallback, useEffect } from "react";
 
 const CSProblem = ({ problemDescription, homeSrc }) => {
   const [modalOpen, setModalOpen] = useState(false);
