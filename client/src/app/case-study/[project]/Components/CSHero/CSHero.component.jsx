@@ -55,22 +55,25 @@ const CSHero = ({
             firstLink="/work"
             first="Work"
           />
-          <CSTopMenu
-            activeKey="web"
-            items={[
-              {
-                key: "web",
-                label: "Web Design",
-                description: "Homepage, UI concepts and layout decisions.",
-              },
-              {
-                key: "social",
-                label: "Social Media",
-                description: "Social post concepts and marketing assets.",
-                href: "/case-study/assuage/social-media",
-              },
-            ]}
-          />
+          {topMenu && (
+            <CSTopMenu
+              activeKey="web"
+              items={[
+                {
+                  key: "web",
+                  label: "Web Design",
+                  description: "Homepage, UI concepts and layout decisions.",
+                },
+                {
+                  key: "social",
+                  label: "Social Media",
+                  description: "Social post concepts and marketing assets.",
+                  href: "/case-study/assuage/social-media",
+                },
+              ]}
+            />
+          )}
+
           <span className={styles.eyebrow}>{companyName || "Case Study"}</span>
 
           <h1 className={styles.heroTitleCentered}>

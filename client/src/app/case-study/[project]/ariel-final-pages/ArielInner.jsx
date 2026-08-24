@@ -17,6 +17,7 @@ import Quote from "./Quote/Quote.ariel";
 import Sponsers from "./Sponsers/Sponsers.ariel";
 import Testimonial from "./Testimonial/Testimonial.ariel";
 import TrainingImpact from "./TrainingImpact/TrainingImpact.ariel";
+import styles from "./page.module.css";
 
 const ArielInner = () => {
   const [selectedPage, setSelectedPage] = useState("home");

@@ -1,0 +1,28 @@
+# VRB Web Design & Development
+
+> VRB Web Design & Development provides custom website design, web development, UX/UI design, website maintenance, and social media management services for businesses.
+
+## Services
+
+- Website Design: Custom responsive website design for small businesses and growing companies.
+- Custom Web Development: Custom websites, web applications, integrations, backend functionality, and scalable web platforms.
+- UX/UI Design: User experience strategy, interface design, responsive design systems, prototypes, and website design packages.
+- Website Redesign: Visual, structural, responsive, and user experience improvements for existing websites.
+- Website Maintenance: Ongoing website support, updates, optimization, and maintenance plans.
+- Social Media Management: Content planning, branded graphics, captions, scheduling, publishing, and performance reporting.
+
+## Website Packages
+
+- Website Essentials: Professional website design for small businesses requiring a polished and responsive online presence.
+- Professional Website: Custom website design and development for growing businesses requiring greater functionality and flexibility.
+- Custom Platform: Custom web development for businesses requiring advanced workflows, integrations, authentication, databases, APIs, and scalable platform architecture.
+
+## Design Packages
+
+- Design Essentials: Entry-level website design and UX foundation.
+- Design Foundation: UX/UI design services including strategy, information architecture, responsive UI direction, and high-fidelity mockups.
+- Design Signature: Advanced user experience design services including UX strategy, interface systems, prototypes, and developer handoff.
+
+## Additional Information
+
+VRB Web Design & Development works with businesses remotely and provides custom digital solutions based on individual project requirements.
