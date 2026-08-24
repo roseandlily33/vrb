@@ -12,7 +12,8 @@ import { slugify } from "../../../lib/slugify";
 
 export async function generateMetadata({ params, searchParams }) {
   const { slug } = params || {};
-  const { type = "web" } = searchParams || {};
+  const resolvedSearchParams = await searchParams;
+  const { type = "web" } = resolvedSearchParams || {};
 
   let resolvedType = type;
 
@@ -62,9 +63,21 @@ export async function generateMetadata({ params, searchParams }) {
   }
 
   if (pkg) {
+    const title = pkg.seoTitle || pkg.title;
+    const description = pkg.seoDescription || pkg.description || "";
+    const canonical = `https://vrbwebdesignanddev.com/package/${incoming}`;
+
     return {
-      title: pkg.seoTitle || pkg.title,
-      description: pkg.seoDescription || pkg.description || "",
+      title,
+      description,
+      openGraph: {
+        title,
+        description,
+        url: canonical,
+      },
+      alternates: {
+        canonical,
+      },
     };
   }
 

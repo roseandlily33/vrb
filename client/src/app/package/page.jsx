@@ -35,9 +35,19 @@ export async function generateMetadata({ searchParams }) {
   };
 
   const meta = metaMap[type] || metaMap.web;
+  const canonical = `https://vrbwebdesignanddev.com/package${type ? `?type=${type}` : ""}`;
+
   return {
     title: meta.title,
     description: meta.description,
+    openGraph: {
+      title: meta.title,
+      description: meta.description,
+      url: canonical,
+    },
+    alternates: {
+      canonical,
+    },
   };
 }
 
