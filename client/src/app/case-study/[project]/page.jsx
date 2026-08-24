@@ -1,6 +1,6 @@
 "use client";
 import { useParams } from "next/navigation";
-import { ProjectMetadata } from "./projectMetadata";
+// import { ProjectMetadata } from "./projectMetadata";
 import Ariel from "./ArielPerformanceHorses/Ariel.component";
 import InspectionPal from "./InspectionPal/InspectionPal.component";
 import Yoda from "./YodaSafetyServices/Yoda.component";
@@ -9,17 +9,18 @@ import Assuage from "./Assuage/Assuage.component";
 import NewLine from "./NewLine/NewLine.component";
 import Anchor from "./Anchor/Anchor.component";
 
-export async function generateMetadata({ params }) {
-  const { project } = await params;
+// Said that it needs to be handled on the server
+// export async function generateMetadata({ params }) {
+//   const { project } = await params;
 
-  return (
-    ProjectMetadata[project] || {
-      title: "Portfolio Project | VRB Web Design & Development",
-      description:
-        "Explore selected web design and development work by VRB Web Design & Development.",
-    }
-  );
-}
+//   return (
+//     ProjectMetadata[project] || {
+//       title: "Portfolio Project | VRB Web Design & Development",
+//       description:
+//         "Explore selected web design and development work by VRB Web Design & Development.",
+//     }
+//   );
+// }
 
 export default function ProjectPage() {
   const { project } = useParams();
