@@ -36,7 +36,7 @@ const companies = [
     name: 'AnchorMarine',
     img: '/Anchor/AnchorLogo.png',
     alt: 'Anchor Marine & Mechanical Logo',
-    href: '/case-study/anchor',
+    href: '/case-study/anchor-marine',
   }
 ];
 

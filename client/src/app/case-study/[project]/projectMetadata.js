@@ -44,14 +44,3 @@ export const ProjectMetadata = {
   },
 };
 
-export async function generateMetadata({ params }) {
-  const { project } = await params;
-
-  return (
-    ProjectMetadata[project] || {
-      title: "Portfolio Project | VRB Web Design & Development",
-      description:
-        "Explore selected web design and development work by VRB Web Design & Development.",
-    }
-  );
-}

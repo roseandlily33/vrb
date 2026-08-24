@@ -78,12 +78,12 @@ export default function ContactForm() {
       <input type="hidden" name="form-name" value="contact" />
       {/* Honeypot field for bots */}
       <input type="hidden" name="bot-field" />
-      <h1>Let&apos;s work together</h1>
+      {/* <h1>Let&apos;s work together</h1>
       <p>
         I&apos;m currently available for freelance web design and development
         projects. Get in touch to discuss your goals, timeline, and what you
         need.
-      </p>
+      </p> */}
 
       <Input
         label="Name"

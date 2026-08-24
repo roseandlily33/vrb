@@ -12,10 +12,20 @@ export const metadata = {
 export default function Contact() {
   return (
     <main className={styles.contactPage}>
+      <div className={styles.contactIntro}>
+        <h1>Let&apos;s work together</h1>
+
+        <p>
+          I&apos;m currently available for freelance web design and development
+          projects. Get in touch to discuss your goals, timeline, and what you
+          need.
+        </p>
+      </div>
       <div className={styles.sideBySide}>
         <ContactForm />
         <ContactInfo />
       </div>
+
       <Faq />
     </main>
   );

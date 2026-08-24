@@ -1,53 +1,37 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import styles from "./Faq.module.css";
-import { FiChevronDown, FiChevronUp } from "react-icons/fi";
+// import { FiChevronDown, FiChevronUp } from "react-icons/fi";
 import { faqQuestions } from "./faqQuestions";
 
 export default function Faq() {
-  const [openIdx, setOpenIdx] = useState(null);
-
-  const toggle = (idx) => {
-    setOpenIdx(openIdx === idx ? null : idx);
-  };
-
   return (
     <section className={styles.faqSection}>
-      <h3 className={styles.faqHeading}>Questions you might have</h3>
-      <ul className={styles.faqList}>
-        {faqQuestions?.map((item, idx) => (
-          <li className={styles.faqItem} key={item.question}>
-            <button
-              className={styles.faqQuestion}
-              onClick={() => toggle(idx)}
-              aria-expanded={openIdx === idx}
-              aria-controls={`faq-answer-${idx}`}
-            >
+      <h2 className={styles.faqHeading}>Questions you might have</h2>
+
+      <div className={styles.faqList}>
+        {faqQuestions.map((item) => (
+          <details className={styles.faqItem} key={item.question}>
+            <summary className={styles.faqQuestion}>
               <span className={styles.faqQuestionText}>
                 {item.icon && (
                   <item.icon className={styles.faqIcon} aria-hidden="true" />
                 )}
+
                 {item.question}
               </span>
-              {openIdx === idx ? (
-                <FiChevronUp className={`${styles.chevron} primaryIcon`} />
-              ) : (
-                <FiChevronDown className={`${styles.chevron} primaryIcon`} />
-              )}
-            </button>
-            <div
-              id={`faq-answer-${idx}`}
-              className={`${styles.faqAnswer} ${openIdx === idx ? styles.open : ""}`}
-              hidden={openIdx !== idx}
-            >
-              {item.answer}
-            </div>
-          </li>
+            </summary>
+
+            <div className={styles.faqAnswer}>{item.answer}</div>
+          </details>
         ))}
-      </ul>
+      </div>
+
       <div className={styles.stillHaveQuestions}>
         <p>Still have questions?</p>
-        <a href="/contact" className={styles.getInTouchLink}>Get in touch</a>
+        <a href="/contact" className={styles.getInTouchLink}>
+          Get in touch
+        </a>
       </div>
     </section>
   );

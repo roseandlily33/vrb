@@ -10,9 +10,9 @@ export default function HeroMain() {
       <div className={styles.content}>
         <p className={styles.eyebrow}>Equestrian Training & Development</p>
 
-        <h1 className={styles.title}>
+        <h2 className={styles.title}>
           Building confident riders through structured & thoughtful training
-        </h1>
+        </h2>
 
         <p className={styles.text}>
           Thoughtful training programs designed to support horse and rider
