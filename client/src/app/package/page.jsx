@@ -3,7 +3,8 @@ import PackageHero from "./PackageHero/PackageHero.component";
 import Packages from "./Packages/Packages.component";
 
 export async function generateMetadata({ searchParams }) {
-  const type = searchParams?.type || "web";
+  const resolvedSearchParams = await searchParams;
+  const type = resolvedSearchParams?.type || "web";
 
   const metaMap = {
     web: {
