@@ -1,11 +1,7 @@
 import React from "react";
 import styles from "./page.module.css";
 import ArielInner from "./ArielInner";
-export const metadata = {
-  title: "Ariel Boesener Performance Horses Final Pages | VRB Web Design & Development",
-  description:
-    "Explore the Ariel Boesener Performance Horses project, a custom web design and development project focused on creating a polished, responsive, and user-friendly digital experience.",
-};
+export const metadata = 
 
 const ArielFinal = () => {
   return (

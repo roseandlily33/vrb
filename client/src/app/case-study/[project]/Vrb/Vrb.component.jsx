@@ -13,12 +13,6 @@ import CSPhases from "../Components/CSPhases/CSPhases.component";
 import { results } from "./results";
 import { PhaseDescriptions } from "./pages";
 
-export const metadata = {
-  title: "VRB Web Design & Development | Portfolio Project",
-  description:
-    "Explore the VRB Web Design & Development project, a portfolio project focused on creating a polished, responsive, and user-friendly digital experience.",
-};
-
 const Vrb = () => {
   return (
     <section className={styles.mainContainer}>

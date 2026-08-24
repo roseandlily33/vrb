@@ -8,9 +8,11 @@ import Assuage from "./Assuage/Assuage.component";
 import NewLine from "./NewLine/NewLine.component";
 import Anchor from "./Anchor/Anchor.component";
 
+export { generateMetadata } from "./projectMetadata";
+
 export default function ProjectPage() {
   const { project } = useParams();
-
+  
   if (project === "inspection-pal") {
     return <InspectionPal />;
   }

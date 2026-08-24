@@ -14,12 +14,6 @@ import { pages, PhaseDescriptions } from "./pages";
 import BackToTopButton from "@/app/Components/BackToTop/BackToTopButton";
 import CSPhases from "../Components/CSPhases/CSPhases.component";
 
-export const metadata = {
-  title: "Yoda Safety Services | VRB Web Design & Development",
-  description:
-    "Explore the Yoda Safety Services project, a web design and development project focused on building a comprehensive training platform for managing courses, certifications, and company training workflows.",
-};
-
 const Yoda = () => {
   return (
     <section className={styles.mainContainer}>

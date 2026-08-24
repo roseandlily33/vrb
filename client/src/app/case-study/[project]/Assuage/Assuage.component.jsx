@@ -10,12 +10,6 @@ import { pages } from "./pages";
 // import Breadcrumbs from "../Components/Extras/Breadcrumbs/Breadcrumbs.component";
 import BackToTopButton from "@/app/Components/BackToTop/BackToTopButton";
 
-export const metadata = {
-  title: "Assuage Wellness Centre | UX/UI Design Concept Project",
-  description:
-    "Explore the Assuage Wellness Centre project, a UX/UI design concept focused on creating two distinct visual directions for a future website redesign.",
-};
-
 const Assuage = () => {
   return (
     <section className={styles.mainContainer}>

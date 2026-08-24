@@ -6,11 +6,6 @@ import { designElements } from "./designElements";
 
 import CSDesignShowcase from "../Components/CSDesignShowcase/CSDesignShowcase.component";
 
-export const metadata = {
-  title: "Newline Plumbing, Heating & Construction | Web Design & Development Project",
-  description:
-    "Explore the Newline project, a custom web design and development project focused on creating a polished, responsive, and user-friendly digital experience.",
-};
 
 export default function NewLineCaseStudy() {
   return (
