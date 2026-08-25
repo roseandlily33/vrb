@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import Image from "next/image";
 import styles from "../../page.module.css";
 
 const ReceiptTemplate = ({
@@ -46,7 +47,7 @@ const ReceiptTemplate = ({
         <div className={styles.invoiceTop}>
           <div className={styles.brandBlock}>
             <div className={styles.logoPlaceholder}>
-              <img src="/VRBLogo.png" alt="VRB Web Design and Development" />
+              <Image src="/VRBLogo.png" alt="VRB Web Design and Development" width={200} height={200} />
             </div>
 
             <div className={styles.issuerDetails}>

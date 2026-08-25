@@ -20,7 +20,7 @@ export default function Navbar() {
           ))} */}
         </div>
         <Link href="/" className={styles.logoWrap} aria-label="Home">
-          <img src="/ArielPerformance/ArielLogo.webp" alt="Logo" className={styles.logo} />
+          {/* <img src="/ArielPerformance/ArielLogo.webp" alt="Logo" className={styles.logo} /> */}
         </Link>
         <div className={styles.navGroup}>
           {/* <Link href="/shop" className={styles.navLink}>

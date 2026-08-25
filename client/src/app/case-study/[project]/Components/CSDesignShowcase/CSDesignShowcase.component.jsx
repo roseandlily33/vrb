@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { useState } from "react";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import styles from "./CSDesignShowcase.module.css";
@@ -50,10 +50,12 @@ export default function CSDesignShowcase({
       <div className={styles.showcase}>
         <div className={styles.visual}>
           {active.image && (
-            <img
+            <Image
               src={active.image}
               alt={active.title || active.label || "Design showcase"}
               className={styles.image}
+              width={800}
+              height={600}
             />
           )}
 

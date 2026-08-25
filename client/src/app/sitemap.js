@@ -56,12 +56,12 @@ export default function sitemap() {
       changeFrequency: "monthly",
       priority: 0.8,
     },
-    {
-      url: `${baseUrl}/case-study/ariel-performance-horses/ariel-final-pages`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
+    // {
+    //   url: `${baseUrl}/case-study/ariel-performance-horses/ariel-final-pages`,
+    //   lastModified: new Date(),
+    //   changeFrequency: "monthly",
+    //   priority: 0.8,
+    // },
     {
       url: `${baseUrl}/case-study/inspection-pal`,
       lastModified: new Date(),

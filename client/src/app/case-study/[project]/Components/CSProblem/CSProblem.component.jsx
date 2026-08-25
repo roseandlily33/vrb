@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useCallback, useEffect } from "react";
 import styles from "./CSProblem.module.css";
-
+import Image from "next/image";
 
 const CSProblem = ({ problemDescription, homeSrc }) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -32,7 +32,7 @@ const CSProblem = ({ problemDescription, homeSrc }) => {
       </div>
       {homeSrc && (
         <div className={styles.imgContainer}>
-          <img
+          <Image
             src={homeSrc}
             alt="home page screenshot"
             className={styles.homeImg}
@@ -40,6 +40,8 @@ const CSProblem = ({ problemDescription, homeSrc }) => {
             onClick={() => setModalOpen(true)}
             tabIndex={0}
             aria-label="Expand image"
+            width={800}
+            height={600}
           />
         </div>
       )}
@@ -62,7 +64,7 @@ const CSProblem = ({ problemDescription, homeSrc }) => {
           aria-modal="true"
           role="dialog"
         >
-          <img
+          <Image
             src={homeSrc}
             alt="Full screen home page screenshot"
             style={{
@@ -72,7 +74,9 @@ const CSProblem = ({ problemDescription, homeSrc }) => {
               boxShadow: "0 8px 32px rgba(0,0,0,0.35)",
               background: "#fff",
             }}
-            onClick={e => e.stopPropagation()}
+            onClick={(e) => e.stopPropagation()}
+            width={800}
+            height={600}
           />
         </div>
       )}

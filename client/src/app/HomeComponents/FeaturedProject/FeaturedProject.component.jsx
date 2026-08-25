@@ -1,6 +1,7 @@
 import { FaArrowRight } from "react-icons/fa";
 import styles from "./FeaturedProject.module.css";
 import Link from "next/link";
+import Image from "next/image";
 const FeaturedProject = () => {
   return (
     <section className={styles.projectsSection}>
@@ -11,10 +12,12 @@ const FeaturedProject = () => {
 
       <article className={styles.featuredProjectCard}>
         <div className={styles.projectImageWrap}>
-          <img
+          <Image
             src="/YodaSafetyServices/Pages/Home.png"
             alt="Training platform project preview"
             className={styles.projectImage}
+            width={800}
+            height={600}
           />
         </div>
 

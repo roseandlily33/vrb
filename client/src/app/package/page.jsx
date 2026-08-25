@@ -32,6 +32,11 @@ export async function generateMetadata({ searchParams }) {
       description:
         "Social media management services for businesses looking for strategic content, consistent posting, audience engagement, and online growth.",
     },
+    extras: {
+      title: "Website Extras | VRB Web Design & Development",
+      description:
+        "Website extras and add-ons for businesses looking to enhance their website with additional features, integrations, and functionality.",
+    },
   };
 
   const meta = metaMap[type] || metaMap.web;

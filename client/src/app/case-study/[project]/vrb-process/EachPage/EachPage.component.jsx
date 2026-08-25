@@ -1,5 +1,6 @@
 import styles from "./EachPage.module.css";
 import { FaCheckCircle, FaExclamationTriangle, FaStar } from "react-icons/fa";
+import Image from "next/image";
 
 const EachPage = ({ page, index }) => {
   const bgClass =
@@ -41,10 +42,12 @@ const EachPage = ({ page, index }) => {
           <p className={styles.description}>{page.description}</p>
         </div>
 
-        <img
+        <Image
           src={page.url}
           alt={page.pageName}
           className={styles.previewImage}
+          width={800}
+          height={600}
         />
 
         {(page.keyDecisions || page.challenges || page.outcomes) && (

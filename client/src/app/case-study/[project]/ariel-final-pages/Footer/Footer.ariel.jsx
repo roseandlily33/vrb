@@ -4,11 +4,11 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.topRow}>
-        <img
+        {/* <img
           src="/ArielPerformance/ArielLogo.webp"
           alt="Logo"
           className={styles.logo}
-        />
+        /> */}
         <p className={styles.subtext}>Redefining Your Equestrian Experience</p>
       </div>
       <div className={styles.bottomRow}>

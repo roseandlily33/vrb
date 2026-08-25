@@ -3,6 +3,7 @@ import { blogPosts } from "../data/blogPosts";
 import { comparisonExamples } from "../data/tooMuchVsTooLittle";
 import styles from "./page.module.css";
 import BlogComparisonExample from "./blogComparisons";
+import Image from "next/image";
 
 export function generateStaticParams() {
   const allPosts = [...blogPosts, ...comparisonExamples];
@@ -52,7 +53,7 @@ export default async function BlogPostPage({ params }) {
 
           {post.image && (
             <div className={styles.headerImage}>
-              <img src={post.image} alt={post.imageAlt || post.title} />
+              <Image src={post.image} alt={post.imageAlt || post.title} width={800} height={600} />
             </div>
           )}
         </header>
@@ -100,7 +101,7 @@ function BlogContent({ sections }) {
         if (section.type === "image") {
           return (
             <div key={index} className={styles.inlineImage}>
-              <img src={section.src} alt={section.alt || ""} />
+              <Image src={section.src} alt={section.alt || ""} width={800} height={600} />
             </div>
           );
         }

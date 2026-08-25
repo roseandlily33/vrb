@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./page.module.css";
 import LineItems from "./lineItems";
+import Image from "next/image";
 // import Modal from "../../../../components/Modal/Modal";
 
 const InvoiceTemplate = ({
@@ -58,7 +59,12 @@ const InvoiceTemplate = ({
         <div className={styles.invoiceTop}>
           <div className={styles.brandBlock}>
             <div className={styles.logoPlaceholder}>
-              <img src="/VRBLogo.png" alt="VRB Web Design and Development" />
+              <Image
+                src="/VRBLogo.png"
+                alt="VRB Web Design and Development"
+                width={200}
+                height={200}
+              />
             </div>
 
             {!isEditing ? (

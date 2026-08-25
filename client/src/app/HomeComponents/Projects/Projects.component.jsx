@@ -4,6 +4,7 @@ import TertiaryButton from "@/app/Components/TertiaryButton/TertiaryButton.compo
 import { FiArrowRight, FiArrowLeft } from "react-icons/fi";
 import { useState } from "react";
 import { projects } from "@/app/Components/projectList";
+import Image from "next/image";
 import PillButton from "@/app/Components/PillButton/PillButton.component";
 
 export default function Projects() {
@@ -33,10 +34,12 @@ export default function Projects() {
         <div style={{ flex: 1, minWidth: 0 }}>
           <div className={styles.projectCard} key={project.name}>
             <div className={styles.imageWrapper}>
-              <img
+              <Image
                 src={project.image}
                 alt={project.name}
                 className={styles.projectImage}
+                width={800}
+                height={600}
               />
             </div>
             <div className={styles.projectDetails}>

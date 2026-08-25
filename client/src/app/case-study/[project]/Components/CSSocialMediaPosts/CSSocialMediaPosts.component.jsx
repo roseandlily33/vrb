@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import styles from "./CSSocialMediaPosts.module.css";
+import Image from "next/image";
 
 const CSSocialMediaPosts = ({ posts = [] }) => {
   const [active, setActive] = useState(null);
@@ -65,10 +66,12 @@ const CSSocialMediaPosts = ({ posts = [] }) => {
           >
             {post.image && (
               <div className={styles.imageWrap}>
-                <img
+                <Image
                   src={post.image}
                   alt={post.title || "Social media post"}
                   loading="lazy"
+                  height={300}
+                  width={300}
                 />
               </div>
             )}
@@ -120,9 +123,11 @@ const CSSocialMediaPosts = ({ posts = [] }) => {
 
             {active.image && (
               <div className={styles.modalImage}>
-                <img
+                <Image
                   src={active.image}
                   alt={active.title || "Social media post"}
+                  width={800}
+                  height={600}
                 />
               </div>
             )}
@@ -131,10 +136,7 @@ const CSSocialMediaPosts = ({ posts = [] }) => {
               <div className={styles.modalEyebrow}>Social Media</div>
 
               <div className={styles.modalHeader}>
-                <h2
-                  id="social-post-modal-title"
-                  className={styles.modalTitle}
-                >
+                <h2 id="social-post-modal-title" className={styles.modalTitle}>
                   {active.title}
                 </h2>
 
@@ -146,9 +148,7 @@ const CSSocialMediaPosts = ({ posts = [] }) => {
               </div>
 
               {active.description && (
-                <p className={styles.modalDescription}>
-                  {active.description}
-                </p>
+                <p className={styles.modalDescription}>{active.description}</p>
               )}
 
               {(active.objective || active.highlight) && (

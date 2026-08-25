@@ -1,5 +1,5 @@
 import styles from "./Sponsers.module.css";
-
+import Image from "next/image";
 const sponsors = [
   { name: "Partner One", logo: "/ArielPerformance/Pictures/Sponser1.png" },
   { name: "Partner Two", logo: "/ArielPerformance/Pictures/Sponser2.png" },
@@ -23,7 +23,7 @@ export default function Sponsers() {
       <div className={styles.logoGrid}>
         {sponsors.map((sponsor) => (
           <a href="#" key={sponsor.name} className={styles.logoCard}>
-            <img src={sponsor.logo} alt={sponsor.name} />
+            <Image src={sponsor.logo} alt={sponsor.name} width={100} height={100} />
           </a>
         ))}
       </div>

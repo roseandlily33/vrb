@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./Footer.module.css";
 import TertiaryButton from "../TertiaryButton/TertiaryButton.component";
 import Link from "next/link";
+import Image from "next/image";
 import {
   FaGithub,
   FaLinkedin,
@@ -26,7 +27,7 @@ const Footer = () => (
       {/* LEFT: Logo + Brand */}
       <div className={styles.brand}>
         <a href="#home" aria-label="Home" className={styles.logoWrap}>
-          <img src="/VRBLogo.png" alt="VRB Logo" className={styles.logo} />
+          <Image src="/VRBLogo.png" alt="VRB Logo" className={styles.logo} width={200} height={200} />
         </a>
 
         <p className={styles.tagline}>

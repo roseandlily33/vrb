@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Image from "next/image";
 import styles from "./Navbar.module.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -32,7 +33,7 @@ const Navbar = () => {
     <nav className={styles.navbar}>
       <div className={styles.logoContainer}>
         <Link href="/" aria-label="Home">
-          <img src="/VRBLogo.png" alt="VRB Logo" className={styles.logo} />
+          <Image src="/VRBLogo.png" alt="VRB Logo" className={styles.logo} width={200} height={200} />
         </Link>
       </div>
       <button

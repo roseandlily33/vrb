@@ -1,6 +1,7 @@
 import styles from "./CSHero.module.css";
 // import TertiaryButton from "@/app/Components/TertiaryButton/TertiaryButton.component";
 import { FiArrowRight } from "react-icons/fi";
+import Image from "next/image";
 import CSTopMenu from "../CSTopMenu/CSTopMenu.component";
 import Breadcrumbs from "../Extras/Breadcrumbs/Breadcrumbs.component";
 
@@ -40,11 +41,13 @@ const CSHero = ({
   return (
     <section className={styles.heroCentered}>
       {img && (
-        <img
+        <Image
           src={img}
-          alt=""
+          alt={companyName + "Logo" || "Case Study Hero Image"}
           aria-hidden="true"
           className={styles.heroWatermark}
+          width={800}
+          height={800}
         />
       )}
 

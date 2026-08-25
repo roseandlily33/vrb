@@ -27,7 +27,7 @@ const Ariel = () => {
         title="Redesigning a Website for Clarity and Usability"
         highlightWords={["Clarity", "Usability"]}
         role="UX/UI Designer"
-        finalResults="/case-study/ariel-performance-horses/ariel-final-pages"
+        // finalResults="/case-study/ariel-performance-horses/ariel-final-pages"
         note="I developed multiple design iterations to improve structure, usability, and visual clarity. While implementation is still in progress, the work outlines a strong direction for a more refined user experience."
       />
       <CSKeyFeatures
