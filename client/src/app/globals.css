@@ -122,7 +122,7 @@
 
   /* For Ariel */
 
-  --color-white: #ffffff;
+  /* --color-white: #ffffff;
   --color-off-white: #f7f7f4;
 
   --color-gold: #d8a04e;
@@ -136,40 +136,39 @@
   --color-grey-mid: #eae8e3;
   --text-soft: #5f5a52;
 
-  --color-blue: #18bde8;
+  --color-blue: #18bde8; */
 
   /* Text */
-  --text-primary: #f7f7f4;
-  --text-muted: #c9c9c9;
+  /* --text-primary: #f7f7f4;
+  --text-muted: #c9c9c9; */
 
   /* Borders / shadows */
-  --border-light: rgba(255, 255, 255, 0.12);
+  /* --border-light: rgba(255, 255, 255, 0.12);
   --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.18);
   --navbar-height: 88px;
-  --max-width: 1200px;
+  --max-width: 1200px; */
 
   /* Radius */
-  --radius-pill: 999px;
-  --radius-sm: 0.4rem;
+  /* --radius-pill: 999px;
+  --radius-sm: 0.4rem; */
 }
 /* globals.css or variables.css */
 
-
 /* THEME: Navy/Gold */
-.theme-navy {
+/* .theme-navy {
   --color-black: #0a2342;
   --color-black-soft: #14213d;
   --card-border: rgba(10, 35, 66, 0.12);
   --text-dark: #0a2342;
-}
+} */
 
 /* THEME: Black/Gold (default) */
-.theme-black {
+/* .theme-black {
   --color-black: #101010;
   --color-black-soft: #151515;
   --text-dark: #101010;
   --card-border: rgba(16, 16, 16, 0.08);
-}
+} */
 /* Typography */
 
 body {
@@ -294,29 +293,52 @@ h3 {
 }
 
 @media (max-width: 900px) {
+  :root {
+    --section-xs: 1rem 2rem;
+    --section-sm: 2rem 2rem;
+    --section-md: 3rem 2rem;
+    --section-lg: 4rem 2rem;
+    --section-xl: 5rem 2rem;
+  }
+
   h1 {
-    font-size: 2.1rem;
+    font-size: 2.25rem;
+    line-height: 1.1;
   }
+
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
+    line-height: 1.15;
   }
+
   h3 {
     font-size: 1.4rem;
+    line-height: 1.2;
   }
+
   h4 {
-    font-size: 1.05rem;
+    font-size: 1.15rem;
+    line-height: 1.3;
   }
+
   h5 {
     font-size: 1rem;
   }
+
   h6 {
     font-size: 0.95rem;
   }
+
   p {
     font-size: 1rem;
+    line-height: 1.65;
   }
+
   label {
     font-size: 0.95rem;
+  }
+  .styleGuide h2 {
+    font-size: 1.6rem;
   }
 }
 
@@ -330,13 +352,6 @@ a {
   margin-block: var(--space-s);
 }
 .eyebrowHeader {
-  /* letter-spacing: 0.08em;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--grey-500);
-  margin-bottom: var(--space-xxs); */
   color: var(--blue-700);
   text-transform: uppercase;
   letter-spacing: 0.14em;
@@ -380,15 +395,7 @@ a {
   /* margin-bottom: 0.5em; */
 }
 
-@media (max-width: 900px) {
-  :root {
-    --section-xs: 1rem 2rem;
-    --section-sm: 2rem 2rem;
-    --section-md: 3rem 2rem;
-    --section-lg: 4rem 2rem;
-    --section-xl: 5rem 2rem;
-  }
-}
+/* Media queries consolidated above for max-width:900px */
 
 .styleGuide {
   padding: 4rem;
@@ -398,8 +405,8 @@ a {
 
 .styleGuide h2 {
   margin: 0 0 1.5rem;
-  font-family: "Manrope", sans-serif;
   font-size: 2rem;
+  font-family: var(--font-heading);
 }
 
 .colorGrid {

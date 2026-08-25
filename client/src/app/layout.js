@@ -1,11 +1,6 @@
 import {
   Poppins,
   Inter,
-  Prata,
-  Open_Sans,
-  Cormorant_Garamond,
-  Manrope,
-  Playfair_Display,
 } from "next/font/google";
 import "./globals.css";
 import Navbar from "./Components/Navbar/Navbar.component";
@@ -24,40 +19,11 @@ const inter = Inter({
   weight: ["400", "500", "600", "700", "800"],
 });
 
-// const prata = Prata({
-//   variable: "--font-prata",
-//   subsets: ["latin"],
-//   weight: ["400"],
-// });
-
-// const openSans = Open_Sans({
-//   variable: "--font-open-sans",
-//   subsets: ["latin"],
-//   weight: ["400", "500", "600", "700", "800"],
-// });
-
-// const cormorantGaramond = Cormorant_Garamond({
-//   variable: "--font-cormorant-garamond",
-//   subsets: ["latin"],
-//   weight: ["500", "600", "700"],
-// });
-
-// const manrope = Manrope({
-//   variable: "--font-manrope",
-//   subsets: ["latin"],
-//   weight: ["400", "500", "600", "700", "800"],
-// });
-
-// const playfairDisplay = Playfair_Display({
-//   variable: "--font-playfair-display",
-//   subsets: ["latin"],
-//   weight: ["500", "600", "700"],
-// });
 
 export const metadata = {
   title: "VRB Web Design & Development",
   description:
-    "Crafting high-performing web experiences with a focus on design, development, and user experience.",
+    "Crafting high-performing websites with a focus on design, development, and user experience.",
   icons: {
     icon: "/favicon.ico",
   },
