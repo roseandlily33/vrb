@@ -10,6 +10,8 @@ import CSTechnologies from "../Components/CSTechnologies/CSTechnologies.componen
 import KeyFeatures from "../Components/CSKeyFeatures/CSKeyFeatures.component";
 import { results } from "./results";
 import { pages, PhaseDescriptions } from "./pages";
+import CSTestimonial from "../Components/CSTestimonial.component";
+
 // import Breadcrumbs from "../Components/Extras/Breadcrumbs/Breadcrumbs.component";
 import BackToTopButton from "@/app/Components/BackToTop/BackToTopButton";
 import CSPhases from "../Components/CSPhases/CSPhases.component";
@@ -76,6 +78,21 @@ const Yoda = () => {
         ]}
       />
       <CSKeyPages pages={pages} />
+      <CSTestimonial
+        testimonial="I am extremely satisfied with the website designed by VRB Web Design and Development. The finished site is professional, visually appealing, easy to navigate, and accurately reflects Yoda Safety Services, its services, and its brand.
+
+VRB Web Design created a clear and informative website for Yoda Safety Services, highlighting safety training, consulting, Nova Scotia WCB safety certification audits, program development, classroom training, online training, and workplace safety support across Atlantic Canada.
+
+She organized the information in a professional and user-friendly way, making it easy for visitors to understand the company’s experience, values, services, and commitment to practical workplace health and safety solutions.
+
+Overall, VRB Web Design and Development did an excellent job creating a credible, polished, and effective online presence that supports the continued growth of Yoda Safety Services.
+
+Based on the quality of the design, professionalism, communication, and overall experience, I would rate my satisfaction as 10 out of 10.
+
+I would confidently recommend VRB Web Design and Development to anyone looking for a professional, well-designed website and a positive customer experience.
+
+Victoria brings a fresh, modern design approach that helps businesses keep pace with changing needs, evolving customer expectations, and the growing importance of a strong online presence."
+      />
       <CTA2 />
       <BackToTopButton />
     </section>

@@ -22,3 +22,9 @@
     padding: 2rem var(--space-m) 0 var(--space-m);
   }
 }
+@media screen and (max-width: 600px) {
+  .breadcrumbs {
+    font-size: var(--space-s);
+    padding: 0;
+  }
+}
