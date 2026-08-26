@@ -8,6 +8,7 @@ import Links from "./Links/Links.component";
 import MiniFaq from "./MiniFaq/MiniFaq.component";
 import TrustedBy from "./TrustedBy/TrustedBy.component";
 import ExplorePackages from "./Packages/Packages.component";
+import AboutMe from "./AboutMe/AboutMe";
 
 export const metadata = {
   title: "Web Design & Development Services | VRB Web Design and Development",
@@ -28,8 +29,11 @@ export default function Services() {
       <ExplorePackages />
       {/* <Retainers /> */}
       <Process />
+
       <TrustedBy />
       {/* <Extras /> */}
+      <AboutMe />
+
       <MiniFaq />
       <CTA2 />
     </main>

@@ -35,7 +35,7 @@ const contentMap = {
     title: "Social Media Management Services Built for Growth",
 
     description:
-      "Strategic social media management services designed to build your online presence, strengthen your brand, and connect with your audience.",
+      "Strategic social media manage services designed to build your online presence, strengthen your brand, and connect with your audience.",
   },
 };
 

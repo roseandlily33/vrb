@@ -15,15 +15,20 @@ const AboutMe = () => {
         <h2 className="header">A bit about me</h2>
 
         <p className={styles.lead}>
-          As a freelance web designer and developer, I design and build websites
-          that feel clear, polished, and easy to use, not just something that
-          looks good in a screenshot.
+          As a freelance web designer and developer in Canada, I create custom
+          websites and web applications that balance thoughtful design with
+          reliable development. My work spans website design, UX/UI, responsive
+          development and full-stack applications, with a focus on making
+          digital experiences intuitive for the people using them.
         </p>
 
         <p className={styles.supporting}>
-          I care about the small details, spacing, responsiveness, performance,
-          and how everything comes together to create a smooth experience from
-          start to finish.
+          I approach each project by looking at both the business goal and the
+          user experience behind it. That might mean simplifying an existing
+          website, designing a clearer interface, improving performance, or
+          building a custom application from the ground up. I work with
+          businesses across Canada to create digital experiences that are
+          polished, practical and built to grow.
         </p>
         <div className={styles.aboutMeBadges}>
           {items.map((item, idx) => (

@@ -1,6 +1,7 @@
 import React from "react";
 import PackageHero from "./PackageHero/PackageHero.component";
 import Packages from "./Packages/Packages.component";
+import Hero from "../Components/Hero/Hero.component";
 
 export async function generateMetadata({ searchParams }) {
   const resolvedSearchParams = await searchParams;

@@ -13,6 +13,7 @@
       rgba(248, 251, 255, 0.95) 0%,
       var(--white) 100%
     );
+  /* border: 2px solid red; */
 }
 
 .packagesHero::before {
@@ -64,7 +65,7 @@
 
   width: min(100%, 920px);
 
-  margin: var(--space-xxxxl) auto 0;
+  margin: 0 auto;
 
   text-align: center;
 }

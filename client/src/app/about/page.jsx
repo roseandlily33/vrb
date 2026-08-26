@@ -21,7 +21,7 @@ export default function About() {
         topMeta="About Me"
         title="Freelance Web Designer & Developer building high-performing, user-first web experiences"
         highlight="Freelance Web Designer & Developer"
-        subText="Based in Halifax and working with businesses across Canada, I combine web design and development to create seamless, high-quality digital experiences."
+        subText="Based in Halifax, Nova Scotia, I provide freelance web design and development for businesses across Canada, creating thoughtful, high-performing digital experiences built around real users."
       />
       <AboutMe />
       <div className={styles.sideBySide}>

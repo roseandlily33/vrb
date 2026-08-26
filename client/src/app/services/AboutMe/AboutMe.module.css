@@ -1,0 +1,33 @@
+.container {
+  margin: 0 auto;
+  /* max-width: 920px; */
+  padding: var(--section-lg);
+  background: var(--background-five);
+}
+
+.title {
+  margin: 0 0 0.75rem 0;
+  font-size: clamp(1.25rem, 2.2vw, 1.9rem);
+  color: var(--blue-900);
+  font-weight: 700;
+  line-height: 1.05;
+}
+
+.text {
+  color: var(--grey-700);
+  font-size: 1rem;
+  line-height: 1.85;
+  max-width: 65ch;
+}
+
+@media (max-width: 900px) {
+  .container {
+    padding: 1.6rem 1.5rem;
+    border-radius: 12px;
+  }
+
+  .text {
+    font-size: 0.98rem;
+    line-height: 1.75;
+  }
+}

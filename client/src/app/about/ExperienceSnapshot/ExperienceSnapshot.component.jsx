@@ -5,17 +5,17 @@ import Card from "@/app/Components/Card/Card.component";
 const experience = [
   {
     title: "Web Design & Development",
-    text: "4+ years of hands-on development experience",
+    text: "4+ years of hands-on website design and development experience, from responsive business websites to custom digital experiences.",
     icon: <FaCode className="primaryIcon" />,
   },
   {
     title: "Full-Stack Development",
-    text: "Experience building full-stack applications from scratch",
+    text: "Experience building full-stack applications from scratch using modern front-end and back-end technologies.",
     icon: <FaCubes className="primaryIcon" />,
   },
   {
     title: "UX/UI & Platforms",
-    text: "Worked on platforms, marketing sites, and UX-focused redesigns",
+    text: "Worked on platforms, marketing sites and redesigns with a focus on usability, structure and intuitive user experiences.",
     icon: <FaPalette className="primaryIcon" />,
   },
 ];

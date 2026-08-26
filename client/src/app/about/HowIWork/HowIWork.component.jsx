@@ -16,6 +16,11 @@ const HowIWork = () => {
         redesign, the goal is always to create something that performs well and
         delivers real value.
       </p>
+      <p className={styles.paragraph}>
+        Combining UX/UI design with full-stack development means design
+        decisions can be made with usability, performance and technical
+        feasibility in mind from the beginning.
+      </p>
     </section>
   );
 };

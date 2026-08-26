@@ -14,12 +14,13 @@ const HeroImage = () => {
           <p className={styles.eyebrow}>Design · Develop · Deliver</p>
 
           <h1 className={styles.title}>
-            Designing and building fast, user-focused{" "}
-            <span>websites.</span>
+            Designing and building fast, user-focused <span>websites.</span>
           </h1>
 
           <p className={styles.subtitle}>
-            Halifax-based web designer and developer creating custom websites and scalable web applications for businesses in Nova Scotia and across Canada.
+            Freelance web designer and web developer based in Halifax, Nova
+            Scotia, creating custom websites and scalable web applications for
+            businesses across Canada.
           </p>
 
           <div className={styles.buttonGroup}>

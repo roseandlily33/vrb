@@ -6,6 +6,7 @@ import ProcessStepsMobile from "./ProcessStepsMobile";
 import Expect from "./Expect/Expect.component";
 import Tools from "./Tools/Tools.component";
 import CTA4 from "../Components/CTA/CTA4/CTA4.component";
+import ProcessFaq from "./Faq/ProcessFaq.component";
 import styles from "./page.module.css";
 
 const ProcessInner = () => {
@@ -50,6 +51,7 @@ const ProcessInner = () => {
         </div>
       </section>
       <Expect />
+      <ProcessFaq />
       <Tools />
       <CTA4 />
     </>

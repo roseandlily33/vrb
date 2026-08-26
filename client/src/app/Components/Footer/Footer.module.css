@@ -1,105 +1,336 @@
-.footer {
+.footerReveal {
+  position: relative;
   width: 100%;
-  padding-top: 3rem;
-
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(12px) saturate(1.1);
-
-  border-top: 1px solid rgba(0, 84, 201, 0.08);
+  background: #ffffff;
 }
 
-/* MAIN LAYOUT */
-.footerInner {
-  /* max-width: 1100px; */
-  margin: 0 auto;
-  padding: 0 3rem 2.5rem;
-
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 3rem;
-  align-items: start;
+/* creates the scroll distance for the reveal */
+.revealScene {
+  position: relative;
+  min-height: 760px;
 }
 
-/* BRAND / LEFT */
-.brand {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start; /* ← fixes centering issue */
-  gap: 0.8rem;
-  max-width: 360px;
-}
+/* ----------------------------------
+   IMAGE UNDER THE FOOTER
+----------------------------------- */
 
-/* LOGO WRAP */
-.logoWrap {
-  display: inline-block;
-  line-height: 0;
-}
+.revealImageWrap {
+  position: sticky;
+  bottom: 0;
 
-/* LOGO */
-.logo {
-  height: 92px; /* ↓ scaled down from 148px */
-  width: auto;
-  object-fit: contain;
-  display: block;
-}
-
-/* TEXT */
-.tagline {
-  font-size: 0.95rem;
-  color: var(--grey-600);
-  line-height: 1.6;
-}
-
-.availability {
-  font-size: 0.85rem;
-  color: var(--blue-700);
-  font-weight: 600;
-}
-
-/* RIGHT SIDE */
-.footerRight {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end; /* ← aligns everything cleanly */
-  gap: 1.5rem;
-}
-
-/* NAV LINKS */
-.linksSection {
-  display: flex;
-  gap: 1.6rem;
-  flex-wrap: wrap;
-  justify-content: flex-end;
-}
-
-.footerLink {
-  font-size: 0.92rem;
-  font-weight: 600;
-  color: var(--blue-900);
-  text-decoration: none;
-  transition: color 0.18s ease;
-}
-
-.footerLink:hover {
-  color: var(--blue-700);
-}
-
-/* SOCIALS */
-.socials {
-  display: flex;
-  gap: 0.8rem;
-}
-
-.socials a {
-  width: 34px;
-  height: 34px;
+  width: 100%;
+  height: 460px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border-radius: 999px;
+  overflow: hidden;
+
+  background: var(--blue-900);
+
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition:
+    opacity 360ms var(--transition-normal),
+    transform 360ms var(--transition-normal);
+}
+
+.revealImage {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.revealOverlay {
+  position: absolute;
+  inset: 0;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0, 30, 70, 0.08),
+    rgba(0, 30, 70, 0.7)
+  );
+
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 360ms var(--transition-normal);
+}
+
+/* ----------------------------------
+   TEXT OVER IMAGE
+----------------------------------- */
+
+.revealContent {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: 1rem;
+
+  padding: 2rem;
+
+  text-align: center;
+
+  color: #ffffff;
+  transform: translateY(18px);
+  opacity: 0;
+  transition:
+    transform 320ms var(--transition-normal),
+    opacity 320ms var(--transition-normal);
+}
+
+.revealVisible {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* Scene-level active state to reveal image/overlay/content together */
+.revealActive .revealImageWrap {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+.revealActive .revealOverlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.revealActive .revealContent {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.revealEyebrow {
+  font-size: 0.8rem;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  color: var(--yellow-400);
+}
+
+.revealContent h2 {
+  margin: 0;
+
+  max-width: 720px;
+
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  line-height: 0.95;
+
+  letter-spacing: -0.05em;
+}
+
+.revealContent h2 span {
+  color: var(--yellow-400);
+}
+
+.revealButton {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 0.75rem;
+
+  min-height: 46px;
+
+  padding: 0 1.4rem;
+
+  border-radius: 10px;
+
+  background: #ffffff;
+
+  color: var(--blue-900);
+
+  font-weight: 700;
+  font-size: 0.95rem;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.revealButton::after {
+  content: "";
+
+  position: absolute;
+
+  width: 100%;
+  height: 100%;
+
+  left: 6px;
+  top: 6px;
+
+  border-radius: 7px;
+
+  background: var(--yellow-400);
+
+  z-index: -1;
+}
+
+.revealButton:hover {
+  transform: translate(-2px, -2px);
+}
+
+/* ----------------------------------
+   FOOTER
+----------------------------------- */
+
+.footer {
+  position: relative;
+  z-index: 20;
+
+  width: 100%;
+
+  padding-top: 3rem;
+
+  background: rgba(255, 255, 255, 0.97);
+
+  backdrop-filter: blur(12px) saturate(1.1);
+  -webkit-backdrop-filter: blur(12px) saturate(1.1);
+
+  border-top: 1px solid rgba(0, 84, 201, 0.08);
+
+  box-shadow: 0 -18px 50px rgba(15, 35, 65, 0.08);
+}
+
+/* MAIN LAYOUT */
+
+.footerInner {
+  margin: 0 auto;
+
+  padding: 0 3rem 2.5rem;
+
+  display: grid;
+
+  grid-template-columns: 1fr auto;
+
+  gap: 3rem;
+
+  align-items: start;
+}
+
+/* BRAND */
+
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 0.8rem;
+
+  max-width: 360px;
+}
+
+.logoWrap {
+  display: inline-block;
+  line-height: 0;
+}
+
+.logo {
+  height: 92px;
+  width: auto;
+
+  object-fit: contain;
+
+  display: block;
+}
+
+.tagline {
+  font-size: 0.95rem;
+
+  color: var(--grey-600);
+
+  line-height: 1.6;
+}
+
+.availability {
+  font-size: 0.85rem;
+
+  color: var(--blue-700);
+
+  font-weight: 600;
+}
+
+/* RIGHT */
+
+.footerRight {
+  display: flex;
+  flex-direction: column;
+
+  align-items: flex-end;
+
+  gap: 1.5rem;
+}
+
+.linksSection {
+  display: flex;
+
+  gap: 1.6rem;
+
+  flex-wrap: wrap;
+
+  justify-content: flex-end;
+}
+
+.footerLink {
+  position: relative;
+
+  font-size: 0.92rem;
+  font-weight: 600;
+
+  color: var(--blue-900);
+
+  text-decoration: none;
+
+  transition:
+    color 0.18s ease,
+    transform 0.18s ease;
+}
+
+.footerLink:hover {
+  color: var(--blue-700);
+
+  transform: translateY(-1px);
+}
+
+/* SOCIALS */
+
+.socials {
+  display: flex;
+
+  gap: 0.8rem;
+}
+
+.socials a {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 10px;
+
   background: var(--blue-50);
+
   color: var(--blue-700);
 
   font-size: 0.9rem;
@@ -112,18 +343,25 @@
 
 .socials a:hover {
   transform: translateY(-2px);
+
   background: var(--blue-700);
+
   color: #ffffff;
 }
 
-/* PORTFOLIO LINK */
 .portfolioLink {
   font-size: 0.88rem;
+
   font-weight: 600;
+
   color: var(--blue-700);
+
   text-decoration: none;
+
   border-bottom: 1px solid rgba(27, 137, 226, 0.3);
+
   padding-bottom: 2px;
+
   transition: border-color 0.18s ease;
 }
 
@@ -132,24 +370,45 @@
 }
 
 /* BOTTOM BAR */
+
 .bottomBar {
   width: 100%;
+
   padding: 1rem 3rem;
 
   font-size: 0.78rem;
+
   color: var(--grey-500);
 
   border-top: 1px solid rgba(0, 0, 0, 0.05);
 
   display: flex;
-  justify-content: flex-start; /* ← no more centered feel */
+
+  justify-content: flex-start;
 }
 
 /* MOBILE */
+
 @media (max-width: 900px) {
+  .revealScene {
+    min-height: 660px;
+  }
+
+  .revealImageWrap {
+    height: 380px;
+  }
+
+  .revealContent h2 {
+    max-width: 520px;
+
+    font-size: clamp(2.4rem, 9vw, 4.5rem);
+  }
+
   .footerInner {
     grid-template-columns: 1fr;
+
     gap: 2rem;
+
     padding: 0 1.5rem 2rem;
   }
 
@@ -162,10 +421,28 @@
   }
 
   .logo {
-    height: 72px; /* slightly smaller on mobile */
+    height: 72px;
   }
 
   .bottomBar {
     padding: 1rem 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .revealScene {
+    min-height: 600px;
+  }
+
+  .revealImageWrap {
+    height: 340px;
+  }
+
+  .revealContent {
+    padding: 1.5rem;
+  }
+
+  .revealContent h2 {
+    font-size: clamp(2.2rem, 11vw, 3.5rem);
   }
 }

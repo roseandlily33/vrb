@@ -5,21 +5,21 @@ import { FaCode, FaPalette, FaCogs } from "react-icons/fa";
 export default function Services() {
   const services = [
     {
-      title: "Web Development",
+      title: "Custom Web Development",
       description:
-        "Custom, responsive websites and web applications built with clean code, strong structure, and long-term scalability in mind.",
+        "Custom websites and web applications built with modern technologies for performance, scalability and long-term use.",
       icon: <FaCode className="primaryIcon" />,
     },
     {
-      title: "UI/UX Design",
+      title: "Website Design",
       description:
-        "Thoughtful interface and user experience design centred on clarity, usability, accessibility, and real users.",
+        "Responsive, user-focused websites designed around your brand, audience and business goals.",
       icon: <FaPalette className="primaryIcon" />,
     },
     {
-      title: "Custom Functionality",
+      title: "UX/UI Design",
       description:
-        "Custom website functionality beyond a standard build, from integrations and forms to dashboards and user-focused tools.",
+        "Interface and user experience design focused on clear navigation, intuitive interactions and accessible digital experiences.",
       icon: <FaCogs className="primaryIcon" />,
     },
   ];
@@ -28,6 +28,13 @@ export default function Services() {
       <div className={styles.servicesHeader}>
         {/* <p className="eyebrowHeader">Services</p> */}
         <h2>Services I offer</h2>
+        <p>
+          I provide freelance web design and development services for businesses
+          in Halifax, Nova Scotia, and across Canada. Projects range from
+          responsive business websites and UX/UI design to custom web
+          applications, platform development, website redesigns and ongoing
+          website maintenance.
+        </p>
         <p>
           From polished websites to custom functionality, I help turn ideas into
           clean, usable digital experiences.
