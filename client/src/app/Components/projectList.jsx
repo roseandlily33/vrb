@@ -7,6 +7,7 @@ export const projects = [
     image: "/YodaSafetyServices/Pages/Home.png",
     link: "/case-study/yoda-safety-services",
     badge: "Web App",
+    pkgs: ['retainer', ]
   },
   {
     name: "Inspection Pal",

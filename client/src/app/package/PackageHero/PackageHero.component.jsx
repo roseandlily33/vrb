@@ -37,6 +37,12 @@ const contentMap = {
     description:
       "Strategic social media manage services designed to build your online presence, strengthen your brand, and connect with your audience.",
   },
+  seo: {
+    eyebrow: "SEO Services for Businesses Across Canada",
+    title: "Improve your visibility. Strengthen your site. Get found.",
+    description:
+      " Strategic SEO services focused on improving how your website is found, understood, and experienced across traditional and AI-powered search.",
+  },
 };
 
 export default function PackageHero({ type = "web" }) {
@@ -47,7 +53,7 @@ export default function PackageHero({ type = "web" }) {
     <section className={styles.packagesHero}>
       <div style={{ padding: "0 var(--section-lg)" }}>
         <Breadcrumbs
-          current="Packages"
+          current={type + (type !== "seo" ? " Packages" : "")}
           first="Services"
           firstLink="/services"
         />

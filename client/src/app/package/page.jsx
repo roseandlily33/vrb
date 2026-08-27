@@ -1,7 +1,7 @@
 import React from "react";
 import PackageHero from "./PackageHero/PackageHero.component";
 import Packages from "./Packages/Packages.component";
-import Hero from "../Components/Hero/Hero.component";
+import SEOSection from "./SeoPackage/seo.component";
 
 export async function generateMetadata({ searchParams }) {
   const resolvedSearchParams = await searchParams;
@@ -19,9 +19,9 @@ export async function generateMetadata({ searchParams }) {
         "Website maintenance services for businesses needing ongoing updates, support, optimization, troubleshooting, and reliable website care.",
     },
     seo: {
-      title: "SEO Packages | VRB SEO Services",
+      title: "SEO Packages | VRB Web Design & Development",
       description:
-        "SEO packages including technical audits, content strategy, and ongoing optimization to grow organic traffic.",
+        "SEO services Canada for businesses looking to improve their organic visibility, technical SEO, content strategy, and performance optimizations.",
     },
     design: {
       title: "Website Design Packages | VRB Web Design & Development",
@@ -64,7 +64,7 @@ const PackagesPage = async ({ searchParams }) => {
   return (
     <main>
       <PackageHero type={type} />
-      <Packages type={type} />
+      {type !== "seo" ? <Packages type={type} /> : <SEOSection />}
     </main>
   );
 };

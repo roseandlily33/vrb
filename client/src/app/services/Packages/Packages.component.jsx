@@ -1,6 +1,6 @@
 import Link from "next/link";
 import styles from "./Packages.module.css";
-import { FaCode, FaPalette, FaSyncAlt, FaPlus } from "react-icons/fa";
+import { FaCode, FaPalette, FaSyncAlt, FaPlus, FaSearch } from "react-icons/fa";
 
 const packageGroups = [
   {
@@ -29,6 +29,15 @@ const packageGroups = [
       "Social media management, content creation, and marketing support to grow your online presence.",
     meta: "Social Media Essentials · Marketing Strategy · Content Creation",
     href: "/package?type=marketing",
+  },
+  {
+    icon: FaSearch,
+    eyebrow: "Search Optimization",
+    title: "SEO Packages",
+    description:
+      "Technical SEO, content strategy, audits, and performance optimizations to help your site rank and convert.",
+    meta: "Technical SEO · Content Strategy · Site Audits",
+    href: "/package?type=seo",
   },
   {
     icon: FaSyncAlt,

@@ -29,6 +29,15 @@ const Navbar = () => {
     { label: "Anchor Marine", href: "/case-study/anchor-marine" },
   ];
 
+  const packageTypes = [
+    { key: "retainer", label: "Website Maintenance" },
+    { key: "web", label: "Custom Websites" },
+    { key: "seo", label: "SEO" },
+    { key: "design", label: "Web Design" },
+    { key: "marketing", label: "Social Media Marketing" },
+    { key: "extras", label: "Extras & Add Ons" },
+  ];
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.logoContainer}>
@@ -48,7 +57,34 @@ const Navbar = () => {
       </button>
       <div className={`${styles.links} ${open ? styles.open : ""}`}>
         {navLinks.map((link) =>
-          link.label === "Contact" ? (
+          link.label === "Services" ? (
+            <div key="services" className={styles.navItem}>
+              <Link
+                href={link.href}
+                className={
+                  styles.navLink + (pathname === link.href ? " " + styles.active : "")
+                }
+                onClick={() => setOpen(false)}
+                aria-current={pathname === link.href ? "page" : undefined}
+              >
+                {link.label}
+              </Link>
+
+              <div className={styles.servicesDropdown} role="menu" aria-label="Service packages">
+                {packageTypes.map((p) => (
+                  <Link
+                    href={`/package?type=${p.key}`}
+                    key={p.key}
+                    className={styles.serviceLink}
+                    onClick={() => setOpen(false)}
+                    role="menuitem"
+                  >
+                    {p.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          ) : link.label === "Contact" ? (
             <Link
               href={link.href}
               key={link.label}

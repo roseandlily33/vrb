@@ -152,6 +152,59 @@
     transform 0.18s ease;
 }
 
+/* ----------------------------------
+   SERVICES DROPDOWN
+----------------------------------- */
+
+.navItem {
+  position: relative;
+}
+
+.servicesDropdown {
+  position: absolute;
+  left: 50%;
+  top: calc(100% + 8px);
+  transform: translateX(-50%) translateY(6px);
+  min-width: 220px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 0.6rem;
+
+  background: #ffffff;
+  border: 1px solid rgba(0, 84, 201, 0.08);
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(15, 35, 65, 0.09);
+
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 160ms ease,
+    transform 180ms ease;
+  z-index: 140;
+}
+
+.navItem:hover .servicesDropdown,
+.navItem:focus-within .servicesDropdown {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: auto;
+}
+
+.serviceLink {
+  padding: 0.5rem 0.75rem;
+  color: var(--blue-900);
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.serviceLink:hover,
+.serviceLink:focus {
+  background: var(--blue-50);
+  color: var(--blue-800);
+}
+
 .navLink:hover,
 .navLink:focus {
   color: var(--blue-700);
@@ -463,6 +516,26 @@
     border-radius: 12px;
 
     font-size: 1rem;
+  }
+
+  /* Make the services dropdown part of the stacked mobile menu */
+  .servicesDropdown {
+    position: static;
+    transform: none;
+    opacity: 1;
+    pointer-events: auto;
+    padding-left: 0.25rem;
+    padding-right: 0.25rem;
+    margin-top: 0.25rem;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  .serviceLink {
+    padding: 0.6rem 0.8rem;
+    border-radius: 8px;
+    color: var(--blue-700);
   }
 
   .navLink::after {

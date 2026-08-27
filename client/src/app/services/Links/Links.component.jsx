@@ -6,9 +6,11 @@ import styles from "./Links.module.css";
 const sections = [
   { label: "Packages", path: "/package?type=web" },
   { label: "Design", path: "/package?type=design" },
-  { label: "Process", path: "/process" },
+  // { label: "Process", path: "/process" },
   { label: "Retainers", path: "/package?type=retainer" },
   { label: "Extras", path: "/package?type=extras" },
+  { label: "SEO", path: "/package?type=seo" },
+  { label: "Marketing", path: "/package?type=marketing" },
 ];
 
 export default function Links({ onSectionClick }) {
