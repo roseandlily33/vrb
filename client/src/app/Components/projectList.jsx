@@ -7,7 +7,7 @@ export const projects = [
     image: "/YodaSafetyServices/Pages/Home.png",
     link: "/case-study/yoda-safety-services",
     badge: "Web App",
-    pkgs: ['retainer', ]
+    pkgs: ["retainer", "web", "seo", "design", "extras"],
   },
   {
     name: "Inspection Pal",
@@ -17,6 +17,7 @@ export const projects = [
     image: "/InspectionPal/Home.png",
     link: "/case-study/inspection-pal",
     badge: "Front-End Design & Dev",
+    pkgs: ["web", "design"],
   },
 
   {
@@ -27,6 +28,7 @@ export const projects = [
     image: "/Assuage/AssuageHome.png",
     link: "/case-study/assuage",
     badge: "Design & Social Media",
+    pkgs: ["design", "marketing"],
   },
   // {
   //   name: "Harbour Health Collective",
@@ -44,15 +46,17 @@ export const projects = [
     image: "/NewLine/NewLineInvoice.png",
     link: "/case-study/newline",
     badge: "Brand Materials",
+    pkgs: ['extras'],
   },
   {
     name: "Anchor Marine & Mechanical",
     description:
-       "Set of print & business materials, including business cards, signs, invoices & quotes.",
+      "Set of print & business materials, including business cards, signs, invoices & quotes.",
     tech: ["Design"],
     image: "/Anchor/AnchorInvoice.png",
     link: "/case-study/anchor-marine",
     badge: "Brand Materials",
+    pkgs: ['extras'],
   },
   {
     name: "Ariel Boesener Performance Horses",
@@ -62,6 +66,7 @@ export const projects = [
     image: "/ArielPerformance/Home.png",
     link: "/case-study/ariel-performance-horses",
     badge: "UX/UI Design",
+    pkgs: ["design"],
   },
   {
     name: "VRB Web Design and Development",
@@ -71,5 +76,6 @@ export const projects = [
     image: "/VRB/VrbHome.png",
     link: "/case-study/vrb-web",
     badge: "Front-End Design & Dev",
+    pkgs: ["web", "design", "seo", "marketing", "retainer"],
   },
 ];

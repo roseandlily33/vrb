@@ -2,6 +2,10 @@ import React from "react";
 import PackageHero from "./PackageHero/PackageHero.component";
 import Packages from "./Packages/Packages.component";
 import SEOSection from "./SeoPackage/seo.component";
+import CTA5 from "../Components/CTA/CTA5/CTA5.component";
+import TinyFaq from "../Components/TinyFaq/TinyFaq.component";
+import WhatCanBeAdded from "../Components/WhatCanBeAdded/WhatCanBeAdded.component";
+import RelatedProjects from "../Components/RelatedProjects/RelatedProjects.component";
 
 export async function generateMetadata({ searchParams }) {
   const resolvedSearchParams = await searchParams;
@@ -65,6 +69,10 @@ const PackagesPage = async ({ searchParams }) => {
     <main>
       <PackageHero type={type} />
       {type !== "seo" ? <Packages type={type} /> : <SEOSection />}
+      {type !== "extras" && <WhatCanBeAdded type={type} />}
+      <RelatedProjects pkg={type} />
+      {type !== "seo" && <TinyFaq type={type} />}
+      <CTA5 />
     </main>
   );
 };

@@ -1,6 +1,7 @@
 .breadcrumbs {
   font-size: var(--space-m);
   padding: 3rem 6rem 0 0rem;
+  text-transform: capitalize;
   /* border: 2px solid red; */
 }
 .link {

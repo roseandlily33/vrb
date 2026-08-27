@@ -5,7 +5,7 @@ import DoYouNeedSeo from "./DoYouNeedSeo/DoYouNeedSeo.component";
 import MySEOProcess from "./MySEOProcess/MySeoProcess.component";
 import AISeo from "./AISEO/AISeo.component";
 import WhatYouReceive from './WhatYouRecieve/WhatYouRecieve.component';
-import CTA from '../../Components/CTA/CTA.component'
+// import CTA from '../../Components/CTA/CTA.component'
 
 const SEOSection = () => {
   return (
@@ -17,7 +17,7 @@ const SEOSection = () => {
       <AISeo />
       <WhatYouReceive />
       <FAQSeo />
-      <CTA />
+      {/* <CTA /> */}
     </>
   );
 };
