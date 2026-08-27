@@ -1,6 +1,5 @@
 /* Local styles for MySeoProcess (SEO package) */
 .processSection {
-  width: 100%;
   padding: var(--section-lg);
   display: flex;
   flex-direction: column;

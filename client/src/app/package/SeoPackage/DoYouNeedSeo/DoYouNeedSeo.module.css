@@ -1,7 +1,6 @@
 .container {
-  max-width: 840px;
   margin: 0 auto;
-  padding: 2rem 2.5rem;
+  padding: var(--section-lg);
   background: var(--background-three);
   border-radius: 12px;
   box-shadow: 0 8px 30px rgba(6, 36, 80, 0.04);
