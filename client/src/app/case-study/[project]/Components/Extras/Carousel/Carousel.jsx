@@ -21,13 +21,11 @@ const Carousel = ({ slides }) => {
         <div className={styles.carouselTrack}>
           {/* Previous Slide */}
           {total > 1 && (
-            <div
-              className={styles.slideSide}
-              style={{ left: 0 }}
+            <button
+              type="button"
+              className={`${styles.slideSide} ${styles.slideSideLeft}`}
               onClick={prev}
               aria-label="Previous slide"
-              role="button"
-              tabIndex={0}
             >
               <Image
                 src={slides[getIdx(current - 1)]?.url}
@@ -40,36 +38,44 @@ const Carousel = ({ slides }) => {
                 width={200}
                 height={200}
               />
-            </div>
+            </button>
           )}
+
           {/* Center/Main Slide */}
           <div className={styles.slideCenter}>
-            <Image
-              src={slides[current]?.url}
-              alt={
-                slides[current]?.desc ||
-                slides[current]?.description ||
-                `Slide ${current + 1}`
-              }
-              className={styles.slideImageCenter}
-              style={{ cursor: "zoom-in" }}
+            <button
+              type="button"
+              className={styles.mainImageButton}
               onClick={() => setFullscreen(true)}
-              width={400}
-              height={400}
-            />
+              aria-label={`Expand slide ${current + 1}`}
+            >
+              <Image
+                src={slides[current]?.url}
+                alt={
+                  slides[current]?.desc ||
+                  slides[current]?.description ||
+                  `Slide ${current + 1}`
+                }
+                className={styles.slideImageCenter}
+                width={400}
+                height={400}
+              />
+
+              <span className={styles.imagePixel} aria-hidden="true" />
+            </button>
+
             <div className={styles.slideDesc}>
               {slides[current]?.desc || slides[current]?.description}
             </div>
           </div>
+
           {/* Next Slide */}
           {total > 1 && (
-            <div
-              className={styles.slideSide}
-              style={{ right: 0 }}
+            <button
+              type="button"
+              className={`${styles.slideSide} ${styles.slideSideRight}`}
               onClick={next}
               aria-label="Next slide"
-              role="button"
-              tabIndex={0}
             >
               <Image
                 src={slides[getIdx(current + 1)]?.url}
@@ -82,70 +88,88 @@ const Carousel = ({ slides }) => {
                 width={200}
                 height={200}
               />
-            </div>
+            </button>
           )}
         </div>
+
         <div className={styles.carouselNav}>
           <button
+            type="button"
             className={styles.carouselButton}
             onClick={prev}
             aria-label="Previous slide"
           >
-            &#8592;
+            ←
           </button>
-          {slides.map((_, idx) => (
-            <span
-              key={idx}
-              className={
-                idx === current
-                  ? `${styles.carouselDot} ${styles.active}`
-                  : styles.carouselDot
-              }
-              onClick={() => goTo(idx)}
-              aria-label={`Go to slide ${idx + 1}`}
-              role="button"
-              tabIndex={0}
-            />
-          ))}
+
+          <div className={styles.dots} aria-label="Choose slide">
+            {slides.map((_, idx) => (
+              <button
+                key={idx}
+                type="button"
+                className={
+                  idx === current
+                    ? `${styles.carouselDot} ${styles.active}`
+                    : styles.carouselDot
+                }
+                onClick={() => goTo(idx)}
+                aria-label={`Go to slide ${idx + 1}`}
+                aria-current={idx === current ? "true" : undefined}
+              />
+            ))}
+          </div>
+
           <button
+            type="button"
             className={styles.carouselButton}
             onClick={next}
             aria-label="Next slide"
           >
-            &#8594;
+            →
           </button>
         </div>
       </div>
+
       {fullscreen && (
         <div
           className={styles.fullscreenOverlay}
           onClick={() => setFullscreen(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Slide ${current + 1} fullscreen view`}
         >
           <div
             className={styles.fullscreenContent}
             onClick={(e) => e.stopPropagation()}
           >
             <button
+              type="button"
               className={styles.fullscreenClose}
               onClick={() => setFullscreen(false)}
               aria-label="Close fullscreen"
             >
-              &times;
+              ×
             </button>
-            <Image
-              src={slides[current]?.url}
-              alt={
-                slides[current]?.desc ||
-                slides[current]?.description ||
-                `Slide ${current + 1}`
-              }
-              className={styles.fullscreenImage}
-              width={800}
-              height={600}
-            />
-            <div className={styles.fullscreenDesc}>
-              {slides[current]?.desc || slides[current]?.description}
+
+            <div className={styles.fullscreenImageWrap}>
+              <Image
+                src={slides[current]?.url}
+                alt={
+                  slides[current]?.desc ||
+                  slides[current]?.description ||
+                  `Slide ${current + 1}`
+                }
+                className={styles.fullscreenImage}
+                width={800}
+                height={600}
+              />
             </div>
+
+            {(slides[current]?.desc || slides[current]?.description) && (
+              <div className={styles.fullscreenDesc}>
+                {slides[current]?.desc || slides[current]?.description}
+              </div>
+            )}
           </div>
         </div>
       )}

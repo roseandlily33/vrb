@@ -1,6 +1,13 @@
 import Card from "@/app/Components/Card/Card.component";
 import styles from "./Services.module.css";
-import { FaCode, FaPalette, FaCogs } from "react-icons/fa";
+import {
+  FaCode,
+  FaPalette,
+  FaCogs,
+  FaSearch,
+  FaTools,
+  FaPlug,
+} from "react-icons/fa";
 
 export default function Services() {
   const services = [
@@ -22,35 +29,75 @@ export default function Services() {
         "Interface and user experience design focused on clear navigation, intuitive interactions and accessible digital experiences.",
       icon: <FaCogs className="primaryIcon" />,
     },
+    {
+      title: "SEO Services",
+      description:
+        "Technical and on-page SEO focused on improving site structure, search visibility, performance and long-term discoverability.",
+      icon: <FaSearch className="primaryIcon" />,
+    },
+    {
+      title: "Website Maintenance",
+      description:
+        "Ongoing website support, updates, troubleshooting and improvements to keep your site reliable, secure and performing well.",
+      icon: <FaTools className="primaryIcon" />,
+    },
+    {
+      title: "Custom Functionality",
+      description:
+        "Custom features, integrations and workflows designed around the specific needs of your website or digital platform.",
+      icon: <FaPlug className="primaryIcon" />,
+    },
   ];
   return (
     <section className={styles.servicesSection}>
-      <div className={styles.servicesHeader}>
-        {/* <p className="eyebrowHeader">Services</p> */}
-        <h2>Services I offer</h2>
-        <p>
-          I provide freelance web design and development services for businesses
-          in Halifax, Nova Scotia, and across Canada. Projects range from
-          responsive business websites and UX/UI design to custom web
-          applications, platform development, website redesigns and ongoing
-          website maintenance.
-        </p>
-        <p>
-          From polished websites to custom functionality, I help turn ideas into
-          clean, usable digital experiences.
-        </p>
-      </div>
+      <div className={styles.servicesInner}>
+        <div className={styles.servicesHeader}>
+          <div className={styles.headerLabel}>
+            <span className={styles.headerNumber}>#01</span>
+            <span className={styles.headerLine}></span>
+          </div>
 
-      <div className={styles.servicesGrid}>
-        {services.map((service) => (
-          <Card
-            key={service.title}
-            icon={service.icon}
-            title={service.title}
-            description={service.description}
-            learnMoreLink="/services"
-          />
-        ))}
+          <div className={styles.headerContent}>
+            <h2>Services I offer</h2>
+
+            <p>
+              I provide freelance web design and development services for
+              businesses in Halifax, Nova Scotia, and across Canada. Projects
+              range from responsive business websites and UX/UI design to custom
+              web applications, platform development, website redesigns and
+              ongoing website maintenance.
+            </p>
+
+            <p>
+              From polished websites to custom functionality, I help turn ideas
+              into clean, usable digital experiences.
+            </p>
+          </div>
+
+          <div className={styles.headerPixels} aria-hidden="true">
+            <span className={`${styles.pixel} ${styles.pixelOne}`} />
+            <span className={`${styles.pixel} ${styles.pixelTwo}`} />
+            <span className={`${styles.pixel} ${styles.pixelThree}`} />
+            <span className={`${styles.pixelOutline} ${styles.pixelFour}`} />
+          </div>
+        </div>
+
+        <div className={styles.servicesGrid}>
+          {services.map((service, index) => (
+            <div className={styles.serviceItem} key={service.title}>
+              <span className={styles.serviceNumber}>
+                {String(index + 1).padStart(2, "0")}
+              </span>
+
+              <Card
+                icon={service.icon}
+                title={service.title}
+                description={service.description}
+                learnMoreLink="/services"
+              />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -1,100 +1,321 @@
 .testimonialSection {
+  position: relative;
   width: 100%;
+  overflow: hidden;
+
   padding: var(--section-xl);
-  background: var(--background-two);
+
+  background:
+    radial-gradient(
+      circle at 85% 18%,
+      rgba(105, 185, 242, 0.09),
+      transparent 24%
+    ),
+    var(--white);
 }
+
+.testimonialInner {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+/* ----------------------------------
+   Section marker
+----------------------------------- */
+
+.testimonialMarker {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  margin-bottom: 2rem;
+}
+
+.markerNumber {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+
+  color: var(--blue-700);
+}
+
+.markerLine {
+  width: 48px;
+  height: 3px;
+
+  background: var(--yellow-500);
+}
+
+/* ----------------------------------
+   Main testimonial layout
+----------------------------------- */
 
 .testimonialCard {
-  max-width: 980px;
-  margin: 0 auto;
-  padding: clamp(2rem, 5vw, 4rem);
-  border-radius: 32px;
-  background: #ffffff;
-  border: 1px solid #e5eef8;
-  box-shadow: 0 18px 50px rgba(15, 35, 65, 0.07);
-  text-align: center;
   position: relative;
+
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr) 220px;
+  gap: clamp(2rem, 5vw, 5rem);
+
+  align-items: start;
+
+  padding: clamp(3rem, 6vw, 6rem) 0;
+
+  border-top: 1px solid var(--grey-200);
+  border-bottom: 1px solid var(--grey-200);
 }
 
-.testimonialCard::before {
-  content: "“";
-  position: absolute;
-  top: -1.25rem;
-  left: 2rem;
-  font-size: 8rem;
-  line-height: 1;
-  font-weight: 800;
-  color: rgba(27, 137, 226, 0.08);
+/* ----------------------------------
+   Quote mark
+----------------------------------- */
+
+.quoteMark {
+  position: relative;
+
+  margin-top: -1rem;
+
   font-family: Georgia, serif;
+  font-size: clamp(7rem, 12vw, 12rem);
+  line-height: 0.8;
+  font-weight: 700;
+
+  color: var(--blue-100);
+}
+
+/* ----------------------------------
+   Content
+----------------------------------- */
+
+.testimonialContent {
+  max-width: 900px;
 }
 
 .quote {
   position: relative;
-  z-index: 1;
-  margin: 1rem auto 2rem;
-  max-width: 800px;
-  color: var(--grey-800);
-  font-size: clamp(1.15rem, 2vw, 1.55rem);
-  line-height: 1.75;
-  font-weight: 500;
+
+  margin: 1.25rem 0 2.5rem;
+
+  max-width: 880px;
+
+  color: var(--blue-950);
+
+  font-size: clamp(1.45rem, 2.7vw, 2.4rem);
+  line-height: 1.45;
+  letter-spacing: -0.025em;
+  font-weight: 600;
 }
+
+/* ----------------------------------
+   Author
+----------------------------------- */
 
 .author {
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 1.1rem;
+  gap: 1rem;
+}
+
+.author a {
+  text-decoration: none;
 }
 
 .authorImage {
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
+
   object-fit: contain;
-  border-radius: 12px;
-  background: #f7fbff;
-  box-shadow: 0 2px 8px rgba(27, 137, 226, 0.07);
-  margin-right: 0.5rem;
+
+  padding: 0.35rem;
+
+  border: 1px solid var(--grey-200);
+
+  background: var(--blue-50);
 }
 
 .authorName {
   margin: 0;
-  color: var(--grey-900);
+
+  color: var(--blue-950);
+
   font-weight: 800;
+
+  transition: color 180ms ease;
 }
 
 .authorMeta {
   margin: 0.25rem 0 0;
+
   color: var(--grey-500);
-  font-size: 0.95rem;
+
+  font-size: 0.92rem;
 }
+
+.author a:hover .authorName {
+  color: var(--blue-700);
+}
+
+/* ----------------------------------
+   Pixel cluster
+----------------------------------- */
+
+.pixelCluster {
+  position: relative;
+
+  width: 200px;
+  height: 180px;
+
+  justify-self: end;
+  align-self: end;
+}
+
+.pixel,
+.pixelOutline {
+  position: absolute;
+  display: block;
+}
+
+.pixelOne {
+  width: 72px;
+  height: 72px;
+
+  right: 24px;
+  bottom: 18px;
+
+  background: var(--blue-950);
+}
+
+.pixelTwo {
+  width: 44px;
+  height: 44px;
+
+  right: 76px;
+  bottom: 72px;
+
+  background: var(--blue-800);
+}
+
+.pixelThree {
+  width: 23px;
+  height: 23px;
+
+  right: 10px;
+  bottom: 92px;
+
+  background: var(--yellow-500);
+}
+
+.pixelFour {
+  width: 80px;
+  height: 80px;
+
+  right: 0;
+  bottom: 0;
+
+  border: 1px solid var(--blue-500);
+}
+
+/* ----------------------------------
+   Tablet
+----------------------------------- */
+
+@media (max-width: 1100px) {
+  .testimonialSection {
+    padding: var(--section-lg);
+  }
+
+  .testimonialCard {
+    grid-template-columns: 110px minmax(0, 1fr);
+  }
+
+  .pixelCluster {
+    display: none;
+  }
+
+  .quoteMark {
+    font-size: 8rem;
+  }
+}
+
+/* ----------------------------------
+   Smaller tablet
+----------------------------------- */
+
+@media (max-width: 800px) {
+  .testimonialCard {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+
+    padding: 3rem 0;
+  }
+
+  .quoteMark {
+    height: 70px;
+
+    margin: 0;
+
+    font-size: 7rem;
+  }
+
+  .quote {
+    margin-top: 0.75rem;
+  }
+}
+
+/* ----------------------------------
+   Mobile
+----------------------------------- */
 
 @media (max-width: 700px) {
   .testimonialSection {
     padding: var(--section-lg);
   }
 
-  .testimonialCard {
-    border-radius: 24px;
-    text-align: left;
+  .testimonialMarker {
+    margin-bottom: 1.5rem;
   }
 
-  .testimonialCard::before {
-    left: 1rem;
+  .testimonialCard {
+    padding: 2.5rem 0;
+  }
+
+  .quoteMark {
+    height: 58px;
+
     font-size: 6rem;
   }
 
   .quote {
-    font-size: 1.05rem;
-    line-height: 1.7;
+    margin-bottom: 2rem;
+
+    font-size: clamp(1.25rem, 6vw, 1.65rem);
+    line-height: 1.55;
   }
 
   .author {
-    justify-content: flex-start;
-    gap: 0.7rem;
+    align-items: flex-start;
   }
+
   .authorImage {
-    width: 36px;
-    height: 36px;
-    border-radius: 8px;
+    width: 46px;
+    height: 46px;
+  }
+
+  .authorMeta {
+    font-size: 0.85rem;
+  }
+}
+
+/* ----------------------------------
+   Very small mobile
+----------------------------------- */
+
+@media (max-width: 430px) {
+  .testimonialSection {
+    padding-inline: 1.25rem;
+  }
+
+  .quote {
+    font-size: 1.2rem;
   }
 }

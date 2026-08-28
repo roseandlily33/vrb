@@ -11,13 +11,13 @@
   background: none;
   border: 1px solid #ddd;
   padding: 6px 10px;
-  border-radius: 6px;
+  /* border-radius: 6px; */
   cursor: pointer;
 }
 .card {
   background: #fff;
   padding: 16px;
-  border-radius: 8px;
+  /* border-radius: 8px; */
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
   max-width: 900px;
 }
@@ -38,7 +38,7 @@
   color: #fff;
   border: none;
   padding: 8px 12px;
-  border-radius: 6px;
+  /* border-radius: 6px; */
   cursor: pointer;
 }
 .btnDanger {
@@ -46,14 +46,14 @@
   color: #fff;
   border: none;
   padding: 8px 12px;
-  border-radius: 6px;
+  /* border-radius: 6px; */
   cursor: pointer;
 }
 .error {
   background: #ffe8e8;
   color: #a71d2a;
   padding: 8px;
-  border-radius: 6px;
+  /* border-radius: 6px; */
   margin: 12px 0;
 }
 .history {
@@ -63,7 +63,7 @@
 .historyItem {
   background: #fafafa;
   padding: 10px;
-  border-radius: 6px;
+  /* border-radius: 6px; */
   margin-bottom: 8px;
   border: 1px solid #eee;
 }
@@ -72,7 +72,7 @@
   color: #333;
   background: #fff;
   padding: 8px;
-  border-radius: 6px;
+  /* border-radius: 6px; */
   overflow: auto;
   max-height: 220px;
 }

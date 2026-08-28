@@ -31,29 +31,47 @@ const EXPECT_LIST = [
 export default function Expect() {
   return (
     <section className={styles.expectSection}>
-      <div className={styles.expectHeader}>
-        <p className="eyebrowHeader">Project Standards</p>
-        <h2 className={styles.heading}>What you can expect at every stage</h2>
-        <p className={styles.intro}>
-          A clear, collaborative website design process that keeps your project
-          moving smoothly from the first idea to final launch.
-        </p>
+      <div className={styles.expectInner}>
+        <div className={styles.expectHeader}>
+          <div className={styles.sectionMarker} aria-hidden="true">
+            <span className={styles.markerLine} />
+            <span className={styles.markerPixel} />
+          </div>
+
+          <p className={styles.eyebrow}>Project Standards</p>
+
+          <h2 className={styles.heading}>
+            What you can expect
+            <br />
+            <span>at every stage.</span>
+          </h2>
+
+          <p className={styles.intro}>
+            A clear, collaborative website design process that keeps your
+            project moving smoothly from the first idea to final launch.
+          </p>
+        </div>
+
+        <ul className={styles.expectList}>
+          {EXPECT_LIST.map((item, index) => (
+            <li className={styles.expectItem} key={item.title}>
+              <div className={styles.itemTop}>
+                <span className={styles.itemNumber}>
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+
+                <span className={styles.itemPixel} aria-hidden="true" />
+              </div>
+
+              <div className={styles.itemContent}>
+                <h3 className={styles.itemTitle}>{item.title}</h3>
+
+                <p className={styles.itemDescription}>{item.description}</p>
+              </div>
+            </li>
+          ))}
+        </ul>
       </div>
-
-      <ul className={styles.expectList}>
-        {EXPECT_LIST.map((item, index) => (
-          <li className={styles.expectItem} key={item.title}>
-            <span className={styles.itemNumber}>
-              {String(index + 1).padStart(2, "0")}
-            </span>
-
-            <div className={styles.itemContent}>
-              <strong className={styles.itemTitle}>{item.title}</strong>
-              <p className={styles.itemDescription}>{item.description}</p>
-            </div>
-          </li>
-        ))}
-      </ul>
     </section>
   );
 }

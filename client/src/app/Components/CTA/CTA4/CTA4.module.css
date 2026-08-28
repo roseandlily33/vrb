@@ -1,76 +1,291 @@
 .ctaSection {
+  position: relative;
   width: 100%;
+  overflow: hidden;
+
   padding: var(--section-xl);
-  background: #ffffff;
-  border-top: 1px solid rgba(0, 0, 0, 0.06);
+
+  background: var(--white);
 }
 
 .ctaWrapper {
-  /* max-width: 1100px; */
+  position: relative;
+
+  width: 100%;
+  max-width: 1500px;
+
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 3rem;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.72fr);
+
+  border-top: 1px solid var(--grey-200);
+  border-bottom: 1px solid var(--grey-200);
 }
 
+/* ----------------------------------
+   Left
+----------------------------------- */
+
 .ctaLeft {
-  max-width: 520px;
+  padding: clamp(3rem, 6vw, 6rem) clamp(2rem, 6vw, 6rem) clamp(3rem, 6vw, 6rem)
+    0;
+}
+
+.ctaLeft :global(.eyebrowHeader) {
+  color: var(--blue-700);
 }
 
 .ctaLeft h2 {
-  margin: 0.5rem 0 1rem;
-  font-size: clamp(2rem, 4vw, 2.6rem);
+  max-width: 700px;
+
+  margin: 1rem 0 1.4rem;
+
+  color: var(--blue-950);
+
+  font-size: clamp(2.8rem, 5.3vw, 5rem);
   font-weight: 800;
-  letter-spacing: -0.04em;
-  color: var(--grey-900);
+
+  line-height: 0.98;
+  letter-spacing: -0.055em;
 }
 
-.ctaLeft p {
-  color: var(--grey-600);
-  line-height: 1.7;
+.ctaLeft > p:last-child {
+  max-width: 620px;
+
+  margin: 0;
+
+  color: var(--grey-700);
+
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  line-height: 1.8;
 }
+
+/* ----------------------------------
+   Right panel
+----------------------------------- */
 
 .ctaRight {
+  position: relative;
+
+  min-height: 100%;
+
+  padding: clamp(3rem, 5vw, 5rem);
+
+  display: flex;
+  align-items: center;
+
+  background: var(--blue-50);
+
+  border-left: 1px solid var(--blue-100);
+
+  overflow: hidden;
+}
+
+.ctaActions {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+
   gap: 1rem;
 }
 
-
-/* GHOST BUTTON */
-.ctaGhost {
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: var(--blue-700);
-  text-decoration: none;
-
-  border-bottom: 1px solid rgba(27, 137, 226, 0.4);
-  padding-bottom: 2px;
-
-  transition: all 0.18s ease;
+.ctaActions > button {
+  min-width: 210px;
 }
 
-.ctaGhost:hover {
-  border-color: var(--blue-700);
-}
+/* ----------------------------------
+   Booking note
+----------------------------------- */
 
-/* NOTE */
 .ctaNote {
-  font-size: 0.85rem;
-  color: var(--grey-500);
+  display: flex;
+  align-items: center;
+
+  gap: 0.7rem;
+
+  margin-top: 0.75rem;
+
+  color: var(--blue-900);
+
+  font-size: 0.82rem;
+  font-weight: 700;
 }
 
-/* MOBILE */
-@media (max-width: 800px) {
+.notePixel {
+  width: 8px;
+  height: 8px;
+
+  flex-shrink: 0;
+
+  background: var(--yellow-500);
+}
+
+/* ----------------------------------
+   Pixel detail
+----------------------------------- */
+
+.pixelDetail {
+  position: absolute;
+
+  right: -30px;
+  bottom: -30px;
+
+  width: 220px;
+  height: 220px;
+
+  pointer-events: none;
+}
+
+.pixel,
+.pixelOutline {
+  position: absolute;
+  display: block;
+}
+
+.pixelOne {
+  width: 96px;
+  height: 96px;
+
+  right: 34px;
+  bottom: 34px;
+
+  background: var(--blue-800);
+}
+
+.pixelTwo {
+  width: 54px;
+  height: 54px;
+
+  right: 112px;
+  bottom: 112px;
+
+  background: var(--blue-500);
+}
+
+.pixelThree {
+  width: 22px;
+  height: 22px;
+
+  right: 80px;
+  bottom: 138px;
+
+  background: var(--yellow-500);
+}
+
+.pixelFour {
+  width: 82px;
+  height: 82px;
+
+  right: 0;
+  bottom: 0;
+
+  border: 1px solid var(--blue-500);
+}
+
+/* ----------------------------------
+   Tablet
+----------------------------------- */
+
+@media (max-width: 950px) {
+  .ctaSection {
+    padding: var(--section-lg);
+  }
+
   .ctaWrapper {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 2rem;
+    grid-template-columns: 1fr;
+  }
+
+  .ctaLeft {
+    padding: 3rem 0;
   }
 
   .ctaRight {
+    border-left: 0;
+    border-top: 1px solid var(--blue-100);
+
+    padding: 3rem;
+  }
+}
+
+/* ----------------------------------
+   Mobile
+----------------------------------- */
+
+@media (max-width: 700px) {
+  .ctaSection {
+    padding: var(--section-lg);
+  }
+
+  .ctaLeft h2 {
+    font-size: clamp(2.5rem, 11vw, 3.7rem);
+  }
+
+  .ctaLeft > p:last-child {
+    font-size: 1rem;
+  }
+
+  .ctaRight {
+    padding: 2rem;
+  }
+
+  .ctaActions {
+    align-items: stretch;
+  }
+
+  .ctaActions > * {
     width: 100%;
+  }
+
+  .pixelDetail {
+    width: 150px;
+    height: 150px;
+
+    opacity: 0.8;
+  }
+
+  .pixelOne {
+    width: 66px;
+    height: 66px;
+  }
+
+  .pixelTwo {
+    width: 38px;
+    height: 38px;
+
+    right: 84px;
+    bottom: 84px;
+  }
+
+  .pixelThree {
+    width: 16px;
+    height: 16px;
+
+    right: 58px;
+    bottom: 106px;
+  }
+
+  .pixelFour {
+    width: 58px;
+    height: 58px;
+  }
+}
+
+@media (max-width: 430px) {
+  .ctaSection {
+    padding-inline: 1.25rem;
+  }
+
+  .ctaLeft h2 {
+    font-size: clamp(2.35rem, 12vw, 3.2rem);
+  }
+
+  .ctaRight {
+    padding: 1.5rem;
   }
 }

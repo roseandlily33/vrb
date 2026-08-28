@@ -1,16 +1,58 @@
 .heroCentered {
   position: relative;
+
   isolation: isolate;
+
   overflow: hidden;
+
   width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  /* padding: var(--section-lg); */
-  /* border: 2px solid red; */
+
+  margin: 0;
+
+  padding: var(--section-lg);
 
   display: flex;
   flex-direction: column;
-  
+
+  background:
+    radial-gradient(
+      circle at 82% 28%,
+      rgba(27, 138, 228, 0.07),
+      transparent 28%
+    ),
+    linear-gradient(
+      180deg,
+      var(--white) 0%,
+      var(--blue-50) 100%
+    );
+}
+
+/* ----------------------------------
+   Background grid
+----------------------------------- */
+
+.heroCentered::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: -2;
+
+  background-image:
+    linear-gradient(
+      rgba(0, 84, 201, 0.018) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 84, 201, 0.018) 1px,
+      transparent 1px
+    );
+
+  background-size: 46px 46px;
+
+  pointer-events: none;
 }
 
 /* ----------------------------------
@@ -19,20 +61,23 @@
 
 .heroWatermark {
   position: absolute;
+
   z-index: -1;
 
-  width: clamp(320px, 42vw, 600px);
-  height: clamp(320px, 42vw, 600px);
+  width: clamp(360px, 38vw, 590px);
+  height: clamp(360px, 38vw, 590px);
 
-  right: clamp(-100px, -5vw, -40px);
+  right: clamp(2rem, 6vw, 7rem);
   top: 50%;
-  transform: translateY(-58%);
+
+  transform: translateY(-52%);
 
   object-fit: contain;
 
-  opacity: 0.35;
+  opacity: 0.11;
 
   pointer-events: none;
+
   user-select: none;
 }
 
@@ -42,63 +87,95 @@
 
 .heroIntro {
   position: relative;
+
   z-index: 1;
 
-  /* min-height: 430px; */
+  width: 100%;
+  max-width: 1500px;
+
+  margin: 0 auto;
+
+  min-height: 560px;
 
   display: flex;
-  align-items: center;
 
-  /* padding: var(--space-xxxl) 0; */
+  align-items: center;
 }
 
 .heroContent {
-  width: min(720px, 68%);
+  width: min(760px, 62%);
 
   display: flex;
   flex-direction: column;
+
   align-items: flex-start;
 }
 
+/* ----------------------------------
+   Eyebrow
+----------------------------------- */
+
 .eyebrow {
   display: block;
-  margin-bottom: var(--space-l);
+
   margin-top: var(--space-xxl);
-  font-family: var(--font-body);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  margin-bottom: var(--space-l);
 
   color: var(--blue-700);
+
+  font-family: var(--font-body);
+
+  font-size: 0.7rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.14em;
+
+  text-transform: uppercase;
 }
 
+/* ----------------------------------
+   Hero title
+----------------------------------- */
+
 .heroTitleCentered {
-  margin: 0;
   max-width: 13ch;
 
-  font-family: var(--font-heading);
-  font-size: clamp(3rem, 5.5vw, 5.3rem);
-  font-weight: 800;
-  line-height: 0.98;
-  letter-spacing: -0.055em;
-  margin-bottom: var(--space-xl);
+  margin: 0 0 var(--space-xl);
+
   color: var(--blue-950);
+
+  font-family: var(--font-heading);
+
+  font-size: clamp(3.2rem, 6vw, 5.8rem);
+
+  font-weight: 800;
+
+  line-height: 0.96;
+
+  letter-spacing: -0.06em;
 }
 
 .highlighted {
   color: var(--blue-700);
 }
 
+/* ----------------------------------
+   Description
+----------------------------------- */
+
 .heroDescription {
   max-width: 620px;
-  margin: var(--space-xl) 0 0;
 
-  font-family: var(--font-body);
-  font-size: clamp(1rem, 1.35vw, 1.15rem);
-  line-height: var(--leading-loose);
+  margin: 0;
 
   color: var(--grey-600);
+
+  font-family: var(--font-body);
+
+  font-size: clamp(1rem, 1.35vw, 1.15rem);
+
+  line-height: var(--leading-loose);
 }
 
 /* ----------------------------------
@@ -107,23 +184,32 @@
 
 .heroActions {
   display: flex;
+
   flex-wrap: wrap;
+
   align-items: center;
+
   gap: var(--space-m);
 
-  margin-block: var(--space-xl);
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-xl);
 }
 
 .primaryAction,
 .secondaryAction {
   display: inline-flex;
+
   align-items: center;
   justify-content: center;
+
   gap: var(--space-xs);
 
   font-family: var(--font-body);
+
   font-size: 0.86rem;
+
   font-weight: 700;
+
   text-decoration: none;
 
   transition:
@@ -134,18 +220,24 @@
 }
 
 .primaryAction {
-  padding: 0.75rem 1.2rem;
+  min-height: 46px;
 
-  border: 1px solid var(--blue-800);
-  border-radius: var(--radius-pill);
+  padding: 0 1.3rem;
 
-  background: var(--blue-800);
+  border: 1px solid var(--blue-950);
+
+  background: var(--blue-950);
+
   color: var(--white);
 }
 
 .primaryAction:hover {
-  background: var(--blue-900);
-  border-color: var(--blue-900);
+  background: var(--yellow-500);
+
+  border-color: var(--yellow-500);
+
+  color: var(--blue-950);
+
   transform: translateY(-2px);
 }
 
@@ -161,6 +253,7 @@
   content: "";
 
   position: absolute;
+
   left: 0.2rem;
   right: 0.2rem;
   bottom: 0.4rem;
@@ -170,6 +263,7 @@
   background: var(--blue-700);
 
   transform: scaleX(0);
+
   transform-origin: left;
 
   transition: transform var(--transition-fast);
@@ -177,6 +271,7 @@
 
 .secondaryAction:hover {
   color: var(--blue-950);
+
   transform: translateY(-1px);
 }
 
@@ -187,6 +282,7 @@
 .primaryAction svg,
 .secondaryAction svg {
   flex-shrink: 0;
+
   font-size: 1rem;
 
   transition: transform var(--transition-fast);
@@ -203,29 +299,38 @@
 
 .metaBand {
   position: relative;
+
   z-index: 1;
 
   width: 100%;
+  max-width: 1500px;
+
+  margin: 0 auto;
 
   display: grid;
+
   grid-template-columns: repeat(4, minmax(0, 1fr));
 
-  border-top: var(--border-medium);
-  border-bottom: var(--border-medium);
+  border-top: 1px solid var(--blue-200);
+  border-bottom: 1px solid var(--blue-200);
 }
 
 .metaItem {
   min-width: 0;
-  min-height: 105px;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: var(--space-xs);
+  min-height: 105px;
 
   padding: var(--space-l);
 
-  border-right: var(--border-light);
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  gap: var(--space-xs);
+
+  border-right: 1px solid var(--blue-200);
 }
 
 .metaItem:first-child {
@@ -237,39 +342,46 @@
 }
 
 .metaLabel {
-  font-family: var(--font-body);
-  font-size: 0.66rem;
-  font-weight: 700;
-  line-height: 1;
-  letter-spacing: 0.11em;
-  text-transform: uppercase;
-
   color: var(--grey-400);
+
+  font-family: var(--font-body);
+
+  font-size: 0.66rem;
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  letter-spacing: 0.11em;
+
+  text-transform: uppercase;
 }
 
 .metaValue {
-  font-family: var(--font-heading);
-  font-size: clamp(1rem, 1.6vw, 1.25rem);
-  font-weight: 600;
-  line-height: 1.35;
-  letter-spacing: -0.02em;
-
   color: var(--blue-950);
+
+  font-family: var(--font-heading);
+
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+
+  font-weight: 650;
+
+  line-height: 1.35;
+
+  letter-spacing: -0.02em;
 
   word-break: break-word;
 }
-
-/* Gives status a subtle brand accent */
 
 .metaItem:nth-child(2) .metaValue {
   color: var(--blue-700);
 }
 
-/* Role can sometimes be quite long */
-
 .metaItem:last-child .metaValue {
   max-width: 22ch;
+
   font-size: clamp(0.95rem, 1.35vw, 1.12rem);
+
   line-height: 1.45;
 }
 
@@ -279,64 +391,73 @@
 
 .heroNote {
   position: relative;
+
   z-index: 1;
 
-  display: grid;
-  grid-template-columns: 90px minmax(0, 1fr);
-  gap: var(--space-xl);
+  width: 100%;
+  max-width: 1500px;
 
-  margin-top: var(--space-xl);
+  margin: var(--space-xl) auto 0;
+
   padding: var(--space-l) 0;
 
-  border-bottom: var(--border-light);
+  display: grid;
+
+  grid-template-columns: 90px minmax(0, 1fr);
+
+  gap: var(--space-xl);
+
+  border-bottom: 1px solid var(--blue-200);
 }
 
 .noteLabel {
-  font-family: var(--font-body);
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.11em;
-  text-transform: uppercase;
-
   color: var(--blue-700);
+
+  font-family: var(--font-body);
+
+  font-size: 0.68rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.11em;
+
+  text-transform: uppercase;
 }
 
 .heroNote p {
   max-width: 750px;
+
   margin: 0;
 
-  font-family: var(--font-body);
-  font-size: 0.88rem;
-  line-height: var(--leading-loose);
-
   color: var(--grey-500);
+
+  font-family: var(--font-body);
+
+  font-size: 0.88rem;
+
+  line-height: var(--leading-loose);
 }
 
 /* ----------------------------------
    Tablet
 ----------------------------------- */
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
   .heroWatermark {
-    width: 440px;
-    height: 440px;
+    width: 430px;
+    height: 430px;
 
-    right: -120px;
+    right: 2rem;
 
-    opacity: 0.045;
+    opacity: 0.07;
   }
 
   .heroIntro {
-    min-height: 390px;
-    padding: var(--space-xxl) 0;
+    min-height: 500px;
   }
 
   .heroContent {
-    width: 72%;
-  }
-
-  .heroTitleCentered {
-    max-width: 14ch;
+    width: 68%;
   }
 
   .metaBand {
@@ -344,7 +465,7 @@
   }
 
   .metaItem {
-    border-bottom: var(--border-light);
+    border-bottom: 1px solid var(--blue-200);
   }
 
   .metaItem:nth-child(2n) {
@@ -365,50 +486,53 @@
    Mobile
 ----------------------------------- */
 
-@media (max-width: 650px) {
+@media (max-width: 700px) {
   .heroCentered {
-    padding: var(--section-sm);
-  }
-
-  .heroWatermark {
-    width: 340px;
-    height: 340px;
-
-    top: 31%;
-    right: -150px;
-
-    transform: translateY(-50%);
-
-    opacity: 0.04;
+    padding: var(--section-lg) 1.25rem;
   }
 
   .heroIntro {
     min-height: 0;
-    padding: var(--space-xxl) 0;
+
+    padding: var(--space-xl) 0 var(--space-xxl);
   }
 
   .heroContent {
     width: 100%;
   }
 
+  .heroWatermark {
+    width: 310px;
+    height: 310px;
+
+    top: 34%;
+    right: -25px;
+
+    transform: translateY(-50%);
+
+    opacity: 0.045;
+  }
+
   .eyebrow {
+    margin-top: var(--space-xl);
     margin-bottom: var(--space-m);
   }
 
   .heroTitleCentered {
     max-width: none;
 
-    font-size: clamp(2.6rem, 13vw, 4rem);
-    line-height: 1;
+    font-size: clamp(2.7rem, 13vw, 4.2rem);
+
+    line-height: 0.98;
   }
 
   .heroDescription {
-    max-width: 90%;
-    margin-top: var(--space-l);
+    max-width: 92%;
   }
 
   .heroActions {
     gap: var(--space-s);
+
     margin-top: var(--space-l);
   }
 
@@ -416,8 +540,6 @@
   .secondaryAction {
     font-size: 0.82rem;
   }
-
-  /* Meta band */
 
   .metaBand {
     grid-template-columns: 1fr;
@@ -430,11 +552,12 @@
     padding: var(--space-m) 0;
 
     border-right: 0;
-    border-bottom: var(--border-light);
+
+    border-bottom: 1px solid var(--blue-200);
   }
 
   .metaItem:nth-child(3) {
-    border-bottom: var(--border-light);
+    border-bottom: 1px solid var(--blue-200);
   }
 
   .metaItem:last-child {
@@ -447,13 +570,13 @@
 
   .metaItem:last-child .metaValue {
     max-width: 100%;
+
     font-size: 1rem;
   }
 
-  /* Note */
-
   .heroNote {
     grid-template-columns: 1fr;
+
     gap: var(--space-xs);
 
     margin-top: var(--space-l);

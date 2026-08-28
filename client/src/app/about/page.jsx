@@ -24,11 +24,8 @@ export default function About() {
         subText="Based in Halifax, Nova Scotia, I provide freelance web design and development for businesses across Canada, creating thoughtful, high-performing digital experiences built around real users."
       />
       <AboutMe />
-      <div className={styles.sideBySide}>
-        <HowIWork />
-        <div className={styles.sideBySideDivider} />
-        <FocusOn />
-      </div>
+      <HowIWork />
+      <FocusOn />
       <ExperienceSnapshot />
       <WhyMe />
       <ToolsTechnologies />

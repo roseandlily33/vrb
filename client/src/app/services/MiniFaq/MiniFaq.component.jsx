@@ -27,22 +27,46 @@ const faq = [
 export default function MiniFaq() {
   return (
     <section className={styles.faqSection}>
-      <h2 className="heading">Frequently asked questions</h2>
-      <p className="meta">
-        A few quick answers to common questions about timelines, process, and
-        what to expect.
-      </p>
+      <div className={styles.faqInner}>
+        <div className={styles.faqHeader}>
+          <div className={styles.headerMarker} aria-hidden="true">
+            <span className={styles.markerLine} />
+            <span className={styles.markerPixel} />
+          </div>
 
-      <ul className={styles.faqList}>
-        {faq.map((item, idx) => (
-          <li key={idx} className={styles.faqItem}>
-            <div className={styles.question}>
-              {item.q}
-            </div>
-            <div className={styles.answer}>{item.a}</div>
-          </li>
-        ))}
-      </ul>
+          <h2>Frequently asked questions</h2>
+
+          <p className={styles.meta}>
+            A few quick answers to common questions about timelines, process,
+            and what to expect.
+          </p>
+        </div>
+
+        <div className={styles.faqList}>
+          {faq.map((item, idx) => (
+            <details className={styles.faqItem} key={idx}>
+              <summary className={styles.question}>
+                <span className={styles.number}>
+                  #{String(idx + 1).padStart(2, "0")}
+                </span>
+
+                <span className={styles.questionText}>{item.q}</span>
+
+                <span className={styles.plus} aria-hidden="true">
+                  <span />
+                  <span />
+                </span>
+              </summary>
+
+              <div className={styles.answerWrap}>
+                <div className={styles.answerGrid}>
+                  <div className={styles.answer}>{item.a}</div>
+                </div>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
     </section>
   );
 }

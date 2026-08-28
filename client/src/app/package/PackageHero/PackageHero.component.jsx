@@ -50,20 +50,22 @@ export default function PackageHero({ type = "web" }) {
   const { eyebrow, title, description } = contentMap[key];
 
   return (
-    <section className={styles.packagesHero}>
-      <div style={{ padding: "0 var(--section-lg)" }}>
-        <Breadcrumbs
-          current={type + (type !== "seo" ? " Packages" : "")}
-          first="Services"
-          firstLink="/services"
-        />
-      </div>
+  <section className={styles.packagesHero}>
+  <div style={{ padding: "0 var(--section-lg)" }}>
+    <Breadcrumbs
+      current={type + (type !== "seo" ? " Packages" : "")}
+      first="Services"
+      firstLink="/services"
+    />
+  </div>
 
-      <div className={styles.packagesHeroContent}>
-        <span className={styles.eyebrow}>{eyebrow}</span>
-        <h1>{title}</h1>
-        <p>{description}</p>
-      </div>
-    </section>
+  <div className={styles.packagesHeroContent}>
+    <span className={styles.eyebrow}>{eyebrow}</span>
+
+    <h1>{title}</h1>
+
+    <p>{description}</p>
+  </div>
+</section>
   );
 }

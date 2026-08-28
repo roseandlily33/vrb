@@ -44,28 +44,37 @@ const companies = [
 export default function TrustedBy() {
   return (
     <section className={styles.trustedSection}>
-      {/* <p className="eyebrowHeader" style={{ marginBottom: "0.5rem" }}>
-        Trusted by
-      </p> */}
-      {/* <h3 className="heading"> Companies and teams I’ve worked with</h3> */}
-      <h3 className="heading">Trusted By</h3>
-      <div className={styles.logoRow}>
-        {companies?.map((company) => (
-          <div key={company.name} className={styles.logoCol}>
-            <Link href={company.href} className={styles.logoLink}>
-              <Image
-                src={company.img}
-                alt={company.alt}
-                className={styles.logoImg}
-                width={200}
-                height={100}
-              />
-            </Link>
-            <div className={styles.companyName}>
-              {company.name.replace(/([A-Z])/g, " $1").trim()}
-            </div>
+      <div className={styles.trustedInner}>
+        <div className={styles.trustedHeader}>
+          <div className={styles.headerMarker} aria-hidden="true">
+            <span className={styles.markerLine} />
+            <span className={styles.markerPixel} />
           </div>
-        ))}
+
+          <h3 className={styles.heading}>Trusted By</h3>
+        </div>
+
+        <div className={styles.logoRow}>
+          {companies?.map((company) => (
+            <div key={company.name} className={styles.logoCol}>
+              <Link href={company.href} className={styles.logoLink}>
+                <Image
+                  src={company.img}
+                  alt={company.alt}
+                  className={styles.logoImg}
+                  width={200}
+                  height={100}
+                />
+
+                <span className={styles.logoHoverPixel} aria-hidden="true" />
+              </Link>
+
+              <div className={styles.companyName}>
+                {company.name.replace(/([A-Z])/g, " $1").trim()}
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

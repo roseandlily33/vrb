@@ -9,32 +9,54 @@ export default function CTA5() {
   const router = useRouter();
 
   return (
-    <section className={styles.ctaSection}>
-      <div className={styles.wrapper}>
-        <div className={styles.left}>
-          <h3 className={styles.heading}>
-            Can’t find what you’re looking for?
-          </h3>
-          <p className={styles.copy}>
-            Get in touch and I can help you out — I’ll recommend the best
-            package or a tailored plan to match your goals.
-          </p>
-        </div>
+   <section className={styles.ctaSection}>
+  <div className={styles.ctaInner}>
+    <div className={styles.ctaContent}>
+      <span className="eyebrowHeader">Let&apos;s find the right fit</span>
 
-        <div className={styles.right}>
-          <CTAButton onClick={() => router.push("/contact")}>
-            Get in touch
-            <FiArrowRight
-              style={{ marginLeft: 8, verticalAlign: "middle" }}
-              aria-hidden="true"
-            />
-          </CTAButton>
+      <h3 className={styles.ctaHeading}>
+        Can’t find what you’re looking for?
+      </h3>
 
-          <span className={styles.note}>
-            Prefer email? I usually reply within 1–2 business days.
-          </span>
-        </div>
+      <p className={styles.ctaSubtext}>
+        Get in touch and I can help you out — I’ll recommend the best package
+        or a tailored plan to match your goals.
+      </p>
+
+      <div className={styles.ctaButtons}>
+        <CTAButton onClick={() => router.push("/contact")}>
+          Get in touch
+          <FiArrowRight
+            style={{
+              marginLeft: 8,
+              verticalAlign: "middle",
+            }}
+            aria-hidden="true"
+          />
+        </CTAButton>
       </div>
-    </section>
+
+      <p className={styles.ctaNote}>
+        Prefer email? I usually reply within 1–2 business days.
+      </p>
+    </div>
+
+    <div className={styles.ctaVisual} aria-hidden="true">
+      <span className={`${styles.pixel} ${styles.pixelOne}`} />
+      <span className={`${styles.pixel} ${styles.pixelTwo}`} />
+      <span className={`${styles.pixel} ${styles.pixelThree}`} />
+      <span className={`${styles.pixel} ${styles.pixelFour}`} />
+      <span className={`${styles.pixel} ${styles.pixelFive}`} />
+
+      <span
+        className={`${styles.pixelOutline} ${styles.outlineOne}`}
+      />
+
+      <span
+        className={`${styles.pixelOutline} ${styles.outlineTwo}`}
+      />
+    </div>
+  </div>
+</section>
   );
 }

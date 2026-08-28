@@ -1,26 +1,261 @@
 .howIWorkSection {
-  padding:  var(--section-xs);
-  width: 50%;
+  width: 100%;
+
+  padding: var(--section-xl) 3rem;
+
+  background: var(--blue-950);
+}
+
+.howIWorkInner {
+  width: 100%;
+  max-width: 1500px;
+
+  margin: 0 auto;
+}
+
+/* ----------------------------------
+   Header
+----------------------------------- */
+
+.sectionHeader {
+  width: 100%;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 2rem;
+
+  margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.eyebrow {
+  margin: 0 0 0.8rem;
+
+  color: var(--yellow-500);
+
+  font-size: 0.78rem;
+  font-weight: 800;
+
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+}
+
+.sectionHeader h3 {
+  margin: 0;
+
+  color: var(--white);
+
+  font-size: clamp(2.8rem, 5vw, 5rem);
+  font-weight: 800;
+
+  line-height: 0.95;
+  letter-spacing: -0.055em;
+}
+
+.headerDetail {
+  display: flex;
+  align-items: center;
+
+  gap: 0.65rem;
+
+  padding-bottom: 0.5rem;
+}
+
+.headerLine {
+  width: clamp(60px, 8vw, 120px);
+  height: 1px;
+
+  background: rgba(167, 216, 250, 0.4);
+}
+
+.headerPixel {
+  width: 9px;
+  height: 9px;
+
+  background: var(--yellow-500);
+}
+
+/* ----------------------------------
+   Grid
+----------------------------------- */
+
+.approachGrid {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+/* ----------------------------------
+   Item
+----------------------------------- */
+
+.approachItem {
+  position: relative;
+
+  min-width: 0;
+  min-height: 310px;
+
+  padding: clamp(1.75rem, 3vw, 2.75rem);
+
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  /* border: 2px solid red; */
+
+  transition: background 180ms ease;
 }
 
-.howIWorkSection h3 {
-  color: var(--blue-900);
-  margin-bottom: var(--space-l);
+.approachItem + .approachItem {
+  border-left: 1px solid rgba(255, 255, 255, 0.16);
 }
 
-.paragraph {
-  max-width: 80%;
+.approachItem:hover {
+  background: rgba(255, 255, 255, 0.035);
 }
 
-@media (max-width: 900px) {
+/* yellow accent at bottom */
+
+.approachItem::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -1px;
+
+  width: 0;
+  height: 3px;
+
+  background: var(--yellow-500);
+
+  transition: width 220ms ease;
+}
+
+.approachItem:hover::after {
+  width: 55px;
+}
+
+/* ----------------------------------
+   Top detail
+----------------------------------- */
+
+.itemTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.approachNumber {
+  color: var(--blue-400);
+
+  font-size: 0.72rem;
+  font-weight: 800;
+
+  letter-spacing: 0.14em;
+}
+
+.itemPixel {
+  width: 7px;
+  height: 7px;
+
+  background: var(--yellow-500);
+}
+
+/* ----------------------------------
+   Content
+----------------------------------- */
+
+.approachItem h4 {
+  max-width: 300px;
+
+  margin: 0 0 1rem;
+
+  color: var(--white);
+
+  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  font-weight: 800;
+
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+}
+
+.approachItem p {
+  max-width: 42ch;
+
+  margin: 0;
+
+  color: var(--blue-200);
+
+  font-size: 0.96rem;
+  line-height: 1.7;
+}
+
+/* ----------------------------------
+   Tablet
+----------------------------------- */
+
+@media (max-width: 950px) {
   .howIWorkSection {
-    width: 100%;
+    padding: var(--section-lg) 2rem;
   }
-  .paragraph {
-    max-width: 80%;
+
+  .approachGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .approachItem {
+    min-height: 0;
+
+    padding: 2rem 0;
+  }
+
+  .approachItem + .approachItem {
+    border-left: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
+  }
+
+  .itemTop {
+    margin-bottom: 1.75rem;
+  }
+
+  .approachItem p {
+    max-width: 700px;
+  }
+}
+
+/* ----------------------------------
+   Mobile
+----------------------------------- */
+
+@media (max-width: 650px) {
+  .howIWorkSection {
+    padding: var(--section-lg) 1.25rem;
+  }
+
+  .sectionHeader {
+    align-items: flex-start;
+
+    margin-bottom: 2.5rem;
+  }
+
+  .headerDetail {
+    display: none;
+  }
+
+  .sectionHeader h3 {
+    font-size: clamp(2.8rem, 13vw, 4rem);
+  }
+
+  .approachItem {
+    padding: 1.75rem 0;
+  }
+
+  .itemTop {
+    margin-bottom: 1.4rem;
   }
 }

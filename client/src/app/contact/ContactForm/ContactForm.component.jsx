@@ -71,19 +71,14 @@ export default function ContactForm() {
       id="contact"
       name="contact"
       method="POST"
-      // data-netlify="true"
-      // netlify-honeypot="bot-field"
     >
-      {/* Netlify hidden input for form name */}
       <input type="hidden" name="form-name" value="contact" />
-      {/* Honeypot field for bots */}
       <input type="hidden" name="bot-field" />
-      {/* <h1>Let&apos;s work together</h1>
-      <p>
-        I&apos;m currently available for freelance web design and development
-        projects. Get in touch to discuss your goals, timeline, and what you
-        need.
-      </p> */}
+
+      {/* <div className={styles.formHeader}>
+        <span className={styles.formLine} aria-hidden="true" />
+        <span className={styles.formPixel} aria-hidden="true" />
+      </div> */}
 
       <Input
         label="Name"
@@ -94,6 +89,7 @@ export default function ContactForm() {
         required
         icon={<FiUser />}
       />
+
       <Input
         label="Email"
         name="email"
@@ -104,6 +100,7 @@ export default function ContactForm() {
         required
         icon={<FiMail />}
       />
+
       <Textarea
         label="Message"
         name="message"
@@ -113,6 +110,7 @@ export default function ContactForm() {
         required
         icon={<FiMessageCircle />}
       />
+
       <div className={styles.rowFields}>
         <Input
           label="Budget"
@@ -122,6 +120,7 @@ export default function ContactForm() {
           placeholder="Estimated budget (optional)"
           icon={<FiDollarSign />}
         />
+
         <Input
           label="Timeline"
           name="timeline"
@@ -131,52 +130,43 @@ export default function ContactForm() {
           icon={<FiClock />}
         />
       </div>
-      <label
-        htmlFor="service"
-        style={{
-          fontWeight: 600,
-          color: "var(--grey-600)",
-          marginBottom: 4,
-          marginTop: 8,
-        }}
-      >
-        What do you need help with
-      </label>
-      <Select
-        name="service"
-        value={form.service}
-        onChange={handleChange}
-        required
-        icon={<FiHelpCircle />}
-      >
-        <option value="" disabled>
-          What do you need help with?
-        </option>
-        <option value="web">Web Development</option>
-        <option value="uiux">UI/UX Design</option>
-        <option value="performance">Performance</option>
-        <option value="other">Other</option>
-      </Select>
+
+      <div className={styles.selectField}>
+        <label htmlFor="service">What do you need help with</label>
+
+        <Select
+          name="service"
+          value={form.service}
+          onChange={handleChange}
+          required
+          icon={<FiHelpCircle />}
+        >
+          <option value="" disabled>
+            What do you need help with?
+          </option>
+          <option value="web">Web Development</option>
+          <option value="uiux">UI/UX Design</option>
+          <option value="performance">Performance</option>
+          <option value="other">Other</option>
+        </Select>
+      </div>
+
       <div className={styles.buttonDiv}>
         <PrimaryButton type="submit" disabled={submitting}>
-          <span
-            style={{ display: "inline-flex", alignItems: "center", gap: 6 }}
-          >
-            <FiSend style={{ marginRight: 6 }} />
+          <span className={styles.submitContent}>
+            <FiSend />
             {submitting ? "Sending..." : "Send Message"}
           </span>
         </PrimaryButton>
+
         {status && (
           <p
             role="status"
-            style={{
-              marginTop: 12,
-              color: status.startsWith("Thank")
-                ? "var(--green-700)"
-                : "var(--red-700)",
-              fontWeight: 600,
-              minHeight: 24,
-            }}
+            className={`${styles.statusMessage} ${
+              status.startsWith("Thank")
+                ? styles.statusSuccess
+                : styles.statusError
+            }`}
           >
             {status}
           </p>

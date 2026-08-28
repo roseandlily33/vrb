@@ -37,38 +37,34 @@ const HeroImage = () => {
         </div>
 
         <div className={styles.right} aria-hidden="true">
-          <div className={styles.codeCard}>
-            <div className={styles.windowDots}>
-              <span />
-              <span />
-              <span />
-            </div>
+          <div className={styles.pixelScene}>
+            <span className={`${styles.pixel} ${styles.pixel1}`} />
+            <span className={`${styles.pixel} ${styles.pixel2}`} />
+            <span className={`${styles.pixel} ${styles.pixel3}`} />
+            <span className={`${styles.pixel} ${styles.pixel4}`} />
+            <span className={`${styles.pixel} ${styles.pixel5}`} />
+            <span className={`${styles.pixel} ${styles.pixel6}`} />
+            <span className={`${styles.pixel} ${styles.pixel7}`} />
+            <span className={`${styles.pixel} ${styles.pixel8}`} />
+            <span className={`${styles.pixel} ${styles.pixel9}`} />
 
-            <pre className={styles.codeBlock}>
-              <code>
-                {`import React from 'react';
-import { useState } from 'react';
+            <span className={`${styles.pixelOutline} ${styles.outline1}`} />
+            <span className={`${styles.pixelOutline} ${styles.outline2}`} />
+            <span className={`${styles.pixelOutline} ${styles.outline3}`} />
 
-export default function Hero() {
-  const [count, setCount] = useState(0);
-
-  return (
-    <section className="hero">
-      <div className="hero__content">
-        <h1>Building digital products</h1>
-        <p>That users love.</p>
-
-        <button className="btn primary">
-          View My Work
-        </button>
-      </div>
-    </section>
-  );
-}`}
-              </code>
-            </pre>
+            <span className={styles.pixelGlow} />
           </div>
         </div>
+      </div>
+
+      <div className={styles.heroBar}>
+        <span>Design</span>
+        <span className={styles.barPixel} />
+        <span>Development</span>
+        <span className={styles.barPixel} />
+        <span>Strategy</span>
+        <span className={styles.barPixel} />
+        <span>Performance</span>
       </div>
     </section>
   );

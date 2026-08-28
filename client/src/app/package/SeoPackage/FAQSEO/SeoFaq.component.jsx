@@ -58,16 +58,38 @@ const faqQuestions = [
 export default function FaqSeo() {
   return (
     <section className={styles.faqSection}>
-      <h2 className={styles.faqHeading}>FAQ — SEO & AI Search</h2>
+      <div className={styles.faqHeader}>
+        <div className={styles.marker} aria-hidden="true">
+          <span className={styles.markerLine} />
+          <span className={styles.markerPixel} />
+        </div>
+
+        <h2 className={styles.faqHeading}>FAQ — SEO & AI Search</h2>
+      </div>
 
       <div className={styles.faqList}>
-        {faqQuestions.map((item) => (
+        {faqQuestions.map((item, index) => (
           <details className={styles.faqItem} key={item.question}>
             <summary className={styles.faqQuestion}>
-              <span className={styles.faqQuestionText}>{item.question}</span>
+              <span className={styles.faqNumber}>
+                #{String(index + 1).padStart(2, "0")}
+              </span>
+
+              <span className={styles.faqQuestionText}>
+                {item.question}
+              </span>
+
+              <span className={styles.plus} aria-hidden="true">
+                <span />
+                <span />
+              </span>
             </summary>
 
-            <div className={styles.faqAnswer}>{item.answer}</div>
+            <div className={styles.answerWrapper}>
+              <div className={styles.faqAnswer}>
+                {item.answer}
+              </div>
+            </div>
           </details>
         ))}
       </div>

@@ -24,13 +24,23 @@ const ContactInfo = () => {
 
   return (
     <aside className={styles.contactInfoSection}>
-      <div className={styles.mainTitle}>Let&apos;s keep in touch</div>
+      <div className={styles.infoHeader}>
+        <div className={styles.mainTitle}>Let&apos;s keep in touch</div>
+
+        <div className={styles.headerPixels} aria-hidden="true">
+          <span className={styles.headerPixelOne} />
+          <span className={styles.headerPixelTwo} />
+        </div>
+      </div>
+
       <ul className={styles.infoList}>
         {contactDetails.map((item) => (
           <li className={styles.infoItem} key={item.label}>
             <span className={styles.iconWrapper}>{item.icon}</span>
+
             <div className={styles.infoTextBlock}>
               <span className={styles.infoLabel}>{item.label}</span>
+
               {item.link ? (
                 <a
                   href={item.link}
@@ -49,13 +59,13 @@ const ContactInfo = () => {
       </ul>
 
       <div className={styles.infoSection}>
-        <div className={styles.infoSectionTitleRow}>
-          <span className={styles.iconWrapper}>
-            <FiCalendar aria-hidden="true" className={styles.icon} />
-          </span>
-        </div>
+        <span className={styles.iconWrapper}>
+          <FiCalendar aria-hidden="true" className={styles.icon} />
+        </span>
+
         <div className={styles.infoTextBlock}>
           <span className={styles.infoSectionTitle}>Availability</span>
+
           <span className={styles.infoSectionText}>
             Currently booking in 2-4 weeks in advance, depending on the project
             scope and requirements. Please reach out to discuss your project
@@ -63,14 +73,15 @@ const ContactInfo = () => {
           </span>
         </div>
       </div>
+
       <div className={styles.infoSection}>
-        <div className={styles.infoSectionTitleRow}>
-          <span className={styles.iconWrapper}>
-            <FiClock aria-hidden="true" className={styles.icon} />
-          </span>
-        </div>
+        <span className={styles.iconWrapper}>
+          <FiClock aria-hidden="true" className={styles.icon} />
+        </span>
+
         <div className={styles.infoTextBlock}>
           <span className={styles.infoSectionTitle}>Response Time</span>
+
           <span className={styles.infoSectionText}>
             I typically respond to inquiries within 24-48 hours.
           </span>

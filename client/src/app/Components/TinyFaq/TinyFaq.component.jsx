@@ -82,17 +82,40 @@ export default function TinyFaq({ type }) {
   if (!faqs || faqs.length === 0) return null;
 
   return (
-    <section className={styles.wrap} aria-labelledby="tiny-faq-title">
-      <h3 id="tiny-faq-title" className={styles.heading}>Frequently asked</h3>
+   <section className={styles.wrap} aria-labelledby="tiny-faq-title">
+  <div className={styles.header}>
+    <div className={styles.marker} aria-hidden="true">
+      <span className={styles.markerLine} />
+      <span className={styles.markerPixel} />
+    </div>
 
-      <div className={styles.list}>
-        {faqs.map((f) => (
-          <details className={styles.item} key={f.question}>
-            <summary className={styles.question}>{f.question}</summary>
-            <div className={styles.answer}>{f.answer}</div>
-          </details>
-        ))}
-      </div>
-    </section>
+    <h3 id="tiny-faq-title" className={styles.heading}>
+      Frequently asked
+    </h3>
+  </div>
+
+  <div className={styles.list}>
+    {faqs.map((f, index) => (
+      <details className={styles.item} key={f.question}>
+        <summary className={styles.question}>
+          <span className={styles.number}>
+            {String(index + 1).padStart(2, "0")}
+          </span>
+
+          <span className={styles.questionText}>{f.question}</span>
+
+          <span className={styles.plus} aria-hidden="true">
+            <span />
+            <span />
+          </span>
+        </summary>
+
+        <div className={styles.answerWrap}>
+          <div className={styles.answer}>{f.answer}</div>
+        </div>
+      </details>
+    ))}
+  </div>
+</section>
   );
 }

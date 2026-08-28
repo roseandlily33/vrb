@@ -15,21 +15,39 @@ export default function DoYouNeedSeo() {
 
 	return (
 		<section className={styles.container} aria-labelledby="do-you-need-seo">
-			<h2 id="do-you-need-seo" className={styles.title}>
-				SEO services may be a good fit if...
-			</h2>
+  <div className={styles.headingColumn}>
+    <div className={styles.marker} aria-hidden="true">
+      <span className={styles.markerLine} />
+      <span className={styles.markerPixel} />
+    </div>
 
-			<ul className={styles.list}>
-				{bullets.map((b) => (
-					<li key={b} className={styles.item}>
-						<span className={styles.check} aria-hidden>
-							✓
-						</span>
-						<span dangerouslySetInnerHTML={{ __html: b.replace('AI-powered', '<strong>AI-powered</strong>') }} />
-					</li>
-				))}
-			</ul>
-		</section>
+    <h2 id="do-you-need-seo" className={styles.title}>
+      SEO services may be a good fit if...
+    </h2>
+  </div>
+
+  <ul className={styles.list}>
+    {bullets.map((b, index) => (
+      <li key={b} className={styles.item}>
+        <span className={styles.number}>
+          {String(index + 1).padStart(2, "0")}
+        </span>
+
+        <span
+          className={styles.itemText}
+          dangerouslySetInnerHTML={{
+            __html: b.replace(
+              "AI-powered",
+              "<strong>AI-powered</strong>"
+            ),
+          }}
+        />
+
+        <span className={styles.pixel} aria-hidden="true" />
+      </li>
+    ))}
+  </ul>
+</section>
 	);
 }
 

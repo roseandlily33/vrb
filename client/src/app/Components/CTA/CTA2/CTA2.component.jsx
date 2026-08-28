@@ -22,39 +22,59 @@ export default function CTA2() {
     return `Currently booking ${formatter.format(start)}–${formatter.format(end)}`;
   }
   return (
-    <section className={styles.cta2Section}>
-      <div className={styles.cta2Content}>
-        <span className="eyebrowHeader">Let’s Work Together</span>
+<section className={styles.cta2Section}>
+  <div className={styles.cta2Inner}>
+    {/* <div className={styles.cta2Marker} aria-hidden="true"> */}
+      {/* <span className={styles.cta2Number}>02</span>
+      <span className={styles.cta2Line} /> */}
+    {/* </div> */}
 
-        <h2 className={styles.cta2Heading}>
-          Ready to move your project forward?
-        </h2>
+    <div className={styles.cta2Content}>
+      <span className="eyebrowHeader">Let’s Work Together</span>
 
-        <p className={styles.cta2Subtext}>
-          Whether you need a strategic website, a custom build, or a clearer
-          starting point, I can help you shape the right solution.
-        </p>
+      <h2 className={styles.cta2Heading}>
+        Ready to move your project forward?
+      </h2>
 
-        <div className={styles.cta2ButtonRow}>
-          <CTAButton onClick={() => router.push('/work')}>
-            See My Work
-            <FiEye
-              style={{ marginLeft: 8, verticalAlign: "middle" }}
-              aria-hidden="true"
-            />
-          </CTAButton>
+      <p className={styles.cta2Subtext}>
+        Whether you need a strategic website, a custom build, or a clearer
+        starting point, I can help you shape the right solution.
+      </p>
 
-          <SecondaryButton onClick={() => router.push('/contact')}>
-            Contact Me
-            <FiMessageCircle
-              style={{ marginLeft: 8, verticalAlign: "middle" }}
-              aria-hidden="true"
-            />
-          </SecondaryButton>
-        </div>
+      <div className={styles.cta2ButtonRow}>
+        <CTAButton onClick={() => router.push('/work')}>
+          See My Work
+          <FiEye
+            style={{ marginLeft: 8, verticalAlign: "middle" }}
+            aria-hidden="true"
+          />
+        </CTAButton>
 
-        <div className={styles.cta2Booking}>{getBookingWindow()}</div>
+        <SecondaryButton onClick={() => router.push('/contact')}>
+          Contact Me
+          <FiMessageCircle
+            style={{ marginLeft: 8, verticalAlign: "middle" }}
+            aria-hidden="true"
+          />
+        </SecondaryButton>
       </div>
-    </section>
+
+      <div className={styles.cta2Booking}>
+        <span className={styles.bookingPixel} aria-hidden="true" />
+        {getBookingWindow()}
+      </div>
+    </div>
+
+    <div className={styles.cta2Visual} aria-hidden="true">
+      <span className={`${styles.pixel} ${styles.pixelOne}`} />
+      <span className={`${styles.pixel} ${styles.pixelTwo}`} />
+      <span className={`${styles.pixel} ${styles.pixelThree}`} />
+      <span className={`${styles.pixel} ${styles.pixelFour}`} />
+
+      <span className={`${styles.pixelOutline} ${styles.outlineOne}`} />
+      <span className={`${styles.pixelOutline} ${styles.outlineTwo}`} />
+    </div>
+  </div>
+</section>
   );
 }

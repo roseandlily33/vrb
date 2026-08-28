@@ -1,43 +1,171 @@
+.contactForm {
+  position: relative;
+
+  width: 100%;
+  max-width: 780px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 1.35rem;
+
+  padding: clamp(2rem, 4vw, 3rem);
+
+  background: var(--white);
+
+  border: 1px solid var(--blue-100);
+
+  box-shadow: 0 24px 70px rgba(0, 31, 77, 0.07);
+}
+
+/* ----------------------------------
+   Small visual marker
+----------------------------------- */
+
+.formHeader {
+  display: flex;
+  align-items: center;
+
+  gap: 0.6rem;
+
+  margin-bottom: 0.25rem;
+}
+
+/* .formLine {
+  width: 42px;
+  height: 3px;
+
+  background: var(--blue-800);
+} */
+
+.formPixel {
+  width: 8px;
+  height: 8px;
+
+  background: var(--yellow-500);
+}
+
+/* ----------------------------------
+   Two-column fields
+----------------------------------- */
 
 .rowFields {
-  display: flex;
-  flex-direction: row;
-  gap: var(--space-s);
-  /* border: 2px solid orange; */
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 1rem;
 }
 
 .rowFields > * {
-  flex: 1 1 0;
   min-width: 0;
-  max-width: 50%;
 }
 
-@media (max-width: 700px) {
-  .rowFields {
-    flex-direction: column;
-    gap: var(--space-s);
-  }
-  .rowFields > * {
-    max-width: 100%;
-  }
-}
-.contactForm {
-  width: 60%;
-  padding: var(--section-xxs);
+/* ----------------------------------
+   Select
+----------------------------------- */
+
+.selectField {
   display: flex;
   flex-direction: column;
-  gap: var(--space-s);
-  /* border: 2px solid red; */
+
+  gap: 0.45rem;
 }
+
+.selectField label {
+  margin: 0;
+
+  color: var(--grey-700);
+
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+/* ----------------------------------
+   Submit area
+----------------------------------- */
+
 .buttonDiv {
   width: 100%;
+
   display: flex;
-  align-content: center;
-  align-items: center;
   flex-direction: column;
+  align-items: flex-start;
+
+  gap: 0.8rem;
+
+  margin-top: 0.5rem;
 }
+
+.submitContent {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 0.5rem;
+}
+
+.submitContent svg {
+  flex-shrink: 0;
+}
+
+/* ----------------------------------
+   Status
+----------------------------------- */
+
+.statusMessage {
+  min-height: 24px;
+
+  margin: 0;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.statusSuccess {
+  color: var(--green-700);
+}
+
+.statusError {
+  color: var(--red-700);
+}
+
+/* ----------------------------------
+   Tablet
+----------------------------------- */
+
 @media (max-width: 900px) {
   .contactForm {
+    max-width: none;
+  }
+}
+
+/* ----------------------------------
+   Mobile
+----------------------------------- */
+
+@media (max-width: 700px) {
+  .contactForm {
+    padding: 1.5rem;
+  }
+
+  .rowFields {
+    grid-template-columns: 1fr;
+  }
+
+  .buttonDiv {
+    align-items: stretch;
+  }
+
+  .buttonDiv > button {
     width: 100%;
+  }
+}
+
+/* ----------------------------------
+   Small mobile
+----------------------------------- */
+
+@media (max-width: 430px) {
+  .contactForm {
+    padding: 1.25rem;
   }
 }

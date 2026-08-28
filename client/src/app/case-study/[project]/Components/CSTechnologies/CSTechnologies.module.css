@@ -1,32 +1,283 @@
-/* Technologies Section */
 .technologies {
-  /* background: var(--blue-900); */
-  /* color: var(--white); */
-  /* .section { */
-  /* width: 100%; */
-  /* max-width: 1200px; */
-  /* margin: 0 auto; */
-  padding: var(--section-lg);
-   width: 100%;
-  max-width: 1200px;
+  position: relative;
+
+  width: 100%;
+
+  padding: var(--section-xl) var(--section-lg);
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 88% 12%,
+      rgba(27, 138, 228, 0.06),
+      transparent 26%
+    ),
+    linear-gradient(
+      180deg,
+      var(--white) 0%,
+      var(--blue-50) 100%
+    );
+}
+
+.technologies::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(0, 84, 201, 0.018) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 84, 201, 0.018) 1px,
+      transparent 1px
+    );
+
+  background-size: 46px 46px;
+
+  pointer-events: none;
+}
+
+.technologiesInner {
+  position: relative;
+
+  z-index: 1;
+
+  width: 100%;
+  max-width: 1500px;
+
   margin: 0 auto;
-  padding: var(--section-lg);
-/* } */
 }
 
-.technologies h2 {
-  margin-bottom: var(--space-xxl);
-  /* color: var(--blue-100); */
+/* ----------------------------------
+   Header
+----------------------------------- */
+
+.header {
+  max-width: 850px;
+
+  margin-bottom: clamp(3rem, 6vw, 5rem);
 }
-.techContainer {
+
+.marker {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-m);
-  margin-top: var(--space-m);
+
+  align-items: center;
+
+  gap: 0.55rem;
+
+  margin-bottom: 1rem;
 }
 
-@media screen and (max-width: 900px) {
-  .technologies h2 {
-    margin-bottom: var(--space-l);
+.markerLine {
+  width: 38px;
+  height: 3px;
+
+  background: var(--blue-800);
+}
+
+.markerPixel {
+  width: 7px;
+  height: 7px;
+
+  background: var(--yellow-500);
+}
+
+.header :global(.eyebrowHeader) {
+  margin: 0 0 0.8rem;
+}
+
+.header h2 {
+  margin: 0;
+
+  color: var(--blue-950);
+
+  font-family: var(--font-heading);
+
+  font-size: clamp(2.5rem, 4.6vw, 4.4rem);
+
+  font-weight: 800;
+
+  line-height: 0.98;
+
+  letter-spacing: -0.055em;
+}
+
+/* ----------------------------------
+   Technologies grid
+----------------------------------- */
+
+.techContainer {
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  border-top: 1px solid var(--blue-200);
+  border-left: 1px solid var(--blue-200);
+}
+
+/* ----------------------------------
+   Technology item
+----------------------------------- */
+
+.techItem {
+  position: relative;
+
+  min-height: 88px;
+
+  padding: 1rem 1.2rem;
+
+  display: grid;
+
+  grid-template-columns: 34px minmax(0, 1fr) 8px;
+
+  align-items: center;
+
+  gap: 0.8rem;
+
+  border-right: 1px solid var(--blue-200);
+  border-bottom: 1px solid var(--blue-200);
+
+  background: rgba(255, 255, 255, 0.48);
+
+  transition:
+    background 180ms ease,
+    padding-left 180ms ease;
+}
+
+.techItem:hover {
+  padding-left: 1.4rem;
+
+  background: rgba(230, 244, 254, 0.75);
+}
+
+.techItem::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 3px;
+
+  background: var(--yellow-500);
+
+  transform: scaleY(0);
+
+  transition: transform 180ms ease;
+}
+
+.techItem:hover::before {
+  transform: scaleY(1);
+}
+
+/* ----------------------------------
+   Number
+----------------------------------- */
+
+.techIndex {
+  color: var(--blue-400);
+
+  font-size: 0.62rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+}
+
+/* ----------------------------------
+   Technology name
+----------------------------------- */
+
+.techName {
+  color: var(--blue-950);
+
+  font-family: var(--font-heading);
+
+  font-size: 0.95rem;
+
+  font-weight: 700;
+
+  line-height: 1.4;
+}
+
+/* ----------------------------------
+   Pixel
+----------------------------------- */
+
+.techPixel {
+  width: 7px;
+  height: 7px;
+
+  justify-self: end;
+
+  background: var(--blue-500);
+
+  transition:
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.techItem:hover .techPixel {
+  background: var(--yellow-500);
+
+  transform: scale(1.2);
+}
+
+/* ----------------------------------
+   Tablet
+----------------------------------- */
+
+@media (max-width: 1000px) {
+  .techContainer {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 750px) {
+  .technologies {
+    padding: var(--section-lg) var(--section-md);
+  }
+
+  .techContainer {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ----------------------------------
+   Mobile
+----------------------------------- */
+
+@media (max-width: 500px) {
+  .technologies {
+    padding: var(--section-lg) 1.25rem;
+  }
+
+  .header {
+    margin-bottom: 2.5rem;
+  }
+
+  .header h2 {
+    font-size: clamp(2.2rem, 10vw, 3.3rem);
+  }
+
+  .techContainer {
+    grid-template-columns: 1fr;
+  }
+
+  .techItem {
+    min-height: 68px;
+
+    padding: 0.9rem 1rem;
+  }
+
+  .techItem:hover {
+    padding-left: 1rem;
   }
 }

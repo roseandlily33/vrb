@@ -2,6 +2,7 @@ import React from "react";
 import Hero from "../Components/Hero/Hero.component";
 import MetadataBar from "./MetadataBar/MetadataBar.component";
 import WorkPage from "./WorkPage";
+import ProjectIntro from "./ProjectIntro/ProjectIntro.component";
 
 export const metadata = {
   title: "Website Design Portfolio | VRB Web Design & Development",
@@ -19,14 +20,7 @@ export default function Work() {
         subText="Focused on performance, UX, and real business impact"
       />
       <MetadataBar />
-      <div style={{ textAlign: "center" }}>
-        <h4>Selected Web Design & Development Projects</h4>
-        <p>
-          Explore selected web design and development case studies, from
-          business websites and redesigns to custom platforms and UX/UI
-          projects.
-        </p>
-      </div>
+      <ProjectIntro />
       <WorkPage />
     </main>
   );

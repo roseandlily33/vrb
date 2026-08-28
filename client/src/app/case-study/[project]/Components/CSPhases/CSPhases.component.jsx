@@ -2,105 +2,104 @@
 import styles from "./CSPhases.module.css";
 import Carousel from "../Extras/Carousel/Carousel";
 import React, { useState } from "react";
-import TertiaryButton from "@/app/Components/TertiaryButton/TertiaryButton.component";
+// import TertiaryButton from "@/app/Components/TertiaryButton/TertiaryButton.component";
 
-export default function CSPhases({ phaseImages = {}, phasesDescriptions = [] }) {
+export default function CSPhases({
+  phaseImages = {},
+  phasesDescriptions = [],
+}) {
   const [openIdx, setOpenIdx] = useState(null);
+
   return (
     <section className={styles.phasesSection}>
-      <p className="eyebrowHeader">Phases</p>
-      <h2>How the project progressed</h2>
+      <div className={styles.phasesHeader}>
+        <div className={styles.marker} aria-hidden="true">
+          <span className={styles.markerLine} />
+          <span className={styles.markerPixel} />
+        </div>
+
+        <p className="eyebrowHeader">Phases</p>
+
+        <h2>How the project progressed</h2>
+      </div>
+
       <div className={styles.stackedPhases}>
         {phasesDescriptions.map((phase, idx) => {
           const isOpen = openIdx === idx;
+          const hasImages =
+            phaseImages[phase.phase] && phaseImages[phase.phase].length > 0;
+
           return (
-            <div className={styles.eachPhase} key={phase.phase}>
+            <div
+              className={`${styles.eachPhase} ${
+                isOpen ? styles.eachPhaseOpen : ""
+              }`}
+              key={phase.phase}
+            >
               <div className={styles.phaseRow}>
-                <div className={styles.phaseSidebar}>
-                  <span
-                    className={
-                      isOpen
-                        ? `${styles.phaseCircle} ${styles.phaseCircleOpen}`
-                        : styles.phaseCircle
-                    }
-                  >
-                    <span className={styles.phaseCircleInner}>
-                      {String(idx + 1).padStart(2, "0")}
-                    </span>
-                  </span>
+                <div className={styles.phaseNumber}>
+                  {String(idx + 1).padStart(2, "0")}
                 </div>
-                <div className={styles.stackedPhaseCard} key={phase.phase}>
+
+                <div className={styles.stackedPhaseCard}>
                   <div className={styles.phaseMain}>
-                    <div className={styles.sideBySide}>
+                    <div className={styles.phaseHeader}>
                       <span className={styles.phaseTitle}>{phase.phase}</span>
-                      {phaseImages[phase.phase] && phaseImages[phase.phase].length > 0 && (
-                        isOpen ? (
-                          <TertiaryButton
-                            onClick={() => setOpenIdx(null)}
-                            aria-expanded={isOpen}
+
+                      {hasImages && (
+                        <button
+                          type="button"
+                          className={styles.phaseToggle}
+                          onClick={() => setOpenIdx(isOpen ? null : idx)}
+                          aria-expanded={isOpen}
+                          aria-label={
+                            isOpen
+                              ? `Hide details for ${phase.phase}`
+                              : `View details for ${phase.phase}`
+                          }
+                        >
+                          <span
+                            className={styles.toggleIcon}
+                            aria-hidden="true"
                           >
-                            <span
-                              style={{
-                                display: "inline-flex",
-                                alignItems: "center",
-                                gap: "0.4em",
-                              }}
-                            >
-                              <span
-                                style={{ fontSize: "1.1em", lineHeight: 1 }}
-                                aria-hidden="true"
-                              >
-                                ✕
-                              </span>{" "}
-                              Hide Details
-                            </span>
-                          </TertiaryButton>
-                        ) : (
-                          <TertiaryButton
-                            onClick={() => setOpenIdx(idx)}
-                            aria-expanded={isOpen}
-                          >
-                            <span
-                              style={{
-                                display: "inline-flex",
-                                alignItems: "center",
-                                gap: "0.4em",
-                              }}
-                            >
-                              <span
-                                style={{ fontSize: "1.1em", lineHeight: 1 }}
-                                aria-hidden="true"
-                              >
-                                ▼
-                              </span>{" "}
-                              View Details
-                            </span>
-                          </TertiaryButton>
-                        )
+                            <span />
+                            <span />
+                          </span>
+
+                          <span className={styles.toggleLabel}>
+                            {isOpen ? "Hide Details" : "View Details"}
+                          </span>
+                        </button>
                       )}
                     </div>
+
                     <div className={styles.phaseDesc}>{phase.description}</div>
+
                     {isOpen && phase.points && (
                       <ul className={styles.phasePoints}>
                         {phase.points.map((pt) => (
                           <li key={pt} className={styles.phasePoint}>
-                            {pt}
+                            <span
+                              className={styles.pointPixel}
+                              aria-hidden="true"
+                            />
+                            <span>{pt}</span>
                           </li>
                         ))}
                       </ul>
                     )}
                   </div>
-                  {isOpen && (
+
+                  {isOpen && hasImages && (
                     <div className={styles.phaseMore}>
-                      {phaseImages[phase.phase] &&
-                        phaseImages[phase.phase].length > 0 && (
-                          <div className={styles.phaseCarouselWrap}>
-                            <Carousel slides={phaseImages[phase.phase]} />
-                          </div>
-                        )}
+                      <div className={styles.phaseCarouselWrap}>
+                        <Carousel slides={phaseImages[phase.phase]} />
+                      </div>
                     </div>
                   )}
                 </div>
+
+                <span className={styles.phasePixel} aria-hidden="true" />
               </div>
             </div>
           );

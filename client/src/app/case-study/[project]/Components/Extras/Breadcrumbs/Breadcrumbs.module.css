@@ -1,31 +1,158 @@
 .breadcrumbs {
-  font-size: var(--space-m);
-  padding: 3rem 6rem 0 0rem;
-  text-transform: capitalize;
-  /* border: 2px solid red; */
+  width: 100%;
+
+  padding: 2rem 0 0;
+
+  font-size: 0.72rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.06em;
+
+  text-transform: uppercase;
 }
+
+/* ----------------------------------
+   List
+----------------------------------- */
+
+.list {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.7rem;
+
+  list-style: none;
+
+  padding: 0;
+  margin: 0;
+}
+
+/* ----------------------------------
+   Item
+----------------------------------- */
+
+.item {
+  min-width: 0;
+}
+
+/* ----------------------------------
+   Link
+----------------------------------- */
+
 .link {
+  position: relative;
+
   color: var(--blue-700);
+
   text-decoration: none;
-  font-weight: 500;
-  transition: color 0.15s;
+
+  transition: color 160ms ease;
 }
+
+.link::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -4px;
+
+  width: 0;
+  height: 2px;
+
+  background: var(--yellow-500);
+
+  transition: width 160ms ease;
+}
+
 .link:hover {
-  color: var(--blue-500);
-  text-decoration: underline;
+  color: var(--blue-900);
 }
+
+.link:hover::after {
+  width: 100%;
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--yellow-500);
+
+  outline-offset: 4px;
+}
+
+/* ----------------------------------
+   Separator
+----------------------------------- */
+
+.separator {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+.separatorPixel {
+  width: 5px;
+  height: 5px;
+
+  background: var(--blue-400);
+
+  transform: rotate(45deg);
+}
+
+/* ----------------------------------
+   Current page
+----------------------------------- */
+
 .current {
-  color: var(--grey-700);
-  font-weight: 600;
+  color: var(--grey-500);
+
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  text-overflow: ellipsis;
 }
-@media screen and (max-width: 900px) {
+
+/* ----------------------------------
+   Tablet
+----------------------------------- */
+
+@media (max-width: 900px) {
   .breadcrumbs {
-    padding: 2rem var(--space-m) 0 var(--space-m);
+    padding-top: 1.5rem;
   }
 }
-@media screen and (max-width: 600px) {
+
+/* ----------------------------------
+   Mobile
+----------------------------------- */
+
+@media (max-width: 600px) {
   .breadcrumbs {
-    font-size: var(--space-s);
-    padding: 0;
+    padding-top: 1rem;
+
+    font-size: 0.65rem;
+
+    letter-spacing: 0.05em;
+  }
+
+  .list {
+    gap: 0.55rem;
+  }
+
+  .current {
+    max-width: 48vw;
+  }
+
+  .separatorPixel {
+    width: 4px;
+    height: 4px;
   }
 }

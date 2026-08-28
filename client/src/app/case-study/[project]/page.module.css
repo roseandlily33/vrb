@@ -68,7 +68,7 @@
 }
 .testimonial {
   background: var(--grey-25);
-  border-radius: var(--radius-lg);
+  /* border-radius: var(--radius-lg); */
   box-shadow: var(--shadow-md);
   border: 1.5px solid var(--blue-100);
   padding: var(--space-xxl) var(--space-xl);

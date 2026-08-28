@@ -1,31 +1,415 @@
 .contactPage {
   width: 100%;
-  background-color: #f9fbfd;
 
+  background: var(--white);
 }
+
+/* ----------------------------------
+   Contact intro
+----------------------------------- */
+
 .contactIntro {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-m);
-  padding: var(--section-sm);
-  /* width: 90%; */
-  /* border: 2px solid red; */
+  position: relative;
+
+  width: 100%;
+  overflow: hidden;
+
+  padding: clamp(5rem, 9vw, 9rem) 3rem;
+
+  background:
+    radial-gradient(
+      circle at 84% 38%,
+      rgba(0, 84, 201, 0.26),
+      transparent 27%
+    ),
+    var(--blue-950);
 }
-.sideBySide {
-  display: flex;
-  justify-content: space-around;
-  /* align-items: flex-end; */
+
+.contactIntro::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(105, 185, 242, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(105, 185, 242, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 46px 46px;
+
+  pointer-events: none;
+}
+
+.introInner {
+  position: relative;
+  z-index: 2;
+
+  width: 100%;
+  max-width: 1500px;
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.45fr);
+
   align-items: center;
-  gap: var(--space-l);
-  padding: var(--section-xs);
-  /* border: 2px solid red; */
+
+  gap: clamp(3rem, 8vw, 8rem);
 }
+
+/* ----------------------------------
+   Intro content
+----------------------------------- */
+
+.introContent {
+  max-width: 900px;
+}
+
+.introLabel {
+  display: flex;
+  align-items: center;
+
+  gap: 0.65rem;
+
+  margin-bottom: 1.5rem;
+}
+
+.labelLine {
+  width: 42px;
+  height: 3px;
+
+  background: var(--yellow-500);
+}
+
+.labelPixel {
+  width: 8px;
+  height: 8px;
+
+  background: var(--blue-500);
+}
+
+.introContent h1 {
+  max-width: 850px;
+
+  margin: 0;
+
+  color: var(--white);
+
+  font-size: clamp(3.8rem, 8vw, 7.5rem);
+  font-weight: 800;
+
+  line-height: 0.92;
+  letter-spacing: -0.065em;
+}
+
+.introContent p {
+  max-width: 650px;
+
+  margin: 2rem 0 0;
+
+  color: var(--blue-200);
+
+  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  line-height: 1.8;
+}
+
+/* ----------------------------------
+   Pixel composition
+----------------------------------- */
+
+.introPixels {
+  position: relative;
+
+  width: min(100%, 350px);
+  aspect-ratio: 1 / 1;
+
+  justify-self: end;
+}
+
+.pixel,
+.pixelOutline {
+  position: absolute;
+
+  display: block;
+}
+
+.pixelOne {
+  width: 43%;
+  height: 43%;
+
+  top: 7%;
+  right: 5%;
+
+  background: var(--blue-800);
+}
+
+.pixelTwo {
+  width: 27%;
+  height: 27%;
+
+  top: 42%;
+  right: 39%;
+
+  background: var(--blue-500);
+}
+
+.pixelThree {
+  width: 14%;
+  height: 14%;
+
+  right: 20%;
+  bottom: 11%;
+
+  background: var(--yellow-500);
+}
+
+.pixelFour {
+  width: 7%;
+  height: 7%;
+
+  top: 17%;
+  left: 12%;
+
+  background: var(--blue-500);
+}
+
+.outlineOne {
+  width: 34%;
+  height: 34%;
+
+  right: 0;
+  bottom: 2%;
+
+  border: 1px solid rgba(105, 185, 242, 0.65);
+}
+
+.outlineTwo {
+  width: 17%;
+  height: 17%;
+
+  top: 0;
+  left: 25%;
+
+  border: 1px solid rgba(255, 210, 31, 0.65);
+}
+
+/* ----------------------------------
+   Form + contact information
+----------------------------------- */
+
+.contactSection {
+  position: relative;
+
+  width: 100%;
+
+  padding: var(--section-xl) 3rem;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--white) 0%,
+      var(--white) 64%,
+      var(--blue-50) 64%,
+      var(--blue-50) 100%
+    );
+}
+
+.sideBySide {
+  width: 100%;
+  max-width: 1500px;
+
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.65fr);
+
+  gap: clamp(3rem, 7vw, 7rem);
+
+  align-items: start;
+}
+
+/* ----------------------------------
+   Form side
+----------------------------------- */
+
+.formColumn {
+  position: relative;
+
+  min-width: 0;
+}
+
+/* little structural detail above form */
+
+.formColumn::before {
+  content: "";
+
+  display: block;
+
+  width: 48px;
+  height: 4px;
+
+  margin-bottom: 2rem;
+
+  background: var(--blue-800);
+}
+
+/* ----------------------------------
+   Information side
+----------------------------------- */
+
+.infoColumn {
+  position: relative;
+
+  min-width: 0;
+
+  padding-left: clamp(1rem, 3vw, 3rem);
+}
+
+.infoColumn::before {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  top: 0;
+  bottom: 0;
+
+  width: 1px;
+
+  background: var(--blue-200);
+}
+
+.infoColumn::after {
+  content: "";
+
+  position: absolute;
+
+  left: -4px;
+  top: 0;
+
+  width: 9px;
+  height: 9px;
+
+  background: var(--yellow-500);
+}
+
+/* ----------------------------------
+   Tablet
+----------------------------------- */
+
 @media (max-width: 1000px) {
+  .contactIntro {
+    padding: 6rem 2rem;
+  }
+
+  .introInner {
+    grid-template-columns: minmax(0, 1fr) 220px;
+
+    gap: 3rem;
+  }
+
+  .introPixels {
+    width: 220px;
+  }
+
+  .contactSection {
+    padding: var(--section-lg) 2rem;
+
+    background: var(--white);
+  }
+
   .sideBySide {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding-bottom: var(--space-xxl);
-    gap: var(--space-xl);
+    grid-template-columns: 1fr;
+
+    gap: 4rem;
+  }
+
+  .infoColumn {
+    padding:
+      3rem
+      0
+      0;
+
+    border-top: 1px solid var(--blue-200);
+  }
+
+  .infoColumn::before {
+    display: none;
+  }
+
+  .infoColumn::after {
+    top: -5px;
+    left: 0;
+  }
+}
+
+/* ----------------------------------
+   Mobile
+----------------------------------- */
+
+@media (max-width: 700px) {
+  .contactIntro {
+    padding: 5rem 1.25rem 4rem;
+  }
+
+  .introInner {
+    grid-template-columns: 1fr;
+
+    gap: 2.5rem;
+  }
+
+  .introContent h1 {
+    font-size: clamp(3.4rem, 16vw, 5.5rem);
+  }
+
+  .introContent p {
+    margin-top: 1.5rem;
+
+    font-size: 1rem;
+  }
+
+  .introPixels {
+    width: 150px;
+
+    justify-self: start;
+  }
+
+  .contactSection {
+    padding:
+      var(--section-lg)
+      1.25rem;
+  }
+
+  .sideBySide {
+    gap: 3rem;
+  }
+
+  .formColumn::before {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* ----------------------------------
+   Small mobile
+----------------------------------- */
+
+@media (max-width: 430px) {
+  .contactIntro {
+    padding-inline: 1.25rem;
+  }
+
+  .introContent h1 {
+    font-size: clamp(3.1rem, 15vw, 4.4rem);
+  }
+
+  .introPixels {
+    width: 125px;
   }
 }

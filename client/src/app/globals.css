@@ -15,6 +15,15 @@
   --blue-200: #cbe7fc;
   --blue-100: #e6f4fe;
   --blue-50: #f2f8ff;
+  /* Yellow */
+  --yellow-700: #c99600;
+  --yellow-600: #e5ae00;
+  --yellow-500: #ffd21f; /* main */
+  --yellow-400: #ffdc52;
+  --yellow-300: #ffe681;
+  --yellow-200: #ffefad;
+  --yellow-100: #fff7d6;
+  --yellow-50: #fffbed;
   /* Accent */
   --accent-blue: #cbd5f5;
   --accent-blue-soft: #e3ecff;
@@ -60,10 +69,14 @@
   --space-xxl: 3rem; /* 48px */
   --space-xxxl: 4rem; /* 64px */
   --space-xxxxl: 6rem; /* 96px */
-  --radius-sm: 8px;
+  /* --radius-sm: 8px;
   --radius-md: 12px;
   --radius-lg: 20px;
-  --radius-pill: 999px;
+  --radius-pill: 999px; */
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-pill: 0px;
   --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.05);
   --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.08);
   --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.12);
@@ -422,7 +435,7 @@ a {
   gap: 1rem;
   padding: 1rem;
   border: 1px solid rgba(60, 89, 115, 0.14);
-  border-radius: 18px;
+  /* border-radius: 18px; */
   background: #ffffff;
 }
 
@@ -430,7 +443,7 @@ a {
   width: 46px;
   height: 46px;
   flex: 0 0 46px;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   border: 1px solid rgba(36, 55, 71, 0.12);
 }
 
@@ -452,7 +465,7 @@ a {
 
 .fontCard {
   padding: 1.5rem;
-  border-radius: 24px;
+  /* border-radius: 24px; */
   background: #ffffff;
   border: 1px solid rgba(60, 89, 115, 0.14);
 }

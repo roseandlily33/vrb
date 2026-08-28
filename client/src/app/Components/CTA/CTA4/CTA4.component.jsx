@@ -36,23 +36,35 @@ export default function CTA4() {
         </div>
 
         <div className={styles.ctaRight}>
-          <CTAButton onClick={() => router.push("/services")}>
-            Start Your Project
-            <FiArrowRight
-              style={{ marginLeft: 8, verticalAlign: "middle" }}
-              aria-hidden="true"
-            />
-          </CTAButton>
+          <div className={styles.ctaActions}>
+            <CTAButton onClick={() => router.push("/services")}>
+              Start Your Project
+              <FiArrowRight
+                style={{ marginLeft: 8, verticalAlign: "middle" }}
+                aria-hidden="true"
+              />
+            </CTAButton>
 
-          <SecondaryButton onClick={() => router.push("/contact")}>
-            Send an Email
-            <FiMail
-              style={{ marginLeft: 8, verticalAlign: "middle" }}
-              aria-hidden="true"
-            />
-          </SecondaryButton>
+            <SecondaryButton onClick={() => router.push("/contact")}>
+              Send an Email
+              <FiMail
+                style={{ marginLeft: 8, verticalAlign: "middle" }}
+                aria-hidden="true"
+              />
+            </SecondaryButton>
 
-          <span className={styles.ctaNote}>{getBookingWindow()}</span>
+            <span className={styles.ctaNote}>
+              <span className={styles.notePixel} aria-hidden="true" />
+              {getBookingWindow()}
+            </span>
+          </div>
+
+          <div className={styles.pixelDetail} aria-hidden="true">
+            <span className={`${styles.pixel} ${styles.pixelOne}`} />
+            <span className={`${styles.pixel} ${styles.pixelTwo}`} />
+            <span className={`${styles.pixel} ${styles.pixelThree}`} />
+            <span className={`${styles.pixelOutline} ${styles.pixelFour}`} />
+          </div>
         </div>
       </div>
     </section>

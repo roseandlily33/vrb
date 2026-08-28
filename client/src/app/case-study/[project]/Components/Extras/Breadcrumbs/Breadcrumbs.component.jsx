@@ -4,23 +4,18 @@ import styles from "./Breadcrumbs.module.css";
 const Breadcrumbs = ({ current, first = "Work", firstLink = "/work" }) => {
   return (
     <nav className={styles.breadcrumbs} aria-label="Breadcrumb">
-      <ol
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "0.5rem",
-          listStyle: "none",
-          padding: 0,
-          margin: 0,
-        }}
-      >
-        <li>
+      <ol className={styles.list}>
+        <li className={styles.item}>
           <Link href={firstLink} className={styles.link}>
             {first}
           </Link>
         </li>
-        <li style={{ color: "var(--grey-500)", fontSize: "1.1em" }}>/</li>
-        <li className={styles.current} aria-current="page">
+
+        <li className={styles.separator} aria-hidden="true">
+          <span className={styles.separatorPixel} />
+        </li>
+
+        <li className={`${styles.item} ${styles.current}`} aria-current="page">
           {current}
         </li>
       </ol>

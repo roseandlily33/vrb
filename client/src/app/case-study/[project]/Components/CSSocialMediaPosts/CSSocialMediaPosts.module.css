@@ -1,14 +1,21 @@
 .gallery {
+  width: 100%;
+  max-width: 1500px;
+
+  margin: 0 auto;
+
+  padding: var(--section-xl) var(--section-lg);
+
   display: grid;
+
   grid-template-columns: repeat(12, minmax(0, 1fr));
+
   grid-auto-flow: dense;
-  grid-auto-rows: 30px;
-  gap: var(--space-s);
-  margin-top: var(--space-xl);
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  padding: var(--section-lg);
+  grid-auto-rows: 32px;
+
+  gap: 0.8rem;
+
+  background: var(--white);
 }
 
 /* ----------------------------------
@@ -17,39 +24,58 @@
 
 .post {
   position: relative;
+
   overflow: hidden;
-  border-radius: var(--radius-md);
+
   background: var(--grey-100);
+
   cursor: pointer;
+
   isolation: isolate;
+
   outline: none;
-  box-shadow: var(--shadow-xs);
+
+  border: 1px solid var(--blue-200);
+
   transition:
-    transform var(--transition-normal),
-    box-shadow var(--transition-normal);
+    transform 180ms ease,
+    border-color 180ms ease;
 }
 
 .post:hover {
-  transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-3px);
+
+  border-color: var(--blue-400);
 }
 
 .post:focus-visible {
-  outline: 2px solid var(--blue-700);
+  outline: 2px solid var(--yellow-500);
+
   outline-offset: 4px;
 }
+
+/* ----------------------------------
+   Image
+----------------------------------- */
 
 .imageWrap {
   width: 100%;
   height: 100%;
+
+  overflow: hidden;
 }
 
 .imageWrap img {
   width: 100%;
   height: 100%;
+
   display: block;
+
   object-fit: cover;
-  transition: transform var(--transition-slow);
+
+  transition:
+    transform 240ms ease,
+    filter 240ms ease;
 }
 
 .post:hover .imageWrap img {
@@ -57,7 +83,7 @@
 }
 
 /* ----------------------------------
-   Editorial sizing pattern
+   Editorial sizing
 ----------------------------------- */
 
 .post1 {
@@ -101,23 +127,33 @@
 }
 
 /* ----------------------------------
-   Image overlay
+   Overlay
 ----------------------------------- */
 
 .overlay {
   position: absolute;
+
   inset: 0;
+
   display: flex;
+
   flex-direction: column;
+
   justify-content: space-between;
-  padding: var(--space-m);
-  background: linear-gradient(
-    180deg,
-    rgba(0, 18, 51, 0.02) 20%,
-    rgba(0, 18, 51, 0.72) 100%
-  );
+
+  padding: 1rem;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(0, 18, 51, 0.04) 15%,
+      rgba(0, 18, 51, 0.18) 52%,
+      rgba(0, 18, 51, 0.9) 100%
+    );
+
   opacity: 0;
-  transition: opacity var(--transition-normal);
+
+  transition: opacity 180ms ease;
 }
 
 .post:hover .overlay,
@@ -125,209 +161,421 @@
   opacity: 1;
 }
 
-.overlayContent {
-  display: flex;
-  align-items: flex-end;
-  gap: var(--space-s);
-  margin-top: auto;
+/* ----------------------------------
+   Top index
+----------------------------------- */
+
+.topIndex {
+  width: max-content;
+
+  padding: 0.42rem 0.52rem;
+
+  background: var(--blue-950);
+
+  color: var(--yellow-500);
+
+  font-size: 0.62rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.12em;
 }
 
-.index {
-  flex-shrink: 0;
-  font-family: var(--font-heading);
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  color: rgba(255, 255, 255, 0.72);
+/* ----------------------------------
+   Overlay bottom
+----------------------------------- */
+
+.overlayBottom {
+  width: 100%;
+
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 1rem;
 }
 
 .meta {
+  min-width: 0;
+
   display: flex;
+
   flex-direction: column;
-  gap: 0.2rem;
+
+  gap: 0.25rem;
 }
 
 .title {
   margin: 0;
-  font-family: var(--font-heading);
-  font-size: clamp(0.85rem, 1.2vw, 1.1rem);
-  line-height: var(--leading-tight);
+
   color: var(--white);
+
+  font-family: var(--font-heading);
+
+  font-size: clamp(0.9rem, 1.2vw, 1.1rem);
+
+  font-weight: 700;
+
+  line-height: 1.2;
 }
 
 .month {
-  font-size: 0.68rem;
-  letter-spacing: 0.06em;
+  color: var(--blue-200);
+
+  font-size: 0.64rem;
+
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.72);
 }
 
+/* ----------------------------------
+   View label
+----------------------------------- */
+
 .viewLabel {
+  flex-shrink: 0;
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.5rem;
+
+  color: var(--white);
+
+  font-size: 0.65rem;
+
+  font-weight: 750;
+
+  letter-spacing: 0.04em;
+
+  text-transform: uppercase;
+}
+
+.viewPixel {
+  width: 7px;
+  height: 7px;
+
+  background: var(--yellow-500);
+
+  transition: transform 180ms ease;
+}
+
+.post:hover .viewPixel {
+  transform: translateX(3px);
+}
+
+/* ----------------------------------
+   Modal overlay
+----------------------------------- */
+
+.modalOverlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 1200;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 2rem;
+
+  background: rgba(0, 18, 51, 0.92);
+
+  backdrop-filter: blur(8px);
+}
+
+.modalOverlay::before {
+  content: "";
+
   position: absolute;
-  top: var(--space-s);
-  right: var(--space-s);
-  padding: 0.4rem 0.7rem;
-  border-radius: var(--radius-pill);
-  background: rgba(255, 255, 255, 0.92);
-  color: var(--blue-900);
-  font-size: 0.68rem;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  backdrop-filter: blur(10px);
+
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(105, 185, 242, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(105, 185, 242, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 46px 46px;
+
+  pointer-events: none;
 }
 
 /* ----------------------------------
    Modal
 ----------------------------------- */
 
-.modalOverlay {
-  position: fixed;
-  inset: 0;
-  z-index: 1200;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-xl);
-  background: rgba(0, 18, 51, 0.72);
-  backdrop-filter: blur(8px);
-}
-
 .modal {
   position: relative;
-  width: min(1120px, 100%);
+
+  z-index: 1;
+
+  width: min(1180px, 100%);
+
   max-height: calc(100vh - 4rem);
+
   display: grid;
-  grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+
+  grid-template-columns:
+    minmax(0, 1.05fr)
+    minmax(360px, 0.95fr);
+
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: var(--radius-lg);
-  background: var(--white);
-  box-shadow: var(--shadow-lg);
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  background: var(--blue-950);
 }
+
+/* ----------------------------------
+   Modal image
+----------------------------------- */
 
 .modalImage {
   min-height: 620px;
-  background: var(--grey-100);
+
+  background: var(--blue-50);
+
+  border-right: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .modalImage img {
   width: 100%;
   height: 100%;
+
   display: block;
+
   object-fit: cover;
 }
 
+/* ----------------------------------
+   Modal content
+----------------------------------- */
+
 .modalContent {
   display: flex;
+
   flex-direction: column;
+
   justify-content: center;
+
   padding: clamp(2rem, 4vw, 4rem);
+
   overflow-y: auto;
 }
 
-.modalEyebrow {
-  margin-bottom: var(--space-m);
-  font-size: 0.7rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--blue-700);
+/* marker */
+
+.modalMarker {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.55rem;
+
+  margin-bottom: 1rem;
 }
+
+.modalMarkerLine {
+  width: 34px;
+  height: 3px;
+
+  background: var(--yellow-500);
+}
+
+.modalMarkerPixel {
+  width: 7px;
+  height: 7px;
+
+  background: var(--blue-500);
+}
+
+.modalEyebrow {
+  margin-bottom: 0.8rem;
+
+  color: var(--blue-300);
+
+  font-size: 0.68rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+/* ----------------------------------
+   Modal header
+----------------------------------- */
 
 .modalHeader {
   display: flex;
+
   flex-direction: column;
-  gap: var(--space-xs);
-  padding-bottom: var(--space-l);
-  border-bottom: var(--border-light);
+
+  gap: 0.7rem;
+
+  padding-bottom: 1.75rem;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .modalTitle {
-  margin: 0;
   max-width: 12ch;
+
+  margin: 0;
+
+  color: var(--white);
+
   font-family: var(--font-heading);
+
   font-size: clamp(2rem, 4vw, 3.75rem);
-  font-weight: 600;
-  line-height: 1.02;
-  letter-spacing: -0.045em;
-  color: var(--blue-950);
+
+  font-weight: 800;
+
+  line-height: 1;
+
+  letter-spacing: -0.05em;
 }
 
 .modalMonth {
-  font-size: 0.78rem;
-  font-weight: 500;
+  color: var(--blue-300);
+
+  font-size: 0.72rem;
+
+  font-weight: 700;
+
   letter-spacing: 0.08em;
+
   text-transform: uppercase;
-  color: var(--grey-500);
 }
 
+/* ----------------------------------
+   Description
+----------------------------------- */
+
 .modalDescription {
-  margin: var(--space-xl) 0 0;
   max-width: 56ch;
+
+  margin: 1.75rem 0 0;
+
+  color: var(--blue-100);
+
   font-size: 0.98rem;
-  line-height: var(--leading-loose);
-  color: var(--grey-600);
+
+  line-height: 1.8;
 }
+
+/* ----------------------------------
+   Details
+----------------------------------- */
 
 .modalDetails {
   display: grid;
-  gap: var(--space-l);
-  margin-top: var(--space-xxl);
+
+  gap: 0;
+
+  margin-top: 2.5rem;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .detailBlock {
   display: grid;
-  grid-template-columns: 100px 1fr;
-  gap: var(--space-l);
-  padding-top: var(--space-m);
-  border-top: var(--border-light);
+
+  grid-template-columns: 100px minmax(0, 1fr);
+
+  gap: 1.5rem;
+
+  padding: 1.2rem 0;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .detailLabel {
-  font-size: 0.68rem;
-  font-weight: 700;
+  color: var(--yellow-500);
+
+  font-size: 0.64rem;
+
+  font-weight: 800;
+
   letter-spacing: 0.1em;
+
   text-transform: uppercase;
-  color: var(--blue-700);
 }
 
 .detailBlock p {
   margin: 0;
-  font-size: 0.92rem;
-  line-height: var(--leading-normal);
-  color: var(--grey-700);
+
+  color: var(--blue-100);
+
+  font-size: 0.9rem;
+
+  line-height: 1.65;
 }
+
+/* ----------------------------------
+   Close
+----------------------------------- */
 
 .closeButton {
   position: absolute;
-  top: var(--space-m);
-  right: var(--space-m);
+
+  top: 1rem;
+  right: 1rem;
+
   z-index: 5;
+
   width: 42px;
   height: 42px;
+
   display: grid;
+
   place-items: center;
-  border: 1px solid rgba(0, 18, 51, 0.08);
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.94);
-  color: var(--blue-950);
-  font-size: 1.55rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.22);
+
+  background: var(--blue-950);
+
+  color: var(--white);
+
+  font-size: 1.5rem;
+
   line-height: 1;
+
   cursor: pointer;
-  box-shadow: var(--shadow-xs);
-  backdrop-filter: blur(10px);
+
   transition:
-    transform var(--transition-fast),
-    background var(--transition-fast);
+    background 160ms ease,
+    color 160ms ease,
+    border-color 160ms ease;
 }
 
 .closeButton:hover {
-  transform: rotate(5deg);
-  background: var(--blue-50);
+  border-color: var(--yellow-500);
+
+  background: var(--yellow-500);
+
+  color: var(--blue-950);
 }
 
 .closeButton:focus-visible {
-  outline: 2px solid var(--blue-700);
+  outline: 2px solid var(--yellow-500);
+
   outline-offset: 3px;
 }
 
@@ -337,7 +585,10 @@
 
 @media (max-width: 1000px) {
   .gallery {
+    padding: var(--section-lg) var(--section-md);
+
     grid-template-columns: repeat(8, minmax(0, 1fr));
+
     grid-auto-rows: 28px;
   }
 
@@ -371,13 +622,17 @@
 @media (max-width: 760px) {
   .gallery {
     display: flex;
+
     flex-direction: column;
-    gap: var(--space-m);
-    margin-top: var(--space-l);
+
+    gap: 0.8rem;
+
+    padding: var(--section-lg) 1.25rem;
   }
 
   .post {
     width: 100%;
+
     aspect-ratio: 4 / 5;
   }
 
@@ -391,38 +646,42 @@
 
   .overlay {
     opacity: 1;
-    padding: var(--space-m);
-    background: linear-gradient(
-      180deg,
-      transparent 45%,
-      rgba(0, 18, 51, 0.68) 100%
-    );
-  }
 
-  .viewLabel {
-    top: var(--space-s);
-    right: var(--space-s);
+    background:
+      linear-gradient(
+        180deg,
+        transparent 38%,
+        rgba(0, 18, 51, 0.88) 100%
+      );
   }
 
   .modalOverlay {
     align-items: flex-start;
-    padding: var(--space-m);
+
+    padding: 1rem;
+
     overflow-y: auto;
   }
 
   .modal {
     grid-template-columns: 1fr;
+
     max-height: none;
+
     margin: auto 0;
   }
 
   .modalImage {
     min-height: 0;
+
     aspect-ratio: 1 / 1;
+
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
   }
 
   .modalContent {
-    padding: var(--space-xl);
+    padding: 2rem;
   }
 
   .modalTitle {
@@ -431,7 +690,8 @@
 
   .detailBlock {
     grid-template-columns: 1fr;
-    gap: var(--space-xs);
+
+    gap: 0.45rem;
   }
 }
 
@@ -441,11 +701,7 @@
 
 @media (max-width: 480px) {
   .modalOverlay {
-    padding: var(--space-xs);
-  }
-
-  .modal {
-    border-radius: var(--radius-md);
+    padding: 0.5rem;
   }
 
   .modalContent {
@@ -455,5 +711,13 @@
   .closeButton {
     width: 38px;
     height: 38px;
+  }
+
+  .overlayBottom {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 0.7rem;
   }
 }

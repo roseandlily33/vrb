@@ -28,107 +28,126 @@ export default function CSDesignShowcase({
 
   return (
     <section className={styles.section}>
-      <div className={styles.sectionHeader}>
-        <div>
-          <span className={styles.eyebrow}>Selected Work</span>
-          <h2 className={styles.heading}>{title}</h2>
+  <div className={styles.sectionInner}>
+    <div className={styles.sectionHeader}>
+      <div>
+        <div className={styles.headerMarker} aria-hidden="true">
+          <span className={styles.markerLine} />
+          <span className={styles.markerPixel} />
         </div>
 
-        <div className={styles.counter}>
-          <span className={styles.current}>
-            {String(activeIndex + 1).padStart(2, "0")}
-          </span>
+        <span className={styles.eyebrow}>Selected Work</span>
 
-          <span className={styles.divider}>/</span>
+        <h2 className={styles.heading}>{title}</h2>
+      </div>
 
-          <span className={styles.total}>
-            {String(showcase.length).padStart(2, "0")}
-          </span>
+      <div className={styles.counter}>
+        <span className={styles.current}>
+          {String(activeIndex + 1).padStart(2, "0")}
+        </span>
+
+        <span className={styles.divider}>/</span>
+
+        <span className={styles.total}>
+          {String(showcase.length).padStart(2, "0")}
+        </span>
+      </div>
+    </div>
+
+    <div className={styles.showcase}>
+      <div className={styles.visual}>
+        <div className={styles.visualGrid} aria-hidden="true" />
+
+        {active.image && (
+          <Image
+            src={active.image}
+            alt={active.title || active.label || "Design showcase"}
+            className={styles.image}
+            width={800}
+            height={600}
+          />
+        )}
+
+        <div className={styles.visualLabel}>
+          <span className={styles.labelPixel} aria-hidden="true" />
+          {active.label || active.title}
         </div>
       </div>
 
-      <div className={styles.showcase}>
-        <div className={styles.visual}>
-          {active.image && (
-            <Image
-              src={active.image}
-              alt={active.title || active.label || "Design showcase"}
-              className={styles.image}
-              width={800}
-              height={600}
-            />
-          )}
+      <div className={styles.details}>
+        <div className={styles.detailsTop}>
+          <span className={styles.slideLabel}>
+            {active.label || "Design"}
+          </span>
 
-          <div className={styles.visualLabel}>
-            {active.label || active.title}
-          </div>
+          <h3 className={styles.title}>{active.title}</h3>
+
+          {active.description && (
+            <p className={styles.description}>{active.description}</p>
+          )}
         </div>
 
-        <div className={styles.details}>
-          <div className={styles.detailsTop}>
-            <span className={styles.slideLabel}>
-              {active.label || "Design"}
-            </span>
+        {active.decisions?.length > 0 && (
+          <div className={styles.decisions}>
+            {active.decisions.map((decision, index) => (
+              <div
+                key={`${decision.title}-${index}`}
+                className={styles.decision}
+              >
+                <div className={styles.decisionNumber}>
+                  {String(index + 1).padStart(2, "0")}
+                </div>
 
-            <h3 className={styles.title}>{active.title}</h3>
-
-            {active.description && (
-              <p className={styles.description}>{active.description}</p>
-            )}
-          </div>
-
-          {active.decisions?.length > 0 && (
-            <div className={styles.decisions}>
-              {active.decisions.map((decision, index) => (
-                <div
-                  key={`${decision.title}-${index}`}
-                  className={styles.decision}
-                >
+                <div>
                   <h4>{decision.title}</h4>
                   <p>{decision.text}</p>
                 </div>
-              ))}
-            </div>
-          )}
+              </div>
+            ))}
+          </div>
+        )}
 
-          <div className={styles.navigation}>
-            <div className={styles.dots}>
-              {showcase.map((item, index) => (
-                <button
-                  key={item.id || index}
-                  type="button"
-                  className={`${styles.dot} ${
-                    index === activeIndex ? styles.activeDot : ""
-                  }`}
-                  aria-label={`Show ${item.label || item.title || `slide ${index + 1}`}`}
-                  aria-current={index === activeIndex ? "true" : undefined}
-                  onClick={() => setActiveIndex(index)}
-                />
-              ))}
-            </div>
-
-            <div className={styles.controls}>
+        <div className={styles.navigation}>
+          <div className={styles.dots}>
+            {showcase.map((item, index) => (
               <button
+                key={item.id || index}
                 type="button"
-                className={styles.control}
-                onClick={previousSlide}
-                aria-label="Previous design"
-              >
-                <FiArrowLeft />
-              </button>
+                className={`${styles.dot} ${
+                  index === activeIndex ? styles.activeDot : ""
+                }`}
+                aria-label={`Show ${
+                  item.label || item.title || `slide ${index + 1}`
+                }`}
+                aria-current={index === activeIndex ? "true" : undefined}
+                onClick={() => setActiveIndex(index)}
+              />
+            ))}
+          </div>
 
-              <button
-                type="button"
-                className={styles.control}
-                onClick={nextSlide}
-                aria-label="Next design"
-              >
-                <FiArrowRight />
-              </button>
-            </div>
+          <div className={styles.controls}>
+            <button
+              type="button"
+              className={styles.control}
+              onClick={previousSlide}
+              aria-label="Previous design"
+            >
+              <FiArrowLeft />
+            </button>
+
+            <button
+              type="button"
+              className={styles.control}
+              onClick={nextSlide}
+              aria-label="Next design"
+            >
+              <FiArrowRight />
+            </button>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
   );
 }

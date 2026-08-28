@@ -5,8 +5,15 @@ const WhyMe = () => {
   return (
     <section className={styles.whyMeSection}>
       <div className={styles.whyIntro}>
+        <div className={styles.sectionMarker} aria-hidden="true">
+          <span className={styles.markerLine} />
+          <span className={styles.markerPixel} />
+        </div>
+
         <p className="eyebrowHeader">Why work with me</p>
+
         <h3 className={styles.whyHeading}>What You Can Expect</h3>
+
         <p className={styles.whyP}>
           I enjoy building products that solve real problems. Whether it’s
           improving performance, simplifying a user experience, or structuring a
@@ -17,21 +24,38 @@ const WhyMe = () => {
 
       <ul className={styles.whyMeList}>
         <li>
-          <span>
-            <FaLightbulb className="primaryIcon" />
-          </span>
+          <div className={styles.itemTop}>
+            <span className={styles.whyNumber}>01</span>
+
+            <span className={styles.whyMeIcon} aria-hidden="true">
+              <FaLightbulb />
+            </span>
+          </div>
+
           <span className={styles.whyMeText}>Problem-solving mindset</span>
         </li>
+
         <li>
-          <span>
-            <FaTachometerAlt className="primaryIcon" />
-          </span>
+          <div className={styles.itemTop}>
+            <span className={styles.whyNumber}>02</span>
+
+            <span className={styles.whyMeIcon} aria-hidden="true">
+              <FaTachometerAlt />
+            </span>
+          </div>
+
           <span className={styles.whyMeText}>Performance-focused</span>
         </li>
+
         <li>
-          <span>
-            <FaLayerGroup className="primaryIcon" />
-          </span>
+          <div className={styles.itemTop}>
+            <span className={styles.whyNumber}>03</span>
+
+            <span className={styles.whyMeIcon} aria-hidden="true">
+              <FaLayerGroup />
+            </span>
+          </div>
+
           <span className={styles.whyMeText}>
             Design + development thinking
           </span>

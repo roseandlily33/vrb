@@ -22,29 +22,39 @@ export default function CTA3() {
   }
   return (
     <section className={styles.cta3Section}>
-      <div className={styles.cta3Content}>
-        {/* <span className="eyebrowHeader ">Next Step</span> */}
+      <div className={styles.cta3Inner}>
+        <div className={styles.cta3Content}>
+          <h2 className={styles.cta3Heading}>
+            Looking for the right fit for your project?
+          </h2>
 
-        <h2 className={styles.cta3Heading}>
-          Looking for the right fit for your project?
-        </h2>
+          <p className={styles.cta3Subtext}>
+            Explore the packages, process, and support options available to find
+            the approach that makes the most sense for your goals.
+          </p>
 
-        <p className={styles.cta3Subtext}>
-          Explore the packages, process, and support options available to find
-          the approach that makes the most sense for your goals.
-        </p>
+          <div className={styles.cta3ButtonRow}>
+            <SecondaryButton onClick={() => router.push("/services")}>
+              View Packages
+              <FiMessageCircle
+                style={{ marginLeft: 8, verticalAlign: "middle" }}
+                aria-hidden="true"
+              />
+            </SecondaryButton>
+          </div>
 
-        <div className={styles.cta3ButtonRow}>
-          <SecondaryButton onClick={() => router.push("/services")}>
-            View Packages
-            <FiMessageCircle
-              style={{ marginLeft: 8, verticalAlign: "middle" }}
-              aria-hidden="true"
-            />
-          </SecondaryButton>
+          <div className={styles.cta3Booking}>
+            <span className={styles.bookingPixel} aria-hidden="true" />
+            {getBookingWindow()}
+          </div>
         </div>
 
-        <div className={styles.cta3Booking}>{getBookingWindow()}</div>
+        <div className={styles.cta3Visual} aria-hidden="true">
+          <span className={`${styles.pixel} ${styles.pixelOne}`} />
+          <span className={`${styles.pixel} ${styles.pixelTwo}`} />
+          <span className={`${styles.pixel} ${styles.pixelThree}`} />
+          <span className={`${styles.pixelOutline} ${styles.outlineOne}`} />
+        </div>
       </div>
     </section>
   );

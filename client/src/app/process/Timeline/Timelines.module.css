@@ -1,176 +1,204 @@
-.timelineRowsWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-xs);
+.timelineSection {
   width: 100%;
-  align-items: center;
-  /* border: 2px solid red; */
 }
 
 .timelineRow {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-xl);
   width: 100%;
-  justify-items: center;
-  align-items: start;
-  align-items: stretch;
-  /* border: 2px solid blue; */
+
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  gap: var(--space-l);
 }
 
-.labelTimeWrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.25rem;
-}
-.timelineSection {
-  width: 100%;
-  /* max-width: 1100px; */
-  /* margin: 1.5rem auto; */
-  /* padding: var(--section-md); */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* border: 2px solid red; */
-}
+/* ----------------------------------
+   Card
+----------------------------------- */
 
 .timelineStep {
+  position: relative;
+
+  min-height: 240px;
+
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  position: relative;
-  min-width: 110px;
-  flex: 1 1 0;
-  min-height: 140px;
-  height: 100%;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  box-shadow:
+    0 14px 40px rgba(0, 31, 77, 0.05);
+
+  overflow: hidden;
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
 }
 
+.timelineStep:hover {
+  transform: translateY(-4px);
+
+  background: var(--white);
+
+  box-shadow:
+    0 20px 48px rgba(0, 31, 77, 0.09);
+}
+
+/* ----------------------------------
+   Top
+----------------------------------- */
+
+.stepTop {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 2rem;
+}
+
+.stepNumber {
+  color: var(--blue-500);
+
+  font-size: 0.68rem;
+  font-weight: 800;
+
+  letter-spacing: 0.14em;
+}
+
+.stepPixel {
+  width: 7px;
+  height: 7px;
+
+  background: var(--yellow-500);
+}
+
+/* ----------------------------------
+   Icon
+----------------------------------- */
+
 .iconWrapper {
-  background: var(--blue-200);
-  border-radius: 50%;
-  width: 64px;
-  aspect-ratio: 1 / 1;
+  width: 54px;
+  height: 54px;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: var(--space-s);
-  box-shadow: 0 2px 8px 0 rgba(38, 155, 230, 0.08);
-  transition: transform 0.18s cubic-bezier(0.23, 1, 0.32, 1);
-  min-height: 64px;
-  max-height: 64px;
-  /* border: 2px solid red; */
+
+  margin-bottom: auto;
+
+  background: var(--blue-50);
+
+  color: var(--blue-500);
+
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
 }
 
-.iconWrapper:hover,
-.iconWrapper:focus {
-  animation: bounceIn 1.1s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-@keyframes bounceIn {
-  0% {
-    transform: scale(0.7);
-    opacity: 0;
-  }
-  60% {
-    transform: scale(1.15);
-    opacity: 1;
-  }
-  80% {
-    transform: scale(0.95);
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
 .icon {
-  font-size: var(--space-xl);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1.3rem;
+}
+
+.icon svg {
+  width: 1em;
+  height: 1em;
+}
+
+.timelineStep:hover .iconWrapper {
+  background: var(--blue-100);
+
   color: var(--blue-700);
+
+  transform: translateY(-2px);
 }
+
+/* ----------------------------------
+   Label
+----------------------------------- */
+
+.labelTimeWrapper {
+  margin-top: 3rem;
+}
+
 .label {
-  font-size: var(--space-m);
-  font-weight: 700;
-  color: var(--blue-900);
-  margin-bottom: var(--space-xxs);
-  margin-top: var(--space-xxs);
-  text-align: center;
+  margin-bottom: 0.45rem;
+
+  color: var(--blue-950);
+
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  font-weight: 800;
+
+  line-height: 1.1;
+  letter-spacing: -0.03em;
 }
+
 .time {
-  font-size: var(--space-m);
-  color: var(--grey-500);
-  margin-bottom: var(--space-xxs);
-  text-align: center;
+  color: var(--blue-500);
+
+  font-size: 0.82rem;
+  font-weight: 700;
+
+  line-height: 1.4;
 }
-.arrow {
+
+/* ----------------------------------
+   Small accent
+----------------------------------- */
+
+.timelineStep::after {
+  content: "";
+
   position: absolute;
-  right: -38px;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1;
+
+  left: 0;
+  bottom: 0;
+
+  width: 0;
+  height: 3px;
+
+  background: var(--yellow-500);
+
+  transition: width 200ms ease;
 }
 
-@media (max-width: 900px) {
-  .timelineWrapper {
-    flex-direction: column;
-    align-items: center;
-    gap: var(--space-l);
-  }
-  .timelineStep {
-    flex-direction: row;
-    align-items: center;
-    min-width: 0;
-    width: 100%;
-    justify-content: center;
-    margin-bottom: var(--space-xs);
-  }
-  .iconWrapper {
-    margin-bottom: 0;
-    margin-right: var(--space-m);
-  }
-  .labelTimeWrapper {
-    align-items: center;
-    width: auto;
-    gap: 0.15rem;
-  }
-  .label,
-  .time {
-    margin-bottom: 0;
-    margin-top: 0;
-    text-align: center;
-  }
-  .arrow {
-    display: none;
-  }
-  .arrow {
-    position: static;
-    transform: none;
-    margin-left: var(--space-m);
-    margin-top: 0;
-  }
+.timelineStep:hover::after {
+  width: 42px;
 }
 
-@media (min-width: 901px) {
-  .timelineRowsWrapper {
-    display: flex;
-    flex-direction: row;
-    gap: 0;
-    width: 100%;
-    align-items: stretch;
-    justify-content: space-between;
-  }
+/* ----------------------------------
+   Tablet
+----------------------------------- */
+
+@media (max-width: 950px) {
   .timelineRow {
-    display: flex;
-    flex-direction: row;
-    gap: var(--space-xl);
-    width: 100%;
-    justify-content: space-between;
-    align-items: stretch;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
+
+/* ----------------------------------
+   Mobile
+----------------------------------- */
+
+@media (max-width: 600px) {
+  .timelineRow {
+    grid-template-columns: 1fr;
+  }
+
   .timelineStep {
-    min-height: 140px;
-    flex: 1 1 0;
-    height: 100%;
+    min-height: 190px;
+  }
+
+  .labelTimeWrapper {
+    margin-top: 2rem;
   }
 }

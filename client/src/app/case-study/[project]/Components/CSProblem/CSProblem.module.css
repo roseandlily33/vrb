@@ -1,92 +1,458 @@
-/* Problem Section */
-/* Problem Section */
 .problem {
-  margin-top: var(--space-l);
-  margin-bottom: var(--space-l);
-  padding: var(--space-m) 0 var(--space-xs) 0;
-  background: var(--white);
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 2.5rem;
+  position: relative;
+
   width: 100%;
-  box-sizing: border-box;
-  /* .section { */
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: var(--section-lg);
-  /* } */
+
+  padding: var(--section-xl) var(--section-lg);
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 88% 22%,
+      rgba(27, 138, 228, 0.06),
+      transparent 28%
+    ),
+    linear-gradient(
+      180deg,
+      var(--white) 0%,
+      var(--blue-50) 100%
+    );
 }
+
+/* ----------------------------------
+   Background grid
+----------------------------------- */
+
+.problem::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(0, 84, 201, 0.018) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 84, 201, 0.018) 1px,
+      transparent 1px
+    );
+
+  background-size: 46px 46px;
+
+  pointer-events: none;
+}
+
+.problemInner {
+  position: relative;
+
+  z-index: 1;
+
+  width: 100%;
+  max-width: 1500px;
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
+
+  gap: clamp(3rem, 7vw, 7rem);
+
+  align-items: center;
+}
+
+/* ----------------------------------
+   Content
+----------------------------------- */
+
+.problemContent {
+  max-width: 760px;
+}
+
+.marker {
+  display: flex;
+
+  align-items: center;
+
+  gap: 0.55rem;
+
+  margin-bottom: 1rem;
+}
+
+.markerLine {
+  width: 38px;
+  height: 3px;
+
+  background: var(--blue-800);
+}
+
+.markerPixel {
+  width: 7px;
+  height: 7px;
+
+  background: var(--yellow-500);
+}
+
+.problemContent :global(.eyebrowHeader) {
+  margin: 0 0 0.8rem;
+
+  color: var(--blue-700);
+}
+
+.problemContent h2 {
+  max-width: 780px;
+
+  margin: 0;
+
+  color: var(--blue-950);
+
+  font-size: clamp(2.5rem, 4.6vw, 4.4rem);
+
+  font-weight: 800;
+
+  line-height: 0.97;
+
+  letter-spacing: -0.055em;
+}
+
 .prob {
-  line-height: 1.7;
-  max-width: 850px;
-  font-size: 1.1rem;
+  max-width: 720px;
+
+  margin: 1.5rem 0 0;
+
+  color: var(--grey-700);
+
+  font-size: clamp(1rem, 1.25vw, 1.08rem);
+
+  line-height: 1.8;
+
   word-break: break-word;
 }
+
+/* ----------------------------------
+   Image
+----------------------------------- */
+
+.imgContainer {
+  min-width: 0;
+
+  display: flex;
+
+  justify-content: flex-end;
+}
+
+.imageButton {
+  position: relative;
+
+  width: min(100%, 520px);
+
+  padding: 0;
+
+  display: block;
+
+  border: 1px solid var(--blue-200);
+
+  background: var(--white);
+
+  cursor: zoom-in;
+
+  overflow: hidden;
+
+  box-shadow: 0 18px 50px rgba(0, 31, 77, 0.08);
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.imageButton:hover {
+  transform: translateY(-4px);
+
+  border-color: var(--blue-400);
+
+  box-shadow: 0 24px 60px rgba(0, 31, 77, 0.12);
+}
+
+.imageButton:focus-visible {
+  outline: 2px solid var(--yellow-500);
+
+  outline-offset: 4px;
+}
+
 .homeImg {
-  border-radius: var(--radius-lg);
   width: 100%;
-  max-width: 500px;
   height: auto;
-  aspect-ratio: 4/3;
+
+  aspect-ratio: 4 / 3;
+
+  display: block;
+
   object-fit: cover;
   object-position: top;
-  box-shadow: 0 2px 12px 0 rgba(38, 155, 230, 0.1);
-  max-height: 320px;
-  flex-basis: 30%;
-  flex-grow: 0;
-  flex-shrink: 1;
-  display: block;
+
+  transition: transform 220ms ease;
 }
-.imgContainer {
+
+.imageButton:hover .homeImg {
+  transform: scale(1.015);
+}
+
+/* ----------------------------------
+   Image details
+----------------------------------- */
+
+.imageIndex {
+  position: absolute;
+
+  z-index: 2;
+
+  top: 1rem;
+  left: 1rem;
+
+  padding: 0.45rem 0.55rem;
+
+  background: var(--blue-950);
+
+  color: var(--yellow-500);
+
+  font-size: 0.65rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.12em;
+}
+
+.expandLabel {
+  position: absolute;
+
+  z-index: 2;
+
+  left: 1rem;
+  bottom: 1rem;
+
+  padding: 0.48rem 0.7rem;
+
+  background: var(--blue-950);
+
+  color: var(--white);
+
+  font-size: 0.68rem;
+
+  font-weight: 750;
+
+  letter-spacing: 0.08em;
+
+  text-transform: uppercase;
+}
+
+.imagePixel {
+  position: absolute;
+
+  z-index: 2;
+
+  right: 1rem;
+  bottom: 1rem;
+
+  width: 9px;
+  height: 9px;
+
+  background: var(--yellow-500);
+}
+
+/* ----------------------------------
+   Modal
+----------------------------------- */
+
+.modal {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9999;
+
   display: flex;
-  justify-content: flex-end;
-  align-items: flex-start;
-  flex: 1;
-  min-width: 0;
-}
-@media screen and (max-width: 1100px) {
-  .problem {
-    gap: 1.5rem;
-  }
-  .homeImg {
-    max-width: 350px;
-    max-height: 220px;
-  }
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 2rem;
+
+  background: rgba(0, 18, 51, 0.94);
+
+  cursor: zoom-out;
 }
 
-@media screen and (max-width: 900px) {
+.modal::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(105, 185, 242, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(105, 185, 242, 0.025) 1px,
+      transparent 1px
+    );
+
+  background-size: 46px 46px;
+
+  pointer-events: none;
+}
+
+.modalImageWrap {
+  position: relative;
+
+  z-index: 1;
+
+  max-width: 92vw;
+  max-height: 90vh;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  cursor: default;
+}
+
+.modalImage {
+  width: auto;
+  height: auto;
+
+  max-width: 92vw;
+  max-height: 90vh;
+
+  object-fit: contain;
+
+  background: var(--white);
+
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.35);
+}
+
+.modalClose {
+  position: absolute;
+
+  z-index: 2;
+
+  top: 1.5rem;
+  right: 1.5rem;
+
+  width: 44px;
+  height: 44px;
+
+  display: grid;
+
+  place-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  background: transparent;
+
+  color: var(--white);
+
+  font-size: 1.5rem;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition:
+    background 160ms ease,
+    color 160ms ease,
+    border-color 160ms ease;
+}
+
+.modalClose:hover {
+  background: var(--yellow-500);
+
+  border-color: var(--yellow-500);
+
+  color: var(--blue-950);
+}
+
+.modalClose:focus-visible {
+  outline: 2px solid var(--yellow-500);
+
+  outline-offset: 4px;
+}
+
+/* ----------------------------------
+   Tablet
+----------------------------------- */
+
+@media (max-width: 950px) {
   .problem {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 1.5rem;
-    padding: var(--space-m) 0;
-    /* border: 2px solid red; */
+    padding: var(--section-lg) var(--section-md);
   }
+
+  .problemInner {
+    grid-template-columns: 1fr;
+
+    gap: 3rem;
+  }
+
   .imgContainer {
-    justify-content: center;
-    align-items: center;
-    margin-top: 1rem;
+    justify-content: flex-start;
   }
-  .homeImg {
-    max-width: 100%;
-    width: 100%;
-    max-height: 220px;
+
+  .imageButton {
+    width: min(100%, 650px);
   }
 }
 
-@media screen and (max-width: 600px) {
+/* ----------------------------------
+   Mobile
+----------------------------------- */
+
+@media (max-width: 650px) {
   .problem {
-    padding: var(--space-s) 0;
-    gap: 1rem;
+    padding: var(--section-lg) 1.25rem;
   }
+
+  .problemInner {
+    gap: 2.5rem;
+  }
+
+  .problemContent h2 {
+    font-size: clamp(2.2rem, 10vw, 3.3rem);
+  }
+
   .prob {
-    font-size: 1rem;
+    font-size: 0.98rem;
   }
-  .homeImg {
-    max-width: 100%;
-    max-height: 160px;
-    aspect-ratio: 4/3;
+
+  .imageButton {
+    width: 100%;
+  }
+
+  .expandLabel {
+    font-size: 0.62rem;
+  }
+
+  .modal {
+    padding: 1rem;
+  }
+
+  .modalClose {
+    top: 1rem;
+    right: 1rem;
+
+    width: 40px;
+    height: 40px;
+  }
+
+  .modalImage {
+    max-width: 94vw;
+    max-height: 86vh;
   }
 }

@@ -1,59 +1,292 @@
 .trustedSection {
+  position: relative;
+
   width: 100%;
-  padding: var(--section-md);
-  text-align: center;
-  /* background: var(--grey-50); */
-  /* border-top: 1px solid rgba(0, 0, 0, 0.05); */
-  /* border-bottom: 1px solid rgba(0, 0, 0, 0.05); */
+
+  padding: var(--section-lg) 3rem;
+
+  overflow: hidden;
+
+  background: var(--blue-50);
 }
+
+/* ----------------------------------
+   Subtle background detail
+----------------------------------- */
+
+.trustedSection::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      rgba(0, 84, 201, 0.018) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 84, 201, 0.018) 1px,
+      transparent 1px
+    );
+
+  background-size: 46px 46px;
+
+  pointer-events: none;
+}
+
+/* ----------------------------------
+   Inner
+----------------------------------- */
+
+.trustedInner {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  max-width: 1500px;
+
+  margin: 0 auto;
+}
+
+/* ----------------------------------
+   Header
+----------------------------------- */
+
+.trustedHeader {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.headerMarker {
+  display: flex;
+  align-items: center;
+
+  gap: 0.6rem;
+
+  margin-bottom: 1rem;
+}
+
+.markerLine {
+  width: 34px;
+  height: 3px;
+
+  background: var(--blue-800);
+}
+
+.markerPixel {
+  width: 7px;
+  height: 7px;
+
+  background: var(--yellow-500);
+}
+
+.heading {
+  margin: 0;
+
+  color: var(--blue-950);
+
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 800;
+
+  line-height: 1;
+
+  letter-spacing: -0.045em;
+}
+
+/* ----------------------------------
+   Logo row
+----------------------------------- */
 
 .logoRow {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3rem; 
-  flex-wrap: wrap;
-  margin-top: var(--space-xxl);
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+
+  border-top: 1px solid var(--blue-200);
+  border-bottom: 1px solid var(--blue-200);
 }
 
+/* ----------------------------------
+   Logo column
+----------------------------------- */
+
 .logoCol {
+  min-width: 0;
+  min-height: 170px;
+
+  padding: 2rem 1.25rem;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  min-width: 110px;
+  justify-content: center;
+
+  gap: 1.2rem;
 }
 
+.logoCol + .logoCol {
+  border-left: 1px solid var(--blue-200);
+}
+
+/* ----------------------------------
+   Logo link
+----------------------------------- */
+
 .logoLink {
+  position: relative;
+
+  width: 100%;
+  min-height: 70px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  text-decoration: none;
 }
 
+/* ----------------------------------
+   Image
+----------------------------------- */
+
 .logoImg {
-  height: 56px; 
-  width: 110px;
+  width: min(125px, 100%);
+  height: 60px;
+
   object-fit: contain;
 
-  filter: grayscale(1) brightness(0.9);
-  opacity: 0.75;
+  filter: grayscale(1);
+  opacity: 0.58;
 
   transition:
-    filter 0.2s ease,
-    opacity 0.2s ease,
-    transform 0.2s ease;
+    filter 180ms ease,
+    opacity 180ms ease,
+    transform 180ms ease;
 }
 
 .logoLink:hover .logoImg,
-.logoLink:focus .logoImg {
-  filter: grayscale(0) brightness(1);
+.logoLink:focus-visible .logoImg {
+  filter: grayscale(0);
+
   opacity: 1;
-  transform: translateY(-2px); 
+
+  transform: translateY(-3px);
 }
+
+/* ----------------------------------
+   Tiny hover pixel
+----------------------------------- */
+
+.logoHoverPixel {
+  position: absolute;
+
+  left: 50%;
+  bottom: -5px;
+
+  width: 6px;
+  height: 6px;
+
+  background: var(--yellow-500);
+
+  opacity: 0;
+
+  transform: translate(-50%, 5px);
+
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease;
+}
+
+.logoLink:hover .logoHoverPixel,
+.logoLink:focus-visible .logoHoverPixel {
+  opacity: 1;
+
+  transform: translate(-50%, 0);
+}
+
+.logoLink:focus-visible {
+  outline: 2px solid var(--yellow-500);
+  outline-offset: 6px;
+}
+
+/* ----------------------------------
+   Company name
+----------------------------------- */
+
 .companyName {
-  font-size: 0.85rem;
-  color: var(--grey-500);
-  font-weight: 500;
+  max-width: 150px;
+
+  color: var(--grey-600);
+
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  line-height: 1.4;
+
   text-align: center;
+
   letter-spacing: 0.01em;
+}
+
+/* ----------------------------------
+   Tablet
+----------------------------------- */
+
+@media (max-width: 1100px) {
+  .trustedSection {
+    padding: var(--section-lg) 2rem;
+  }
+
+  .logoRow {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .logoCol:nth-child(4),
+  .logoCol:nth-child(5),
+  .logoCol:nth-child(6) {
+    border-top: 1px solid var(--blue-200);
+  }
+
+  .logoCol:nth-child(4) {
+    border-left: 0;
+  }
+}
+
+/* ----------------------------------
+   Mobile
+----------------------------------- */
+
+@media (max-width: 650px) {
+  .trustedSection {
+    padding: var(--section-md) 1.25rem;
+  }
+
+  .logoRow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .logoCol {
+    min-height: 150px;
+
+    padding: 1.5rem 1rem;
+  }
+
+  .logoCol:nth-child(odd) {
+    border-left: 0;
+  }
+
+  .logoCol:nth-child(n + 3) {
+    border-top: 1px solid var(--blue-200);
+  }
+
+  .logoImg {
+    width: min(110px, 100%);
+    height: 54px;
+  }
+
+  .companyName {
+    font-size: 0.73rem;
+  }
 }

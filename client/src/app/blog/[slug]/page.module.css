@@ -53,7 +53,7 @@
 
 .headerImage {
   display: block;
-  border-radius: var(--radius-md);
+  /* border-radius: var(--radius-md); */
   overflow: hidden;
   background: var(--accent-blue-soft);
 }
@@ -67,7 +67,7 @@
 
 .content {
   background: var(--white);
-  border-radius: var(--radius-md);
+  /* border-radius: var(--radius-md); */
   padding: var(--space-l);
   box-shadow: var(--shadow-sm);
   border: 1px solid rgba(2,6,23,0.04);
@@ -96,7 +96,7 @@
 
 .inlineImage {
   margin: var(--space-m) 0;
-  border-radius: var(--radius-md);
+  /* border-radius: var(--radius-md); */
   overflow: hidden;
 }
 

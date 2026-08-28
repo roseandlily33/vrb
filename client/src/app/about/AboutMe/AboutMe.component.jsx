@@ -8,10 +8,17 @@ const AboutMe = () => {
     "Performance Optimization",
     "User-Centered Design",
   ];
+
   return (
     <section className={styles.aboutMeSection}>
       <div className={styles.aboutIntro}>
+        <div className={styles.sectionMarker} aria-hidden="true">
+          <span className={styles.markerLine} />
+          <span className={styles.markerPixel} />
+        </div>
+
         <p className="eyebrowHeader">About Me</p>
+
         <h2 className="header">A bit about me</h2>
 
         <p className={styles.lead}>
@@ -30,6 +37,7 @@ const AboutMe = () => {
           businesses across Canada to create digital experiences that are
           polished, practical and built to grow.
         </p>
+
         <div className={styles.aboutMeBadges}>
           {items.map((item, idx) => (
             <PillButton key={idx}>{item}</PillButton>
@@ -39,23 +47,38 @@ const AboutMe = () => {
 
       <div className={styles.aboutCards}>
         <div className={styles.aboutCard}>
-          <h4>Design</h4>
-          <p>
-            I think through layout, hierarchy, and user flow first — making sure
-            everything feels intuitive before a single line of code is written.
-          </p>
+          <div className={styles.cardTop}>
+            <span className={styles.cardNumber}>01</span>
+            <span className={styles.cardPixel} aria-hidden="true" />
+          </div>
+
+          <div className={styles.cardContent}>
+            <h4>Design</h4>
+
+            <p>
+              I think through layout, hierarchy, and user flow first — making
+              sure everything feels intuitive before a single line of code is
+              written.
+            </p>
+          </div>
         </div>
 
         <div className={styles.aboutCard}>
-          <h4>Development</h4>
-          <p>
-            I build responsive, maintainable applications with performance and
-            structure in mind — so what gets launched works in the real world.
-          </p>
+          <div className={styles.cardTop}>
+            <span className={styles.cardNumber}>02</span>
+            <span className={styles.cardPixel} aria-hidden="true" />
+          </div>
+
+          <div className={styles.cardContent}>
+            <h4>Development</h4>
+
+            <p>
+              I build responsive, maintainable applications with performance and
+              structure in mind — so what gets launched works in the real world.
+            </p>
+          </div>
         </div>
       </div>
-
-      {/* 👇 moved here */}
     </section>
   );
 };

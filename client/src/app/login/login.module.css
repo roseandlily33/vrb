@@ -10,7 +10,7 @@
   max-width: 420px;
   background: #fff;
   padding: 28px;
-  border-radius: 8px;
+  /* border-radius: 8px; */
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
 }
 
@@ -35,7 +35,7 @@
   width: 100%;
   padding: 10px 12px;
   border: 1px solid #e5e7eb;
-  border-radius: 6px;
+  /* border-radius: 6px; */
   font-size: 14px;
 }
 
@@ -46,7 +46,7 @@
   background: #0054c9;
   color: white;
   border: none;
-  border-radius: 6px;
+  /* border-radius: 6px; */
   cursor: pointer;
 }
 
@@ -54,6 +54,6 @@
   background: #ffe8e8;
   color: #a71d2a;
   padding: 8px 10px;
-  border-radius: 6px;
+  /* border-radius: 6px; */
   margin-bottom: 12px;
 }

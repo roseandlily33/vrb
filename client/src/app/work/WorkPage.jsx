@@ -21,6 +21,11 @@ const WorkPage = () => {
                   <PillButton>{project.badge}</PillButton>
                 </div>
               )}
+
+              <div className={styles.projectNumber} aria-hidden="true">
+                {String(index + 1).padStart(2, "0")}
+              </div>
+
               <div className={styles.projectCardContent}>
                 <h3>{project.name}</h3>
                 <p>{project.description}</p>
@@ -37,10 +42,13 @@ const WorkPage = () => {
                   />
                 </TertiaryButton>
               </Link>
+
+              <span className={styles.footerPixel} aria-hidden="true" />
             </div>
           </article>
         ))}
       </div>
+
       <PortfolioLink />
     </>
   );

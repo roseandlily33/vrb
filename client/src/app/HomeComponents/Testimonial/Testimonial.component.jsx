@@ -8,26 +8,48 @@ const testimonial =
 export default function Testimonial() {
   return (
     <section className={styles.testimonialSection}>
-      <div className={styles.testimonialCard}>
-        <p className="eyebrowHeader">Client Feedback</p>
+      <div className={styles.testimonialInner}>
+        {/* <div className={styles.testimonialMarker} aria-hidden="true">
+          <span className={styles.markerNumber}>#02</span>
+          <span className={styles.markerLine} />
+        </div> */}
 
-        <blockquote className={styles.quote}>{testimonial}</blockquote>
+        <div className={styles.testimonialCard}>
+          <div className={styles.quoteMark} aria-hidden="true">
+            “
+          </div>
 
-        <div className={styles.author}>
-          <Image
-            src="/ArielPerformance/ArielLogo.webp"
-            alt="Ariel Performance Horses Logo"
-            className={styles.authorImage}
-            width={100}
-            height={100}
-          />
-          <div>
-            <Link href="/case-study/ariel-performance-horses">
-              <p className={styles.authorName}>Ariel Boesener</p>
-              <p className={styles.authorMeta}>
-                Ariel Boesener Performance Horses
-              </p>
-            </Link>
+          <div className={styles.testimonialContent}>
+            <p className="eyebrowHeader">Client Feedback</p>
+
+            <blockquote className={styles.quote}>{testimonial}</blockquote>
+
+            <div className={styles.author}>
+              <Image
+                src="/ArielPerformance/ArielLogo.webp"
+                alt="Ariel Performance Horses Logo"
+                className={styles.authorImage}
+                width={100}
+                height={100}
+              />
+
+              <div>
+                <Link href="/case-study/ariel-performance-horses">
+                  <p className={styles.authorName}>Ariel Boesener</p>
+
+                  <p className={styles.authorMeta}>
+                    Ariel Boesener Performance Horses
+                  </p>
+                </Link>
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.pixelCluster} aria-hidden="true">
+            <span className={`${styles.pixel} ${styles.pixelOne}`} />
+            <span className={`${styles.pixel} ${styles.pixelTwo}`} />
+            <span className={`${styles.pixel} ${styles.pixelThree}`} />
+            <span className={`${styles.pixelOutline} ${styles.pixelFour}`} />
           </div>
         </div>
       </div>

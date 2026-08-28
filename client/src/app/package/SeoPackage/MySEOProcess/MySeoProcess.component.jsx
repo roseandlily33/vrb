@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./MySeoProcess.module.css";
 
+
 const steps = [
   {
     title: "Audit & Discovery",
@@ -23,23 +24,40 @@ const steps = [
 export default function MySeoProcess() {
   return (
     <section className={styles.processSection} id="my-seo-process">
-      <h2 className="heading">My SEO process</h2>
-      <p className="meta">01 Audit & Discovery → 02 Research & Strategy → 03 Optimization → 04 Monitor & Refine</p>
-
-      <div className={styles.stepsWrapper}>
-        {steps.map((s, i) => (
-          <div
-            key={s.title}
-            className={`${styles.stepCard} ${i % 2 === 0 ? styles.left : styles.right}`}
-          >
-            <div className={styles.stepNumber}>{String(i + 1).padStart(2, "0")}</div>
-
-            <div className={styles.stepContent}>
-              <div className={styles.stepTitle}>{`${String(i + 1).padStart(2, "0")} ${s.title}`}</div>
-              <div className={styles.stepDesc}>{s.desc}</div>
-            </div>
+      <div className={styles.processInner}>
+        <div className={styles.header}>
+          <div className={styles.marker} aria-hidden="true">
+            <span className={styles.markerLine} />
+            <span className={styles.markerPixel} />
           </div>
-        ))}
+
+          <h2 className="heading">My SEO process</h2>
+
+          <p className="meta">
+            01 Audit & Discovery → 02 Research & Strategy → 03 Optimization → 04
+            Monitor & Refine
+          </p>
+        </div>
+
+        <div className={styles.stepsWrapper}>
+          {steps.map((s, i) => (
+            <div key={s.title} className={styles.stepCard}>
+              <div className={styles.stepNumber}>
+                {String(i + 1).padStart(2, "0")}
+              </div>
+
+              <div className={styles.stepContent}>
+                <div className={styles.stepTitle}>
+                  {`${String(i + 1).padStart(2, "0")} ${s.title}`}
+                </div>
+
+                <div className={styles.stepDesc}>{s.desc}</div>
+              </div>
+
+              <span className={styles.stepPixel} aria-hidden="true" />
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 .packagesHero {
   position: relative;
+
   overflow: hidden;
 
   padding:
@@ -8,59 +9,90 @@
     var(--space-xxxxxl);
 
   background:
+    radial-gradient(
+      circle at 82% 28%,
+      rgba(27, 138, 228, 0.08),
+      transparent 24%
+    ),
     linear-gradient(
       180deg,
-      rgba(248, 251, 255, 0.95) 0%,
-      var(--white) 100%
+      var(--white) 0%,
+      var(--blue-50) 100%
     );
-  /* border: 2px solid red; */
 }
+
+/* ----------------------------------
+   Grid background
+----------------------------------- */
 
 .packagesHero::before {
   content: "";
 
   position: absolute;
+
   inset: 0;
 
   background-image:
-    linear-gradient(rgba(27, 137, 226, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(27, 137, 226, 0.04) 1px, transparent 1px);
+    linear-gradient(
+      rgba(27, 137, 226, 0.025) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(27, 137, 226, 0.025) 1px,
+      transparent 1px
+    );
 
-  background-size: 42px 42px;
+  background-size: 46px 46px;
 
   mask-image: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.9),
-    transparent
+    rgba(0, 0, 0, 0.95),
+    rgba(0, 0, 0, 0.4) 70%,
+    transparent 100%
   );
 
   pointer-events: none;
 }
+
+/* ----------------------------------
+   Pixel composition
+----------------------------------- */
 
 .packagesHero::after {
   content: "";
 
   position: absolute;
-  right: -120px;
-  top: -120px;
 
-  width: 420px;
-  height: 420px;
+  right: clamp(2rem, 8vw, 8rem);
+  bottom: clamp(2rem, 5vw, 4rem);
 
-  border-radius: 50%;
+  width: 120px;
+  height: 90px;
 
-  background: radial-gradient(
-    circle,
-    rgba(105, 186, 242, 0.14) 0%,
-    rgba(105, 186, 242, 0.04) 45%,
-    transparent 72%
-  );
+  background:
+    linear-gradient(var(--blue-800), var(--blue-800))
+      0 40px / 34px 34px no-repeat,
+
+    linear-gradient(var(--blue-500), var(--blue-500))
+      44px 22px / 18px 18px no-repeat,
+
+    linear-gradient(var(--yellow-500), var(--yellow-500))
+      73px 7px / 9px 9px no-repeat,
+
+    linear-gradient(var(--blue-950), var(--blue-950))
+      92px 54px / 12px 12px no-repeat;
 
   pointer-events: none;
 }
 
+/* ----------------------------------
+   Content
+----------------------------------- */
+
 .packagesHeroContent {
   position: relative;
+
   z-index: 2;
 
   width: min(100%, 920px);
@@ -70,29 +102,73 @@
   text-align: center;
 }
 
+/* ----------------------------------
+   Eyebrow
+----------------------------------- */
+
 .eyebrow {
-  display: inline-block;
+  position: relative;
 
-  margin-bottom: var(--space-m);
+  display: inline-flex;
 
-  color: var(--blue-800);
-  font-size: 0.74rem;
+  align-items: center;
+
+  gap: 0.65rem;
+
+  margin-bottom: var(--space-l);
+
+  color: var(--blue-700);
+
+  font-size: 0.72rem;
+
   font-weight: 800;
+
   text-transform: uppercase;
-  letter-spacing: 0.18em;
+
+  letter-spacing: 0.16em;
 }
 
+.eyebrow::before {
+  content: "";
+
+  width: 30px;
+  height: 3px;
+
+  background: var(--blue-800);
+}
+
+.eyebrow::after {
+  content: "";
+
+  width: 7px;
+  height: 7px;
+
+  background: var(--yellow-500);
+}
+
+/* ----------------------------------
+   Heading
+----------------------------------- */
+
 .packagesHeroContent h1 {
-  margin: 0;
+  max-width: 980px;
+
+  margin: 0 auto;
 
   color: var(--blue-950);
 
   font-size: clamp(3.4rem, 7vw, 6rem);
-  line-height: 0.92;
-  letter-spacing: -0.08em;
 
-  max-width: 980px;
+  font-weight: 800;
+
+  line-height: 0.92;
+
+  letter-spacing: -0.075em;
 }
+
+/* ----------------------------------
+   Description
+----------------------------------- */
 
 .packagesHeroContent p {
   max-width: 760px;
@@ -102,8 +178,40 @@
   color: var(--grey-600);
 
   font-size: 1.08rem;
-  line-height: 1.9;
+
+  line-height: 1.85;
 }
+
+/* ----------------------------------
+   Bottom detail
+----------------------------------- */
+
+.packagesHeroContent::after {
+  content: "";
+
+  display: block;
+
+  width: min(520px, 70%);
+
+  height: 1px;
+
+  margin:
+    clamp(2.5rem, 5vw, 4rem)
+    auto
+    0;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--blue-200),
+      transparent
+    );
+}
+
+/* ----------------------------------
+   Tablet
+----------------------------------- */
 
 @media (max-width: 800px) {
   .packagesHero {
@@ -119,11 +227,56 @@
 
   .packagesHeroContent h1 {
     font-size: clamp(2.8rem, 12vw, 4.5rem);
+
     line-height: 0.96;
+
+    letter-spacing: -0.06em;
   }
 
   .packagesHeroContent p {
     font-size: 1rem;
+
     line-height: 1.8;
+  }
+
+  .packagesHero::after {
+    right: 1.5rem;
+    bottom: 1.5rem;
+
+    transform: scale(0.72);
+    transform-origin: bottom right;
+
+    opacity: 0.55;
+  }
+}
+
+/* ----------------------------------
+   Mobile
+----------------------------------- */
+
+@media (max-width: 520px) {
+  .packagesHero {
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  .eyebrow {
+    gap: 0.5rem;
+
+    font-size: 0.66rem;
+  }
+
+  .eyebrow::before {
+    width: 22px;
+  }
+
+  .packagesHeroContent::after {
+    width: 70%;
+
+    margin-top: 2.5rem;
+  }
+
+  .packagesHero::after {
+    opacity: 0.3;
   }
 }

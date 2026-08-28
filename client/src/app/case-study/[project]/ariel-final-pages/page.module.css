@@ -31,7 +31,7 @@
   gap: var(--space-xs);
 
   padding: 0.35rem;
-  border-radius: 999px;
+  /* border-radius: 999px; */
   background: var(--blue-50);
   border: 1px solid rgba(0, 84, 201, 0.12);
 }
@@ -41,7 +41,7 @@
   background: transparent;
   color: var(--blue-900);
 
-  border-radius: 999px;
+  /* border-radius: 999px; */
   padding: 0.65rem 1.2rem;
 
   font-family: var(--font-body);

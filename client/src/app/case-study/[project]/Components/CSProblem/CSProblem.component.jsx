@@ -25,62 +25,81 @@ const CSProblem = ({ problemDescription, homeSrc }) => {
 
   return (
     <section className={styles.problem}>
-      <div style={{ flex: 2 }}>
-        <p className="eyebrowHeader">Problem</p>
-        <h2>The challenge we needed to solve</h2>
-        <p className={styles.prob}>{problemDescription}</p>
+  <div className={styles.problemInner}>
+    <div className={styles.problemContent}>
+      <div className={styles.marker} aria-hidden="true">
+        <span className={styles.markerLine} />
+        <span className={styles.markerPixel} />
       </div>
-      {homeSrc && (
-        <div className={styles.imgContainer}>
+
+      <p className="eyebrowHeader">Problem</p>
+
+      <h2>The challenge we needed to solve</h2>
+
+      <p className={styles.prob}>{problemDescription}</p>
+    </div>
+
+    {homeSrc && (
+      <div className={styles.imgContainer}>
+        <button
+          type="button"
+          className={styles.imageButton}
+          onClick={() => setModalOpen(true)}
+          aria-label="Expand image"
+        >
+          <span className={styles.imageIndex} aria-hidden="true">
+            01
+          </span>
+
           <Image
             src={homeSrc}
             alt="home page screenshot"
             className={styles.homeImg}
-            style={{ cursor: "pointer" }}
-            onClick={() => setModalOpen(true)}
-            tabIndex={0}
-            aria-label="Expand image"
             width={800}
             height={600}
           />
-        </div>
-      )}
-      {modalOpen && (
-        <div
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100vw",
-            height: "100vh",
-            background: "rgba(0,0,0,0.85)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            zIndex: 9999,
-            cursor: "zoom-out",
-          }}
-          onClick={() => setModalOpen(false)}
-          aria-modal="true"
-          role="dialog"
-        >
-          <Image
-            src={homeSrc}
-            alt="Full screen home page screenshot"
-            style={{
-              maxWidth: "90vw",
-              maxHeight: "90vh",
-              borderRadius: 12,
-              boxShadow: "0 8px 32px rgba(0,0,0,0.35)",
-              background: "#fff",
-            }}
-            onClick={(e) => e.stopPropagation()}
-            width={800}
-            height={600}
-          />
-        </div>
-      )}
-    </section>
+
+          <span className={styles.expandLabel} aria-hidden="true">
+            View larger
+          </span>
+
+          <span className={styles.imagePixel} aria-hidden="true" />
+        </button>
+      </div>
+    )}
+  </div>
+
+  {modalOpen && (
+    <div
+      className={styles.modal}
+      onClick={() => setModalOpen(false)}
+      aria-modal="true"
+      role="dialog"
+    >
+      <button
+        type="button"
+        className={styles.modalClose}
+        onClick={() => setModalOpen(false)}
+        aria-label="Close image"
+      >
+        ×
+      </button>
+
+      <div
+        className={styles.modalImageWrap}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <Image
+          src={homeSrc}
+          alt="Full screen home page screenshot"
+          className={styles.modalImage}
+          width={1200}
+          height={900}
+        />
+      </div>
+    </div>
+  )}
+</section>
   );
 };
 

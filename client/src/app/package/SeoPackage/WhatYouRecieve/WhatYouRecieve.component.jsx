@@ -22,22 +22,32 @@ export default function WhatYouRecieve() {
 
   return (
     <section className={styles.container} aria-labelledby="what-you-receive">
-      <h2 id="what-you-receive" className={styles.title}>
-        What your SEO project can include
-      </h2>
+      <div className={styles.header}>
+        <div className={styles.marker} aria-hidden="true">
+          <span className={styles.markerLine} />
+          <span className={styles.markerPixel} />
+        </div>
 
-      <div className={styles.intro}>
-        A tailored mix of technical, content, performance and measurement work
-        designed to improve visibility, indexing, and long-term organic growth.
+        <h2 id="what-you-receive" className={styles.title}>
+          What your SEO project can include
+        </h2>
+
+        <div className={styles.intro}>
+          A tailored mix of technical, content, performance and measurement work
+          designed to improve visibility, indexing, and long-term organic growth.
+        </div>
       </div>
 
       <ul className={styles.grid}>
-        {items.map((it) => (
+        {items.map((it, index) => (
           <li key={it} className={styles.item}>
-            <span className={styles.bullet} aria-hidden>
-              •
+            <span className={styles.number}>
+              {String(index + 1).padStart(2, "0")}
             </span>
+
             <span className={styles.label}>{it}</span>
+
+            <span className={styles.pixel} aria-hidden="true" />
           </li>
         ))}
       </ul>
