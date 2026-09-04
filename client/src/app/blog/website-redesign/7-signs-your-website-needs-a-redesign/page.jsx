@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "./page.module.css";
 import BlogHero from "../../blogSections/blogHero/blogHero";
-import BlogCTA from "../../blogSections/blogCtA/blogCta";
+import BlogCTA from "../../blogSections/blogCta/blogCta";
 
 export const metadata = {
   title: "7 Signs Your Website Needs a Redesign | VRB Web Design and Development",

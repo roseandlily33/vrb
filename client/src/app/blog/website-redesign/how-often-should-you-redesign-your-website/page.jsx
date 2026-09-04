@@ -1,5 +1,5 @@
 import BlogHero from '../../blogSections/blogHero/blogHero';
-import BlogCTA from '../../blogSections/blogCtA/blogCta';
+import BlogCTA from '../../blogSections/blogCta/blogCta';
 import styles from '../7-signs-your-website-needs-a-redesign/page.module.css';
 
 export const metadata = {

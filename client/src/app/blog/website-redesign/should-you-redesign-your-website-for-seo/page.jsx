@@ -1,6 +1,6 @@
 import styles from "../7-signs-your-website-needs-a-redesign/page.module.css";
 import BlogHero from "../../blogSections/blogHero/blogHero";
-import BlogCTA from "../../blogSections/blogCtA/blogCta";
+import BlogCTA from "../../blogSections/blogCta/blogCta";
 
 export const metadata = {
   title: "Should You Redesign Your Website for SEO? | VRB Web Design and Development",
