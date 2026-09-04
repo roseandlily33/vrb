@@ -47,7 +47,13 @@ const ReceiptTemplate = ({
         <div className={styles.invoiceTop}>
           <div className={styles.brandBlock}>
             <div className={styles.logoPlaceholder}>
-              <Image src="/VRBLogo.png" alt="VRB Web Design and Development" width={200} height={200} />
+              <Image
+                src="/VRBLogo.png"
+                alt="VRB Web Design and Development"
+                width={200}
+                height={200}
+                loading="lazy"
+              />
             </div>
 
             <div className={styles.issuerDetails}>

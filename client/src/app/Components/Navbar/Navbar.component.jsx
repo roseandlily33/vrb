@@ -78,6 +78,7 @@ const Navbar = () => {
               alt="VRB Logo"
               className={styles.logo}
               width={200}
+              loading="eager"
               height={200}
             />
           </Link>
@@ -92,9 +93,7 @@ const Navbar = () => {
                   className={`${styles.navLink} ${
                     isServicesActive ? styles.active : ""
                   }`}
-                  aria-current={
-                    pathname === link.href ? "page" : undefined
-                  }
+                  aria-current={pathname === link.href ? "page" : undefined}
                 >
                   Services
                 </Link>
@@ -126,9 +125,7 @@ const Navbar = () => {
                 className={`${styles.contactBtn} ${
                   pathname === link.href ? styles.contactActive : ""
                 }`}
-                aria-current={
-                  pathname === link.href ? "page" : undefined
-                }
+                aria-current={pathname === link.href ? "page" : undefined}
               >
                 {link.label}
               </Link>
@@ -140,12 +137,10 @@ const Navbar = () => {
                   link.label === "Work" && isWorkActive
                     ? styles.active
                     : pathname === link.href
-                    ? styles.active
-                    : ""
+                      ? styles.active
+                      : ""
                 }`}
-                aria-current={
-                  pathname === link.href ? "page" : undefined
-                }
+                aria-current={pathname === link.href ? "page" : undefined}
               >
                 {link.label}
               </Link>
@@ -155,9 +150,7 @@ const Navbar = () => {
 
         <button
           type="button"
-          className={`${styles.hamburger} ${
-            open ? styles.hamburgerOpen : ""
-          }`}
+          className={`${styles.hamburger} ${open ? styles.hamburgerOpen : ""}`}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           aria-controls="mobile-navigation"
@@ -181,8 +174,7 @@ const Navbar = () => {
               {navLinks
                 .filter(
                   (link) =>
-                    link.label !== "Services" &&
-                    link.label !== "Contact",
+                    link.label !== "Services" && link.label !== "Contact",
                 )
                 .map((link) => (
                   <Link
@@ -192,8 +184,8 @@ const Navbar = () => {
                       link.label === "Work" && isWorkActive
                         ? styles.mobileActive
                         : pathname === link.href
-                        ? styles.mobileActive
-                        : ""
+                          ? styles.mobileActive
+                          : ""
                     }`}
                     onClick={closeMenu}
                   >

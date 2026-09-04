@@ -64,6 +64,7 @@ const InvoiceTemplate = ({
                 alt="VRB Web Design and Development"
                 width={200}
                 height={200}
+                loading="lazy"
               />
             </div>
 

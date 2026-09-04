@@ -48,6 +48,7 @@ const CSHero = ({
           className={styles.heroWatermark}
           width={800}
           height={800}
+          loading="eager"
         />
       )}
 

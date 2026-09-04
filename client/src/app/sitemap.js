@@ -290,5 +290,29 @@ export default function sitemap() {
       changeFrequency: "monthly",
       priority: 0.5,
     },
+
+    // Website Redesign hub
+    {
+      url: `${baseUrl}/blog/website-redesign`,
+      lastModified: new Date(),
+    },
+
+    // Website Redesign articles
+    {
+      url: `${baseUrl}/blog/website-redesign/7-signs-your-website-needs-a-redesign`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/blog/website-redesign/how-often-should-you-redesign-your-website`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/blog/website-redesign/website-redesign-cost-canada`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/blog/website-redesign/should-you-redesign-your-website-for-seo`,
+      lastModified: new Date(),
+    },
   ];
 }

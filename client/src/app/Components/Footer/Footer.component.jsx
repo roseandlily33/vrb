@@ -35,6 +35,7 @@ const Footer = () => {
                 className={styles.logo}
                 width={200}
                 height={200}
+                loading="eager"
               />
             </Link>
 

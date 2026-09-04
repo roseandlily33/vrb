@@ -1,0 +1,105 @@
+/* ----------------------------------
+   Keep reading
+----------------------------------- */
+
+.nextSection {
+  position: relative;
+  width: 100%;
+  padding: var(--section-xl);
+  overflow: hidden;
+  background: var(--background-six);
+}
+
+.nextSection::before {
+  content: '';
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  right: 8%;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 1px solid rgba(105, 185, 242, 0.35);
+}
+
+.nextSection::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  right: 12%;
+  top: 38%;
+  background: var(--blue-800);
+  box-shadow:
+    -74px 82px 0 var(--blue-500),
+    65px 92px 0 var(--yellow-500),
+    -102px -35px 0 var(--accent-blue-strong);
+}
+
+.nextInner {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 1180px);
+  margin: 0 auto;
+}
+
+.nextEyebrow {
+  display: block;
+  margin-bottom: var(--space-m);
+  color: var(--yellow-500);
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.nextInner h2 {
+  max-width: 760px;
+  margin: 0;
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+}
+
+.nextInner p {
+  max-width: 640px;
+  margin: var(--space-l) 0 0;
+  color: var(--blue-200);
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: var(--leading-loose);
+}
+
+.nextLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-l) var(--space-xl);
+  margin-top: var(--space-xl);
+}
+
+.textLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding: 0 var(--space-l);
+  background: var(--white);
+  border: 1px solid var(--white);
+  color: var(--blue-950);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.textLink:hover {
+  background: var(--yellow-500);
+  border-color: var(--yellow-500);
+  color: var(--blue-950);
+}
