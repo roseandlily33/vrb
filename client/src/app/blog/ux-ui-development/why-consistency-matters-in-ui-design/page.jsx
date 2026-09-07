@@ -2,11 +2,6 @@ import styles from "../../website-redesign/7-signs-your-website-needs-a-redesign
 import BlogHero from "../../blogSections/blogHero/blogHero";
 import BlogCTA from "../../blogSections/blogCta/blogCta";
 
-import BlogHero from '@/components/Blog/BlogHero/BlogHero';
-import BlogCTA from '@/components/Blog/BlogCTA/BlogCTA';
-
-import styles from './page.module.css';
-
 export const metadata = {
   title: 'Why Consistency Matters in UI Design | VRB',
   description:
