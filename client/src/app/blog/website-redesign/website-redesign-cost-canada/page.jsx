@@ -2,9 +2,12 @@ import styles from "../7-signs-your-website-needs-a-redesign/page.module.css";
 import BlogHero from "../../blogSections/blogHero/blogHero";
 import BlogCTA from "../../blogSections/blogCta/blogCta";
 
+// primary: website redesign cost Canada
+// secondary: website redesign cost, cost to redesign a website, website redesign pricing, website redesign price Canada, how much does a website redesign cost
+// intent: commercial investigation
 export const metadata = {
   title:
-    "How Much Does a Website Redesign Cost in Canada? (2026) | VRB Web Design and Development",
+    "Website Redesign Cost in Canada (2026) | VRB",
   description:
     "How much does a website redesign cost in Canada? Compare typical 2026 pricing, what affects the cost and what to look for in a redesign quote.",
 };
@@ -640,7 +643,7 @@ export default function WebsiteRedesignCostCanada() {
           },
           {
             label: "Website Redesign Services →",
-            href: "/services/website-redesign",
+            href: "/package/website-redesign?type=extras",
           },
         ]}
       />

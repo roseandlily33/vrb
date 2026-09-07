@@ -4,13 +4,18 @@ import styles from "../page.module.css";
 import { articles } from "../articles";
 
 export const metadata = {
-  title: "SEO | Blog",
+  title: "SEO for Small Business Websites | VRB Web Design and Development Blog",
   description: "Articles about keywords, content strategy and technical SEO.",
 };
 
 export default function SEOPage() {
   const categoryKey = "seo";
-  const posts = articles.filter((a) => a.category.toLowerCase().includes(categoryKey));
+  const getCategoryName = (category) =>
+    typeof category === "string" ? category : category?.name || "";
+
+  const posts = articles.filter((a) =>
+    getCategoryName(a.category).toLowerCase().includes(categoryKey),
+  );
 
   return (
     <main>
@@ -20,25 +25,86 @@ export default function SEOPage() {
         title="SEO: keywords, content and technical ranking signals."
         subText="Articles that explain how search works and how to help your site get found."
       />
+      <nav className={styles.blogNav} aria-label="Blog topics">
+        <span className={styles.blogNavLabel}>Blog Topics</span>
 
+        <div className={styles.blogNavLinks}>
+          <Link
+            href="/blog/website-redesign"
+            className={styles.blogNavLink}
+            aria-current="page"
+          >
+            Website Redesign
+          </Link>
+
+          <Link
+            href="/blog/web-design"
+            className={styles.blogNavLink}
+            aria-current="page"
+          >
+            Web Design
+          </Link>
+
+          <Link
+            href="/blog/seo"
+            className={`${styles.blogNavLink} ${styles.blogNavActive}`}
+            aria-current="page"
+          >
+            SEO
+          </Link>
+
+          <Link href="/blog/ux-ui-development" className={styles.blogNavLink}>
+            UX/UI & Development
+          </Link>
+        </div>
+      </nav>
       <section className={styles.postsSection}>
         {posts.length === 0 ? (
           <p className={styles.excerpt}>No articles yet for SEO.</p>
         ) : (
           <div className={styles.postsGrid}>
             {posts.map((p, i) => (
-              <article key={p.slug} className={styles.postCard}>
-                <div className={styles.indexBadge} aria-hidden>
+              <article
+                key={p.slug}
+                className={`${styles.postCard} ${
+                  i % 2 === 0 ? styles.lightCard : styles.darkCard
+                }`}
+              >
+                <div className={styles.indexRail} aria-hidden="true">
                   {String(i + 1).padStart(2, "0")}
                 </div>
-                <div className={styles.cardContent}>
-                  <p className={styles.category}>{p.category}</p>
-                  <h3 className={styles.title}>{p.title}</h3>
-                  <p className={styles.excerpt}>{p.description}</p>
+
+                <div className={styles.cardBody}>
+                  <div className={styles.pixelCluster} aria-hidden="true">
+                    <span className={styles.pixel1} />
+                    <span className={styles.pixel2} />
+                    <span className={styles.pixel3} />
+                    <span className={styles.pixel4} />
+                    <span className={styles.pixel5} />
+                  </div>
+
+                  <div className={styles.cardContent}>
+                    <p className={styles.category}>
+                      {getCategoryName(p.category)}
+                    </p>
+
+                    <h3 className={styles.title}>{p.title}</h3>
+
+                    <p className={styles.excerpt}>{p.description}</p>
+                  </div>
+
+                  <div className={styles.cardFooter}>
+                    <span className={styles.footerLine} aria-hidden="true" />
+
+                    <Link
+                      className={styles.readLink}
+                      href={`/blog/seo/${p.slug}`}
+                    >
+                      Read
+                      <span aria-hidden="true">→</span>
+                    </Link>
+                  </div>
                 </div>
-                <Link className={styles.readLink} href={`/blog/${p.slug}`}>
-                  Read
-                </Link>
               </article>
             ))}
           </div>

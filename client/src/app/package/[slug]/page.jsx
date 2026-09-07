@@ -11,7 +11,8 @@ import OptionalAddOns from "./Add/Add.component";
 import { slugify } from "../../../lib/slugify";
 
 export async function generateMetadata({ params, searchParams }) {
-  const { slug } = params || {};
+  const resolvedParams = await params;
+  const { slug } = resolvedParams || {};
   const resolvedSearchParams = await searchParams;
   const { type = "web" } = resolvedSearchParams || {};
 
@@ -88,8 +89,10 @@ export async function generateMetadata({ params, searchParams }) {
 }
 
 export default async function PackagePage({ params, searchParams }) {
-  const { slug } = await params;
-  const { type = "web" } = await searchParams;
+  const resolvedParams = await params;
+  const resolvedSearchParams = await searchParams;
+  const { slug } = resolvedParams;
+  const { type = "web" } = resolvedSearchParams;
 
   let resolvedType = type;
 
@@ -189,11 +192,11 @@ export default async function PackagePage({ params, searchParams }) {
     <main>
       <div className={styles.packagePage}>
         <div style={{ marginBottom: 44 }}>
-        <Breadcrumbs
-          current={pkg.title}
-          first="Packages"
-          firstLink="/package"
-        />
+          <Breadcrumbs
+            current={pkg.title}
+            first="Packages"
+            firstLink="/package"
+          />
         </div>
 
         <section className={styles.hero}>

@@ -2,6 +2,10 @@ import styles from "../7-signs-your-website-needs-a-redesign/page.module.css";
 import BlogHero from "../../blogSections/blogHero/blogHero";
 import BlogCTA from "../../blogSections/blogCta/blogCta";
 
+// primary: website redesign SEO
+// secondary: redesign website without losing SEO, does website redesign affect SEO, SEO website redesign, website redesign SEO checklist, preserve SEO during redesign
+// intent: informational
+
 export const metadata = {
   title: "Should You Redesign Your Website for SEO? | VRB Web Design and Development",
   description:

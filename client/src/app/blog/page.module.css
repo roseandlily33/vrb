@@ -1,111 +1,1000 @@
 .postsSection {
-  padding: var(--section-md);
+  width: 100%;
+
   max-width: var(--max-width);
+
   margin: 0 auto;
+
+  padding: var(--section-md);
 }
+
+/* ----------------------------------
+   Grid
+----------------------------------- */
 
 .postsGrid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--space-l);
+
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 1rem;
 }
 
+/* ----------------------------------
+   Card
+----------------------------------- */
+
 .postCard {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  background: var(--white);
-  /* border-radius: var(--radius-md); */
-  padding: calc(var(--space-m) + 4px);
-  box-shadow: var(--shadow-sm);
-  border: 1px solid rgba(2, 6, 23, 0.04);
-  transition:
-    transform 160ms var(--transition-fast),
-    box-shadow 160ms var(--transition-fast);
   position: relative;
+
+  min-height: 360px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  padding: clamp(1.75rem, 3vw, 2.6rem);
+
+  overflow: hidden;
+
+  border: 1px solid var(--blue-200);
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .postCard:hover {
-  transform: translateY(-6px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
+
+  box-shadow: 0 18px 50px rgba(0, 31, 77, 0.08);
 }
 
-.cardContent {
-  margin-bottom: var(--space-s);
+/* ----------------------------------
+   Light / Dark
+----------------------------------- */
+
+.lightCard {
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(105, 185, 242, 0.08),
+      transparent 34%
+    ),
+    var(--white);
+
+  color: var(--blue-950);
 }
 
-.category {
-  color: var(--blue-800);
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.12em;
-  font-size: clamp(1rem, 2.2vw, 1.6rem);
-  margin-bottom: 0.5rem;
-  display: block;
+.darkCard {
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(38, 155, 230, 0.14),
+      transparent 34%
+    ),
+    var(--blue-950);
+
+  color: var(--white);
+
+  border-color: rgba(255, 255, 255, 0.12);
 }
 
-.title {
-  color: var(--grey-900);
-  margin: 0 0 0.5rem;
-  font-size: clamp(1rem, 1.8vw, 1.25rem);
-  line-height: 1.08;
-  font-weight: 700;
+/* ----------------------------------
+   Main
+----------------------------------- */
+
+.cardMain {
+  position: relative;
+
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns: 3px minmax(0, 1fr);
+
+  gap: 1.25rem;
+
+  align-items: center;
+
+  margin-top: auto;
+
+  margin-bottom: auto;
 }
 
-.excerpt {
-  color: var(--grey-700);
-  margin-bottom: 0.75rem;
+/* ----------------------------------
+   Accent line
+----------------------------------- */
+
+.accentLine {
+  width: 3px;
+  height: clamp(110px, 12vw, 150px);
+
+  background: var(--blue-500);
 }
 
-.metaRow {
+.darkCard .accentLine {
+  background: var(--yellow-500);
+}
+
+/* ----------------------------------
+   Title
+----------------------------------- */
+
+.cardTitle {
   display: flex;
-  gap: 0.6rem;
-  color: var(--grey-500);
-  font-size: 0.9rem;
+
+  flex-direction: column;
+
+  gap: 0;
+
+  margin: 0;
+
+  color: inherit;
+
+  font-size: clamp(2.8rem, 5vw, 5.5rem);
+
+  font-weight: 800;
+
+  line-height: 0.88;
+
+  letter-spacing: -0.055em;
 }
 
-.readLink {
-  display: inline-block;
-  margin-top: var(--space-s);
-  align-self: flex-start;
+.cardTitle span {
+  color: var(--blue-700);
+}
+
+.darkCard .cardTitle span {
+  color: var(--blue-500);
+}
+
+/* ----------------------------------
+   Footer
+----------------------------------- */
+
+.cardFooter {
+  position: relative;
+
+  z-index: 2;
+
+  display: grid;
+
+  grid-template-columns: auto minmax(40px, 1fr) auto;
+
+  align-items: center;
+
+  gap: 1rem;
+}
+
+.exploreLabel {
+  color: var(--blue-950);
+
+  font-size: 0.72rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.2em;
+
+  text-transform: uppercase;
+}
+
+.darkCard .exploreLabel {
+  color: var(--white);
+}
+
+.footerLine {
+  height: 1px;
+
+  background: var(--blue-300);
+}
+
+.darkCard .footerLine {
+  background: rgba(255, 255, 255, 0.38);
+}
+
+/* ----------------------------------
+   Arrow
+----------------------------------- */
+
+.arrowLink {
+  width: 46px;
+  height: 46px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
   background: var(--blue-700);
-  color: #fff;
-  padding: 0.6rem 0.85rem;
-  /* border-radius: 10px; */
-  font-weight: 700;
+
+  color: var(--white);
+
+  font-size: 1.35rem;
+
   text-decoration: none;
+
   transition:
-    background 160ms var(--transition-fast),
-    transform 160ms var(--transition-fast);
+    background 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
 }
 
-.readLink:hover {
-  background: var(--blue-800);
-  transform: translateY(-2px);
+.darkCard .arrowLink {
+  background: var(--yellow-500);
+
+  color: var(--blue-950);
 }
 
-.indexBadge {
+.arrowLink:hover {
+  background: var(--blue-950);
+
+  color: var(--white);
+
+  transform: translateX(3px);
+}
+
+.darkCard .arrowLink:hover {
+  background: var(--white);
+
+  color: var(--blue-950);
+}
+
+.arrowLink:focus-visible {
+  outline: 2px solid var(--yellow-500);
+
+  outline-offset: 4px;
+}
+
+/* ----------------------------------
+   Pixel cluster
+----------------------------------- */
+
+.pixelCluster {
   position: absolute;
-  top: 12px;
-  left: 12px;
-  font-size: clamp(2rem, 4vw, 3.6rem);
-  color: rgba(2, 6, 23, 0.06);
-  font-weight: 900;
+
+  top: 1.5rem;
+  right: 1.5rem;
+
+  width: 130px;
+  height: 105px;
+
   pointer-events: none;
-  line-height: 1;
+
+  opacity: 0.95;
 }
 
-@media (max-width: 1000px) {
-  .postsGrid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+.pixelCluster span {
+  position: absolute;
+
+  width: 22px;
+  height: 22px;
+
+  background: var(--blue-500);
 }
 
-@media (max-width: 640px) {
+.pixel1 {
+  top: 0;
+  right: 18px;
+}
+
+.pixel2 {
+  top: 24px;
+  right: 48px;
+
+  opacity: 0.65;
+}
+
+.pixel3 {
+  top: 50px;
+  right: 18px;
+
+  opacity: 0.8;
+}
+
+.pixel4 {
+  top: 58px;
+  right: 72px;
+
+  background: var(--blue-200) !important;
+
+  opacity: 0.7;
+}
+
+.pixel5 {
+  top: 24px;
+  right: 0;
+
+  background: var(--yellow-500) !important;
+}
+
+.pixel6 {
+  top: 78px;
+  right: 45px;
+
+  width: 14px !important;
+  height: 14px !important;
+
+  background: var(--blue-700) !important;
+}
+
+/* ----------------------------------
+   Dark card pixel tweaks
+----------------------------------- */
+
+.darkCard .pixelCluster span {
+  background: var(--blue-700);
+}
+
+.darkCard .pixel4 {
+  background: var(--blue-500) !important;
+
+  opacity: 0.55;
+}
+
+.darkCard .pixel5 {
+  background: var(--yellow-500) !important;
+}
+
+/* ----------------------------------
+   Hover details
+----------------------------------- */
+
+.lightCard:hover {
+  border-color: var(--blue-400);
+}
+
+.darkCard:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.postCard:hover .pixelCluster {
+  transform: translate(-3px, 3px);
+}
+
+.pixelCluster {
+  transition: transform 180ms ease;
+}
+
+/* ----------------------------------
+   Tablet
+----------------------------------- */
+
+@media (max-width: 900px) {
   .postsGrid {
     grid-template-columns: 1fr;
   }
+
+  .postCard {
+    min-height: 300px;
+  }
+
+  .cardTitle {
+    font-size: clamp(2.7rem, 9vw, 4.8rem);
+  }
+}
+
+/* ----------------------------------
+   Mobile
+----------------------------------- */
+
+@media (max-width: 600px) {
   .postsSection {
     padding: var(--section-sm);
+  }
+
+  .postCard {
+    min-height: 270px;
+
+    padding: 1.4rem;
+  }
+
+  .cardMain {
+    grid-template-columns: 2px minmax(0, 1fr);
+
+    gap: 1rem;
+  }
+
+  .accentLine {
+    width: 2px;
+
+    height: 90px;
+  }
+
+  .cardTitle {
+    font-size: clamp(2.35rem, 13vw, 3.7rem);
+  }
+
+  .pixelCluster {
+    top: 1rem;
+    right: 1rem;
+
+    width: 95px;
+    height: 85px;
+
+    transform: scale(0.8);
+
+    transform-origin: top right;
+  }
+
+  .cardFooter {
+    grid-template-columns: auto 1fr auto;
+
+    gap: 0.75rem;
+  }
+
+  .arrowLink {
+    width: 40px;
+    height: 40px;
+  }
+}
+/* Blog cards */
+.postsSection {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--section-md);
+}
+
+/* ----------------------------------
+   Grid
+----------------------------------- */
+
+.postsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+/* ----------------------------------
+   Card
+----------------------------------- */
+
+.postCard {
+  position: relative;
+
+  min-height: 330px;
+
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+
+  overflow: hidden;
+
+  border: 1px solid var(--blue-200);
+
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.postCard:hover {
+  transform: translateY(-4px);
+
+  box-shadow: 0 18px 50px rgba(0, 31, 77, 0.08);
+}
+
+/* ----------------------------------
+   Light / Dark
+----------------------------------- */
+
+.lightCard {
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(105, 185, 242, 0.08),
+      transparent 34%
+    ),
+    var(--white);
+
+  color: var(--blue-950);
+}
+
+.darkCard {
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(38, 155, 230, 0.14),
+      transparent 34%
+    ),
+    var(--blue-950);
+
+  color: var(--white);
+
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* ----------------------------------
+   Number rail
+----------------------------------- */
+
+.indexRail {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  border-right: 1px solid var(--blue-200);
+
+  color: rgba(27, 138, 228, 0.13);
+
+  font-size: clamp(3.8rem, 6vw, 6.4rem);
+
+  font-weight: 900;
+
+  line-height: 1;
+
+  letter-spacing: -0.08em;
+
+  writing-mode: vertical-rl;
+
+  transform: rotate(180deg);
+
+  user-select: none;
+}
+
+.darkCard .indexRail {
+  border-color: rgba(255, 255, 255, 0.12);
+
+  color: rgba(105, 185, 242, 0.12);
+}
+
+/* ----------------------------------
+   Body
+----------------------------------- */
+
+.cardBody {
+  position: relative;
+
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: clamp(1.6rem, 3vw, 2.4rem);
+}
+
+/* ----------------------------------
+   Content
+----------------------------------- */
+
+.cardContent {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 85%;
+}
+
+.category {
+  margin: 0 0 1rem;
+
+  color: var(--blue-700);
+
+  font-size: 0.68rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+}
+
+.darkCard .category {
+  color: var(--blue-300);
+}
+
+.title {
+  max-width: 12ch;
+
+  margin: 0 0 1rem;
+
+  color: inherit;
+
+  font-size: clamp(1.85rem, 3vw, 3.1rem);
+
+  font-weight: 800;
+
+  line-height: 0.98;
+
+  letter-spacing: -0.045em;
+}
+
+.excerpt {
+  max-width: 46ch;
+
+  margin: 0;
+
+  color: var(--grey-600);
+
+  font-size: 0.92rem;
+
+  line-height: 1.7;
+}
+
+.darkCard .excerpt {
+  color: var(--blue-200);
+}
+
+/* ----------------------------------
+   Footer
+----------------------------------- */
+
+.cardFooter {
+  position: relative;
+
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: minmax(30px, 1fr) auto;
+
+  align-items: center;
+
+  gap: 1rem;
+
+  margin-top: auto;
+
+  padding-top: 2rem;
+}
+
+.footerLine {
+  height: 1px;
+
+  background: var(--blue-200);
+}
+
+.darkCard .footerLine {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* ----------------------------------
+   Read link
+----------------------------------- */
+
+.readLink {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.55rem;
+
+  color: var(--blue-800);
+
+  font-size: 0.72rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.16em;
+
+  text-decoration: none;
+
+  text-transform: uppercase;
+
+  transition:
+    color 180ms ease,
+    gap 180ms ease;
+}
+
+.readLink span {
+  font-size: 1.1rem;
+}
+
+.readLink:hover {
+  color: var(--blue-950);
+
+  gap: 0.8rem;
+}
+
+.darkCard .readLink {
+  color: var(--yellow-500);
+}
+
+.darkCard .readLink:hover {
+  color: var(--white);
+}
+
+.readLink:focus-visible {
+  outline: 2px solid var(--yellow-500);
+
+  outline-offset: 4px;
+}
+
+/* ----------------------------------
+   Pixel cluster
+----------------------------------- */
+
+.pixelCluster {
+  position: absolute;
+
+  top: 1.25rem;
+  right: 1.25rem;
+
+  width: 96px;
+  height: 80px;
+
+  pointer-events: none;
+
+  opacity: 0.8;
+}
+
+.pixelCluster span {
+  position: absolute;
+
+  width: 16px;
+  height: 16px;
+
+  background: var(--blue-500);
+}
+
+.pixel1 {
+  top: 0;
+  right: 18px;
+}
+
+.pixel2 {
+  top: 18px;
+  right: 42px;
+
+  opacity: 0.6;
+}
+
+.pixel3 {
+  top: 38px;
+  right: 18px;
+
+  opacity: 0.85;
+}
+
+.pixel4 {
+  top: 42px;
+  right: 58px;
+
+  background: var(--blue-200) !important;
+
+  opacity: 0.7;
+}
+
+.pixel5 {
+  top: 18px;
+  right: 0;
+
+  background: var(--yellow-500) !important;
+}
+
+.darkCard .pixelCluster span {
+  background: var(--blue-700);
+}
+
+.darkCard .pixel4 {
+  background: var(--blue-500) !important;
+}
+
+.darkCard .pixel5 {
+  background: var(--yellow-500) !important;
+}
+
+/* ----------------------------------
+   Hover
+----------------------------------- */
+
+.lightCard:hover {
+  border-color: var(--blue-400);
+}
+
+.darkCard:hover {
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.postCard:hover .pixelCluster {
+  transform: translate(-3px, 3px);
+}
+
+.pixelCluster {
+  transition: transform 180ms ease;
+}
+
+/* ----------------------------------
+   Tablet
+----------------------------------- */
+
+@media (max-width: 1000px) {
+  .postsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .postCard {
+    min-height: 290px;
+  }
+}
+
+/* ----------------------------------
+   Mobile
+----------------------------------- */
+
+@media (max-width: 650px) {
+  .postsSection {
+    padding: var(--section-sm);
+  }
+
+  .postCard {
+    grid-template-columns: 54px minmax(0, 1fr);
+
+    min-height: 260px;
+  }
+
+  .indexRail {
+    font-size: 3.3rem;
+  }
+
+  .cardBody {
+    padding: 1.35rem;
+  }
+
+  .cardContent {
+    max-width: 100%;
+  }
+
+  .title {
+    max-width: 14ch;
+
+    font-size: clamp(1.7rem, 9vw, 2.5rem);
+  }
+
+  .excerpt {
+    font-size: 0.84rem;
+  }
+
+  .pixelCluster {
+    top: 0.9rem;
+    right: 0.9rem;
+
+    transform: scale(0.78);
+
+    transform-origin: top right;
+  }
+
+  .postCard:hover .pixelCluster {
+    transform: scale(0.78);
+  }
+}
+
+/* Bar of links */
+.blogNav {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 2rem;
+
+  padding: 1.1rem clamp(1.5rem, 4vw, 3rem);
+
+  border-top: 1px solid var(--blue-200);
+  border-bottom: 1px solid var(--blue-200);
+
+  background: var(--white);
+}
+
+.blogNavLabel {
+  flex-shrink: 0;
+
+  color: var(--grey-500);
+
+  font-size: 0.66rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.18em;
+
+  text-transform: uppercase;
+}
+
+.blogNavLinks {
+  display: flex;
+  align-items: center;
+
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+}
+
+.blogNavLink {
+  position: relative;
+
+  padding: 0.65rem 0;
+
+  color: var(--blue-950);
+
+  font-size: 0.82rem;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition: color 180ms ease;
+}
+
+.blogNavLink::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 0;
+  height: 3px;
+
+  background: var(--yellow-500);
+
+  transition: width 180ms ease;
+}
+
+.blogNavLink:hover {
+  color: var(--blue-700);
+}
+
+.blogNavLink:hover::after {
+  width: 18px;
+}
+
+.blogNavActive {
+  color: var(--blue-700);
+}
+
+.blogNavActive::after {
+  width: 100%;
+}
+
+.blogNavActive::before {
+  content: "";
+
+  position: absolute;
+
+  top: 3px;
+  right: -8px;
+
+  width: 5px;
+  height: 5px;
+
+  background: var(--yellow-500);
+}
+
+.blogNavLink:focus-visible {
+  outline: 2px solid var(--yellow-500);
+  outline-offset: 4px;
+}
+
+@media (max-width: 800px) {
+  .blogNav {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    gap: 0.75rem;
+  }
+
+  .blogNavLinks {
+    width: 100%;
+
+    overflow-x: auto;
+
+    gap: 1.5rem;
+
+    padding-bottom: 0.3rem;
+
+    scrollbar-width: none;
+  }
+
+  .blogNavLinks::-webkit-scrollbar {
+    display: none;
+  }
+
+  .blogNavLink {
+    flex-shrink: 0;
+
+    white-space: nowrap;
   }
 }

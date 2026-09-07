@@ -9,8 +9,6 @@ export const metadata = {
 };
 
 export default function BlogPage() {
-  
-
   return (
     <main>
       <Hero
@@ -19,67 +17,137 @@ export default function BlogPage() {
         title="Website tips, design insights, and internet explanations."
         subText="Helpful articles for small business owners who want to better understand their website and online presence."
       />
-
       <section className={styles.postsSection}>
         <div className={styles.postsGrid}>
-          <article className={styles.postCard}>
-            <div className={styles.cardContent}>
-              <p className={styles.category}>Website Redesign</p>
-              <h3 className={styles.title}>Know when it's time for a redesign</h3>
-              <p className={styles.excerpt}>
-                When to redesign, typical costs, and how to improve your site without
-                losing what already works.
-              </p>
-              <div className={styles.metaRow} />
+          <article className={`${styles.postCard} ${styles.lightCard}`}>
+            <div className={styles.pixelCluster} aria-hidden="true">
+              <span className={styles.pixel1} />
+              <span className={styles.pixel2} />
+              <span className={styles.pixel3} />
+              <span className={styles.pixel4} />
+              <span className={styles.pixel5} />
+              <span className={styles.pixel6} />
             </div>
-            <Link className={styles.readLink} href="/blog/website-redesign">
-              Explore
-            </Link>
+
+            <div className={styles.cardMain}>
+              <span className={styles.accentLine} aria-hidden="true" />
+
+              <h2 className={styles.cardTitle}>
+                Website
+                <span>Redesign</span>
+              </h2>
+            </div>
+
+            <div className={styles.cardFooter}>
+              <span className={styles.exploreLabel}>Explore</span>
+
+              <span className={styles.footerLine} aria-hidden="true" />
+
+              <Link
+                href="/blog/website-redesign"
+                className={styles.arrowLink}
+                aria-label="Explore Website Redesign articles"
+              >
+                →
+              </Link>
+            </div>
           </article>
 
-          <article className={styles.postCard}>
-            <div className={styles.cardContent}>
-              <p className={styles.category}>Web Design</p>
-              <h3 className={styles.title}>Plan, design and build websites that work</h3>
-              <p className={styles.excerpt}>
-                Practical advice on planning, designing and building a website for
-                your business and customers.
-              </p>
-              <div className={styles.metaRow} />
+          <article className={`${styles.postCard} ${styles.darkCard}`}>
+            <div className={styles.pixelCluster} aria-hidden="true">
+              <span className={styles.pixel1} />
+              <span className={styles.pixel2} />
+              <span className={styles.pixel3} />
+              <span className={styles.pixel4} />
+              <span className={styles.pixel5} />
+              <span className={styles.pixel6} />
             </div>
-            <Link className={styles.readLink} href="/blog/web-design">
-              Explore
-            </Link>
+
+            <div className={styles.cardMain}>
+              <span className={styles.accentLine} aria-hidden="true" />
+
+              <h2 className={styles.cardTitle}>
+                Web
+                <span>Design</span>
+              </h2>
+            </div>
+
+            <div className={styles.cardFooter}>
+              <span className={styles.exploreLabel}>Explore</span>
+
+              <span className={styles.footerLine} aria-hidden="true" />
+
+              <Link
+                href="/blog/web-design"
+                className={styles.arrowLink}
+                aria-label="Explore Web Design articles"
+              >
+                →
+              </Link>
+            </div>
+          </article>
+          <article className={`${styles.postCard} ${styles.darkCard}`}>
+            <div className={styles.pixelCluster} aria-hidden="true">
+              <span className={styles.pixel1} />
+              <span className={styles.pixel2} />
+              <span className={styles.pixel3} />
+              <span className={styles.pixel4} />
+              <span className={styles.pixel5} />
+              <span className={styles.pixel6} />
+            </div>
+
+            <div className={styles.cardMain}>
+              <span className={styles.accentLine} aria-hidden="true" />
+
+              <h2 className={styles.cardTitle}>
+                UX/UI &<span>Development</span>
+              </h2>
+            </div>
+
+            <div className={styles.cardFooter}>
+              <span className={styles.exploreLabel}>Explore</span>
+
+              <span className={styles.footerLine} aria-hidden="true" />
+
+              <Link
+                href="/blog/ux-ui-development"
+                className={styles.arrowLink}
+                aria-label="Explore UX/UI and Development articles"
+              >
+                →
+              </Link>
+            </div>
           </article>
 
-          <article className={styles.postCard}>
-            <div className={styles.cardContent}>
-              <p className={styles.category}>SEO</p>
-              <h3 className={styles.title}>Keywords, content and technical SEO</h3>
-              <p className={styles.excerpt}>
-                Understand keywords, content strategy and the technical pieces that
-                help your site get found in search.
-              </p>
-              <div className={styles.metaRow} />
+          <article className={`${styles.postCard} ${styles.lightCard}`}>
+            <div className={styles.pixelCluster} aria-hidden="true">
+              <span className={styles.pixel1} />
+              <span className={styles.pixel2} />
+              <span className={styles.pixel3} />
+              <span className={styles.pixel4} />
+              <span className={styles.pixel5} />
+              <span className={styles.pixel6} />
             </div>
-            <Link className={styles.readLink} href="/blog/seo">
-              Explore
-            </Link>
-          </article>
 
-          <article className={styles.postCard}>
-            <div className={styles.cardContent}>
-              <p className={styles.category}>UX/UI & Development</p>
-              <h3 className={styles.title}>Usability, accessibility and performance</h3>
-              <p className={styles.excerpt}>
-                Dig into usability, accessibility, performance and the technical
-                decisions behind better websites.
-              </p>
-              <div className={styles.metaRow} />
+            <div className={styles.cardMain}>
+              <span className={styles.accentLine} aria-hidden="true" />
+
+              <h2 className={styles.cardTitle}>SEO</h2>
             </div>
-            <Link className={styles.readLink} href="/blog/ux-ui-development">
-              Explore
-            </Link>
+
+            <div className={styles.cardFooter}>
+              <span className={styles.exploreLabel}>Explore</span>
+
+              <span className={styles.footerLine} aria-hidden="true" />
+
+              <Link
+                href="/blog/seo"
+                className={styles.arrowLink}
+                aria-label="Explore SEO articles"
+              >
+                →
+              </Link>
+            </div>
           </article>
         </div>
       </section>

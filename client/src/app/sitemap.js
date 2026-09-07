@@ -314,5 +314,9 @@ export default function sitemap() {
       url: `${baseUrl}/blog/website-redesign/should-you-redesign-your-website-for-seo`,
       lastModified: new Date(),
     },
+    {
+      url: `${baseUrl}/blog/web-design-strategy/how-much-information-should-you-put-on-a-webpage`,
+      lastModified: new Date(),
+    }
   ];
 }

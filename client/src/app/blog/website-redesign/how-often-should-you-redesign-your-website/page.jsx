@@ -2,8 +2,11 @@ import BlogHero from '../../blogSections/blogHero/blogHero';
 import BlogCTA from '../../blogSections/blogCta/blogCta';
 import styles from '../7-signs-your-website-needs-a-redesign/page.module.css';
 
+// primary: how often should you redesign your website
+// secondary: how often to update a website, website redesign frequency, when should you redesign a website, website lifespan
+// intent: informational
 export const metadata = {
-  title: 'How Often Should You Redesign Your Website? | VRB Web Design and Development',
+  title: 'How Often to Redesign a Website | VRB',
   description:
     'How often should you redesign your website? While 2–3 years is a common benchmark, your brand, content, technology and business needs matter more.',
 };
@@ -542,7 +545,7 @@ export default function HowOftenShouldYouRedesignYourWebsite() {
           },
           {
             label: 'Website Redesign Services →',
-            href: '/services/website-redesign',
+            href: '/package/website-redesign?type=extras',
           },
         ]}
       />

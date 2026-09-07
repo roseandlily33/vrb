@@ -1,8 +1,11 @@
-import Link from "next/link";
+// import Link from "next/link";
 import styles from "./page.module.css";
 import BlogHero from "../../blogSections/blogHero/blogHero";
 import BlogCTA from "../../blogSections/blogCta/blogCta";
 
+// primary: signs your website needs a redesign
+// secondary: does my website need a redesign, when to redesign a website, reasons to redesign a website, outdated website
+// intent: informational
 export const metadata = {
   title: "7 Signs Your Website Needs a Redesign | VRB Web Design and Development",
   description:
@@ -651,7 +654,7 @@ export default function SevenSignsWebsiteRedesignPage() {
           },
           {
             label: "Website Redesign Services →",
-            href: "/services/website-redesign",
+            href: "/package/website-redesign?type=extras",
           },
         ]}
       />
