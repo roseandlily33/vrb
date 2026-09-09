@@ -25,7 +25,7 @@ const companies = [
     name: "Assuage Wellness Centre",
     img: "/Assuage/AssuageLogoLong.png",
     alt: "Assuage Wellness Centre Logo",
-    href: "/case-study/assuage-wellness-centre",
+    href: "/case-study/assuage",
   },
   {
     name: "New Line",
