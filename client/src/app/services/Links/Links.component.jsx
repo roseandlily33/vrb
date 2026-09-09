@@ -1,13 +1,14 @@
 import Link from "next/link";
 import styles from "./Links.module.css";
+import { buildPackageTypeHref } from "../../package/packageRouting";
 
 const sections = [
-  { label: "Packages", path: "/package?type=web" },
-  { label: "Design", path: "/package?type=design" },
-  { label: "Retainers", path: "/package?type=retainer" },
-  { label: "Extras", path: "/package?type=extras" },
-  { label: "SEO", path: "/package?type=seo" },
-  { label: "Marketing", path: "/package?type=marketing" },
+  { label: "Packages", path: buildPackageTypeHref("web") },
+  { label: "Design", path: buildPackageTypeHref("design") },
+  { label: "Retainers", path: buildPackageTypeHref("retainer") },
+  { label: "Extras", path: buildPackageTypeHref("extras") },
+  { label: "SEO", path: buildPackageTypeHref("seo") },
+  { label: "Marketing", path: buildPackageTypeHref("marketing") },
 ];
 
 export default function Links() {

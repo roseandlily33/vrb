@@ -1,25 +1,29 @@
 import Link from "next/link";
 import styles from "./blogCta.module.css";
+import BlogRelated from "../blogRelated/blogRelated";
 
 const BlogCTA = ({ eyebrow, title, description, links }) => {
   return (
-    <section className={styles.nextSection}>
-      <div className={styles.nextInner}>
-        <span className={styles.nextEyebrow}>{eyebrow}</span>
+    <>
+      <BlogRelated postTitle={title} />
+      <section className={styles.nextSection}>
+        <div className={styles.nextInner}>
+          <span className={styles.nextEyebrow}>{eyebrow}</span>
 
-        <h2>{title}</h2>
+          <h2>{title}</h2>
 
-        <p>{description}</p>
+          <p>{description}</p>
 
-        <div className={styles.nextLinks}>
-          {links.map((link, index) => (
-            <Link key={index} href={link.href} className={styles.textLink}>
-              {link.label}
-            </Link>
-          ))}
+          <div className={styles.nextLinks}>
+            {links.map((link, index) => (
+              <Link key={index} href={link.href} className={styles.textLink}>
+                {link.label}
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 

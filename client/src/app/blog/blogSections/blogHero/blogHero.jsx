@@ -1,4 +1,5 @@
 import styles from "./blogHero.module.css";
+import Link from "next/link";
 // import HeroPixels from "../heroPixels/heroPixels";
 const BlogHero = ({ title, intro, eyebrow }) => {
   const HeroPixels = () => {
@@ -26,6 +27,20 @@ const BlogHero = ({ title, intro, eyebrow }) => {
       <div className={styles.heroInner}>
         <div className={styles.metaRow}>
           <span className={styles.category}>{eyebrow}</span>
+
+          <span className={styles.metaDivider} aria-hidden="true">
+            •
+          </span>
+
+          <span className={styles.author}>
+            Written by{" "}
+            <Link
+              href="https://victoriabenoit-portfolio.onrender.com"
+              className={styles.authorLink}
+            >
+              Victoria Benoit
+            </Link>
+          </span>
 
           <span className={styles.metaDivider} aria-hidden="true">
             •

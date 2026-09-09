@@ -7,18 +7,13 @@ import { FaArrowRight, FaRegClock } from "react-icons/fa";
 import styles from "../Packages/Packages.module.css";
 import designPackages from "./designPackage";
 import MostPopular from "@/app/Components/MostPopular/MostPopular.component";
+import { buildPackageDetailHref } from "../packageRouting";
 
 export default function DesignPackage() {
   const router = useRouter();
-  const slugify = (str) =>
-    str
-      .toLowerCase()
-      .replace(/[^a-z0-9\s-]/g, "")
-      .replace(/[\s-]+/g, "-")
-      .replace(/^-+|-+$/g, "");
+
   const handleSeeWhatsIncluded = (pkg) => {
-    const slug = slugify(pkg.title);
-    router.push(`/package/${slug}?type=design`);
+    router.push(buildPackageDetailHref("design", pkg));
   };
   return (
     <>

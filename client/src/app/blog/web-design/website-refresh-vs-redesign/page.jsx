@@ -403,7 +403,7 @@ export default function WebsiteRefreshVsRedesign() {
           },
           {
             label: "Explore Website Redesign Services →",
-            href: "/package/website-redesign?type=extras",
+            href: "/package/extras/website-redesign",
           },
         ]}
       />

@@ -2,15 +2,14 @@
 import { useRouter } from "next/navigation";
 import styles from "./SocialMedia.module.css";
 import { socialMediaList } from "./socialMedia.jsx";
-import { slugify } from "../../../lib/slugify";
 import TertiaryButton from "@/app/Components/TertiaryButton/TertiaryButton.component";
+import { buildPackageDetailHref } from "../../package/packageRouting";
 
 export default function SocialMediaSection() {
   const router = useRouter();
 
   const handleClick = (pkg) => {
-    const slug = slugify(pkg.name || pkg.title || pkg.name);
-    router.push(`/package/${slug}?type=marketing`);
+    router.push(buildPackageDetailHref("marketing", pkg));
   };
 
   return (

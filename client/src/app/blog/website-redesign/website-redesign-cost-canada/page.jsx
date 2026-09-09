@@ -643,7 +643,7 @@ export default function WebsiteRedesignCostCanada() {
           },
           {
             label: "Website Redesign Services →",
-            href: "/package/website-redesign?type=extras",
+            href: "/package/extras/website-redesign",
           },
         ]}
       />

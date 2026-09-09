@@ -4,6 +4,7 @@ import Image from "next/image";
 import styles from "./Navbar.module.css";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { buildPackageTypeHref } from "../../package/packageRouting";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -109,7 +110,7 @@ const Navbar = () => {
 
                   {packageTypes.map((p) => (
                     <Link
-                      href={`/package?type=${p.key}`}
+                      href={buildPackageTypeHref(p.key)}
                       key={p.key}
                       className={styles.serviceLink}
                     >
@@ -210,7 +211,7 @@ const Navbar = () => {
               <div className={styles.mobileServiceGrid}>
                 {packageTypes.map((p) => (
                   <Link
-                    href={`/package?type=${p.key}`}
+                    href={buildPackageTypeHref(p.key)}
                     key={p.key}
                     className={styles.mobileServiceLink}
                     onClick={closeMenu}

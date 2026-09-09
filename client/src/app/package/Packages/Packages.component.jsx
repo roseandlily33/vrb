@@ -12,7 +12,7 @@ import { Retainer } from "../../services/Retainers/retainerList.jsx";
 import { extrasList } from "../../services/Extras/extrasList.jsx";
 import { socialMediaList } from "../../services/SocialMedia/socialMedia.jsx";
 import MostPopular from "@/app/Components/MostPopular/MostPopular.component";
-import { slugify } from "../../../lib/slugify";
+import { buildPackageDetailHref } from "../packageRouting";
 
 export default function Packages({ type = "web" }) {
   const router = useRouter();
@@ -28,8 +28,7 @@ export default function Packages({ type = "web" }) {
             : PackageInfo;
 
   const handleSeeWhatsIncluded = (pkg) => {
-    const slug = slugify(pkg.title || pkg.name || "");
-    router.push(`/package/${slug}?type=${type}`);
+    router.push(buildPackageDetailHref(type, pkg));
   };
 
   const heading =

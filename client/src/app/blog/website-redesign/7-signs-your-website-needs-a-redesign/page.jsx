@@ -654,7 +654,7 @@ export default function SevenSignsWebsiteRedesignPage() {
           },
           {
             label: "Website Redesign Services →",
-            href: "/package/website-redesign?type=extras",
+            href: "/package/extras/website-redesign",
           },
         ]}
       />

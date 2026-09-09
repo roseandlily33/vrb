@@ -1,10 +1,7 @@
 .postsSection {
   width: 100%;
-
   max-width: var(--max-width);
-
   margin: 0 auto;
-
   padding: var(--section-md);
 }
 
@@ -14,9 +11,7 @@
 
 .postsGrid {
   display: grid;
-
   grid-template-columns: repeat(2, minmax(0, 1fr));
-
   gap: 1rem;
 }
 
@@ -30,10 +25,8 @@
   min-height: 360px;
 
   display: flex;
-
   flex-direction: column;
-
-  justify-content: space-between;
+  justify-content: center;
 
   padding: clamp(1.75rem, 3vw, 2.6rem);
 
@@ -51,6 +44,16 @@
   transform: translateY(-4px);
 
   box-shadow: 0 18px 50px rgba(0, 31, 77, 0.08);
+}
+
+/* Topic cards */
+
+.topicCard {
+  min-height: 360px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* ----------------------------------
@@ -84,29 +87,94 @@
 }
 
 /* ----------------------------------
+   Pixel Cluster
+----------------------------------- */
+
+.pixelCluster {
+  position: absolute;
+
+  top: clamp(1rem, 2vw, 1.6rem);
+  right: clamp(1rem, 2vw, 1.6rem);
+
+  width: 82px;
+  height: 70px;
+
+  pointer-events: none;
+}
+
+.pixelCluster span {
+  position: absolute;
+
+  display: block;
+
+  width: 12px;
+  height: 12px;
+
+  background: var(--blue-500);
+}
+
+.pixel1 {
+  top: 0;
+  right: 0;
+}
+
+.pixel2 {
+  top: 16px;
+  right: 16px;
+}
+
+.pixel3 {
+  top: 32px;
+  right: 0;
+
+  background: var(--yellow-500) !important;
+}
+
+.pixel4 {
+  top: 48px;
+  right: 32px;
+}
+
+.pixel5 {
+  top: 16px;
+  right: 48px;
+
+  background: var(--blue-200) !important;
+}
+
+.pixel6 {
+  top: 48px;
+  right: 64px;
+
+  background: var(--yellow-500) !important;
+}
+
+.darkCard .pixelCluster span {
+  background: var(--blue-500);
+}
+
+/* ----------------------------------
    Main
 ----------------------------------- */
 
 .cardMain {
   position: relative;
-
   z-index: 2;
 
   display: grid;
-
   grid-template-columns: 3px minmax(0, 1fr);
 
   gap: 1.25rem;
 
   align-items: center;
 
-  margin-top: auto;
+  width: 100%;
 
-  margin-bottom: auto;
+  margin: 0;
 }
 
 /* ----------------------------------
-   Accent line
+   Accent Line
 ----------------------------------- */
 
 .accentLine {
@@ -126,7 +194,6 @@
 
 .cardTitle {
   display: flex;
-
   flex-direction: column;
 
   gap: 0;
@@ -136,7 +203,6 @@
   color: inherit;
 
   font-size: clamp(2.8rem, 5vw, 5.5rem);
-
   font-weight: 800;
 
   line-height: 0.88;
@@ -158,62 +224,49 @@
 
 .cardFooter {
   position: relative;
-
   z-index: 2;
 
-  display: grid;
-
-  grid-template-columns: auto minmax(40px, 1fr) auto;
-
+  display: flex;
   align-items: center;
 
-  gap: 1rem;
-}
+  /*
+    3px accent line
+    +
+    1.25rem grid gap
 
-.exploreLabel {
-  color: var(--blue-950);
+    This lines EXPLORE up with the title text.
+  */
+  padding-left: calc(3px + 1.25rem);
 
-  font-size: 0.72rem;
+  margin-top: 1.5rem;
 
-  font-weight: 800;
-
-  letter-spacing: 0.2em;
-
-  text-transform: uppercase;
-}
-
-.darkCard .exploreLabel {
-  color: var(--white);
-}
-
-.footerLine {
-  height: 1px;
-
-  background: var(--blue-300);
-}
-
-.darkCard .footerLine {
-  background: rgba(255, 255, 255, 0.38);
+  border: 0;
 }
 
 /* ----------------------------------
-   Arrow
+   Explore Button
 ----------------------------------- */
 
 .arrowLink {
-  width: 46px;
+  min-width: 146px;
   height: 46px;
 
-  display: flex;
-
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+
+  padding: 0 1.25rem;
 
   background: var(--blue-700);
 
   color: var(--white);
 
-  font-size: 1.35rem;
+  font-size: 0.75rem;
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
 
   text-decoration: none;
 
@@ -245,8 +298,72 @@
 
 .arrowLink:focus-visible {
   outline: 2px solid var(--yellow-500);
-
   outline-offset: 4px;
+}
+
+/* ----------------------------------
+   Tablet
+----------------------------------- */
+
+@media screen and (max-width: 900px) {
+  .postsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .postCard,
+  .topicCard {
+    min-height: 330px;
+  }
+
+  .cardTitle {
+    font-size: clamp(2.8rem, 9vw, 5rem);
+  }
+}
+
+/* ----------------------------------
+   Mobile
+----------------------------------- */
+
+@media screen and (max-width: 600px) {
+  .postsSection {
+    padding: var(--section-sm);
+  }
+
+  .postCard {
+    min-height: 300px;
+
+    padding: 1.5rem;
+  }
+
+  .cardMain {
+    grid-template-columns: 3px minmax(0, 1fr);
+
+    gap: 1rem;
+  }
+
+  .accentLine {
+    height: 100px;
+  }
+
+  .cardTitle {
+    font-size: clamp(2.4rem, 12vw, 3.6rem);
+  }
+
+  .cardFooter {
+    padding-left: calc(3px + 1rem);
+
+    margin-top: 1.25rem;
+  }
+
+  .arrowLink {
+    min-width: 132px;
+    height: 42px;
+  }
+
+  .pixelCluster {
+    transform: scale(0.8);
+    transform-origin: top right;
+  }
 }
 
 /* ----------------------------------
@@ -368,7 +485,7 @@
     grid-template-columns: 1fr;
   }
 
-  .postCard {
+  .topicCard {
     min-height: 300px;
   }
 
@@ -390,6 +507,10 @@
     min-height: 270px;
 
     padding: 1.4rem;
+  }
+
+  .topicCard {
+    min-height: 270px;
   }
 
   .cardMain {
@@ -996,5 +1117,69 @@
     flex-shrink: 0;
 
     white-space: nowrap;
+  }
+}
+
+/* ----------------------------------
+   Homepage Topic Card Overrides
+   Keep these at file end so they win over duplicate card-system rules above.
+----------------------------------- */
+
+.postCard.topicCard {
+  min-height: 360px;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-start;
+
+  grid-template-columns: none;
+
+  padding: clamp(1.75rem, 3vw, 2.6rem);
+}
+
+.postCard.topicCard .cardMain {
+  margin: 0 0 1rem;
+}
+
+.postCard.topicCard > .cardFooter {
+  position: relative;
+
+  z-index: 3;
+
+  display: flex;
+  align-items: center;
+
+  grid-template-columns: none;
+
+  margin-top: 0;
+  padding-top: 0;
+
+  align-self: flex-start;
+
+  border: 0;
+}
+
+.postCard.topicCard .pixelCluster {
+  z-index: 1;
+}
+
+.postCard.topicCard .arrowLink {
+  position: relative;
+
+  z-index: 4;
+}
+
+@media (max-width: 900px) {
+  .postCard.topicCard {
+    min-height: 300px;
+  }
+}
+
+@media (max-width: 600px) {
+  .postCard.topicCard {
+    min-height: 270px;
+
+    padding: 1.4rem;
   }
 }

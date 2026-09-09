@@ -19,7 +19,7 @@ export default function BlogPage() {
       />
       <section className={styles.postsSection}>
         <div className={styles.postsGrid}>
-          <article className={`${styles.postCard} ${styles.lightCard}`}>
+          <article className={`${styles.postCard} ${styles.lightCard} ${styles.topicCard}`}>
             <div className={styles.pixelCluster} aria-hidden="true">
               <span className={styles.pixel1} />
               <span className={styles.pixel2} />
@@ -39,21 +39,17 @@ export default function BlogPage() {
             </div>
 
             <div className={styles.cardFooter}>
-              <span className={styles.exploreLabel}>Explore</span>
-
-              <span className={styles.footerLine} aria-hidden="true" />
-
               <Link
                 href="/blog/website-redesign"
                 className={styles.arrowLink}
                 aria-label="Explore Website Redesign articles"
               >
-                →
+                EXPLORE →
               </Link>
             </div>
           </article>
 
-          <article className={`${styles.postCard} ${styles.darkCard}`}>
+          <article className={`${styles.postCard} ${styles.darkCard} ${styles.topicCard}`}>
             <div className={styles.pixelCluster} aria-hidden="true">
               <span className={styles.pixel1} />
               <span className={styles.pixel2} />
@@ -73,20 +69,16 @@ export default function BlogPage() {
             </div>
 
             <div className={styles.cardFooter}>
-              <span className={styles.exploreLabel}>Explore</span>
-
-              <span className={styles.footerLine} aria-hidden="true" />
-
               <Link
                 href="/blog/web-design"
                 className={styles.arrowLink}
                 aria-label="Explore Web Design articles"
               >
-                →
+                EXPLORE →
               </Link>
             </div>
           </article>
-          <article className={`${styles.postCard} ${styles.darkCard}`}>
+          <article className={`${styles.postCard} ${styles.darkCard} ${styles.topicCard}`}>
             <div className={styles.pixelCluster} aria-hidden="true">
               <span className={styles.pixel1} />
               <span className={styles.pixel2} />
@@ -105,21 +97,17 @@ export default function BlogPage() {
             </div>
 
             <div className={styles.cardFooter}>
-              <span className={styles.exploreLabel}>Explore</span>
-
-              <span className={styles.footerLine} aria-hidden="true" />
-
               <Link
                 href="/blog/ux-ui-development"
                 className={styles.arrowLink}
                 aria-label="Explore UX/UI and Development articles"
               >
-                →
+                EXPLORE →
               </Link>
             </div>
           </article>
 
-          <article className={`${styles.postCard} ${styles.lightCard}`}>
+          <article className={`${styles.postCard} ${styles.lightCard} ${styles.topicCard}`}>
             <div className={styles.pixelCluster} aria-hidden="true">
               <span className={styles.pixel1} />
               <span className={styles.pixel2} />
@@ -136,16 +124,12 @@ export default function BlogPage() {
             </div>
 
             <div className={styles.cardFooter}>
-              <span className={styles.exploreLabel}>Explore</span>
-
-              <span className={styles.footerLine} aria-hidden="true" />
-
               <Link
                 href="/blog/seo"
                 className={styles.arrowLink}
                 aria-label="Explore SEO articles"
               >
-                →
+                EXPLORE →
               </Link>
             </div>
           </article>

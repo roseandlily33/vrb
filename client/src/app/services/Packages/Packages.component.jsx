@@ -1,6 +1,7 @@
 import Link from "next/link";
 import styles from "./Packages.module.css";
 import { FaCode, FaPalette, FaSyncAlt, FaPlus, FaSearch } from "react-icons/fa";
+import { buildPackageTypeHref } from "../../package/packageRouting";
 
 const packageGroups = [
   {
@@ -10,7 +11,7 @@ const packageGroups = [
     description:
       "Custom websites and platforms for businesses that need a polished, scalable online presence.",
     meta: "Website Essentials · Professional Website · Custom Platform",
-    href: "/package?type=web",
+    href: buildPackageTypeHref("web"),
   },
   {
     icon: FaPalette,
@@ -19,7 +20,7 @@ const packageGroups = [
     description:
       "Interface design, mockups, design systems, and visual direction for websites and digital products.",
     meta: "Design Essentials · Design Foundation · Design Signature",
-    href: "/package?type=design",
+    href: buildPackageTypeHref("design"),
   },
   {
     icon: FaSyncAlt,
@@ -28,7 +29,7 @@ const packageGroups = [
     description:
       "Social media management, content creation, and marketing support to grow your online presence.",
     meta: "Social Media Essentials · Marketing Strategy · Content Creation",
-    href: "/package?type=marketing",
+    href: buildPackageTypeHref("marketing"),
   },
   {
     icon: FaSearch,
@@ -37,7 +38,7 @@ const packageGroups = [
     description:
       "Technical SEO, content strategy, audits, and performance optimizations to help your site rank and convert.",
     meta: "Technical SEO · Content Strategy · Site Audits",
-    href: "/package?type=seo",
+    href: buildPackageTypeHref("seo"),
   },
   {
     icon: FaSyncAlt,
@@ -46,7 +47,7 @@ const packageGroups = [
     description:
       "Monthly support for updates, improvements, optimization, and continued design or development help.",
     meta: "Mini · Boost · Momentum",
-    href: "/package?type=retainer",
+    href: buildPackageTypeHref("retainer"),
   },
   {
     icon: FaPlus,
@@ -55,7 +56,7 @@ const packageGroups = [
     description:
       "Add focused support like SEO, audits, animations, booking systems, content updates, or integrations.",
     meta: "Audits · SEO · Integrations · Maintenance",
-    href: "/package?type=extras",
+    href: buildPackageTypeHref("extras"),
   },
 ];
 

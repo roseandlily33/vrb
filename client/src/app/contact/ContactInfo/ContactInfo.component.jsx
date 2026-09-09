@@ -9,12 +9,12 @@ const ContactInfo = () => {
       value: "victoria@vrbwebdesignanddev.com",
       link: "mailto:victoria@vrbwebdesignanddev.com",
     },
-    {
-      icon: <FiPhone className={styles.icon} aria-hidden="true" />,
-      label: "Phone",
-      value: "+1 (902) 817-1001",
-      link: "tel:+19028171001",
-    },
+    // {
+    //   icon: <FiPhone className={styles.icon} aria-hidden="true" />,
+    //   label: "Phone",
+    //   value: "+1 (902) 817-1001",
+    //   link: "tel:+19028171001",
+    // },
     {
       icon: <FiMapPin className={styles.icon} aria-hidden="true" />,
       label: "Location",
