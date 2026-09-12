@@ -93,7 +93,8 @@ export default function sitemap() {
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.7,
-    }, {
+    },
+    {
       url: `${baseUrl}/package/design`,
       lastModified: new Date(),
       changeFrequency: "monthly",
@@ -104,7 +105,8 @@ export default function sitemap() {
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.7,
-    },{
+    },
+    {
       url: `${baseUrl}/package/extras`,
       lastModified: new Date(),
       changeFrequency: "monthly",
@@ -120,7 +122,7 @@ export default function sitemap() {
       url: `${baseUrl}/package/marketing`,
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 0.7,  
+      priority: 0.7,
     },
     {
       url: `${baseUrl}/package/web-design/website-essentials`,
@@ -370,12 +372,34 @@ export default function sitemap() {
     {
       url: `${baseUrl}/blog/web-design/web-designer-vs-web-developer`,
       lastModified: new Date(),
-    }, {
+    },
+    {
       url: `${baseUrl}/blog/web-design/website-refresh-vs-redesign`,
       lastModified: new Date(),
-    }, {
+    },
+    {
       url: `${baseUrl}/blog/web-design/small-business-website-cost-canada`,
       lastModified: new Date(),
-    }
+    },
+    {
+      url: `${baseUrl}/blog/web-design/what-pages-should-a-small-business-website-have`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/blog/web-design/small-business-websites-customer-experience`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/blog/web-design/7-customer-questions-small-business-website`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/blog/web-design/does-content-need-its-own-page`,
+      lastModified: new Date(),
+    },
+    // {
+    //   url: `${baseUrl}/blog/seo/seo-for-small-business-websites`,
+    //   lastModified: new Date(),
+    // },
   ];
 }
