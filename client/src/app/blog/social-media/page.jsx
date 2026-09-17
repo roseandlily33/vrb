@@ -1,41 +1,38 @@
 import Link from "next/link";
 import Hero from "../../Components/Hero/Hero.component";
 import styles from "../page.module.css";
-import { uxUiDevelopmentArticles } from "../articles";
+import { socialMediaArticles } from "../articles";
 
+// Primary keyword: social media marketing
+// Secondary: website redesign guide, redesign a website, website redesign resources
+// intent: informational
 export const metadata = {
-  title: "UX/UI and Web Development | VRB Web Design and Development Blog",
-  description: "Usability, accessibility, performance and technical decisions.",
+  title: "Social Media Marketing | VRB Web Design and Development Blog",
+  description: "Tips and strategies for effective social media marketing.",
 };
 
-export default function UXUIPage() {
-  const posts = uxUiDevelopmentArticles;
+export default function SocialMediaPage() {
+  const posts = socialMediaArticles;
+  const getCategoryName = (category) =>
+    typeof category === "string" ? category : category?.name || "";
 
   return (
     <main>
       <Hero
         topMeta="Blog"
-        highlight="UX/UI"
-        title="UX/UI & Development: usability, accessibility and performance."
-        subText="Deep dives into the decisions that make websites easier to use and faster."
+        highlight="Social Media Marketing"
+        title="Social media marketing: strategies, tips, and best practices."
+        subText="Guidance for effective social media marketing to grow your online presence."
       />
       <nav className={styles.blogNav} aria-label="Blog topics">
         <span className={styles.blogNavLabel}>Blog Topics</span>
 
         <div className={styles.blogNavLinks}>
-          <Link
-            href="/blog/website-redesign"
-            className={styles.blogNavLink}
-            aria-current="page"
-          >
+          <Link href="/blog/website-redesign" className={styles.blogNavLink}>
             Website Redesign
           </Link>
 
-          <Link
-            href="/blog/web-design"
-            className={styles.blogNavLink}
-            aria-current="page"
-          >
+          <Link href="/blog/web-design" className={styles.blogNavLink}>
             Web Design
           </Link>
 
@@ -43,14 +40,14 @@ export default function UXUIPage() {
             SEO
           </Link>
 
+          <Link href="/blog/ux-ui-development" className={styles.blogNavLink}>
+            UX/UI & Development
+          </Link>
           <Link
-            href="/blog/ux-ui-development"
+            href="/blog/social-media"
             className={`${styles.blogNavLink} ${styles.blogNavActive}`}
             aria-current="page"
           >
-            UX/UI & Development
-          </Link>
-          <Link href="/blog/social-media" className={styles.blogNavLink}>
             Social Media
           </Link>
           <Link href="/blog/website-maintenance" className={styles.blogNavLink}>
@@ -61,7 +58,7 @@ export default function UXUIPage() {
       <section className={styles.postsSection}>
         {posts.length === 0 ? (
           <p className={styles.excerpt}>
-            No articles yet for UX/UI & Development.
+            No articles yet for Social Media Marketing.
           </p>
         ) : (
           <div className={styles.postsGrid}>
@@ -102,7 +99,7 @@ export default function UXUIPage() {
 
                     <Link
                       className={styles.readLink}
-                      href={`/blog/ux-ui-development/${p.slug}`}
+                      href={`/blog/social-media/${p.slug}`}
                     >
                       Read
                       <span aria-hidden="true">→</span>

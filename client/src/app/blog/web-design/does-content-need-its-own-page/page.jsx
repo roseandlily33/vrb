@@ -3,9 +3,9 @@ import BlogHero from "../../blogSections/blogHero/blogHero";
 import BlogCTA from "../../blogSections/blogCta/blogCta";
 
 export const metadata = {
-  title: 'Does This Content Need Its Own Page? | VRB Design & Development',
+  title: "Does This Content Need Its Own Page? | VRB Design & Development",
   description:
-    'Not every topic needs its own webpage. Use The Page Test™ to decide when content should stand alone, stay grouped or be split into separate pages.',
+    "Not every topic needs its own webpage. Use The Page Test™ to decide when content should stand alone, stay grouped or be split into separate pages.",
 };
 
 export default function DoesContentNeedOwnPagePage() {
@@ -13,8 +13,10 @@ export default function DoesContentNeedOwnPagePage() {
     <>
       <BlogHero
         eyebrow="Web Design & Strategy"
+        readTime="12 min read"
+        date="September 11, 2026"
         title="Does This Content Need Its Own Page?"
-        intro="Not every service, product or piece of information needs a separate page. The real question is whether separating it makes the website more useful."
+        description="Not every service, product or piece of information needs a separate page. The real question is whether separating it makes the website more useful."
       />
 
       <section className={styles.articleSection}>
@@ -35,21 +37,13 @@ export default function DoesContentNeedOwnPagePage() {
             whether something deserves its own page.
           </p>
 
-          <p>
-            Should every service have one?
-          </p>
+          <p>Should every service have one?</p>
 
-          <p>
-            Should your team have a separate page from About?
-          </p>
+          <p>Should your team have a separate page from About?</p>
 
-          <p>
-            Should pricing live on each service page or somewhere else?
-          </p>
+          <p>Should pricing live on each service page or somewhere else?</p>
 
-          <p>
-            Should you split one long page into several smaller ones?
-          </p>
+          <p>Should you split one long page into several smaller ones?</p>
 
           <p>
             There is no universal answer because it depends on what the
@@ -63,8 +57,8 @@ export default function DoesContentNeedOwnPagePage() {
           </blockquote>
 
           <p>
-            When I am deciding whether content should stay grouped or become
-            its own page, I tend to come back to four questions.
+            When I am deciding whether content should stay grouped or become its
+            own page, I tend to come back to four questions.
           </p>
 
           <p>
@@ -73,9 +67,7 @@ export default function DoesContentNeedOwnPagePage() {
 
           <h2>The Page Test™</h2>
 
-          <p>
-            Before creating a new page, ask:
-          </p>
+          <p>Before creating a new page, ask:</p>
 
           <ol>
             <li>
@@ -88,13 +80,13 @@ export default function DoesContentNeedOwnPagePage() {
               <strong>Will people look for it?</strong>
             </li>
             <li>
-              <strong>Will separating it make the website easier to use?</strong>
+              <strong>
+                Will separating it make the website easier to use?
+              </strong>
             </li>
           </ol>
 
-          <p>
-            You do not necessarily need a perfect yes to all four.
-          </p>
+          <p>You do not necessarily need a perfect yes to all four.</p>
 
           <p>
             They are simply a useful way to decide whether a new page is
@@ -103,29 +95,17 @@ export default function DoesContentNeedOwnPagePage() {
 
           <h2>1. Does the page have a purpose?</h2>
 
-          <p>
-            This is the first thing I would look at.
-          </p>
+          <p>This is the first thing I would look at.</p>
 
-          <p>
-            Every page should have some reason to exist.
-          </p>
+          <p>Every page should have some reason to exist.</p>
 
-          <p>
-            Maybe it explains a service.
-          </p>
+          <p>Maybe it explains a service.</p>
 
-          <p>
-            Maybe it helps someone compare products.
-          </p>
+          <p>Maybe it helps someone compare products.</p>
 
-          <p>
-            Maybe it introduces the team.
-          </p>
+          <p>Maybe it introduces the team.</p>
 
-          <p>
-            Maybe it answers questions customers regularly have.
-          </p>
+          <p>Maybe it answers questions customers regularly have.</p>
 
           <p>
             Maybe it helps someone find the right location or understand how to
@@ -147,8 +127,7 @@ export default function DoesContentNeedOwnPagePage() {
           </p>
 
           <p>
-            Its purpose can be as simple as giving customers useful
-            information.
+            Its purpose can be as simple as giving customers useful information.
           </p>
 
           <p>
@@ -162,9 +141,7 @@ export default function DoesContentNeedOwnPagePage() {
             Some pieces of information naturally feel like their own subject.
           </p>
 
-          <p>
-            A major service is a good example.
-          </p>
+          <p>A major service is a good example.</p>
 
           <p>
             If a business offers plumbing, heating, drain cleaning, water
@@ -183,26 +160,18 @@ export default function DoesContentNeedOwnPagePage() {
             strong candidate for a dedicated page.
           </p>
 
-          <p>
-            The same principle applies outside of services.
-          </p>
+          <p>The same principle applies outside of services.</p>
 
-          <p>
-            A small team can easily fit on an About page.
-          </p>
+          <p>A small team can easily fit on an About page.</p>
 
-          <p>
-            A large team may start making that page unnecessarily long.
-          </p>
+          <p>A large team may start making that page unnecessarily long.</p>
 
           <p>
             In that case, the About page can introduce the people behind the
             company and link to a dedicated Team page.
           </p>
 
-          <p>
-            Certifications can work the same way.
-          </p>
+          <p>Certifications can work the same way.</p>
 
           <p>
             If there are only a few, they may fit perfectly well within About.
@@ -217,9 +186,7 @@ export default function DoesContentNeedOwnPagePage() {
 
           <h2>3. Will customers or searchers actually look for it?</h2>
 
-          <p>
-            This is where customer intent and search intent matter.
-          </p>
+          <p>This is where customer intent and search intent matter.</p>
 
           <p>
             If people regularly look for a specific service, product or topic,
@@ -237,9 +204,7 @@ export default function DoesContentNeedOwnPagePage() {
             would look for ways to build the page out with useful information.
           </p>
 
-          <p>
-            That might include:
-          </p>
+          <p>That might include:</p>
 
           <ul>
             <li>what the service is</li>
@@ -253,9 +218,7 @@ export default function DoesContentNeedOwnPagePage() {
             <li>how to book or inquire</li>
           </ul>
 
-          <p>
-            The important part is that the page becomes genuinely useful.
-          </p>
+          <p>The important part is that the page becomes genuinely useful.</p>
 
           <p>
             I would not create hundreds of empty pages simply because a keyword
@@ -268,8 +231,8 @@ export default function DoesContentNeedOwnPagePage() {
           </p>
 
           <blockquote>
-            If people specifically search for something your business offers,
-            it should usually be easy to reach that information directly.
+            If people specifically search for something your business offers, it
+            should usually be easy to reach that information directly.
           </blockquote>
 
           <h2>4. Does separating it make the website easier to use?</h2>
@@ -279,17 +242,11 @@ export default function DoesContentNeedOwnPagePage() {
             and more about organization.
           </p>
 
-          <p>
-            A page can technically hold a huge amount of information.
-          </p>
+          <p>A page can technically hold a huge amount of information.</p>
 
-          <p>
-            That does not mean all of it should stay together.
-          </p>
+          <p>That does not mean all of it should stay together.</p>
 
-          <p>
-            I start thinking about splitting a page when it becomes:
-          </p>
+          <p>I start thinking about splitting a page when it becomes:</p>
 
           <ul>
             <li>hard to scan</li>
@@ -301,13 +258,9 @@ export default function DoesContentNeedOwnPagePage() {
             <li>too broad to serve one clear purpose</li>
           </ul>
 
-          <p>
-            At that point, separation can make the content easier to use.
-          </p>
+          <p>At that point, separation can make the content easier to use.</p>
 
-          <p>
-            The goal is not to make every page short.
-          </p>
+          <p>The goal is not to make every page short.</p>
 
           <p>
             A long page can be perfectly good when everything on it belongs
@@ -321,13 +274,9 @@ export default function DoesContentNeedOwnPagePage() {
 
           <h2>A good example: one Facials page or several?</h2>
 
-          <p>
-            Say a wellness business offers several types of facials.
-          </p>
+          <p>Say a wellness business offers several types of facials.</p>
 
-          <p>
-            I would probably start with a general Facials page.
-          </p>
+          <p>I would probably start with a general Facials page.</p>
 
           <p>
             If there are only a handful of treatments and each one needs a
@@ -340,9 +289,7 @@ export default function DoesContentNeedOwnPagePage() {
             several nearly identical pages.
           </p>
 
-          <p>
-            But imagine one particular treatment has:
-          </p>
+          <p>But imagine one particular treatment has:</p>
 
           <ul>
             <li>several options</li>
@@ -354,9 +301,7 @@ export default function DoesContentNeedOwnPagePage() {
             <li>different booking information</li>
           </ul>
 
-          <p>
-            Now that service may be substantial enough to stand on its own.
-          </p>
+          <p>Now that service may be substantial enough to stand on its own.</p>
 
           <p>
             The main Facials page can still provide the overview and direct the
@@ -379,13 +324,9 @@ export default function DoesContentNeedOwnPagePage() {
             fifteen or twenty pages.
           </p>
 
-          <p>
-            I do not think the raw number is the important part.
-          </p>
+          <p>I do not think the raw number is the important part.</p>
 
-          <p>
-            Navigation is.
-          </p>
+          <p>Navigation is.</p>
 
           <p>
             If fifteen service pages are all sitting across the main navigation,
@@ -424,9 +365,7 @@ export default function DoesContentNeedOwnPagePage() {
 
           <h2>Fewer clicks are good, but not at the expense of structure</h2>
 
-          <p>
-            In general, I like reducing unnecessary clicks.
-          </p>
+          <p>In general, I like reducing unnecessary clicks.</p>
 
           <p>
             If someone can reasonably get the information they need without
@@ -434,8 +373,8 @@ export default function DoesContentNeedOwnPagePage() {
           </p>
 
           <p>
-            But I also do not think every possible piece of information needs
-            to live on the same page just to save a click.
+            But I also do not think every possible piece of information needs to
+            live on the same page just to save a click.
           </p>
 
           <p>
@@ -443,9 +382,7 @@ export default function DoesContentNeedOwnPagePage() {
             becoming overwhelming.
           </p>
 
-          <p>
-            What matters is whether the user understands where to go.
-          </p>
+          <p>What matters is whether the user understands where to go.</p>
 
           <p>
             An extra click is much less frustrating when the pathway makes
@@ -490,9 +427,7 @@ export default function DoesContentNeedOwnPagePage() {
             lot of visual work to show.
           </p>
 
-          <p>
-            That might include:
-          </p>
+          <p>That might include:</p>
 
           <ul>
             <li>contractors</li>
@@ -526,18 +461,14 @@ export default function DoesContentNeedOwnPagePage() {
             perfectly enough.
           </p>
 
-          <p>
-            Each location does not automatically need its own page.
-          </p>
+          <p>Each location does not automatically need its own page.</p>
 
           <p>
             But individual location pages become more useful when there are
             meaningful differences.
           </p>
 
-          <p>
-            Maybe each location has different:
-          </p>
+          <p>Maybe each location has different:</p>
 
           <ul>
             <li>hours</li>
@@ -559,17 +490,16 @@ export default function DoesContentNeedOwnPagePage() {
             separate pages may make more sense.
           </p>
 
-          <h2>SEO can influence the decision, but it should not be the only reason</h2>
+          <h2>
+            SEO can influence the decision, but it should not be the only reason
+          </h2>
+
+          <p>SEO is absolutely part of website structure.</p>
 
           <p>
-            SEO is absolutely part of website structure.
-          </p>
-
-          <p>
-            If a business offers a valuable service that people regularly
-            search for, giving that service its own page can make it easier for
-            search engines and customers to understand what the business
-            offers.
+            If a business offers a valuable service that people regularly search
+            for, giving that service its own page can make it easier for search
+            engines and customers to understand what the business offers.
           </p>
 
           <p>
@@ -579,19 +509,15 @@ export default function DoesContentNeedOwnPagePage() {
 
           <p>
             Creating dozens of nearly empty pages for slightly different
-            keywords can leave you with a website that is technically larger
-            but not necessarily better.
+            keywords can leave you with a website that is technically larger but
+            not necessarily better.
           </p>
 
-          <p>
-            Keyword value matters.
-          </p>
+          <p>Keyword value matters.</p>
 
           <p>Customer value matters too.</p>
 
-          <p>
-            Ideally, those two things line up.
-          </p>
+          <p>Ideally, those two things line up.</p>
 
           <blockquote>
             Search intent is a good reason to create a clear destination. It is
@@ -601,27 +527,19 @@ export default function DoesContentNeedOwnPagePage() {
           <h2>What should you do when one page becomes too big?</h2>
 
           <p>
-            When a page starts feeling enormous, I would not automatically
-            start deleting useful information.
+            When a page starts feeling enormous, I would not automatically start
+            deleting useful information.
           </p>
 
-          <p>
-            I would first look at what the information actually contains.
-          </p>
+          <p>I would first look at what the information actually contains.</p>
 
-          <p>
-            Are there sections that clearly belong together?
-          </p>
+          <p>Are there sections that clearly belong together?</p>
 
-          <p>
-            Are there separate subjects hiding inside the page?
-          </p>
+          <p>Are there separate subjects hiding inside the page?</p>
 
           <p>Is anything unnecessary?</p>
 
-          <p>
-            Then I would start reorganizing.
-          </p>
+          <p>Then I would start reorganizing.</p>
 
           <p>
             That may mean removing information that does not need to be there,
@@ -629,13 +547,9 @@ export default function DoesContentNeedOwnPagePage() {
             pages properly through navigation and internal links.
           </p>
 
-          <p>
-            The goal is not simply to make the original page shorter.
-          </p>
+          <p>The goal is not simply to make the original page shorter.</p>
 
-          <p>
-            The goal is to make the information easier to use.
-          </p>
+          <p>The goal is to make the information easier to use.</p>
 
           <h2>Not every standard page needs to justify itself from scratch</h2>
 
@@ -657,25 +571,15 @@ export default function DoesContentNeedOwnPagePage() {
             purpose of `/about`.
           </p>
 
-          <p>
-            It is most useful when the answer is less obvious.
-          </p>
+          <p>It is most useful when the answer is less obvious.</p>
 
-          <p>
-            Should this service have its own page?
-          </p>
+          <p>Should this service have its own page?</p>
 
-          <p>
-            Should this section stay inside About?
-          </p>
+          <p>Should this section stay inside About?</p>
 
-          <p>
-            Should we split this giant page?
-          </p>
+          <p>Should we split this giant page?</p>
 
-          <p>
-            Should this new topic become part of the navigation?
-          </p>
+          <p>Should this new topic become part of the navigation?</p>
 
           <p>
             That is where asking about purpose, independence, demand and
@@ -684,9 +588,7 @@ export default function DoesContentNeedOwnPagePage() {
 
           <h2>So, does your content need its own page?</h2>
 
-          <p>
-            There is no magic word count that tells you.
-          </p>
+          <p>There is no magic word count that tells you.</p>
 
           <p>
             And there is no rule that says every service, product, team member
@@ -699,18 +601,14 @@ export default function DoesContentNeedOwnPagePage() {
             whether separating it improves the experience.
           </p>
 
-          <p>
-            Sometimes the right answer is a brand new page.
-          </p>
+          <p>Sometimes the right answer is a brand new page.</p>
 
           <p>
             Sometimes the right answer is keeping several related things
             together.
           </p>
 
-          <p>
-            Sometimes one page naturally becomes two as the business grows.
-          </p>
+          <p>Sometimes one page naturally becomes two as the business grows.</p>
 
           <p>
             And sometimes the page you were planning does not actually need to
@@ -723,13 +621,9 @@ export default function DoesContentNeedOwnPagePage() {
             customer interest to justify having its own place.
           </blockquote>
 
-          <p>
-            The goal is not to create more pages.
-          </p>
+          <p>The goal is not to create more pages.</p>
 
-          <p>
-            It is to give important information the clearest place to live.
-          </p>
+          <p>It is to give important information the clearest place to live.</p>
         </article>
       </section>
 
@@ -739,12 +633,12 @@ export default function DoesContentNeedOwnPagePage() {
         description="Start with what customers need to know, then organize those answers into pages that make sense for your business."
         links={[
           {
-            label: 'What Pages Should a Small Business Website Have?',
-            href: '/blog/web-design-strategy/what-pages-should-a-small-business-website-have',
+            label: "What Pages Should a Small Business Website Have?",
+            href: "/blog/web-design-strategy/what-pages-should-a-small-business-website-have",
           },
           {
-            label: 'Read The 7 Customer Questions™',
-            href: '/blog/web-design-strategy/7-customer-questions-small-business-website',
+            label: "Read The 7 Customer Questions™",
+            href: "/blog/web-design-strategy/7-customer-questions-small-business-website",
           },
         ]}
       />

@@ -1,7 +1,7 @@
 import styles from "./blogHero.module.css";
 import Link from "next/link";
 // import HeroPixels from "../heroPixels/heroPixels";
-const BlogHero = ({ title, intro, eyebrow }) => {
+const BlogHero = ({ title, eyebrow, description, date, readTime }) => {
   const HeroPixels = () => {
     return (
       <div className={styles.heroPixels} aria-hidden="true">
@@ -46,12 +46,17 @@ const BlogHero = ({ title, intro, eyebrow }) => {
             •
           </span>
 
-          <span>9 min read</span>
+          <span>{readTime}</span>
+          <span className={styles.metaDivider} aria-hidden="true">
+            •
+          </span>
+
+          <span>{date}</span>
         </div>
 
         <h1>{title}</h1>
 
-        <p className={styles.intro}>{intro}</p>
+        <p className={styles.intro}>{description}</p>
       </div>
     </section>
   );

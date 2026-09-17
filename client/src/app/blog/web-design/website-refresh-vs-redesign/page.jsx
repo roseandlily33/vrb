@@ -18,8 +18,10 @@ export default function WebsiteRefreshVsRedesign() {
     <>
       <BlogHero
         eyebrow="Website Redesign"
+        readTime="8 min read"
+        date="September 2, 2026"
         title="Website Refresh vs. Redesign: What Does Your Website Actually Need?"
-        intro="Not every outdated or frustrating website needs to be completely redesigned. Sometimes a focused refresh is enough. The important part is figuring out whether the problems are on the surface or built into the website itself."
+        description="Not every outdated or frustrating website needs to be completely redesigned. Sometimes a focused refresh is enough. The important part is figuring out whether the problems are on the surface or built into the website itself."
       />
 
       <section className={styles.articleSection}>

@@ -340,6 +340,14 @@ export default function sitemap() {
       url: `${baseUrl}/blog/ux-ui-development`,
       lastModified: new Date(),
     },
+    {
+      url: `${baseUrl}/blog/social-media`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/blog/website-maintenance`,
+      lastModified: new Date(),
+    },
 
     // Website Redesign articles
     {
@@ -356,6 +364,14 @@ export default function sitemap() {
     },
     {
       url: `${baseUrl}/blog/website-redesign/should-you-redesign-your-website-for-seo`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/blog/website-redesign/how-long-does-a-website-redesign-take`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/blog/website-redesign/how-often-should-you-update-your-website`,
       lastModified: new Date(),
     },
 
@@ -395,6 +411,21 @@ export default function sitemap() {
     },
     {
       url: `${baseUrl}/blog/web-design/does-content-need-its-own-page`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/blog/web-design/web-design-process`,
+      lastModified: new Date(),
+    },
+    // Website Maintenance articles
+    {
+      url: `${baseUrl}/blog/website-maintenance/how-much-does-website-maintenance-cost`,
+      lastModified: new Date(),
+    },
+
+    // Social Media Articles
+    {
+      url: `${baseUrl}/blog/social-media/how-much-does-social-media-management-cost`,
       lastModified: new Date(),
     },
     // {

@@ -16,8 +16,10 @@ export default function WebDesignerVsWebDeveloper() {
     <>
       <BlogHero
         eyebrow="Web Design & Strategy"
+        readTime="10 min read"
+        date="September 1, 2026"
         title="Web Designer vs. Web Developer: What's the Difference?"
-        intro="Web design and web development are closely connected, but they are not the same job. Understanding the difference can make it much easier to figure out who you actually need for your website project."
+        description="Web design and web development are closely connected, but they are not the same job. Understanding the difference can make it much easier to figure out who you actually need for your website project."
       />
 
       <section className={styles.articleSection}>

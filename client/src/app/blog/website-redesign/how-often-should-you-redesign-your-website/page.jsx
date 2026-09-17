@@ -16,8 +16,10 @@ export default function HowOftenShouldYouRedesignYourWebsite() {
     <main className={styles.page}>
       <BlogHero
         eyebrow="Website Redesign"
+        date="August 22, 2026"
+        readTime="12 min read"
         title="How Often Should You Redesign Your Website?"
-        intro="There isn't one universal lifespan for a website. How often you should redesign depends much more on your business, brand, content and technology than the number of years it has been online."
+        description="There isn't one universal lifespan for a website. How often you should redesign depends much more on your business, brand, content and technology than the number of years it has been online."
       />
 
       <section className={styles.articleSection}>

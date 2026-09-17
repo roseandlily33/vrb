@@ -13,8 +13,10 @@ export default function SmallBusinessWebsiteCustomerExperiencePage() {
     <>
       <BlogHero
         eyebrow="Web Design & Strategy"
+        readTime="13 min read"
+        date="September 7, 2026"
         title="I Used 50 Small Business Websites as a Customer. Here’s What I Noticed."
-        intro="I wasn’t auditing them or looking for UX problems. I was trying to find menus, compare prices, check services, see photos and decide where I actually wanted to go."
+        description="I wasn&apos;t auditing them or looking for UX problems. I was trying to find menus, compare prices, check services, see photos and decide where I actually wanted to go."
       />
 
       <section className={styles.articleSection}>

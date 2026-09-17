@@ -59,9 +59,9 @@ export default function Steps() {
                 <p className={styles.stepDesc}>{step.description}</p>
               </div>
 
-              <div className={styles.stepArrow} aria-hidden="true">
+              {/* <div className={styles.stepArrow} aria-hidden="true">
                 ↘
-              </div>
+              </div> */}
             </li>
           ))}
         </ol>

@@ -14,8 +14,10 @@ export default function HowMuchInformationShouldYouPutOnAWebpage() {
     <>
       <BlogHero
         eyebrow="UX/UI & Development"
+        date="September 6, 2026"
+        readTime="11 min read"
         title="How Much Information Should You Put on a Webpage?"
-        intro="A webpage does not automatically have too much information because it is long. The bigger question is whether people can actually find, understand and use the information you have given them."
+        description="A webpage does not automatically have too much information because it is long. The bigger question is whether people can actually find, understand and use the information you have given them."
       />
 
       <section className={styles.articleSection}>

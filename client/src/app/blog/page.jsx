@@ -19,7 +19,9 @@ export default function BlogPage() {
       />
       <section className={styles.postsSection}>
         <div className={styles.postsGrid}>
-          <article className={`${styles.postCard} ${styles.lightCard} ${styles.topicCard}`}>
+          <article
+            className={`${styles.postCard} ${styles.lightCard} ${styles.topicCard}`}
+          >
             <div className={styles.pixelCluster} aria-hidden="true">
               <span className={styles.pixel1} />
               <span className={styles.pixel2} />
@@ -49,7 +51,9 @@ export default function BlogPage() {
             </div>
           </article>
 
-          <article className={`${styles.postCard} ${styles.darkCard} ${styles.topicCard}`}>
+          <article
+            className={`${styles.postCard} ${styles.darkCard} ${styles.topicCard}`}
+          >
             <div className={styles.pixelCluster} aria-hidden="true">
               <span className={styles.pixel1} />
               <span className={styles.pixel2} />
@@ -78,7 +82,9 @@ export default function BlogPage() {
               </Link>
             </div>
           </article>
-          <article className={`${styles.postCard} ${styles.darkCard} ${styles.topicCard}`}>
+          <article
+            className={`${styles.postCard} ${styles.darkCard} ${styles.topicCard}`}
+          >
             <div className={styles.pixelCluster} aria-hidden="true">
               <span className={styles.pixel1} />
               <span className={styles.pixel2} />
@@ -107,7 +113,9 @@ export default function BlogPage() {
             </div>
           </article>
 
-          <article className={`${styles.postCard} ${styles.lightCard} ${styles.topicCard}`}>
+          <article
+            className={`${styles.postCard} ${styles.lightCard} ${styles.topicCard}`}
+          >
             <div className={styles.pixelCluster} aria-hidden="true">
               <span className={styles.pixel1} />
               <span className={styles.pixel2} />
@@ -128,6 +136,67 @@ export default function BlogPage() {
                 href="/blog/seo"
                 className={styles.arrowLink}
                 aria-label="Explore SEO articles"
+              >
+                EXPLORE →
+              </Link>
+            </div>
+          </article>
+          <article
+            className={`${styles.postCard} ${styles.lightCard} ${styles.topicCard}`}
+          >
+            <div className={styles.pixelCluster} aria-hidden="true">
+              <span className={styles.pixel1} />
+              <span className={styles.pixel2} />
+              <span className={styles.pixel3} />
+              <span className={styles.pixel4} />
+              <span className={styles.pixel5} />
+              <span className={styles.pixel6} />
+            </div>
+
+            <div className={styles.cardMain}>
+              <span className={styles.accentLine} aria-hidden="true" />
+
+              <h2 className={styles.cardTitle}>
+                Social
+                <span>Media</span>
+              </h2>
+            </div>
+
+            <div className={styles.cardFooter}>
+              <Link
+                href="/blog/social-media"
+                className={styles.arrowLink}
+                aria-label="Explore Website Redesign articles"
+              >
+                EXPLORE →
+              </Link>
+            </div>
+          </article>
+          <article
+            className={`${styles.postCard} ${styles.darkCard} ${styles.topicCard}`}
+          >
+            <div className={styles.pixelCluster} aria-hidden="true">
+              <span className={styles.pixel1} />
+              <span className={styles.pixel2} />
+              <span className={styles.pixel3} />
+              <span className={styles.pixel4} />
+              <span className={styles.pixel5} />
+              <span className={styles.pixel6} />
+            </div>
+
+            <div className={styles.cardMain}>
+              <span className={styles.accentLine} aria-hidden="true" />
+
+              <h2 className={styles.cardTitle}>
+                Website<span>Maintenance</span>
+              </h2>
+            </div>
+
+            <div className={styles.cardFooter}>
+              <Link
+                href="/blog/website-maintenance"
+                className={styles.arrowLink}
+                aria-label="Explore Website Maintenance articles"
               >
                 EXPLORE →
               </Link>

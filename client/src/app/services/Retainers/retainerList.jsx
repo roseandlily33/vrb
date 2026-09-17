@@ -1,137 +1,178 @@
 export const Retainer = [
   {
     title: "Mini",
+
     slug: "mini",
 
     seoTitle: "Monthly Website Maintenance | VRB Web Design & Development",
 
     seoDescription:
-      "Monthly website maintenance for businesses needing reliable content updates, security monitoring, performance optimization, and ongoing website support.",
+      "Monthly website maintenance for small business websites, including routine updates, backups, website checks, minor content changes, and hosting support.",
 
-    startingAt: "$400",
+    startingAt: "$250",
 
     timeline: "Monthly",
 
-    bestFor: "Growing businesses needing reliable monthly website support",
+    bestFor:
+      "Small business websites that need routine care and occasional updates",
 
     description:
-      "Monthly website maintenance for businesses that need ongoing support, content updates, security monitoring, and performance optimization to keep their website running smoothly.",
+      "Essential monthly website care for businesses that want their website kept current, backed up, checked, and maintained without needing frequent changes.",
 
     features: [
-      "Up to 5 hours of support per month",
-      "Content updates and edits",
-      "Security monitoring and updates",
-      "Performance optimization",
-      "Priority support",
+      "Routine website and software updates",
+      "Website backups",
+      "Form, link, and functionality checks",
+      "Basic bug fixes within maintenance scope",
+      "Minor content updates and edits",
+      "Hosting support",
+      "Periodic performance checks",
     ],
 
     type: "retainer",
 
     whatsIncluded: [
-      "Up to 5 hours of support per month",
-      "Content updates and edits",
-      "Security monitoring and updates",
-      "Performance optimization",
+      "Routine website and software updates",
+      "Website backups",
+      "Form, link, and functionality checks",
+      "Basic bug fixes within maintenance scope",
+      "Minor content updates and edits",
+      "Hosting support",
+      "Periodic performance checks",
     ],
 
     revisionLimits: "N/A",
 
-    supportPeriod: "Ongoing",
+    supportPeriod: "Ongoing monthly",
 
-    optionalAddOns: [],
+    optionalAddOns: [
+      "Additional content updates",
+      "Performance optimization",
+      "SEO services",
+      "New features and functionality",
+    ],
 
-    note: "Monthly retainer for basic site support",
+    note: "Designed for relatively stable websites. Larger content changes, new functionality, and development work are quoted separately.",
   },
 
   {
     title: "Boost",
+
     slug: "boost",
 
     seoTitle: "Website Maintenance Packages | VRB Web Design & Development",
 
     seoDescription:
-      "Website maintenance packages with ongoing support, content updates, security monitoring, performance optimization, and quarterly reporting.",
+      "Website maintenance packages for active business websites needing regular updates, backups, content changes, performance checks, and ongoing support.",
 
-    startingAt: "$1,200",
+    startingAt: "$500",
 
-    timeline: "Quarterly",
+    timeline: "Monthly",
 
     bestFor:
-      "Businesses needing ongoing website maintenance and quarterly support",
+      "Active business websites that require regular updates and ongoing support",
 
     description:
-      "A website maintenance package providing ongoing support, content updates, security monitoring, performance optimization, and quarterly reporting to keep your website performing at its best.",
+      "Ongoing website maintenance and management for businesses that regularly update content, products, promotions, or other parts of their website.",
 
     features: [
-      "Up to 15 hours of support per quarter",
-      "Content updates and edits",
-      "Security monitoring and updates",
-      "Performance optimization",
-      "Priority support",
-      "Quarterly performance reports",
+      "Routine website and software updates",
+      "Website backups",
+      "Regular form, link, and functionality checks",
+      "Bug fixes within maintenance scope",
+      "Regular content and product updates",
+      "Hosting support",
+      "Performance monitoring and checks",
+      "Website health and maintenance review",
+      "Periodic maintenance reporting",
     ],
 
     type: "retainer",
 
     whatsIncluded: [
-      "Up to 15 hours of support per quarter",
-      "Security monitoring and updates",
-      "Quarterly performance reports",
+      "Routine website and software updates",
+      "Website backups",
+      "Regular functionality checks",
+      "Bug fixes within maintenance scope",
+      "Regular content and product updates",
+      "Hosting support",
+      "Performance monitoring",
+      "Periodic maintenance reporting",
     ],
 
     revisionLimits: "N/A",
 
-    supportPeriod: "Ongoing",
+    supportPeriod: "Ongoing monthly",
 
-    optionalAddOns: [],
+    optionalAddOns: [
+      "Additional content or product updates",
+      "Performance optimization",
+      "SEO services",
+      "New features and functionality",
+    ],
 
-    note: "Quarterly retainer with reporting",
+    note: "Best suited to websites that change regularly. Major content additions, new functionality, redesign work, and SEO projects are quoted separately.",
   },
 
   {
     title: "Momentum",
+
     slug: "momentum",
 
     seoTitle: "Website Management Services | VRB Web Design & Development",
 
     seoDescription:
-      "Website management services with year-round updates, security monitoring, performance optimization, reporting, and strategic planning.",
+      "Website management services for growing businesses needing frequent updates, ongoing maintenance, performance monitoring, reporting, and technical support.",
 
-    startingAt: "$4,800",
+    startingAt: "$900",
 
-    timeline: "Annual",
+    timeline: "Monthly",
 
     bestFor:
-      "Scaling teams needing comprehensive, year-round website management",
+      "Growing businesses with active websites requiring frequent attention",
 
     description:
-      "Website management services providing year-round support, content updates, security monitoring, performance optimization, reporting, and strategic planning for growing businesses.",
+      "Comprehensive website management for businesses that rely heavily on their website and need frequent updates, ongoing technical maintenance, performance monitoring, and proactive support.",
 
     features: [
-      "Up to 60 hours of support per year",
-      "Content updates and edits",
-      "Security monitoring and updates",
-      "Performance optimization",
-      "Priority support",
-      "Quarterly performance reports",
-      "Annual strategic planning session",
+      "Ongoing website and software updates",
+      "Website backups",
+      "Regular form, link, and functionality testing",
+      "Ongoing bug fixes within maintenance scope",
+      "Frequent content and product updates",
+      "Hosting support and management",
+      "Regular performance monitoring",
+      "Website health reviews",
+      "Quarterly performance and maintenance reports",
+      "Annual website planning session",
     ],
 
     type: "retainer",
 
     whatsIncluded: [
-      "Up to 60 hours of support per year",
-      "Security monitoring and updates",
-      "Quarterly performance reports",
-      "Annual strategic planning session",
+      "Ongoing website and software updates",
+      "Website backups",
+      "Regular functionality testing",
+      "Ongoing bug fixes within maintenance scope",
+      "Frequent content and product updates",
+      "Hosting support and management",
+      "Regular performance monitoring",
+      "Quarterly performance and maintenance reports",
+      "Annual website planning session",
     ],
 
     revisionLimits: "N/A",
 
-    supportPeriod: "Annual",
+    supportPeriod: "Ongoing monthly",
 
-    optionalAddOns: [],
+    optionalAddOns: [
+      "Large-scale content updates",
+      "Advanced performance optimization",
+      "SEO services",
+      "New features and functionality",
+      "Custom development",
+    ],
 
-    note: "Annual retainer for comprehensive ongoing support",
+    note: "Designed for active business websites requiring ongoing management. Custom applications, major new functionality, redesigns, and substantial development work are quoted separately.",
   },
 ];

@@ -13,8 +13,10 @@ export default function SmallBusinessWebsitePagesPage() {
     <>
       <BlogHero
         eyebrow="Web Design & Strategy"
+        date="September 10, 2026"
+        readTime="14 min read"
         title="What Pages Should a Small Business Website Have?"
-        intro="There isn’t one perfect number of pages for every small business website. The better place to start is figuring out what your customers actually need to know."
+        description="There isn't one perfect number of pages for every small business website. The better place to start is figuring out what your customers actually need to know."
       />
 
       <section className={styles.articleSection}>

@@ -17,6 +17,8 @@ export default function ShouldYouRedesignYourWebsiteForSEO() {
     <main className={styles.page}>
       <BlogHero
         eyebrow="Website Redesign"
+        date="August 28, 2026"
+        readTime="10 min read"
         title="Should You Redesign Your Website for SEO?"
         intro="A redesign can improve the foundation your SEO relies on, but changing how a website looks is not the same thing as improving its search visibility."
       />

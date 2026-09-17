@@ -12,7 +12,10 @@ export const getCategoryRouteSegment = (category) => {
   if (normalized === "website redesign") return "website-redesign";
   if (normalized === "web design & strategy") return "web-design";
   if (normalized === "ux/ui & development") return "ux-ui-development";
+  if (normalized === "ux & ui development") return "ux-ui-development";
   if (normalized === "seo") return "seo";
+  if (normalized === "social media") return "social-media";
+  if (normalized === "website maintenance") return "website-maintenance";
 
   if (typeof category === "object" && category?.slug) {
     return String(category.slug).toLowerCase().trim();

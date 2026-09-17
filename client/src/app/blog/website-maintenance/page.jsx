@@ -1,41 +1,35 @@
 import Link from "next/link";
 import Hero from "../../Components/Hero/Hero.component";
 import styles from "../page.module.css";
-import { uxUiDevelopmentArticles } from "../articles";
+import { websiteMaintenanceArticles } from "../articles";
 
+// Primary keyword: website redesign
+// Secondary: website redesign guide, redesign a website, website redesign resources
+// intent: informational
 export const metadata = {
-  title: "UX/UI and Web Development | VRB Web Design and Development Blog",
-  description: "Usability, accessibility, performance and technical decisions.",
+  title: "Website Maintenance | VRB Web Design and Development Blog",
+  description:
+    "Guidance for planning maintenance that improves results without losing value.",
 };
 
-export default function UXUIPage() {
-  const posts = uxUiDevelopmentArticles;
+export default function MaintenancePage() {
+  const posts = websiteMaintenanceArticles;
 
   return (
     <main>
       <Hero
         topMeta="Blog"
-        highlight="UX/UI"
-        title="UX/UI & Development: usability, accessibility and performance."
-        subText="Deep dives into the decisions that make websites easier to use and faster."
+        highlight="Maintenance"
+        title="Website maintenance: timing, cost and preserving what works."
+        subText="Guidance for planning maintenance that improves results without losing value."
       />
       <nav className={styles.blogNav} aria-label="Blog topics">
         <span className={styles.blogNavLabel}>Blog Topics</span>
 
         <div className={styles.blogNavLinks}>
-          <Link
-            href="/blog/website-redesign"
-            className={styles.blogNavLink}
-            aria-current="page"
-          >
-            Website Redesign
-          </Link>
+          <Link href="/blog/website-maintenance">Website Maintenance</Link>
 
-          <Link
-            href="/blog/web-design"
-            className={styles.blogNavLink}
-            aria-current="page"
-          >
+          <Link href="/blog/web-design" className={styles.blogNavLink}>
             Web Design
           </Link>
 
@@ -43,17 +37,17 @@ export default function UXUIPage() {
             SEO
           </Link>
 
-          <Link
-            href="/blog/ux-ui-development"
-            className={`${styles.blogNavLink} ${styles.blogNavActive}`}
-            aria-current="page"
-          >
+          <Link href="/blog/ux-ui-development" className={styles.blogNavLink}>
             UX/UI & Development
           </Link>
           <Link href="/blog/social-media" className={styles.blogNavLink}>
             Social Media
           </Link>
-          <Link href="/blog/website-maintenance" className={styles.blogNavLink}>
+          <Link
+            href="/blog/website-maintenance"
+            className={`${styles.blogNavLink} ${styles.blogNavActive}`}
+            aria-current="page"
+          >
             Website Maintenance
           </Link>
         </div>
@@ -61,7 +55,7 @@ export default function UXUIPage() {
       <section className={styles.postsSection}>
         {posts.length === 0 ? (
           <p className={styles.excerpt}>
-            No articles yet for UX/UI & Development.
+            No articles yet for Website Maintenance.
           </p>
         ) : (
           <div className={styles.postsGrid}>
@@ -102,7 +96,7 @@ export default function UXUIPage() {
 
                     <Link
                       className={styles.readLink}
-                      href={`/blog/ux-ui-development/${p.slug}`}
+                      href={`/blog/website-maintenance/${p.slug}`}
                     >
                       Read
                       <span aria-hidden="true">→</span>

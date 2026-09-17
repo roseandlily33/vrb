@@ -2,12 +2,15 @@
 import styles from "./page.module.css";
 import BlogHero from "../../blogSections/blogHero/blogHero";
 import BlogCTA from "../../blogSections/blogCta/blogCta";
+import Link from "next/link";
+// import BlogSidebar from "../../blogSections/blogSidebar/blogSidebar";
 
 // primary: signs your website needs a redesign
 // secondary: does my website need a redesign, when to redesign a website, reasons to redesign a website, outdated website
 // intent: informational
 export const metadata = {
-  title: "7 Signs Your Website Needs a Redesign | VRB Web Design and Development",
+  title:
+    "7 Signs Your Website Needs a Redesign | VRB Web Design and Development",
   description:
     "Not sure if your website needs a redesign or just a refresh? Here are 7 signs to look for, from outdated design and poor UX to performance problems.",
 };
@@ -37,14 +40,20 @@ export default function SevenSignsWebsiteRedesignPage() {
       <BlogHero
         eyebrow="Website Redesign"
         title="7 Signs Your Website Needs a Redesign"
-        intro="There isn't an expiry date on a website. The better question is
+        date="August 20, 2026"
+        readTime="12 min read"
+        description="There isn't an expiry date on a website. The better question is
           whether your website still works for the business you have today."
       />
 
       {/* ----------------------------------
           Article
       ----------------------------------- */}
-
+      {/* <BlogSidebar
+        currentSlug="7-signs-your-websicte-needs-a-redesign"
+        currentCategory="Website Redesign"
+        limit={3}
+      /> */}
       <section className={styles.articleSection}>
         <ArticlePixels />
 
@@ -142,7 +151,13 @@ export default function SevenSignsWebsiteRedesignPage() {
 
           <p>
             If the website has a solid structure, works well and you genuinely
-            still like it, a <strong>website refresh</strong> may be enough.
+            still like it, a{" "}
+            <strong>
+              <Link href="/package/extras/website-refresh">
+                website refresh
+              </Link>
+            </strong>{" "}
+            may be enough.
           </p>
 
           {/* ----------------------------------
@@ -498,7 +513,9 @@ export default function SevenSignsWebsiteRedesignPage() {
             <li>correcting outdated information</li>
           </ul>
 
-          <h3>Website refresh</h3>
+          <Link href="/package/extras/website-refresh">
+            <h3>Website refresh</h3>
+          </Link>
 
           <p>A refresh goes a little further.</p>
 
@@ -512,7 +529,9 @@ export default function SevenSignsWebsiteRedesignPage() {
             rebuilding the entire thing.
           </p>
 
-          <h3>Website redesign</h3>
+          <Link href="/package/extras/website-redesign">
+            <h3>Website redesign</h3>
+          </Link>
 
           <p>A redesign is deeper.</p>
 

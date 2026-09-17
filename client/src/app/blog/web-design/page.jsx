@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Hero from "../../Components/Hero/Hero.component";
 import styles from "../page.module.css";
-import { articles } from "../articles";
+import { webDesignArticles } from "../articles";
 
 // primary keyword: web design
 
@@ -11,13 +11,7 @@ export const metadata = {
 };
 
 export default function WebDesignPage() {
-  const categoryKey = "web design";
-  const getCategoryName = (category) =>
-    typeof category === "string" ? category : category?.name || "";
-
-  const posts = articles.filter((a) =>
-    getCategoryName(a.category).toLowerCase().includes(categoryKey),
-  );
+  const posts = webDesignArticles;
 
   return (
     <main>
@@ -54,16 +48,20 @@ export default function WebDesignPage() {
           <Link href="/blog/ux-ui-development" className={styles.blogNavLink}>
             UX/UI & Development
           </Link>
+          <Link href="/blog/social-media" className={styles.blogNavLink}>
+            Social Media
+          </Link>
+          <Link href="/blog/website-maintenance" className={styles.blogNavLink}>
+            Website Maintenance
+          </Link>
         </div>
       </nav>
       <section className={styles.postsSection}>
-        {posts.length === 0 ? (
-          <p className={styles.excerpt}>
-            No articles yet for Web Design.
-          </p>
+        {posts?.length === 0 ? (
+          <p className={styles.excerpt}>No articles yet for Web Design.</p>
         ) : (
           <div className={styles.postsGrid}>
-            {posts.map((p, i) => (
+            {posts?.map((p, i) => (
               <article
                 key={p.slug}
                 className={`${styles.postCard} ${
@@ -85,7 +83,9 @@ export default function WebDesignPage() {
 
                   <div className={styles.cardContent}>
                     <p className={styles.category}>
-                      {getCategoryName(p.category)}
+                      {typeof p?.category === "string"
+                        ? p.category
+                        : p?.category?.name || ""}
                     </p>
 
                     <h3 className={styles.title}>{p.title}</h3>

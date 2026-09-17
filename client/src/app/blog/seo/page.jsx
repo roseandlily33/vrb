@@ -1,21 +1,16 @@
 import Link from "next/link";
 import Hero from "../../Components/Hero/Hero.component";
 import styles from "../page.module.css";
-import { articles } from "../articles";
+import { seoArticles } from "../articles";
 
 export const metadata = {
-  title: "SEO for Small Business Websites | VRB Web Design and Development Blog",
+  title:
+    "SEO for Small Business Websites | VRB Web Design and Development Blog",
   description: "Articles about keywords, content strategy and technical SEO.",
 };
 
 export default function SEOPage() {
-  const categoryKey = "seo";
-  const getCategoryName = (category) =>
-    typeof category === "string" ? category : category?.name || "";
-
-  const posts = articles.filter((a) =>
-    getCategoryName(a.category).toLowerCase().includes(categoryKey),
-  );
+  const posts = seoArticles;
 
   return (
     <main>
@@ -56,6 +51,12 @@ export default function SEOPage() {
           <Link href="/blog/ux-ui-development" className={styles.blogNavLink}>
             UX/UI & Development
           </Link>
+          <Link href="/blog/social-media" className={styles.blogNavLink}>
+            Social Media
+          </Link>
+          <Link href="/blog/website-maintenance" className={styles.blogNavLink}>
+            Website Maintenance
+          </Link>
         </div>
       </nav>
       <section className={styles.postsSection}>
@@ -85,7 +86,9 @@ export default function SEOPage() {
 
                   <div className={styles.cardContent}>
                     <p className={styles.category}>
-                      {getCategoryName(p.category)}
+                      {typeof p?.category === "string"
+                        ? p.category
+                        : p?.category?.name || ""}
                     </p>
 
                     <h3 className={styles.title}>{p.title}</h3>

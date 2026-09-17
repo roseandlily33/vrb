@@ -7,7 +7,7 @@ import BlogCTA from "../../blogSections/blogCta/blogCta";
 // intent: commercial investigation
 export const metadata = {
   title:
-    "Website Redesign Cost in Canada (2026) | VRB",
+    "Website Redesign Cost in Canada (2026) | VRB Web Design and Development Blog",
   description:
     "How much does a website redesign cost in Canada? Compare typical 2026 pricing, what affects the cost and what to look for in a redesign quote.",
 };
@@ -17,8 +17,10 @@ export default function WebsiteRedesignCostCanada() {
     <main className={styles.page}>
       <BlogHero
         eyebrow="Website Redesign"
+        date="August 25, 2026"
+        readTime="12 min read"
         title="How Much Does a Website Redesign Cost in Canada?"
-        intro="Website redesign pricing can vary by thousands of dollars. The difference usually comes down to what is actually being redesigned, rebuilt or added."
+        description="Website redesign pricing can vary by thousands of dollars. The difference usually comes down to what is actually being redesigned, rebuilt or added."
       />
 
       <section className={styles.articleSection}>

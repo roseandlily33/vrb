@@ -3,9 +3,9 @@ import BlogHero from "../../blogSections/blogHero/blogHero";
 import BlogCTA from "../../blogSections/blogCta/blogCta";
 
 export const metadata = {
-  title: 'The 7 Customer Questions™ Every Small Business Website Should Answer',
+  title: "The 7 Customer Questions™ Every Small Business Website Should Answer | VRB",
   description:
-    'The 7 Customer Questions™ is a simple framework for checking whether your small business website gives customers the information they need to understand your business and take the next step.',
+    "The 7 Customer Questions™ is a simple framework for checking whether your small business website gives customers the information they need to understand your business and take the next step.",
 };
 
 export default function SevenCustomerQuestionsPage() {
@@ -13,8 +13,10 @@ export default function SevenCustomerQuestionsPage() {
     <>
       <BlogHero
         eyebrow="Web Design & Strategy"
+        date="September 8, 2026"
+        readTime="12 min read"
         title="The 7 Customer Questions™ Every Small Business Website Should Answer"
-        intro="Before worrying about how many pages your website needs, start with something simpler: can a customer actually get the answers they came looking for?"
+        description="Before worrying about how many pages your website needs, start with something simpler: can a customer actually get the answers they came looking for?"
       />
 
       <section className={styles.articleSection}>
@@ -36,13 +38,13 @@ export default function SevenCustomerQuestionsPage() {
           </p>
 
           <p>
-            You need a homepage. An About page. A Services page. A Contact
-            page. Maybe a blog.
+            You need a homepage. An About page. A Services page. A Contact page.
+            Maybe a blog.
           </p>
 
           <p>
-            Those pages can absolutely make sense, but I think there is a
-            better question to ask first:
+            Those pages can absolutely make sense, but I think there is a better
+            question to ask first:
           </p>
 
           <blockquote>
@@ -78,32 +80,28 @@ export default function SevenCustomerQuestionsPage() {
 
           <p>
             That led me back to a framework I already use instinctively when
-            organizing information: the classic who, what, where, when, why
-            and how.
+            organizing information: the classic who, what, where, when, why and
+            how.
           </p>
 
           <p>
             But for a website, I think there is one more question that matters.
           </p>
 
-          <p>
-            It isn’t enough for the information to technically exist.
-          </p>
+          <p>It isn’t enough for the information to technically exist.</p>
+
+          <p>A customer also needs to be able to use it.</p>
 
           <p>
-            A customer also needs to be able to use it.
-          </p>
-
-          <p>
-            That is the idea behind what I call the{' '}
+            That is the idea behind what I call the{" "}
             <strong>7 Customer Questions™.</strong>
           </p>
 
           <h2>What are the 7 Customer Questions™?</h2>
 
           <p>
-            The framework is built around seven questions a prospective
-            customer should be able to answer while using your website:
+            The framework is built around seven questions a prospective customer
+            should be able to answer while using your website:
           </p>
 
           <ol>
@@ -127,14 +125,12 @@ export default function SevenCustomerQuestionsPage() {
               <strong>How?</strong> How does someone take the next step?
             </li>
             <li>
-              <strong>Can I?</strong> Can the customer actually find,
-              understand and complete what they came here to do?
+              <strong>Can I?</strong> Can the customer actually find, understand
+              and complete what they came here to do?
             </li>
           </ol>
 
-          <p>
-            They sound simple.
-          </p>
+          <p>They sound simple.</p>
 
           <p>That is intentional.</p>
 
@@ -151,9 +147,7 @@ export default function SevenCustomerQuestionsPage() {
 
           <h2>1. Who? Who are you and who do you serve?</h2>
 
-          <p>
-            The first question is about identity.
-          </p>
+          <p>The first question is about identity.</p>
 
           <p>
             When someone lands on your website, they should be able to figure
@@ -173,18 +167,14 @@ export default function SevenCustomerQuestionsPage() {
           </p>
 
           <p>
-            A local business may show a logo and beautiful photography but
-            leave the visitor wondering whether they are looking at a café,
-            bakery, restaurant or catering company.
+            A local business may show a logo and beautiful photography but leave
+            the visitor wondering whether they are looking at a café, bakery,
+            restaurant or catering company.
           </p>
 
-          <p>
-            The customer should not have to decode your business.
-          </p>
+          <p>The customer should not have to decode your business.</p>
 
-          <p>
-            Depending on the company, answering “Who?” might include:
-          </p>
+          <p>Depending on the company, answering “Who?” might include:</p>
 
           <ul>
             <li>what the business is</li>
@@ -211,9 +201,7 @@ export default function SevenCustomerQuestionsPage() {
             website.
           </p>
 
-          <p>
-            What can someone buy, book, order, attend or hire you to do?
-          </p>
+          <p>What can someone buy, book, order, attend or hire you to do?</p>
 
           <p>
             A simple list can be enough when the offering is straightforward.
@@ -222,8 +210,8 @@ export default function SevenCustomerQuestionsPage() {
           </p>
 
           <p>
-            This is especially true when customers are likely to have
-            questions about:
+            This is especially true when customers are likely to have questions
+            about:
           </p>
 
           <ul>
@@ -241,10 +229,9 @@ export default function SevenCustomerQuestionsPage() {
           </p>
 
           <p>
-            That creates a strange situation where a customer may know
-            something exists from social media, Google or word of mouth but
-            cannot find useful information about it on the company’s own
-            website.
+            That creates a strange situation where a customer may know something
+            exists from social media, Google or word of mouth but cannot find
+            useful information about it on the company’s own website.
           </p>
 
           <blockquote>
@@ -265,9 +252,7 @@ export default function SevenCustomerQuestionsPage() {
             visit at all.
           </p>
 
-          <p>
-            Depending on the business, “Where?” might mean:
-          </p>
+          <p>Depending on the business, “Where?” might mean:</p>
 
           <ul>
             <li>a physical address</li>
@@ -284,17 +269,13 @@ export default function SevenCustomerQuestionsPage() {
           </p>
 
           <p>
-            That way I do not need to return to a Contact page every time I
-            want to check something basic.
+            That way I do not need to return to a Contact page every time I want
+            to check something basic.
           </p>
 
-          <p>
-            For remote businesses, the answer may be completely different.
-          </p>
+          <p>For remote businesses, the answer may be completely different.</p>
 
-          <p>
-            The point is not that every website needs a map.
-          </p>
+          <p>The point is not that every website needs a map.</p>
 
           <p>
             The point is that the customer should understand where the business
@@ -303,17 +284,11 @@ export default function SevenCustomerQuestionsPage() {
 
           <h2>4. When? When are you available?</h2>
 
-          <p>
-            “When?” looks different depending on what the business does.
-          </p>
+          <p>“When?” looks different depending on what the business does.</p>
 
-          <p>
-            For a restaurant, it might simply mean current opening hours.
-          </p>
+          <p>For a restaurant, it might simply mean current opening hours.</p>
 
-          <p>
-            For a salon, it could mean appointment availability.
-          </p>
+          <p>For a salon, it could mean appointment availability.</p>
 
           <p>
             For an event or attraction, it might mean dates, seasonal hours or
@@ -336,9 +311,7 @@ export default function SevenCustomerQuestionsPage() {
             which source to trust.
           </p>
 
-          <blockquote>
-            Current information is part of usability.
-          </blockquote>
+          <blockquote>Current information is part of usability.</blockquote>
 
           <p>
             A perfectly designed hours section is not particularly helpful if
@@ -357,9 +330,7 @@ export default function SevenCustomerQuestionsPage() {
             customer choose this one?
           </p>
 
-          <p>
-            The answer depends heavily on the type of business.
-          </p>
+          <p>The answer depends heavily on the type of business.</p>
 
           <p>
             For a restaurant, strong photography, reviews and the menu might do
@@ -382,9 +353,7 @@ export default function SevenCustomerQuestionsPage() {
             every business.
           </p>
 
-          <p>
-            Useful forms of proof might include:
-          </p>
+          <p>Useful forms of proof might include:</p>
 
           <ul>
             <li>reviews and testimonials</li>
@@ -422,9 +391,7 @@ export default function SevenCustomerQuestionsPage() {
             <li>contact someone?</li>
           </ul>
 
-          <p>
-            This is where good calls to action and clear pathways matter.
-          </p>
+          <p>This is where good calls to action and clear pathways matter.</p>
 
           <p>
             The customer should not reach the point where they are interested
@@ -436,17 +403,11 @@ export default function SevenCustomerQuestionsPage() {
             helpful.
           </p>
 
-          <p>
-            A wellness business might allow someone to book online or call.
-          </p>
+          <p>A wellness business might allow someone to book online or call.</p>
 
-          <p>
-            A contractor might provide a quote form and a phone number.
-          </p>
+          <p>A contractor might provide a quote form and a phone number.</p>
 
-          <p>
-            That does not mean every page needs six competing buttons.
-          </p>
+          <p>That does not mean every page needs six competing buttons.</p>
 
           <p>
             It means the path forward should match how customers reasonably
@@ -475,9 +436,7 @@ export default function SevenCustomerQuestionsPage() {
             becoming confused?
           </p>
 
-          <p>
-            Can they tell when the process is finished?
-          </p>
+          <p>Can they tell when the process is finished?</p>
 
           <p>
             This matters because information existing somewhere on a website is
@@ -486,22 +445,17 @@ export default function SevenCustomerQuestionsPage() {
 
           <blockquote>
             The first six questions ask whether the website provides the right
-            information. “Can I?” asks whether the customer can actually use
-            it.
+            information. “Can I?” asks whether the customer can actually use it.
           </blockquote>
 
-          <p>
-            I recently saw this with an online voting process.
-          </p>
+          <p>I recently saw this with an online voting process.</p>
 
           <p>
             Someone could submit their name and phone number, receive a
             verification code and then enter that code to complete the vote.
           </p>
 
-          <p>
-            The process technically worked.
-          </p>
+          <p>The process technically worked.</p>
 
           <p>
             But some people did not realize they still needed to enter the
@@ -530,9 +484,7 @@ export default function SevenCustomerQuestionsPage() {
             information from page count.
           </p>
 
-          <p>
-            You do not need seven pages because there are seven questions.
-          </p>
+          <p>You do not need seven pages because there are seven questions.</p>
 
           <p>
             A very small business may answer most of them effectively on one
@@ -550,9 +502,7 @@ export default function SevenCustomerQuestionsPage() {
             the content.
           </p>
 
-          <p>
-            That is normal.
-          </p>
+          <p>That is normal.</p>
 
           <p>
             I generally think content deserves its own page when customers are
@@ -569,8 +519,8 @@ export default function SevenCustomerQuestionsPage() {
           <h2>A five-page website can still be a very good starting point</h2>
 
           <p>
-            There is a reason the classic five-page small business website is
-            so common.
+            There is a reason the classic five-page small business website is so
+            common.
           </p>
 
           <p>
@@ -585,8 +535,7 @@ export default function SevenCustomerQuestionsPage() {
 
           <p>
             A restaurant may need fewer traditional pages and place more
-            importance on a strong menu, location information and current
-            hours.
+            importance on a strong menu, location information and current hours.
           </p>
 
           <p>
@@ -622,9 +571,7 @@ export default function SevenCustomerQuestionsPage() {
             earlier.
           </p>
 
-          <p>
-            Depending on the business, a homepage might include:
-          </p>
+          <p>Depending on the business, a homepage might include:</p>
 
           <ul>
             <li>a clear hero section</li>
@@ -636,9 +583,7 @@ export default function SevenCustomerQuestionsPage() {
             <li>a newsletter signup when it actually makes sense</li>
           </ul>
 
-          <p>
-            The homepage does not need every detail.
-          </p>
+          <p>The homepage does not need every detail.</p>
 
           <p>
             Its job is to give the customer enough context to understand the
@@ -675,8 +620,8 @@ export default function SevenCustomerQuestionsPage() {
               <strong>How?</strong> How do I take the next step?
             </li>
             <li>
-              <strong>Can I?</strong> Can I actually accomplish what I came
-              here to do?
+              <strong>Can I?</strong> Can I actually accomplish what I came here
+              to do?
             </li>
           </ol>
 
@@ -715,15 +660,14 @@ export default function SevenCustomerQuestionsPage() {
 
           <p>
             Good design, strong branding, thoughtful content and solid
-            development should make those answers easier to find and
-            understand.
+            development should make those answers easier to find and understand.
           </p>
 
           <p>They should not become obstacles to them.</p>
 
           <blockquote>
-            A useful small business website answers the customer's questions
-            and gives them a clear path to act on the answers.
+            A useful small business website answers the customer's questions and
+            gives them a clear path to act on the answers.
           </blockquote>
 
           <p>
@@ -739,12 +683,12 @@ export default function SevenCustomerQuestionsPage() {
         description="I recently used around 50 small business websites as a customer without trying to audit them. Some problems mattered far more than others."
         links={[
           {
-            label: 'See What I Noticed Across 50 Websites',
-            href: '/blog/web-design-strategy/small-business-websites-customer-experience',
+            label: "See What I Noticed Across 50 Websites",
+            href: "/blog/web-design-strategy/small-business-websites-customer-experience",
           },
           {
-            label: 'Explore Website Design Services',
-            href: '/services',
+            label: "Explore Website Design Services",
+            href: "/services",
           },
         ]}
       />

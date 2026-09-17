@@ -15,9 +15,9 @@ const BlogCTA = ({ eyebrow, title, description, links }) => {
           <p>{description}</p>
 
           <div className={styles.nextLinks}>
-            {links.map((link, index) => (
+            {links?.map((link, index) => (
               <Link key={index} href={link.href} className={styles.textLink}>
-                {link.label}
+                {link?.label}
               </Link>
             ))}
           </div>

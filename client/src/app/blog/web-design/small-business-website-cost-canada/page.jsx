@@ -13,8 +13,10 @@ export default function SmallBusinessWebsiteCostCanada() {
     <>
       <BlogHero
         eyebrow="Web Design & Strategy"
+        date="September 4, 2026"
+        readTime="12 min read"
         title="How Much Does a Small Business Website Cost in Canada?"
-        intro="Website pricing can range from a DIY monthly subscription to thousands of dollars for a custom build. The difference usually comes down to what the website needs to do, how much is being customized and what is actually included in the project."
+        description="Website pricing can range from a DIY monthly subscription to thousands of dollars for a custom build. The difference usually comes down to what the website needs to do, how much is being customized and what is actually included in the project."
       />
 
       <section className={styles.articleSection}>

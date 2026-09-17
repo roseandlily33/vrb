@@ -3,9 +3,10 @@ import BlogHero from "../../blogSections/blogHero/blogHero";
 import BlogCTA from "../../blogSections/blogCta/blogCta";
 
 export const metadata = {
-  title: 'Why Consistency Matters in UI Design | VRB',
+  title:
+    "Why Consistency Matters in UI Design | VRB Web Design and Development Blog",
   description:
-    'Why does consistency matter in UI design? Learn how predictable patterns, buttons, typography, spacing, branding and layout choices make websites easier to use.',
+    "Why does consistency matter in UI design? Learn how predictable patterns, buttons, typography, spacing, branding and layout choices make websites easier to use.",
 };
 
 export default function WhyConsistencyMattersInUIDesign() {
@@ -14,7 +15,9 @@ export default function WhyConsistencyMattersInUIDesign() {
       <BlogHero
         eyebrow="UX/UI & Development"
         title="Why Consistency Matters in UI Design"
-        intro="A consistent interface is easier to understand because people can recognize patterns and use what they have already learned as they move through the website."
+        date="September 5, 2026"
+        readTime="10 min read"
+        description="A consistent interface is easier to understand because people can recognize patterns and use what they have already learned as they move through the website."
       />
 
       <section className={styles.articleSection}>
@@ -35,9 +38,7 @@ export default function WhyConsistencyMattersInUIDesign() {
             think about colours and fonts first.
           </p>
 
-          <p>
-            Those things matter, but they are only part of it.
-          </p>
+          <p>Those things matter, but they are only part of it.</p>
 
           <p>
             Consistency also includes wording, buttons, spacing, icons,
@@ -47,8 +48,8 @@ export default function WhyConsistencyMattersInUIDesign() {
 
           <p>
             A website feels consistent when you can move from one page to
-            another and still understand where you are, what belongs to the
-            same system and what actions you can take.
+            another and still understand where you are, what belongs to the same
+            system and what actions you can take.
           </p>
 
           <blockquote>
@@ -69,9 +70,7 @@ export default function WhyConsistencyMattersInUIDesign() {
             than random.
           </p>
 
-          <p>
-            It does not mean every page needs to look identical.
-          </p>
+          <p>It does not mean every page needs to look identical.</p>
 
           <p>
             In fact, I think a website can become pretty boring if every section
@@ -79,8 +78,8 @@ export default function WhyConsistencyMattersInUIDesign() {
           </p>
 
           <p>
-            Consistency is not about copying and pasting the same section
-            twelve times.
+            Consistency is not about copying and pasting the same section twelve
+            times.
           </p>
 
           <p>
@@ -106,8 +105,8 @@ export default function WhyConsistencyMattersInUIDesign() {
 
           <p>
             If a visitor learns that a certain type of button means “go to the
-            next step,” that understanding should still be useful somewhere
-            else on the site.
+            next step,” that understanding should still be useful somewhere else
+            on the site.
           </p>
 
           <blockquote>
@@ -127,18 +126,14 @@ export default function WhyConsistencyMattersInUIDesign() {
             treatment, people begin to recognize it.
           </p>
 
-          <p>
-            They know what to look for.
-          </p>
+          <p>They know what to look for.</p>
 
           <p>
             That makes the interface easier to scan because the user does not
             have to keep relearning what a button looks like on every page.
           </p>
 
-          <p>
-            The reverse is also important.
-          </p>
+          <p>The reverse is also important.</p>
 
           <p>
             If two buttons look exactly the same but perform completely
@@ -146,8 +141,8 @@ export default function WhyConsistencyMattersInUIDesign() {
           </p>
 
           <p>
-            A button that deletes something should not necessarily feel the
-            same as one that saves something.
+            A button that deletes something should not necessarily feel the same
+            as one that saves something.
           </p>
 
           <p>
@@ -167,9 +162,7 @@ export default function WhyConsistencyMattersInUIDesign() {
             caution.
           </p>
 
-          <p>
-            Green can suggest success, confirmation or completion.
-          </p>
+          <p>Green can suggest success, confirmation or completion.</p>
 
           <p>
             Yellow can suggest attention, warning or something that deserves a
@@ -187,9 +180,7 @@ export default function WhyConsistencyMattersInUIDesign() {
             mistake.
           </p>
 
-          <p>
-            Consistency does not mean treating every action the same.
-          </p>
+          <p>Consistency does not mean treating every action the same.</p>
 
           <p>
             It means creating predictable patterns that match the meaning of
@@ -198,9 +189,7 @@ export default function WhyConsistencyMattersInUIDesign() {
 
           <h2>Primary and secondary actions should feel different</h2>
 
-          <p>
-            Not every button deserves the same amount of attention.
-          </p>
+          <p>Not every button deserves the same amount of attention.</p>
 
           <p>
             If the main goal of a page is to get someone to sign up, that action
@@ -214,9 +203,7 @@ export default function WhyConsistencyMattersInUIDesign() {
             Today.
           </p>
 
-          <p>
-            It depends on where you are trying to lead the user.
-          </p>
+          <p>It depends on where you are trying to lead the user.</p>
 
           <p>
             When everything looks equally important, nothing really looks
@@ -261,19 +248,15 @@ export default function WhyConsistencyMattersInUIDesign() {
             If links are consistently styled, people know where they can click.
           </p>
 
-          <p>
-            I do not think every use of a colour needs to mean “clickable.”
-          </p>
+          <p>I do not think every use of a colour needs to mean “clickable.”</p>
 
           <p>
             I use a lot of blue in my own website design, including in headings
-            and decorative elements, and I would not assume that every blue
-            word is a link.
+            and decorative elements, and I would not assume that every blue word
+            is a link.
           </p>
 
-          <p>
-            That is why additional cues matter.
-          </p>
+          <p>That is why additional cues matter.</p>
 
           <p>
             Underlines are particularly useful for links because they make the
@@ -305,13 +288,13 @@ export default function WhyConsistencyMattersInUIDesign() {
           </p>
 
           <p>
-            Long headings and descriptions also need to be considered as part
-            of the design.
+            Long headings and descriptions also need to be considered as part of
+            the design.
           </p>
 
           <p>
-            Something might look perfect with a three-word placeholder title
-            and fall apart when the actual content is twice as long.
+            Something might look perfect with a three-word placeholder title and
+            fall apart when the actual content is twice as long.
           </p>
 
           <p>
@@ -321,9 +304,7 @@ export default function WhyConsistencyMattersInUIDesign() {
 
           <h2>Contrast matters as much as style</h2>
 
-          <p>
-            Consistency should never come at the expense of readability.
-          </p>
+          <p>Consistency should never come at the expense of readability.</p>
 
           <p>
             If a brand palette includes colours that do not provide enough
@@ -353,9 +334,9 @@ export default function WhyConsistencyMattersInUIDesign() {
           </p>
 
           <p>
-            Sections that are unexpectedly skinny, content that suddenly
-            becomes much wider than everything around it, awkward empty areas
-            or lopsided layouts can make the website feel disconnected.
+            Sections that are unexpectedly skinny, content that suddenly becomes
+            much wider than everything around it, awkward empty areas or
+            lopsided layouts can make the website feel disconnected.
           </p>
 
           <p>
@@ -384,20 +365,18 @@ export default function WhyConsistencyMattersInUIDesign() {
             that a layout is off.
           </blockquote>
 
-          <h2>Consistency does not mean every section should use the same layout</h2>
+          <h2>
+            Consistency does not mean every section should use the same layout
+          </h2>
 
-          <p>
-            This is where I think consistency advice can go too far.
-          </p>
+          <p>This is where I think consistency advice can go too far.</p>
 
           <p>
             I do not want every section on a website to be the same collection
             of three cards with a heading above them.
           </p>
 
-          <p>
-            Different content deserves different layouts.
-          </p>
+          <p>Different content deserves different layouts.</p>
 
           <p>
             Testimonials can be presented differently from services. A process
@@ -416,9 +395,7 @@ export default function WhyConsistencyMattersInUIDesign() {
             still follow the same logic.
           </p>
 
-          <p>
-            The arrangement of the content does not have to stay identical.
-          </p>
+          <p>The arrangement of the content does not have to stay identical.</p>
 
           <blockquote>
             Consistency does not mean repetition. It means different layouts
@@ -437,9 +414,7 @@ export default function WhyConsistencyMattersInUIDesign() {
             deliberately break the pattern.
           </p>
 
-          <p>
-            That contrast is what gives it attention.
-          </p>
+          <p>That contrast is what gives it attention.</p>
 
           <p>
             The important part is that the break feels intentional rather than
@@ -468,9 +443,7 @@ export default function WhyConsistencyMattersInUIDesign() {
             weight, style and size.
           </p>
 
-          <p>
-            But finding the exact icon you need can sometimes be difficult.
-          </p>
+          <p>But finding the exact icon you need can sometimes be difficult.</p>
 
           <p>
             I would rather use an icon that clearly communicates the right idea
@@ -485,8 +458,8 @@ export default function WhyConsistencyMattersInUIDesign() {
           <h2>Design systems make consistency much easier</h2>
 
           <p>
-            One of my favourite ways to keep a website consistent is to create
-            a system before I am halfway through building it.
+            One of my favourite ways to keep a website consistent is to create a
+            system before I am halfway through building it.
           </p>
 
           <p>
@@ -565,8 +538,8 @@ export default function WhyConsistencyMattersInUIDesign() {
           </p>
 
           <p>
-            The exact arrangement changes, but the branding, typography,
-            actions and overall logic should still feel familiar.
+            The exact arrangement changes, but the branding, typography, actions
+            and overall logic should still feel familiar.
           </p>
 
           <p>
@@ -581,9 +554,7 @@ export default function WhyConsistencyMattersInUIDesign() {
 
           <h2>Consistency supports accessibility too</h2>
 
-          <p>
-            Predictable interfaces are generally easier to use.
-          </p>
+          <p>Predictable interfaces are generally easier to use.</p>
 
           <p>
             When buttons, links, forms and navigation follow understandable
@@ -615,22 +586,17 @@ export default function WhyConsistencyMattersInUIDesign() {
             height or that headings keep changing size.
           </p>
 
-          <p>
-            But all of those small inconsistencies can add up.
-          </p>
+          <p>But all of those small inconsistencies can add up.</p>
 
           <p>
             The website can start to feel unfinished, scattered or less
             trustworthy without the user necessarily knowing why.
           </p>
 
-          <p>
-            Good UI often works in the opposite way.
-          </p>
+          <p>Good UI often works in the opposite way.</p>
 
           <p>
-            When the system is consistent, people do not need to think about
-            it.
+            When the system is consistent, people do not need to think about it.
           </p>
 
           <p>They can just use the website.</p>
@@ -681,12 +647,12 @@ export default function WhyConsistencyMattersInUIDesign() {
         description="Explore why website navigation affects more than the navbar, or learn more about my UX/UI design services."
         links={[
           {
-            label: 'Why Website Navigation Matters More Than You Think →',
-            href: '/blog/ux-ui-development/why-website-navigation-matters',
+            label: "Why Website Navigation Matters More Than You Think →",
+            href: "/blog/ux-ui-development/why-website-navigation-matters",
           },
           {
-            label: 'Explore UX/UI Design Services →',
-            href: '/services',
+            label: "Explore UX/UI Design Services →",
+            href: "/services",
           },
         ]}
       />
