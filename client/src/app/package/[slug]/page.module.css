@@ -1,24 +1,27 @@
 .packagePage {
   width: min(100%, 1280px);
-
   margin: 0 auto;
-
   color: var(--grey-900);
 }
+
+.breadcrumbs {
+  margin-bottom: 2.75rem;
+}
+
+/* ========================================
+   HERO
+======================================== */
 
 .hero {
   position: relative;
 
   display: grid;
   grid-template-columns: minmax(0, 1fr) 360px;
+  align-items: stretch;
 
   gap: clamp(2rem, 5vw, 5rem);
 
-  align-items: stretch;
-
-  padding:
-    clamp(3rem, 6vw, 5.5rem)
-    clamp(2rem, 5vw, 4.5rem);
+  padding: clamp(3rem, 6vw, 5.5rem) clamp(2rem, 5vw, 4.5rem);
 
   overflow: hidden;
 
@@ -28,11 +31,7 @@
       rgba(27, 138, 228, 0.08),
       transparent 28%
     ),
-    linear-gradient(
-      180deg,
-      var(--white),
-      var(--blue-50)
-    );
+    linear-gradient(180deg, var(--white), var(--blue-50));
 
   border: 1px solid var(--blue-200);
 }
@@ -44,15 +43,8 @@
   inset: 0;
 
   background-image:
-    linear-gradient(
-      rgba(0, 84, 201, 0.025) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(0, 84, 201, 0.025) 1px,
-      transparent 1px
-    );
+    linear-gradient(rgba(0, 84, 201, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 84, 201, 0.025) 1px, transparent 1px);
 
   background-size: 46px 46px;
 
@@ -74,7 +66,9 @@
 }
 
 .eyebrow,
-.panelLabel {
+.panelLabel,
+.cardLabel,
+.noteLabel {
   display: block;
 
   margin: 0 0 0.85rem;
@@ -85,7 +79,6 @@
   font-weight: 800;
 
   text-transform: uppercase;
-
   letter-spacing: 0.15em;
 }
 
@@ -99,23 +92,85 @@
   font-family: var(--font-heading);
 
   font-size: clamp(3rem, 6vw, 5.7rem);
-
   line-height: 0.93;
 
   letter-spacing: -0.07em;
 }
 
 .description {
-  max-width: 660px;
+  max-width: 680px;
 
   margin: 1.75rem 0 0;
 
   color: var(--grey-600);
 
   font-size: 1.08rem;
-
   line-height: 1.8;
 }
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 0.8rem;
+
+  margin-top: 2.25rem;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 48px;
+
+  padding: 0.8rem 1.4rem;
+
+  font-size: 0.84rem;
+  font-weight: 750;
+
+  text-decoration: none;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.primaryButton {
+  background: var(--blue-950);
+  border: 1px solid var(--blue-950);
+
+  color: var(--white);
+}
+
+.primaryButton:hover {
+  transform: translateY(-2px);
+
+  background: var(--blue-800);
+  border-color: var(--blue-800);
+}
+
+.secondaryButton {
+  background: transparent;
+
+  border: 1px solid var(--blue-300);
+
+  color: var(--blue-950);
+}
+
+.secondaryButton:hover {
+  transform: translateY(-2px);
+
+  background: var(--blue-50);
+  border-color: var(--blue-500);
+}
+
+/* ========================================
+   HERO SUMMARY
+======================================== */
+
 .summaryCard {
   align-self: stretch;
 
@@ -123,38 +178,28 @@
   flex-direction: column;
   justify-content: center;
 
-  gap: 0;
-
   padding: 2rem;
 
   background: var(--blue-950);
-
-  border: 0;
-
-  border-radius: 0;
-
-  box-shadow: none;
-
-  backdrop-filter: none;
 }
 
-.summaryCard div {
+.summaryItem {
   padding: 1.35rem 0;
 
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.summaryCard div:first-child {
+.summaryItem:first-child {
   padding-top: 0;
 }
 
-.summaryCard div:last-child {
+.summaryItem:last-child {
   padding-bottom: 0;
 
   border-bottom: 0;
 }
 
-.summaryCard span {
+.summaryItem span {
   display: block;
 
   margin-bottom: 0.5rem;
@@ -165,77 +210,103 @@
   font-weight: 800;
 
   text-transform: uppercase;
-
   letter-spacing: 0.13em;
 }
 
-.summaryCard strong {
+.summaryItem strong {
   display: block;
 
   color: var(--yellow-500);
 
   font-size: clamp(1.8rem, 3vw, 2.5rem);
-
   line-height: 1;
 
   letter-spacing: -0.04em;
 }
 
-.summaryCard p {
+.summaryItem p {
   margin: 0;
 
   color: var(--blue-100);
 
+  font-size: 0.95rem;
   line-height: 1.55;
 }
-.detailsGrid {
+
+/* ========================================
+   OUTCOME / DELIVERABLE
+======================================== */
+
+.overviewSection {
   display: grid;
+  grid-template-columns: minmax(220px, 0.75fr) minmax(0, 1.6fr);
 
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(2rem, 6vw, 6rem);
 
-  margin-top: clamp(3rem, 6vw, 5rem);
+  margin-top: clamp(4rem, 8vw, 7rem);
 
-  border-top: 1px solid var(--blue-200);
+  padding-bottom: clamp(4rem, 8vw, 7rem);
 
   border-bottom: 1px solid var(--blue-200);
 }
 
-.infoPanel {
-  min-height: 180px;
-
-  padding: 1.75rem;
-
-  display: flex;
-  flex-direction: column;
-
-  justify-content: flex-end;
-
-  border-right: 1px solid var(--blue-200);
+.sectionIntro {
+  max-width: 350px;
 }
 
-.infoPanel:nth-child(3n) {
-  border-right: 0;
-}
-
-.panelLabel {
-  margin-bottom: 1.25rem;
-
-  color: var(--blue-500);
-}
-
-.infoPanel p {
+.sectionIntro h2,
+.scopeHeader h2,
+.projectDetailsHeader h2 {
   margin: 0;
 
   color: var(--blue-950);
 
-  font-size: clamp(1.05rem, 1.4vw, 1.3rem);
+  font-family: var(--font-heading);
 
-  font-weight: 750;
+  font-size: clamp(2rem, 3.5vw, 3.2rem);
+  line-height: 1;
 
+  letter-spacing: -0.05em;
+}
+
+.outcome {
+  display: grid;
+  grid-template-columns: 60px minmax(0, 1fr);
+
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+
+  align-items: start;
+
+  padding-top: 0.25rem;
+}
+
+.outcomeNumber {
+  color: var(--blue-400);
+
+  font-size: 0.72rem;
+  font-weight: 800;
+
+  letter-spacing: 0.1em;
+}
+
+.outcome p {
+  max-width: 760px;
+
+  margin: 0;
+
+  color: var(--blue-950);
+
+  font-size: clamp(1.4rem, 2.5vw, 2.15rem);
+  font-weight: 650;
   line-height: 1.35;
 
-  letter-spacing: -0.025em;
+  letter-spacing: -0.035em;
 }
+
+/* ========================================
+   FEATURES
+======================================== */
+
 .featureSection {
   display: grid;
   grid-template-columns: 320px minmax(0, 720px);
@@ -245,16 +316,13 @@
 
   gap: clamp(3rem, 7vw, 6rem);
 
-  margin-top: var(--space-xxxxl);
+  padding-block: clamp(4rem, 8vw, 7rem);
 
-  padding-block: var(--space-xxxxl);
-
-  border-top: 1px solid var(--blue-200);
+  border-bottom: 1px solid var(--blue-200);
 }
 
 .featureHeader {
   position: sticky;
-
   top: 120px;
 
   max-width: 320px;
@@ -265,8 +333,9 @@
 
   color: var(--blue-950);
 
-  font-size: clamp(2rem, 3.5vw, 3rem);
+  font-family: var(--font-heading);
 
+  font-size: clamp(2rem, 3.5vw, 3rem);
   line-height: 1;
 
   letter-spacing: -0.05em;
@@ -284,35 +353,23 @@
   margin: 0;
   padding: 0;
 
-  display: flex;
-  flex-direction: column;
-
-  gap: 0;
-
   list-style: none;
 
   border-top: 1px solid var(--blue-200);
 }
 
 .featureList li {
-  position: relative;
-
-  min-height: 110px;
-
-  padding: 1.5rem 0;
+  min-height: 100px;
 
   display: grid;
   grid-template-columns: 64px minmax(0, 1fr);
+  align-items: center;
 
   gap: 1.5rem;
 
-  align-items: center;
+  padding: 1.35rem 0;
 
   border-bottom: 1px solid var(--blue-200);
-}
-
-.featureList li::before {
-  display: none;
 }
 
 .featureNumber {
@@ -320,7 +377,6 @@
   height: 48px;
 
   display: inline-flex;
-
   align-items: center;
   justify-content: center;
 
@@ -328,12 +384,7 @@
 
   color: var(--yellow-500);
 
-  border-radius: 0;
-
-  border: 0;
-
   font-size: 0.78rem;
-
   font-weight: 800;
 
   letter-spacing: 0.08em;
@@ -343,19 +394,41 @@
   color: var(--grey-700);
 
   font-size: 1rem;
-
   font-weight: 550;
-
-  line-height: 1.7;
+  line-height: 1.6;
 }
+
+/* ========================================
+   SCOPE
+======================================== */
+
+.scopeSection {
+  padding-block: clamp(4rem, 8vw, 7rem);
+
+  border-bottom: 1px solid var(--blue-200);
+}
+
+.scopeHeader {
+  max-width: 650px;
+
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.scopeHeader p {
+  max-width: 580px;
+
+  margin: 1rem 0 0;
+
+  color: var(--grey-600);
+
+  line-height: 1.75;
+}
+
 .comparisonGrid {
   display: grid;
-
   grid-template-columns: 1fr 1fr;
 
   gap: 0;
-
-  margin-top: var(--space-xxxxl);
 }
 
 .listCard {
@@ -366,10 +439,6 @@
   background: var(--blue-50);
 
   border: 1px solid var(--blue-200);
-
-  border-radius: 0;
-
-  box-shadow: none;
 }
 
 .mutedCard {
@@ -378,33 +447,33 @@
   border-color: var(--blue-950);
 }
 
-.listCard h2 {
+.cardLabel {
+  color: var(--blue-600);
+}
+
+.mutedCard .cardLabel {
+  color: var(--blue-300);
+}
+
+.listCard h3 {
   margin: 0;
 
   color: var(--blue-950);
 
-  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-family: var(--font-heading);
 
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
   line-height: 1;
 
   letter-spacing: -0.045em;
 }
 
-.mutedCard .eyebrow {
-  color: var(--blue-300);
-}
-
-.mutedCard h2 {
+.mutedCard h3 {
   color: var(--white);
 }
 
 .listCard ul {
-  display: grid;
-
-  gap: 0;
-
   margin: 2rem 0 0;
-
   padding: 0;
 
   list-style: none;
@@ -439,8 +508,8 @@
 
   position: absolute;
 
+  top: 1.55rem;
   left: 0;
-  top: 1.5rem;
 
   width: 7px;
   height: 7px;
@@ -451,29 +520,106 @@
 .mutedCard li::before {
   background: var(--yellow-500);
 }
+
+/* ========================================
+   PROJECT DETAILS
+======================================== */
+
+.projectDetails {
+  padding-block: clamp(4rem, 8vw, 7rem);
+
+  border-bottom: 1px solid var(--blue-200);
+}
+
+.projectDetailsHeader {
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.detailsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  border-top: 1px solid var(--blue-200);
+  border-left: 1px solid var(--blue-200);
+}
+
+.infoPanel {
+  min-height: 180px;
+
+  display: grid;
+  grid-template-columns: 45px minmax(0, 1fr);
+
+  gap: 1rem;
+
+  padding: 1.75rem;
+
+  border-right: 1px solid var(--blue-200);
+  border-bottom: 1px solid var(--blue-200);
+}
+
+.panelNumber {
+  color: var(--blue-400);
+
+  font-size: 0.68rem;
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+}
+
+.panelLabel {
+  margin-bottom: 1rem;
+
+  color: var(--blue-500);
+}
+
+.infoPanel p {
+  margin: 0;
+
+  color: var(--blue-950);
+
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  font-weight: 700;
+  line-height: 1.45;
+
+  letter-spacing: -0.02em;
+}
+
+/* ========================================
+   NOTE
+======================================== */
+
 .note {
   position: relative;
 
-  margin-top: var(--space-xxxxl);
+  margin-top: clamp(3rem, 6vw, 5rem);
 
-  padding: 1.5rem 1.75rem 1.5rem 2rem;
+  padding: 1.75rem 2rem;
 
   background: var(--blue-50);
 
-  border: 0;
-
   border-left: 4px solid var(--yellow-500);
+}
 
-  border-radius: 0;
+.noteLabel {
+  margin-bottom: 0.65rem;
+
+  color: var(--blue-700);
+}
+
+.note p {
+  max-width: 900px;
+
+  margin: 0;
 
   color: var(--grey-700);
 
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
-.note strong {
-  color: var(--blue-950);
-}
+/* ========================================
+   TABLET
+======================================== */
+
 @media (max-width: 950px) {
   .packagePage {
     padding: var(--section-md);
@@ -487,20 +633,10 @@
     padding: var(--space-xxxl);
   }
 
-  .detailsGrid {
+  .overviewSection {
     grid-template-columns: 1fr;
-  }
 
-  .infoPanel {
-    min-height: auto;
-
-    border-right: 0;
-
-    border-bottom: 1px solid var(--blue-200);
-  }
-
-  .infoPanel:last-child {
-    border-bottom: 0;
+    gap: 2rem;
   }
 
   .featureSection {
@@ -520,13 +656,25 @@
   }
 }
 
+/* ========================================
+   MOBILE
+======================================== */
+
 @media (max-width: 600px) {
   .packagePage {
     padding: var(--section-xxs);
   }
 
+  .breadcrumbs {
+    margin-bottom: 1.75rem;
+  }
+
   .hero {
     padding: 1.5rem;
+  }
+
+  .title {
+    font-size: clamp(2.6rem, 14vw, 4rem);
   }
 
   .summaryCard {
@@ -542,12 +690,17 @@
     width: 100%;
   }
 
-  .detailsGrid {
-    margin-top: 2.5rem;
+  .overviewSection,
+  .featureSection,
+  .scopeSection,
+  .projectDetails {
+    padding-block: 3.5rem;
   }
 
-  .infoPanel {
-    padding: 1.5rem 0.75rem;
+  .outcome {
+    grid-template-columns: 1fr;
+
+    gap: 0.75rem;
   }
 
   .featureList li {
@@ -573,7 +726,17 @@
     padding: 1.75rem 1.25rem;
   }
 
+  .detailsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .infoPanel {
+    min-height: auto;
+
+    padding: 1.5rem 1rem;
+  }
+
   .note {
-    padding: 1.25rem 1.25rem 1.25rem 1.5rem;
+    padding: 1.5rem;
   }
 }

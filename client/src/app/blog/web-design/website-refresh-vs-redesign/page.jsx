@@ -279,7 +279,7 @@ export default function WebsiteRefreshVsRedesign() {
             than an outdated colour palette ever will.
           </p>
 
-          <blockquote>
+          <blockquote style={{ color: "black" }}>
             Good website design is not just about making individual pages look
             good. It is about making the entire website easier to understand and
             use.

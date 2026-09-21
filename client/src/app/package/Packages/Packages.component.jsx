@@ -59,8 +59,8 @@ export default function Packages({ type = "web" }) {
       <h2 className="heading">{heading}</h2>
       <p className="meta">{description}</p>
       <div className={`${styles.cardGrid} `}>
-        {list?.map((pkg, idx) => {
-          const isFeatured = pkg.highlight || idx === 1;
+        {list?.map((pkg) => {
+          const isFeatured = Boolean(pkg.highlight);
           return (
             <Card
               key={pkg.title + pkg.type}

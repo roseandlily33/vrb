@@ -40,4 +40,17 @@ export const uxUiDevelopmentArticles = [
     metaDescription:
       "A look at how I redesigned an online course experience with multiple sections, quizzes, progress tracking, locked states and clearer learner navigation.",
   },
+  {
+    id: 21,
+    title: "When One User Needs More Than One Role",
+    slug: "when-one-user-needs-more-than-one-role",
+    category: "UX/UI & Development",
+    description:
+      "How I approached user roles, permissions and shared functionality in a web application where different users need overlapping levels of access.",
+    date: "2026-09-21",
+    readTime: "12 min",
+    metaTitle: "When One User Needs More Than One Role | VRB",
+    metaDescription:
+      "How I approached user roles, permissions and shared functionality in a web application where different users need overlapping levels of access.",
+  },
 ];

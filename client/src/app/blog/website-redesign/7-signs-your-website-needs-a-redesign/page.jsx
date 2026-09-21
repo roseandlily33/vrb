@@ -153,7 +153,7 @@ export default function SevenSignsWebsiteRedesignPage() {
             If the website has a solid structure, works well and you genuinely
             still like it, a{" "}
             <strong>
-              <Link href="/package/extras/website-refresh">
+              <Link href="/package/web-design/website-refresh">
                 website refresh
               </Link>
             </strong>{" "}
@@ -188,8 +188,8 @@ export default function SevenSignsWebsiteRedesignPage() {
 
           <p>It's an information architecture problem.</p>
 
-          <blockquote>
-            <p>
+          <blockquote style={{ color: "black" }}>
+            <p style={{ color: "black" }}>
               Good website design isn't just about putting information on a
               page. It's about organizing that information so people can
               understand it.
@@ -264,7 +264,11 @@ export default function SevenSignsWebsiteRedesignPage() {
           </p>
 
           <p>
-            That's when restructuring the site can become part of a redesign.
+            That's when restructuring the site can become part of a{" "}
+            <Link href="/package/extras/website-redesign">
+              redesign
+            </Link>
+            .
           </p>
 
           {/* ----------------------------------
@@ -513,8 +517,8 @@ export default function SevenSignsWebsiteRedesignPage() {
             <li>correcting outdated information</li>
           </ul>
 
-          <Link href="/package/extras/website-refresh">
-            <h3>Website refresh</h3>
+          <Link href="/package/web-design/website-refresh">
+            <h3>Website Refresh</h3>
           </Link>
 
           <p>A refresh goes a little further.</p>

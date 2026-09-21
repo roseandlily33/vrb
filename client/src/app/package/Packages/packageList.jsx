@@ -1,6 +1,84 @@
-import { MdWeb, MdStar, MdBuild } from "react-icons/md";
+import { MdWeb, MdStar, MdBuild, MdRefresh } from "react-icons/md";
 
 export const PackageInfo = [
+  {
+    title: "Website Refresh",
+
+    slug: "website-refresh",
+
+    seoTitle: "Website Refresh Services | VRB Web Design & Development",
+
+    seoDescription:
+      "Website refresh services for small businesses that want to modernize and improve an existing website without a complete redesign or rebuild.",
+
+    startingAt: "$1,800",
+
+    timeline: "2 - 3 Weeks",
+
+    bestFor:
+      "Small businesses with an existing website that needs a visual and usability update",
+
+    description:
+      "Website refresh services designed to improve the look, usability, and consistency of an existing website while working within its current structure and platform.",
+
+    pages: "Up to 5",
+
+    features: [
+      "Visual design refresh",
+      "Typography, colour & styling updates",
+      "Layout & spacing refinements",
+      "Mobile & responsive improvements",
+      "Usability & navigation refinements",
+      "Basic accessibility improvements",
+      "Basic on-page SEO review",
+    ],
+
+    type: "website",
+
+    icon: MdRefresh,
+
+    whatsIncluded: [
+      "Refresh of up to 5 existing web pages",
+      "Visual styling updates",
+      "Typography & colour refinements",
+      "Layout & spacing improvements",
+      "CTA & button improvements",
+      "Navigation & usability refinements",
+      "Mobile & tablet optimization",
+      "Image & visual asset updates using provided content",
+      "Basic accessibility improvements",
+      "Basic on-page SEO review",
+      "Website updates & deployment",
+    ],
+
+    whatsNotIncluded: [
+      "Complete website redesign or rebuild",
+      "Major changes to website structure or navigation architecture",
+      "New page designs outside the agreed scope",
+      "Platform or CMS migration",
+      "Custom backend/dashboard systems",
+      "New custom functionality",
+      "Copywriting/content creation unless discussed",
+      "Advanced SEO strategy",
+      "Ongoing website maintenance",
+    ],
+
+    revisionLimits: "2 rounds of revisions",
+
+    supportPeriod: "2 weeks post-launch support",
+
+    optionalAddOns: [
+      "Additional pages",
+      "Copywriting support",
+      "Blog integration",
+      "Booking systems",
+      "Additional functionality",
+      "Advanced SEO",
+      "Ongoing maintenance",
+    ],
+
+    note: "Website Refresh projects work within the existing website structure and platform. Projects requiring significant restructuring, new functionality, or redevelopment may require a Website Essentials or larger package. Hosting, domains, and third-party subscription costs are not included unless otherwise discussed.",
+  },
   {
     title: "Website Essentials",
     slug: "website-essentials",

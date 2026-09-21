@@ -131,6 +131,12 @@ export default function sitemap() {
       priority: 0.7,
     },
     {
+      url: `${baseUrl}/package/web-design/website-refresh`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/package/web-design/professional-website`,
       lastModified: new Date(),
       changeFrequency: "monthly",
@@ -386,6 +392,10 @@ export default function sitemap() {
     },
     {
       url: `${baseUrl}/blog/ux-ui-development/designing-multi-section-online-course-experience`,
+      lastModified: new Date(),
+    },
+    {
+      url: `${baseUrl}/blog/ux-ui-development/when-one-user-needs-more-than-one-role`,
       lastModified: new Date(),
     },
     // Web Design articles

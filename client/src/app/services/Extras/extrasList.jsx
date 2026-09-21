@@ -14,338 +14,1701 @@ import {
   FaChalkboardTeacher,
   FaShieldAlt,
   FaEnvelopeOpenText,
+  FaMobileAlt,
 } from "react-icons/fa";
+import { MdRefresh } from "react-icons/md";
 
 export const extrasList = [
   {
     title: "UI/UX Audit",
+
     slug: "ui-ux-audit",
+
     seoTitle: "UI/UX Audit | VRB Web Design & Development",
+
     seoDescription:
-      "A thorough review of your website or app to ensure usability, accessibility, and visual consistency.",
+      "A thorough review of your website or app to improve usability, accessibility, and visual consistency with actionable recommendations.",
+
     startingAt: "$900",
-    timeline: "1-2 weeks",
-    bestFor: "Sites needing usability improvements",
+
+    timeline: "1–2 Weeks",
+
+    bestFor:
+      "Businesses with an existing website or app that needs usability improvements",
+
     description:
-      "A thorough review of your website or app to ensure it’s easy to use, visually consistent, accessible, and on-brand. Includes actionable suggestions for improvement.",
+      "A comprehensive usability and design review of your existing website or application. I'll identify friction points, accessibility concerns, inconsistent design patterns, and opportunities to improve the overall user experience with clear, prioritized recommendations.",
+
     type: "extras",
-    whatsIncluded: [
-      "Heuristic review, accessibility checks, and prioritized recommendations",
-    ],
+
     icon: FaRegEye,
+
+    deliverables: "Audit report + actionable improvement plan",
+
+    features: [
+      "Complete heuristic usability review",
+      "Accessibility review (WCAG fundamentals)",
+      "Navigation & user flow analysis",
+      "Visual consistency & UI review",
+      "Mobile responsiveness assessment",
+      "CTA & conversion opportunity review",
+      "Prioritized improvement recommendations",
+      "30-minute review call",
+    ],
+
+    whatsIncluded: [
+      "Detailed UX audit report",
+      "Annotated screenshots with findings",
+      "Accessibility observations",
+      "Navigation & hierarchy recommendations",
+      "Visual consistency review",
+      "Prioritized list of improvements",
+      "30-minute walkthrough of findings",
+    ],
+
+    whatsNotIncluded: [
+      "Design implementation",
+      "Website development",
+      "Copywriting or content rewriting",
+      "Full accessibility certification",
+      "Ongoing UX consulting",
+    ],
+
+    supportPeriod: "2 weeks for questions after delivery",
+
+    note: "This package focuses on identifying opportunities for improvement. Any design or development work can be completed separately as a follow-up project.",
   },
   {
     title: "Website Redesign",
     slug: "website-redesign",
+
     seoTitle: "Website Redesign Services | VRB Web Design & Development",
+
     seoDescription:
       "Website redesign services for businesses needing a modern, responsive website with improved structure, navigation, usability, and user experience.",
+
     startingAt: "$4,500",
-    timeline: "4-8 weeks",
+    timeline: "4 - 8 Weeks",
+
     bestFor:
-      "Businesses with outdated websites needing a complete visual and structural refresh",
+      "Businesses with an outdated website that needs significant visual, structural, and usability improvements",
+
     description:
-      "Website redesign services that transform outdated websites with a modern visual direction, improved structure, responsive layouts, and a better overall user experience.",
+      "Transform an outdated or difficult-to-use website into a modern, responsive experience with clearer structure, stronger visual design, and a more intuitive journey for your customers.",
+
     type: "extras",
-    whatsIncluded: ["UI redesign, content restructuring, and launch support"],
     icon: FaRedo,
+
+    deliverables:
+      "Redesigned website, responsive layouts, updated content structure, and launch support",
+
+    features: [
+      "Website & content review",
+      "Information architecture improvements",
+      "Navigation & user flow refinements",
+      "Custom visual redesign",
+      "Responsive design",
+      "Accessibility considerations",
+      "SEO foundation review",
+      "Development & implementation",
+      "Pre-launch quality assurance",
+    ],
+
+    whatsIncluded: [
+      "Review of your existing website",
+      "Updated visual direction",
+      "Page layout redesign",
+      "Content structure & hierarchy improvements",
+      "Navigation improvements",
+      "Mobile & tablet optimization",
+      "Basic accessibility improvements",
+      "Basic on-page SEO foundations",
+      "Development of approved designs",
+      "Testing & launch support",
+    ],
+
+    whatsNotIncluded: [
+      "Complete brand identity development",
+      "Copywriting unless discussed",
+      "Advanced SEO strategy",
+      "Custom backend or dashboard systems",
+      "Major new functionality outside the agreed scope",
+      "Ongoing website maintenance",
+      "Third-party subscription costs",
+    ],
+
+    revisionLimits: "2 rounds of design revisions",
+
+    supportPeriod: "2 weeks post-launch support",
+
+    optionalAddOns: [
+      "Additional pages",
+      "Copywriting support",
+      "Advanced SEO",
+      "CMS integration",
+      "Booking system integration",
+      "E-commerce functionality",
+      "Ongoing maintenance",
+    ],
+
+    note: "Final scope and pricing depend on the size, condition, functionality, and platform of the existing website.",
   },
+
+  {
+    title: "Website Refresh",
+    slug: "website-refresh",
+
+    seoTitle: "Website Refresh Services | VRB Web Design & Development",
+
+    seoDescription:
+      "Website refresh services for small businesses that want to modernize and improve an existing website without a complete redesign or rebuild.",
+
+    startingAt: "$1,800",
+    timeline: "2 - 3 Weeks",
+
+    bestFor:
+      "Small businesses with an existing website that works but needs a visual and usability update",
+
+    description:
+      "Improve the look, usability, and consistency of your existing website without starting over. A website refresh works within your current structure and platform to give the site a more polished, modern experience.",
+
+    type: "extras",
+    icon: MdRefresh,
+
+    deliverables:
+      "Refreshed styling and usability improvements across up to 5 existing pages",
+
+    features: [
+      "Visual design refresh",
+      "Typography & colour updates",
+      "Layout & spacing refinements",
+      "CTA & button improvements",
+      "Navigation & usability refinements",
+      "Responsive improvements",
+      "Basic accessibility improvements",
+      "Basic on-page SEO review",
+    ],
+
+    whatsIncluded: [
+      "Refresh of up to 5 existing pages",
+      "Visual styling updates",
+      "Typography & colour refinements",
+      "Layout & spacing improvements",
+      "CTA & button improvements",
+      "Navigation & usability refinements",
+      "Mobile & tablet optimization",
+      "Image updates using provided assets",
+      "Basic accessibility improvements",
+      "Basic on-page SEO review",
+      "Deployment of approved updates",
+    ],
+
+    whatsNotIncluded: [
+      "Complete website redesign or rebuild",
+      "Major website restructuring",
+      "Platform or CMS migration",
+      "Custom backend systems",
+      "Major new functionality",
+      "Copywriting unless discussed",
+      "Advanced SEO strategy",
+      "Ongoing maintenance",
+    ],
+
+    revisionLimits: "2 rounds of revisions",
+
+    supportPeriod: "2 weeks post-launch support",
+
+    optionalAddOns: [
+      "Additional pages",
+      "Copywriting support",
+      "Blog integration",
+      "Booking system integration",
+      "Additional functionality",
+      "Advanced SEO",
+      "Ongoing maintenance",
+    ],
+
+    note: "Website Refresh projects work within your existing website structure and platform. Projects requiring substantial restructuring or redevelopment may require a Website Redesign package.",
+  },
+
+  {
+    title: "UI/UX Audit",
+    slug: "ui-ux-audit",
+
+    seoTitle: "UI/UX Audit | VRB Web Design & Development",
+
+    seoDescription:
+      "A thorough review of your website or app to improve usability, accessibility, and visual consistency with actionable recommendations.",
+
+    startingAt: "$900",
+    timeline: "1 - 2 Weeks",
+
+    bestFor:
+      "Businesses with an existing website or app that needs usability improvements",
+
+    description:
+      "A comprehensive usability and design review of your existing website or application. I'll identify friction points, accessibility concerns, inconsistent design patterns, and opportunities to improve the overall user experience with clear, prioritized recommendations.",
+
+    type: "extras",
+    icon: FaRegEye,
+
+    deliverables:
+      "UX audit report with annotated findings and a prioritized improvement plan",
+
+    features: [
+      "Heuristic usability review",
+      "Accessibility review",
+      "Navigation & user flow analysis",
+      "Visual consistency review",
+      "Responsive usability assessment",
+      "Content hierarchy review",
+      "CTA & interaction review",
+      "Prioritized recommendations",
+    ],
+
+    whatsIncluded: [
+      "Detailed UX audit report",
+      "Annotated screenshots with findings",
+      "Accessibility observations",
+      "Navigation & hierarchy recommendations",
+      "Visual consistency review",
+      "Prioritized list of improvements",
+      "30-minute walkthrough of findings",
+    ],
+
+    whatsNotIncluded: [
+      "Design implementation",
+      "Website development",
+      "Copywriting or content rewriting",
+      "Formal accessibility certification",
+      "Ongoing UX consulting",
+    ],
+
+    supportPeriod: "2 weeks for questions after delivery",
+
+    optionalAddOns: [
+      "UI redesign",
+      "Website refresh",
+      "Accessibility improvements",
+      "Development & implementation",
+    ],
+
+    note: "This package focuses on identifying opportunities for improvement. Design and development work can be completed separately as a follow-up project.",
+  },
+
   {
     title: "Performance Optimization",
     slug: "performance-optimization",
-    seoTitle: "Performance Optimization | VRB Web Design & Development",
+
+    seoTitle: "Website Performance Optimization | VRB Web Design & Development",
+
     seoDescription:
-      "Improve load times and site efficiency through image compression, caching, and code optimizations.",
+      "Improve website speed and performance through image optimization, code improvements, loading strategies, and performance-focused fixes.",
+
     startingAt: "$800",
-    timeline: "1-2 weeks",
-    bestFor: "Sites needing faster load times",
+    timeline: "1 - 2 Weeks",
+
+    bestFor: "Websites experiencing slow load times or performance issues",
+
     description:
-      "Boost your site’s speed and efficiency by compressing images, lazy loading content, and optimizing code for faster load times.",
+      "Identify and address performance bottlenecks that are slowing down your website, with improvements focused on faster loading, more efficient assets, and a smoother experience across devices.",
+
     type: "extras",
-    whatsIncluded: ["Image optimization, caching, and audit-driven fixes"],
     icon: FaTachometerAlt,
+
+    deliverables:
+      "Performance review, implemented optimizations, and before-and-after performance findings",
+
+    features: [
+      "Performance audit",
+      "Image optimization",
+      "Asset & loading review",
+      "Lazy loading improvements",
+      "Code optimization opportunities",
+      "Font loading review",
+      "Core Web Vitals review",
+      "Performance testing",
+    ],
+
+    whatsIncluded: [
+      "Initial performance assessment",
+      "Image & asset optimization",
+      "Loading strategy improvements",
+      "Performance-focused code fixes",
+      "Responsive performance review",
+      "Post-optimization testing",
+      "Summary of completed improvements",
+    ],
+
+    whatsNotIncluded: [
+      "Complete website redevelopment",
+      "Hosting infrastructure replacement unless discussed",
+      "Third-party service performance issues outside my control",
+      "Ongoing performance monitoring",
+    ],
+
+    supportPeriod: "1 week after completion",
+
+    optionalAddOns: [
+      "Technical SEO Audit",
+      "Website Refresh",
+      "Ongoing maintenance",
+    ],
+
+    note: "Performance improvements depend on the website's existing platform, hosting environment, third-party scripts, and technical condition.",
   },
+
   {
     title: "SEO Setup",
     slug: "seo-setup",
-    seoTitle: "SEO Setup | VRB Web Design & Development",
+
+    seoTitle: "SEO Setup Services | VRB Web Design & Development",
+
     seoDescription:
-      "Optimize your site for search with meta tags, headings, and site structure improvements.",
+      "Build stronger SEO foundations with metadata, page structure, keyword mapping, indexing setup, sitemaps, and technical search improvements.",
+
     startingAt: "$700",
-    timeline: "1-3 weeks",
-    bestFor: "Sites that need search visibility",
+    timeline: "1 - 3 Weeks",
+
+    bestFor: "Websites that need stronger search engine foundations",
+
     description:
-      "Improve your site’s visibility on search engines by optimizing keywords, meta tags, headings, and site structure for better ranking.",
+      "Build the technical and on-page foundations search engines need to understand your website, from page metadata and heading structure to indexing, sitemaps, and keyword alignment.",
+
     type: "extras",
-    whatsIncluded: ["Basic on-page SEO, meta tags, and sitemap setup"],
     icon: FaSearch,
+
+    deliverables:
+      "SEO foundation setup across agreed pages with indexing and crawlability configuration",
+
+    features: [
+      "SEO foundation review",
+      "Keyword-to-page mapping",
+      "Title tag optimization",
+      "Meta description optimization",
+      "Heading structure review",
+      "Internal linking recommendations",
+      "XML sitemap review or setup",
+      "Robots.txt review",
+      "Search indexing setup",
+    ],
+
+    whatsIncluded: [
+      "On-page SEO setup for agreed pages",
+      "Page title & meta description optimization",
+      "Heading hierarchy improvements",
+      "Basic keyword alignment",
+      "Sitemap setup or review",
+      "Robots.txt review",
+      "Indexing configuration",
+      "Basic internal linking recommendations",
+    ],
+
+    whatsNotIncluded: [
+      "Guaranteed rankings",
+      "Ongoing SEO management",
+      "Backlink campaigns",
+      "Large-scale content creation",
+      "Advanced competitor research",
+      "Paid search advertising",
+    ],
+
+    supportPeriod: "2 weeks after completion",
+
+    optionalAddOns: [
+      "Technical SEO Audit",
+      "Content Strategy",
+      "Performance Optimization",
+      "Additional page optimization",
+      "Ongoing SEO support",
+    ],
+
+    note: "SEO improvements support search visibility but cannot guarantee specific rankings, traffic levels, or search engine outcomes.",
   },
+
+  {
+    title: "Technical SEO Audit",
+    slug: "technical-seo-audit",
+
+    seoTitle: "Technical SEO Audit Services | VRB Web Design & Development",
+
+    seoDescription:
+      "Identify technical SEO issues affecting crawling, indexing, site structure, performance, and search visibility.",
+
+    startingAt: "$900",
+    timeline: "1 - 2 Weeks",
+
+    bestFor:
+      "Websites with indexing problems, technical SEO concerns, or unexplained search visibility issues",
+
+    description:
+      "A technical review of your website focused on the issues that can affect how search engines crawl, understand, and index your pages.",
+
+    type: "extras",
+    icon: FaSearch,
+
+    deliverables:
+      "Technical SEO audit with prioritized findings and recommended fixes",
+
+    features: [
+      "Crawlability review",
+      "Indexing review",
+      "Sitemap analysis",
+      "Robots.txt analysis",
+      "Canonical tag review",
+      "URL & redirect review",
+      "Core Web Vitals review",
+      "Internal linking analysis",
+      "Metadata & heading checks",
+      "Technical issue prioritization",
+    ],
+
+    whatsIncluded: [
+      "Technical SEO audit",
+      "Indexing & crawlability assessment",
+      "Sitemap and robots.txt review",
+      "Canonical & duplicate-content observations",
+      "Core Web Vitals observations",
+      "Prioritized technical recommendations",
+      "30-minute findings walkthrough",
+    ],
+
+    whatsNotIncluded: [
+      "Implementation of recommended fixes",
+      "Ongoing SEO management",
+      "Backlink strategy",
+      "Content creation",
+      "Guaranteed ranking improvements",
+    ],
+
+    supportPeriod: "2 weeks for questions after delivery",
+
+    optionalAddOns: [
+      "Technical SEO implementation",
+      "SEO Setup",
+      "Performance Optimization",
+      "Content Strategy",
+    ],
+
+    note: "Implementation can be added separately if you would like the identified technical issues corrected after the audit.",
+  },
+
+  {
+    title: "Search Console & Indexing Setup",
+    slug: "search-console-indexing-setup",
+
+    seoTitle:
+      "Google Search Console & Indexing Setup | VRB Web Design & Development",
+
+    seoDescription:
+      "Set up Google Search Console, sitemap submission, and indexing foundations so you can monitor how your website appears in Google Search.",
+
+    startingAt: "$350",
+    timeline: "2 - 5 Days",
+
+    bestFor:
+      "New or existing websites that are not yet properly connected to Google Search Console",
+
+    description:
+      "Get the essential search monitoring tools and indexing foundations in place so you can see how Google discovers, indexes, and displays your website.",
+
+    type: "extras",
+    icon: FaSearch,
+
+    deliverables:
+      "Search Console setup, property verification, sitemap submission, and indexing review",
+
+    features: [
+      "Google Search Console setup",
+      "Property verification",
+      "XML sitemap submission",
+      "Indexing status review",
+      "Basic robots.txt review",
+      "Initial search visibility check",
+    ],
+
+    whatsIncluded: [
+      "Search Console property setup or review",
+      "Website ownership verification",
+      "Sitemap submission",
+      "Basic indexing checks",
+      "Initial configuration review",
+    ],
+
+    whatsNotIncluded: [
+      "Ongoing SEO management",
+      "Ranking guarantees",
+      "Content optimization",
+      "Advanced technical SEO remediation",
+    ],
+
+    optionalAddOns: [
+      "SEO Setup",
+      "Technical SEO Audit",
+      "Performance Optimization",
+    ],
+
+    note: "Search engines control when and whether pages are crawled and indexed. Setup does not guarantee immediate indexing.",
+  },
+
   {
     title: "E-Commerce Integration",
     slug: "e-commerce-integration",
-    seoTitle: "E-Commerce Integration | VRB Web Design & Development",
+
+    seoTitle: "E-Commerce Integration Services | VRB Web Design & Development",
+
     seoDescription:
-      "Add online shopping features with secure checkout, product pages, and payment gateway integration.",
+      "Add e-commerce functionality with product pages, shopping carts, secure checkout, and payment integration.",
+
     startingAt: "$3,000",
-    timeline: "2-6 weeks",
-    bestFor: "Sites adding commerce capabilities",
+    timeline: "2 - 6 Weeks",
+
+    bestFor:
+      "Businesses adding online purchasing to an existing website or platform",
+
     description:
-      "Add online shopping features using platforms like Shopify or custom solutions. Includes product pages, shopping cart, and secure checkout.",
+      "Add a streamlined online purchasing experience to your website with product presentation, cart functionality, secure payment processing, and customer-facing checkout flows.",
+
     type: "extras",
-    whatsIncluded: [
-      "Product pages, cart setup, and payment gateway integration",
-    ],
     icon: FaShoppingCart,
+
+    deliverables:
+      "Configured storefront experience with products, cart, checkout, and payment integration",
+
+    features: [
+      "Product page setup",
+      "Product catalogue structure",
+      "Shopping cart functionality",
+      "Secure checkout flow",
+      "Payment processor integration",
+      "Responsive purchasing experience",
+      "Order confirmation workflow",
+      "Checkout testing",
+    ],
+
+    whatsIncluded: [
+      "E-commerce setup for the agreed platform",
+      "Product & catalogue configuration",
+      "Shopping cart setup",
+      "Payment gateway integration",
+      "Checkout experience",
+      "Responsive optimization",
+      "Transaction flow testing",
+      "Launch support",
+    ],
+
+    whatsNotIncluded: [
+      "Product photography",
+      "Product copywriting unless discussed",
+      "Inventory migration outside agreed scope",
+      "Third-party platform fees",
+      "Payment processor fees",
+      "Ongoing store management",
+      "Custom ERP or fulfillment systems",
+    ],
+
+    revisionLimits: "2 rounds of revisions",
+
+    supportPeriod: "2 weeks post-launch support",
+
+    optionalAddOns: [
+      "Additional products",
+      "Custom email notifications",
+      "CMS integration",
+      "SEO Setup",
+      "Ongoing maintenance",
+    ],
+
+    note: "Final scope depends on product volume, payment requirements, shipping rules, platform, and required integrations.",
   },
+
   {
     title: "Blog Setup",
     slug: "blog-setup",
-    seoTitle: "Blog Setup | VRB Web Design & Development",
+
+    seoTitle: "Website Blog Setup | VRB Web Design & Development",
+
     seoDescription:
-      "Add a blog with CMS integration and SEO-friendly URLs to support content marketing.",
+      "Add an easy-to-manage blog with reusable post templates, categories, CMS integration, and SEO-friendly structure.",
+
     startingAt: "$500",
-    timeline: "1-2 weeks",
-    bestFor: "Sites adding content channels",
+    timeline: "1 - 2 Weeks",
+
+    bestFor:
+      "Businesses adding articles, resources, updates, or other recurring content",
+
     description:
-      "Add a blog to your site using modern tools or CMS, with easy-to-manage posts and categories, and SEO-friendly URLs.",
+      "Add a structured, easy-to-manage blog to your existing website so you can publish useful content without rebuilding pages every time you post.",
+
     type: "extras",
-    whatsIncluded: ["CMS configuration, templates, and initial posts guidance"],
     icon: FaBlog,
+
+    deliverables:
+      "Blog index, reusable post template, content management setup, and publishing structure",
+
+    features: [
+      "Blog index setup",
+      "Reusable article template",
+      "CMS configuration",
+      "Category or topic structure",
+      "SEO-friendly URLs",
+      "Responsive layouts",
+    ],
+
+    whatsIncluded: [
+      "Blog landing page",
+      "Reusable blog post template",
+      "CMS or content workflow setup",
+      "Category structure",
+      "Responsive optimization",
+      "Publishing guidance",
+    ],
+
+    whatsNotIncluded: [
+      "Ongoing article writing",
+      "Large-scale content migration",
+      "Advanced SEO strategy",
+      "Ongoing blog management",
+    ],
+
+    revisionLimits: "2 rounds of revisions",
+
+    optionalAddOns: [
+      "Content Strategy",
+      "SEO Setup",
+      "Article migration",
+      "Copywriting support",
+    ],
   },
-  // {
-  //     title: "Custom Animations",
-  //     description:
-  //         "Enhance your site with engaging custom animations for elements, transitions, and user interactions.",
-  //     // What you do: Add interactive or animated elements to your site.
-  //     // Includes: Scroll animations, hover effects, page transitions, animated icons.
-  // },
+
   {
     title: "API Integration",
     slug: "api-integration",
-    seoTitle: "API Integration | VRB Web Design & Development",
+
+    seoTitle: "API Integration Services | VRB Web Design & Development",
+
     seoDescription:
-      "Connect your site to external services and data sources with secure API integrations.",
+      "Connect your website or application to third-party services, platforms, and data sources with custom API integration.",
+
     startingAt: "$2,000",
-    timeline: "2-6 weeks",
-    bestFor: "Sites needing external data or services",
+    timeline: "2 - 6 Weeks",
+
+    bestFor:
+      "Websites and applications that need to exchange data with external services",
+
     description:
-      "Connect your site to external services or data sources, such as weather, news, payment gateways, or business tools.",
+      "Connect your website or application to external platforms and services so data and functionality can move reliably between systems.",
+
     type: "extras",
-    whatsIncluded: ["Authentication, endpoints, and data mapping"],
     icon: FaPlug,
+
+    deliverables:
+      "Implemented and tested API integration with required data mapping and application workflows",
+
+    features: [
+      "API requirements review",
+      "Authentication setup",
+      "Endpoint integration",
+      "Data mapping",
+      "Error handling",
+      "Frontend or backend integration",
+      "Integration testing",
+    ],
+
+    whatsIncluded: [
+      "Integration planning",
+      "API authentication configuration",
+      "Required endpoint connections",
+      "Data transformation & mapping",
+      "Error handling",
+      "Testing",
+      "Implementation documentation",
+    ],
+
+    whatsNotIncluded: [
+      "Third-party API fees",
+      "Development of the external API itself",
+      "Unsupported or undocumented third-party systems",
+      "Ongoing third-party service management",
+      "Major application redevelopment outside the integration scope",
+    ],
+
+    supportPeriod: "2 weeks after launch",
+
+    optionalAddOns: [
+      "Custom Web Application Development",
+      "Custom Email Solutions",
+      "Ongoing maintenance",
+      "Additional integrations",
+    ],
+
+    note: "Final scope depends on the third-party API, available documentation, authentication requirements, rate limits, and required data workflows.",
   },
+
   {
     title: "Maintenance & Support",
     slug: "maintenance-support",
-    seoTitle: "Maintenance & Support | VRB Web Design & Development",
+
+    seoTitle: "Website Maintenance Services | VRB Web Design & Development",
+
     seoDescription:
-      "Ongoing updates, backups, and minor content changes to keep your site secure and up to date.",
+      "Ongoing website maintenance, updates, troubleshooting, and support to keep your website current and running smoothly.",
+
     startingAt: "$250",
     timeline: "Monthly",
-    bestFor: "Sites needing regular upkeep",
+
+    bestFor:
+      "Businesses that want ongoing help maintaining and updating their website",
+
     description:
-      "Ongoing updates, troubleshooting, and support to keep your website running smoothly and securely.",
+      "Keep your website current and running smoothly with ongoing technical support, routine updates, troubleshooting, and minor content changes.",
+
     type: "extras",
-    whatsIncluded: ["Security updates, backups, and minor content changes"],
     icon: FaTools,
+
+    deliverables: "Ongoing monthly website maintenance and technical support",
+
+    features: [
+      "Routine website updates",
+      "Technical troubleshooting",
+      "Minor content changes",
+      "Dependency & software updates",
+      "Basic website health checks",
+      "Priority support for maintenance clients",
+    ],
+
+    whatsIncluded: [
+      "Agreed monthly maintenance time",
+      "Minor website updates",
+      "Routine technical maintenance",
+      "Troubleshooting",
+      "Minor content changes",
+    ],
+
+    whatsNotIncluded: [
+      "Full redesigns",
+      "Large new features",
+      "Major content creation",
+      "Third-party subscription costs",
+      "Unused hours unless otherwise agreed",
+    ],
+
+    optionalAddOns: [
+      "Additional development hours",
+      "SEO support",
+      "Performance Optimization",
+      "Website Refresh",
+    ],
+
+    note: "Maintenance scope and available hours depend on the selected maintenance or retainer arrangement.",
   },
+
   {
     title: "Content Management System (CMS)",
     slug: "content-management-system",
-    seoTitle: "Content Management System | VRB Web Design & Development",
+
+    seoTitle: "CMS Integration Services | VRB Web Design & Development",
+
     seoDescription:
-      "Set up an easy-to-manage CMS so you can edit content without code.",
+      "Add a content management system that makes it easier to update website text, images, posts, and other recurring content.",
+
     startingAt: "$1,200",
-    timeline: "1-3 weeks",
-    bestFor: "Sites needing non-technical content editing",
+    timeline: "1 - 3 Weeks",
+
+    bestFor:
+      "Businesses that want to update website content without editing code",
+
     description:
-      "Set up a system so you can easily edit your site’s content (text, images, blog posts) without needing to code.",
+      "Add an easy-to-manage content system that gives you control over frequently updated website content without requiring code changes.",
+
     type: "extras",
-    whatsIncluded: ["CMS install, templating, and editor training"],
     icon: FaWpforms,
+
+    deliverables:
+      "Configured CMS, editable content structure, templates, and editor training",
+
+    features: [
+      "CMS setup",
+      "Content model planning",
+      "Editable page content",
+      "Image management",
+      "Reusable content structures",
+      "Frontend integration",
+      "Editor training",
+    ],
+
+    whatsIncluded: [
+      "CMS configuration",
+      "Content structure setup",
+      "Integration with agreed website sections",
+      "Reusable content fields",
+      "Testing",
+      "Editor training",
+      "Basic documentation",
+    ],
+
+    whatsNotIncluded: [
+      "Large-scale content entry",
+      "Copywriting",
+      "Complete website redesign",
+      "Third-party CMS subscription costs",
+      "Ongoing content management",
+    ],
+
+    supportPeriod: "2 weeks after handoff",
+
+    optionalAddOns: [
+      "Blog Setup",
+      "Content migration",
+      "Additional content types",
+      "Ongoing maintenance",
+    ],
   },
+
   {
     title: "Branding & Logo Design",
     slug: "branding-logo-design",
+
     seoTitle: "Branding & Logo Design | VRB Web Design & Development",
+
     seoDescription:
-      "Create or refresh your brand identity including logo, color palette, and basic guidelines.",
+      "Create or refresh a practical visual identity with logo design, colour palette, typography, and brand guidelines.",
+
     startingAt: "$1,200",
-    timeline: "2-4 weeks",
-    bestFor: "Projects needing refreshed brand identity",
+    timeline: "2 - 4 Weeks",
+
+    bestFor:
+      "Small businesses needing a cohesive visual identity for their website and marketing materials",
+
     description:
-      "Create or refresh your brand identity, including logo design, color palette, font selection, and brand guidelines.",
+      "Create or refresh the core visual elements of your brand with a cohesive logo, colour palette, typography direction, and practical guidelines for consistent use.",
+
     type: "extras",
-    whatsIncluded: ["Logo mindmap, color palette, and basic brand guidelines"],
     icon: FaPalette,
+
+    deliverables:
+      "Logo package, colour palette, typography direction, and basic visual brand guide",
+
+    features: [
+      "Visual direction exploration",
+      "Logo concept development",
+      "Colour palette",
+      "Typography selection",
+      "Logo variations",
+      "Basic usage guidelines",
+    ],
+
+    whatsIncluded: [
+      "Brand discovery",
+      "Logo concept development",
+      "Primary logo",
+      "Supporting logo variations",
+      "Colour palette",
+      "Typography recommendations",
+      "Basic brand guidelines",
+      "Final logo files",
+    ],
+
+    whatsNotIncluded: [
+      "Full brand strategy",
+      "Naming services",
+      "Copywriting",
+      "Packaging design",
+      "Large marketing collateral suites",
+      "Ongoing graphic design",
+    ],
+
+    revisionLimits: "2 rounds of revisions",
+
+    optionalAddOns: [
+      "Business card design",
+      "Social media assets",
+      "Website design",
+      "Additional marketing materials",
+    ],
   },
-  // {
-  //     title: "Analytics Setup",
-  //     description:
-  //         "Install and configure analytics tools (like Google Analytics) so you can track visitors, page views, and user behavior.",
-  //     // What you do: Add tools to track site visitors and behavior.
-  //     // Includes: Google Analytics, Plausible, tracking code, goals/events, reporting.
-  // },
+
   {
     title: "Hosting & Deployment",
     slug: "hosting-deployment",
-    seoTitle: "Hosting & Deployment | VRB Web Design & Development",
+
+    seoTitle:
+      "Website Hosting & Deployment Setup | VRB Web Design & Development",
+
     seoDescription:
-      "Launch your site with domain setup, SSL, and a deployment pipeline for a secure live site.",
+      "Launch your website with hosting configuration, domain connection, SSL setup, and deployment support.",
+
     startingAt: "$300",
-    timeline: "1-3 days",
-    bestFor: "Sites ready to go live",
+    timeline: "1 - 3 Days",
+
+    bestFor: "Websites that are complete and ready to be launched",
+
     description:
-      "Launch your website on the internet, connect your custom domain, set up SSL, and ensure everything is live and secure.",
+      "Get your completed website live with the hosting, domain, SSL, and deployment configuration needed for a secure production launch.",
+
     type: "extras",
-    whatsIncluded: ["Domain setup, SSL, and deployment pipeline"],
     icon: FaCloudUploadAlt,
+
+    deliverables:
+      "Production deployment, domain connection, SSL configuration, and launch verification",
+
+    features: [
+      "Hosting configuration",
+      "Production deployment",
+      "Domain connection",
+      "DNS configuration",
+      "SSL setup",
+      "Launch verification",
+    ],
+
+    whatsIncluded: [
+      "Hosting setup",
+      "Domain connection",
+      "DNS configuration",
+      "SSL configuration",
+      "Production deployment",
+      "Post-launch verification",
+    ],
+
+    whatsNotIncluded: [
+      "Hosting fees",
+      "Domain registration fees",
+      "Website development",
+      "Email hosting unless discussed",
+      "Ongoing hosting management",
+    ],
+
+    supportPeriod: "1 week after deployment",
+
+    optionalAddOns: [
+      "Custom Email Solutions",
+      "Maintenance & Support",
+      "Website Migration",
+    ],
   },
+
   {
     title: "Training & Documentation",
     slug: "training-documentation",
-    seoTitle: "Training & Documentation | VRB Web Design & Development",
+
+    seoTitle: "Website Training & Documentation | VRB Web Design & Development",
+
     seoDescription:
-      "Personalized guides and video walkthroughs to help you manage and update your website.",
+      "Receive personalized website documentation and walkthroughs so your team can confidently manage common website tasks.",
+
     startingAt: "$400",
-    timeline: "1 week",
-    bestFor: "Teams needing handoff materials",
+    timeline: "1 Week",
+
+    bestFor:
+      "Business owners or teams taking over management of a website or application",
+
     description:
-      "Personalized guides or video walkthroughs to help you manage and update your website with confidence.",
+      "Get practical documentation and personalized walkthroughs showing you how to manage the parts of your website or application you're responsible for.",
+
     type: "extras",
-    whatsIncluded: ["Written guides and a recorded walkthrough"],
     icon: FaChalkboardTeacher,
+
+    deliverables:
+      "Customized documentation and recorded walkthrough of agreed website workflows",
+
+    features: [
+      "Workflow documentation",
+      "Step-by-step instructions",
+      "Recorded walkthrough",
+      "Content management guidance",
+      "Common task reference material",
+    ],
+
+    whatsIncluded: [
+      "Customized written guide",
+      "Recorded walkthrough",
+      "Documentation for agreed workflows",
+      "Handoff session",
+    ],
+
+    whatsNotIncluded: [
+      "Ongoing staff training",
+      "Technical developer documentation unless discussed",
+      "Ongoing website management",
+    ],
+
+    supportPeriod: "2 weeks for follow-up questions",
   },
-  // {
-  //     title: "Testing & Quality Assurance",
-  //     description: "Set up automated or manual testing to ensure your site works as expected and is bug-free.",
-  //     // What you do: Implement and run tests for your site.
-  //     // Includes: Unit tests, integration tests, manual QA, bug fixing.
-  // },
+
   {
-    title: "Website Security Best Practices",
-    slug: "website-security-best-practices",
-    seoTitle: "Website Security Best Practices | VRB Web Design & Development",
+    title: "Website Security Review",
+    slug: "website-security-review",
+
+    seoTitle: "Website Security Review | VRB Web Design & Development",
+
     seoDescription:
-      "Security review and recommendations to protect user data and improve site safety.",
+      "Review website security fundamentals including authentication, authorization, data handling, dependencies, and common configuration concerns.",
+
     startingAt: "$600",
-    timeline: "1-2 weeks",
-    bestFor: "Sites that handle user data",
+    timeline: "1 - 2 Weeks",
+
+    bestFor:
+      "Websites and applications that handle accounts, forms, or user data",
+
     description:
-      "Review and improve your site’s security, including best practices for authentication, authorization, and data protection.",
+      "Review your website or application for common security concerns and identify practical improvements related to authentication, authorization, data handling, configuration, and application security practices.",
+
     type: "extras",
-    whatsIncluded: ["Security audit, recommendations, and patching guidance"],
     icon: FaShieldAlt,
+
+    deliverables:
+      "Security review with documented findings and prioritized recommendations",
+
+    features: [
+      "Authentication review",
+      "Authorization review",
+      "Data handling review",
+      "Dependency & configuration review",
+      "Form & input handling observations",
+      "Common application security checks",
+      "Prioritized recommendations",
+    ],
+
+    whatsIncluded: [
+      "Application security review",
+      "Documented observations",
+      "Prioritized recommendations",
+      "Guidance for identified improvements",
+    ],
+
+    whatsNotIncluded: [
+      "Penetration testing",
+      "Security certification",
+      "Compliance certification",
+      "24/7 security monitoring",
+      "Guaranteed protection from security incidents",
+    ],
+
+    optionalAddOns: [
+      "Implementation of recommended fixes",
+      "Ongoing maintenance",
+      "Custom Web Application Development",
+    ],
+
+    note: "This service is a development-focused security review and is not a substitute for professional penetration testing, compliance auditing, or specialized cybersecurity services.",
   },
-  // {
-  //     title: "Progressive Web App (PWA) Enablement",
-  //     description: "Make your site installable and usable offline for a better user experience.",
-  //     // What you do: Add PWA features.
-  //     // Includes: Service workers, offline support, installability.
-  // },
+
   {
     title: "Custom Email Solutions",
     slug: "custom-email-solutions",
-    seoTitle: "Custom Email Solutions | VRB Web Design & Development",
+
+    seoTitle: "Custom Website Email Solutions | VRB Web Design & Development",
+
     seoDescription:
-      "Set up transactional and marketing email templates and integrations.",
+      "Set up branded transactional emails, notification workflows, and email service integrations for websites and web applications.",
+
     startingAt: "$350",
-    timeline: "1-2 weeks",
-    bestFor: "Sites needing transactional or marketing emails",
+    timeline: "1 - 2 Weeks",
+
+    bestFor:
+      "Websites and applications that need automated customer or system emails",
+
     description:
-      "Set up transactional or marketing emails using MJML, Brevo, Handlebars, nodemailer, or react-email.",
+      "Create reliable, branded email workflows for website and application events such as account notifications, purchases, confirmations, and other automated communication.",
+
     type: "extras",
-    whatsIncluded: ["Template setup and SMTP/service integration"],
     icon: FaEnvelopeOpenText,
+
+    deliverables:
+      "Configured email templates and integration with the agreed email delivery service",
+
+    features: [
+      "Transactional email setup",
+      "Branded email templates",
+      "Dynamic email content",
+      "SMTP or email service integration",
+      "Trigger-based email workflows",
+      "Responsive email testing",
+    ],
+
+    whatsIncluded: [
+      "Email service configuration",
+      "Agreed email template setup",
+      "Dynamic data integration",
+      "Email trigger implementation",
+      "Testing",
+    ],
+
+    whatsNotIncluded: [
+      "Email service subscription costs",
+      "Large marketing campaigns",
+      "Ongoing newsletter management",
+      "Email list acquisition",
+    ],
+
+    optionalAddOns: [
+      "Additional email templates",
+      "API Integration",
+      "Custom Web Application Development",
+    ],
   },
+  {
+    title: "Mobile & Responsive Optimization",
+
+    slug: "mobile-responsive-optimization",
+
+    seoTitle:
+      "Mobile & Responsive Website Optimization | VRB Web Design & Development",
+
+    seoDescription:
+      "Improve an existing website across mobile, tablet, and desktop with responsive layout fixes, navigation improvements, and better mobile usability.",
+
+    startingAt: "$700",
+
+    timeline: "1 - 2 Weeks",
+
+    bestFor:
+      "Websites that work on desktop but have layout, navigation, or usability issues on smaller screens",
+
+    description:
+      "Improve how your existing website adapts across screen sizes with responsive layout fixes, mobile navigation improvements, touch-friendly interactions, and refinements that create a more consistent experience across devices.",
+
+    type: "extras",
+
+    icon: FaMobileAlt,
+
+    deliverables:
+      "Responsive improvements across agreed pages with mobile, tablet, and desktop testing",
+
+    features: [
+      "Responsive layout review",
+      "Mobile navigation improvements",
+      "Breakpoint refinements",
+      "Typography & spacing adjustments",
+      "Touch target improvements",
+      "Image & media responsiveness",
+      "Overflow & layout fixes",
+      "Cross-device testing",
+    ],
+
+    whatsIncluded: [
+      "Responsive review of agreed pages",
+      "Mobile layout improvements",
+      "Tablet layout improvements",
+      "Navigation refinements",
+      "Responsive typography & spacing fixes",
+      "Button & touch target improvements",
+      "Responsive image & media fixes",
+      "Testing across common screen sizes",
+    ],
+
+    whatsNotIncluded: [
+      "Complete website redesign",
+      "New page designs",
+      "Major content restructuring",
+      "New custom functionality",
+      "Performance optimization outside responsive issues",
+      "Ongoing website maintenance",
+    ],
+
+    supportPeriod: "1 week after completion",
+
+    optionalAddOns: [
+      "Website Refresh",
+      "Performance Optimization",
+      "Accessibility Review",
+      "UI/UX Audit",
+    ],
+
+    note: "Responsive design is included in new websites I build. This standalone service is intended for existing websites that need their current mobile and tablet experience improved.",
+  },
+
   {
     title: "Booking System Integration",
     slug: "booking-system-integration",
-    seoTitle: "Booking System Integration | VRB Web Design & Development",
+
+    seoTitle:
+      "Online Booking System Integration | VRB Web Design & Development",
+
     seoDescription:
-      "Integrate scheduling tools for appointments and confirmations with calendar sync.",
+      "Add online appointment or service booking with scheduling, calendar integration, and confirmation workflows.",
+
     startingAt: "$600",
-    timeline: "1-3 weeks",
-    bestFor: "Service businesses needing scheduling",
+    timeline: "1 - 3 Weeks",
+
+    bestFor:
+      "Service businesses that want customers to book appointments online",
+
     description:
-      "Integrate scheduling tools that allow visitors to book appointments, consultations, or services online.",
+      "Make it easier for customers to schedule appointments, consultations, or services through an integrated online booking experience.",
+
     type: "extras",
-    whatsIncluded: ["Calendar sync, booking UI, and confirmation workflows"],
     icon: FaCalendarAlt,
+
+    deliverables:
+      "Configured booking experience with scheduling, calendar connection, and confirmation workflow",
+
+    features: [
+      "Booking interface integration",
+      "Service or appointment setup",
+      "Availability configuration",
+      "Calendar synchronization",
+      "Confirmation workflow",
+      "Responsive booking experience",
+    ],
+
+    whatsIncluded: [
+      "Booking platform integration",
+      "Basic service configuration",
+      "Calendar connection",
+      "Booking flow setup",
+      "Confirmation setup",
+      "Testing",
+    ],
+
+    whatsNotIncluded: [
+      "Third-party booking fees",
+      "Complex custom scheduling applications",
+      "Ongoing appointment management",
+      "Payment processing unless included in scope",
+    ],
+
+    optionalAddOns: [
+      "Payment integration",
+      "Custom Email Solutions",
+      "Additional booking workflows",
+    ],
   },
+
   {
     title: "Website Migration",
     slug: "website-migration",
-    seoTitle: "Website Migration | VRB Web Design & Development",
+
+    seoTitle: "Website Migration Services | VRB Web Design & Development",
+
     seoDescription:
-      "Move your site and content to a new host or platform with minimal disruption.",
+      "Move your website, content, domain, or hosting setup to a new platform or provider with careful migration and launch verification.",
+
     startingAt: "$800",
-    timeline: "1-2 weeks",
-    bestFor: "Sites moving hosts or platforms",
+    timeline: "1 - 2 Weeks",
+
+    bestFor:
+      "Businesses moving an existing website to a new host, platform, or deployment environment",
+
     description:
-      "Move an existing website, content, or domain to a new hosting provider or platform with minimal disruption.",
+      "Move your website to a new hosting provider or platform while preserving important content, URLs, configuration, and functionality wherever the destination allows.",
+
     type: "extras",
-    whatsIncluded: ["Full site transfer, DNS changes, and verification"],
     icon: FaCloudUploadAlt,
+
+    deliverables:
+      "Website transfer, required configuration changes, and post-migration verification",
+
+    features: [
+      "Migration planning",
+      "Website file transfer",
+      "Content transfer",
+      "DNS updates",
+      "Domain configuration",
+      "Redirect review",
+      "Post-migration testing",
+    ],
+
+    whatsIncluded: [
+      "Migration assessment",
+      "Agreed website transfer",
+      "Domain & DNS configuration",
+      "Basic redirect setup",
+      "Post-migration testing",
+      "Launch verification",
+    ],
+
+    whatsNotIncluded: [
+      "Complete website redesign",
+      "Large-scale content restructuring",
+      "Third-party platform fees",
+      "Unsupported legacy systems",
+      "New functionality outside the migration scope",
+    ],
+
+    supportPeriod: "1 week after migration",
+
+    optionalAddOns: [
+      "Website Redesign",
+      "Performance Optimization",
+      "SEO Setup",
+      "Maintenance & Support",
+    ],
+
+    note: "Migration complexity varies significantly by platform, website size, integrations, and existing technical setup.",
   },
+
   {
     title: "Landing Pages",
     slug: "landing-pages",
-    seoTitle: "Landing Pages | VRB Web Design & Development",
+
+    seoTitle: "Custom Landing Page Design | VRB Web Design & Development",
+
     seoDescription:
-      "Create focused campaign pages designed for lead generation and conversions.",
+      "Custom landing page design and development for campaigns, services, lead generation, and focused marketing goals.",
+
     startingAt: "$700",
-    timeline: "1-2 weeks",
-    bestFor: "Campaigns and lead generation",
+    timeline: "1 - 2 Weeks",
+
+    bestFor:
+      "Campaigns, service launches, lead generation, and focused marketing goals",
+
     description:
-      "Create focused pages designed around a specific service, campaign, or marketing goal.",
+      "Create a focused landing page built around one clear goal, with intentional content hierarchy, responsive design, and calls to action that make the next step obvious.",
+
     type: "extras",
-    whatsIncluded: ["Design, copy layout, and CTA optimization"],
     icon: FaPalette,
+
+    deliverables: "Custom designed and developed responsive landing page",
+
+    features: [
+      "Custom page design",
+      "Content hierarchy",
+      "CTA strategy",
+      "Responsive development",
+      "Basic SEO setup",
+      "Contact or lead form integration",
+      "Launch support",
+    ],
+
+    whatsIncluded: [
+      "One custom landing page",
+      "Responsive design",
+      "CTA placement & hierarchy",
+      "Basic on-page SEO",
+      "Form integration where required",
+      "Development & deployment",
+    ],
+
+    whatsNotIncluded: [
+      "Full website redesign",
+      "Long-form copywriting unless discussed",
+      "Paid advertising",
+      "Ongoing campaign management",
+      "Complex application functionality",
+    ],
+
+    revisionLimits: "2 rounds of revisions",
+
+    supportPeriod: "1 week post-launch",
+
+    optionalAddOns: [
+      "Copywriting support",
+      "Analytics & Conversion Tracking",
+      "SEO Setup",
+      "Additional landing pages",
+    ],
   },
+
   {
     title: "Content Strategy",
     slug: "content-strategy",
-    seoTitle: "Content Strategy | VRB Web Design & Development",
+
+    seoTitle: "Website Content Strategy | VRB Web Design & Development",
+
     seoDescription:
-      "Plan messaging, sitemap, and content structure to improve clarity and user journeys.",
+      "Plan website messaging, page structure, information hierarchy, and content organization for a clearer user experience.",
+
     startingAt: "$900",
-    timeline: "2-4 weeks",
-    bestFor: "Sites needing clearer messaging",
+    timeline: "2 - 4 Weeks",
+
+    bestFor:
+      "Websites with unclear, outdated, duplicated, or difficult-to-organize content",
+
     description:
-      "Plan website content, page structure, messaging, and information hierarchy to create a clearer user experience.",
+      "Create a clearer plan for what your website needs to say, where information belongs, and how visitors should move through the content.",
+
     type: "extras",
-    whatsIncluded: ["Content audit, sitemap, and content recommendations"],
     icon: FaBlog,
+
+    deliverables:
+      "Content audit, recommended sitemap, content hierarchy, and page-level recommendations",
+
+    features: [
+      "Existing content audit",
+      "Information architecture review",
+      "Sitemap planning",
+      "Content hierarchy",
+      "Page purpose definition",
+      "Messaging recommendations",
+      "Content gap identification",
+      "Internal linking opportunities",
+    ],
+
+    whatsIncluded: [
+      "Content audit",
+      "Recommended sitemap",
+      "Page structure recommendations",
+      "Content hierarchy recommendations",
+      "Content gaps & duplication findings",
+      "Prioritized content plan",
+    ],
+
+    whatsNotIncluded: [
+      "Full copywriting",
+      "Blog article writing",
+      "Website development",
+      "Ongoing content management",
+      "Advanced keyword research unless discussed",
+    ],
+
+    supportPeriod: "2 weeks for follow-up questions",
+
+    optionalAddOns: [
+      "Copywriting support",
+      "SEO Setup",
+      "Website Redesign",
+      "Blog Setup",
+    ],
   },
+
   {
     title: "Conversion Optimization",
     slug: "conversion-optimization",
-    seoTitle: "Conversion Optimization | VRB Web Design & Development",
+
+    seoTitle: "Website Conversion Optimization | VRB Web Design & Development",
+
     seoDescription:
-      "Improve conversion rates through A/B suggestions, CTA improvements, and prioritized fixes.",
+      "Review key website pages and improve calls to action, user flows, content hierarchy, and conversion opportunities.",
+
     startingAt: "$900",
-    timeline: "2-4 weeks",
-    bestFor: "Sites wanting higher conversion rates",
+    timeline: "2 - 4 Weeks",
+
+    bestFor:
+      "Websites that receive visitors but have unclear or ineffective paths to action",
+
     description:
-      "Review and improve key pages to help visitors take action through clearer messaging, stronger calls to action, and improved user flows.",
+      "Review important customer journeys and identify opportunities to make actions such as contacting, booking, purchasing, or requesting information clearer and easier to complete.",
+
     type: "extras",
-    whatsIncluded: ["A/B suggestions, CTA changes, and prioritized fixes"],
     icon: FaTachometerAlt,
+
+    deliverables:
+      "Conversion-focused review with prioritized UX, content hierarchy, and CTA recommendations",
+
+    features: [
+      "Key page review",
+      "CTA analysis",
+      "User journey review",
+      "Content hierarchy assessment",
+      "Form friction review",
+      "Trust & clarity observations",
+      "Prioritized recommendations",
+    ],
+
+    whatsIncluded: [
+      "Review of agreed conversion pages",
+      "CTA recommendations",
+      "User flow observations",
+      "Form usability observations",
+      "Content hierarchy recommendations",
+      "Prioritized improvement plan",
+    ],
+
+    whatsNotIncluded: [
+      "Guaranteed conversion increases",
+      "Paid advertising",
+      "Ongoing analytics management",
+      "Formal A/B testing unless separately scoped",
+      "Implementation unless discussed",
+    ],
+
+    supportPeriod: "2 weeks for follow-up questions",
+
+    optionalAddOns: [
+      "Implementation of recommended changes",
+      "Analytics & Conversion Tracking",
+      "UI/UX Audit",
+      "Landing Page Design",
+    ],
+
+    note: "This service identifies and improves conversion opportunities but does not guarantee a specific increase in leads, sales, or conversion rate.",
   },
+
   {
     title: "Accessibility Review",
     slug: "accessibility-review",
-    seoTitle: "Accessibility Review | VRB Web Design & Development",
+
+    seoTitle: "Website Accessibility Review | VRB Web Design & Development",
+
     seoDescription:
-      "Review for accessibility best practices including contrast, keyboard navigation, and screen reader support.",
+      "Review website accessibility including keyboard navigation, contrast, semantic structure, forms, images, and responsive usability.",
+
     startingAt: "$600",
-    timeline: "1-2 weeks",
-    bestFor: "Sites prioritizing inclusive access",
+    timeline: "1 - 2 Weeks",
+
+    bestFor:
+      "Businesses wanting a more inclusive and accessible website experience",
+
     description:
-      "Review your website for accessibility best practices including contrast, keyboard navigation, screen reader support, and usability improvements.",
+      "Review your website for common accessibility barriers and identify practical improvements that make content and interactions easier to use for more people.",
+
     type: "extras",
-    whatsIncluded: ["Accessibility checklist, prioritized fixes, and examples"],
     icon: FaRegEye,
+
+    deliverables:
+      "Accessibility review with documented findings, examples, and prioritized recommendations",
+
+    features: [
+      "Keyboard navigation review",
+      "Focus state review",
+      "Colour contrast checks",
+      "Heading & semantic structure review",
+      "Image alternative text review",
+      "Form accessibility review",
+      "Interactive element review",
+      "Responsive usability review",
+    ],
+
+    whatsIncluded: [
+      "Accessibility review of agreed pages",
+      "Documented findings",
+      "Examples of identified barriers",
+      "Prioritized recommendations",
+      "Practical remediation guidance",
+    ],
+
+    whatsNotIncluded: [
+      "Formal accessibility certification",
+      "Legal compliance certification",
+      "Assistive technology testing by users with disabilities",
+      "Implementation of fixes unless discussed",
+      "Ongoing accessibility monitoring",
+    ],
+
+    supportPeriod: "2 weeks for questions after delivery",
+
+    optionalAddOns: [
+      "Accessibility remediation",
+      "UI/UX Audit",
+      "Website Refresh",
+      "Ongoing maintenance",
+    ],
+
+    note: "This service provides a practical accessibility review and improvement guidance. It is not a legal compliance audit or accessibility certification.",
+  },
+
+  {
+    title: "Design System & Component Library",
+    slug: "design-system-component-library",
+
+    seoTitle:
+      "Design System & Component Library Services | VRB Web Design & Development",
+
+    seoDescription:
+      "Create a reusable design system and component library that improves interface consistency, scalability, and development efficiency.",
+
+    startingAt: "$2,400",
+    timeline: "3 - 6 Weeks",
+
+    bestFor:
+      "Growing websites and applications with inconsistent or repeatedly recreated interface components",
+
+    description:
+      "Turn repeated interface patterns into a more consistent and reusable system of components, states, styles, and interaction rules that can scale with your product.",
+
+    type: "extras",
+    icon: FaPalette,
+
+    deliverables:
+      "Reusable component system with documented variants, states, and visual foundations",
+
+    features: [
+      "Existing UI inventory",
+      "Component audit",
+      "Typography & colour foundations",
+      "Spacing & layout conventions",
+      "Reusable UI components",
+      "Component variants & states",
+      "Responsive behaviour",
+      "Accessibility considerations",
+      "Component documentation",
+    ],
+
+    whatsIncluded: [
+      "UI & component inventory",
+      "Reusable component architecture",
+      "Core visual foundations",
+      "Component states & variants",
+      "Responsive considerations",
+      "Accessibility considerations",
+      "Documentation",
+    ],
+
+    whatsNotIncluded: [
+      "Complete product redesign unless discussed",
+      "Full application redevelopment",
+      "Unlimited component creation",
+      "Ongoing product design",
+    ],
+
+    revisionLimits: "2 rounds of revisions",
+
+    optionalAddOns: [
+      "Storybook setup",
+      "Additional components",
+      "UI/UX Audit",
+      "Frontend implementation",
+      "Ongoing design system support",
+    ],
+
+    note: "Final scope depends on the size of the existing interface and the number and complexity of components required.",
+  },
+
+  {
+    title: "Analytics & Conversion Tracking",
+    slug: "analytics-conversion-tracking",
+
+    seoTitle:
+      "Website Analytics & Conversion Tracking Setup | VRB Web Design & Development",
+
+    seoDescription:
+      "Set up website analytics and conversion tracking to measure important visitor actions and understand how people use your website.",
+
+    startingAt: "$450",
+    timeline: "2 - 5 Days",
+
+    bestFor:
+      "Businesses that want better visibility into website traffic and important customer actions",
+
+    description:
+      "Set up analytics and meaningful conversion events so you can better understand how visitors use your website and whether they complete important actions.",
+
+    type: "extras",
+    icon: FaTachometerAlt,
+
+    deliverables:
+      "Analytics configuration with agreed conversion events and verification",
+
+    features: [
+      "Analytics setup",
+      "Conversion event planning",
+      "Form submission tracking",
+      "CTA interaction tracking",
+      "Key page tracking",
+      "Configuration testing",
+    ],
+
+    whatsIncluded: [
+      "Analytics property setup or review",
+      "Tracking code configuration",
+      "Agreed conversion event setup",
+      "Basic event testing",
+      "Configuration verification",
+    ],
+
+    whatsNotIncluded: [
+      "Ongoing analytics reporting",
+      "Paid advertising management",
+      "Advanced data engineering",
+      "Guaranteed conversion improvements",
+    ],
+
+    optionalAddOns: [
+      "Conversion Optimization",
+      "SEO Setup",
+      "Landing Pages",
+      "Ongoing reporting",
+    ],
   },
 ];
