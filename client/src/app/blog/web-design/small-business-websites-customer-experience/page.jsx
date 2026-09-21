@@ -643,7 +643,7 @@ export default function SmallBusinessWebsiteCustomerExperiencePage() {
         links={[
           {
             label: "What Pages Should a Small Business Website Have?",
-            href: "/blog/web-design-strategy/what-pages-should-a-small-business-website-have",
+            href: "/blog/web-design/what-pages-should-a-small-business-website-have",
           },
           {
             label: "Explore Website Design Services",

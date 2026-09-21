@@ -890,7 +890,7 @@ export default function SmallBusinessWebsitePagesPage() {
           },
           {
             label: "Read The 7 Customer Questions™",
-            href: "/blog/web-design-strategy/7-customer-questions-small-business-website",
+            href: "/blog/web-design/7-customer-questions-small-business-website",
           },
         ]}
       />

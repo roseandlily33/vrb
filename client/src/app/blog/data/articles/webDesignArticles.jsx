@@ -25,7 +25,7 @@ export const webDesignArticles = [
     slug: "small-business-website-cost-canada",
     category: {
       name: "Web Design & Strategy",
-      slug: "web-design-strategy",
+      slug: "web-design",
     },
     description:
       "How much does a small business website cost in Canada? Learn what affects website pricing, what different budgets can include and what to compare in a website quote.",

@@ -384,6 +384,10 @@ export default function sitemap() {
       url: `${baseUrl}/blog/ux-ui-development/how-much-information-should-you-put-on-a-webpage`,
       lastModified: new Date(),
     },
+    {
+      url: `${baseUrl}/blog/ux-ui-development/designing-multi-section-online-course-experience`,
+      lastModified: new Date(),
+    },
     // Web Design articles
     {
       url: `${baseUrl}/blog/web-design/web-designer-vs-web-developer`,

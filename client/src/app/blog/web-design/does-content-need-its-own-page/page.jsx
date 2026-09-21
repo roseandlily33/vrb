@@ -634,11 +634,11 @@ export default function DoesContentNeedOwnPagePage() {
         links={[
           {
             label: "What Pages Should a Small Business Website Have?",
-            href: "/blog/web-design-strategy/what-pages-should-a-small-business-website-have",
+            href: "/blog/web-design/what-pages-should-a-small-business-website-have",
           },
           {
             label: "Read The 7 Customer Questions™",
-            href: "/blog/web-design-strategy/7-customer-questions-small-business-website",
+            href: "/blog/web-design/7-customer-questions-small-business-website",
           },
         ]}
       />

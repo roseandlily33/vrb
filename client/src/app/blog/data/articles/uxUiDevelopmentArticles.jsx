@@ -25,4 +25,19 @@ export const uxUiDevelopmentArticles = [
     metaDescription:
       "How much content should be on a webpage? Learn why good website content is less about word count and more about organization, hierarchy, purpose and making information easy to find.",
   },
+  {
+    id: 20,
+    title:
+      "Designing a Better Learning Experience for a Multi-Section Online Course",
+    slug: "designing-multi-section-online-course-experience",
+    category: "UX/UI & Development",
+    description:
+      "How I redesigned an online course experience with multiple sections, quizzes, progress tracking, locked states and clearer learner navigation.",
+    date: "2026-09-18",
+    readTime: "14 min",
+    metaTitle:
+      "Designing a Better Multi-Section Online Course Experience | VRB",
+    metaDescription:
+      "A look at how I redesigned an online course experience with multiple sections, quizzes, progress tracking, locked states and clearer learner navigation.",
+  },
 ];

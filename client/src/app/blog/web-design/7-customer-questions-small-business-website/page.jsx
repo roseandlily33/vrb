@@ -684,7 +684,7 @@ export default function SevenCustomerQuestionsPage() {
         links={[
           {
             label: "See What I Noticed Across 50 Websites",
-            href: "/blog/web-design-strategy/small-business-websites-customer-experience",
+            href: "/blog/web-design/small-business-websites-customer-experience",
           },
           {
             label: "Explore Website Design Services",

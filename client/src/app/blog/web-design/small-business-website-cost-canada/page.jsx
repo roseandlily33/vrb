@@ -655,7 +655,7 @@ export default function SmallBusinessWebsiteCostCanada() {
         links={[
           {
             label: "Custom Website vs. Template →",
-            href: "/blog/web-design-strategy/custom-website-vs-template",
+            href: "/blog/web-design/custom-website-vs-template",
           },
           {
             label: "Explore Web Design & Development Services →",
