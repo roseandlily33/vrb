@@ -155,6 +155,12 @@ export default function sitemap() {
       priority: 0.7,
     },
     {
+      url: `${baseUrl}/package/design/website-redesign`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
       url: `${baseUrl}/package/design/design-foundation`,
       lastModified: new Date(),
       changeFrequency: "monthly",
@@ -318,6 +324,36 @@ export default function sitemap() {
     },
     {
       url: `${baseUrl}/package/extras/accessibility-review`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/package/extras/technical-seo-audit`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/package/extras/search-console-indexing-setup`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/package/extras/design-system-component-library`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/package/extras/analytics-conversion-tracking`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.5,
+    },
+    {
+      url: `${baseUrl}/package/extras/mobile-responsive-optimization`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.5,
