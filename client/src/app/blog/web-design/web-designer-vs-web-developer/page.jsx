@@ -1,6 +1,7 @@
 import styles from "../../website-redesign/7-signs-your-website-needs-a-redesign/page.module.css";
 import BlogHero from "../../blogSections/blogHero/blogHero";
 import BlogCTA from "../../blogSections/blogCta/blogCta";
+import Link from "next/link";
 
 // primary: web designer vs web developer
 
@@ -13,7 +14,7 @@ export const metadata = {
 
 export default function WebDesignerVsWebDeveloper() {
   return (
-    <>
+    <main className={styles.page}>
       <BlogHero
         eyebrow="Web Design & Strategy"
         readTime="10 min read"
@@ -116,6 +117,10 @@ export default function WebDesignerVsWebDeveloper() {
 
           <p>
             Those decisions affect the entire experience of using the website.
+            If you already have the development side covered and need the
+            website itself designed, my{" "}
+            <Link href="/package/design">website design packages</Link> focus
+            specifically on that part of the project.
           </p>
 
           <h2>What does a web developer do?</h2>
@@ -186,9 +191,7 @@ export default function WebDesignerVsWebDeveloper() {
             saves information to a database or sends data back to the website.
           </p>
 
-          <p>
-            A full-stack developer can work across both sides.
-          </p>
+          <p>A full-stack developer can work across both sides.</p>
 
           <p>
             That does not necessarily mean every full-stack developer is an
@@ -196,11 +199,20 @@ export default function WebDesignerVsWebDeveloper() {
             span both the user-facing and server-side parts of a project.
           </p>
 
+          <p>
+            That distinction becomes especially important when a project moves
+            beyond a standard business website. User accounts, dashboards,
+            databases, payment systems and application logic are the kinds of
+            requirements that can move a project toward{" "}
+            <Link href="/package/web-design/custom-platform">
+              custom web application development
+            </Link>
+            .
+          </p>
+
           <h2>Where do web design and development overlap?</h2>
 
-          <p>
-            This is where the distinction becomes less tidy.
-          </p>
+          <p>This is where the distinction becomes less tidy.</p>
 
           <p>
             Design decisions affect development, and development limitations
@@ -243,9 +255,7 @@ export default function WebDesignerVsWebDeveloper() {
             and then hand those designs to a developer who builds them.
           </p>
 
-          <p>
-            That is a completely normal workflow.
-          </p>
+          <p>That is a completely normal workflow.</p>
 
           <p>
             I do think understanding how websites are built can help a designer
@@ -349,9 +359,7 @@ export default function WebDesignerVsWebDeveloper() {
             decisions through to the finished build.
           </p>
 
-          <p>
-            That does not mean one person is always better.
-          </p>
+          <p>That does not mean one person is always better.</p>
 
           <p>
             Larger websites, applications or highly specialized projects may
@@ -359,9 +367,7 @@ export default function WebDesignerVsWebDeveloper() {
             developers, back-end developers and other specialists.
           </p>
 
-          <p>
-            The right setup depends on the complexity of the project.
-          </p>
+          <p>The right setup depends on the complexity of the project.</p>
 
           <h2>Should you hire a web designer or web developer?</h2>
 
@@ -370,9 +376,9 @@ export default function WebDesignerVsWebDeveloper() {
           </p>
 
           <p>
-            If you need someone to plan the website's appearance, structure,
-            user experience and visual direction, you probably need a web
-            designer.
+            If you need someone to plan the website&apos;s appearance,
+            structure, user experience and visual direction, you probably need
+            a web designer.
           </p>
 
           <p>
@@ -403,6 +409,36 @@ export default function WebDesignerVsWebDeveloper() {
             </p>
           </div>
 
+          <p>
+            If you fall into that third group, my{" "}
+            <Link href="/package/web-design">web design packages</Link> include
+            both design and development rather than treating them as two
+            disconnected projects.
+          </p>
+
+          <h2>What does the process look like when someone does both?</h2>
+
+          <p>
+            Design and development still happen as distinct parts of the
+            project even when one person is responsible for both.
+          </p>
+
+          <p>
+            The website still needs to be planned before it is built. Content
+            and structure need to be considered. The visual direction needs to
+            be worked through. Then those decisions need to be translated into
+            a responsive, functioning website and tested before launch.
+          </p>
+
+          <p>
+            I break that sequence down more fully in{" "}
+            <Link href="/blog/web-design/web-design-process">
+              Web Design Process: What Actually Happens When You Hire a Web
+              Designer?
+            </Link>
+            .
+          </p>
+
           <h2>Do not get too caught up in job titles</h2>
 
           <p>
@@ -420,9 +456,7 @@ export default function WebDesignerVsWebDeveloper() {
             complete websites.
           </p>
 
-          <p>
-            The same thing happens with developers.
-          </p>
+          <p>The same thing happens with developers.</p>
 
           <p>
             One developer may focus entirely on front-end interfaces while
@@ -484,9 +518,7 @@ export default function WebDesignerVsWebDeveloper() {
             behave for the person using it.
           </p>
 
-          <p>
-            Developers turn those decisions into something functional.
-          </p>
+          <p>Developers turn those decisions into something functional.</p>
 
           <p>
             Sometimes those jobs are handled by different people. Sometimes one
@@ -508,24 +540,33 @@ export default function WebDesignerVsWebDeveloper() {
             The best result comes when design and development are working toward
             the same goal.
           </p>
+
+          <p>
+            If you are at the stage of figuring out what that complete project
+            might cost,{" "}
+            <Link href="/blog/web-design/small-business-website-cost-canada">
+              How Much Does a Small Business Website Cost in Canada?
+            </Link>{" "}
+            breaks down the factors that affect website pricing.
+          </p>
         </article>
       </section>
 
       <BlogCTA
-        eyebrow="Keep reading"
-        title="Planning a website for your business?"
-        description="Learn what a small business website can cost in Canada, or explore my web design and development services."
+        eyebrow="Planning a website?"
+        title="Design and development work best when they're working toward the same goal."
+        description="Explore website packages that include both design and development, or see what a small business website can cost in Canada."
         links={[
           {
-            label: 'How Much Does a Small Business Website Cost in Canada? →',
-            href: '/blog/web-design/small-business-website-cost-canada',
+            label: "Explore Web Design Packages →",
+            href: "/package/web-design",
           },
           {
-            label: 'Explore Web Design & Development Services →',
-            href: '/services',
+            label: "Small Business Website Costs →",
+            href: "/blog/web-design/small-business-website-cost-canada",
           },
         ]}
       />
-    </>
+    </main>
   );
 }

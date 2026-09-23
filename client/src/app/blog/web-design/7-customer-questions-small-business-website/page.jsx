@@ -1,16 +1,18 @@
 import styles from "../../website-redesign/7-signs-your-website-needs-a-redesign/page.module.css";
 import BlogHero from "../../blogSections/blogHero/blogHero";
 import BlogCTA from "../../blogSections/blogCta/blogCta";
+import Link from "next/link";
 
 export const metadata = {
-  title: "The 7 Customer Questions™ Every Small Business Website Should Answer | VRB",
+  title:
+    "The 7 Customer Questions™ Every Small Business Website Should Answer | VRB",
   description:
     "The 7 Customer Questions™ is a simple framework for checking whether your small business website gives customers the information they need to understand your business and take the next step.",
 };
 
 export default function SevenCustomerQuestionsPage() {
   return (
-    <>
+    <main className={styles.page}>
       <BlogHero
         eyebrow="Web Design & Strategy"
         date="September 8, 2026"
@@ -77,6 +79,15 @@ export default function SevenCustomerQuestionsPage() {
           <p>How do I book?</p>
 
           <p>And sometimes, surprisingly, those answers were hard to find.</p>
+
+          <p>
+            I wrote more about what happened while actually using those sites in{" "}
+            <Link href="/blog/web-design/small-business-websites-customer-experience">
+              I Used 50 Small Business Websites as a Customer. Here&apos;s What
+              I Noticed
+            </Link>
+            .
+          </p>
 
           <p>
             That led me back to a framework I already use instinctively when
@@ -239,6 +250,15 @@ export default function SevenCustomerQuestionsPage() {
             probably explain it somewhere.
           </blockquote>
 
+          <p>
+            If you are unsure whether a service or piece of information actually
+            needs a dedicated page,{" "}
+            <Link href="/blog/web-design/does-content-need-its-own-page">
+              The Page Test™
+            </Link>{" "}
+            gives you four questions to use when deciding.
+          </p>
+
           <h2>3. Where? Where can someone find you?</h2>
 
           <p>
@@ -316,6 +336,16 @@ export default function SevenCustomerQuestionsPage() {
           <p>
             A perfectly designed hours section is not particularly helpful if
             the hours are wrong.
+          </p>
+
+          <p>
+            Keeping that information accurate is one of the smaller but
+            important parts of website upkeep.{" "}
+            <Link href="/blog/web-design/how-often-should-you-update-your-website">
+              How Often Should You Update Your Website?
+            </Link>{" "}
+            looks at which parts of a site need attention more frequently than
+            others.
           </p>
 
           <h2>5. Why? Why should someone choose you?</h2>
@@ -477,6 +507,16 @@ export default function SevenCustomerQuestionsPage() {
             customer finish what they started.
           </p>
 
+          <p>
+            Navigation plays a particularly important role here because even
+            useful information becomes difficult to use when people cannot
+            figure out where it lives. I explore that further in{" "}
+            <Link href="/blog/ux-ui-development/why-website-navigation-matters-more-than-you-think">
+              Why Website Navigation Matters More Than You Think
+            </Link>
+            .
+          </p>
+
           <h2>The questions do not each need their own page</h2>
 
           <p>
@@ -515,6 +555,15 @@ export default function SevenCustomerQuestionsPage() {
             Do not decide how many pages your website needs first. Decide what
             your customers need to know first.
           </blockquote>
+
+          <p>
+            Once you know the information the website needs to communicate, you
+            can start deciding how many pages should actually hold it.{" "}
+            <Link href="/blog/web-design/what-pages-should-a-small-business-website-have">
+              What Pages Should a Small Business Website Have?
+            </Link>{" "}
+            takes that next step.
+          </p>
 
           <h2>A five-page website can still be a very good starting point</h2>
 
@@ -646,11 +695,18 @@ export default function SevenCustomerQuestionsPage() {
             simply asking whether your website looks modern enough.
           </p>
 
+          <p>
+            If you know something is not working but are not yet sure whether
+            the problem is content, structure, navigation or the experience
+            itself, a <Link href="/package/extras/uiux-audit">UI/UX Audit</Link>{" "}
+            can help identify and prioritize those issues.
+          </p>
+
           <h2>A good website should make the business easier to understand</h2>
 
           <p>
             The 7 Customer Questions™ are intentionally basic because the
-            customer's needs are often basic too.
+            customer&apos;s needs are often basic too.
           </p>
 
           <p>
@@ -666,8 +722,8 @@ export default function SevenCustomerQuestionsPage() {
           <p>They should not become obstacles to them.</p>
 
           <blockquote>
-            A useful small business website answers the customer's questions and
-            gives them a clear path to act on the answers.
+            A useful small business website answers the customer&apos;s
+            questions and gives them a clear path to act on the answers.
           </blockquote>
 
           <p>
@@ -678,20 +734,20 @@ export default function SevenCustomerQuestionsPage() {
       </section>
 
       <BlogCTA
-        eyebrow="Keep reading"
-        title="What does this look like on real small business websites?"
-        description="I recently used around 50 small business websites as a customer without trying to audit them. Some problems mattered far more than others."
+        eyebrow="Put the framework to work"
+        title="Start with what your customers actually need to know."
+        description="See what I noticed while using dozens of small business websites as a customer, or explore website design packages built around your business and its users."
         links={[
           {
-            label: "See What I Noticed Across 50 Websites",
+            label: "See What I Noticed Across 50 Websites →",
             href: "/blog/web-design/small-business-websites-customer-experience",
           },
           {
-            label: "Explore Website Design Services",
-            href: "/services",
+            label: "Explore Web Design Packages →",
+            href: "/package/web-design",
           },
         ]}
       />
-    </>
+    </main>
   );
 }

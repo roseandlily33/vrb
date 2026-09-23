@@ -1,13 +1,15 @@
 import styles from "../7-signs-your-website-needs-a-redesign/page.module.css";
 import BlogHero from "../../blogSections/blogHero/blogHero";
 import BlogCTA from "../../blogSections/blogCta/blogCta";
+import Link from "next/link";
 
 // primary: website redesign SEO
 // secondary: redesign website without losing SEO, does website redesign affect SEO, SEO website redesign, website redesign SEO checklist, preserve SEO during redesign
 // intent: informational
 
 export const metadata = {
-  title: "Should You Redesign Your Website for SEO? | VRB Web Design and Development",
+  title:
+    "Should You Redesign Your Website for SEO? | VRB Web Design and Development",
   description:
     "Can redesigning your website improve SEO? Learn when a redesign can help, what to preserve and how to avoid losing existing rankings and traffic.",
 };
@@ -159,7 +161,12 @@ export default function ShouldYouRedesignYourWebsiteForSEO() {
 
           <p>
             I generally like individual service pages when there is enough
-            useful information to support them.
+            useful information to support them. If you're deciding whether
+            something really deserves a separate page, I use a simple{" "}
+            <Link href="/blog/web-design/does-content-need-its-own-page">
+              four-question Page Test
+            </Link>{" "}
+            to think through that decision.
           </p>
 
           <p>
@@ -187,7 +194,10 @@ export default function ShouldYouRedesignYourWebsiteForSEO() {
 
           <p>
             Sometimes the better solution is simply improving the content,
-            headings, metadata, internal links and keyword targeting.
+            headings, metadata, internal links and keyword targeting. If the
+            website itself is structurally sound, a focused{" "}
+            <Link href="/package/seo">SEO service</Link> may make more sense
+            than rebuilding it.
           </p>
 
           <h3>The current website is difficult to expand</h3>
@@ -247,6 +257,15 @@ export default function ShouldYouRedesignYourWebsiteForSEO() {
             If the performance problems are deeply tied to the current build,
             rebuilding may make more sense than repeatedly patching the same
             issues.
+          </p>
+
+          <p>
+            If the website's overall structure is still working and performance
+            is the main issue, though,{" "}
+            <Link href="/package/extras/performance-optimization">
+              performance optimization
+            </Link>{" "}
+            may be a more focused place to start.
           </p>
 
           <h2>A beautiful website can still have bad SEO</h2>
@@ -321,7 +340,13 @@ export default function ShouldYouRedesignYourWebsiteForSEO() {
 
           <p>
             You can absolutely improve the visual design without throwing away
-            valuable content or changing every URL.
+            valuable content or changing every URL. If the foundation is still
+            good, a{" "}
+            <Link href="/package/web-design/website-refresh">
+              website refresh
+            </Link>{" "}
+            may be enough to modernize the presentation without turning the
+            entire site upside down.
           </p>
 
           <blockquote>
@@ -440,8 +465,19 @@ export default function ShouldYouRedesignYourWebsiteForSEO() {
 
           <p>
             For example, this article sits inside a Website Redesign topic
-            cluster alongside articles about redesign costs, timing and signs
-            that a website needs to be redesigned.
+            cluster alongside articles about{" "}
+            <Link href="/blog/website-redesign/website-redesign-cost-canada">
+              how much a website redesign costs
+            </Link>
+            ,{" "}
+            <Link href="/blog/website-redesign/how-long-does-a-website-redesign-take">
+              how long a redesign takes
+            </Link>{" "}
+            and{" "}
+            <Link href="/blog/website-redesign/7-signs-your-website-needs-a-redesign">
+              signs that a website needs to be redesigned
+            </Link>
+            .
           </p>
 
           <p>
@@ -514,7 +550,12 @@ export default function ShouldYouRedesignYourWebsiteForSEO() {
 
           <p>
             But good structure often benefits more than one part of the website
-            at the same time.
+            at the same time. If accessibility itself needs a closer review,
+            that's something I separate into an{" "}
+            <Link href="/package/extras/accessibility-review">
+              accessibility review
+            </Link>{" "}
+            rather than treating it as an SEO checkbox.
           </p>
 
           <h2>Can redesigning your website hurt SEO?</h2>
@@ -576,7 +617,12 @@ export default function ShouldYouRedesignYourWebsiteForSEO() {
           <p>
             Search Console is especially useful after a major website change
             because it can help surface indexing and crawling issues that aren't
-            always obvious just by clicking around the site.
+            always obvious just by clicking around the site. If indexing itself
+            is the problem, my{" "}
+            <Link href="/package/extras/search-console-indexing-setup">
+              Search Console & Indexing Setup
+            </Link>{" "}
+            focuses specifically on that part of the website.
           </p>
 
           <h2>So, should you redesign your website for SEO?</h2>
@@ -597,8 +643,11 @@ export default function ShouldYouRedesignYourWebsiteForSEO() {
           <p>
             But if your SEO problems are tied to a website that is poorly
             structured, difficult to expand, slow, outdated, difficult to
-            maintain or technically limiting, a redesign can make much more
-            sense.
+            maintain or technically limiting, a{" "}
+            <Link href="/package/design/website-redesign">
+              website redesign
+            </Link>{" "}
+            can make much more sense.
           </p>
 
           <blockquote>
@@ -623,16 +672,16 @@ export default function ShouldYouRedesignYourWebsiteForSEO() {
 
       <BlogCTA
         eyebrow="Keep reading"
-        title="Planning a website redesign?"
-        description="See what a redesign can cost in Canada, or explore the signs that usually mean a website has outgrown its current setup."
+        title="Protect what's working while improving what isn't."
+        description="See what a website redesign can cost in Canada, or explore Website Redesign services when the website itself is limiting what you can improve."
         links={[
           {
             label: "How Much Does a Website Redesign Cost in Canada? →",
             href: "/blog/website-redesign/website-redesign-cost-canada",
           },
           {
-            label: "7 Signs Your Website Needs a Redesign →",
-            href: "/blog/website-redesign/7-signs-your-website-needs-a-redesign",
+            label: "Explore Website Redesign →",
+            href: "/package/design/website-redesign",
           },
         ]}
       />

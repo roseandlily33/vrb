@@ -3,7 +3,7 @@ import styles from "./page.module.css";
 import BlogHero from "../../blogSections/blogHero/blogHero";
 import BlogCTA from "../../blogSections/blogCta/blogCta";
 import Link from "next/link";
-// import BlogSidebar from "../../blogSections/blogSidebar/blogSidebar";
+import RedesignSignsVisual from "../../articleVisuals/redesignSignsVisual/redesignSignsVisual";
 
 // primary: signs your website needs a redesign
 // secondary: does my website need a redesign, when to redesign a website, reasons to redesign a website, outdated website
@@ -84,15 +84,13 @@ export default function SevenSignsWebsiteRedesignPage() {
 
           <p>It's:</p>
 
-          <blockquote>
-            <p>Is my website still doing its job?</p>
-          </blockquote>
+          <p className={styles.openingQuestion}>
+            Is my website still doing its job?
+          </p>
 
           <p>Here are seven signs that it may be time for a redesign.</p>
 
-          {/* ----------------------------------
-              Sign 1
-          ----------------------------------- */}
+          <RedesignSignsVisual />
 
           <h2>1. Your website looks outdated or no longer fits your brand</h2>
 
@@ -189,7 +187,7 @@ export default function SevenSignsWebsiteRedesignPage() {
           <p>It's an information architecture problem.</p>
 
           <blockquote style={{ color: "black" }}>
-            <p style={{ color: "black" }}>
+            <p style={{ color: "white" }}>
               Good website design isn't just about putting information on a
               page. It's about organizing that information so people can
               understand it.
@@ -265,10 +263,7 @@ export default function SevenSignsWebsiteRedesignPage() {
 
           <p>
             That's when restructuring the site can become part of a{" "}
-            <Link href="/package/extras/website-redesign">
-              redesign
-            </Link>
-            .
+            <Link href="/package/design/website-redesign">redesign</Link>.
           </p>
 
           {/* ----------------------------------
@@ -314,7 +309,11 @@ export default function SevenSignsWebsiteRedesignPage() {
           <p>
             And if the existing website wasn't built with responsive behaviour
             in mind, fixing it can sometimes require more than a few CSS
-            adjustments.
+            adjustments. In cases where the overall site still works,{" "}
+            <Link href="/package/extras/mobile-responsive-optimization">
+              mobile and responsive optimization
+            </Link>{" "}
+            may be enough without redesigning everything.
           </p>
 
           {/* ----------------------------------
@@ -358,7 +357,12 @@ export default function SevenSignsWebsiteRedesignPage() {
 
           <p>
             You don't need to obsess over every performance score, but a website
-            shouldn't make someone fight to use it.
+            shouldn't make someone fight to use it. If performance is the main
+            issue rather than the overall structure,{" "}
+            <Link href="/package/extras/performance-optimization">
+              performance optimization
+            </Link>{" "}
+            may be a more focused place to start.
           </p>
 
           <p>Technical maintainability matters too.</p>
@@ -424,7 +428,14 @@ export default function SevenSignsWebsiteRedesignPage() {
             that doesn't have a logical place to live.
           </p>
 
-          <p>Sometimes the answer is simply adding a page.</p>
+          <p>
+            Sometimes the answer is simply adding a page. If you're not sure
+            when content actually deserves its own page, I use a simple{" "}
+            <Link href="/blog/web-design/does-content-need-its-own-page">
+              four-question Page Test
+            </Link>{" "}
+            to make that decision.
+          </p>
 
           <p>
             But if the overall website structure no longer reflects how the
@@ -500,9 +511,13 @@ export default function SevenSignsWebsiteRedesignPage() {
           <p>No.</p>
 
           <p>
-            This is where I think the distinction between a{" "}
-            <strong>website update, refresh and redesign</strong> becomes
-            useful.
+            This is where I think the distinction between a website update,
+            refresh and redesign becomes useful. I've broken that decision down
+            in more detail in{" "}
+            <Link href="/blog/website-redesign/website-refresh-vs-redesign">
+              Website Refresh vs. Redesign
+            </Link>
+            .
           </p>
 
           <h3>Website update</h3>
@@ -533,7 +548,7 @@ export default function SevenSignsWebsiteRedesignPage() {
             rebuilding the entire thing.
           </p>
 
-          <Link href="/package/extras/website-redesign">
+          <Link href="/package/design/website-redesign">
             <h3>Website redesign</h3>
           </Link>
 
@@ -622,8 +637,14 @@ export default function SevenSignsWebsiteRedesignPage() {
 
           <p>Keep maintaining it.</p>
 
+          <p>Keep maintaining it.</p>
+
           <p>
-            Update the content. Replace old imagery. Review it periodically.
+            Update the content. Replace old imagery.{" "}
+            <Link href="/blog/web-design/how-often-should-you-update-your-website">
+              Review the website periodically
+            </Link>{" "}
+            instead of waiting until something feels obviously broken.
           </p>
 
           <p>
@@ -677,7 +698,7 @@ export default function SevenSignsWebsiteRedesignPage() {
           },
           {
             label: "Website Redesign Services →",
-            href: "/package/extras/website-redesign",
+            href: "/package/design/website-redesign",
           },
         ]}
       />

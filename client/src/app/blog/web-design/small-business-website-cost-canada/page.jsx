@@ -1,6 +1,7 @@
 import styles from "../../website-redesign/7-signs-your-website-needs-a-redesign/page.module.css";
 import BlogHero from "../../blogSections/blogHero/blogHero";
 import BlogCTA from "../../blogSections/blogCta/blogCta";
+import Link from "next/link";
 
 export const metadata = {
   title: "How Much Does a Small Business Website Cost in Canada? (2026)",
@@ -10,7 +11,7 @@ export const metadata = {
 
 export default function SmallBusinessWebsiteCostCanada() {
   return (
-    <>
+    <main className={styles.page}>
       <BlogHero
         eyebrow="Web Design & Strategy"
         date="September 4, 2026"
@@ -79,7 +80,12 @@ export default function SmallBusinessWebsiteCostCanada() {
 
           <p>
             For professional custom web design and development, my own projects
-            currently start at <strong>$2,800 CAD</strong>.
+            currently start at <strong>$2,800 CAD</strong>. My{" "}
+            <Link href="/package/web-design/website-essentials">
+              Website Essentials package
+            </Link>{" "}
+            is the starting point for smaller business websites that need a
+            professional custom design and build.
           </p>
 
           <p>
@@ -130,6 +136,16 @@ export default function SmallBusinessWebsiteCostCanada() {
             complex very quickly if each page requires custom functionality,
             while a larger informational website can sometimes remain relatively
             straightforward.
+          </p>
+
+          <p>
+            If you are unsure how much content actually needs to be separated
+            into individual pages,{" "}
+            <Link href="/blog/web-design/what-pages-should-a-small-business-website-have">
+              What Pages Should a Small Business Website Have?
+            </Link>{" "}
+            looks at the question from the content and customer-experience side
+            rather than simply counting pages.
           </p>
 
           <h2>What actually makes a website more expensive?</h2>
@@ -206,6 +222,16 @@ export default function SmallBusinessWebsiteCostCanada() {
             A finished webpage can look simple because a lot of decisions were
             made to make it feel simple.
           </blockquote>
+
+          <p>
+            If you want to see what those decisions actually look like between
+            the initial conversation and launch, I break the stages down in{" "}
+            <Link href="/blog/web-design/web-design-process">
+              Web Design Process: What Actually Happens When You Hire a Web
+              Designer?
+            </Link>
+            .
+          </p>
 
           <h2>What is included in a professionally built website?</h2>
 
@@ -328,6 +354,15 @@ export default function SmallBusinessWebsiteCostCanada() {
             similarly sized informational website.
           </p>
 
+          <p>
+            For an existing website that needs purchasing functionality added
+            without becoming an entirely custom platform,{" "}
+            <Link href="/package/extras/e-commerce-integration">
+              E-commerce Integration
+            </Link>{" "}
+            can also be scoped separately.
+          </p>
+
           <h2>What about custom platforms and web applications?</h2>
 
           <p>This is where website pricing can increase substantially.</p>
@@ -354,6 +389,14 @@ export default function SmallBusinessWebsiteCostCanada() {
           <p>
             Some of the most complicated work on a website is work the user
             never sees.
+          </p>
+
+          <p>
+            Projects at this level fall into my{" "}
+            <Link href="/package/web-design/custom-platform">
+              Custom Web Application Development
+            </Link>{" "}
+            offering rather than a standard small business website package.
           </p>
 
           <h2>What are some realistic project examples?</h2>
@@ -435,6 +478,15 @@ export default function SmallBusinessWebsiteCostCanada() {
             is built rather than discovering them afterward.
           </p>
 
+          <p>
+            Maintenance itself can vary considerably depending on how actively a
+            website changes. I break that down separately in{" "}
+            <Link href="/blog/web-design/how-much-does-website-maintenance-cost">
+              How Much Does Website Maintenance Cost?
+            </Link>
+            .
+          </p>
+
           <h2>Project pricing vs. hourly pricing</h2>
 
           <p>
@@ -493,6 +545,15 @@ export default function SmallBusinessWebsiteCostCanada() {
           <p>
             I would compare the actual work, experience and deliverables rather
             than choosing based on freelancer or agency alone.
+          </p>
+
+          <p>
+            Another useful distinction is whether the person you hire handles
+            design, development or both.{" "}
+            <Link href="/blog/web-design/web-designer-vs-web-developer">
+              Web Designer vs. Web Developer: What&apos;s the Difference?
+            </Link>{" "}
+            explains how those roles can affect the project.
           </p>
 
           <h2>Do you own your website after it is built?</h2>
@@ -584,7 +645,7 @@ export default function SmallBusinessWebsiteCostCanada() {
           <p>Look at the proposed timeline too.</p>
 
           <p>
-            And importantly, look at the quality of the provider's previous
+            And importantly, look at the quality of the provider&apos;s previous
             work.
           </p>
 
@@ -602,9 +663,9 @@ export default function SmallBusinessWebsiteCostCanada() {
           </div>
 
           <blockquote>
-            When you're comparing website quotes, compare what you are getting,
-            the timeline and the quality of the work, not just the number at the
-            bottom.
+            When you&apos;re comparing website quotes, compare what you are
+            getting, the timeline and the quality of the work, not just the
+            number at the bottom.
           </blockquote>
 
           <h2>So, how much should you budget?</h2>
@@ -649,20 +710,20 @@ export default function SmallBusinessWebsiteCostCanada() {
       </section>
 
       <BlogCTA
-        eyebrow="Keep reading"
-        title="Planning a website for your business?"
-        description="Learn whether a custom website or template makes more sense for your project, or explore my web design and development services."
+        eyebrow="Planning a website?"
+        title="Start with what your business actually needs."
+        description="Compare website packages for different project sizes, from smaller business websites to larger custom platforms."
         links={[
           {
-            label: "Custom Website vs. Template →",
-            href: "/blog/web-design/custom-website-vs-template",
+            label: "Explore Web Design Packages →",
+            href: "/package/web-design",
           },
           {
-            label: "Explore Web Design & Development Services →",
-            href: "/services",
+            label: "See the Web Design Process →",
+            href: "/blog/web-design/web-design-process",
           },
         ]}
       />
-    </>
+    </main>
   );
 }

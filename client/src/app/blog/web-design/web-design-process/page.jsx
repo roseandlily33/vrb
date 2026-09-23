@@ -1,7 +1,7 @@
 import styles from "./page.module.css";
 import BlogHero from "../../blogSections/blogHero/blogHero";
 import BlogCTA from "../../blogSections/blogCta/blogCta";
-
+import Link from "next/link";
 
 export const metadata = {
   title: "Web Design Process: What Happens When You Hire a Web Designer? | VRB",
@@ -11,9 +11,9 @@ export const metadata = {
 
 export default function WebDesignProcessPage() {
   return (
-    <>
+    <main className={styles.page}>
       <BlogHero
-        category="Web Design & Strategy"
+        eyebrow="Web Design & Strategy"
         title="Web Design Process: What Actually Happens When You Hire a Web Designer?"
         description="A website does not go directly from an idea to a finished design. Here is what actually happens between the first conversation and launch."
         date="September 13, 2026"
@@ -117,6 +117,14 @@ export default function WebDesignProcessPage() {
             project, the next step can be a discovery call.
           </p>
 
+          <p>
+            If you are still at the budgeting stage before that conversation,{" "}
+            <Link href="/blog/web-design/small-business-website-cost-canada">
+              How Much Does a Small Business Website Cost in Canada?
+            </Link>{" "}
+            breaks down some of the factors that affect project pricing.
+          </p>
+
           <h2>What happens during website discovery?</h2>
 
           <p>
@@ -180,6 +188,15 @@ export default function WebDesignProcessPage() {
             Give me the information first. We can figure out where it belongs.
           </blockquote>
 
+          <p>
+            I go much deeper into that decision in{" "}
+            <Link href="/blog/web-design/what-pages-should-a-small-business-website-have">
+              What Pages Should a Small Business Website Have?
+            </Link>
+            , including how I decide when information actually deserves its own
+            page.
+          </p>
+
           <h2>What if you already have a website?</h2>
 
           <p>
@@ -201,6 +218,16 @@ export default function WebDesignProcessPage() {
             A redesign does not mean everything that already exists needs to be
             thrown away. Some content or structure may still work perfectly
             well.
+          </p>
+
+          <p>
+            Sometimes that review reveals that the website does not need a full
+            rebuild at all.{" "}
+            <Link href="/blog/website-redesign/website-refresh-vs-redesign">
+              Website Refresh vs. Redesign
+            </Link>{" "}
+            looks more closely at how to tell the difference between surface
+            problems and structural ones.
           </p>
 
           <h2>What should you give your web designer before design starts?</h2>
@@ -320,6 +347,15 @@ export default function WebDesignProcessPage() {
             is one of the parts of web design that comes fairly naturally to me.
           </p>
 
+          <p>
+            The navigation still has to support the structure established
+            earlier, though. I explain why that matters in{" "}
+            <Link href="/blog/ux-ui-development/why-website-navigation-matters-more-than-you-think">
+              Why Website Navigation Matters More Than You Think
+            </Link>
+            .
+          </p>
+
           <h2>Do you design the entire website before development?</h2>
 
           <p>Not always.</p>
@@ -356,7 +392,18 @@ export default function WebDesignProcessPage() {
             are organized properly from the beginning.
           </p>
 
-          <h2>Why doesn't the developed website look exactly like Figma?</h2>
+          <p>
+            If you are curious about where those two jobs differ and where they
+            start overlapping,{" "}
+            <Link href="/blog/web-design/web-designer-vs-web-developer">
+              Web Designer vs. Web Developer
+            </Link>{" "}
+            breaks that down separately.
+          </p>
+
+          <h2>
+            Why doesn&apos;t the developed website look exactly like Figma?
+          </h2>
 
           <p>
             Usually it is close, but I do not treat the Figma file as
@@ -466,6 +513,16 @@ export default function WebDesignProcessPage() {
             functionality, that work becomes part of the development stage too.
           </p>
 
+          <p>
+            When those requirements grow into user accounts, dashboards,
+            database-driven features or more complex application logic, the
+            project can move beyond a standard business website and toward{" "}
+            <Link href="/package/web-design/custom-platform">
+              custom web application development
+            </Link>
+            .
+          </p>
+
           <h2>When does responsive design happen?</h2>
 
           <p>During both design and development.</p>
@@ -521,6 +578,14 @@ export default function WebDesignProcessPage() {
             already been built.
           </p>
 
+          <p>
+            If an existing website needs a more focused review, I also offer an{" "}
+            <Link href="/package/extras/accessibility-review">
+              Accessibility Review
+            </Link>{" "}
+            as a separate service.
+          </p>
+
           <h2>When does SEO happen during a website build?</h2>
 
           <p>
@@ -550,6 +615,12 @@ export default function WebDesignProcessPage() {
             But if search matters to the project, it makes much more sense to
             consider the technical and on-page foundation while the website is
             being built.
+          </p>
+
+          <p>
+            For businesses that want search visibility worked on beyond that
+            foundation, my <Link href="/package/seo">SEO services</Link> cover
+            that as a separate area of work.
           </p>
 
           <h2>What happens before a website launches?</h2>
@@ -604,6 +675,15 @@ export default function WebDesignProcessPage() {
           <p>
             Ongoing website maintenance can continue separately after that if
             the business needs it.
+          </p>
+
+          <p>
+            If you want ongoing support after that initial launch period, you
+            can also compare my{" "}
+            <Link href="/package/retainer">
+              website maintenance and management plans
+            </Link>
+            .
           </p>
 
           <h2>How involved should the client be?</h2>
@@ -698,11 +778,20 @@ export default function WebDesignProcessPage() {
       </section>
 
       <BlogCTA
+        eyebrow="Ready to build?"
         title="Have a website project in mind?"
-        text="VRB handles the design and development process from planning and page structure through design, development, testing and launch."
-        buttonText="Explore the Web Design Process"
-        buttonHref="/process"
+        description="VRB handles the process from planning and page structure through design, development, testing and launch."
+        links={[
+          {
+            label: "Explore Web Design Packages →",
+            href: "/package/web-design",
+          },
+          {
+            label: "How Much Does a Small Business Website Cost? →",
+            href: "/blog/web-design/small-business-website-cost-canada",
+          },
+        ]}
       />
-    </>
+    </main>
   );
 }

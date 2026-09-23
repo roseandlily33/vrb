@@ -11,9 +11,9 @@ export const metadata = {
 
 export default function WhenOneUserNeedsMoreThanOneRolePage() {
   return (
-    <>
+    <main className={styles.page}>
       <BlogHero
-        category="UX/UI & Development"
+        eyebrow="UX/UI & Development"
         title="When One User Needs More Than One Role"
         description="User roles look simple until a manager also needs to be a user, an administrator needs access to everything below them, and permissions need to change without creating entirely separate applications."
         date="September 21, 2026"
@@ -63,6 +63,7 @@ export default function WhenOneUserNeedsMoreThanOneRolePage() {
             That creates a more interesting problem than simply asking,
             &ldquo;What role is this user?&rdquo;
           </p>
+
           <p>
             This is one of the challenges that comes with{" "}
             <Link href="/package/web-design/custom-platform">
@@ -74,7 +75,7 @@ export default function WhenOneUserNeedsMoreThanOneRolePage() {
           </p>
 
           <blockquote className={styles.blockquote}>
-            A role describes someone's level of access. It does not always
+            A role describes someone&apos;s level of access. It does not always
             describe everything that person needs to do.
           </blockquote>
 
@@ -113,8 +114,8 @@ export default function WhenOneUserNeedsMoreThanOneRolePage() {
           <p>
             There is also a much more restricted subcontractor experience. That
             role exists for a very specific reason: allowing a subcontractor to
-            access company forms without giving them the rest of the company's
-            functionality.
+            access company forms without giving them the rest of the
+            company&apos;s functionality.
           </p>
 
           <p>
@@ -260,7 +261,7 @@ export default function WhenOneUserNeedsMoreThanOneRolePage() {
 
           <blockquote className={styles.blockquote}>
             The complexity of the application does not need to determine the
-            complexity of every person's interface.
+            complexity of every person&apos;s interface.
           </blockquote>
 
           <h2>Hiding a button is not a permission system</h2>
@@ -279,6 +280,7 @@ export default function WhenOneUserNeedsMoreThanOneRolePage() {
             : what someone can see in the interface and what the system actually
             allows them to access are two different things.
           </p>
+
           <p>
             The frontend controls the experience. It determines which navigation
             items, actions and interfaces are appropriate for that user.
@@ -420,8 +422,8 @@ export default function WhenOneUserNeedsMoreThanOneRolePage() {
           <h2>New roles are a good test of the original architecture</h2>
 
           <p>
-            The subcontractor role was introduced later in the application's
-            development in response to a client need.
+            The subcontractor role was introduced later in the
+            application&apos;s development in response to a client need.
           </p>
 
           <p>Its requirements were much narrower than the existing roles.</p>
@@ -443,17 +445,29 @@ export default function WhenOneUserNeedsMoreThanOneRolePage() {
             application has today can become difficult to extend later.
           </p>
 
+          <p>
+            That same principle came up while extending the course architecture
+            itself. In{" "}
+            <Link href="/blog/ux-ui-development/designing-multi-section-online-course-experience">
+              Designing a Better Learning Experience for a Multi-Section Online
+              Course
+            </Link>
+            , I look at how a new course structure was added without rebuilding
+            the experience for the rest of the training library.
+          </p>
+
           <h2>Shared components still need context</h2>
 
           <p>
             Sharing functionality does not mean every role has to receive an
             identical interface in every situation.
           </p>
+
           <p>
             This is also where a well-planned{" "}
-            <a href="/package/extras/design-system-component-library">
+            <Link href="/package/extras/design-system-component-library">
               design system and component library
-            </a>{" "}
+            </Link>{" "}
             becomes useful. Shared patterns can remain consistent across the
             application without requiring every user or every situation to
             receive an identical interface.
@@ -519,9 +533,10 @@ export default function WhenOneUserNeedsMoreThanOneRolePage() {
             particularly aware that a large permission system exists behind the
             interface.
           </p>
+
           <p>
             When an application has grown over time, this is also something a{" "}
-            <Link href="/package/extras/ui-ux-audit">UI/UX audit</Link> can help
+            <Link href="/package/extras/uiux-audit">UI/UX Audit</Link> can help
             uncover: whether different users are being shown the right
             information, actions and pathways for what they actually need to
             accomplish.
@@ -546,11 +561,20 @@ export default function WhenOneUserNeedsMoreThanOneRolePage() {
       </section>
 
       <BlogCTA
-        title="Building something with more than one type of user?"
-        text="VRB designs and develops custom web applications where user roles, permissions, workflows and interfaces need to work together without making the experience unnecessarily complicated."
-        buttonText="Explore Custom Web Development"
-        buttonHref="/package/web-design/custom-platform"
+        eyebrow="Building for different types of users?"
+        title="Permissions should make the application safer, not harder to use."
+        description="Explore custom web application development for platforms where user roles, permissions, workflows and interfaces need to work together without creating unnecessary complexity."
+        links={[
+          {
+            label: "Explore Custom Web Application Development →",
+            href: "/package/web-design/custom-platform",
+          },
+          {
+            label: "Read the Multi-Section Course Case Study →",
+            href: "/blog/ux-ui-development/designing-multi-section-online-course-experience",
+          },
+        ]}
       />
-    </>
+    </main>
   );
 }

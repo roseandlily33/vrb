@@ -22,10 +22,10 @@
 .articleSection {
   position: relative;
   width: 100%;
-  background:
+  /* background:
     linear-gradient(rgba(203, 231, 252, 0.18) 1px, transparent 1px),
     linear-gradient(90deg, rgba(203, 231, 252, 0.18) 1px, transparent 1px),
-    var(--white);
+    var(--white); */
   background-size:
     48px 48px,
     48px 48px,
@@ -38,7 +38,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 180px;
+  height: 150px;
   background: linear-gradient(
     180deg,
     var(--blue-50) 0%,
@@ -54,14 +54,14 @@
 .article {
   position: relative;
   z-index: 2;
-  width: min(calc(100% - 4rem), 1080px);
+  width: min(calc(100% - 3rem), 1180px);
   margin: 0 auto;
-  padding: 7rem 0 8rem;
+  padding: 5rem 0 8rem;
 }
 
 /*
-  Paragraphs stay readable without forcing the
-  ENTIRE article into a tiny 700px column.
+  Paragraphs remain at a comfortable reading width
+  while larger article elements have more room.
 */
 
 .article > p {
@@ -77,13 +77,31 @@
 }
 
 /* ----------------------------------
+   Opening question / thesis
+----------------------------------- */
+
+.openingQuestion {
+  width: min(100%, 880px);
+  margin: var(--space-xl) 0 var(--space-xxl);
+  padding: 1.4rem 1.6rem;
+  background: var(--blue-50);
+  border-left: 5px solid var(--blue-800);
+  color: var(--blue-950);
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-weight: 750;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+}
+
+/* ----------------------------------
    Article headings
 ----------------------------------- */
 
 .article h2 {
   position: relative;
   max-width: 960px;
-  margin: 6.5rem 0 var(--space-xl);
+  margin: 6rem 0 var(--space-xl);
   padding-top: var(--space-l);
   color: var(--blue-950);
   font-family: var(--font-heading);
@@ -193,29 +211,20 @@
   right: 0;
   background: var(--blue-800);
 }
-/* 
-.article blockquote::after {
-  content: "";
-  position: absolute;
-  width: 16px;
-  height: 16px;
-  top: 64px;
-  right: 64px;
-  background: var(--yellow-500);
-} */
 
 .article blockquote p {
   position: relative;
   z-index: 2;
   max-width: 780px;
   margin: 0;
-  color: white;
+  color: var(--white);
   font-family: var(--font-heading);
   font-size: clamp(1.35rem, 2.8vw, 2rem);
   font-weight: 700;
   line-height: 1.35;
   letter-spacing: -0.025em;
 }
+
 .blockquote {
   color: var(--blue-600);
   font-weight: 700;
@@ -234,10 +243,6 @@
 
 .article blockquote:nth-of-type(even)::before {
   background: var(--yellow-500);
-}
-
-.article blockquote:nth-of-type(even)::after {
-  background: var(--blue-700);
 }
 
 /* ----------------------------------
@@ -259,6 +264,11 @@
 .article a:hover {
   color: var(--blue-700);
   text-decoration-color: var(--yellow-500);
+}
+
+.article a:focus-visible {
+  outline: 2px solid var(--yellow-500);
+  outline-offset: 4px;
 }
 
 /* ----------------------------------
@@ -405,13 +415,9 @@
 ----------------------------------- */
 
 @media screen and (max-width: 1100px) {
-  .hero {
-    min-height: 520px;
-    padding: var(--section-lg);
-  }
-
   .article {
-    width: min(calc(100% - 4rem), 940px);
+    width: min(calc(100% - 3rem), 940px);
+    padding-top: 4.5rem;
   }
 
   .nextSection {
@@ -429,18 +435,9 @@
 ----------------------------------- */
 
 @media screen and (max-width: 800px) {
-  .hero {
-    min-height: auto;
-    padding: 5rem 3rem;
-  }
-
-  .hero h1 {
-    font-size: clamp(3rem, 10vw, 5rem);
-  }
-
   .article {
-    width: calc(100% - 4rem);
-    padding: 5rem 0 6rem;
+    width: calc(100% - 2.5rem);
+    padding: 4rem 0 6rem;
   }
 
   .article > p,
@@ -450,7 +447,7 @@
   }
 
   .article h2 {
-    margin-top: 5rem;
+    margin-top: 4.75rem;
   }
 
   .progression {
@@ -467,7 +464,7 @@
   }
 
   .nextSection {
-    padding: 5rem 3rem;
+    padding: 5rem 2rem;
   }
 
   .nextInner {
@@ -489,55 +486,24 @@
 ----------------------------------- */
 
 @media screen and (max-width: 600px) {
-  .hero {
-    padding: 4.5rem 1.5rem 4rem;
-  }
-
-  .hero h1 {
-    font-size: clamp(2.75rem, 13vw, 4.2rem);
-    line-height: 0.95;
-  }
-
-  .intro {
-    margin-top: var(--space-l);
-    font-size: 1rem;
-  }
-
-  .heroPixels {
-    opacity: 0.75;
-  }
-
-  .pixelHero1 {
-    width: 22px;
-    height: 22px;
-    right: 7%;
-    top: 12%;
-  }
-
-  .pixelHero2 {
-    right: 3%;
-    top: 19%;
-  }
-
-  .pixelHero5,
-  .pixelHero6,
-  .pixelHero7,
-  .pixelHero8,
-  .pixelHero9,
-  .pixelHero10,
-  .pixelHero11,
-  .pixelHero12 {
-    display: none;
+  .articleSection::before {
+    height: 110px;
   }
 
   .article {
-    width: calc(100% - 3rem);
-    padding: 4rem 0 5rem;
+    width: calc(100% - 2.25rem);
+    padding: 3.25rem 0 5rem;
   }
 
   .article p {
     font-size: 1rem;
-    line-height: 1.75;
+    line-height: 1.72;
+  }
+
+  .openingQuestion {
+    margin: var(--space-l) 0 var(--space-xl);
+    padding: 1.15rem 1.25rem;
+    font-size: 1.18rem;
   }
 
   .article h2 {
@@ -550,8 +516,23 @@
     margin-top: var(--space-xxl);
   }
 
+  .article ul,
+  .article ol {
+    margin-top: var(--space-l);
+  }
+
+  .article li {
+    padding: var(--space-m) 0.75rem var(--space-m) 2rem;
+    font-size: 1rem;
+  }
+
+  .article li::before {
+    left: 0.5rem;
+  }
+
   .article blockquote {
-    padding: var(--space-xl);
+    margin: var(--space-xxl) 0;
+    padding: 1.75rem 1.5rem;
   }
 
   .article blockquote::before {
@@ -559,23 +540,13 @@
     height: 34px;
   }
 
-  .article blockquote::after {
-    width: 10px;
-    height: 10px;
-    top: 42px;
-    right: 42px;
-  }
-
   .article blockquote p {
+    padding-right: 0.5rem;
     font-size: 1.25rem;
   }
 
-  .article li {
-    padding-left: 2.25rem;
-  }
-
-  .article li::before {
-    left: var(--space-s);
+  .progression span {
+    padding: 1.5rem;
   }
 
   .articlePixels {
@@ -583,7 +554,7 @@
   }
 
   .nextSection {
-    padding: 4.5rem 1.5rem;
+    padding: 4.5rem 1.125rem;
   }
 
   .nextInner {
@@ -616,5 +587,28 @@
     width: 100%;
     justify-content: center;
     text-align: center;
+  }
+}
+
+/* ----------------------------------
+   Responsive - small mobile
+----------------------------------- */
+
+@media screen and (max-width: 380px) {
+  .article {
+    width: calc(100% - 2rem);
+  }
+
+  .article blockquote {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .article li {
+    padding-right: 0.25rem;
+  }
+
+  .nextSection {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 }

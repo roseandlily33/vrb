@@ -107,6 +107,12 @@
   pointer-events: none;
 }
 
+.pixel {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+}
+
 .pixelHero1 {
   width: 34px;
   height: 34px;
@@ -202,40 +208,31 @@
   top: 11%;
   background: var(--blue-200);
 }
-.pixel {
-  position: absolute;
-  display: block;
-  pointer-events: none;
-}
+
+/* ----------------------------------
+   Author
+----------------------------------- */
+
 .author {
   color: var(--grey-500);
 }
 
 .authorLink {
   position: relative;
-
   color: var(--blue-800);
-
   font-weight: 800;
-
   text-decoration: none;
-
   transition: color 160ms var(--transition-fast);
 }
 
 .authorLink::after {
   content: "";
-
   position: absolute;
-
   left: 0;
   bottom: -4px;
-
   width: 0;
   height: 2px;
-
   background: var(--yellow-500);
-
   transition: width 160ms var(--transition-fast);
 }
 
@@ -250,4 +247,88 @@
 .authorLink:focus-visible {
   outline: 2px solid var(--yellow-500);
   outline-offset: 4px;
+}
+
+/* ----------------------------------
+   Responsive - large tablet
+----------------------------------- */
+
+@media screen and (max-width: 1100px) {
+  .hero {
+    min-height: 520px;
+    padding: var(--section-lg);
+  }
+}
+
+/* ----------------------------------
+   Responsive - tablet
+----------------------------------- */
+
+@media screen and (max-width: 800px) {
+  .hero {
+    min-height: auto;
+    padding: 5rem 2rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 10vw, 5rem);
+  }
+}
+
+/* ----------------------------------
+   Responsive - mobile
+----------------------------------- */
+
+@media screen and (max-width: 600px) {
+  .hero {
+    padding: 4rem 1.125rem 3.5rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.65rem, 13vw, 4.2rem);
+    line-height: 0.95;
+  }
+
+  .intro {
+    margin-top: var(--space-l);
+    font-size: 1rem;
+  }
+
+  .heroPixels {
+    opacity: 0.75;
+  }
+
+  .pixelHero1 {
+    width: 22px;
+    height: 22px;
+    right: 7%;
+    top: 12%;
+  }
+
+  .pixelHero2 {
+    right: 3%;
+    top: 19%;
+  }
+
+  .pixelHero5,
+  .pixelHero6,
+  .pixelHero7,
+  .pixelHero8,
+  .pixelHero9,
+  .pixelHero10,
+  .pixelHero11,
+  .pixelHero12 {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .hero {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.45rem, 13vw, 3.5rem);
+  }
 }

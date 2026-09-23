@@ -9,9 +9,11 @@ export const metadata = {
     "Why does consistency matter in UI design? Learn how predictable patterns, buttons, typography, spacing, branding and layout choices make websites easier to use.",
 };
 
+import Link from "next/link";
+
 export default function WhyConsistencyMattersInUIDesign() {
   return (
-    <>
+    <main className={styles.page}>
       <BlogHero
         eyebrow="UX/UI & Development"
         title="Why Consistency Matters in UI Design"
@@ -483,6 +485,16 @@ export default function WhyConsistencyMattersInUIDesign() {
             codebase.
           </p>
 
+          <p>
+            For larger websites and applications, that can grow into a more
+            structured{" "}
+            <Link href="/package/extras/design-system-component-library">
+              design system and component library
+            </Link>
+            , where reusable interface patterns and development components help
+            keep those decisions consistent as the project expands.
+          </p>
+
           <h2>Reusable components help the finished website stay consistent</h2>
 
           <p>
@@ -574,6 +586,15 @@ export default function WhyConsistencyMattersInUIDesign() {
             every page.
           </p>
 
+          <p>
+            If those patterns have become inconsistent over time, an{" "}
+            <Link href="/package/extras/accessibility-review">
+              accessibility review
+            </Link>{" "}
+            can also help identify places where contrast, interactive states,
+            labels or other interface decisions are creating barriers.
+          </p>
+
           <h2>Inconsistent UI can make a website feel less professional</h2>
 
           <p>
@@ -644,18 +665,18 @@ export default function WhyConsistencyMattersInUIDesign() {
       <BlogCTA
         eyebrow="Keep reading"
         title="A consistent interface still needs clear direction."
-        description="Explore why website navigation affects more than the navbar, or learn more about my UX/UI design services."
+        description="Explore how navigation helps people understand where they are and what they can do next, or see how a design system can keep interface decisions consistent as a website or application grows."
         links={[
           {
             label: "Why Website Navigation Matters More Than You Think →",
-            href: "/blog/ux-ui-development/why-website-navigation-matters",
+            href: "/blog/ux-ui-development/why-website-navigation-matters-more-than-you-think",
           },
           {
-            label: "Explore UX/UI Design Services →",
-            href: "/services",
+            label: "Explore Design Systems & Component Libraries →",
+            href: "/package/extras/design-system-component-library",
           },
         ]}
       />
-    </>
+    </main>
   );
 }

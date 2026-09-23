@@ -1,6 +1,7 @@
 import BlogHero from "@/components/Blog/BlogHero/BlogHero";
 import BlogCTA from "@/components/Blog/BlogCTA/BlogCTA";
 import styles from "./page.module.css";
+import Link from "next/link";
 
 export const metadata = {
   title: "Designing a Better Multi-Section Online Course Experience | VRB",
@@ -10,7 +11,7 @@ export const metadata = {
 
 export default function MultiSectionCourseExperiencePage() {
   return (
-    <>
+    <main className={styles.page}>
       <BlogHero
         category="UX/UI & Development"
         title="Designing a Better Learning Experience for a Multi-Section Online Course"
@@ -219,6 +220,17 @@ export default function MultiSectionCourseExperiencePage() {
           <p>
             That gives learners a persistent answer to two important questions:
             where am I, and what comes next?
+          </p>
+
+          <p>
+            That is the same underlying reason navigation matters on much
+            simpler websites too. A person should be able to understand where
+            they are and where they can go next without having to reconstruct
+            the system in their head. I explore that more broadly in{" "}
+            <Link href="/blog/ux-ui-development/why-website-navigation-matters-more-than-you-think">
+              Why Website Navigation Matters More Than You Think
+            </Link>
+            .
           </p>
 
           <h2>
@@ -603,7 +615,7 @@ export default function MultiSectionCourseExperiencePage() {
             existing certificate and post-course actions.
           </p>
 
-          <h2>Why I didn't build an entirely separate course player</h2>
+          <h2>Why I didn&apos;t build an entirely separate course player</h2>
 
           <p>
             It would have been possible to create a separate component, separate
@@ -722,11 +734,16 @@ export default function MultiSectionCourseExperiencePage() {
       </section>
 
       <BlogCTA
-        title="Need something more custom than a standard website?"
-        text="VRB designs and develops custom web experiences where the interface, functionality and underlying system need to work together."
-        buttonText="Explore Custom Web Development"
-        buttonHref="/services/custom-web-development"
+        eyebrow="Building something more complex?"
+        title="The interface and the system behind it need to work together."
+        description="Explore custom web application development for projects involving user accounts, dashboards, databases, custom workflows and application-level functionality."
+        links={[
+          {
+            label: "Explore Custom Web Application Development →",
+            href: "/package/web-design/custom-platform",
+          },
+        ]}
       />
-    </>
+    </main>
   );
 }

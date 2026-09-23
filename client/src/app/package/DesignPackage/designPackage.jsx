@@ -1,4 +1,81 @@
+import { FaRedo } from "react-icons/fa";
 const designPackages = [
+  {
+    title: "Website Redesign",
+    slug: "website-redesign",
+
+    seoTitle: "Website Redesign Services | VRB Web Design & Development",
+
+    seoDescription:
+      "Website redesign services for businesses needing a modern, responsive website with improved structure, navigation, usability, and user experience.",
+
+    startingAt: "$4,500",
+    timeline: "4 - 8 Weeks",
+
+    bestFor:
+      "Businesses with an outdated website that needs significant visual, structural, and usability improvements",
+
+    description:
+      "Transform an outdated or difficult-to-use website into a modern, responsive experience with clearer structure, stronger visual design, and a more intuitive journey for your customers.",
+
+    type: "extras",
+    icon: FaRedo,
+
+    deliverables:
+      "Redesigned website, responsive layouts, updated content structure, and launch support",
+
+    features: [
+      "Website & content review",
+      "Information architecture improvements",
+      "Navigation & user flow refinements",
+      "Custom visual redesign",
+      "Responsive design",
+      "Accessibility considerations",
+      "SEO foundation review",
+      "Development & implementation",
+      "Pre-launch quality assurance",
+    ],
+
+    whatsIncluded: [
+      "Review of your existing website",
+      "Updated visual direction",
+      "Page layout redesign",
+      "Content structure & hierarchy improvements",
+      "Navigation improvements",
+      "Mobile & tablet optimization",
+      "Basic accessibility improvements",
+      "Basic on-page SEO foundations",
+      "Development of approved designs",
+      "Testing & launch support",
+    ],
+
+    whatsNotIncluded: [
+      "Complete brand identity development",
+      "Copywriting unless discussed",
+      "Advanced SEO strategy",
+      "Custom backend or dashboard systems",
+      "Major new functionality outside the agreed scope",
+      "Ongoing website maintenance",
+      "Third-party subscription costs",
+    ],
+
+    revisionLimits: "2 rounds of design revisions",
+
+    supportPeriod: "2 weeks post-launch support",
+
+    optionalAddOns: [
+      "Additional pages",
+      "Copywriting support",
+      "Advanced SEO",
+      "CMS integration",
+      "Booking system integration",
+      "E-commerce functionality",
+      "Ongoing maintenance",
+    ],
+
+    note: "Final scope and pricing depend on the size, condition, functionality, and platform of the existing website.",
+  },
+
   {
     title: "Design Essentials",
     slug: "design-essentials",

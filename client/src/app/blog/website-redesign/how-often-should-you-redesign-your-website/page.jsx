@@ -1,14 +1,16 @@
-import BlogHero from '../../blogSections/blogHero/blogHero';
-import BlogCTA from '../../blogSections/blogCta/blogCta';
-import styles from '../7-signs-your-website-needs-a-redesign/page.module.css';
+import BlogHero from "../../blogSections/blogHero/blogHero";
+import BlogCTA from "../../blogSections/blogCta/blogCta";
+import Link from "next/link";
+import WebsiteChangeSpectrum from "../../articleVisuals/websiteChangeSpectrum/websiteChangeSpectrum";
+import styles from "../7-signs-your-website-needs-a-redesign/page.module.css";
 
 // primary: how often should you redesign your website
 // secondary: how often to update a website, website redesign frequency, when should you redesign a website, website lifespan
 // intent: informational
 export const metadata = {
-  title: 'How Often to Redesign a Website | VRB',
+  title: "How Often to Redesign a Website | VRB",
   description:
-    'How often should you redesign your website? While 2–3 years is a common benchmark, your brand, content, technology and business needs matter more.',
+    "How often should you redesign your website? While 2–3 years is a common benchmark, your brand, content, technology and business needs matter more.",
 };
 
 export default function HowOftenShouldYouRedesignYourWebsite() {
@@ -51,18 +53,16 @@ export default function HowOftenShouldYouRedesignYourWebsite() {
           </p>
 
           <p>
-            A website that's only a year old could already need significant
-            work if it was poorly planned or built from the beginning.
+            A website that's only a year old could already need significant work
+            if it was poorly planned or built from the beginning.
           </p>
 
           <blockquote>
-            <p>
-              Website age is a reason to review. It's not a diagnosis.
-            </p>
+            <p>Website age is a reason to review. It's not a diagnosis.</p>
           </blockquote>
 
           <p>
-            The better question isn't really,{' '}
+            The better question isn't really,{" "}
             <strong>"How old is my website?"</strong>
           </p>
 
@@ -90,9 +90,7 @@ export default function HowOftenShouldYouRedesignYourWebsite() {
             rebuilding it simply because of its age.
           </p>
 
-          <p>
-            I would, however, give it a proper review.
-          </p>
+          <p>I would, however, give it a proper review.</p>
 
           <p>That might include checking things like:</p>
 
@@ -108,7 +106,12 @@ export default function HowOftenShouldYouRedesignYourWebsite() {
           </ul>
 
           <p>
-            Sometimes that review leads to a redesign.
+            Sometimes that review leads to a redesign. If you're trying to
+            figure out whether you've reached that point, I've also broken down{" "}
+            <Link href="/blog/website-redesign/7-signs-your-website-needs-a-redesign">
+              seven signs your website may need a redesign
+            </Link>
+            .
           </p>
 
           <p>
@@ -123,9 +126,7 @@ export default function HowOftenShouldYouRedesignYourWebsite() {
             design, branding, technology, photography, SEO and functionality.
           </p>
 
-          <p>
-            Those pieces don't all age at the same rate.
-          </p>
+          <p>Those pieces don't all age at the same rate.</p>
 
           <h3>Content can become outdated quickly</h3>
 
@@ -146,8 +147,8 @@ export default function HowOftenShouldYouRedesignYourWebsite() {
           </p>
 
           <p>
-            I've run into this myself when researching businesses while
-            planning trips.
+            I've run into this myself when researching businesses while planning
+            trips.
           </p>
 
           <p>
@@ -167,6 +168,16 @@ export default function HowOftenShouldYouRedesignYourWebsite() {
             </p>
           </blockquote>
 
+          <p>
+            That's also why I separate{" "}
+            <Link href="/blog/web-design/how-often-should-you-update-your-website">
+              how often you should update your website
+            </Link>{" "}
+            from how often you should redesign it. Content and business
+            information usually need attention much more often than the overall
+            design does.
+          </p>
+
           <h3>Photography and imagery can age quickly</h3>
 
           <p>
@@ -181,8 +192,8 @@ export default function HowOftenShouldYouRedesignYourWebsite() {
           </p>
 
           <p>
-            Replacing imagery can sometimes make a surprisingly large
-            difference without touching the underlying website structure.
+            Replacing imagery can sometimes make a surprisingly large difference
+            without touching the underlying website structure.
           </p>
 
           <h3>Trendy design can age faster than brand-led design</h3>
@@ -217,9 +228,7 @@ export default function HowOftenShouldYouRedesignYourWebsite() {
 
           <h2>Your business may change before your website gets old</h2>
 
-          <p>
-            Age isn't always what makes a website obsolete.
-          </p>
+          <p>Age isn't always what makes a website obsolete.</p>
 
           <p>Sometimes the business simply grows faster than the site.</p>
 
@@ -239,8 +248,8 @@ export default function HowOftenShouldYouRedesignYourWebsite() {
 
           <p>
             If the website was originally designed around a much smaller or
-            different version of the business, eventually the structure may
-            stop fitting.
+            different version of the business, eventually the structure may stop
+            fitting.
           </p>
 
           <p>
@@ -257,13 +266,11 @@ export default function HowOftenShouldYouRedesignYourWebsite() {
 
           <p>Absolutely.</p>
 
-          <p>
-            A newer website isn't automatically a good website.
-          </p>
+          <p>A newer website isn't automatically a good website.</p>
 
           <p>
-            If the site was poorly planned from the beginning, you don't need
-            to wait until some imaginary three-year deadline before fixing it.
+            If the site was poorly planned from the beginning, you don't need to
+            wait until some imaginary three-year deadline before fixing it.
           </p>
 
           <p>For example, a relatively new website could still have:</p>
@@ -280,15 +287,22 @@ export default function HowOftenShouldYouRedesignYourWebsite() {
           </ul>
 
           <p>
+            Problems like{" "}
+            <Link href="/blog/ux-ui-development/why-website-navigation-matters-more-than-you-think">
+              confusing website navigation
+            </Link>
+            , poor mobile layouts or weak visual hierarchy can affect a site
+            long before its age becomes relevant.
+          </p>
+
+          <p>
             If those issues are substantial, it makes more sense to address them
             than to wait until the website reaches a certain age.
           </p>
 
           <h2>When technology becomes the reason to rebuild</h2>
 
-          <p>
-            Sometimes the front of the website isn't the biggest problem.
-          </p>
+          <p>Sometimes the front of the website isn't the biggest problem.</p>
 
           <p>It's what's underneath it.</p>
 
@@ -303,13 +317,13 @@ export default function HowOftenShouldYouRedesignYourWebsite() {
           </p>
 
           <p>
-            Security updates become difficult. Features become incompatible.
-            The website becomes frustrating to maintain.
+            Security updates become difficult. Features become incompatible. The
+            website becomes frustrating to maintain.
           </p>
 
           <p>
-            There comes a point where continually patching an old setup can
-            take more work than rebuilding it properly.
+            There comes a point where continually patching an old setup can take
+            more work than rebuilding it properly.
           </p>
 
           <p>
@@ -327,6 +341,14 @@ export default function HowOftenShouldYouRedesignYourWebsite() {
             what you can do, that's a legitimate reason to consider rebuilding.
           </p>
 
+          <p>
+            If the structure still works and performance is the main problem,{" "}
+            <Link href="/package/extras/performance-optimization">
+              performance optimization
+            </Link>{" "}
+            may be a more focused solution than rebuilding the entire website.
+          </p>
+
           <h2>What about your competitors?</h2>
 
           <p>
@@ -339,9 +361,7 @@ export default function HowOftenShouldYouRedesignYourWebsite() {
             of building your own.
           </p>
 
-          <p>
-            Competitor websites can still be useful.
-          </p>
+          <p>Competitor websites can still be useful.</p>
 
           <p>
             You can look at how they organize information, what services they
@@ -361,9 +381,7 @@ export default function HowOftenShouldYouRedesignYourWebsite() {
             </p>
           </blockquote>
 
-          <p>
-            That said, presentation does matter.
-          </p>
+          <p>That said, presentation does matter.</p>
 
           <p>
             If someone is comparing two businesses and one website is polished,
@@ -376,9 +394,8 @@ export default function HowOftenShouldYouRedesignYourWebsite() {
           </blockquote>
 
           <p>
-            Not because the prettier website automatically represents the
-            better company, but because presentation influences first
-            impressions.
+            Not because the prettier website automatically represents the better
+            company, but because presentation influences first impressions.
           </p>
 
           <h2>How often should you review your website?</h2>
@@ -426,19 +443,11 @@ export default function HowOftenShouldYouRedesignYourWebsite() {
 
           <h2>Update, refresh or redesign?</h2>
 
-          <p>
-            Not every website problem requires the same amount of work.
-          </p>
+          <p>Not every website problem requires the same amount of work.</p>
 
-          <p>
-            I like separating website changes into three rough levels:
-          </p>
+          <p>I like separating website changes into three rough levels:</p>
 
-          <div className={styles.progression}>
-            <span>Update</span>
-            <span>Refresh</span>
-            <span>Redesign</span>
-          </div>
+          <WebsiteChangeSpectrum />
 
           <h3>Update</h3>
 
@@ -474,6 +483,15 @@ export default function HowOftenShouldYouRedesignYourWebsite() {
             <li>small layout improvements</li>
           </ul>
 
+          <p>
+            If the structure still works but the presentation is starting to
+            feel dated, a{" "}
+            <Link href="/package/web-design/website-refresh">
+              website refresh
+            </Link>{" "}
+            can address that middle ground without rebuilding everything.
+          </p>
+
           <h3>Redesign</h3>
 
           <p>
@@ -501,9 +519,7 @@ export default function HowOftenShouldYouRedesignYourWebsite() {
 
           <h2>So, how often should you redesign your website?</h2>
 
-          <p>
-            There isn't one timeframe that works for every business.
-          </p>
+          <p>There isn't one timeframe that works for every business.</p>
 
           <p>
             Two to three years can be a useful point to stop and evaluate the
@@ -511,9 +527,7 @@ export default function HowOftenShouldYouRedesignYourWebsite() {
             because a calendar says it's time.
           </p>
 
-          <p>
-            Look at the website in the context of your business instead.
-          </p>
+          <p>Look at the website in the context of your business instead.</p>
 
           <p>
             Does it still fit your brand? Does the content still reflect what
@@ -521,13 +535,15 @@ export default function HowOftenShouldYouRedesignYourWebsite() {
             where the business is going next?
           </p>
 
-          <p>
-            If the answer is yes, keep maintaining it.
-          </p>
+          <p>If the answer is yes, keep maintaining it.</p>
 
           <p>
             If you're starting to answer no to several of those questions, it
-            may be time to look more seriously at a redesign.
+            may be time to look more seriously at a{" "}
+            <Link href="/package/design/website-redesign">
+              website redesign
+            </Link>
+            .
           </p>
 
           <blockquote>
@@ -542,12 +558,12 @@ export default function HowOftenShouldYouRedesignYourWebsite() {
         description="Look at the signs that usually point toward a redesign, or explore what a website redesign project can involve."
         links={[
           {
-            label: '7 Signs Your Website Needs a Redesign →',
-            href: '/blog/website-redesign/7-signs-your-website-needs-a-redesign',
+            label: "7 Signs Your Website Needs a Redesign →",
+            href: "/blog/website-redesign/7-signs-your-website-needs-a-redesign",
           },
           {
-            label: 'Website Redesign Services →',
-            href: '/package/extras/website-redesign',
+            label: "Website Redesign Services →",
+            href: "/package/design/website-redesign",
           },
         ]}
       />

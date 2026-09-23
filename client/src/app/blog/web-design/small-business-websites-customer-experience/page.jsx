@@ -1,22 +1,24 @@
 import styles from "../../website-redesign/7-signs-your-website-needs-a-redesign/page.module.css";
 import BlogHero from "../../blogSections/blogHero/blogHero";
 import BlogCTA from "../../blogSections/blogCta/blogCta";
+import Link from "next/link";
 
 export const metadata = {
-  title: "I Used 50 Small Business Websites as a Customer | VRB Web Design and Development",
+  title:
+    "I Used 50 Small Business Websites as a Customer | VRB Web Design and Development",
   description:
     "I used 50 small business websites as a customer, not a web designer. Here’s what actually helped, what caused frustration and which design issues didn’t really matter.",
 };
 
 export default function SmallBusinessWebsiteCustomerExperiencePage() {
   return (
-    <>
+    <main className={styles.page}>
       <BlogHero
         eyebrow="Web Design & Strategy"
         readTime="13 min read"
         date="September 7, 2026"
         title="I Used 50 Small Business Websites as a Customer. Here’s What I Noticed."
-        description="I wasn&apos;t auditing them or looking for UX problems. I was trying to find menus, compare prices, check services, see photos and decide where I actually wanted to go."
+        description="I wasn't auditing them or looking for UX problems. I was trying to find menus, compare prices, check services, see photos and decide where I actually wanted to go."
       />
 
       <section className={styles.articleSection}>
@@ -122,6 +124,17 @@ export default function SmallBusinessWebsiteCustomerExperiencePage() {
             buy something or book something.
           </p>
 
+          <p>
+            Those questions eventually became part of a broader framework I use
+            for thinking about small business website content. I break that down
+            in{" "}
+            <Link href="/blog/web-design/7-customer-questions-small-business-website">
+              The 7 Customer Questions Every Small Business Website Should
+              Answer
+            </Link>
+            .
+          </p>
+
           <h2>Missing information bothered me more than mediocre design</h2>
 
           <p>This was probably one of the clearest patterns I noticed.</p>
@@ -165,6 +178,15 @@ export default function SmallBusinessWebsiteCustomerExperiencePage() {
           <p>
             A business can technically have all the expected pages and still
             leave out the information customers actually came looking for.
+          </p>
+
+          <p>
+            Deciding what information belongs together and what deserves its own
+            page is part of that too. I use a simple test for that in{" "}
+            <Link href="/blog/web-design/does-content-need-its-own-page">
+              Does This Content Need Its Own Page?
+            </Link>
+            .
           </p>
 
           <h2>
@@ -280,6 +302,15 @@ export default function SmallBusinessWebsiteCustomerExperiencePage() {
 
           <p>Enough of them eventually do.</p>
 
+          <p>
+            If the main problem with an existing website is how it behaves
+            across smaller screens rather than the entire site structure,{" "}
+            <Link href="/package/extras/mobile-responsive-optimization">
+              Mobile & Responsive Optimization
+            </Link>{" "}
+            can address that more directly.
+          </p>
+
           <h2>Sometimes the website technically worked and I still gave up</h2>
 
           <p>
@@ -343,6 +374,13 @@ export default function SmallBusinessWebsiteCustomerExperiencePage() {
           <p>
             A business owner may never know that someone was interested enough
             to buy or book something and simply gave up somewhere along the way.
+          </p>
+
+          <p>
+            That is one of the reasons a{" "}
+            <Link href="/package/extras/uiux-audit">UI/UX Audit</Link> can be
+            useful. It looks for friction in the experience without assuming
+            that the entire website needs to be rebuilt.
           </p>
 
           <h2>Customers tolerate a surprising amount of mediocre UX</h2>
@@ -443,6 +481,15 @@ export default function SmallBusinessWebsiteCustomerExperiencePage() {
           <p>It’s useful.</p>
 
           <p>Sometimes predictable design is exactly what a customer needs.</p>
+
+          <p>
+            That predictability is one of the reasons{" "}
+            <Link href="/blog/ux-ui-development/why-website-navigation-matters-more-than-you-think">
+              website navigation matters more than it might seem
+            </Link>
+            . Familiar patterns reduce the amount of work someone has to do just
+            to move around the site.
+          </p>
 
           <h2>Visual design still influenced me</h2>
 
@@ -567,6 +614,15 @@ export default function SmallBusinessWebsiteCustomerExperiencePage() {
             business and the people trying to use it.
           </p>
 
+          <p>
+            That is also why I would not recommend a redesign simply because a
+            website looks older.{" "}
+            <Link href="/blog/website-redesign/7-signs-your-website-needs-a-redesign">
+              7 Signs Your Website Needs a Redesign
+            </Link>{" "}
+            looks at the deeper problems that make a redesign more meaningful.
+          </p>
+
           <h2>So what actually matters?</h2>
 
           <p>
@@ -589,6 +645,15 @@ export default function SmallBusinessWebsiteCustomerExperiencePage() {
             Those questions have started shaping another framework I’m working
             on around the information every small business website should make
             clear to its customers.
+          </p>
+
+          <p>
+            That framework became{" "}
+            <Link href="/blog/web-design/7-customer-questions-small-business-website">
+              The 7 Customer Questions Every Small Business Website Should
+              Answer
+            </Link>
+            .
           </p>
 
           <p>But the larger lesson from these 50 websites was simpler.</p>
@@ -639,18 +704,18 @@ export default function SmallBusinessWebsiteCustomerExperiencePage() {
       <BlogCTA
         eyebrow="Keep reading"
         title="What should a small business website actually include?"
-        description="The number of pages matters less than whether customers can find the information they need. Next, explore how to decide what belongs on your website."
+        description="The number of pages matters less than whether customers can find the information they need. Next, explore the questions your website should answer or see website design and development options."
         links={[
           {
-            label: "What Pages Should a Small Business Website Have?",
-            href: "/blog/web-design/what-pages-should-a-small-business-website-have",
+            label: "The 7 Customer Questions →",
+            href: "/blog/web-design/7-customer-questions-small-business-website",
           },
           {
-            label: "Explore Website Design Services",
-            href: "/services",
+            label: "Explore Web Design Packages →",
+            href: "/package/web-design",
           },
         ]}
       />
-    </>
+    </main>
   );
 }

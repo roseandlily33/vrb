@@ -1,6 +1,7 @@
 import styles from "../../website-redesign/7-signs-your-website-needs-a-redesign/page.module.css";
 import BlogHero from "../../blogSections/blogHero/blogHero";
 import BlogCTA from "../../blogSections/blogCta/blogCta";
+import Link from "next/link";
 
 export const metadata = {
   title: "Does This Content Need Its Own Page? | VRB Design & Development",
@@ -10,7 +11,7 @@ export const metadata = {
 
 export default function DoesContentNeedOwnPagePage() {
   return (
-    <>
+    <main className={styles.page}>
       <BlogHero
         eyebrow="Web Design & Strategy"
         readTime="12 min read"
@@ -93,6 +94,15 @@ export default function DoesContentNeedOwnPagePage() {
             actually helping.
           </p>
 
+          <p>
+            If you are starting one step earlier and trying to figure out the
+            overall structure of the website first,{" "}
+            <Link href="/blog/web-design/what-pages-should-a-small-business-website-have">
+              What Pages Should a Small Business Website Have?
+            </Link>{" "}
+            looks at the bigger picture.
+          </p>
+
           <h2>1. Does the page have a purpose?</h2>
 
           <p>This is the first thing I would look at.</p>
@@ -133,6 +143,17 @@ export default function DoesContentNeedOwnPagePage() {
           <p>
             It just needs to have a reason for existing separately from
             everything else.
+          </p>
+
+          <p>
+            A useful way to think about that purpose is to start with the
+            questions customers are actually trying to answer. That is the idea
+            behind{" "}
+            <Link href="/blog/web-design/7-customer-questions-small-business-website">
+              The 7 Customer Questions™ Every Small Business Website Should
+              Answer
+            </Link>
+            .
           </p>
 
           <h2>2. Does the topic stand on its own?</h2>
@@ -234,6 +255,13 @@ export default function DoesContentNeedOwnPagePage() {
             If people specifically search for something your business offers, it
             should usually be easy to reach that information directly.
           </blockquote>
+
+          <p>
+            Search intent can help determine whether a page deserves a clear
+            destination, but creating the page is only part of the job. My{" "}
+            <Link href="/package/seo">SEO services</Link> look more broadly at
+            how website content and structure can support search visibility.
+          </p>
 
           <h2>4. Does separating it make the website easier to use?</h2>
 
@@ -362,6 +390,15 @@ export default function DoesContentNeedOwnPagePage() {
             A bigger website needs better organization, not necessarily fewer
             pages.
           </blockquote>
+
+          <p>
+            That relationship between page structure and navigation is something
+            I explore further in{" "}
+            <Link href="/blog/ux-ui-development/why-website-navigation-matters-more-than-you-think">
+              Why Website Navigation Matters More Than You Think
+            </Link>
+            .
+          </p>
 
           <h2>Fewer clicks are good, but not at the expense of structure</h2>
 
@@ -586,6 +623,17 @@ export default function DoesContentNeedOwnPagePage() {
             usability becomes useful.
           </p>
 
+          <p>
+            Those decisions are also part of the planning stage of a website
+            project. If you want to see where structure fits into everything
+            else,{" "}
+            <Link href="/blog/web-design/web-design-process">
+              Web Design Process: What Actually Happens When You Hire a Web
+              Designer?
+            </Link>{" "}
+            walks through the larger process.
+          </p>
+
           <h2>So, does your content need its own page?</h2>
 
           <p>There is no magic word count that tells you.</p>
@@ -630,18 +678,18 @@ export default function DoesContentNeedOwnPagePage() {
       <BlogCTA
         eyebrow="Plan the structure"
         title="Not sure how many pages your website actually needs?"
-        description="Start with what customers need to know, then organize those answers into pages that make sense for your business."
+        description="Start with what customers need to know, then organize those answers into a website structure that makes sense for your business."
         links={[
           {
-            label: "What Pages Should a Small Business Website Have?",
+            label: "What Pages Should Your Website Have? →",
             href: "/blog/web-design/what-pages-should-a-small-business-website-have",
           },
           {
-            label: "Read The 7 Customer Questions™",
-            href: "/blog/web-design/7-customer-questions-small-business-website",
+            label: "Explore Web Design Packages →",
+            href: "/package/web-design",
           },
         ]}
       />
-    </>
+    </main>
   );
 }

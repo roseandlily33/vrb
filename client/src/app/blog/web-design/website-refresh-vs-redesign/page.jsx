@@ -1,7 +1,7 @@
 import styles from "../../website-redesign/7-signs-your-website-needs-a-redesign/page.module.css";
 import BlogHero from "../../blogSections/blogHero/blogHero";
 import BlogCTA from "../../blogSections/blogCta/blogCta";
-// import Link from 'next/link';
+import Link from "next/link";
 
 export const metadata = {
   title:
@@ -13,9 +13,10 @@ export const metadata = {
 // primary keyword: website refresh vs redesign
 // secondary keywords: website refresh vs website redesign, website refresh, website redesign vs refresh, does my website need a refresh, refresh or redesign website
 // search intent: info/ commercial investigation
+
 export default function WebsiteRefreshVsRedesign() {
   return (
-    <>
+    <main className={styles.page}>
       <BlogHero
         eyebrow="Website Redesign"
         readTime="8 min read"
@@ -105,6 +106,15 @@ export default function WebsiteRefreshVsRedesign() {
             starting over.
           </p>
 
+          <p>
+            If that sounds closer to what your website needs, my{" "}
+            <Link href="/package/web-design/website-refresh">
+              Website Refresh package
+            </Link>{" "}
+            is built around improving an existing website without automatically
+            rebuilding the whole thing.
+          </p>
+
           <h2>What is a website redesign?</h2>
 
           <p>A redesign goes deeper than changing how the website looks.</p>
@@ -128,13 +138,22 @@ export default function WebsiteRefreshVsRedesign() {
             <li>Improving accessibility throughout the website</li>
             <li>Rebuilding parts of the technical foundation</li>
             <li>Changing platforms or technology</li>
-            <li>Reconsidering the website's SEO structure</li>
+            <li>Reconsidering the website&apos;s SEO structure</li>
           </ul>
 
           <p>
             At that point, you are not simply polishing the existing website.
             You are asking whether it is still structured in the best way for
             the business and the people using it.
+          </p>
+
+          <p>
+            That is the kind of work covered by my{" "}
+            <Link href="/package/design/website-redesign">
+              Website Redesign package
+            </Link>
+            , where the structure and experience can be reconsidered rather than
+            simply refreshed.
           </p>
 
           <h2>When a website refresh is probably enough</h2>
@@ -198,7 +217,7 @@ export default function WebsiteRefreshVsRedesign() {
 
           <p>
             You can keep adding patches, but eventually you end up trying to fit
-            today's business into yesterday's website.
+            today&apos;s business into yesterday&apos;s website.
           </p>
 
           <p>A redesign is more likely to make sense when:</p>
@@ -219,6 +238,14 @@ export default function WebsiteRefreshVsRedesign() {
           <p>
             Those are structural problems. Updating a font or replacing the
             homepage image is not going to fix them.
+          </p>
+
+          <p>
+            I break those warning signs down in more detail in{" "}
+            <Link href="/blog/website-redesign/7-signs-your-website-needs-a-redesign">
+              7 Signs Your Website Needs a Redesign
+            </Link>
+            .
           </p>
 
           <h2>What if the website just looks outdated?</h2>
@@ -255,6 +282,15 @@ export default function WebsiteRefreshVsRedesign() {
             meaningful.
           </p>
 
+          <p>
+            That is also why I would not use age alone to decide whether a
+            redesign is due. I go deeper into that in{" "}
+            <Link href="/blog/website-redesign/how-often-should-you-redesign-your-website">
+              How Often Should You Redesign Your Website?
+            </Link>
+            .
+          </p>
+
           <h2>Look beyond the homepage</h2>
 
           <p>
@@ -279,11 +315,21 @@ export default function WebsiteRefreshVsRedesign() {
             than an outdated colour palette ever will.
           </p>
 
-          <blockquote style={{ color: "black" }}>
+          <blockquote>
             Good website design is not just about making individual pages look
             good. It is about making the entire website easier to understand and
             use.
           </blockquote>
+
+          <p>
+            Navigation is especially useful to look at here because problems can
+            spread across the entire site rather than appearing on one page. I
+            explain that more in{" "}
+            <Link href="/blog/ux-ui-development/why-website-navigation-matters-more-than-you-think">
+              Why Website Navigation Matters More Than You Think
+            </Link>
+            .
+          </p>
 
           <h2>
             Can you refresh part of a website without redesigning everything?
@@ -338,10 +384,38 @@ export default function WebsiteRefreshVsRedesign() {
 
           <p>
             If several of those answers are no, the problem is probably deeper
-            than the website's appearance.
+            than the website&apos;s appearance.
           </p>
 
-          <h2>Refresh vs. redesign isn't really about age</h2>
+          <p>
+            If you are having trouble working out where the problems actually
+            sit, a <Link href="/package/extras/uiux-audit">UI/UX Audit</Link>{" "}
+            can be a useful step before deciding how large the solution needs to
+            be.
+          </p>
+
+          <h2>What if performance is the main problem?</h2>
+
+          <p>
+            A slow website does not automatically need to be redesigned either.
+          </p>
+
+          <p>
+            If the structure, content, visual design and overall experience are
+            still working well, it can make more sense to investigate the
+            performance problem directly.
+          </p>
+
+          <p>
+            In that situation, focused{" "}
+            <Link href="/package/extras/performance-optimization">
+              performance optimization
+            </Link>{" "}
+            may solve the problem without turning it into a larger redesign
+            project.
+          </p>
+
+          <h2>Refresh vs. redesign isn&apos;t really about age</h2>
 
           <p>
             A two-year-old website can need a redesign if it was poorly
@@ -391,24 +465,33 @@ export default function WebsiteRefreshVsRedesign() {
             The goal is not to make the biggest change possible. It is to make
             the change that actually solves the problem.
           </p>
+
+          <p>
+            And if a redesign is the right solution,{" "}
+            <Link href="/blog/website-redesign/how-long-does-a-website-redesign-take">
+              How Long Does a Website Redesign Take?
+            </Link>{" "}
+            breaks down what can affect the timeline once the project moves
+            beyond smaller updates.
+          </p>
         </article>
       </section>
 
       <BlogCTA
-        eyebrow="Keep reading"
-        title="Does your website need more than a refresh?"
-        description="Explore the signs that usually point toward a redesign, or learn more about my website redesign services and what the process can include."
+        eyebrow="Refresh or redesign?"
+        title="Match the size of the solution to the size of the problem."
+        description="If the foundation still works, a focused refresh may be enough. If the structure itself is getting in the way, explore a website redesign."
         links={[
           {
-            label: "7 Signs Your Website Needs a Redesign →",
-            href: "/blog/website-redesign/7-signs-your-website-needs-a-redesign",
+            label: "Explore Website Refresh →",
+            href: "/package/web-design/website-refresh",
           },
           {
-            label: "Explore Website Redesign Services →",
-            href: "/package/extras/website-redesign",
+            label: "Explore Website Redesign →",
+            href: "/package/design/website-redesign",
           },
         ]}
       />
-    </>
+    </main>
   );
 }

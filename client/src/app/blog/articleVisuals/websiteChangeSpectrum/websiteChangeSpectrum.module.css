@@ -1,0 +1,751 @@
+.visual {
+  width: min(100%, 1080px);
+  margin: 4.5rem 0 6rem;
+  overflow: hidden;
+  background: var(--blue-950);
+  color: #ffffff !important;
+  border: 1px solid rgba(105, 186, 242, 0.24);
+}
+
+/* ----------------------------------
+   Header
+----------------------------------- */
+
+.header {
+  padding: clamp(2rem, 5vw, 3.75rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(240px, 0.65fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: end;
+  color: white !important;
+  border-bottom: 1px solid rgba(203, 231, 252, 0.16);
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 0.85rem;
+  color: var(--yellow-500);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.title {
+  max-width: 650px;
+  margin: 0;
+  color: #ffffff !important;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.intro {
+  max-width: 330px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8) !important;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* ----------------------------------
+   Spectrum
+----------------------------------- */
+
+.spectrum {
+  position: relative;
+  padding: 3rem clamp(2rem, 5vw, 3.75rem) 4rem;
+  overflow: hidden;
+
+  background:
+    linear-gradient(rgba(105, 186, 242, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(105, 186, 242, 0.06) 1px, transparent 1px);
+
+  background-size: 40px 40px;
+}
+
+/* ----------------------------------
+   Scale labels
+----------------------------------- */
+
+.scaleLabels {
+  position: relative;
+  z-index: 3;
+
+  margin-bottom: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: rgba(255, 255, 255, 0.48) !important;
+
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 700;
+
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+/* ----------------------------------
+   Main track
+----------------------------------- */
+
+.track {
+  position: relative;
+  z-index: 3;
+
+  width: 100%;
+  height: 34px;
+
+  margin-bottom: 1.75rem;
+}
+
+.trackBase,
+.trackProgress {
+  position: absolute;
+
+  top: 50%;
+  left: 0;
+
+  width: 100%;
+  height: 2px;
+
+  transform: translateY(-50%);
+}
+
+.trackBase {
+  background: rgba(203, 231, 252, 0.18);
+}
+
+.trackProgress {
+  background: linear-gradient(
+    90deg,
+    var(--blue-500) 0%,
+    var(--blue-500) 46%,
+    var(--yellow-500) 100%
+  );
+}
+
+/* ----------------------------------
+   Animated signal
+----------------------------------- */
+
+.runner {
+  position: absolute;
+
+  top: 50%;
+  left: 0;
+
+  width: 20px;
+  height: 20px;
+
+  transform: translate(-50%, -50%);
+
+  animation: spectrumSignal 7s ease-in-out infinite;
+}
+
+.runner::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  border-radius: 50%;
+
+  background: rgba(255, 210, 74, 0.16);
+
+  filter: blur(3px);
+}
+
+.runnerCore {
+  position: absolute;
+
+  width: 8px;
+  height: 8px;
+
+  top: 50%;
+  left: 50%;
+
+  border-radius: 50%;
+
+  background: var(--yellow-500);
+
+  transform: translate(-50%, -50%);
+
+  box-shadow:
+    0 0 5px rgba(255, 210, 74, 1),
+    0 0 12px rgba(255, 210, 74, 0.85),
+    0 0 22px rgba(255, 210, 74, 0.45);
+}
+
+@keyframes spectrumSignal {
+  0% {
+    left: 0;
+  }
+
+  45% {
+    left: 50%;
+  }
+
+  55% {
+    left: 50%;
+  }
+
+  95% {
+    left: 100%;
+  }
+
+  100% {
+    left: 100%;
+  }
+}
+
+/* ----------------------------------
+   Three levels
+----------------------------------- */
+
+.levels {
+  position: relative;
+  z-index: 4;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  border-top: 1px solid rgba(203, 231, 252, 0.15);
+  border-bottom: 1px solid rgba(203, 231, 252, 0.15);
+}
+
+.level {
+  position: relative;
+
+  min-height: 340px;
+
+  padding: 2.25rem 2rem 2rem;
+}
+
+.level + .level {
+  border-left: 1px solid rgba(203, 231, 252, 0.15);
+}
+
+/* ----------------------------------
+   Nodes
+----------------------------------- */
+
+.node {
+  position: absolute;
+
+  width: 17px;
+  height: 17px;
+
+  top: -9px;
+  left: 2rem;
+
+  padding: 4px;
+
+  background: var(--blue-950);
+  border: 1px solid var(--blue-500);
+}
+
+.node span {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  background: var(--blue-500);
+}
+
+.refresh .node {
+  border-color: var(--yellow-500);
+}
+
+.refresh .node span {
+  background: var(--yellow-500);
+}
+
+.redesign .node {
+  width: 21px;
+  height: 21px;
+
+  top: -11px;
+
+  border-color: var(--yellow-500);
+}
+
+.redesign .node span {
+  background: var(--yellow-500);
+
+  box-shadow:
+    0 0 7px rgba(255, 210, 74, 0.75),
+    0 0 14px rgba(255, 210, 74, 0.3);
+}
+
+/* ----------------------------------
+   Level headings
+----------------------------------- */
+
+.levelTop {
+  margin-bottom: 1rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.number {
+  color: var(--yellow-500);
+
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 800;
+
+  letter-spacing: 0.13em;
+}
+
+.scope {
+  color: rgba(255, 255, 255, 0.48);
+
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 700;
+
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.level h3 {
+  margin: 0 0 1rem;
+
+  color: #ffffff !important;
+
+  font-family: var(--font-heading);
+  font-size: clamp(1.65rem, 3vw, 2.25rem);
+  font-weight: 800;
+
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.level > p {
+  min-height: 105px;
+
+  margin: 0 0 1.5rem;
+
+  color: rgba(255, 255, 255, 0.76) !important;
+
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+
+  line-height: 1.65;
+}
+
+/* ----------------------------------
+   Examples
+----------------------------------- */
+
+.examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.examples span {
+  padding: 0.4rem 0.55rem;
+
+  color: rgba(255, 255, 255, 0.72);
+  background: rgba(105, 186, 242, 0.08);
+
+  border: 1px solid rgba(105, 186, 242, 0.16);
+
+  font-family: var(--font-body);
+  font-size: 0.66rem;
+  font-weight: 700;
+
+  letter-spacing: 0.03em;
+}
+
+/* ----------------------------------
+   Subtle scope progression
+----------------------------------- */
+
+.update {
+  background: rgba(105, 186, 242, 0.025);
+}
+
+.refresh {
+  background: rgba(105, 186, 242, 0.055);
+}
+
+.redesign {
+  background: rgba(255, 210, 74, 0.035);
+}
+
+/* ----------------------------------
+   Mini website field
+----------------------------------- */
+
+.websiteField {
+  position: relative;
+
+  width: min(100%, 760px);
+  height: 145px;
+
+  margin: 3rem auto 0;
+}
+
+.websiteSmall {
+  position: absolute;
+
+  width: 118px;
+  height: 90px;
+
+  top: 50%;
+  left: 50%;
+
+  overflow: hidden;
+
+  background: #ffffff;
+
+  border: 2px solid var(--blue-500);
+
+  transform: translate(-50%, -50%);
+
+  box-shadow:
+    9px 9px 0 rgba(27, 137, 226, 0.11),
+    0 0 25px rgba(105, 186, 242, 0.08);
+}
+
+.browserBar {
+  height: 20px;
+
+  padding: 0 7px;
+
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  background: var(--blue-50);
+
+  border-bottom: 1px solid var(--blue-100);
+}
+
+.browserBar i {
+  width: 4px;
+  height: 4px;
+
+  display: block;
+
+  background: var(--blue-500);
+}
+
+.browserBar i:nth-child(2) {
+  background: var(--yellow-500);
+}
+
+.browserBar i:nth-child(3) {
+  background: var(--blue-200);
+}
+
+.miniContent {
+  padding: 13px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.miniContent i {
+  display: block;
+
+  height: 4px;
+
+  background: var(--blue-100);
+}
+
+.miniContent i:first-child {
+  width: 78%;
+  height: 6px;
+
+  background: var(--blue-800);
+}
+
+.miniContent i:nth-child(2) {
+  width: 62%;
+}
+
+.miniContent i:nth-child(3) {
+  width: 42%;
+}
+
+/* ----------------------------------
+   Connections
+----------------------------------- */
+
+.connectionOne,
+.connectionTwo,
+.connectionThree {
+  position: absolute;
+
+  top: 50%;
+
+  height: 1px;
+
+  background: rgba(105, 186, 242, 0.35);
+}
+
+.connectionOne {
+  width: calc(50% - 95px);
+
+  left: 0;
+}
+
+.connectionTwo {
+  width: calc(50% - 95px);
+
+  right: 0;
+}
+
+.connectionThree {
+  width: 1px;
+  height: 42px;
+
+  top: 50%;
+  left: 50%;
+
+  background: rgba(255, 210, 74, 0.35);
+
+  transform: translateY(-50%);
+}
+
+/* ----------------------------------
+   Pixels
+----------------------------------- */
+
+.pixel {
+  position: absolute;
+
+  display: block;
+
+  pointer-events: none;
+}
+
+.pixelOne {
+  width: 8px;
+  height: 8px;
+
+  top: 19px;
+  left: 12%;
+
+  background: var(--yellow-500);
+}
+
+.pixelTwo {
+  width: 5px;
+  height: 5px;
+
+  right: 18%;
+  bottom: 18px;
+
+  background: var(--blue-500);
+}
+
+.pixelThree {
+  width: 12px;
+  height: 12px;
+
+  right: 6%;
+  top: 25px;
+
+  border: 1px solid rgba(105, 186, 242, 0.55);
+}
+
+/* ----------------------------------
+   Footer
+----------------------------------- */
+
+.footer {
+  padding: 1.4rem clamp(2rem, 5vw, 3.75rem);
+
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+
+  border-top: 1px solid rgba(203, 231, 252, 0.16);
+}
+
+.footerMarker {
+  width: 7px;
+  height: 7px;
+
+  flex: 0 0 7px;
+
+  background: var(--yellow-500);
+}
+
+.footer p {
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.74) !important;
+
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+
+  line-height: 1.6;
+}
+
+/* ----------------------------------
+   Tablet
+----------------------------------- */
+
+@media screen and (max-width: 850px) {
+  .header {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .intro {
+    max-width: 600px;
+  }
+
+  .spectrum {
+    padding: 2.5rem 2rem 3rem;
+  }
+
+  .levels {
+    grid-template-columns: 1fr;
+  }
+
+  .level {
+    min-height: auto;
+    padding: 2.25rem 1.5rem;
+  }
+
+  .level + .level {
+    border-left: 0;
+    border-top: 1px solid rgba(203, 231, 252, 0.15);
+  }
+
+  .level > p {
+    min-height: auto;
+    max-width: 600px;
+  }
+
+  .node {
+    top: -9px;
+    left: 1.5rem;
+  }
+
+  .redesign .node {
+    top: -11px;
+  }
+
+  .track {
+    display: none;
+  }
+
+  .scaleLabels {
+    display: none;
+  }
+
+  .websiteField {
+    height: 125px;
+    margin-top: 2.5rem;
+  }
+}
+
+/* ----------------------------------
+   Mobile
+----------------------------------- */
+
+@media screen and (max-width: 560px) {
+  .visual {
+    margin: 3rem 0 4.5rem;
+  }
+
+  .header {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .title {
+    font-size: clamp(1.9rem, 9vw, 2.7rem);
+  }
+
+  .intro {
+    font-size: 0.92rem;
+  }
+
+  .spectrum {
+    padding: 2.25rem 1.25rem 2.75rem;
+  }
+
+  .level {
+    padding: 2rem 1rem;
+  }
+
+  .levelTop {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .level h3 {
+    font-size: 1.8rem;
+  }
+
+  .level > p {
+    font-size: 0.82rem;
+  }
+
+  .node {
+    left: 1rem;
+  }
+
+  .examples {
+    gap: 0.35rem;
+  }
+
+  .examples span {
+    font-size: 0.62rem;
+  }
+
+  .websiteField {
+    height: 115px;
+  }
+
+  .websiteSmall {
+    width: 105px;
+    height: 82px;
+  }
+
+  .connectionOne,
+  .connectionTwo {
+    width: calc(50% - 75px);
+  }
+
+  .pixelThree {
+    display: none;
+  }
+
+  .footer {
+    padding: 1.25rem;
+    align-items: flex-start;
+  }
+}
+
+/* ----------------------------------
+   Reduced motion
+----------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .runner {
+    left: 50%;
+    animation: none;
+  }
+}

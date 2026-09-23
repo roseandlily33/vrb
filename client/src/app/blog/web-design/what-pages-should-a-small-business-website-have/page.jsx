@@ -1,16 +1,17 @@
 import styles from "../../website-redesign/7-signs-your-website-needs-a-redesign/page.module.css";
 import BlogHero from "../../blogSections/blogHero/blogHero";
 import BlogCTA from "../../blogSections/blogCta/blogCta";
+import Link from "next/link";
 
 export const metadata = {
-  title: "What Pages Should a Small Business Website Have?",
+  title: "What Pages Should a Small Business Website Have? | VRB",
   description:
     "What pages does a small business website actually need? Learn which pages are essential, which are optional and how to decide what deserves its own page.",
 };
 
 export default function SmallBusinessWebsitePagesPage() {
   return (
-    <>
+    <main className={styles.page}>
       <BlogHero
         eyebrow="Web Design & Strategy"
         date="September 10, 2026"
@@ -50,7 +51,7 @@ export default function SmallBusinessWebsitePagesPage() {
             straightforward small business website.
           </p>
 
-          <p>But I wouldn’t treat it as a rule.</p>
+          <p>But I wouldn&apos;t treat it as a rule.</p>
 
           <p>
             A restaurant, a plumbing company, a spa and an online store have
@@ -64,8 +65,8 @@ export default function SmallBusinessWebsitePagesPage() {
           </p>
 
           <blockquote>
-            Don’t decide how many pages your website needs first. Decide what
-            your customers need to know first.
+            Don&apos;t decide how many pages your website needs first. Decide
+            what your customers need to know first.
           </blockquote>
 
           <p>
@@ -121,7 +122,10 @@ export default function SmallBusinessWebsitePagesPage() {
 
           <p>
             This is where I use what I call the{" "}
-            <strong>7 Customer Questions™</strong>.
+            <Link href="/blog/web-design/7-customer-questions-small-business-website">
+              7 Customer Questions™
+            </Link>
+            .
           </p>
 
           <p>
@@ -196,6 +200,15 @@ export default function SmallBusinessWebsitePagesPage() {
             A page deserves to exist when separating the information makes it
             more useful, understandable or easier to find.
           </blockquote>
+
+          <p>
+            I use a more specific four-question{" "}
+            <Link href="/blog/web-design/does-content-need-its-own-page">
+              Page Test™
+            </Link>{" "}
+            when I&apos;m deciding whether a piece of content has enough purpose
+            to stand on its own.
+          </p>
 
           <p>
             That is also why I generally prefer a useful content-heavy page over
@@ -369,6 +382,15 @@ export default function SmallBusinessWebsitePagesPage() {
             to understand the offering and know what to do next.
           </p>
 
+          <p>
+            If selling directly through the website is part of the plan, an{" "}
+            <Link href="/package/extras/e-commerce-integration">
+              e-commerce integration
+            </Link>{" "}
+            can add the purchasing functionality without changing the basic
+            principle behind how those product pages should be organized.
+          </p>
+
           <h2>5. Contact page</h2>
 
           <p>
@@ -496,13 +518,21 @@ export default function SmallBusinessWebsitePagesPage() {
           </p>
 
           <p>
-            The important thing is not whether the URL says
-            <strong> /booking</strong>.
+            The important thing is not whether the URL says{" "}
+            <strong>/booking</strong>.
           </p>
 
           <p>
             It is whether someone who has decided to book can figure out how to
             do it.
+          </p>
+
+          <p>
+            When the website itself needs the booking functionality added, a{" "}
+            <Link href="/package/extras/booking-system-integration">
+              booking system integration
+            </Link>{" "}
+            can connect that next step to the rest of the customer experience.
           </p>
 
           <h2>9. Location page</h2>
@@ -627,7 +657,8 @@ export default function SmallBusinessWebsitePagesPage() {
 
           <p>
             For some businesses, calling the section Resources, Guides, Insights
-            or something more specific may make more sense than “Blog.”
+            or something more specific may make more sense than
+            &ldquo;Blog.&rdquo;
           </p>
 
           <p>
@@ -638,6 +669,13 @@ export default function SmallBusinessWebsitePagesPage() {
           <p>A useful content section can be valuable.</p>
 
           <p>An abandoned one is not automatically helping anything.</p>
+
+          <p>
+            If a business does have a real content strategy but the website does
+            not currently support publishing, a{" "}
+            <Link href="/package/extras/blog-setup">blog setup</Link> can add
+            that structure without pretending every business needs one.
+          </p>
 
           <h2>14. Legal and policy pages</h2>
 
@@ -698,6 +736,15 @@ export default function SmallBusinessWebsitePagesPage() {
             The goal is not to make every page one click away. The goal is to
             make the pathway to that page understandable.
           </blockquote>
+
+          <p>
+            That is why{" "}
+            <Link href="/blog/ux-ui-development/why-website-navigation-matters-more-than-you-think">
+              website navigation matters
+            </Link>{" "}
+            more as a site grows. More pages are manageable when the pathways
+            between them remain clear.
+          </p>
 
           <h2>What about a one-page small business website?</h2>
 
@@ -833,6 +880,15 @@ export default function SmallBusinessWebsitePagesPage() {
             most sense for the person looking for it.
           </blockquote>
 
+          <p>
+            If the issue is how much information belongs on one page rather than
+            whether the page should exist at all, I&apos;ve also broken down{" "}
+            <Link href="/blog/ux-ui-development/how-much-information-should-you-put-on-a-webpage">
+              how much information you should put on a webpage
+            </Link>
+            .
+          </p>
+
           <h2>
             So, what pages does your small business website actually need?
           </h2>
@@ -876,24 +932,34 @@ export default function SmallBusinessWebsitePagesPage() {
             customers actually have, you are starting from a much stronger place
             than simply trying to fill a standard list of pages.
           </p>
+
+          <p>
+            And if you are planning the website itself, the number of pages is
+            also one of the things that can affect scope and cost. I break that
+            side down separately in{" "}
+            <Link href="/blog/web-design/small-business-website-cost-canada">
+              How Much Does a Small Business Website Cost in Canada?
+            </Link>
+            .
+          </p>
         </article>
       </section>
 
       <BlogCTA
         eyebrow="Build around your customers"
         title="Not sure what your website actually needs?"
-        description="The right website structure depends on your business, your content and what customers need to accomplish. That is something we can figure out before deciding how many pages to build."
+        description="The right website structure depends on your business, your content and what customers need to accomplish. Start with the information, then build the website around it."
         links={[
           {
-            label: "Explore Website Design Services",
-            href: "/services",
+            label: "Explore Website Design Packages →",
+            href: "/package/web-design",
           },
           {
-            label: "Read The 7 Customer Questions™",
+            label: "Read The 7 Customer Questions™ →",
             href: "/blog/web-design/7-customer-questions-small-business-website",
           },
         ]}
       />
-    </>
+    </main>
   );
 }

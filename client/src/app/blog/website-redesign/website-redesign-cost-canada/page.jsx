@@ -1,6 +1,7 @@
 import styles from "../7-signs-your-website-needs-a-redesign/page.module.css";
 import BlogHero from "../../blogSections/blogHero/blogHero";
 import BlogCTA from "../../blogSections/blogCta/blogCta";
+import Link from "next/link";
 
 // primary: website redesign cost Canada
 // secondary: website redesign cost, cost to redesign a website, website redesign pricing, website redesign price Canada, how much does a website redesign cost
@@ -12,7 +13,7 @@ export const metadata = {
     "How much does a website redesign cost in Canada? Compare typical 2026 pricing, what affects the cost and what to look for in a redesign quote.",
 };
 
-export default function WebsiteRedesignCostCanada() {
+export default function WebsiteRedesignCostCanadaPage() {
   return (
     <main className={styles.page}>
       <BlogHero
@@ -196,6 +197,15 @@ export default function WebsiteRedesignCostCanada() {
 
           <p>Those aren't really comparable projects.</p>
 
+          <p>
+            If you're trying to work out which end of that spectrum your website
+            falls on, the difference between a{" "}
+            <Link href="/blog/website-redesign/website-refresh-vs-redesign">
+              website refresh and a full redesign
+            </Link>{" "}
+            is a useful place to start.
+          </p>
+
           <blockquote>
             <p>
               Two websites can both have five pages and still require completely
@@ -292,7 +302,14 @@ export default function WebsiteRedesignCostCanada() {
             both parts of the project.
           </p>
 
-          <p>For me, they're not really two disconnected phases.</p>
+          <p>
+            For me, they're not really two disconnected phases. I've gone into
+            the distinction in more detail in{" "}
+            <Link href="/blog/web-design/web-designer-vs-web-developer">
+              Web Designer vs. Web Developer
+            </Link>
+            .
+          </p>
 
           <h3>Functionality</h3>
 
@@ -322,7 +339,14 @@ export default function WebsiteRedesignCostCanada() {
             marketing website.
           </p>
 
-          <p>You're building software.</p>
+          <p>
+            You're building software. Projects involving accounts, dashboards,
+            databases and application functionality fit more naturally under{" "}
+            <Link href="/package/web-design/custom-platform">
+              custom web application and platform development
+            </Link>{" "}
+            than a standard website redesign.
+          </p>
 
           <h3>Content and copywriting</h3>
 
@@ -373,13 +397,22 @@ export default function WebsiteRedesignCostCanada() {
 
           <p>
             A redesign can also require extra SEO care when existing pages
-            already rank and need to be preserved.
+            already rank and need to be preserved. I've covered that separately
+            in{" "}
+            <Link href="/blog/website-redesign/should-you-redesign-your-website-for-seo">
+              Should You Redesign Your Website for SEO?
+            </Link>
+            .
           </p>
 
           <h2>What does my website redesign pricing start at?</h2>
 
           <p>
-            My Website Redesign service currently starts at{" "}
+            My{" "}
+            <Link href="/package/design/website-redesign">
+              Website Redesign service
+            </Link>{" "}
+            currently starts at{" "}
             <strong>$3,500 CAD for a 2–5 page website</strong>.
           </p>
 
@@ -598,7 +631,11 @@ export default function WebsiteRedesignCostCanada() {
 
           <p>
             If the structure is good and the site only needs updated imagery,
-            typography and colours, you may not need a full redesign at all.
+            typography and colours, you may not need a full redesign at all. A{" "}
+            <Link href="/package/web-design/website-refresh">
+              website refresh
+            </Link>{" "}
+            may be enough.
           </p>
 
           <p>
@@ -621,9 +658,23 @@ export default function WebsiteRedesignCostCanada() {
           </blockquote>
 
           <p>
-            For my own Website Redesign service, projects currently start at{" "}
+            For my own{" "}
+            <Link href="/package/design/website-redesign">
+              Website Redesign service
+            </Link>
+            , projects currently start at{" "}
             <strong>$3,500 CAD for 2–5 pages</strong>, with additional pages and
             functionality scoped based on what the project actually needs.
+          </p>
+
+          <p>
+            The scope also affects{" "}
+            <Link href="/blog/website-redesign/how-long-does-a-website-redesign-take">
+              how long a website redesign takes
+            </Link>
+            . A small business site and a custom platform aren't just priced
+            differently. They require very different amounts of planning,
+            development and testing.
           </p>
 
           <p>
@@ -635,17 +686,17 @@ export default function WebsiteRedesignCostCanada() {
       </section>
 
       <BlogCTA
-        eyebrow="Keep reading"
-        title="A redesign is about more than the price tag."
-        description="See how redesigning can affect SEO, or explore what my Website Redesign service includes."
+        eyebrow="Planning a redesign?"
+        title="Start with what your website actually needs."
+        description="Explore my Website Redesign service and what's included, or see how a redesign can affect your existing SEO."
         links={[
+          {
+            label: "Explore Website Redesign →",
+            href: "/package/design/website-redesign",
+          },
           {
             label: "Should You Redesign Your Website for SEO? →",
             href: "/blog/website-redesign/should-you-redesign-your-website-for-seo",
-          },
-          {
-            label: "Website Redesign Services →",
-            href: "/package/extras/website-redesign",
           },
         ]}
       />

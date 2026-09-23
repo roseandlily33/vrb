@@ -1,0 +1,768 @@
+.visual {
+  width: min(100%, 1080px);
+  margin: 4.5rem 0 6rem;
+  overflow: hidden;
+  background: var(--blue-950);
+  color: var(--white) !important;
+  border: 1px solid rgba(105, 186, 242, 0.24);
+}
+
+/* ----------------------------------
+   Header
+----------------------------------- */
+
+.header {
+  position: relative;
+  z-index: 3;
+  color: white !important;
+  padding: clamp(2rem, 5vw, 3.75rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(250px, 0.75fr);
+  gap: clamp(2rem, 6vw, 5rem);
+  align-items: end;
+  border-bottom: 1px solid rgba(203, 231, 252, 0.16);
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 0.85rem;
+  color: var(--yellow-500);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.title {
+  max-width: 620px;
+  margin: 0;
+  color: white !important;
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.045em;
+}
+
+.intro {
+  max-width: 380px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.82) !important;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+/* ----------------------------------
+   Diagram
+----------------------------------- */
+
+.diagram {
+  position: relative;
+  min-height: 700px;
+  overflow: hidden;
+  background:
+    linear-gradient(rgba(105, 186, 242, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(105, 186, 242, 0.07) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.diagram::before {
+  content: "";
+  position: absolute;
+  width: 390px;
+  height: 390px;
+  top: 54%;
+  left: 50%;
+  border: 1px solid rgba(105, 186, 242, 0.08);
+  transform: translate(-50%, -50%);
+}
+
+/* ----------------------------------
+   Circuit
+----------------------------------- */
+
+.circuit {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.circuitShadow,
+.circuitLine {
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+.circuitShadow {
+  stroke: rgba(105, 186, 242, 0.06);
+  stroke-width: 8px;
+}
+
+.circuitLine {
+  stroke: rgba(105, 186, 242, 0.72);
+  stroke-width: 2px;
+}
+
+.signalGlow {
+  fill: var(--yellow-500);
+  opacity: 0.18;
+}
+
+.signal {
+  fill: var(--yellow-500);
+  filter: drop-shadow(0 0 6px rgba(255, 210, 74, 0.95));
+}
+
+/* ----------------------------------
+   Orbit
+----------------------------------- */
+
+.orbitSystem {
+  position: absolute;
+  z-index: 3;
+  width: 310px;
+  height: 310px;
+  top: 54%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.orbitOuter,
+.orbitInner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px solid rgba(203, 231, 252, 0.38);
+  border-radius: 50%;
+}
+
+.orbitOuter {
+  width: 310px;
+  height: 190px;
+  transform: translate(-50%, -50%) rotate(-18deg);
+}
+
+.orbitInner {
+  width: 235px;
+  height: 140px;
+  transform: translate(-50%, -50%) rotate(34deg);
+}
+
+/* ----------------------------------
+   Moving orbit signal
+----------------------------------- */
+
+.orbitRunner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  inset: 0;
+  border-radius: 50%;
+  animation: orbitTravel 7s linear infinite;
+}
+
+.orbitRunner::before {
+  content: "";
+  position: absolute;
+
+  /*
+    Places the signal directly on the
+    outer orbit line.
+  */
+  top: 50%;
+  right: -6px;
+
+  width: 10px;
+  height: 10px;
+
+  background: var(--yellow-500);
+
+  border-radius: 50%;
+
+  transform: translateY(-50%);
+
+  box-shadow:
+    0 0 5px rgba(255, 210, 74, 1),
+    0 0 12px rgba(255, 210, 74, 0.85),
+    0 0 22px rgba(255, 210, 74, 0.45);
+}
+
+.orbitRunnerGlow {
+  position: absolute;
+
+  top: 50%;
+  right: -12px;
+
+  width: 22px;
+  height: 22px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 210, 74, 0.14);
+
+  transform: translateY(-50%);
+
+  filter: blur(3px);
+}
+
+/*
+  The runner rotates around the ellipse.
+
+  Because it lives inside .orbitOuter,
+  it follows that exact orbit instead
+  of approximating it separately.
+*/
+
+@keyframes orbitTravel {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ----------------------------------
+   Static orbit details
+----------------------------------- */
+
+.orbitDot {
+  position: absolute;
+  z-index: 4;
+  display: block;
+}
+
+.orbitDotTwo {
+  width: 6px;
+  height: 6px;
+  left: 7px;
+  bottom: 25px;
+  background: var(--blue-500);
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 5px rgba(105, 186, 242, 0.8),
+    0 0 10px rgba(105, 186, 242, 0.5);
+}
+
+.orbitDotThree {
+  width: 5px;
+  height: 5px;
+  right: 24px;
+  bottom: 12px;
+  background: #ffffff;
+  border-radius: 50%;
+
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+/* ----------------------------------
+   Mini website
+----------------------------------- */
+
+.website {
+  position: absolute;
+  width: 170px;
+  height: 145px;
+  top: 50%;
+  left: 50%;
+  overflow: hidden;
+  background: #ffffff;
+  border: 2px solid var(--blue-500);
+  transform: translate(-50%, -50%);
+  box-shadow:
+    12px 12px 0 rgba(27, 137, 226, 0.12),
+    0 0 35px rgba(105, 186, 242, 0.08);
+}
+
+.browserBar {
+  height: 27px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--blue-50);
+  border-bottom: 1px solid var(--blue-100);
+}
+
+.browserBar span {
+  width: 5px;
+  height: 5px;
+  background: var(--blue-500);
+}
+
+.browserBar span:nth-child(2) {
+  background: var(--yellow-500);
+}
+
+.browserBar span:nth-child(3) {
+  background: var(--blue-200);
+}
+
+.websiteContent {
+  position: relative;
+  padding: 17px;
+}
+
+.websiteLabel {
+  display: block;
+  margin-bottom: 11px;
+  color: var(--blue-950);
+  font-family: var(--font-heading);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.websiteLineLarge,
+.websiteLine,
+.websiteLineShort {
+  display: block;
+  height: 4px;
+  margin-bottom: 7px;
+  background: var(--blue-100);
+}
+
+.websiteLineLarge {
+  width: 88%;
+  height: 7px;
+  background: var(--blue-800);
+}
+
+.websiteLine {
+  width: 70%;
+}
+
+.websiteLineShort {
+  width: 48%;
+}
+
+.websiteButton {
+  width: 27px;
+  height: 21px;
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--yellow-500);
+  color: var(--blue-950);
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+
+/* ----------------------------------
+   Signs
+----------------------------------- */
+
+.signs {
+  position: absolute;
+  inset: 0;
+  z-index: 4;
+}
+
+.sign {
+  position: absolute;
+  display: flex;
+  gap: 0.85rem;
+  align-items: flex-start;
+}
+
+.node {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+  padding: 4px;
+  background: var(--blue-950);
+  border: 1px solid var(--blue-500);
+}
+
+.nodeCore {
+  width: 100%;
+  height: 100%;
+  display: block;
+  background: var(--blue-500);
+}
+
+.signContent {
+  width: 175px;
+}
+
+.number {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--yellow-500);
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+
+.signContent strong {
+  display: block;
+  margin-bottom: 0.4rem;
+  color: #ffffff;
+  font-family: var(--font-heading);
+  font-size: 1.02rem;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.signContent > span:last-child {
+  display: block;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
+/* ----------------------------------
+   Individual sign positions
+
+   The centre of the diagram is intentionally
+   kept clear for the website + orbit.
+----------------------------------- */
+
+.signOne {
+  top: 105px;
+  left: 6%;
+}
+
+.signTwo {
+  top: 52px;
+  left: 27%;
+}
+
+.signThree {
+  top: 210px;
+  left: 18%;
+}
+
+.signFour {
+  top: 475px;
+  left: 48%;
+}
+
+.signFive {
+  top: 110px;
+  right: 14%;
+}
+
+.signSix {
+  top: 290px;
+  right: 4%;
+}
+
+.signSeven {
+  bottom: 55px;
+  right: 11%;
+}
+
+/* ----------------------------------
+   Decorative pixels
+----------------------------------- */
+
+.pixel {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  pointer-events: none;
+}
+
+.pixelOne {
+  width: 10px;
+  height: 10px;
+  left: 4%;
+  bottom: 12%;
+  background: var(--yellow-500);
+}
+
+.pixelTwo {
+  width: 5px;
+  height: 5px;
+  left: 11%;
+  bottom: 8%;
+  background: var(--blue-500);
+}
+
+.pixelThree {
+  width: 20px;
+  height: 20px;
+  right: 4%;
+  top: 8%;
+  border: 2px solid rgba(105, 186, 242, 0.4);
+}
+
+.pixelFour {
+  width: 7px;
+  height: 7px;
+  right: 12%;
+  top: 5%;
+  background: var(--yellow-500);
+}
+
+/* ----------------------------------
+   Footer
+----------------------------------- */
+
+.footer {
+  position: relative;
+  z-index: 3;
+  margin: 0;
+  padding: 1.5rem clamp(2rem, 5vw, 3.75rem);
+  color: rgba(255, 255, 255, 0.76) !important;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  border-top: 1px solid rgba(203, 231, 252, 0.16);
+}
+
+/* ----------------------------------
+   Tablet
+----------------------------------- */
+
+@media screen and (max-width: 850px) {
+  .header {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .intro {
+    max-width: 620px;
+  }
+
+  .diagram {
+    min-height: auto;
+    padding: 3rem 2rem;
+  }
+
+  .diagram::before {
+    width: 330px;
+    height: 330px;
+    top: 180px;
+  }
+
+  .circuit {
+    display: none;
+  }
+
+  .orbitSystem {
+    position: relative;
+    top: auto;
+    left: auto;
+    margin: 0 auto 3.5rem;
+    transform: none;
+  }
+
+  .signs {
+    position: relative;
+    inset: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border-top: 1px solid rgba(203, 231, 252, 0.16);
+  }
+
+  .sign {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    padding: 1.5rem 1rem;
+    border-bottom: 1px solid rgba(203, 231, 252, 0.16);
+  }
+
+  .sign:nth-child(odd) {
+    border-right: 1px solid rgba(203, 231, 252, 0.16);
+  }
+
+  .signContent {
+    width: auto;
+  }
+}
+
+/* ----------------------------------
+   Mobile
+----------------------------------- */
+
+@media screen and (max-width: 560px) {
+  .visual {
+    margin: 3rem 0 4.5rem;
+  }
+
+  .header {
+    padding: 1.75rem 1.25rem;
+  }
+
+  .title {
+    font-size: clamp(1.9rem, 9vw, 2.7rem);
+  }
+
+  .intro {
+    font-size: 0.92rem;
+  }
+
+  .diagram {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .diagram::before {
+    width: 270px;
+    height: 270px;
+    top: 155px;
+  }
+
+  .orbitSystem {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 2.75rem;
+  }
+
+  .orbitOuter {
+    width: 250px;
+    height: 155px;
+  }
+
+  .orbitInner {
+    width: 190px;
+    height: 112px;
+  }
+
+  .orbitDotOne {
+    top: 52px;
+    right: 20px;
+  }
+
+  .orbitDotTwo {
+    left: 30px;
+    bottom: 59px;
+  }
+
+  .orbitDotThree {
+    right: 62px;
+    bottom: 38px;
+  }
+
+  .website {
+    width: 145px;
+    height: 125px;
+  }
+
+  .browserBar {
+    height: 24px;
+  }
+
+  .websiteContent {
+    padding: 14px;
+  }
+
+  .websiteLabel {
+    margin-bottom: 8px;
+    font-size: 0.68rem;
+  }
+
+  .websiteLineLarge,
+  .websiteLine,
+  .websiteLineShort {
+    margin-bottom: 5px;
+  }
+
+  .websiteButton {
+    width: 24px;
+    height: 19px;
+    margin-top: 8px;
+  }
+
+  .signs {
+    grid-template-columns: 1fr;
+  }
+
+  .sign {
+    padding: 1.25rem 0.5rem;
+    border-right: 0 !important;
+  }
+
+  .signContent > span:last-child {
+    max-width: 280px;
+  }
+
+  .footer {
+    padding: 1.25rem;
+  }
+
+  .pixelThree,
+  .pixelFour {
+    display: none;
+  }
+}
+
+/* ----------------------------------
+   Small mobile
+----------------------------------- */
+
+@media screen and (max-width: 380px) {
+  .header {
+    padding: 1.5rem 1rem;
+  }
+
+  .diagram {
+    padding: 2.25rem 1rem;
+  }
+
+  .orbitSystem {
+    width: 225px;
+    height: 225px;
+  }
+
+  .orbitOuter {
+    width: 225px;
+    height: 140px;
+  }
+
+  .orbitInner {
+    width: 175px;
+    height: 103px;
+  }
+
+  .website {
+    width: 135px;
+    height: 118px;
+  }
+
+  .sign {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .footer {
+    padding: 1.25rem 1rem;
+  }
+}
+
+/* ----------------------------------
+   Reduced motion
+----------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .signal,
+  .signalGlow {
+    display: none;
+  }
+
+  .orbitRunner {
+    animation: none;
+  }
+
+  .orbitRunner::before,
+  .orbitRunnerGlow {
+    display: none;
+  }
+}

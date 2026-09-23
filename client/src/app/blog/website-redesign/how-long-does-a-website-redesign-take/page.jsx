@@ -2,6 +2,7 @@
 import styles from "../7-signs-your-website-needs-a-redesign/page.module.css";
 import BlogHero from "../../blogSections/blogHero/blogHero";
 import BlogCTA from "../../blogSections/blogCta/blogCta";
+import Link from "next/link";
 
 export const metadata = {
   title:
@@ -12,7 +13,7 @@ export const metadata = {
 
 export default function WebsiteRedesignTimelinePage() {
   return (
-    <>
+    <main className={styles.page}>
       <BlogHero
         eyebrow="Website Redesign"
         title="How Long Does a Website Redesign Take?"
@@ -54,7 +55,7 @@ export default function WebsiteRedesignTimelinePage() {
             website redesign anymore.
           </p>
 
-          <blockquote className={styles.blockquote} style={{ color: "white" }}>
+          <blockquote className={styles.blockquote}>
             A project timeline is not just the amount of time someone spends
             designing the pages.
           </blockquote>
@@ -62,8 +63,8 @@ export default function WebsiteRedesignTimelinePage() {
           <h2>How long does a small website redesign take?</h2>
 
           <p>
-            For a fairly straightforward 2-5 page business website, I would
-            generally expect around 1-2 weeks of focused work.
+            For a fairly straightforward 2–5 page business website, I would
+            generally expect around 1–2 weeks of focused work.
           </p>
 
           <p>
@@ -98,9 +99,9 @@ export default function WebsiteRedesignTimelinePage() {
           <h2>How long does a larger business website take?</h2>
 
           <p>
-            For a website with around 5-10 pages, more content and
-            additional functionality, I would generally expect somewhere around
-            3-6 weeks, depending on the project.
+            For a website with around 5–10 pages, more content and additional
+            functionality, I would generally expect somewhere around 3–6 weeks,
+            depending on the project.
           </p>
 
           <p>
@@ -142,8 +143,11 @@ export default function WebsiteRedesignTimelinePage() {
           <p>
             If you are rebuilding the architecture, creating application
             functionality, designing dashboards and developing systems behind
-            the interface, you are moving into custom web application or
-            platform development.
+            the interface, you are moving into{" "}
+            <Link href="/package/web-design/custom-platform">
+              custom web application or platform development
+            </Link>
+            .
           </p>
 
           <p>
@@ -215,7 +219,12 @@ export default function WebsiteRedesignTimelinePage() {
 
           <p>
             Some of those stages overlap. Others depend on decisions being made
-            before the next part can move forward.
+            before the next part can move forward. If you want a broader look at
+            how those pieces fit together, I've also broken down{" "}
+            <Link href="/blog/web-design/web-design-process">
+              what actually happens during the web design process
+            </Link>
+            .
           </p>
 
           <h2>Client feedback can affect the timeline more than you think</h2>
@@ -249,7 +258,7 @@ export default function WebsiteRedesignTimelinePage() {
             schedule too.
           </p>
 
-          <blockquote className={styles.blockquote} style={{ color: "white" }}>
+          <blockquote className={styles.blockquote}>
             Sometimes a redesign takes longer because there is more work.
             Sometimes it takes longer because everyone is waiting.
           </blockquote>
@@ -327,6 +336,16 @@ export default function WebsiteRedesignTimelinePage() {
           </p>
 
           <p>
+            This is where{" "}
+            <Link href="/blog/ux-ui-development/why-website-navigation-matters-more-than-you-think">
+              website navigation
+            </Link>{" "}
+            becomes more than a visual design decision. It affects how people
+            move through the site and how the content itself needs to be
+            structured.
+          </p>
+
+          <p>
             A redesign should not preserve a structural problem just because
             changing it would take more time.
           </p>
@@ -342,6 +361,15 @@ export default function WebsiteRedesignTimelinePage() {
             Booking integrations, ecommerce, payments, filtering, accounts,
             databases, dashboards and other functionality each introduce
             different requirements and testing scenarios.
+          </p>
+
+          <p>
+            Something relatively contained, such as a{" "}
+            <Link href="/package/extras/booking-system-integration">
+              booking system integration
+            </Link>
+            , is also very different from building the underlying functionality
+            of a custom platform.
           </p>
 
           <p>
@@ -573,6 +601,15 @@ export default function WebsiteRedesignTimelinePage() {
             cohesive direction.
           </p>
 
+          <p>
+            If you're still figuring out whether the project needs this level of
+            work in the first place,{" "}
+            <Link href="/blog/website-redesign/7-signs-your-website-needs-a-redesign">
+              the signs that point toward a website redesign
+            </Link>{" "}
+            are a useful place to start.
+          </p>
+
           <blockquote className={styles.blockquote}>
             A good redesign timeline gives the project enough room to be
             thoughtful without giving it so much room that it loses momentum.
@@ -581,11 +618,20 @@ export default function WebsiteRedesignTimelinePage() {
       </section>
 
       <BlogCTA
-        title="Thinking about redesigning your website?"
-        text="VRB designs and develops custom business websites with the project scope, timeline and functionality planned around what your website actually needs."
-        buttonText="Explore Website Redesign"
-        buttonHref="/extras/website-redesign"
+        eyebrow="Planning a redesign?"
+        title="The right timeline starts with the right scope."
+        description="Explore website redesign services, or take a closer look at the signs that can tell you whether your current website actually needs a redesign."
+        links={[
+          {
+            label: "Explore Website Redesign →",
+            href: "/package/design/website-redesign",
+          },
+          {
+            label: "7 Signs Your Website Needs a Redesign →",
+            href: "/blog/website-redesign/7-signs-your-website-needs-a-redesign",
+          },
+        ]}
       />
-    </>
+    </main>
   );
 }

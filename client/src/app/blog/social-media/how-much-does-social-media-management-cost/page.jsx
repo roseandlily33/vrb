@@ -3,14 +3,17 @@ import BlogHero from "../../blogSections/blogHero/blogHero";
 import BlogCTA from "../../blogSections/blogCta/blogCta";
 
 export const metadata = {
-  title: "How Much Does Social Media Management Cost? | VRB Web Design and Development",
+  title:
+    "How Much Does Social Media Management Cost? | VRB Web Design and Development",
   description:
     "How much does social media management cost in Canada? Learn what affects monthly pricing, what social media management includes, and what small businesses should compare before hiring someone.",
 };
 
+import Link from "next/link";
+
 export default function SocialMediaManagementCostPage() {
   return (
-    <>
+    <main className={styles.page}>
       <BlogHero
         eyebrow="Social Media"
         title="How Much Does Social Media Management Cost?"
@@ -404,7 +407,13 @@ export default function SocialMediaManagementCostPage() {
           </p>
 
           <div className={styles.infoBox}>
-            <h3>Social Essentials — starting at $500/month</h3>
+            <h3>
+              <Link href="/package/marketing/social-essentials">
+                Social Essentials
+              </Link>{" "}
+              — starting at $500/month
+            </h3>
+
             <p>
               Up to four posts per month with monthly content planning, branded
               content creation, captions, hashtag and keyword research,
@@ -413,7 +422,11 @@ export default function SocialMediaManagementCostPage() {
           </div>
 
           <div className={styles.infoBox}>
-            <h3>Social Growth — starting at $900/month</h3>
+            <h3>
+              <Link href="/package/marketing/social-growth">Social Growth</Link>{" "}
+              — starting at $900/month
+            </h3>
+
             <p>
               Up to eight posts per month with a monthly planning meeting,
               graphics, carousels and promotional content, captions, scheduling,
@@ -422,7 +435,13 @@ export default function SocialMediaManagementCostPage() {
           </div>
 
           <div className={styles.infoBox}>
-            <h3>Social Signature — starting at $1,350/month</h3>
+            <h3>
+              <Link href="/package/marketing/social-signature">
+                Social Signature
+              </Link>{" "}
+              — starting at $1,350/month
+            </h3>
+
             <p>
               Up to twelve posts per month with ongoing content strategy,
               graphics and promotional content, captions, scheduling,
@@ -505,11 +524,20 @@ export default function SocialMediaManagementCostPage() {
       </section>
 
       <BlogCTA
-        title="Want social media off your to-do list?"
-        text="VRB offers monthly social media management for businesses that want consistent, professionally planned content without having to manage the entire process themselves."
-        buttonText="Explore Social Media Management"
-        buttonHref="/services/social-media-management"
+        eyebrow="Want social media off your to-do list?"
+        title="Choose the level of support that fits your business."
+        description="Compare VRB's social media management packages for ongoing planning, content creation, captions, scheduling and publishing."
+        links={[
+          {
+            label: "Explore Social Media Management Packages →",
+            href: "/package/marketing",
+          },
+          {
+            label: "Start With Social Essentials →",
+            href: "/package/marketing/social-essentials",
+          },
+        ]}
       />
-    </>
+    </main>
   );
 }

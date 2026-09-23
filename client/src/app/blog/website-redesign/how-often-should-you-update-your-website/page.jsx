@@ -1,6 +1,7 @@
 import styles from "../7-signs-your-website-needs-a-redesign/page.module.css";
 import BlogHero from "../../blogSections/blogHero/blogHero";
 import BlogCTA from "../../blogSections/blogCta/blogCta";
+import Link from "next/link";
 
 export const metadata = {
   title:
@@ -11,7 +12,7 @@ export const metadata = {
 
 export default function HowOftenUpdateWebsitePage() {
   return (
-    <>
+    <main className={styles.page}>
       <BlogHero
         eyebrow="Web Design & Strategy"
         title="How Often Should You Update Your Website?"
@@ -240,6 +241,13 @@ export default function HowOftenUpdateWebsitePage() {
 
           <p>That is why testing matters even when nobody has complained.</p>
 
+          <p>
+            If you would rather have those kinds of checks handled regularly
+            instead of remembering to do them yourself, my{" "}
+            <Link href="/package/retainer">website maintenance retainers</Link>{" "}
+            are built around ongoing website support and updates.
+          </p>
+
           <h2>How often should you check website performance?</h2>
 
           <p>
@@ -268,6 +276,15 @@ export default function HowOftenUpdateWebsitePage() {
           <p>
             Performance problems come from what the website is loading and
             doing.
+          </p>
+
+          <p>
+            If performance has become a specific problem but the rest of the
+            website still works well,{" "}
+            <Link href="/package/extras/performance-optimization">
+              performance optimization
+            </Link>{" "}
+            can address that without turning the project into a full redesign.
           </p>
 
           <h2>How often should you update your website for SEO?</h2>
@@ -334,6 +351,16 @@ export default function HowOftenUpdateWebsitePage() {
           <blockquote className={styles.blockquote}>
             Ranking well is not a reason to let a useful page become outdated.
           </blockquote>
+
+          <p>
+            And if SEO is the problem rather than the website itself, I would
+            work on the SEO directly before assuming the entire site needs to be
+            rebuilt. I go into that distinction more in{" "}
+            <Link href="/blog/website-redesign/should-you-redesign-your-website-for-seo">
+              Should You Redesign Your Website for SEO?
+            </Link>
+            .
+          </p>
 
           <h2>How often should you look at Search Console and analytics?</h2>
 
@@ -464,6 +491,16 @@ export default function HowOftenUpdateWebsitePage() {
             there is a new trend.
           </blockquote>
 
+          <p>
+            That's why I treat{" "}
+            <Link href="/blog/website-redesign/how-often-should-you-redesign-your-website">
+              how often you should redesign your website
+            </Link>{" "}
+            as a different question from how often you should update it. A
+            redesign should respond to a larger problem, not simply the passage
+            of time.
+          </p>
+
           <h2>When does an update become a redesign?</h2>
 
           <p>
@@ -479,6 +516,15 @@ export default function HowOftenUpdateWebsitePage() {
           </p>
 
           <p>That is where a redesign starts making more sense.</p>
+
+          <p>
+            If you're not sure whether you've crossed that line, the{" "}
+            <Link href="/blog/website-redesign/7-signs-your-website-needs-a-redesign">
+              signs that a website needs a redesign
+            </Link>{" "}
+            can help separate an isolated update from a larger structural
+            problem.
+          </p>
 
           <p>
             If your business has changed substantially, I would start looking at
@@ -540,7 +586,19 @@ export default function HowOftenUpdateWebsitePage() {
             simplifying what is already there.
           </p>
 
-          <h2>“My website is working fine. Why would I touch it?”</h2>
+          <p>
+            This is especially easy to see in navigation. Every new page does
+            not automatically deserve another menu item. I've gone deeper into
+            that in{" "}
+            <Link href="/blog/ux-ui-development/why-website-navigation-matters-more-than-you-think">
+              Why Website Navigation Matters More Than You Think
+            </Link>
+            .
+          </p>
+
+          <h2>
+            &ldquo;My website is working fine. Why would I touch it?&rdquo;
+          </h2>
 
           <p>My first question would be: how do you know?</p>
 
@@ -605,11 +663,20 @@ export default function HowOftenUpdateWebsitePage() {
       </section>
 
       <BlogCTA
-        title="Not sure what your website actually needs?"
-        text="Whether your website needs a few updates, ongoing maintenance or a larger redesign, VRB can help you figure out the scale of the problem before deciding on the scale of the solution."
-        buttonText="Explore Website Services"
-        buttonHref="/services"
+        eyebrow="Keep your website working"
+        title="Your website doesn't need constant change. It does need attention."
+        description="Explore ongoing website support for regular updates and maintenance, or see when smaller changes have grown into a larger redesign."
+        links={[
+          {
+            label: "Explore Website Maintenance →",
+            href: "/package/retainer",
+          },
+          {
+            label: "7 Signs Your Website Needs a Redesign →",
+            href: "/blog/website-redesign/7-signs-your-website-needs-a-redesign",
+          },
+        ]}
       />
-    </>
+    </main>
   );
 }

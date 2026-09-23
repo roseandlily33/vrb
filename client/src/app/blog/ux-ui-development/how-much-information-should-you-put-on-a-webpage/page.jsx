@@ -1,6 +1,7 @@
 import styles from "../../website-redesign/7-signs-your-website-needs-a-redesign/page.module.css";
 import BlogHero from "../../blogSections/blogHero/blogHero";
 import BlogCTA from "../../blogSections/blogCta/blogCta";
+import Link from "next/link";
 
 export const metadata = {
   title:
@@ -11,7 +12,7 @@ export const metadata = {
 
 export default function HowMuchInformationShouldYouPutOnAWebpage() {
   return (
-    <>
+    <main className={styles.page}>
       <BlogHero
         eyebrow="UX/UI & Development"
         date="September 6, 2026"
@@ -102,6 +103,15 @@ export default function HowMuchInformationShouldYouPutOnAWebpage() {
             particular page.
           </p>
 
+          <p>
+            That is why I prefer starting with the questions customers actually
+            need answered rather than an arbitrary word count.{" "}
+            <Link href="/blog/web-design/7-customer-questions-small-business-website">
+              The 7 Customer Questions™
+            </Link>{" "}
+            is the framework I use for thinking through that first.
+          </p>
+
           <h2>A lot of information is not necessarily bad</h2>
 
           <p>
@@ -167,7 +177,7 @@ export default function HowMuchInformationShouldYouPutOnAWebpage() {
           <p>
             I look for the information that stands out, the things I would want
             to know if I were the customer and the details that could influence
-            someone's decision.
+            someone&apos;s decision.
           </p>
 
           <p>Then I start grouping related information together.</p>
@@ -225,7 +235,7 @@ export default function HowMuchInformationShouldYouPutOnAWebpage() {
 
           <p>Technically, the information is there.</p>
 
-          <p>From the user's perspective, it might as well be hidden.</p>
+          <p>From the user&apos;s perspective, it might as well be hidden.</p>
 
           <p>
             If a detail is particularly important, I would rather pull it out
@@ -318,6 +328,15 @@ export default function HowMuchInformationShouldYouPutOnAWebpage() {
             somewhere of its own to live.
           </p>
 
+          <p>
+            When that decision is not obvious,{" "}
+            <Link href="/blog/web-design/does-content-need-its-own-page">
+              The Page Test™
+            </Link>{" "}
+            looks specifically at whether content has enough purpose,
+            independence, demand and usability value to justify a separate page.
+          </p>
+
           <h2>Can a website have too little information?</h2>
 
           <p>Absolutely.</p>
@@ -390,6 +409,15 @@ export default function HowMuchInformationShouldYouPutOnAWebpage() {
           <p>
             The homepage can create pathways through the website instead of
             trying to become the entire website.
+          </p>
+
+          <p>
+            If you are trying to decide what those pathways should lead to,{" "}
+            <Link href="/blog/web-design/what-pages-should-a-small-business-website-have">
+              What Pages Should a Small Business Website Have?
+            </Link>{" "}
+            looks at how different types of content can become the overall site
+            structure.
           </p>
 
           <h2>Visual hierarchy changes how long a page feels</h2>
@@ -638,18 +666,18 @@ export default function HowMuchInformationShouldYouPutOnAWebpage() {
       <BlogCTA
         eyebrow="Keep reading"
         title="Good content still needs good structure."
-        description="Explore why website navigation has such a big impact on usability, or learn more about my UX/UI design services."
+        description="Explore how navigation affects the way people move through a website, or use The Page Test™ to decide when information deserves a page of its own."
         links={[
           {
             label: "Why Website Navigation Matters More Than You Think →",
-            href: "/blog/ux-ui-development/why-website-navigation-matters",
+            href: "/blog/ux-ui-development/why-website-navigation-matters-more-than-you-think",
           },
           {
-            label: "Explore UX/UI Design Services →",
-            href: "/services",
+            label: "Try The Page Test™ →",
+            href: "/blog/web-design/does-content-need-its-own-page",
           },
         ]}
       />
-    </>
+    </main>
   );
 }
