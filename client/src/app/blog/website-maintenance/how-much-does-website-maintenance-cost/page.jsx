@@ -1,6 +1,6 @@
-import BlogHero from "@/components/Blog/BlogHero/BlogHero";
-import BlogCTA from "@/components/Blog/BlogCTA/BlogCTA";
-import styles from "./page.module.css";
+import styles from "../../website-redesign/7-signs-your-website-needs-a-redesign/page.module.css";
+import BlogHero from "../../blogSections/blogHero/blogHero";
+import BlogCTA from "../../blogSections/blogCta/blogCta";
 import Link from "next/link";
 
 export const metadata = {

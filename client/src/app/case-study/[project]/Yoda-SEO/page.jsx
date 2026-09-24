@@ -1,4 +1,4 @@
-import { yodaSeoCaseStudy } from './yodaSeoCaseStudy';
+import { yodaSeoCaseStudy } from './seoTimeline';
 
 const YodaSeoCaseStudy = () => {
   const data = yodaSeoCaseStudy;
