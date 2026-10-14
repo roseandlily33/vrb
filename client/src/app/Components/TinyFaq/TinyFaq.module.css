@@ -1,41 +1,49 @@
+/* ==========================================
+   COMPACT FAQ SECTION
+========================================== */
+
 .wrap {
+  position: relative;
   width: 100%;
 
-  padding: var(--section-lg);
+  padding: clamp(3.5rem, 5vw, 5rem) clamp(1.25rem, 5vw, 5rem);
 
   background: var(--white);
 }
 
-/* ----------------------------------
-   Header
------------------------------------ */
+.inner {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+/* ==========================================
+   HEADER
+========================================== */
 
 .header {
   width: 100%;
-  max-width: 1100px;
-
-  margin: 0 auto 2rem;
+  margin-bottom: 2rem;
 }
 
 .marker {
   display: flex;
   align-items: center;
+  gap: 0.6rem;
 
-  gap: 0.5rem;
-
-  margin-bottom: 0.85rem;
+  margin-bottom: 1rem;
 }
 
 .markerLine {
-  width: 30px;
+  width: 42px;
   height: 3px;
 
   background: var(--blue-800);
 }
 
 .markerPixel {
-  width: 7px;
-  height: 7px;
+  width: 8px;
+  height: 8px;
 
   background: var(--yellow-500);
 }
@@ -44,45 +52,38 @@
   margin: 0;
 
   color: var(--blue-950);
+  font-family: var(--font-heading);
 
-  font-size: clamp(1.6rem, 2.5vw, 2.25rem);
+  font-size: clamp(2.3rem, 4vw, 4rem);
   font-weight: 800;
-
-  line-height: 1;
-
-  letter-spacing: -0.04em;
+  line-height: 1.05;
+  letter-spacing: -0.05em;
 }
 
-/* ----------------------------------
-   FAQ list
------------------------------------ */
+/* ==========================================
+   FAQ LIST
+========================================== */
 
 .list {
-  width: 100%;
-  max-width: 1100px;
-
-  margin: 0 auto;
-
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
 
-  column-gap: 2.5rem;
+  width: 100%;
+  column-gap: clamp(2rem, 4vw, 4rem);
 
   border-top: 1px solid var(--blue-200);
 }
 
-/* ----------------------------------
-   FAQ item
------------------------------------ */
+/* ==========================================
+   FAQ ITEM
+========================================== */
 
 .item {
   position: relative;
+  min-width: 0;
 
   border-bottom: 1px solid var(--blue-200);
-
   background: transparent;
-
-  overflow: hidden;
 
   transition: background 180ms ease;
 }
@@ -92,54 +93,44 @@
   background: var(--blue-50);
 }
 
-/* yellow open/hover detail */
-
 .item::before {
   content: "";
 
   position: absolute;
-
-  left: 0;
   top: 0;
   bottom: 0;
+  left: 0;
 
   width: 3px;
 
   background: var(--yellow-500);
 
   transform: scaleY(0);
+  transform-origin: center;
 
   transition: transform 180ms ease;
 }
 
-.item:hover::before,
 .item[open]::before {
   transform: scaleY(1);
 }
 
-/* ----------------------------------
-   Question
------------------------------------ */
+/* ==========================================
+   QUESTION
+========================================== */
 
 .question {
-  min-height: 74px;
-
-  padding: 1rem 0.9rem;
-
   display: grid;
   grid-template-columns: 34px minmax(0, 1fr) 34px;
-
+  align-items: center;
   gap: 0.75rem;
 
-  align-items: center;
+  min-height: 72px;
+  padding: 1rem 0.9rem;
 
   color: var(--blue-950);
-
   list-style: none;
-
   cursor: pointer;
-
-  outline: none;
 }
 
 .question::-webkit-details-marker {
@@ -158,54 +149,56 @@
 .number {
   color: var(--blue-500);
 
-  font-size: 0.62rem;
+  font-size: 0.65rem;
   font-weight: 800;
-
   letter-spacing: 0.1em;
 }
 
 .questionText {
-  font-size: 0.95rem;
-  font-weight: 750;
-
-  line-height: 1.4;
+  font-size: clamp(0.95rem, 1.2vw, 1.05rem);
+  font-weight: 700;
+  line-height: 1.45;
 
   transition: color 180ms ease;
 }
 
-.item:hover .questionText {
+.item:hover .questionText,
+.item[open] .questionText {
   color: var(--blue-800);
 }
 
-/* ----------------------------------
-   Plus
------------------------------------ */
+/* ==========================================
+   PLUS / MINUS
+========================================== */
 
 .plus {
   position: relative;
-
-  width: 30px;
-  height: 30px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
+  width: 30px;
+  height: 30px;
+
   border: 1px solid var(--blue-200);
 
   transition:
     background 180ms ease,
-    border-color 180ms ease,
-    transform 180ms ease;
+    border-color 180ms ease;
 }
 
 .plus span {
   position: absolute;
 
   width: 10px;
-  height: 1.5px;
+  height: 2px;
 
   background: var(--blue-700);
+
+  transition:
+    background 180ms ease,
+    transform 180ms ease;
 }
 
 .plus span:last-child {
@@ -218,83 +211,98 @@
 
 .item[open] .plus {
   background: var(--yellow-500);
-
   border-color: var(--yellow-500);
-
-  transform: rotate(45deg);
 }
 
 .item[open] .plus span {
   background: var(--blue-950);
 }
 
-/* ----------------------------------
-   Answer
------------------------------------ */
-
-.answerWrap {
-  display: grid;
-
-  grid-template-rows: 0fr;
-
-  transition: grid-template-rows 220ms ease;
+.item[open] .plus span:last-child {
+  transform: rotate(0deg);
 }
 
-.item[open] .answerWrap {
-  grid-template-rows: 1fr;
+/* ==========================================
+   ANSWER
+========================================== */
+
+.answerWrap {
+  width: 100%;
 }
 
 .answer {
-  min-height: 0;
-
-  overflow: hidden;
-
-  margin: 0;
-
-  padding:
-    0
-    1rem
-    0
-    calc(34px + 1.65rem);
+  padding: 0 1rem 1.35rem calc(34px + 1.65rem);
 
   color: var(--grey-700);
-
-  font-size: 0.92rem;
-
-  line-height: 1.7;
+  font-size: 0.94rem;
+  line-height: 1.75;
 }
 
-.item[open] .answer {
-  padding-bottom: 1.25rem;
+.answer p {
+  margin: 0 0 0.75rem;
 }
 
-/* ----------------------------------
-   Responsive
------------------------------------ */
+.answer p:last-child {
+  margin-bottom: 0;
+}
+
+.answer a {
+  color: var(--blue-800);
+  text-underline-offset: 3px;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
 
 @media (max-width: 900px) {
   .wrap {
-    padding: var(--section-md);
+    padding: 3.5rem 2rem;
   }
 
   .list {
     grid-template-columns: 1fr;
+    column-gap: 0;
   }
 }
 
+/* ==========================================
+   MOBILE
+========================================== */
+
 @media (max-width: 600px) {
   .wrap {
-    padding: var(--section-md) 1.25rem;
+    padding: 3rem 1.25rem;
+  }
+
+  .header {
+    margin-bottom: 1.75rem;
+  }
+
+  .heading {
+    font-size: clamp(2.2rem, 9vw, 3rem);
   }
 
   .question {
     grid-template-columns: 30px minmax(0, 1fr) 32px;
-
     padding: 1rem 0.65rem;
   }
 
   .answer {
-    padding-left: calc(30px + 1.4rem);
-    padding-right: 0.65rem;
+    padding: 0 0.65rem 1.25rem calc(30px + 1.4rem);
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .item,
+  .item::before,
+  .questionText,
+  .plus,
+  .plus span {
+    transition: none !important;
   }
 }

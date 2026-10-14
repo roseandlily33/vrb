@@ -1,291 +1,415 @@
+
+/* =========================================================
+   01. HERO SECTION
+   ========================================================= */
+
 .heroCentered {
   position: relative;
-
   isolation: isolate;
-
-  overflow: hidden;
-
-  width: 100%;
-
-  margin: 0;
-
-  padding: var(--section-lg);
 
   display: flex;
   flex-direction: column;
 
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  overflow: hidden;
+
   background:
     radial-gradient(
-      circle at 82% 28%,
-      rgba(27, 138, 228, 0.07),
-      transparent 28%
+      circle at 83% 34%,
+      rgba(105, 185, 242, 0.16),
+      transparent 38%
     ),
     linear-gradient(
-      180deg,
-      var(--white) 0%,
+      135deg,
+      #ffffff 0%,
       var(--blue-50) 100%
     );
 }
 
-/* ----------------------------------
-   Background grid
------------------------------------ */
+/* Subtle technical grid */
 
 .heroCentered::before {
   content: "";
-
   position: absolute;
   inset: 0;
-
   z-index: -2;
 
   background-image:
     linear-gradient(
-      rgba(0, 84, 201, 0.018) 1px,
+      rgba(0, 84, 201, 0.028) 1px,
       transparent 1px
     ),
     linear-gradient(
       90deg,
-      rgba(0, 84, 201, 0.018) 1px,
+      rgba(0, 84, 201, 0.028) 1px,
       transparent 1px
     );
 
-  background-size: 46px 46px;
+  background-size: 52px 52px;
+  pointer-events: none;
+}
+
+/* Top blue / yellow accent */
+
+.heroCentered::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 4;
+
+  width: 100%;
+  height: 3px;
+
+  background: linear-gradient(
+    90deg,
+    var(--blue-800) 0 80px,
+    var(--yellow-500) 80px 105px,
+    transparent 105px
+  );
 
   pointer-events: none;
 }
 
-/* ----------------------------------
-   Watermark
------------------------------------ */
+/* =========================================================
+   02. CLIENT WATERMARK
+   ========================================================= */
 
 .heroWatermark {
   position: absolute;
-
   z-index: -1;
 
-  width: clamp(360px, 38vw, 590px);
-  height: clamp(360px, 38vw, 590px);
+  top: 43%;
+  right: clamp(-3rem, 4vw, 5rem);
 
-  right: clamp(2rem, 6vw, 7rem);
-  top: 50%;
-
-  transform: translateY(-52%);
+  width: clamp(330px, 38vw, 620px);
+  height: auto;
 
   object-fit: contain;
 
-  opacity: 0.11;
+  transform: translateY(-50%);
+
+  opacity: 0.1;
+  filter: grayscale(1);
 
   pointer-events: none;
-
   user-select: none;
 }
 
-/* ----------------------------------
-   Hero intro
------------------------------------ */
+/* =========================================================
+   03. DECORATIVE GRAPHICS
+   ========================================================= */
+
+.heroGraphics {
+  position: absolute;
+  z-index: -1;
+
+  top: 15%;
+  right: -8%;
+
+  width: clamp(350px, 42vw, 650px);
+  aspect-ratio: 1;
+
+  pointer-events: none;
+}
+
+.heroOrbit,
+.heroOrbitInner {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+}
+
+.heroOrbit {
+  inset: 0;
+  border: 1px solid rgba(0, 84, 201, 0.14);
+}
+
+.heroOrbitInner {
+  inset: 18%;
+  border: 1px dashed rgba(0, 84, 201, 0.2);
+}
+
+/* Decorative pixels */
+
+.heroPixelOne,
+.heroPixelTwo,
+.heroPixelThree,
+.heroPixelFour,
+.heroPixelFive {
+  position: absolute;
+  display: block;
+}
+
+.heroPixelOne {
+  top: 15%;
+  right: 17%;
+  width: 24px;
+  height: 24px;
+  background: var(--blue-800);
+}
+
+.heroPixelTwo {
+  top: 11%;
+  right: 11%;
+  width: 10px;
+  height: 10px;
+  background: var(--yellow-500);
+}
+
+.heroPixelThree {
+  bottom: 19%;
+  left: 8%;
+  width: 15px;
+  height: 15px;
+  background: var(--blue-500);
+}
+
+.heroPixelFour {
+  bottom: 14%;
+  left: 15%;
+  width: 8px;
+  height: 8px;
+  background: var(--yellow-500);
+}
+
+.heroPixelFive {
+  top: 42%;
+  left: 2%;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--blue-800);
+}
+
+/* =========================================================
+   04. MAIN CONTENT LAYOUT
+   ========================================================= */
 
 .heroIntro {
   position: relative;
+  z-index: 2;
 
-  z-index: 1;
-
-  width: 100%;
-  max-width: 1500px;
-
+  width: min(100%, 1280px);
   margin: 0 auto;
 
-  min-height: 560px;
-
-  display: flex;
-
-  align-items: center;
+  padding:
+    clamp(2rem, 3.5vw, 3.5rem)
+    clamp(1.25rem, 4vw, 3rem)
+    clamp(4rem, 6vw, 6rem);
 }
 
 .heroContent {
-  width: min(760px, 62%);
-
   display: flex;
   flex-direction: column;
-
   align-items: flex-start;
+  width: 100%;
+  min-width: 0;
 }
 
-/* ----------------------------------
-   Eyebrow
------------------------------------ */
+/* =========================================================
+   05. BREADCRUMBS / NAVIGATION
+   ========================================================= */
+
+.heroNavigation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  width: 100%;
+  gap: 1.5rem;
+
+  margin-bottom: clamp(4rem, 6vw, 6rem);
+}
+
+/* =========================================================
+   06. HEADING BLOCK
+   ========================================================= */
+
+.heroHeadingBlock {
+  position: relative;
+  width: 100%;
+  max-width: 1050px;
+}
+
+/* Eyebrow */
+
+.heroEyebrowRow {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+
+  margin-bottom: clamp(1.5rem, 2.5vw, 2rem);
+}
+
+.heroEyebrowMarker {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.heroEyebrowMarker span {
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: var(--blue-800);
+}
+
+.heroEyebrowMarker span:last-child {
+  background: var(--yellow-500);
+  transform: translateY(-5px);
+}
 
 .eyebrow {
-  display: block;
-
-  margin-top: var(--space-xxl);
-  margin-bottom: var(--space-l);
-
-  color: var(--blue-700);
-
+  color: var(--blue-800);
   font-family: var(--font-body);
 
   font-size: 0.7rem;
-
   font-weight: 800;
+  line-height: 1.5;
 
-  letter-spacing: 0.14em;
-
+  letter-spacing: 0.15em;
   text-transform: uppercase;
 }
 
-/* ----------------------------------
-   Hero title
------------------------------------ */
+/* =========================================================
+   07. HERO TITLE
+   ========================================================= */
 
 .heroTitleCentered {
-  max-width: 13ch;
-
-  margin: 0 0 var(--space-xl);
-
-  color: var(--blue-950);
-
-  font-family: var(--font-heading);
-
-  font-size: clamp(3.2rem, 6vw, 5.8rem);
-
-  font-weight: 800;
-
-  line-height: 0.96;
-
-  letter-spacing: -0.06em;
-}
-
-.highlighted {
-  color: var(--blue-700);
-}
-
-/* ----------------------------------
-   Description
------------------------------------ */
-
-.heroDescription {
-  max-width: 620px;
+  width: 100%;
+  max-width: 950px;
 
   margin: 0;
 
-  color: var(--grey-600);
+  color: var(--blue-950);
+  font-family: var(--font-heading);
 
-  font-family: var(--font-body);
+  font-size: clamp(4.5rem, 8.5vw, 8.5rem);
+  font-weight: 800;
 
-  font-size: clamp(1rem, 1.35vw, 1.15rem);
+  line-height: 0.97;
+  letter-spacing: -0.065em;
 
-  line-height: var(--leading-loose);
+  text-wrap: balance;
+  overflow-wrap: normal;
 }
 
-/* ----------------------------------
-   Actions
------------------------------------ */
+.highlighted {
+  color: var(--blue-800);
+}
+
+/* =========================================================
+   08. DESCRIPTION
+   ========================================================= */
+
+.heroDescriptionWrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.4rem;
+
+  max-width: 720px;
+  margin-top: clamp(2rem, 3.5vw, 3rem);
+}
+
+.heroDescriptionAccent {
+  flex: 0 0 3px;
+  height: 52px;
+
+  background: var(--blue-800);
+  box-shadow: 0 16px 0 var(--yellow-500);
+}
+
+.heroDescription {
+  max-width: 650px;
+  margin: 0;
+
+  color: var(--grey-600);
+  font-family: var(--font-body);
+
+  font-size: clamp(1rem, 1.4vw, 1.2rem);
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+/* =========================================================
+   09. HERO ACTIONS
+   ========================================================= */
 
 .heroActions {
   display: flex;
-
+  align-items: center;
   flex-wrap: wrap;
 
-  align-items: center;
-
-  gap: var(--space-m);
-
-  margin-top: var(--space-xl);
-  margin-bottom: var(--space-xl);
+  gap: 0.85rem;
+  margin-top: clamp(2rem, 3vw, 2.75rem);
 }
 
 .primaryAction,
 .secondaryAction {
   display: inline-flex;
-
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
 
-  gap: var(--space-xs);
+  gap: 1.5rem;
+
+  min-height: 52px;
+  padding: 0.9rem 1.3rem;
 
   font-family: var(--font-body);
-
-  font-size: 0.86rem;
-
-  font-weight: 700;
+  font-size: 0.82rem;
+  font-weight: 800;
+  line-height: 1.4;
 
   text-decoration: none;
 
+  border: 1px solid transparent;
+
   transition:
-    transform var(--transition-fast),
-    color var(--transition-fast),
-    background var(--transition-fast),
-    border-color var(--transition-fast);
+    background 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease,
+    transform 180ms ease;
 }
 
 .primaryAction {
-  min-height: 46px;
-
-  padding: 0 1.3rem;
-
-  border: 1px solid var(--blue-950);
-
-  background: var(--blue-950);
-
   color: var(--white);
+  background: var(--blue-950);
+  border-color: var(--blue-950);
+}
+
+.primaryAction svg {
+  color: var(--yellow-500);
 }
 
 .primaryAction:hover {
-  background: var(--yellow-500);
-
-  border-color: var(--yellow-500);
-
-  color: var(--blue-950);
-
+  color: var(--white);
+  background: var(--blue-800);
+  border-color: var(--blue-800);
   transform: translateY(-2px);
 }
 
 .secondaryAction {
-  position: relative;
-
-  padding: 0.7rem 0.2rem;
-
-  color: var(--blue-800);
-}
-
-.secondaryAction::after {
-  content: "";
-
-  position: absolute;
-
-  left: 0.2rem;
-  right: 0.2rem;
-  bottom: 0.4rem;
-
-  height: 1px;
-
-  background: var(--blue-700);
-
-  transform: scaleX(0);
-
-  transform-origin: left;
-
-  transition: transform var(--transition-fast);
+  color: var(--blue-950);
+  background: rgba(255, 255, 255, 0.6);
+  border-color: var(--blue-200);
 }
 
 .secondaryAction:hover {
   color: var(--blue-950);
-
-  transform: translateY(-1px);
-}
-
-.secondaryAction:hover::after {
-  transform: scaleX(1);
+  background: var(--white);
+  border-color: var(--blue-800);
+  transform: translateY(-2px);
 }
 
 .primaryAction svg,
 .secondaryAction svg {
   flex-shrink: 0;
-
   font-size: 1rem;
-
-  transition: transform var(--transition-fast);
+  transition: transform 180ms ease;
 }
 
 .primaryAction:hover svg,
@@ -293,292 +417,371 @@
   transform: translateX(3px);
 }
 
-/* ----------------------------------
-   Metadata band
------------------------------------ */
+.primaryAction:focus-visible,
+.secondaryAction:focus-visible {
+  outline: 2px solid var(--blue-800);
+  outline-offset: 4px;
+}
+
+/* =========================================================
+   10. FULL-WIDTH METADATA BAND
+   ========================================================= */
 
 .metaBand {
   position: relative;
-
-  z-index: 1;
+  z-index: 3;
 
   width: 100%;
-  max-width: 1500px;
+  margin: 0;
+  padding: 0;
 
-  margin: 0 auto;
+  background: var(--blue-950);
+  border: 0;
+}
 
+.metaBandInner {
   display: grid;
-
   grid-template-columns: repeat(4, minmax(0, 1fr));
 
-  border-top: 1px solid var(--blue-200);
-  border-bottom: 1px solid var(--blue-200);
+  width: min(100%, 1280px);
+  margin: 0 auto;
+  padding: 0 clamp(1.25rem, 4vw, 3rem);
 }
 
 .metaItem {
-  min-width: 0;
-
-  min-height: 105px;
-
-  padding: var(--space-l);
-
   display: flex;
+  align-items: center;
+  gap: 1rem;
 
-  flex-direction: column;
+  min-width: 0;
+  min-height: 120px;
 
-  justify-content: center;
+  padding: 1.5rem clamp(1rem, 2vw, 2rem);
 
-  gap: var(--space-xs);
-
-  border-right: 1px solid var(--blue-200);
+  border-right: 1px solid rgba(105, 185, 242, 0.2);
 }
 
 .metaItem:first-child {
-  padding-left: 0;
+  border-left: 1px solid rgba(105, 185, 242, 0.2);
 }
 
-.metaItem:last-child {
-  border-right: 0;
+.metaIndex {
+  align-self: flex-start;
+  flex: 0 0 auto;
+
+  margin-top: 0.2rem;
+
+  color: var(--yellow-500);
+  font-family: var(--font-body);
+
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.metaItemContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  min-width: 0;
 }
 
 .metaLabel {
-  color: var(--grey-400);
-
+  color: var(--blue-300);
   font-family: var(--font-body);
 
-  font-size: 0.66rem;
-
-  font-weight: 700;
-
-  line-height: 1;
-
-  letter-spacing: 0.11em;
-
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 .metaValue {
-  color: var(--blue-950);
-
+  color: var(--white);
   font-family: var(--font-heading);
 
-  font-size: clamp(1rem, 1.6vw, 1.25rem);
-
-  font-weight: 650;
-
-  line-height: 1.35;
+  font-size: clamp(0.95rem, 1.25vw, 1.15rem);
+  font-weight: 700;
+  line-height: 1.45;
 
   letter-spacing: -0.02em;
-
-  word-break: break-word;
+  overflow-wrap: anywhere;
 }
 
 .metaItem:nth-child(2) .metaValue {
-  color: var(--blue-700);
+  color: var(--blue-300);
 }
 
-.metaItem:last-child .metaValue {
-  max-width: 22ch;
-
-  font-size: clamp(0.95rem, 1.35vw, 1.12rem);
-
-  line-height: 1.45;
-}
-
-/* ----------------------------------
-   Note
------------------------------------ */
+/* =========================================================
+   11. OPTIONAL NOTE
+   ========================================================= */
 
 .heroNote {
   position: relative;
-
-  z-index: 1;
-
+  z-index: 2;
   width: 100%;
-  max-width: 1500px;
+  background: var(--blue-50);
+}
 
-  margin: var(--space-xl) auto 0;
-
-  padding: var(--space-l) 0;
-
+.heroNoteInner {
   display: grid;
+  grid-template-columns: 140px minmax(0, 1fr);
+  align-items: start;
+  gap: 2rem;
 
-  grid-template-columns: 90px minmax(0, 1fr);
-
-  gap: var(--space-xl);
+  width: min(100%, 1280px);
+  margin: 0 auto;
+  padding:
+    2rem
+    clamp(1.25rem, 4vw, 3rem);
 
   border-bottom: 1px solid var(--blue-200);
 }
 
-.noteLabel {
-  color: var(--blue-700);
+.heroNoteHeading {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
 
+.heroNoteMarker {
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  background: var(--yellow-500);
+}
+
+.noteLabel {
+  color: var(--blue-800);
   font-family: var(--font-body);
 
-  font-size: 0.68rem;
-
-  font-weight: 700;
-
-  letter-spacing: 0.11em;
-
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 .heroNote p {
-  max-width: 750px;
-
+  max-width: 850px;
   margin: 0;
 
-  color: var(--grey-500);
-
+  color: var(--grey-600);
   font-family: var(--font-body);
 
-  font-size: 0.88rem;
-
-  line-height: var(--leading-loose);
+  font-size: 0.95rem;
+  line-height: 1.8;
 }
 
-/* ----------------------------------
-   Tablet
------------------------------------ */
+/* =========================================================
+   12. LARGE TABLET
+   ========================================================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
+  .heroTitleCentered {
+    max-width: 850px;
+    font-size: clamp(4.5rem, 8.5vw, 7rem);
+  }
+
   .heroWatermark {
-    width: 430px;
-    height: 430px;
-
-    right: 2rem;
-
-    opacity: 0.07;
+    right: -4rem;
+    opacity: 0.075;
   }
 
-  .heroIntro {
-    min-height: 500px;
-  }
-
-  .heroContent {
-    width: 68%;
-  }
-
-  .metaBand {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .heroGraphics {
+    right: -15%;
+    opacity: 0.65;
   }
 
   .metaItem {
-    border-bottom: 1px solid var(--blue-200);
-  }
-
-  .metaItem:nth-child(2n) {
-    border-right: 0;
-  }
-
-  .metaItem:nth-child(3),
-  .metaItem:nth-child(4) {
-    border-bottom: 0;
-  }
-
-  .metaItem:first-child {
-    padding-left: var(--space-l);
+    gap: 0.75rem;
+    padding: 1.5rem 1rem;
   }
 }
 
-/* ----------------------------------
-   Mobile
------------------------------------ */
+/* =========================================================
+   13. TABLET
+   ========================================================= */
 
-@media (max-width: 700px) {
-  .heroCentered {
-    padding: var(--section-lg) 1.25rem;
-  }
-
-  .heroIntro {
-    min-height: 0;
-
-    padding: var(--space-xl) 0 var(--space-xxl);
-  }
-
-  .heroContent {
-    width: 100%;
-  }
-
-  .heroWatermark {
-    width: 310px;
-    height: 310px;
-
-    top: 34%;
-    right: -25px;
-
-    transform: translateY(-50%);
-
-    opacity: 0.045;
-  }
-
-  .eyebrow {
-    margin-top: var(--space-xl);
-    margin-bottom: var(--space-m);
+@media (max-width: 850px) {
+  .heroNavigation {
+    margin-bottom: 3.5rem;
   }
 
   .heroTitleCentered {
-    max-width: none;
+    max-width: 750px;
+    font-size: clamp(3.8rem, 8.5vw, 5.5rem);
+  }
 
-    font-size: clamp(2.7rem, 13vw, 4.2rem);
+  .heroWatermark {
+    right: -5rem;
+    opacity: 0.05;
+  }
 
-    line-height: 0.98;
+  .heroGraphics {
+    right: -22%;
+    opacity: 0.4;
+  }
+
+  .metaBandInner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .metaItem:nth-child(2) {
+    border-right: 0;
+  }
+
+  .metaItem:nth-child(-n + 2) {
+    border-bottom: 1px solid rgba(105, 185, 242, 0.2);
+  }
+
+  .metaItem:nth-child(3) {
+    border-left: 1px solid rgba(105, 185, 242, 0.2);
+  }
+
+  .heroNoteInner {
+    grid-template-columns: 110px minmax(0, 1fr);
+  }
+}
+
+/* =========================================================
+   14. MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .heroIntro {
+    padding: 2rem 1.25rem 3.5rem;
+  }
+
+  .heroNavigation {
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+  }
+
+  .heroEyebrowRow {
+    margin-bottom: 1.25rem;
+  }
+
+  .heroTitleCentered {
+    max-width: 100%;
+    font-size: clamp(3.1rem, 11vw, 4.8rem);
+    line-height: 1.02;
+    letter-spacing: -0.055em;
+  }
+
+  .heroDescriptionWrap {
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .heroDescriptionAccent {
+    height: 44px;
   }
 
   .heroDescription {
-    max-width: 92%;
+    font-size: 1rem;
+    line-height: 1.7;
   }
 
   .heroActions {
-    gap: var(--space-s);
-
-    margin-top: var(--space-l);
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    margin-top: 2rem;
   }
 
   .primaryAction,
   .secondaryAction {
-    font-size: 0.82rem;
+    width: 100%;
   }
 
-  .metaBand {
+  .heroWatermark {
+    top: 34%;
+    right: -8rem;
+    width: 330px;
+    opacity: 0.035;
+  }
+
+  .heroGraphics {
+    top: 13%;
+    right: -11rem;
+    width: 360px;
+    opacity: 0.25;
+  }
+
+  .heroPixelThree,
+  .heroPixelFour,
+  .heroPixelFive {
+    display: none;
+  }
+
+  .metaBandInner {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding: 0 1rem;
+  }
+
+  .metaItem {
+    min-height: 100px;
+    gap: 0.6rem;
+    padding: 1.25rem 0.75rem;
+  }
+
+  .metaIndex,
+  .metaLabel {
+    font-size: 0.6rem;
+  }
+
+  .metaValue {
+    font-size: 0.9rem;
+  }
+
+  .heroNoteInner {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1.75rem 1.25rem;
+  }
+}
+
+/* =========================================================
+   15. SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+  .heroTitleCentered {
+    font-size: clamp(2.8rem, 10.5vw, 3.5rem);
+  }
+
+  .metaBandInner {
     grid-template-columns: 1fr;
   }
 
-  .metaItem,
-  .metaItem:first-child {
-    min-height: 82px;
-
-    padding: var(--space-m) 0;
-
-    border-right: 0;
-
-    border-bottom: 1px solid var(--blue-200);
-  }
-
-  .metaItem:nth-child(3) {
-    border-bottom: 1px solid var(--blue-200);
+  .metaItem {
+    min-height: 80px;
+    border-left: 1px solid rgba(105, 185, 242, 0.2);
+    border-right: 1px solid rgba(105, 185, 242, 0.2);
+    border-bottom: 1px solid rgba(105, 185, 242, 0.2);
   }
 
   .metaItem:last-child {
     border-bottom: 0;
   }
+}
 
-  .metaValue {
-    font-size: 1.05rem;
+/* =========================================================
+   16. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .primaryAction,
+  .secondaryAction,
+  .primaryAction svg,
+  .secondaryAction svg {
+    transition: none;
   }
 
-  .metaItem:last-child .metaValue {
-    max-width: 100%;
-
-    font-size: 1rem;
-  }
-
-  .heroNote {
-    grid-template-columns: 1fr;
-
-    gap: var(--space-xs);
-
-    margin-top: var(--space-l);
+  .primaryAction:hover,
+  .secondaryAction:hover,
+  .primaryAction:hover svg,
+  .secondaryAction:hover svg {
+    transform: none;
   }
 }

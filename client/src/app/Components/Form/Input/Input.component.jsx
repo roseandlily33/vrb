@@ -20,9 +20,20 @@ export default function Input({
           {label}
         </label>
       )}
-      <div className={styles.inputIconWrapper}>
-        {icon && <span className={styles.inputIcon}>{icon}</span>}
+
+      <div
+        className={`${styles.inputIconWrapper} ${
+          icon ? styles.hasIcon : ""
+        } ${error ? styles.hasError : ""}`}
+      >
+        {icon && (
+          <span className={styles.inputIcon} aria-hidden="true">
+            {icon}
+          </span>
+        )}
+
         <input
+          {...rest}
           id={name}
           name={name}
           type={type}
@@ -30,13 +41,29 @@ export default function Input({
           value={value}
           onChange={onChange}
           placeholder={placeholder}
-          {...rest}
+          aria-invalid={error ? true : undefined}
+          aria-describedby={
+            error ? `${name}-error` : helperText ? `${name}-helper` : undefined
+          }
         />
+
+        <span className={styles.inputAccent} aria-hidden="true" />
       </div>
+
       {helperText && !error && (
-        <div className={styles.helperText}>{helperText}</div>
+        <p id={`${name}-helper`} className={styles.helperText}>
+          {helperText}
+        </p>
       )}
-      {error && <div className={styles.errorText}>{error}</div>}
+
+      {error && (
+        <p id={`${name}-error`} className={styles.errorText} role="alert">
+          <span className={styles.errorIndicator} aria-hidden="true">
+            !
+          </span>
+          {error}
+        </p>
+      )}
     </div>
   );
 }

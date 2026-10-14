@@ -11,31 +11,21 @@ const sections = [
   { label: "Marketing", path: buildPackageTypeHref("marketing") },
 ];
 
-export default function Links() {
-
+export default function Links({ isPinned }) {
   return (
     <nav
-      className={styles.linksBar}
+      className={`${styles.linksBar} ${isPinned ? styles.linksBarPinned : ""}`}
       aria-label="Services navigation"
     >
       <div className={styles.inner}>
-        {sections.map((section, idx) => (
-          <div key={section.label} className={styles.linkGroup}>
-            <Link href={section.path} className={styles.linkBtn}>
-              <span className={styles.linkNumber} aria-hidden="true">
-                {String(idx + 1).padStart(2, "0")}
-              </span>
-
-              <span className={styles.linkLabel}>{section.label}</span>
-            </Link>
-
-            {idx < sections.length - 1 && (
-              <span className={styles.separator} aria-hidden="true">
-                <span className={styles.separatorLine} />
-                <span className={styles.separatorPixel} />
-              </span>
-            )}
-          </div>
+        {sections.map((section) => (
+          <Link
+            key={section.path}
+            href={section.path}
+            className={styles.linkBtn}
+          >
+            <span className={styles.linkLabel}>{section.label}</span>
+          </Link>
         ))}
       </div>
     </nav>

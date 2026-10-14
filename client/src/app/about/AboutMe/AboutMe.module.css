@@ -1,29 +1,34 @@
+/* ==========================================
+   ABOUT ME SECTION
+========================================== */
+
 .aboutMeSection {
   position: relative;
 
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(340px, 0.75fr);
+
+  align-items: center;
+  gap: clamp(3rem, 7vw, 7rem);
+
   width: 100%;
   max-width: 1500px;
-
   margin: 0 auto;
 
-  padding: var(--section-xl) 3rem;
-
-  display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(340px, 0.75fr);
-
-  gap: clamp(4rem, 8vw, 8rem);
-
-  align-items: start;
+  padding: clamp(4.5rem, 7vw, 7rem) clamp(1.25rem, 5vw, 5rem);
 
   background: var(--white);
 }
 
-/* ----------------------------------
-   Intro
------------------------------------ */
+/* ==========================================
+   INTRO
+========================================== */
 
 .aboutIntro {
   position: relative;
+  z-index: 2;
 
   max-width: 850px;
 }
@@ -31,7 +36,6 @@
 .sectionMarker {
   display: flex;
   align-items: center;
-
   gap: 0.6rem;
 
   margin-bottom: 1.5rem;
@@ -40,14 +44,12 @@
 .markerLine {
   width: 42px;
   height: 3px;
-
   background: var(--blue-800);
 }
 
 .markerPixel {
   width: 8px;
   height: 8px;
-
   background: var(--yellow-500);
 }
 
@@ -57,132 +59,187 @@
 
 .aboutIntro :global(.header) {
   max-width: 700px;
-
   margin-bottom: 2rem;
 }
 
+/* Lead paragraph */
+
 .lead {
   max-width: 760px;
-
   margin: 0;
 
   color: var(--blue-950);
-
   font-size: clamp(1.12rem, 1.6vw, 1.35rem);
   font-weight: 600;
-
   line-height: 1.65;
 }
 
+/* Supporting paragraph */
+
 .supporting {
   max-width: 760px;
-
   margin: 1.75rem 0 0;
 
-  color: var(--grey-600);
-
+  color: var(--grey-600, #525b6b);
   font-size: 1rem;
   line-height: 1.8;
 }
 
-/* ----------------------------------
-   Badges
------------------------------------ */
+/* ==========================================
+   BADGES
+========================================== */
 
 .aboutMeBadges {
-  width: 100%;
-
-  margin-top: 2.5rem;
-
   display: flex;
   flex-wrap: wrap;
-
   gap: 0.7rem;
 
+  width: 100%;
+  margin-top: 2.5rem;
   padding-top: 1.75rem;
 
   border-top: 1px solid var(--blue-100);
 }
 
-/* ----------------------------------
-   Cards
------------------------------------ */
+/* ==========================================
+   RIGHT VISUAL AREA
+========================================== */
 
-.aboutCards {
+.aboutVisual {
   position: relative;
 
   display: flex;
-  flex-direction: column;
+  align-items: center;
 
-  gap: 0;
+  width: 100%;
+  min-height: 520px;
+
+  padding-left: 2.5rem;
 }
 
-.aboutCards::before {
-  content: "";
+/* Curved connection */
 
+.connectionSvg {
   position: absolute;
+  z-index: 0;
 
   top: 0;
-  bottom: 0;
-  left: -2rem;
+  left: -3rem;
 
-  width: 1px;
+  width: calc(100% + 3rem);
+  height: 100%;
 
-  background: var(--blue-100);
+  pointer-events: none;
+}
+
+.connectionPath {
+  stroke: var(--blue-800);
+  stroke-width: 2;
+  opacity: 0.4;
+}
+
+.connectionAccent {
+  stroke: var(--blue-500);
+  stroke-width: 1.5;
+  stroke-dasharray: 5 10;
+  opacity: 0.65;
+}
+
+/* Circular connection nodes */
+
+.connectionNode {
+  position: absolute;
+  z-index: 2;
+
+  display: block;
+
+  width: 15px;
+  height: 15px;
+
+  border: 4px solid var(--white);
+  border-radius: 50%;
+
+  background: var(--blue-800);
+
+  box-shadow: 0 0 0 1px var(--blue-500);
+
+  pointer-events: none;
+}
+
+.nodeOne {
+  top: 15%;
+  left: 0;
+}
+
+.nodeTwo {
+  bottom: 15%;
+  left: 1rem;
+
+  background: var(--yellow-500);
+}
+
+/* ==========================================
+   CARDS
+========================================== */
+
+.aboutCards {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  width: 100%;
 }
 
 .aboutCard {
   position: relative;
 
-  min-height: 220px;
-
-  padding: 2rem;
-
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
 
-  background: var(--blue-50);
+  min-height: 220px;
+  padding: clamp(1.5rem, 2.5vw, 2rem);
 
   border: 1px solid var(--blue-100);
 
-  transition:
-    background 180ms ease,
-    border-color 180ms ease,
-    transform 180ms ease;
-}
+  background: var(--blue-50);
 
-.aboutCard + .aboutCard {
-  border-top: 0;
+  transition:
+    background 200ms ease,
+    border-color 200ms ease,
+    transform 200ms ease,
+    box-shadow 200ms ease;
 }
 
 .aboutCard:hover {
-  background: var(--white);
+  transform: translateX(5px);
 
+  background: var(--white);
   border-color: var(--blue-300);
 
-  transform: translateX(4px);
+  box-shadow: 0 12px 28px rgba(0, 31, 77, 0.06);
 }
 
-/* ----------------------------------
-   Card top
------------------------------------ */
+/* ==========================================
+   CARD TOP
+========================================== */
 
 .cardTop {
-  width: 100%;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
 
-  margin-bottom: 3rem;
+  width: 100%;
 }
 
 .cardNumber {
   color: var(--blue-700);
-
   font-size: 0.76rem;
   font-weight: 800;
-
   letter-spacing: 0.12em;
 }
 
@@ -193,48 +250,63 @@
   background: var(--yellow-500);
 }
 
-/* ----------------------------------
-   Card content
------------------------------------ */
+/* ==========================================
+   CARD CONTENT
+========================================== */
 
 .cardContent {
   margin-top: auto;
 }
 
-.aboutCard h4 {
+.aboutCard h3 {
   margin: 0 0 0.8rem;
 
   color: var(--blue-950);
-
   font-size: clamp(1.7rem, 2.5vw, 2.25rem);
   font-weight: 800;
-
-  line-height: 1;
+  line-height: 1.05;
   letter-spacing: -0.04em;
 }
 
 .aboutCard p {
   max-width: 36ch;
-
   margin: 0;
 
-  color: var(--grey-600);
-
+  color: var(--grey-600, #525b6b);
   font-size: 0.96rem;
   line-height: 1.7;
 }
 
-/* ----------------------------------
-   Tablet
------------------------------------ */
+/* ==========================================
+   EXTRA PIXEL ACCENT
+========================================== */
+
+.visualPixel {
+  position: absolute;
+  z-index: 2;
+
+  right: -8px;
+  bottom: 4%;
+
+  width: 10px;
+  height: 10px;
+
+  background: var(--yellow-500);
+}
+
+/* ==========================================
+   TABLET
+========================================== */
 
 @media (max-width: 1000px) {
   .aboutMeSection {
     grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
 
-    gap: 4rem;
-
-    padding-inline: 2rem;
+  .aboutVisual {
+    min-height: 0;
+    padding-left: 2rem;
   }
 
   .aboutCards {
@@ -242,51 +314,69 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .aboutCards::before {
-    display: none;
+  .aboutCard {
+    min-height: 230px;
   }
 
-  .aboutCard + .aboutCard {
-    border-top: 1px solid var(--blue-100);
-    border-left: 0;
-  }
-
-  .aboutCard:hover {
-    transform: translateY(-4px);
+  .connectionSvg {
+    left: -2rem;
+    width: calc(100% + 2rem);
   }
 }
 
-/* ----------------------------------
-   Mobile
------------------------------------ */
+/* ==========================================
+   MOBILE
+========================================== */
 
 @media (max-width: 700px) {
   .aboutMeSection {
-    padding: var(--section-lg) 1.25rem;
-
     gap: 3rem;
-  }
-
-  .aboutCards {
-    grid-template-columns: 1fr;
-  }
-
-  .aboutCard {
-    min-height: 190px;
-
-    padding: 1.5rem;
-  }
-
-  .aboutCard + .aboutCard {
-    border-left: 1px solid var(--blue-100);
-    border-top: 0;
-  }
-
-  .cardTop {
-    margin-bottom: 2rem;
+    padding: 4rem 1.25rem;
   }
 
   .aboutMeBadges {
     margin-top: 2rem;
+  }
+
+  .aboutVisual {
+    padding-left: 1.5rem;
+  }
+
+  .aboutCards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .aboutCard {
+    min-height: 190px;
+    padding: 1.5rem;
+  }
+
+  .aboutCard h3 {
+    font-size: 1.7rem;
+  }
+
+  .connectionSvg {
+    left: -1.5rem;
+    width: calc(100% + 1.5rem);
+  }
+
+  .connectionNode {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .aboutCard {
+    transition: none !important;
+  }
+
+  .aboutCard:hover {
+    transform: none;
   }
 }

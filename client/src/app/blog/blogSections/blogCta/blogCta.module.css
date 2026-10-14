@@ -1,105 +1,364 @@
-/* ----------------------------------
-   Keep reading
------------------------------------ */
+/* =========================================================
+   BLOG ARTICLE - NEXT SECTION REDESIGN
+   Editorial closing / related content
+   ========================================================= */
 
 .nextSection {
   position: relative;
+  isolation: isolate;
   width: 100%;
-  padding: var(--section-xl);
+  padding: clamp(5rem, 9vw, 9rem) clamp(1.25rem, 5vw, 4rem);
   overflow: hidden;
-  background: var(--background-six);
+  background: var(--blue-950);
 }
 
+/* Subtle structural grid */
 .nextSection::before {
-  content: '';
+  content: "";
   position: absolute;
-  width: 210px;
-  height: 210px;
-  right: 8%;
-  top: 50%;
-  transform: translateY(-50%);
-  border: 1px solid rgba(105, 185, 242, 0.35);
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.16;
+  background-image:
+    linear-gradient(rgba(105, 185, 242, 0.25) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(105, 185, 242, 0.25) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(90deg, transparent 5%, #000 100%);
 }
 
+/* Blue glow on the right */
 .nextSection::after {
-  content: '';
+  content: "";
   position: absolute;
-  width: 80px;
-  height: 80px;
-  right: 12%;
-  top: 38%;
-  background: var(--blue-800);
-  box-shadow:
-    -74px 82px 0 var(--blue-500),
-    65px 92px 0 var(--yellow-500),
-    -102px -35px 0 var(--accent-blue-strong);
+  z-index: -1;
+  width: min(60vw, 760px);
+  aspect-ratio: 1;
+  right: -20%;
+  top: -35%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(27, 138, 228, 0.14),
+    transparent 70%
+  );
+  pointer-events: none;
 }
 
 .nextInner {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   width: min(100%, 1180px);
   margin: 0 auto;
 }
 
-.nextEyebrow {
+/* =========================
+   CONTENT
+   ========================= */
+
+.nextContent {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+}
+
+.nextTopline {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.nextMarker {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.nextMarker span {
   display: block;
-  margin-bottom: var(--space-m);
+  width: 9px;
+  height: 9px;
+  background: var(--yellow-500);
+}
+
+.nextMarker span:last-child {
+  background: var(--blue-500);
+  transform: translateY(-5px);
+}
+
+.nextEyebrow {
+  display: inline-block;
+  margin: 0;
   color: var(--yellow-500);
   font-family: var(--font-body);
-  font-size: 0.76rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
+  font-size: 0.75rem;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
-.nextInner h2 {
-  max-width: 760px;
+.nextContent h2 {
+  max-width: 850px;
   margin: 0;
   color: var(--white);
   font-family: var(--font-heading);
-  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  font-size: clamp(2.75rem, 6vw, 5.75rem);
   font-weight: 800;
-  line-height: 0.98;
-  letter-spacing: -0.05em;
+  line-height: 1.02;
+  letter-spacing: -0.055em;
+  text-wrap: balance;
 }
 
-.nextInner p {
-  max-width: 640px;
-  margin: var(--space-l) 0 0;
+.nextContent p {
+  max-width: 660px;
+  margin: clamp(1.5rem, 3vw, 2.25rem) 0 0;
   color: var(--blue-200);
   font-family: var(--font-body);
-  font-size: 1.05rem;
-  line-height: var(--leading-loose);
+  font-size: clamp(1rem, 1.4vw, 1.125rem);
+  font-weight: 400;
+  line-height: 1.8;
 }
 
+/* =========================
+   DECORATIVE ORBIT
+   ========================= */
+
+.nextArtwork {
+  position: absolute;
+  z-index: 0;
+  top: -55px;
+  right: -30px;
+  width: 350px;
+  height: 350px;
+  pointer-events: none;
+}
+
+.nextOrbit {
+  position: absolute;
+  inset: 25px;
+  border: 1px solid rgba(105, 185, 242, 0.28);
+  border-radius: 50%;
+  transform: rotate(-24deg);
+}
+
+.nextOrbit::before {
+  content: "";
+  position: absolute;
+  inset: 38px;
+  border: 1px dashed rgba(105, 185, 242, 0.2);
+  border-radius: 50%;
+}
+
+.nextOrbitInner {
+  position: absolute;
+  inset: 94px;
+  border: 1px solid rgba(255, 210, 31, 0.42);
+  border-radius: 50%;
+}
+
+.nextOrbitDot {
+  position: absolute;
+  top: 30px;
+  left: 44px;
+  width: 14px;
+  height: 14px;
+  background: var(--yellow-500);
+  border-radius: 50%;
+  box-shadow: 0 0 0 8px rgba(255, 210, 31, 0.08);
+}
+
+/* Pixel cluster */
+.nextPixels {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  width: 120px;
+  height: 120px;
+}
+
+.nextPixels span {
+  position: absolute;
+  display: block;
+  width: 18px;
+  height: 18px;
+  background: var(--blue-500);
+}
+
+.nextPixels span:nth-child(1) {
+  top: 10px;
+  left: 35px;
+  background: var(--yellow-500);
+}
+
+.nextPixels span:nth-child(2) {
+  top: 38px;
+  left: 65px;
+  background: var(--blue-800);
+}
+
+.nextPixels span:nth-child(3) {
+  top: 70px;
+  left: 20px;
+  background: var(--blue-500);
+}
+
+.nextPixels span:nth-child(4) {
+  top: 86px;
+  left: 85px;
+  background: var(--yellow-500);
+}
+
+.nextPixels span:nth-child(5) {
+  top: 12px;
+  left: 95px;
+  width: 10px;
+  height: 10px;
+  background: var(--white);
+}
+
+/* =========================
+   LINK LIST
+   ========================= */
+
 .nextLinks {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-l) var(--space-xl);
-  margin-top: var(--space-xl);
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: clamp(3rem, 6vw, 5rem);
+  border: 1px solid rgba(105, 185, 242, 0.25);
+  background: rgba(105, 185, 242, 0.25);
 }
 
 .textLink {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  min-height: 48px;
-  padding: 0 var(--space-l);
-  background: var(--white);
-  border: 1px solid var(--white);
-  color: var(--blue-950);
+  gap: clamp(0.75rem, 2vw, 1.5rem);
+  min-width: 0;
+  min-height: 110px;
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+  background: var(--blue-950);
+  color: var(--white);
   font-family: var(--font-body);
-  font-size: 0.9rem;
-  font-weight: 700;
   text-decoration: none;
   transition:
-    background var(--transition-fast),
-    color var(--transition-fast),
-    border-color var(--transition-fast);
+    background 200ms ease,
+    color 200ms ease;
 }
 
-.textLink:hover {
-  background: var(--yellow-500);
+.textLink:hover,
+.textLink:focus-visible {
+  background: var(--blue-800);
+  color: var(--white);
+}
+
+.textLink:focus-visible {
+  outline: 2px solid var(--yellow-500);
+  outline-offset: -4px;
+}
+
+.nextLinkNumber {
+  align-self: flex-start;
+  flex-shrink: 0;
+  color: var(--blue-500);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.nextLinkLabel {
+  flex: 1;
+  min-width: 0;
+  font-size: clamp(0.95rem, 1.4vw, 1.1rem);
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.nextLinkArrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(105, 185, 242, 0.4);
+  color: var(--yellow-500);
+  font-size: 1.1rem;
+  transition:
+    transform 200ms ease,
+    border-color 200ms ease;
+}
+
+.textLink:hover .nextLinkArrow,
+.textLink:focus-visible .nextLinkArrow {
+  transform: translate(3px, -3px);
   border-color: var(--yellow-500);
-  color: var(--blue-950);
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 900px) {
+  .nextArtwork {
+    top: -75px;
+    right: -120px;
+    opacity: 0.45;
+  }
+
+  .nextContent {
+    max-width: 720px;
+  }
+}
+
+@media (max-width: 640px) {
+  .nextSection {
+    padding: 4.5rem 1.25rem;
+  }
+
+  .nextSection::before {
+    background-size: 48px 48px;
+  }
+
+  .nextArtwork {
+    top: -110px;
+    right: -170px;
+    transform: scale(0.8);
+    opacity: 0.25;
+  }
+
+  .nextContent h2 {
+    font-size: clamp(2.4rem, 10vw, 3.5rem);
+  }
+
+  .nextContent p {
+    line-height: 1.7;
+  }
+
+  .nextLinks {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 3rem;
+  }
+
+  .textLink {
+    min-height: 86px;
+    padding: 1.25rem;
+  }
+
+  .nextLinkArrow {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .textLink,
+  .nextLinkArrow {
+    transition: none;
+  }
 }

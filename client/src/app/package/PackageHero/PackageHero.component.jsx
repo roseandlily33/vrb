@@ -50,22 +50,68 @@ export default function PackageHero({ type = "web" }) {
   const { eyebrow, title, description } = contentMap[key];
 
   return (
-  <section className={styles.packagesHero}>
-  <div style={{ padding: "0 var(--section-lg)" }}>
-    <Breadcrumbs
-      current={type + (type !== "seo" ? " Packages" : "")}
-      first="Services"
-      firstLink="/services"
-    />
-  </div>
+    <section
+      className={styles.packagesHero}
+      aria-labelledby="packages-hero-title"
+    >
+      <div className={styles.heroInner}>
+        {/* BREADCRUMBS */}
+        <div className={styles.breadcrumbWrapper}>
+          <Breadcrumbs
+            current={type + (type !== "seo" ? " Packages" : "")}
+            first="Services"
+            firstLink="/services"
+          />
+        </div>
 
-  <div className={styles.packagesHeroContent}>
-    <span className={styles.eyebrow}>{eyebrow}</span>
+        {/* MAIN CONTENT */}
+        <div className={styles.packagesHeroContent}>
+          <span className={styles.eyebrow}>{eyebrow}</span>
 
-    <h1>{title}</h1>
+          <h1 id="packages-hero-title">{title}</h1>
 
-    <p>{description}</p>
-  </div>
-</section>
+          <p>{description}</p>
+        </div>
+
+        {/* DECORATIVE PIXELS */}
+        <div className={styles.heroPixels} aria-hidden="true">
+          <span className={styles.pixelOne} />
+          <span className={styles.pixelTwo} />
+          <span className={styles.pixelThree} />
+          <span className={styles.pixelFour} />
+        </div>
+
+        {/* DECORATIVE ORBIT */}
+        <div className={styles.heroOrbit} aria-hidden="true">
+          <svg
+            viewBox="0 0 500 300"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <ellipse
+              cx="250"
+              cy="150"
+              rx="225"
+              ry="65"
+              transform="rotate(-25 250 150)"
+              stroke="currentColor"
+              strokeWidth="1.5"
+            />
+            <ellipse
+              cx="250"
+              cy="150"
+              rx="190"
+              ry="45"
+              transform="rotate(25 250 150)"
+              stroke="currentColor"
+              strokeWidth="1"
+              strokeDasharray="5 9"
+            />
+            <circle cx="380" cy="90" r="5" fill="#FFD21F" />
+            <circle cx="110" cy="205" r="5" fill="#269BE6" />
+          </svg>
+        </div>
+      </div>
+    </section>
   );
 }

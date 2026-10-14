@@ -54,59 +54,86 @@ export default function Packages({ type = "web" }) {
             : "Custom web development services for businesses that need scalable platforms, advanced functionality, integrations, and tailored workflows.";
 
   return (
-    <section className={styles.packagesSection} id="packages">
-      <span className="eyebrowHeader">Packages</span>
-      <h2 className="heading">{heading}</h2>
-      <p className="meta">{description}</p>
-      <div className={`${styles.cardGrid} `}>
-        {list?.map((pkg) => {
-          const isFeatured = Boolean(pkg.highlight);
-          return (
-            <Card
-              key={pkg.title + pkg.type}
-              bare={true}
-              className={
-                styles.packageCard +
-                (isFeatured
-                  ? " " + styles.featuredCard
-                  : " " + styles.nonFeaturedCard)
-              }
-            >
-              {pkg.highlight && <MostPopular>Most Popular</MostPopular>}
-              <div className={styles.cardTop}>
-                <div className={styles.cardHeader}>
-                  <div>
-                    <h3 className={styles.cardTitle}>{pkg.title}</h3>
-                    <div className={styles.bestFor}>{pkg.bestFor}</div>
+    <section
+      className={styles.packagesSection}
+      id="packages"
+      aria-labelledby="packages-heading"
+    >
+      <div className={styles.packagesInner}>
+        <div className={styles.packagesHeader}>
+          <div className={styles.headerMarker} aria-hidden="true">
+            <span className={styles.markerLine} />
+            <span className={styles.markerPixel} />
+          </div>
+
+          <span className="eyebrowHeader">Packages</span>
+
+          <h2 id="packages-heading" className="heading">
+            {heading}
+          </h2>
+
+          <p className="meta">{description}</p>
+        </div>
+
+        <div className={styles.cardGrid}>
+          {list?.map((pkg) => {
+            const isFeatured = Boolean(pkg.highlight);
+
+            return (
+              <Card
+                key={pkg.title + pkg.type}
+                bare={true}
+                className={`${styles.packageCard} ${
+                  isFeatured ? styles.featuredCard : styles.nonFeaturedCard
+                }`}
+              >
+                {pkg.highlight && <MostPopular>Most Popular</MostPopular>}
+
+                <div className={styles.cardTop}>
+                  <div className={styles.cardHeader}>
+                    <div>
+                      <h3 className={styles.cardTitle}>{pkg.title}</h3>
+
+                      <div className={styles.bestFor}>{pkg.bestFor}</div>
+                    </div>
                   </div>
-                </div>
-                <div className={styles.priceSection}>
-                  <div className={styles.priceLabel}>STARTING AT</div>
-                  <div className={styles.priceValue}>{pkg.startingAt}</div>
-                  <div className={styles.timelineRow}>
-                    <FaRegClock className={styles.clockIcon} />
-                    <span className={styles.timelineText}>
-                      Approx. {pkg.timeline}
-                    </span>
+
+                  <div className={styles.priceSection}>
+                    <div className={styles.priceLabel}>STARTING AT</div>
+
+                    <div className={styles.priceValue}>{pkg.startingAt}</div>
+
+                    <div className={styles.timelineRow}>
+                      <FaRegClock
+                        className={styles.clockIcon}
+                        aria-hidden="true"
+                      />
+                      <span className={styles.timelineText}>
+                        Approx. {pkg.timeline}
+                      </span>
+                    </div>
                   </div>
+
+                  <p className={styles.cardDesc}>{pkg.description}</p>
                 </div>
-                <p className={styles.cardDesc}>{pkg.description}</p>
-              </div>
-              <div className={styles.cardBottomButtonWrapper}>
-                <TertiaryButton onClick={() => handleSeeWhatsIncluded(pkg)}>
-                  See what’s included
-                  <FaArrowRight
-                    style={{
-                      marginLeft: "0.5em",
-                      fontSize: "1em",
-                      verticalAlign: "-2px",
-                    }}
-                  />
-                </TertiaryButton>
-              </div>
-            </Card>
-          );
-        })}
+
+                <div className={styles.cardBottomButtonWrapper}>
+                  <TertiaryButton onClick={() => handleSeeWhatsIncluded(pkg)}>
+                    See what’s included
+                    <FaArrowRight
+                      style={{
+                        marginLeft: "0.5em",
+                        fontSize: "1em",
+                        verticalAlign: "-2px",
+                      }}
+                      aria-hidden="true"
+                    />
+                  </TertiaryButton>
+                </div>
+              </Card>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

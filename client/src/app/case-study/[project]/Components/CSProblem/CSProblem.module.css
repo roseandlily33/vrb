@@ -1,442 +1,548 @@
+/* =========================================================
+   CASE STUDY - PROBLEM / CHALLENGE SECTION
+   ========================================================= */
+
 .problem {
   position: relative;
-
+  isolation: isolate;
   width: 100%;
-
-  padding: var(--section-xl) var(--section-lg);
-
+  padding: clamp(5rem, 9vw, 9rem) clamp(1.25rem, 5vw, 4rem);
   overflow: hidden;
-
-  background:
-    radial-gradient(
-      circle at 88% 22%,
-      rgba(27, 138, 228, 0.06),
-      transparent 28%
-    ),
-    linear-gradient(
-      180deg,
-      var(--white) 0%,
-      var(--blue-50) 100%
-    );
+  background: var(--white);
 }
-
-/* ----------------------------------
-   Background grid
------------------------------------ */
 
 .problem::before {
   content: "";
-
   position: absolute;
   inset: 0;
-
+  z-index: -1;
   background-image:
-    linear-gradient(
-      rgba(0, 84, 201, 0.018) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(0, 84, 201, 0.018) 1px,
-      transparent 1px
-    );
-
-  background-size: 46px 46px;
-
+    linear-gradient(rgba(0, 84, 201, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 84, 201, 0.025) 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: linear-gradient(90deg, transparent 25%, black 100%);
   pointer-events: none;
 }
 
 .problemInner {
   position: relative;
-
   z-index: 1;
-
-  width: 100%;
-  max-width: 1500px;
-
-  margin: 0 auto;
-
   display: grid;
-
-  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.72fr);
-
-  gap: clamp(3rem, 7vw, 7rem);
-
+  grid-template-columns:
+    minmax(0, 1.05fr)
+    minmax(0, 0.95fr);
   align-items: center;
+  gap: clamp(3rem, 7vw, 8rem);
+  width: min(100%, 1280px);
+  margin: 0 auto;
 }
 
-/* ----------------------------------
-   Content
------------------------------------ */
+/* =========================================================
+   CONTENT
+   ========================================================= */
 
 .problemContent {
-  max-width: 760px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  max-width: 650px;
+}
+
+.problemSectionMeta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.problemSectionNumber {
+  color: var(--blue-800);
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .marker {
-  display: flex;
-
+  display: inline-flex;
   align-items: center;
-
-  gap: 0.55rem;
-
-  margin-bottom: 1rem;
+  gap: 6px;
 }
 
 .markerLine {
-  width: 38px;
-  height: 3px;
-
+  display: block;
+  width: 40px;
+  height: 2px;
   background: var(--blue-800);
 }
 
 .markerPixel {
+  display: block;
   width: 7px;
   height: 7px;
-
   background: var(--yellow-500);
 }
 
 .problemContent :global(.eyebrowHeader) {
-  margin: 0 0 0.8rem;
-
+  margin: 0 0 1rem;
   color: var(--blue-700);
-}
-
-.problemContent h2 {
-  max-width: 780px;
-
-  margin: 0;
-
-  color: var(--blue-950);
-
-  font-size: clamp(2.5rem, 4.6vw, 4.4rem);
-
+  font-family: var(--font-body);
+  font-size: 0.7rem;
   font-weight: 800;
-
-  line-height: 0.97;
-
-  letter-spacing: -0.055em;
-}
-
-.prob {
-  max-width: 720px;
-
-  margin: 1.5rem 0 0;
-
-  color: var(--grey-700);
-
-  font-size: clamp(1rem, 1.25vw, 1.08rem);
-
-  line-height: 1.8;
-
-  word-break: break-word;
-}
-
-/* ----------------------------------
-   Image
------------------------------------ */
-
-.imgContainer {
-  min-width: 0;
-
-  display: flex;
-
-  justify-content: flex-end;
-}
-
-.imageButton {
-  position: relative;
-
-  width: min(100%, 520px);
-
-  padding: 0;
-
-  display: block;
-
-  border: 1px solid var(--blue-200);
-
-  background: var(--white);
-
-  cursor: zoom-in;
-
-  overflow: hidden;
-
-  box-shadow: 0 18px 50px rgba(0, 31, 77, 0.08);
-
-  transition:
-    transform 180ms ease,
-    border-color 180ms ease,
-    box-shadow 180ms ease;
-}
-
-.imageButton:hover {
-  transform: translateY(-4px);
-
-  border-color: var(--blue-400);
-
-  box-shadow: 0 24px 60px rgba(0, 31, 77, 0.12);
-}
-
-.imageButton:focus-visible {
-  outline: 2px solid var(--yellow-500);
-
-  outline-offset: 4px;
-}
-
-.homeImg {
-  width: 100%;
-  height: auto;
-
-  aspect-ratio: 4 / 3;
-
-  display: block;
-
-  object-fit: cover;
-  object-position: top;
-
-  transition: transform 220ms ease;
-}
-
-.imageButton:hover .homeImg {
-  transform: scale(1.015);
-}
-
-/* ----------------------------------
-   Image details
------------------------------------ */
-
-.imageIndex {
-  position: absolute;
-
-  z-index: 2;
-
-  top: 1rem;
-  left: 1rem;
-
-  padding: 0.45rem 0.55rem;
-
-  background: var(--blue-950);
-
-  color: var(--yellow-500);
-
-  font-size: 0.65rem;
-
-  font-weight: 800;
-
-  letter-spacing: 0.12em;
-}
-
-.expandLabel {
-  position: absolute;
-
-  z-index: 2;
-
-  left: 1rem;
-  bottom: 1rem;
-
-  padding: 0.48rem 0.7rem;
-
-  background: var(--blue-950);
-
-  color: var(--white);
-
-  font-size: 0.68rem;
-
-  font-weight: 750;
-
-  letter-spacing: 0.08em;
-
+  letter-spacing: 0.15em;
   text-transform: uppercase;
 }
 
-.imagePixel {
-  position: absolute;
+.problemContent h2 {
+  max-width: 13ch;
+  margin: 0;
+  color: var(--blue-950);
+  font-family: var(--font-heading);
+  font-size: clamp(2.9rem, 5vw, 5.4rem);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+  text-wrap: balance;
+}
 
-  z-index: 2;
+.problemHeadingAccent {
+  color: var(--blue-800);
+}
 
-  right: 1rem;
-  bottom: 1rem;
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
 
-  width: 9px;
-  height: 9px;
+.problemDescriptionBlock {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  width: 100%;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
 
+.problemDescriptionLine {
+  flex-shrink: 0;
+  width: 3px;
+  height: 64px;
+  background: var(--blue-800);
+  box-shadow: 0 19px 0 var(--yellow-500);
+}
+
+.prob {
+  max-width: 620px;
+  margin: 0;
+  color: var(--grey-700);
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.3vw, 1.12rem);
+  line-height: 1.85;
+  overflow-wrap: break-word;
+}
+
+.problemBottomDetail {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 3rem;
+}
+
+.problemBottomLine {
+  display: block;
+  width: 70px;
+  height: 1px;
+  background: var(--blue-300);
+}
+
+.problemBottomSquare {
+  display: block;
+  width: 7px;
+  height: 7px;
   background: var(--yellow-500);
 }
 
-/* ----------------------------------
-   Modal
------------------------------------ */
+/* =========================================================
+   IMAGE CONTAINER
+   ========================================================= */
+
+.imgContainer {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  min-width: 0;
+  padding: 0 16px 16px 0;
+}
+
+.imgContainer::before {
+  content: "";
+  position: absolute;
+  top: -22px;
+  right: -16px;
+  bottom: 38px;
+  left: 24px;
+  border: 1px solid var(--blue-200);
+  pointer-events: none;
+}
+
+.imgContainer::after {
+  content: "";
+  position: absolute;
+  z-index: 0;
+  right: 0;
+  bottom: 0;
+  width: 75px;
+  height: 75px;
+  background: var(--blue-800);
+  pointer-events: none;
+}
+
+.imageFrame {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 590px;
+  background: var(--white);
+  border: 1px solid var(--blue-200);
+  box-shadow: 0 22px 55px rgba(0, 18, 51, 0.07);
+}
+
+.imageFrameHeader,
+.imageFrameFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+}
+
+.imageFrameHeader {
+  border-bottom: 1px solid var(--blue-100);
+}
+
+.imageFrameLabel,
+.imageFrameCount {
+  font-family: var(--font-body);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.imageFrameLabel {
+  color: var(--blue-800);
+}
+
+.imageFrameCount {
+  color: var(--grey-500);
+}
+
+/* =========================================================
+   IMAGE BUTTON
+   ========================================================= */
+
+.imageButton {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  background: var(--blue-50);
+  cursor: zoom-in;
+}
+
+.imageButton:focus-visible {
+  outline: 3px solid var(--yellow-500);
+  outline-offset: -3px;
+}
+
+.homeImg {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 300ms ease;
+}
+
+.imageButton:hover .homeImg {
+  transform: scale(1.035);
+}
+
+/* =========================================================
+   IMAGE HOVER OVERLAY
+   ========================================================= */
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  background: rgba(0, 18, 51, 0.7);
+  opacity: 0;
+  transition: opacity 250ms ease;
+}
+
+.imageButton:hover .imageOverlay,
+.imageButton:focus-visible .imageOverlay {
+  opacity: 1;
+}
+
+.expandIcon {
+  display: grid;
+  place-items: center;
+  width: 60px;
+  height: 60px;
+  color: var(--blue-950);
+  background: var(--yellow-500);
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.expandLabel {
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   IMAGE FOOTER
+   ========================================================= */
+
+.imageFrameFooter {
+  min-height: 58px;
+  border-top: 1px solid var(--blue-100);
+  color: var(--grey-500);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.imageFooterPixels {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.imageFooterPixels i {
+  display: block;
+  width: 7px;
+  height: 7px;
+  background: var(--blue-800);
+}
+
+.imageFooterPixels i:nth-child(2) {
+  background: var(--blue-500);
+}
+
+.imageFooterPixels i:nth-child(3) {
+  background: var(--yellow-500);
+}
+
+/* =========================================================
+   IMAGE MODAL
+   ========================================================= */
 
 .modal {
   position: fixed;
-
   inset: 0;
-
   z-index: 9999;
-
   display: flex;
-
   align-items: center;
   justify-content: center;
-
   padding: 2rem;
-
-  background: rgba(0, 18, 51, 0.94);
-
+  background: rgba(0, 18, 51, 0.96);
   cursor: zoom-out;
 }
 
 .modal::before {
   content: "";
-
   position: absolute;
   inset: 0;
-
   background-image:
-    linear-gradient(
-      rgba(105, 185, 242, 0.025) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(105, 185, 242, 0.025) 1px,
-      transparent 1px
-    );
-
-  background-size: 46px 46px;
-
+    linear-gradient(rgba(105, 185, 242, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(105, 185, 242, 0.035) 1px, transparent 1px);
+  background-size: 54px 54px;
   pointer-events: none;
 }
 
 .modalImageWrap {
   position: relative;
-
   z-index: 1;
-
-  max-width: 92vw;
-  max-height: 90vh;
-
   display: flex;
-
   align-items: center;
   justify-content: center;
-
+  max-width: 92vw;
+  max-height: 90vh;
   cursor: default;
 }
 
 .modalImage {
+  display: block;
   width: auto;
   height: auto;
-
   max-width: 92vw;
   max-height: 90vh;
-
   object-fit: contain;
-
   background: var(--white);
-
   box-shadow: 0 30px 90px rgba(0, 0, 0, 0.35);
 }
 
 .modalClose {
   position: absolute;
-
-  z-index: 2;
-
+  z-index: 3;
   top: 1.5rem;
   right: 1.5rem;
-
-  width: 44px;
-  height: 44px;
-
   display: grid;
-
   place-items: center;
-
-  border: 1px solid rgba(255, 255, 255, 0.3);
-
-  background: transparent;
-
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  background: var(--blue-950);
   color: var(--white);
-
-  font-size: 1.5rem;
-
+  font-size: 1.8rem;
   line-height: 1;
-
   cursor: pointer;
-
   transition:
-    background 160ms ease,
-    color 160ms ease,
-    border-color 160ms ease;
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
 }
 
 .modalClose:hover {
   background: var(--yellow-500);
-
   border-color: var(--yellow-500);
-
   color: var(--blue-950);
 }
 
 .modalClose:focus-visible {
   outline: 2px solid var(--yellow-500);
-
   outline-offset: 4px;
 }
 
-/* ----------------------------------
-   Tablet
------------------------------------ */
+/* =========================================================
+   RESPONSIVE - TABLET
+   ========================================================= */
 
-@media (max-width: 950px) {
-  .problem {
-    padding: var(--section-lg) var(--section-md);
-  }
-
+@media (max-width: 1000px) {
   .problemInner {
     grid-template-columns: 1fr;
+    gap: 4rem;
+  }
 
-    gap: 3rem;
+  .problemContent {
+    max-width: 760px;
+  }
+
+  .problemContent h2 {
+    max-width: 15ch;
   }
 
   .imgContainer {
     justify-content: flex-start;
+    max-width: 720px;
   }
 
-  .imageButton {
-    width: min(100%, 650px);
+  .imageFrame {
+    max-width: 100%;
   }
 }
 
-/* ----------------------------------
-   Mobile
------------------------------------ */
+/* =========================================================
+   RESPONSIVE - MOBILE
+   ========================================================= */
 
 @media (max-width: 650px) {
   .problem {
-    padding: var(--section-lg) 1.25rem;
+    padding: 5rem 1.25rem;
   }
 
   .problemInner {
-    gap: 2.5rem;
+    gap: 3.5rem;
+  }
+
+  .problemSectionMeta {
+    gap: 1rem;
+    margin-bottom: 2.5rem;
   }
 
   .problemContent h2 {
-    font-size: clamp(2.2rem, 10vw, 3.3rem);
+    max-width: none;
+    font-size: clamp(2.5rem, 10vw, 3.7rem);
+  }
+
+  .problemDescriptionBlock {
+    gap: 1rem;
+    margin-top: 2rem;
   }
 
   .prob {
     font-size: 0.98rem;
+    line-height: 1.75;
   }
 
-  .imageButton {
-    width: 100%;
+  .problemBottomDetail {
+    margin-top: 2rem;
+  }
+
+  .imgContainer {
+    padding: 0 10px 10px 0;
+  }
+
+  .imgContainer::before {
+    top: -12px;
+    right: -8px;
+    bottom: 25px;
+    left: 12px;
+  }
+
+  .imgContainer::after {
+    width: 45px;
+    height: 45px;
+  }
+
+  .imageFrameHeader,
+  .imageFrameFooter {
+    padding: 0.85rem 1rem;
+  }
+
+  .homeImg {
+    aspect-ratio: 4 / 3;
+  }
+
+  .imageOverlay {
+    opacity: 1;
+    inset: auto 0 0;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: linear-gradient(
+      0deg,
+      rgba(0, 18, 51, 0.9),
+      rgba(0, 18, 51, 0.7)
+    );
+  }
+
+  .expandIcon {
+    width: 32px;
+    height: 32px;
+    font-size: 1.15rem;
   }
 
   .expandLabel {
-    font-size: 0.62rem;
+    font-size: 0.65rem;
   }
 
   .modal {
@@ -446,13 +552,28 @@
   .modalClose {
     top: 1rem;
     right: 1rem;
-
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
   }
 
   .modalImage {
     max-width: 94vw;
     max-height: 86vh;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .homeImg,
+  .imageOverlay,
+  .modalClose {
+    transition: none;
+  }
+
+  .imageButton:hover .homeImg {
+    transform: none;
   }
 }

@@ -1,50 +1,39 @@
+/* ==========================================
+   FAQ SECTION
+========================================== */
+
 .faqSection {
   position: relative;
+  isolation: isolate;
 
   width: 100%;
-
-  padding: var(--section-xl) 3rem;
-
   overflow: hidden;
+
+  padding: clamp(5rem, 8vw, 8rem) clamp(1.5rem, 5vw, 5rem);
 
   background:
     radial-gradient(
-      circle at 90% 8%,
-      rgba(27, 138, 228, 0.15),
-      transparent 28%
+      circle at 92% 12%,
+      rgba(27, 138, 228, 0.13),
+      transparent 30%
     ),
     var(--blue-950);
 }
 
-/* ----------------------------------
-   Background grid
------------------------------------ */
+/* Subtle background grid */
 
 .faqSection::before {
   content: "";
-
   position: absolute;
   inset: 0;
 
   background-image:
-    linear-gradient(
-      rgba(105, 185, 242, 0.025) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(105, 185, 242, 0.025) 1px,
-      transparent 1px
-    );
+    linear-gradient(rgba(105, 185, 242, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(105, 185, 242, 0.025) 1px, transparent 1px);
 
   background-size: 46px 46px;
-
   pointer-events: none;
 }
-
-/* ----------------------------------
-   Inner
------------------------------------ */
 
 .faqInner {
   position: relative;
@@ -52,24 +41,32 @@
 
   width: 100%;
   max-width: 1300px;
-
   margin: 0 auto;
 }
 
-/* ----------------------------------
-   Header
------------------------------------ */
+/* ==========================================
+   HEADER
+========================================== */
 
 .faqHeader {
-  max-width: 850px;
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(250px, 0.5fr);
+
+  align-items: end;
+  gap: clamp(2rem, 6vw, 6rem);
 
   margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.headerContent {
+  max-width: 850px;
 }
 
 .headerMarker {
   display: flex;
   align-items: center;
-
   gap: 0.6rem;
 
   margin-bottom: 1.25rem;
@@ -78,14 +75,12 @@
 .markerLine {
   width: 42px;
   height: 3px;
-
   background: var(--yellow-500);
 }
 
 .markerPixel {
   width: 8px;
   height: 8px;
-
   background: var(--blue-500);
 }
 
@@ -93,59 +88,60 @@
   margin: 0;
 
   color: var(--white);
+  font-family: var(--font-heading);
 
   font-size: clamp(2.8rem, 5vw, 5rem);
   font-weight: 800;
-
-  line-height: 0.98;
+  line-height: 1.02;
   letter-spacing: -0.055em;
+
+  text-wrap: balance;
 }
 
 .meta {
-  max-width: 620px;
-
-  margin: 1.25rem 0 0;
+  max-width: 420px;
+  margin: 0;
 
   color: var(--blue-200);
-
   font-size: 1rem;
-
-  line-height: 1.75;
+  line-height: 1.8;
 }
 
-/* ----------------------------------
-   FAQ list
------------------------------------ */
+/* ==========================================
+   FAQ LIST
+========================================== */
 
 .faqList {
   width: 100%;
-
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-top: 1px solid rgba(255, 255, 255, 0.17);
 }
 
-/* ----------------------------------
-   Item
------------------------------------ */
+/* ==========================================
+   FAQ ITEM
+========================================== */
 
 .faqItem {
   position: relative;
-
   width: 100%;
 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.17);
 
-  overflow: hidden;
-
-  transition: background 180ms ease;
+  transition: background 200ms ease;
 }
+
+.faqItem:hover,
+.faqItem[open] {
+  background: rgba(105, 185, 242, 0.055);
+}
+
+/* Yellow open indicator */
 
 .faqItem::before {
   content: "";
 
   position: absolute;
-
-  left: 0;
   top: 0;
+  left: 0;
   bottom: 0;
 
   width: 3px;
@@ -155,44 +151,30 @@
   transform: scaleY(0);
   transform-origin: center;
 
-  transition: transform 180ms ease;
+  transition: transform 220ms ease;
 }
 
-.faqItem:hover,
-.faqItem[open] {
-  background: rgba(27, 138, 228, 0.07);
-}
-
-.faqItem:hover::before,
 .faqItem[open]::before {
   transform: scaleY(1);
 }
 
-/* ----------------------------------
-   Summary
------------------------------------ */
+/* ==========================================
+   QUESTION
+========================================== */
 
 .question {
-  width: 100%;
-
-  min-height: 92px;
-
-  padding: 1.5rem 1.5rem;
-
-  display: grid;
-  grid-template-columns: 80px minmax(0, 1fr) 48px;
-
-  gap: clamp(1rem, 3vw, 2rem);
-
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+
+  width: 100%;
+  min-height: 94px;
+
+  padding: 1.75rem 2rem;
 
   list-style: none;
-
   cursor: pointer;
-
-  transition:
-    background 180ms ease,
-    padding-left 180ms ease;
 }
 
 .question::-webkit-details-marker {
@@ -200,12 +182,7 @@
 }
 
 .question::marker {
-  display: none;
   content: "";
-}
-
-.question:hover {
-  padding-left: 1.8rem;
 }
 
 .question:focus-visible {
@@ -213,53 +190,42 @@
   outline-offset: -2px;
 }
 
-/* ----------------------------------
-   Number
------------------------------------ */
-
-.number {
-  color: var(--yellow-500);
-
-  font-size: 0.7rem;
-  font-weight: 800;
-
-  letter-spacing: 0.12em;
-}
-
-/* ----------------------------------
-   Question text
------------------------------------ */
-
 .questionText {
+  max-width: 950px;
+
   color: var(--white);
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.025em;
 
-  font-size: clamp(1.1rem, 1.8vw, 1.35rem);
-  font-weight: 750;
-
-  line-height: 1.35;
-  letter-spacing: -0.02em;
+  transition: color 200ms ease;
 }
 
-/* ----------------------------------
-   Plus control
------------------------------------ */
+.faqItem[open] .questionText {
+  color: var(--white);
+}
+
+/* ==========================================
+   PLUS / MINUS ICON
+========================================== */
 
 .plus {
   position: relative;
-
-  width: 42px;
-  height: 42px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+
+  border: 1px solid rgba(255, 255, 255, 0.24);
 
   transition:
-    background 180ms ease,
-    border-color 180ms ease,
-    transform 180ms ease;
+    background 200ms ease,
+    border-color 200ms ease;
 }
 
 .plus span {
@@ -270,7 +236,9 @@
 
   background: var(--blue-200);
 
-  transition: background 180ms ease;
+  transition:
+    background 200ms ease,
+    transform 200ms ease;
 }
 
 .plus span:last-child {
@@ -278,87 +246,100 @@
 }
 
 .question:hover .plus {
-  background: var(--blue-800);
-
-  border-color: var(--blue-800);
-}
-
-.question:hover .plus span {
-  background: var(--yellow-500);
+  border-color: var(--blue-500);
+  background: rgba(105, 185, 242, 0.1);
 }
 
 .faqItem[open] .plus {
   background: var(--yellow-500);
-
   border-color: var(--yellow-500);
-
-  transform: rotate(45deg);
 }
 
 .faqItem[open] .plus span {
   background: var(--blue-950);
 }
 
-/* ----------------------------------
-   Answer animation
------------------------------------ */
+.faqItem[open] .plus span:last-child {
+  transform: rotate(0deg);
+}
+
+/* ==========================================
+   ANSWER
+========================================== */
 
 .answerWrap {
-  display: grid;
-
-  grid-template-rows: 0fr;
-
-  transition: grid-template-rows 260ms ease;
+  width: 100%;
 }
 
-.faqItem[open] .answerWrap {
-  grid-template-rows: 1fr;
-}
-
-.answerGrid {
-  min-height: 0;
-
-  overflow: hidden;
-
-  display: grid;
-  grid-template-columns: 80px minmax(0, 1fr) 48px;
-
-  gap: clamp(1rem, 3vw, 2rem);
-
-  padding: 0 1.5rem;
+.answerInner {
+  padding: 0 5.5rem 2rem 2rem;
 }
 
 .answer {
-  grid-column: 2;
-
-  max-width: 780px;
-
-  padding: 0 0 1.8rem;
+  max-width: 850px;
 
   color: var(--blue-200);
-
   font-size: 1rem;
-
-  line-height: 1.75;
+  line-height: 1.85;
 }
 
-/* ----------------------------------
-   Tablet
------------------------------------ */
+/* Support paragraphs and lists in FAQ answers */
+
+.answer p {
+  margin: 0 0 1rem;
+}
+
+.answer p:last-child {
+  margin-bottom: 0;
+}
+
+.answer ul,
+.answer ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.answer li + li {
+  margin-top: 0.5rem;
+}
+
+.answer a {
+  color: var(--white);
+  text-decoration: underline;
+  text-decoration-color: var(--yellow-500);
+  text-underline-offset: 3px;
+}
+
+.answer a:hover {
+  color: var(--yellow-500);
+}
+
+/* ==========================================
+   TABLET
+========================================== */
 
 @media (max-width: 900px) {
   .faqSection {
-    padding: var(--section-lg) 2rem;
+    padding: 5rem 2rem;
+  }
+
+  .faqHeader {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .meta {
+    max-width: 650px;
   }
 }
 
-/* ----------------------------------
-   Mobile
------------------------------------ */
+/* ==========================================
+   MOBILE
+========================================== */
 
 @media (max-width: 650px) {
   .faqSection {
-    padding: var(--section-lg) 1.25rem;
+    padding: 4.5rem 1.25rem;
   }
 
   .faqHeader {
@@ -366,53 +347,51 @@
   }
 
   .faqHeader h2 {
-    font-size: clamp(2.5rem, 12vw, 4rem);
+    font-size: clamp(2.5rem, 11vw, 4rem);
   }
 
   .question {
-    min-height: 78px;
+    min-height: 76px;
+    padding: 1.35rem 0.85rem;
 
-    padding: 1.25rem 0.75rem;
-
-    grid-template-columns: 44px minmax(0, 1fr) 38px;
-
-    gap: 0.85rem;
-  }
-
-  .question:hover {
-    padding-left: 0.9rem;
-  }
-
-  .number {
-    font-size: 0.62rem;
+    gap: 1rem;
   }
 
   .questionText {
     font-size: 1rem;
+    line-height: 1.5;
   }
 
   .plus {
     width: 36px;
     height: 36px;
+    flex-basis: 36px;
   }
 
   .plus span {
     width: 12px;
   }
 
-  .answerGrid {
-    grid-template-columns: 44px minmax(0, 1fr) 38px;
-
-    gap: 0.85rem;
-
-    padding: 0 0.75rem;
+  .answerInner {
+    padding: 0 1rem 1.75rem 0.85rem;
   }
 
   .answer {
-    grid-column: 2;
-
-    padding-bottom: 1.5rem;
-
     font-size: 0.95rem;
+    line-height: 1.8;
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .faqItem,
+  .faqItem::before,
+  .questionText,
+  .plus,
+  .plus span {
+    transition: none !important;
   }
 }

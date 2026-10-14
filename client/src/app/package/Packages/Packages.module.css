@@ -1,194 +1,186 @@
+/* ==========================================
+   PACKAGE SECTION
+========================================== */
+
 .packagesSection {
   position: relative;
-
+  isolation: isolate;
   width: 100%;
-
-  padding: var(--section-xl) var(--section-lg);
-
-  display: flex;
-  flex-direction: column;
-
+  padding: clamp(5rem, 8vw, 8rem) clamp(1.25rem, 5vw, 5rem);
   overflow: hidden;
 
   background:
     radial-gradient(
       circle at 88% 12%,
-      rgba(27, 138, 228, 0.06),
-      transparent 26%
+      rgba(27, 138, 228, 0.07),
+      transparent 30%
     ),
-    linear-gradient(
-      180deg,
-      var(--white) 0%,
-      var(--blue-50) 100%
-    );
+    linear-gradient(180deg, var(--white) 0%, var(--blue-50) 100%);
 }
 
 .packagesSection::before {
   content: "";
-
   position: absolute;
   inset: 0;
+  pointer-events: none;
 
   background-image:
-    linear-gradient(
-      rgba(0, 84, 201, 0.018) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(0, 84, 201, 0.018) 1px,
-      transparent 1px
-    );
+    linear-gradient(rgba(0, 84, 201, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 84, 201, 0.018) 1px, transparent 1px);
 
   background-size: 46px 46px;
-
-  pointer-events: none;
 }
 
-.packagesSection > * {
+.packagesInner {
   position: relative;
   z-index: 1;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
 }
 
-/* ----------------------------------
-   Grid
------------------------------------ */
+/* ==========================================
+   SECTION HEADER
+========================================== */
+
+.packagesHeader {
+  max-width: 850px;
+  margin-bottom: clamp(2.75rem, 5vw, 4.5rem);
+}
+
+.headerMarker {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.markerLine {
+  width: 42px;
+  height: 3px;
+  background: var(--blue-800);
+}
+
+.markerPixel {
+  width: 8px;
+  height: 8px;
+  background: var(--yellow-500);
+}
+
+.packagesHeader :global(.heading) {
+  margin-top: 0.85rem;
+  margin-bottom: 1rem;
+  color: var(--blue-950);
+  text-wrap: balance;
+}
+
+.packagesHeader :global(.meta) {
+  max-width: 680px;
+  line-height: 1.8;
+}
+
+/* ==========================================
+   PACKAGE GRID
+========================================== */
 
 .cardGrid,
 .designGrid {
-  width: 100%;
-
-  margin-top: clamp(3rem, 6vw, 5rem);
-
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-
-  gap: 1.25rem;
-
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: stretch;
+  gap: 1.25rem;
+  width: 100%;
 }
 
-/* ----------------------------------
-   Package card
------------------------------------ */
+/* ==========================================
+   PACKAGE CARDS
+========================================== */
 
 .packageCard {
   position: relative;
-
-  min-width: 0;
-  min-height: 600px;
-
-  padding: clamp(1.6rem, 2.6vw, 2.25rem);
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  overflow: visible;
+  min-width: 0;
+  min-height: 0;
+  padding: clamp(1.75rem, 3vw, 2.75rem);
 
+  overflow: visible;
   border-radius: 0;
 
   transition:
-    transform 180ms ease,
-    box-shadow 180ms ease,
-    background 180ms ease;
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    background 220ms ease;
 }
 
 .nonFeaturedCard {
-  background: rgba(255, 255, 255, 0.94);
-
+  background: rgba(255, 255, 255, 0.97);
   border: 1px solid var(--blue-200);
-
-  box-shadow:
-    0 14px 36px rgba(0, 31, 77, 0.045);
+  box-shadow: 0 12px 34px rgba(0, 31, 77, 0.04);
 }
 
 .nonFeaturedCard:hover {
   transform: translateY(-4px);
-
-  box-shadow:
-    0 20px 48px rgba(0, 31, 77, 0.075);
+  box-shadow: 0 20px 48px rgba(0, 31, 77, 0.09);
 }
 
-/* ----------------------------------
-   Featured
------------------------------------ */
+/* ==========================================
+   FEATURED PACKAGE
+========================================== */
 
 .featuredCard {
-  background:
-    linear-gradient(
-      180deg,
-      var(--blue-950) 0%,
-      var(--blue-900) 100%
-    );
+  background: linear-gradient(145deg, var(--blue-950), var(--blue-900));
 
   border: 1px solid var(--blue-900);
-
-  box-shadow:
-    0 22px 52px rgba(0, 31, 77, 0.18);
+  box-shadow: 0 18px 48px rgba(0, 31, 77, 0.15);
 }
 
 .featuredCard:hover {
   transform: translateY(-4px);
-
-  box-shadow:
-    0 28px 60px rgba(0, 31, 77, 0.23);
+  box-shadow: 0 25px 58px rgba(0, 31, 77, 0.22);
 }
-
-/* top yellow detail */
 
 .featuredCard::before {
   content: "";
-
   position: absolute;
-
-  left: 0;
   top: 0;
-
-  width: 54px;
+  left: 0;
+  width: 65px;
   height: 4px;
-
   background: var(--yellow-500);
 }
 
-/* ----------------------------------
-   Card top
------------------------------------ */
+/* ==========================================
+   CARD CONTENT
+========================================== */
 
 .cardTop {
   display: flex;
   flex-direction: column;
-
   gap: 1.65rem;
 }
 
-/* ----------------------------------
-   Header
------------------------------------ */
-
 .cardHeader {
   display: flex;
-
   align-items: flex-start;
-
   gap: 1rem;
 }
 
 .cardHeader > div:last-child {
   flex: 1;
+  min-width: 0;
 }
 
 .cardTitle {
   margin: 0 0 0.75rem;
-
   color: var(--blue-950);
+  font-family: var(--font-heading);
 
-  font-size: clamp(1.55rem, 2vw, 1.9rem);
-
+  font-size: clamp(1.5rem, 2.3vw, 2rem);
   font-weight: 800;
-
-  line-height: 1.02;
-
+  line-height: 1.12;
   letter-spacing: -0.045em;
 }
 
@@ -197,16 +189,10 @@
 }
 
 .bestFor {
-  max-width: 28ch;
-
-  margin: 0;
-
+  max-width: 46ch;
   color: var(--grey-600);
-
-  font-size: 0.96rem;
-
+  font-size: 0.93rem;
   font-weight: 500;
-
   line-height: 1.65;
 }
 
@@ -214,18 +200,16 @@
   color: var(--blue-200);
 }
 
-/* ----------------------------------
-   Price
------------------------------------ */
+/* ==========================================
+   PRICING
+========================================== */
 
 .priceSection {
-  padding-top: 1.5rem;
-
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
 
-  gap: 0.55rem;
-
+  padding-top: 1.5rem;
   border-top: 1px solid var(--blue-200);
 }
 
@@ -234,34 +218,22 @@
 }
 
 .priceLabel {
-  color: var(--grey-500);
-
-  font-size: 0.7rem;
-
+  color: var(--grey-500, #687385);
+  font-size: 0.68rem;
   font-weight: 800;
-
-  line-height: 1;
-
   letter-spacing: 0.14em;
-
   text-transform: uppercase;
 }
 
 .featuredCard .priceLabel {
-  color: var(--blue-300);
+  color: var(--blue-200);
 }
 
 .priceValue {
-  margin-top: 0.15rem;
-
   color: var(--blue-950);
-
-  font-size: clamp(2.5rem, 4vw, 3.6rem);
-
+  font-size: clamp(2.6rem, 4vw, 3.5rem);
   font-weight: 800;
-
-  line-height: 0.95;
-
+  line-height: 1;
   letter-spacing: -0.055em;
 }
 
@@ -269,25 +241,17 @@
   color: var(--yellow-500);
 }
 
-/* ----------------------------------
-   Timeline
------------------------------------ */
-
 .timelineRow {
   display: flex;
-
   align-items: center;
-
+  flex-wrap: wrap;
   gap: 0.55rem;
-
   margin-top: 0.35rem;
 }
 
 .clockIcon {
   flex-shrink: 0;
-
   color: var(--blue-700);
-
   font-size: 0.9rem;
 }
 
@@ -296,10 +260,8 @@
 }
 
 .timelineText {
-  color: var(--grey-500);
-
-  font-size: 0.88rem;
-
+  color: var(--grey-600);
+  font-size: 0.85rem;
   font-weight: 600;
 }
 
@@ -307,499 +269,171 @@
   color: var(--blue-200);
 }
 
-/* ----------------------------------
-   Description
------------------------------------ */
+/* ==========================================
+   DESCRIPTION
+========================================== */
 
 .cardDesc {
-  max-width: 31ch;
-
+  max-width: 58ch;
   margin: 0;
-
-  padding-top: 1.45rem;
+  padding-top: 1.5rem;
 
   border-top: 1px solid var(--blue-200);
-
   color: var(--grey-700);
 
-  font-size: 0.98rem;
-
-  line-height: 1.7;
+  font-size: 0.94rem;
+  line-height: 1.75;
 }
 
 .featuredCard .cardDesc {
   border-top-color: rgba(255, 255, 255, 0.15);
-
-  color: var(--blue-100);
+  color: var(--blue-200);
 }
 
-/* ----------------------------------
-   CTA
------------------------------------ */
+/* ==========================================
+   CARD ACTION
+========================================== */
 
 .cardBottomButtonWrapper {
-  margin-top: auto;
-
-  padding-top: 2rem;
-
   display: flex;
   justify-content: flex-start;
+  margin-top: auto;
+  padding-top: 2rem;
 }
 
 .cardBottomButtonWrapper button,
 .cardBottomButtonWrapper a {
-  font-size: 0.95rem;
-
+  font-size: 0.92rem;
   font-weight: 800;
 }
-
-/* ----------------------------------
-   Featured CTA treatment
------------------------------------ */
 
 .featuredCard .cardBottomButtonWrapper button,
 .featuredCard .cardBottomButtonWrapper a {
   color: var(--yellow-500);
 }
 
-/* ----------------------------------
-   Hover accent
------------------------------------ */
+/* ==========================================
+   CARD ACCENT
+========================================== */
 
 .packageCard::after {
   content: "";
-
   position: absolute;
-
-  left: 0;
   bottom: 0;
+  left: 0;
 
   width: 0;
   height: 3px;
 
   background: var(--yellow-500);
-
-  transition: width 200ms ease;
+  transition: width 220ms ease;
 }
 
 .packageCard:hover::after {
-  width: 52px;
+  width: 65px;
 }
+
+/* The MostPopular component may have its own
+   styling. This class is retained if used there. */
 
 .mostPopular {
   position: absolute;
-
+  z-index: 3;
   top: -14px;
   right: 18px;
 
   padding: 0.55rem 0.8rem;
-
   background: var(--yellow-500);
-
   color: var(--blue-950);
 
   font-size: 0.68rem;
-
   font-weight: 900;
-
   letter-spacing: 0.1em;
-
   text-transform: uppercase;
-
-  border-radius: 0;
-
-  box-shadow: none;
-}
-
-.tabsWrapper {
-  width: 100%;
-
-  margin-top: 3rem;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.tabs {
-  width: 100%;
-  max-width: 1000px;
-
-  margin-bottom: 2.5rem;
-
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-
-  gap: 0;
-}
-
-.tab {
-  position: relative;
-
-  min-height: 68px;
-
-  padding: 1rem 1.25rem;
-
-  background: var(--white);
-
-  border: 1px solid var(--blue-200);
-
-  color: var(--blue-700);
-
-  font-size: 0.95rem;
-
-  font-weight: 700;
-
-  cursor: pointer;
-
-  outline: none;
-
-  border-radius: 0;
-
-  box-shadow: none;
-
-  transition:
-    background 180ms ease,
-    color 180ms ease;
-}
-
-.tab + .tab {
-  border-left: 0;
-}
-
-.tab:not(:disabled):hover,
-.tab:not(:disabled):focus-visible {
-  background: var(--blue-50);
-
-  color: var(--blue-950);
-}
-
-.activeTab {
-  background: var(--blue-950);
-
-  color: var(--white);
-
-  cursor: default;
-}
-
-.activeTab::after {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  bottom: 0;
-
-  width: 100%;
-  height: 3px;
-
-  background: var(--yellow-500);
-}
-
-.tabTitle {
-  font-weight: 800;
-
-  font-size: 1rem;
-}
-
-.tabType {
-  margin-left: 0.35rem;
-
-  color: var(--blue-500);
-
-  font-size: 0.78rem;
-
-  font-weight: 700;
-
-  opacity: 1;
-}
-
-.activeTab .tabType {
-  color: var(--blue-300);
-}
-
-.detailCard {
-  position: relative;
-
-  width: 100%;
-  max-width: 800px;
-
-  margin: 0 auto;
-
-  padding: clamp(1.75rem, 4vw, 3rem);
-
-  display: flex;
-  flex-direction: column;
-
-  background: var(--white);
-
-  border: 1px solid var(--blue-200);
-
-  border-radius: 0;
-
-  box-shadow:
-    0 18px 48px rgba(0, 31, 77, 0.065);
-}
-
-.mostPopularInside {
-  position: absolute;
-
-  top: 0;
-  right: 0;
-
-  z-index: 2;
-}
-
-.detailTop {
-  width: 100%;
-
-  margin-bottom: 2.25rem;
-}
-
-.detailMetaRow {
-  margin: 1.25rem 0 0.8rem;
-
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-
-  gap: 0.8rem;
-
-  color: var(--blue-700);
-
-  font-size: 0.95rem;
-
-  font-weight: 700;
-}
-
-.cardPrice {
-  color: var(--blue-950);
-
-  font-size: 1.35rem;
-
-  font-weight: 800;
-}
-
-.detailDivider {
-  color: var(--blue-300);
-
-  font-size: 1rem;
-
-  font-weight: 700;
-}
-
-.cardMeta {
-  color: var(--grey-600);
-
-  font-weight: 700;
-}
-
-.detailBody {
-  width: 100%;
-
-  margin-bottom: 2rem;
-
-  padding-top: 2rem;
-
-  border-top: 1px solid var(--blue-200);
-}
-
-.includesTitle {
-  margin: 0 0 1.25rem;
-
-  color: var(--blue-950);
-
-  font-size: 1.15rem;
-
-  font-weight: 800;
-}
-
-/* ----------------------------------
-   Features
------------------------------------ */
-
-.featuresList {
-  margin: 0;
-  padding: 0;
-
-  display: flex;
-  flex-direction: column;
-
-  gap: 0.9rem;
-
-  list-style: none;
-}
-
-.featureItem {
-  position: relative;
-
-  padding: 0 0 0 1.4rem;
-
-  color: var(--grey-700);
-
-  font-size: 0.98rem;
-
-  font-weight: 550;
-
-  line-height: 1.55;
-}
-
-.featureItem::before {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  top: 0.65em;
-
-  width: 7px;
-  height: 7px;
-
-  background: var(--blue-500);
-
   border-radius: 0;
 }
 
-/* ----------------------------------
-   Actions
------------------------------------ */
+/* ==========================================
+   TABLET
+========================================== */
 
-.detailActions {
-  width: 100%;
-
-  margin-top: 1.75rem;
-
-  display: flex;
-  justify-content: flex-start;
-}
-
-.detailActions button {
-  padding: 0.85rem 1.4rem;
-
-  background: var(--blue-950);
-
-  color: var(--white);
-
-  border: 1px solid var(--blue-950);
-
-  border-radius: 0;
-
-  box-shadow: none;
-
-  font-size: 0.95rem;
-
-  font-weight: 800;
-
-  transition:
-    background 180ms ease,
-    color 180ms ease,
-    border-color 180ms ease;
-}
-
-.detailActions button:hover,
-.detailActions button:focus-visible {
-  background: var(--yellow-500);
-
-  color: var(--blue-950);
-
-  border-color: var(--yellow-500);
-}
-
-@media (max-width: 1200px) {
+@media (max-width: 980px) {
   .cardGrid,
   .designGrid {
     gap: 1rem;
   }
 
   .packageCard {
-    min-height: 560px;
-
     padding: 1.75rem 1.5rem;
   }
 }
 
-@media (max-width: 980px) {
+/* ==========================================
+   SMALL TABLET
+========================================== */
+
+@media (max-width: 760px) {
   .cardGrid,
   .designGrid {
     grid-template-columns: 1fr;
-
-    max-width: 720px;
-
-    margin-inline: auto;
+    max-width: 620px;
   }
 
   .packageCard {
-    min-height: auto;
+    padding: 2rem;
   }
 
-  .cardDesc,
-  .bestFor {
-    max-width: 100%;
-  }
-
-  .featuredCard,
   .featuredCard:hover,
   .nonFeaturedCard:hover {
     transform: none;
   }
-
-  .tabs {
-    grid-template-columns: 1fr;
-  }
-
-  .tab + .tab {
-    border-left: 1px solid var(--blue-200);
-
-    border-top: 0;
-  }
 }
 
-@media (max-width: 700px) {
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
   .packagesSection {
-    padding: var(--section-lg) 1.25rem;
+    padding: 4.5rem 1.25rem;
   }
 
-  .cardGrid,
-  .designGrid {
-    margin-top: 2.5rem;
+  .packagesHeader {
+    margin-bottom: 2.5rem;
   }
 
   .packageCard {
-    padding: 1.5rem 1.25rem;
+    padding: 1.65rem 1.35rem;
   }
 
   .cardTitle {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
 
   .priceValue {
-    font-size: 2.45rem;
+    font-size: 2.7rem;
   }
 
-  .timelineText,
   .cardDesc {
     font-size: 0.93rem;
   }
 
-  .tabs {
-    margin-bottom: 1.75rem;
+  .cardBottomButtonWrapper {
+    padding-top: 1.75rem;
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .packageCard,
+  .packageCard::after {
+    transition: none !important;
   }
 
-  .tab {
-    min-height: 60px;
-
-    padding: 0.85rem 1rem;
-  }
-
-  .detailCard {
-    padding: 1.5rem 1.25rem;
-  }
-
-  .detailMetaRow {
-    gap: 0.5rem;
-  }
-
-  .featureItem {
-    font-size: 0.95rem;
+  .packageCard:hover {
+    transform: none;
   }
 }

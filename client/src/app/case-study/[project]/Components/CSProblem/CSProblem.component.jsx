@@ -24,82 +24,123 @@ const CSProblem = ({ problemDescription, homeSrc }) => {
   }, [modalOpen, handleKeyDown]);
 
   return (
-    <section className={styles.problem}>
-  <div className={styles.problemInner}>
-    <div className={styles.problemContent}>
-      <div className={styles.marker} aria-hidden="true">
-        <span className={styles.markerLine} />
-        <span className={styles.markerPixel} />
+    <section className={styles.problem} id="challenge">
+      <div className={styles.problemInner}>
+        {/* SECTION CONTENT */}
+        <div className={styles.problemContent}>
+          <div className={styles.problemSectionMeta}>
+            <span className={styles.problemSectionNumber}>
+              01 / THE CHALLENGE
+            </span>
+
+            <div className={styles.marker} aria-hidden="true">
+              <span className={styles.markerLine} />
+              <span className={styles.markerPixel} />
+            </div>
+          </div>
+
+          <p className="eyebrowHeader">Problem</p>
+
+          <h2>
+            The challenge
+            <span className={styles.problemHeadingAccent}>
+              {" "}
+              we needed to solve.
+            </span>
+          </h2>
+
+          <div className={styles.problemDescriptionBlock}>
+            <span
+              className={styles.problemDescriptionLine}
+              aria-hidden="true"
+            />
+
+            <p className={styles.prob}>{problemDescription}</p>
+          </div>
+
+          <div className={styles.problemBottomDetail} aria-hidden="true">
+            <span className={styles.problemBottomLine} />
+            <span className={styles.problemBottomSquare} />
+          </div>
+        </div>
+
+        {/* PROJECT SCREENSHOT */}
+        {homeSrc && (
+          <div className={styles.imgContainer}>
+            <div className={styles.imageFrame}>
+              <div className={styles.imageFrameHeader}>
+                <span className={styles.imageFrameLabel}>PROJECT PREVIEW</span>
+
+                <span className={styles.imageFrameCount}>FIG. 01</span>
+              </div>
+
+              <button
+                type="button"
+                className={styles.imageButton}
+                onClick={() => setModalOpen(true)}
+                aria-label="Expand project screenshot"
+                aria-haspopup="dialog"
+              >
+                <Image
+                  src={homeSrc}
+                  alt="Screenshot of the project interface"
+                  className={styles.homeImg}
+                  width={800}
+                  height={600}
+                />
+
+                <span className={styles.imageOverlay} aria-hidden="true">
+                  <span className={styles.expandIcon}>↗</span>
+                  <span className={styles.expandLabel}>View larger</span>
+                </span>
+              </button>
+
+              <div className={styles.imageFrameFooter}>
+                <span>Interface overview</span>
+                <span className={styles.imageFooterPixels} aria-hidden="true">
+                  <i />
+                  <i />
+                  <i />
+                </span>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
 
-      <p className="eyebrowHeader">Problem</p>
-
-      <h2>The challenge we needed to solve</h2>
-
-      <p className={styles.prob}>{problemDescription}</p>
-    </div>
-
-    {homeSrc && (
-      <div className={styles.imgContainer}>
-        <button
-          type="button"
-          className={styles.imageButton}
-          onClick={() => setModalOpen(true)}
-          aria-label="Expand image"
+      {/* FULLSCREEN IMAGE MODAL */}
+      {modalOpen && homeSrc && (
+        <div
+          className={styles.modal}
+          onClick={() => setModalOpen(false)}
+          aria-modal="true"
+          role="dialog"
+          aria-label="Expanded project screenshot"
         >
-          <span className={styles.imageIndex} aria-hidden="true">
-            01
-          </span>
+          <button
+            type="button"
+            className={styles.modalClose}
+            onClick={() => setModalOpen(false)}
+            aria-label="Close image"
+          >
+            <span aria-hidden="true">×</span>
+          </button>
 
-          <Image
-            src={homeSrc}
-            alt="home page screenshot"
-            className={styles.homeImg}
-            width={800}
-            height={600}
-          />
-
-          <span className={styles.expandLabel} aria-hidden="true">
-            View larger
-          </span>
-
-          <span className={styles.imagePixel} aria-hidden="true" />
-        </button>
-      </div>
-    )}
-  </div>
-
-  {modalOpen && (
-    <div
-      className={styles.modal}
-      onClick={() => setModalOpen(false)}
-      aria-modal="true"
-      role="dialog"
-    >
-      <button
-        type="button"
-        className={styles.modalClose}
-        onClick={() => setModalOpen(false)}
-        aria-label="Close image"
-      >
-        ×
-      </button>
-
-      <div
-        className={styles.modalImageWrap}
-        onClick={(e) => e.stopPropagation()}
-      >
-        <Image
-          src={homeSrc}
-          alt="Full screen home page screenshot"
-          className={styles.modalImage}
-          width={1200}
-          height={900}
-        />
-      </div>
-    </div>
-  )}
-</section>
+          <div
+            className={styles.modalImageWrap}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src={homeSrc}
+              alt="Expanded screenshot of the project interface"
+              className={styles.modalImage}
+              width={1200}
+              height={900}
+            />
+          </div>
+        </div>
+      )}
+    </section>
   );
 };
 

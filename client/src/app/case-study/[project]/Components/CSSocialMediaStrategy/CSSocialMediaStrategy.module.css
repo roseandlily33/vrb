@@ -1,570 +1,471 @@
+/* =========================================================
+   SOCIAL MEDIA STRATEGY
+   ========================================================= */
+
 .section {
   position: relative;
-
+  isolation: isolate;
   width: 100%;
-
-  padding: var(--section-xl) var(--section-lg);
-
+  padding: clamp(5rem, 9vw, 9rem) clamp(1.25rem, 5vw, 4rem);
   overflow: hidden;
-
   background:
     radial-gradient(
-      circle at 88% 10%,
+      circle at 88% 12%,
       rgba(27, 138, 228, 0.06),
-      transparent 27%
+      transparent 28%
     ),
-    linear-gradient(
-      180deg,
-      var(--white) 0%,
-      var(--blue-50) 100%
-    );
+    linear-gradient(180deg, var(--white) 0%, var(--blue-50) 100%);
 }
-
-/* ----------------------------------
-   Background grid
------------------------------------ */
 
 .section::before {
   content: "";
-
   position: absolute;
   inset: 0;
-
+  z-index: -1;
   background-image:
-    linear-gradient(
-      rgba(0, 84, 201, 0.018) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(0, 84, 201, 0.018) 1px,
-      transparent 1px
-    );
-
+    linear-gradient(rgba(0, 84, 201, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 84, 201, 0.018) 1px, transparent 1px);
   background-size: 46px 46px;
-
   pointer-events: none;
 }
 
 .sectionInner {
   position: relative;
-
   z-index: 1;
-
-  width: 100%;
-  max-width: 1500px;
-
+  width: min(100%, 1280px);
   margin: 0 auto;
 }
 
-/* ----------------------------------
-   Intro
------------------------------------ */
+/* =========================================================
+   INTRODUCTION
+   ========================================================= */
 
 .intro {
   display: grid;
-
   grid-template-columns:
-    minmax(280px, 0.82fr)
-    minmax(0, 1.18fr);
-
-  gap: clamp(3rem, 8vw, 8rem);
-
+    minmax(0, 0.95fr)
+    minmax(0, 1.05fr);
   align-items: end;
-
+  gap: clamp(2.5rem, 7vw, 7rem);
   padding-bottom: clamp(3rem, 6vw, 5rem);
 }
 
 .headingBlock {
   display: flex;
-
   flex-direction: column;
+  min-width: 0;
 }
 
-/* ----------------------------------
-   Marker
------------------------------------ */
+/* =========================================================
+   HEADER MARKER
+   ========================================================= */
 
 .markerGroup {
   display: flex;
-
   align-items: center;
-
   gap: 0.55rem;
-
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .markerLine {
-  width: 38px;
-  height: 3px;
-
+  width: 42px;
+  height: 2px;
   background: var(--blue-800);
 }
 
 .markerPixel {
   width: 7px;
   height: 7px;
-
   background: var(--yellow-500);
 }
 
-/* ----------------------------------
-   Title
------------------------------------ */
+/* =========================================================
+   SECTION HEADING
+   ========================================================= */
 
-.title {
-  max-width: 11ch;
-
-  margin: 0;
-
-  color: var(--blue-950);
-
-  font-family: var(--font-heading);
-
-  font-size: clamp(2.6rem, 4.8vw, 4.6rem);
-
+.eyebrow {
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--blue-700);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
   font-weight: 800;
-
-  line-height: 0.97;
-
-  letter-spacing: -0.055em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
-/* ----------------------------------
-   Objective
------------------------------------ */
+.title {
+  max-width: 850px;
+  margin: 0;
+  color: var(--blue-950);
+  font-family: var(--font-heading);
+  font-size: clamp(2.3rem, 3.6vw, 3.7rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.05em;
+  text-wrap: balance;
+}
+
+/* =========================================================
+   OBJECTIVE
+   ========================================================= */
 
 .objectiveBlock {
   position: relative;
+  min-width: 0;
+  max-width: 650px;
+  padding: 1.5rem 0 0 1.75rem;
+  border-left: 2px solid var(--blue-800);
+}
 
-  max-width: 720px;
+.objectiveBlock::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -2px;
+  width: 2px;
+  height: 32px;
+  background: var(--yellow-500);
+}
 
-  padding: 1.4rem 0 1.4rem 1.5rem;
-
-  border-left: 3px solid var(--yellow-500);
+.objectiveTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
 }
 
 .label {
   display: block;
-
-  margin-bottom: 0.75rem;
-
   color: var(--blue-700);
-
-  font-size: 0.65rem;
-
+  font-family: var(--font-body);
+  font-size: 0.68rem;
   font-weight: 800;
-
-  letter-spacing: 0.11em;
-
+  letter-spacing: 0.12em;
   text-transform: uppercase;
+}
+
+.objectivePixel {
+  width: 7px;
+  height: 7px;
+  background: var(--yellow-500);
 }
 
 .objective {
   margin: 0;
-
   color: var(--grey-700);
-
-  font-family: var(--font-heading);
-
-  font-size: clamp(1.15rem, 1.7vw, 1.45rem);
-
+  font-family: var(--font-body);
+  font-size: clamp(1rem, 1.35vw, 1.15rem);
   font-weight: 500;
-
-  line-height: 1.55;
-
-  letter-spacing: -0.02em;
+  line-height: 1.8;
 }
 
-/* ----------------------------------
-   Approach
------------------------------------ */
+/* =========================================================
+   APPROACH SECTION
+   ========================================================= */
 
 .approachSection {
+  position: relative;
   width: 100%;
-
-  padding: clamp(2rem, 4vw, 3rem) 0;
-
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
   border-top: 1px solid var(--blue-200);
   border-bottom: 1px solid var(--blue-200);
 }
 
 .approachHeader {
   display: grid;
-
   grid-template-columns:
-    minmax(240px, 0.8fr)
-    minmax(0, 1.2fr);
-
-  gap: clamp(2rem, 6vw, 6rem);
-
+    minmax(0, 1fr)
+    minmax(0, 1fr);
   align-items: start;
+  gap: clamp(2rem, 6vw, 6rem);
+}
+
+.approachHeading {
+  min-width: 0;
 }
 
 .cardEyebrow {
   display: block;
-
-  margin-bottom: 0.6rem;
-
+  margin-bottom: 0.8rem;
   color: var(--blue-700);
-
-  font-size: 0.64rem;
-
+  font-family: var(--font-body);
+  font-size: 0.67rem;
   font-weight: 800;
-
-  letter-spacing: 0.11em;
-
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
 .approachTitle {
+  max-width: 500px;
   margin: 0;
-
   color: var(--blue-950);
-
   font-family: var(--font-heading);
-
-  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
-
+  font-size: clamp(1.65rem, 2.4vw, 2.35rem);
   font-weight: 800;
-
-  line-height: 1.08;
-
-  letter-spacing: -0.035em;
+  line-height: 1.12;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
 }
 
-/* ----------------------------------
-   Approach metadata
------------------------------------ */
+/* =========================================================
+   APPROACH METADATA
+   ========================================================= */
 
 .approachMeta {
   display: grid;
-
   grid-template-columns:
     minmax(0, 1fr)
-    minmax(140px, 0.4fr);
-
-  gap: clamp(1.5rem, 4vw, 3rem);
+    minmax(0, 0.7fr);
+  gap: clamp(1.5rem, 3vw, 3rem);
 }
 
 .metaGroup {
-  min-width: 0;
-
   display: flex;
-
   flex-direction: column;
-
-  gap: 0.65rem;
+  align-items: flex-start;
+  gap: 0.9rem;
+  min-width: 0;
 }
 
 .metaLabel {
-  color: var(--grey-400);
-
-  font-size: 0.62rem;
-
+  color: var(--grey-600);
+  font-family: var(--font-body);
+  font-size: 0.65rem;
   font-weight: 800;
-
-  letter-spacing: 0.1em;
-
+  letter-spacing: 0.11em;
   text-transform: uppercase;
 }
 
 .metaValue {
   color: var(--blue-950);
-
   font-family: var(--font-heading);
-
-  font-size: 0.95rem;
-
+  font-size: 0.98rem;
   font-weight: 700;
+  line-height: 1.5;
 }
 
-/* ----------------------------------
-   Channels
------------------------------------ */
+/* =========================================================
+   CHANNELS
+   ========================================================= */
 
 .channels {
   display: flex;
-
   flex-wrap: wrap;
-
-  gap: 0.7rem 1rem;
+  gap: 0.5rem;
 }
 
 .channel {
   display: inline-flex;
-
   align-items: center;
-
-  gap: 0.5rem;
-
+  gap: 0.55rem;
+  padding: 0.55rem 0.8rem;
+  border: 1px solid var(--blue-200);
+  background: var(--white);
   color: var(--blue-800);
-
-  font-size: 0.77rem;
-
+  font-family: var(--font-body);
+  font-size: 0.75rem;
   font-weight: 700;
+  line-height: 1.4;
 }
 
 .channel::before {
   content: "";
-
   width: 6px;
   height: 6px;
-
-  flex-shrink: 0;
-
+  flex: 0 0 auto;
   background: var(--blue-500);
 }
 
-/* ----------------------------------
-   Approach text
------------------------------------ */
+/* =========================================================
+   APPROACH DESCRIPTION
+   ========================================================= */
 
-.approachText {
-  max-width: 950px;
-
-  margin: clamp(2rem, 4vw, 3.5rem) 0 0;
-
-  color: var(--grey-700);
-
-  font-family: var(--font-heading);
-
-  font-size: clamp(1.2rem, 1.9vw, 1.65rem);
-
-  font-weight: 500;
-
-  line-height: 1.55;
-
-  letter-spacing: -0.025em;
+.approachBody {
+  display: grid;
+  grid-template-columns: 3px minmax(0, 1fr);
+  gap: clamp(1.25rem, 3vw, 2rem);
+  align-items: stretch;
+  max-width: 1000px;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
 }
 
-/* ----------------------------------
-   Strategy grid
------------------------------------ */
+.approachAccent {
+  width: 3px;
+  background: var(--yellow-500);
+}
+
+.approachText {
+  margin: 0;
+  color: var(--grey-700);
+  font-family: var(--font-body);
+  font-size: clamp(1.05rem, 1.55vw, 1.3rem);
+  font-weight: 500;
+  line-height: 1.8;
+  letter-spacing: -0.01em;
+}
+
+/* =========================================================
+   STRATEGY GRID
+   ========================================================= */
 
 .strategyGrid {
-  width: 100%;
-
   display: grid;
-
   grid-template-columns: repeat(2, minmax(0, 1fr));
-
-  gap: 0;
-
+  gap: 1px;
+  width: 100%;
   margin-top: clamp(3rem, 6vw, 5rem);
-
-  border-top: 1px solid var(--blue-200);
-  border-left: 1px solid var(--blue-200);
+  padding: 1px;
+  background: var(--blue-200);
 }
 
 .strategyColumn {
+  display: flex;
+  flex-direction: column;
   min-width: 0;
-
-  background: rgba(255, 255, 255, 0.45);
-
-  border-right: 1px solid var(--blue-200);
-  border-bottom: 1px solid var(--blue-200);
+  background: var(--white);
 }
 
-/* ----------------------------------
-   Column heading
------------------------------------ */
+/* =========================================================
+   COLUMN HEADINGS
+   ========================================================= */
 
 .cardHeading {
-  min-height: 135px;
-
-  padding: clamp(1.5rem, 3vw, 2.25rem);
-
   display: flex;
-
   flex-direction: column;
-
   justify-content: flex-end;
-
+  min-height: 175px;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
   border-bottom: 1px solid var(--blue-200);
+  background: linear-gradient(135deg, rgba(242, 248, 255, 0.95), var(--white));
+}
+
+.cardHeadingTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.cardHeadingTop .cardEyebrow {
+  margin-bottom: 0;
+}
+
+.headingPixel {
+  width: 8px;
+  height: 8px;
+  background: var(--yellow-500);
 }
 
 .cardTitle {
   margin: 0;
-
   color: var(--blue-950);
-
   font-family: var(--font-heading);
-
-  font-size: clamp(1.6rem, 2.4vw, 2.15rem);
-
+  font-size: clamp(1.6rem, 2.4vw, 2.2rem);
   font-weight: 800;
-
-  line-height: 1.08;
-
-  letter-spacing: -0.035em;
+  line-height: 1.15;
+  letter-spacing: -0.04em;
 }
 
-/* ----------------------------------
-   Pillars
------------------------------------ */
-
-.pillars {
-  display: flex;
-
-  flex-direction: column;
+.cardSubtitle {
+  margin: 0.75rem 0 0;
+  color: var(--grey-600);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  line-height: 1.6;
 }
 
-.pillar {
-  position: relative;
+/* =========================================================
+   PILLARS / PRIORITIES
+   ========================================================= */
 
-  min-height: 72px;
-
-  padding: 1rem 1.25rem;
-
-  display: grid;
-
-  grid-template-columns: 34px minmax(0, 1fr) 8px;
-
-  gap: 0.8rem;
-
-  align-items: center;
-
-  border-bottom: 1px solid var(--blue-200);
-
-  transition:
-    background 180ms ease,
-    padding-left 180ms ease;
-}
-
-.pillar:last-child {
-  border-bottom: 0;
-}
-
-.pillar:hover {
-  padding-left: 1.45rem;
-
-  background: rgba(230, 244, 254, 0.7);
-}
-
-.pillar::before {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  top: 0;
-  bottom: 0;
-
-  width: 3px;
-
-  background: var(--yellow-500);
-
-  transform: scaleY(0);
-
-  transition: transform 180ms ease;
-}
-
-.pillar:hover::before {
-  transform: scaleY(1);
-}
-
-/* ----------------------------------
-   Priorities
------------------------------------ */
-
+.pillars,
 .priorities {
   display: flex;
-
   flex-direction: column;
+  flex: 1;
 }
 
+/* =========================================================
+   SHARED LIST ITEM STYLES
+   ========================================================= */
+
+.pillar,
 .priority {
   position: relative;
-
-  min-height: 98px;
-
-  padding: 1.15rem 1.25rem;
-
   display: grid;
-
-  grid-template-columns: 34px minmax(0, 1fr) 8px;
-
-  gap: 0.8rem;
-
+  grid-template-columns: 38px minmax(0, 1fr) 8px;
   align-items: start;
-
+  gap: 1rem;
+  min-width: 0;
+  padding: 1.5rem clamp(1.25rem, 2.5vw, 2rem);
   border-bottom: 1px solid var(--blue-200);
-
-  transition:
-    background 180ms ease,
-    padding-left 180ms ease;
+  transition: background 180ms ease;
 }
 
+.pillar:last-child,
 .priority:last-child {
   border-bottom: 0;
 }
 
+.pillar:hover,
 .priority:hover {
-  padding-left: 1.45rem;
-
-  background: rgba(230, 244, 254, 0.7);
+  background: var(--blue-50);
 }
 
+.pillar::before,
 .priority::before {
   content: "";
-
   position: absolute;
-
-  left: 0;
   top: 0;
   bottom: 0;
-
+  left: 0;
   width: 3px;
-
   background: var(--yellow-500);
-
   transform: scaleY(0);
-
+  transform-origin: center;
   transition: transform 180ms ease;
 }
 
+.pillar:hover::before,
 .priority:hover::before {
   transform: scaleY(1);
 }
 
-/* ----------------------------------
-   Shared item details
------------------------------------ */
+/* =========================================================
+   CONTENT PILLARS
+   ========================================================= */
+
+.pillar {
+  align-items: center;
+  min-height: 82px;
+}
 
 .itemIndex {
-  padding-top: 0.1rem;
-
-  color: var(--blue-400);
-
-  font-size: 0.62rem;
-
+  color: var(--blue-500);
+  font-family: var(--font-body);
+  font-size: 0.66rem;
   font-weight: 800;
-
   letter-spacing: 0.1em;
+  line-height: 1.7;
 }
 
 .itemText {
-  color: var(--grey-700);
-
-  font-size: 0.9rem;
-
-  font-weight: 650;
-
+  color: var(--blue-950);
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 1.1vw, 1rem);
+  font-weight: 700;
   line-height: 1.5;
 }
 
 .itemPixel {
   width: 7px;
   height: 7px;
-
   justify-self: end;
-
-  margin-top: 0.2rem;
-
+  margin-top: 0.3rem;
   background: var(--blue-500);
-
   transition:
     background 180ms ease,
     transform 180ms ease;
@@ -573,123 +474,154 @@
 .pillar:hover .itemPixel,
 .priority:hover .itemPixel {
   background: var(--yellow-500);
-
   transform: scale(1.2);
 }
 
-/* ----------------------------------
-   Priority content
------------------------------------ */
+/* =========================================================
+   STRATEGY PRIORITIES
+   ========================================================= */
+
+.priority {
+  min-height: 110px;
+}
+
+.priorityContent {
+  min-width: 0;
+}
 
 .priorityContent h4 {
-  margin: 0 0 0.4rem;
-
+  margin: 0 0 0.55rem;
   color: var(--blue-950);
-
   font-family: var(--font-heading);
-
-  font-size: 1rem;
-
-  font-weight: 750;
-
-  line-height: 1.3;
-
-  letter-spacing: -0.015em;
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: -0.025em;
 }
 
 .priorityContent p {
-  max-width: 48ch;
-
+  max-width: 55ch;
   margin: 0;
-
-  color: var(--grey-500);
-
-  font-size: 0.84rem;
-
+  color: var(--grey-600);
+  font-family: var(--font-body);
+  font-size: 0.88rem;
   line-height: 1.7;
 }
 
-/* ----------------------------------
-   Tablet
------------------------------------ */
+/* =========================================================
+   TABLET
+   ========================================================= */
 
-@media (max-width: 900px) {
-  .section {
-    padding: var(--section-lg) var(--section-md);
-  }
-
+@media (max-width: 950px) {
   .intro {
     grid-template-columns: 1fr;
-
-    gap: 2rem;
+    align-items: start;
+    gap: 2.5rem;
   }
 
-  .title {
-    max-width: none;
+  .objectiveBlock {
+    max-width: 800px;
   }
 
   .approachHeader {
     grid-template-columns: 1fr;
-
     gap: 2rem;
+  }
+
+  .approachMeta {
+    max-width: 700px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+  .section {
+    padding: 5rem 1.25rem;
+  }
+
+  .intro {
+    padding-bottom: 3rem;
+  }
+
+  .title {
+    font-size: clamp(2.2rem, 8vw, 3.2rem);
+  }
+
+  .objectiveBlock {
+    padding: 1rem 0 0 1.25rem;
+  }
+
+  .objective {
+    font-size: 1rem;
+  }
+
+  .approachSection {
+    padding: 3rem 0;
+  }
+
+  .approachTitle {
+    font-size: clamp(1.65rem, 5vw, 2.1rem);
+  }
+
+  .approachMeta {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .approachText {
+    font-size: 1.05rem;
   }
 
   .strategyGrid {
     grid-template-columns: 1fr;
   }
-}
-
-/* ----------------------------------
-   Mobile
------------------------------------ */
-
-@media (max-width: 650px) {
-  .section {
-    padding: var(--section-lg) 1.25rem;
-  }
-
-  .title {
-    font-size: clamp(2.2rem, 10vw, 3.3rem);
-  }
-
-  .objectiveBlock {
-    padding-left: 1.1rem;
-  }
-
-  .objective {
-    font-size: 1.08rem;
-  }
-
-  .approachMeta {
-    grid-template-columns: 1fr;
-
-    gap: 1.5rem;
-  }
-
-  .approachText {
-    font-size: 1.15rem;
-  }
 
   .cardHeading {
-    min-height: 115px;
+    min-height: 145px;
+    padding: 1.5rem;
+  }
+
+  .cardTitle {
+    font-size: 1.7rem;
+  }
+
+  .pillar,
+  .priority {
+    grid-template-columns: 30px minmax(0, 1fr) 7px;
+    gap: 0.75rem;
+    padding: 1.25rem;
   }
 
   .pillar {
-    grid-template-columns: 30px minmax(0, 1fr) 7px;
-
-    min-height: 64px;
-
-    padding: 0.9rem 1rem;
+    min-height: 72px;
   }
 
   .priority {
-    grid-template-columns: 30px minmax(0, 1fr) 7px;
-
-    padding: 1rem;
+    min-height: 95px;
   }
 
-  .pillar:hover,
-  .priority:hover {
-    padding-left: 1rem;
+  .priorityContent h4 {
+    font-size: 1rem;
+  }
+
+  .priorityContent p {
+    font-size: 0.85rem;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .pillar,
+  .priority,
+  .pillar::before,
+  .priority::before,
+  .itemPixel {
+    transition: none;
   }
 }

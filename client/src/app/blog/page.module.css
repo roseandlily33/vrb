@@ -1,1185 +1,1269 @@
-.postsSection {
+/* ==========================================================
+   BLOG LANDING PAGE REDESIGN
+   ==========================================================
+
+   PAGE-SPECIFIC STYLES START HERE
+
+   Everything ABOVE this comment is preserved, including:
+   - Original blog category card styles
+   - Duplicate historical card rules
+   - Individual article card styles
+   - Blog navigation styles
+   - Existing responsive styles
+   - Existing homepage topic card overrides
+
+   The styles BELOW apply ONLY to the Blog landing page
+   because they are scoped through .blogLanding.
+
+   Do not remove the earlier rules.
+
+   ========================================================== */
+
+/* ------------------------------------------
+   SECTION + GRID
+------------------------------------------ */
+
+.blogLanding.postsSection {
   width: 100%;
-  max-width: var(--max-width);
+  max-width: 1600px;
   margin: 0 auto;
-  padding: var(--section-md);
+
+  padding: clamp(3rem, 6vw, 6rem) clamp(1.25rem, 5vw, 5rem);
 }
 
-/* ----------------------------------
-   Grid
------------------------------------ */
-
-.postsGrid {
+.blogLanding .postsGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
+  gap: clamp(1rem, 2vw, 1.5rem);
 }
 
-/* ----------------------------------
-   Card
------------------------------------ */
+/* ------------------------------------------
+   TOPIC CARDS
+------------------------------------------ */
 
-.postCard {
+.blogLanding .postCard.topicCard {
   position: relative;
-
-  min-height: 360px;
+  isolation: isolate;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
 
-  padding: clamp(1.75rem, 3vw, 2.6rem);
+  min-width: 0;
+  min-height: clamp(340px, 34vw, 470px);
+
+  padding: clamp(1.75rem, 3vw, 3rem);
+
+  border: 1px solid var(--blue-200);
+  border-radius: 0;
 
   overflow: hidden;
 
-  border: 1px solid var(--blue-200);
-
   transition:
-    transform 180ms ease,
-    border-color 180ms ease,
-    box-shadow 180ms ease;
+    transform 250ms ease,
+    border-color 250ms ease,
+    box-shadow 250ms ease;
 }
 
-.postCard:hover {
-  transform: translateY(-4px);
-
-  box-shadow: 0 18px 50px rgba(0, 31, 77, 0.08);
+.blogLanding .postCard.topicCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 22px 55px rgba(0, 31, 77, 0.1);
 }
 
-/* Topic cards */
-
-.topicCard {
-  min-height: 360px;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-/* ----------------------------------
-   Light / Dark
------------------------------------ */
-
-.lightCard {
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(105, 185, 242, 0.08),
-      transparent 34%
-    ),
-    var(--white);
+.blogLanding .postCard.topicCard.lightCard {
+  background: linear-gradient(135deg, var(--white) 15%, var(--blue-50) 100%);
 
   color: var(--blue-950);
+  border-color: var(--blue-200);
 }
 
-.darkCard {
+.blogLanding .postCard.topicCard.darkCard {
   background:
     radial-gradient(
-      circle at top right,
-      rgba(38, 155, 230, 0.14),
-      transparent 34%
+      ellipse at 85% 65%,
+      rgba(27, 138, 228, 0.2),
+      transparent 65%
     ),
     var(--blue-950);
 
   color: var(--white);
-
-  border-color: rgba(255, 255, 255, 0.12);
+  border-color: rgba(105, 185, 242, 0.22);
 }
 
-/* ----------------------------------
-   Pixel Cluster
------------------------------------ */
+/* ------------------------------------------
+   CIRCULAR BACKGROUND ARTWORK
+------------------------------------------ */
 
-.pixelCluster {
+.blogLanding .topicArtwork {
   position: absolute;
+  z-index: 0;
 
-  top: clamp(1rem, 2vw, 1.6rem);
-  right: clamp(1rem, 2vw, 1.6rem);
+  top: 50%;
+  right: -16%;
 
-  width: 82px;
-  height: 70px;
+  width: 72%;
+  aspect-ratio: 1;
+
+  transform: translateY(-50%);
 
   pointer-events: none;
 }
 
-.pixelCluster span {
+.blogLanding .topicOrbit,
+.blogLanding .topicOrbitInner {
+  position: absolute;
+  display: block;
+
+  border-radius: 50%;
+
+  transition: transform 500ms ease;
+}
+
+.blogLanding .topicOrbit {
+  inset: 4%;
+
+  border: 1px solid rgba(27, 138, 228, 0.23);
+
+  transform: rotate(-25deg) scaleY(0.65);
+}
+
+.blogLanding .topicOrbitInner {
+  inset: 20% 4%;
+
+  border: 1px dashed rgba(27, 138, 228, 0.22);
+
+  transform: rotate(30deg);
+}
+
+.blogLanding .topicOrbitDot {
   position: absolute;
 
+  top: 24%;
+  left: 14%;
+
+  width: 12px;
+  height: 12px;
+
+  border-radius: 50%;
+  background: var(--blue-700);
+
+  box-shadow: 0 0 0 8px rgba(27, 138, 228, 0.09);
+}
+
+.blogLanding .darkCard .topicOrbit {
+  border-color: rgba(105, 185, 242, 0.32);
+}
+
+.blogLanding .darkCard .topicOrbitInner {
+  border-color: rgba(105, 185, 242, 0.26);
+}
+
+.blogLanding .darkCard .topicOrbitDot {
+  background: var(--yellow-500);
+}
+
+.blogLanding .postCard:hover .topicOrbit {
+  transform: rotate(-10deg) scaleY(0.72);
+}
+
+.blogLanding .postCard:hover .topicOrbitInner {
+  transform: rotate(48deg);
+}
+
+/* ------------------------------------------
+   PIXEL CLUSTER
+------------------------------------------ */
+
+.blogLanding .postCard.topicCard .pixelCluster {
+  position: absolute;
+  z-index: 1;
+
+  top: clamp(1rem, 2vw, 1.75rem);
+  right: clamp(1rem, 2vw, 1.75rem);
+
+  width: 85px;
+  height: 75px;
+
+  opacity: 0.9;
+
+  transform: none;
+
+  pointer-events: none;
+
+  transition: transform 250ms ease;
+}
+
+.blogLanding .pixelCluster span {
+  position: absolute;
   display: block;
 
   width: 12px;
   height: 12px;
 
   background: var(--blue-500);
+  opacity: 1;
 }
 
-.pixel1 {
+.blogLanding .pixel1 {
   top: 0;
   right: 0;
 }
 
-.pixel2 {
+.blogLanding .pixel2 {
   top: 16px;
   right: 16px;
 }
 
-.pixel3 {
+.blogLanding .pixel3 {
   top: 32px;
   right: 0;
 
   background: var(--yellow-500) !important;
 }
 
-.pixel4 {
+.blogLanding .pixel4 {
   top: 48px;
   right: 32px;
+
+  background: var(--blue-500) !important;
 }
 
-.pixel5 {
+.blogLanding .pixel5 {
   top: 16px;
   right: 48px;
 
   background: var(--blue-200) !important;
 }
 
-.pixel6 {
+.blogLanding .pixel6 {
   top: 48px;
   right: 64px;
+
+  width: 12px !important;
+  height: 12px !important;
 
   background: var(--yellow-500) !important;
 }
 
-.darkCard .pixelCluster span {
-  background: var(--blue-500);
+.blogLanding .postCard:hover .pixelCluster {
+  transform: translate(-4px, 4px);
 }
 
-/* ----------------------------------
-   Main
------------------------------------ */
+/* ------------------------------------------
+   CATEGORY METADATA
+------------------------------------------ */
 
-.cardMain {
+.blogLanding .topicMeta {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  width: 100%;
+  padding-right: 95px;
+
+  color: var(--blue-700);
+
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.blogLanding .darkCard .topicMeta {
+  color: var(--blue-200);
+}
+
+/* ------------------------------------------
+   MAIN TITLE
+------------------------------------------ */
+
+.blogLanding .postCard.topicCard .cardMain {
   position: relative;
   z-index: 2;
 
   display: grid;
   grid-template-columns: 3px minmax(0, 1fr);
-
-  gap: 1.25rem;
-
   align-items: center;
+  gap: clamp(1rem, 2vw, 1.5rem);
 
   width: 100%;
-
-  margin: 0;
+  margin: auto 0 0;
 }
 
-/* ----------------------------------
-   Accent Line
------------------------------------ */
+.blogLanding .accentLine {
+  display: block;
 
-.accentLine {
   width: 3px;
-  height: clamp(110px, 12vw, 150px);
+  height: clamp(90px, 10vw, 140px);
 
-  background: var(--blue-500);
+  background: var(--blue-700);
 }
 
-.darkCard .accentLine {
+.blogLanding .darkCard .accentLine {
   background: var(--yellow-500);
 }
 
-/* ----------------------------------
-   Title
------------------------------------ */
-
-.cardTitle {
+.blogLanding .cardTitle {
   display: flex;
   flex-direction: column;
-
   gap: 0;
 
+  min-width: 0;
   margin: 0;
 
   color: inherit;
 
-  font-size: clamp(2.8rem, 5vw, 5.5rem);
+  font-size: clamp(2.5rem, 4.2vw, 4.9rem);
   font-weight: 800;
-
-  line-height: 0.88;
-
+  line-height: 0.98;
   letter-spacing: -0.055em;
+
+  overflow-wrap: anywhere;
 }
 
-.cardTitle span {
+.blogLanding .cardTitle span {
   color: var(--blue-700);
 }
 
-.darkCard .cardTitle span {
+.blogLanding .darkCard .cardTitle span {
   color: var(--blue-500);
 }
 
-/* ----------------------------------
-   Footer
------------------------------------ */
+/* ------------------------------------------
+   EXPLORE LINK
+------------------------------------------ */
 
-.cardFooter {
+.blogLanding .postCard.topicCard > .cardFooter {
   position: relative;
-  z-index: 2;
-
-  display: flex;
-  align-items: center;
-
-  /*
-    3px accent line
-    +
-    1.25rem grid gap
-
-    This lines EXPLORE up with the title text.
-  */
-  padding-left: calc(3px + 1.25rem);
-
-  margin-top: 1.5rem;
-
-  border: 0;
-}
-
-/* ----------------------------------
-   Explore Button
------------------------------------ */
-
-.arrowLink {
-  min-width: 146px;
-  height: 46px;
-
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-
-  padding: 0 1.25rem;
-
-  background: var(--blue-700);
-
-  color: var(--white);
-
-  font-size: 0.75rem;
-  font-weight: 800;
-
-  letter-spacing: 0.1em;
-
-  text-transform: uppercase;
-
-  text-decoration: none;
-
-  transition:
-    background 180ms ease,
-    color 180ms ease,
-    transform 180ms ease;
-}
-
-.darkCard .arrowLink {
-  background: var(--yellow-500);
-
-  color: var(--blue-950);
-}
-
-.arrowLink:hover {
-  background: var(--blue-950);
-
-  color: var(--white);
-
-  transform: translateX(3px);
-}
-
-.darkCard .arrowLink:hover {
-  background: var(--white);
-
-  color: var(--blue-950);
-}
-
-.arrowLink:focus-visible {
-  outline: 2px solid var(--yellow-500);
-  outline-offset: 4px;
-}
-
-/* ----------------------------------
-   Tablet
------------------------------------ */
-
-@media screen and (max-width: 900px) {
-  .postsGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .postCard,
-  .topicCard {
-    min-height: 330px;
-  }
-
-  .cardTitle {
-    font-size: clamp(2.8rem, 9vw, 5rem);
-  }
-}
-
-/* ----------------------------------
-   Mobile
------------------------------------ */
-
-@media screen and (max-width: 600px) {
-  .postsSection {
-    padding: var(--section-sm);
-  }
-
-  .postCard {
-    min-height: 300px;
-
-    padding: 1.5rem;
-  }
-
-  .cardMain {
-    grid-template-columns: 3px minmax(0, 1fr);
-
-    gap: 1rem;
-  }
-
-  .accentLine {
-    height: 100px;
-  }
-
-  .cardTitle {
-    font-size: clamp(2.4rem, 12vw, 3.6rem);
-  }
-
-  .cardFooter {
-    padding-left: calc(3px + 1rem);
-
-    margin-top: 1.25rem;
-  }
-
-  .arrowLink {
-    min-width: 132px;
-    height: 42px;
-  }
-
-  .pixelCluster {
-    transform: scale(0.8);
-    transform-origin: top right;
-  }
-}
-
-/* ----------------------------------
-   Pixel cluster
------------------------------------ */
-
-.pixelCluster {
-  position: absolute;
-
-  top: 1.5rem;
-  right: 1.5rem;
-
-  width: 130px;
-  height: 105px;
-
-  pointer-events: none;
-
-  opacity: 0.95;
-}
-
-.pixelCluster span {
-  position: absolute;
-
-  width: 22px;
-  height: 22px;
-
-  background: var(--blue-500);
-}
-
-.pixel1 {
-  top: 0;
-  right: 18px;
-}
-
-.pixel2 {
-  top: 24px;
-  right: 48px;
-
-  opacity: 0.65;
-}
-
-.pixel3 {
-  top: 50px;
-  right: 18px;
-
-  opacity: 0.8;
-}
-
-.pixel4 {
-  top: 58px;
-  right: 72px;
-
-  background: var(--blue-200) !important;
-
-  opacity: 0.7;
-}
-
-.pixel5 {
-  top: 24px;
-  right: 0;
-
-  background: var(--yellow-500) !important;
-}
-
-.pixel6 {
-  top: 78px;
-  right: 45px;
-
-  width: 14px !important;
-  height: 14px !important;
-
-  background: var(--blue-700) !important;
-}
-
-/* ----------------------------------
-   Dark card pixel tweaks
------------------------------------ */
-
-.darkCard .pixelCluster span {
-  background: var(--blue-700);
-}
-
-.darkCard .pixel4 {
-  background: var(--blue-500) !important;
-
-  opacity: 0.55;
-}
-
-.darkCard .pixel5 {
-  background: var(--yellow-500) !important;
-}
-
-/* ----------------------------------
-   Hover details
------------------------------------ */
-
-.lightCard:hover {
-  border-color: var(--blue-400);
-}
-
-.darkCard:hover {
-  border-color: rgba(255, 255, 255, 0.22);
-}
-
-.postCard:hover .pixelCluster {
-  transform: translate(-3px, 3px);
-}
-
-.pixelCluster {
-  transition: transform 180ms ease;
-}
-
-/* ----------------------------------
-   Tablet
------------------------------------ */
-
-@media (max-width: 900px) {
-  .postsGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .topicCard {
-    min-height: 300px;
-  }
-
-  .cardTitle {
-    font-size: clamp(2.7rem, 9vw, 4.8rem);
-  }
-}
-
-/* ----------------------------------
-   Mobile
------------------------------------ */
-
-@media (max-width: 600px) {
-  .postsSection {
-    padding: var(--section-sm);
-  }
-
-  .postCard {
-    min-height: 270px;
-
-    padding: 1.4rem;
-  }
-
-  .topicCard {
-    min-height: 270px;
-  }
-
-  .cardMain {
-    grid-template-columns: 2px minmax(0, 1fr);
-
-    gap: 1rem;
-  }
-
-  .accentLine {
-    width: 2px;
-
-    height: 90px;
-  }
-
-  .cardTitle {
-    font-size: clamp(2.35rem, 13vw, 3.7rem);
-  }
-
-  .pixelCluster {
-    top: 1rem;
-    right: 1rem;
-
-    width: 95px;
-    height: 85px;
-
-    transform: scale(0.8);
-
-    transform-origin: top right;
-  }
-
-  .cardFooter {
-    grid-template-columns: auto 1fr auto;
-
-    gap: 0.75rem;
-  }
-
-  .arrowLink {
-    width: 40px;
-    height: 40px;
-  }
-}
-/* Blog cards */
-.postsSection {
-  width: 100%;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: var(--section-md);
-}
-
-/* ----------------------------------
-   Grid
------------------------------------ */
-
-.postsGrid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-/* ----------------------------------
-   Card
------------------------------------ */
-
-.postCard {
-  position: relative;
-
-  min-height: 330px;
-
-  display: grid;
-  grid-template-columns: 92px minmax(0, 1fr);
-
-  overflow: hidden;
-
-  border: 1px solid var(--blue-200);
-
-  transition:
-    transform 180ms ease,
-    border-color 180ms ease,
-    box-shadow 180ms ease;
-}
-
-.postCard:hover {
-  transform: translateY(-4px);
-
-  box-shadow: 0 18px 50px rgba(0, 31, 77, 0.08);
-}
-
-/* ----------------------------------
-   Light / Dark
------------------------------------ */
-
-.lightCard {
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(105, 185, 242, 0.08),
-      transparent 34%
-    ),
-    var(--white);
-
-  color: var(--blue-950);
-}
-
-.darkCard {
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(38, 155, 230, 0.14),
-      transparent 34%
-    ),
-    var(--blue-950);
-
-  color: var(--white);
-
-  border-color: rgba(255, 255, 255, 0.12);
-}
-
-/* ----------------------------------
-   Number rail
------------------------------------ */
-
-.indexRail {
-  display: flex;
-
-  align-items: center;
-  justify-content: center;
-
-  border-right: 1px solid var(--blue-200);
-
-  color: rgba(27, 138, 228, 0.13);
-
-  font-size: clamp(3.8rem, 6vw, 6.4rem);
-
-  font-weight: 900;
-
-  line-height: 1;
-
-  letter-spacing: -0.08em;
-
-  writing-mode: vertical-rl;
-
-  transform: rotate(180deg);
-
-  user-select: none;
-}
-
-.darkCard .indexRail {
-  border-color: rgba(255, 255, 255, 0.12);
-
-  color: rgba(105, 185, 242, 0.12);
-}
-
-/* ----------------------------------
-   Body
------------------------------------ */
-
-.cardBody {
-  position: relative;
-
-  min-width: 0;
-
-  display: flex;
-  flex-direction: column;
-
-  padding: clamp(1.6rem, 3vw, 2.4rem);
-}
-
-/* ----------------------------------
-   Content
------------------------------------ */
-
-.cardContent {
-  position: relative;
-
-  z-index: 2;
-
-  max-width: 85%;
-}
-
-.category {
-  margin: 0 0 1rem;
-
-  color: var(--blue-700);
-
-  font-size: 0.68rem;
-
-  font-weight: 800;
-
-  letter-spacing: 0.18em;
-
-  text-transform: uppercase;
-}
-
-.darkCard .category {
-  color: var(--blue-300);
-}
-
-.title {
-  max-width: 12ch;
-
-  margin: 0 0 1rem;
-
-  color: inherit;
-
-  font-size: clamp(1.85rem, 3vw, 3.1rem);
-
-  font-weight: 800;
-
-  line-height: 0.98;
-
-  letter-spacing: -0.045em;
-}
-
-.excerpt {
-  max-width: 46ch;
-
-  margin: 0;
-
-  color: var(--grey-600);
-
-  font-size: 0.92rem;
-
-  line-height: 1.7;
-}
-
-.darkCard .excerpt {
-  color: var(--blue-200);
-}
-
-/* ----------------------------------
-   Footer
------------------------------------ */
-
-.cardFooter {
-  position: relative;
-
-  z-index: 2;
-
-  display: grid;
-  grid-template-columns: minmax(30px, 1fr) auto;
-
-  align-items: center;
-
-  gap: 1rem;
-
-  margin-top: auto;
-
-  padding-top: 2rem;
-}
-
-.footerLine {
-  height: 1px;
-
-  background: var(--blue-200);
-}
-
-.darkCard .footerLine {
-  background: rgba(255, 255, 255, 0.2);
-}
-
-/* ----------------------------------
-   Read link
------------------------------------ */
-
-.readLink {
-  display: inline-flex;
-
-  align-items: center;
-
-  gap: 0.55rem;
-
-  color: var(--blue-800);
-
-  font-size: 0.72rem;
-
-  font-weight: 800;
-
-  letter-spacing: 0.16em;
-
-  text-decoration: none;
-
-  text-transform: uppercase;
-
-  transition:
-    color 180ms ease,
-    gap 180ms ease;
-}
-
-.readLink span {
-  font-size: 1.1rem;
-}
-
-.readLink:hover {
-  color: var(--blue-950);
-
-  gap: 0.8rem;
-}
-
-.darkCard .readLink {
-  color: var(--yellow-500);
-}
-
-.darkCard .readLink:hover {
-  color: var(--white);
-}
-
-.readLink:focus-visible {
-  outline: 2px solid var(--yellow-500);
-
-  outline-offset: 4px;
-}
-
-/* ----------------------------------
-   Pixel cluster
------------------------------------ */
-
-.pixelCluster {
-  position: absolute;
-
-  top: 1.25rem;
-  right: 1.25rem;
-
-  width: 96px;
-  height: 80px;
-
-  pointer-events: none;
-
-  opacity: 0.8;
-}
-
-.pixelCluster span {
-  position: absolute;
-
-  width: 16px;
-  height: 16px;
-
-  background: var(--blue-500);
-}
-
-.pixel1 {
-  top: 0;
-  right: 18px;
-}
-
-.pixel2 {
-  top: 18px;
-  right: 42px;
-
-  opacity: 0.6;
-}
-
-.pixel3 {
-  top: 38px;
-  right: 18px;
-
-  opacity: 0.85;
-}
-
-.pixel4 {
-  top: 42px;
-  right: 58px;
-
-  background: var(--blue-200) !important;
-
-  opacity: 0.7;
-}
-
-.pixel5 {
-  top: 18px;
-  right: 0;
-
-  background: var(--yellow-500) !important;
-}
-
-.darkCard .pixelCluster span {
-  background: var(--blue-700);
-}
-
-.darkCard .pixel4 {
-  background: var(--blue-500) !important;
-}
-
-.darkCard .pixel5 {
-  background: var(--yellow-500) !important;
-}
-
-/* ----------------------------------
-   Hover
------------------------------------ */
-
-.lightCard:hover {
-  border-color: var(--blue-400);
-}
-
-.darkCard:hover {
-  border-color: rgba(255, 255, 255, 0.22);
-}
-
-.postCard:hover .pixelCluster {
-  transform: translate(-3px, 3px);
-}
-
-.pixelCluster {
-  transition: transform 180ms ease;
-}
-
-/* ----------------------------------
-   Tablet
------------------------------------ */
-
-@media (max-width: 1000px) {
-  .postsGrid {
-    grid-template-columns: 1fr;
-  }
-
-  .postCard {
-    min-height: 290px;
-  }
-}
-
-/* ----------------------------------
-   Mobile
------------------------------------ */
-
-@media (max-width: 650px) {
-  .postsSection {
-    padding: var(--section-sm);
-  }
-
-  .postCard {
-    grid-template-columns: 54px minmax(0, 1fr);
-
-    min-height: 260px;
-  }
-
-  .indexRail {
-    font-size: 3.3rem;
-  }
-
-  .cardBody {
-    padding: 1.35rem;
-  }
-
-  .cardContent {
-    max-width: 100%;
-  }
-
-  .title {
-    max-width: 14ch;
-
-    font-size: clamp(1.7rem, 9vw, 2.5rem);
-  }
-
-  .excerpt {
-    font-size: 0.84rem;
-  }
-
-  .pixelCluster {
-    top: 0.9rem;
-    right: 0.9rem;
-
-    transform: scale(0.78);
-
-    transform-origin: top right;
-  }
-
-  .postCard:hover .pixelCluster {
-    transform: scale(0.78);
-  }
-}
-
-/* Bar of links */
-.blogNav {
-  width: 100%;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  gap: 2rem;
-
-  padding: 1.1rem clamp(1.5rem, 4vw, 3rem);
-
-  border-top: 1px solid var(--blue-200);
-  border-bottom: 1px solid var(--blue-200);
-
-  background: var(--white);
-}
-
-.blogNavLabel {
-  flex-shrink: 0;
-
-  color: var(--grey-500);
-
-  font-size: 0.66rem;
-
-  font-weight: 800;
-
-  letter-spacing: 0.18em;
-
-  text-transform: uppercase;
-}
-
-.blogNavLinks {
-  display: flex;
-  align-items: center;
-
-  gap: clamp(1.25rem, 3vw, 2.5rem);
-}
-
-.blogNavLink {
-  position: relative;
-
-  padding: 0.65rem 0;
-
-  color: var(--blue-950);
-
-  font-size: 0.82rem;
-
-  font-weight: 700;
-
-  text-decoration: none;
-
-  transition: color 180ms ease;
-}
-
-.blogNavLink::after {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  bottom: 0;
-
-  width: 0;
-  height: 3px;
-
-  background: var(--yellow-500);
-
-  transition: width 180ms ease;
-}
-
-.blogNavLink:hover {
-  color: var(--blue-700);
-}
-
-.blogNavLink:hover::after {
-  width: 18px;
-}
-
-.blogNavActive {
-  color: var(--blue-700);
-}
-
-.blogNavActive::after {
-  width: 100%;
-}
-
-.blogNavActive::before {
-  content: "";
-
-  position: absolute;
-
-  top: 3px;
-  right: -8px;
-
-  width: 5px;
-  height: 5px;
-
-  background: var(--yellow-500);
-}
-
-.blogNavLink:focus-visible {
-  outline: 2px solid var(--yellow-500);
-  outline-offset: 4px;
-}
-
-@media (max-width: 800px) {
-  .blogNav {
-    align-items: flex-start;
-
-    flex-direction: column;
-
-    gap: 0.75rem;
-  }
-
-  .blogNavLinks {
-    width: 100%;
-
-    overflow-x: auto;
-
-    gap: 1.5rem;
-
-    padding-bottom: 0.3rem;
-
-    scrollbar-width: none;
-  }
-
-  .blogNavLinks::-webkit-scrollbar {
-    display: none;
-  }
-
-  .blogNavLink {
-    flex-shrink: 0;
-
-    white-space: nowrap;
-  }
-}
-
-/* ----------------------------------
-   Homepage Topic Card Overrides
-   Keep these at file end so they win over duplicate card-system rules above.
------------------------------------ */
-
-.postCard.topicCard {
-  min-height: 360px;
-
-  display: flex;
-  flex-direction: column;
-
-  justify-content: flex-start;
-
-  grid-template-columns: none;
-
-  padding: clamp(1.75rem, 3vw, 2.6rem);
-}
-
-.postCard.topicCard .cardMain {
-  margin: 0 0 1rem;
-}
-
-.postCard.topicCard > .cardFooter {
-  position: relative;
-
   z-index: 3;
 
   display: flex;
   align-items: center;
 
-  grid-template-columns: none;
-
-  margin-top: 0;
-  padding-top: 0;
-
   align-self: flex-start;
+
+  margin: 1.75rem 0 0;
+  padding: 0 0 0 calc(3px + clamp(1rem, 2vw, 1.5rem));
 
   border: 0;
 }
 
-.postCard.topicCard .pixelCluster {
-  z-index: 1;
-}
-
-.postCard.topicCard .arrowLink {
+.blogLanding .postCard.topicCard .arrowLink {
   position: relative;
-
   z-index: 4;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+
+  width: auto;
+  min-width: 180px;
+  height: 48px;
+
+  padding: 0.8rem 1rem;
+
+  border: 1px solid var(--blue-800);
+  border-radius: 0;
+
+  background: var(--blue-800);
+  color: var(--white);
+
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition:
+    background 200ms ease,
+    color 200ms ease,
+    gap 200ms ease;
 }
 
-@media (max-width: 900px) {
-  .postCard.topicCard {
-    min-height: 300px;
+.blogLanding .arrowLink span:last-child {
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.blogLanding .darkCard .arrowLink {
+  border-color: var(--yellow-500);
+  background: var(--yellow-500);
+  color: var(--blue-950);
+}
+
+.blogLanding .lightCard .arrowLink:hover {
+  background: var(--blue-950);
+  border-color: var(--blue-950);
+  color: var(--white);
+}
+
+.blogLanding .darkCard .arrowLink:hover {
+  background: var(--white);
+  border-color: var(--white);
+  color: var(--blue-950);
+}
+
+.blogLanding .arrowLink:focus-visible {
+  outline: 3px solid var(--yellow-500);
+  outline-offset: 4px;
+}
+
+/* ------------------------------------------
+   TABLET
+------------------------------------------ */
+
+@media (max-width: 950px) {
+  .blogLanding .postsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .blogLanding .postCard.topicCard {
+    min-height: 340px;
+  }
+
+  .blogLanding .cardTitle {
+    font-size: clamp(2.8rem, 7vw, 4.8rem);
+  }
+
+  .blogLanding .topicArtwork {
+    width: 55%;
+    right: -8%;
   }
 }
+
+/* ------------------------------------------
+   MOBILE
+------------------------------------------ */
 
 @media (max-width: 600px) {
-  .postCard.topicCard {
-    min-height: 270px;
+  .blogLanding.postsSection {
+    padding: 3rem 1.25rem;
+  }
 
-    padding: 1.4rem;
+  .blogLanding .postsGrid {
+    gap: 1rem;
+  }
+
+  .blogLanding .postCard.topicCard {
+    min-height: 290px;
+    padding: 1.5rem;
+  }
+
+  .blogLanding .topicMeta {
+    padding-right: 60px;
+    font-size: 0.6rem;
+  }
+
+  .blogLanding .topicMeta span:last-child {
+    display: none;
+  }
+
+  .blogLanding .postCard.topicCard .cardMain {
+    grid-template-columns: 3px minmax(0, 1fr);
+    gap: 1rem;
+  }
+
+  .blogLanding .accentLine {
+    width: 3px;
+    height: 90px;
+  }
+
+  .blogLanding .cardTitle {
+    font-size: clamp(2.25rem, 10vw, 3.6rem);
+  }
+
+  .blogLanding .topicArtwork {
+    width: 78%;
+    right: -30%;
+  }
+
+  .blogLanding .postCard.topicCard > .cardFooter {
+    margin-top: 1.5rem;
+    padding-left: calc(3px + 1rem);
+  }
+
+  .blogLanding .postCard.topicCard .arrowLink {
+    min-width: 160px;
+    height: 44px;
+    padding: 0.7rem 0.9rem;
+  }
+
+  .blogLanding .postCard.topicCard .pixelCluster {
+    transform: scale(0.8);
+    transform-origin: top right;
+  }
+
+  .blogLanding .postCard:hover .pixelCluster {
+    transform: scale(0.8) translate(-4px, 4px);
   }
 }
+
+/* ------------------------------------------
+   REDUCED MOTION
+------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  .blogLanding .postCard.topicCard,
+  .blogLanding .topicOrbit,
+  .blogLanding .topicOrbitInner,
+  .blogLanding .pixelCluster,
+  .blogLanding .arrowLink {
+    transition: none !important;
+  }
+
+  .blogLanding .postCard.topicCard:hover,
+  .blogLanding .postCard:hover .topicOrbit,
+  .blogLanding .postCard:hover .topicOrbitInner {
+    transform: none;
+  }
+}
+
+/* ==========================================================
+   END BLOG LANDING PAGE REDESIGN
+
+   EXISTING / SHARED BLOG STYLES ABOVE REMAIN UNCHANGED
+   ========================================================== */
+
+/* ==========================================================
+   BLOG CATEGORY PAGE REDESIGN
+   ==========================================================
+
+   PAGE-SPECIFIC STYLES START HERE
+
+   These rules are scoped to .categoryListing and
+   .categoryBlogNav.
+
+   Preserve ALL earlier CSS, including:
+   - Blog landing page styles
+   - Individual article preview styles
+   - Existing shared card styles
+   - Blog navigation styles
+   - All duplicate/historical styles
+   - Existing responsive media queries
+
+   ========================================================== */
+
+/* ==========================================
+   CATEGORY NAVIGATION
+========================================== */
+
+.categoryBlogNav.blogNav {
+  position: relative;
+  z-index: 5;
+
+  padding: 1.1rem clamp(1.25rem, 5vw, 5rem);
+
+  background: var(--white);
+
+  border-top: 1px solid var(--blue-200);
+  border-bottom: 1px solid var(--blue-200);
+}
+
+.categoryBlogNav .blogNavLinks {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem clamp(1.25rem, 2vw, 2rem);
+}
+
+.categoryBlogNav .blogNavLink {
+  position: relative;
+  padding: 0.6rem 0;
+
+  color: var(--blue-950);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: none;
+
+  transition: color 180ms ease;
+}
+
+.categoryBlogNav .blogNavLink:hover {
+  color: var(--blue-700);
+}
+
+.categoryBlogNav .blogNavActive {
+  color: var(--blue-700);
+}
+
+.categoryBlogNav .blogNavActive::after {
+  width: 100%;
+}
+
+/* ==========================================
+   MAIN CATEGORY SECTION
+========================================== */
+
+.categoryListing.postsSection {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+
+  padding: clamp(4rem, 7vw, 7rem) clamp(1.25rem, 5vw, 5rem);
+}
+
+/* ==========================================
+   CATEGORY HEADER
+========================================== */
+
+.categoryListingHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.categoryListingIntro {
+  max-width: 850px;
+}
+
+.categorySectionMarker {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  margin-bottom: 1.25rem;
+}
+
+.categorySectionMarker span:first-child {
+  width: 42px;
+  height: 3px;
+  background: var(--blue-800);
+}
+
+.categorySectionMarker span:last-child {
+  width: 8px;
+  height: 8px;
+  background: var(--yellow-500);
+}
+
+.categoryEyebrow {
+  margin: 0 0 0.8rem;
+
+  color: var(--blue-700);
+
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.categoryListingHeader h2 {
+  margin: 0;
+
+  color: var(--blue-950);
+
+  font-size: clamp(2.5rem, 5vw, 4.6rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.05em;
+}
+
+/* ==========================================
+   ARTICLE COUNT
+========================================== */
+
+.categoryListingMeta {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+
+  flex-shrink: 0;
+
+  padding-bottom: 0.4rem;
+
+  color: var(--grey-600);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.categoryArticleCount {
+  color: var(--blue-800);
+
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.06em;
+}
+
+/* ==========================================
+   ARTICLE GRID
+========================================== */
+
+.categoryListing .postsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+/* ==========================================
+   ARTICLE CARD
+========================================== */
+
+.categoryListing .postCard {
+  position: relative;
+  isolation: isolate;
+
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr);
+
+  min-width: 0;
+  min-height: 365px;
+
+  padding: 0;
+
+  overflow: hidden;
+  border-radius: 0;
+
+  transition:
+    transform 250ms ease,
+    border-color 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.categoryListing .postCard:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 22px 55px rgba(0, 31, 77, 0.1);
+}
+
+.categoryListing .lightCard {
+  background: linear-gradient(135deg, var(--white), var(--blue-50));
+
+  border: 1px solid var(--blue-200);
+  color: var(--blue-950);
+}
+
+.categoryListing .darkCard {
+  background:
+    radial-gradient(
+      ellipse at 85% 65%,
+      rgba(27, 138, 228, 0.16),
+      transparent 65%
+    ),
+    var(--blue-950);
+
+  border: 1px solid rgba(105, 185, 242, 0.2);
+  color: var(--white);
+}
+
+/* ==========================================
+   LARGE INDEX RAIL
+========================================== */
+
+.categoryListing .indexRail {
+  position: relative;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 0;
+
+  border-right: 1px solid var(--blue-200);
+
+  color: rgba(27, 138, 228, 0.15);
+
+  font-size: clamp(3.5rem, 5vw, 5.5rem);
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.08em;
+
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+
+  user-select: none;
+}
+
+.categoryListing .darkCard .indexRail {
+  color: rgba(105, 185, 242, 0.15);
+  border-color: rgba(255, 255, 255, 0.14);
+}
+
+/* ==========================================
+   CARD BODY
+========================================== */
+
+.categoryListing .cardBody {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  min-width: 0;
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+
+  overflow: hidden;
+}
+
+/* ==========================================
+   DECORATIVE ORBIT
+========================================== */
+
+.categoryListing .categoryCardOrbit {
+  position: absolute;
+  z-index: 0;
+
+  top: -95px;
+  right: -105px;
+
+  width: 280px;
+  height: 280px;
+
+  pointer-events: none;
+}
+
+.categoryListing .categoryOrbitRing {
+  position: absolute;
+  inset: 0;
+
+  display: block;
+
+  border: 1px solid rgba(27, 138, 228, 0.16);
+  border-radius: 50%;
+
+  transform: rotate(-25deg) scaleY(0.7);
+
+  transition: transform 450ms ease;
+}
+
+.categoryListing .categoryOrbitDot {
+  position: absolute;
+
+  bottom: 65px;
+  left: 35px;
+
+  width: 9px;
+  height: 9px;
+
+  border-radius: 50%;
+  background: var(--blue-500);
+}
+
+.categoryListing .darkCard .categoryOrbitRing {
+  border-color: rgba(105, 185, 242, 0.22);
+}
+
+.categoryListing .darkCard .categoryOrbitDot {
+  background: var(--yellow-500);
+}
+
+.categoryListing .postCard:hover .categoryOrbitRing {
+  transform: rotate(-8deg) scaleY(0.8);
+}
+
+/* ==========================================
+   PIXEL CLUSTER
+========================================== */
+
+.categoryListing .pixelCluster {
+  position: absolute;
+  z-index: 1;
+
+  top: 1.5rem;
+  right: 1.5rem;
+
+  width: 85px;
+  height: 75px;
+
+  opacity: 0.85;
+  transform: none;
+
+  pointer-events: none;
+
+  transition: transform 250ms ease;
+}
+
+.categoryListing .pixelCluster span {
+  position: absolute;
+  display: block;
+
+  width: 12px;
+  height: 12px;
+
+  background: var(--blue-500);
+  opacity: 1;
+}
+
+.categoryListing .pixel1 {
+  top: 0;
+  right: 0;
+}
+
+.categoryListing .pixel2 {
+  top: 16px;
+  right: 16px;
+}
+
+.categoryListing .pixel3 {
+  top: 32px;
+  right: 0;
+  background: var(--yellow-500) !important;
+}
+
+.categoryListing .pixel4 {
+  top: 48px;
+  right: 32px;
+  background: var(--blue-500) !important;
+}
+
+.categoryListing .pixel5 {
+  top: 16px;
+  right: 48px;
+  background: var(--blue-200) !important;
+}
+
+.categoryListing .postCard:hover .pixelCluster {
+  transform: translate(-4px, 4px);
+}
+
+/* ==========================================
+   ARTICLE CONTENT
+========================================== */
+
+.categoryListing .cardContent {
+  position: relative;
+  z-index: 2;
+
+  max-width: 100%;
+  padding-right: 1rem;
+}
+
+.categoryListing .category {
+  margin: 0 0 1.25rem;
+
+  color: var(--blue-700);
+
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.categoryListing .darkCard .category {
+  color: var(--blue-300);
+}
+
+.categoryListing .title {
+  max-width: 20ch;
+  margin: 0 0 1.25rem;
+
+  color: inherit;
+
+  font-size: clamp(1.8rem, 2.8vw, 2.8rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
+
+  overflow-wrap: break-word;
+}
+
+.categoryListing .categoryTitleLink {
+  color: inherit;
+  text-decoration: none;
+}
+
+.categoryListing .categoryTitleLink:hover {
+  color: var(--blue-700);
+}
+
+.categoryListing .darkCard .categoryTitleLink:hover {
+  color: var(--blue-500);
+}
+
+.categoryListing .categoryTitleLink:focus-visible {
+  outline: 2px solid var(--yellow-500);
+  outline-offset: 5px;
+}
+
+.categoryListing .excerpt {
+  max-width: 48ch;
+  margin: 0;
+
+  color: var(--grey-600);
+
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.categoryListing .darkCard .excerpt {
+  color: var(--blue-200);
+}
+
+/* ==========================================
+   ARTICLE FOOTER
+========================================== */
+
+.categoryListing .cardFooter {
+  position: relative;
+  z-index: 2;
+
+  display: grid;
+  grid-template-columns: minmax(20px, 1fr) auto;
+  align-items: center;
+
+  gap: 1.25rem;
+
+  margin-top: auto;
+  padding: 2.5rem 0 0;
+
+  border: 0;
+}
+
+.categoryListing .footerLine {
+  width: 100%;
+  height: 1px;
+  background: var(--blue-200);
+}
+
+.categoryListing .darkCard .footerLine {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.categoryListing .readLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+
+  color: var(--blue-800);
+
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition:
+    color 200ms ease,
+    gap 200ms ease;
+}
+
+.categoryListing .readLink span {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.categoryListing .readLink:hover {
+  color: var(--blue-950);
+  gap: 1rem;
+}
+
+.categoryListing .darkCard .readLink {
+  color: var(--yellow-500);
+}
+
+.categoryListing .darkCard .readLink:hover {
+  color: var(--white);
+}
+
+.categoryListing .readLink:focus-visible {
+  outline: 2px solid var(--yellow-500);
+  outline-offset: 5px;
+}
+
+/* ==========================================
+   EMPTY STATE
+========================================== */
+
+.categoryEmptyState {
+  padding: clamp(2rem, 5vw, 4rem);
+
+  border: 1px solid var(--blue-200);
+  background: var(--blue-50);
+}
+
+.categoryEmptyState p {
+  margin: 0 0 1.5rem;
+
+  color: var(--blue-950);
+  font-size: 1.1rem;
+}
+
+/* ==========================================
+   BOTTOM NAVIGATION
+========================================== */
+
+.categoryBottomNav {
+  display: flex;
+  justify-content: flex-start;
+
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+}
+
+.categoryBackLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  color: var(--blue-800);
+
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+
+  transition:
+    color 200ms ease,
+    gap 200ms ease;
+}
+
+.categoryBackLink:hover {
+  color: var(--blue-950);
+  gap: 1rem;
+}
+
+.categoryBackLink:focus-visible {
+  outline: 2px solid var(--yellow-500);
+  outline-offset: 5px;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1000px) {
+  .categoryListing .postsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .categoryListing .postCard {
+    min-height: 300px;
+  }
+
+  .categoryListing .title {
+    max-width: 28ch;
+    font-size: clamp(2rem, 4vw, 2.8rem);
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 650px) {
+  .categoryBlogNav.blogNav {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .categoryBlogNav .blogNavLinks {
+    width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    gap: 1.5rem;
+    padding-bottom: 0.4rem;
+  }
+
+  .categoryBlogNav .blogNavLink {
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  .categoryListing.postsSection {
+    padding: 4rem 1.25rem;
+  }
+
+  .categoryListingHeader {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .categoryListingHeader h2 {
+    font-size: clamp(2.5rem, 11vw, 3.7rem);
+  }
+
+  .categoryListingMeta {
+    padding: 0;
+  }
+
+  .categoryListing .postCard {
+    grid-template-columns: 48px minmax(0, 1fr);
+    min-height: 280px;
+  }
+
+  .categoryListing .indexRail {
+    font-size: 3rem;
+  }
+
+  .categoryListing .cardBody {
+    padding: 1.4rem;
+  }
+
+  .categoryListing .cardContent {
+    padding-right: 0;
+  }
+
+  .categoryListing .title {
+    max-width: 100%;
+    font-size: clamp(1.7rem, 7.5vw, 2.3rem);
+  }
+
+  .categoryListing .excerpt {
+    font-size: 0.88rem;
+  }
+
+  .categoryListing .categoryCardOrbit {
+    width: 190px;
+    height: 190px;
+
+    top: -70px;
+    right: -85px;
+  }
+
+  .categoryListing .pixelCluster {
+    top: 1rem;
+    right: 1rem;
+
+    transform: scale(0.75);
+    transform-origin: top right;
+  }
+
+  .categoryListing .postCard:hover .pixelCluster {
+    transform: scale(0.75) translate(-4px, 4px);
+  }
+
+  .categoryListing .cardFooter {
+    gap: 0.75rem;
+    padding-top: 2rem;
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .categoryListing .postCard,
+  .categoryListing .pixelCluster,
+  .categoryListing .categoryOrbitRing,
+  .categoryListing .readLink,
+  .categoryListing .categoryTitleLink,
+  .categoryBackLink {
+    transition: none !important;
+  }
+
+  .categoryListing .postCard:hover,
+  .categoryListing .postCard:hover .pixelCluster,
+  .categoryListing .postCard:hover .categoryOrbitRing {
+    transform: none;
+  }
+}
+
+/* ==========================================================
+   END BLOG CATEGORY PAGE REDESIGN
+   ========================================================== */

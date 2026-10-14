@@ -1,45 +1,183 @@
+
+/* =========================================================
+   01. SELECT WRAPPER
+   ========================================================= */
+
 .selectIconWrapper {
   position: relative;
   display: flex;
   align-items: center;
   width: 100%;
+  min-width: 0;
+  background: var(--white);
 }
 
-.selectIcon {
-  position: absolute;
-  left: 1em;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--blue-600);
-  font-size: 1.2em;
-  pointer-events: none;
-  z-index: 2;
-}
+/* =========================================================
+   02. SELECT FIELD
+   ========================================================= */
 
 .select {
+  display: block;
   width: 100%;
-  height: 48px;
-  padding: 0.7em 2.7em 0.7em 2.7em;
-  border-radius: 0.7em;
-  border: 2px solid var(--grey-200);
-  font-size: 1.05rem;
-  font-family: inherit;
-  color: var(--foreground);
-  background: var(--grey-100);
-  transition:
-    border 0.2s,
-    box-shadow 0.2s;
+  min-width: 0;
+  height: 56px;
+
+  margin: 0;
+  padding: 0.9rem 3.75rem 0.9rem 1.15rem;
+
+  border: 1px solid var(--blue-200);
+  border-radius: 3px;
+
+  background: var(--white);
+  color: var(--blue-950);
+
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 450;
+  line-height: 1.5;
+
   appearance: none;
+  -webkit-appearance: none;
+
+  outline: none;
   cursor: pointer;
-  margin-bottom: var(--space-l);
-  background-image: url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 8L10 13L15 8' stroke='%231B89E2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 1.1em center;
-  background-size: 1.2em 1.2em;
+
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
 }
 
-.select:focus {
-  outline: none;
-  border-color: var(--blue-600);
-  box-shadow: 0 0 0 2px var(--blue-200);
+/* =========================================================
+   03. INTERACTION STATES
+   ========================================================= */
+
+.select:hover:not(:disabled) {
+  border-color: var(--blue-500);
+}
+
+.select:focus-visible {
+  border-color: var(--blue-800);
+  box-shadow: 0 0 0 3px rgba(27, 138, 228, 0.12);
+}
+
+/* =========================================================
+   04. CUSTOM DROPDOWN ARROW
+   ========================================================= */
+
+.selectArrow {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 52px;
+
+  border-left: 1px solid var(--blue-200);
+
+  color: var(--blue-800);
+
+  pointer-events: none;
+
+  transition:
+    background 180ms ease,
+    color 180ms ease,
+    border-color 180ms ease;
+}
+
+.selectArrow svg {
+  display: block;
+  width: 18px;
+  height: 18px;
+
+  transition: transform 180ms ease;
+}
+
+.selectIconWrapper:hover .selectArrow {
+  background: var(--blue-50);
+}
+
+.selectIconWrapper:focus-within .selectArrow {
+  background: var(--blue-50);
+  border-left-color: var(--blue-500);
+}
+
+.selectIconWrapper:focus-within .selectArrow svg {
+  transform: translateY(2px);
+}
+
+/* =========================================================
+   05. YELLOW FOCUS ACCENT
+   ========================================================= */
+
+.selectAccent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+
+  width: 0;
+  height: 3px;
+
+  background: var(--yellow-500);
+
+  pointer-events: none;
+
+  transition: width 220ms ease;
+}
+
+.selectIconWrapper:focus-within .selectAccent {
+  width: 46px;
+}
+
+/* =========================================================
+   06. DISABLED STATE
+   ========================================================= */
+
+.select:disabled {
+  cursor: not-allowed;
+
+  border-color: var(--blue-200);
+  background: var(--blue-50);
+  color: var(--grey-600);
+
+  opacity: 0.65;
+}
+
+.select:disabled + .selectArrow {
+  opacity: 0.45;
+}
+
+/* =========================================================
+   07. MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .select {
+    height: 54px;
+    padding-left: 1rem;
+    padding-right: 3.5rem;
+    font-size: 1rem;
+  }
+
+  .selectArrow {
+    width: 48px;
+  }
+}
+
+/* =========================================================
+   08. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .select,
+  .selectArrow,
+  .selectArrow svg,
+  .selectAccent {
+    transition: none;
+  }
 }

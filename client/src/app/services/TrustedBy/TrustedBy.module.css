@@ -1,44 +1,31 @@
+/* ==========================================
+   TRUSTED BY SECTION
+========================================== */
+
 .trustedSection {
   position: relative;
+  isolation: isolate;
 
   width: 100%;
-
-  padding: var(--section-lg) 3rem;
-
   overflow: hidden;
+
+  padding: clamp(4.5rem, 7vw, 7rem) clamp(1.5rem, 5vw, 5rem);
 
   background: var(--blue-50);
 }
 
-/* ----------------------------------
-   Subtle background detail
------------------------------------ */
-
 .trustedSection::before {
   content: "";
-
   position: absolute;
   inset: 0;
 
-  background:
-    linear-gradient(
-      rgba(0, 84, 201, 0.018) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(0, 84, 201, 0.018) 1px,
-      transparent 1px
-    );
+  background-image:
+    linear-gradient(rgba(0, 84, 201, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 84, 201, 0.018) 1px, transparent 1px);
 
   background-size: 46px 46px;
-
   pointer-events: none;
 }
-
-/* ----------------------------------
-   Inner
------------------------------------ */
 
 .trustedInner {
   position: relative;
@@ -46,247 +33,319 @@
 
   width: 100%;
   max-width: 1500px;
-
   margin: 0 auto;
 }
 
-/* ----------------------------------
-   Header
------------------------------------ */
+/* ==========================================
+   HEADER
+========================================== */
 
 .trustedHeader {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 3rem;
   margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.headerContent {
+  max-width: 800px;
 }
 
 .headerMarker {
   display: flex;
   align-items: center;
-
   gap: 0.6rem;
 
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .markerLine {
-  width: 34px;
+  width: 42px;
   height: 3px;
-
   background: var(--blue-800);
 }
 
 .markerPixel {
-  width: 7px;
-  height: 7px;
-
+  width: 8px;
+  height: 8px;
   background: var(--yellow-500);
+}
+
+.eyebrow {
+  margin: 0 0 0.85rem;
+
+  color: var(--blue-700);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .heading {
   margin: 0;
 
   color: var(--blue-950);
-
-  font-size: clamp(2rem, 3vw, 3rem);
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 4.5vw, 4.5rem);
   font-weight: 800;
-
-  line-height: 1;
-
-  letter-spacing: -0.045em;
+  line-height: 1.05;
+  letter-spacing: -0.055em;
+  text-wrap: balance;
 }
 
-/* ----------------------------------
-   Logo row
------------------------------------ */
+.headerDescription {
+  max-width: 350px;
+  margin: 0;
+
+  color: var(--grey-600);
+  font-size: 0.98rem;
+  line-height: 1.75;
+}
+
+/* ==========================================
+   LOGO GRID
+========================================== */
 
 .logoRow {
-  width: 100%;
-
   display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 
-  border-top: 1px solid var(--blue-200);
-  border-bottom: 1px solid var(--blue-200);
+  gap: 1px;
+
+  width: 100%;
+  padding: 1px;
+
+  background: var(--blue-200);
 }
 
-/* ----------------------------------
-   Logo column
------------------------------------ */
+/* ==========================================
+   LOGO COLUMN
+========================================== */
 
 .logoCol {
   min-width: 0;
-  min-height: 170px;
+  background: var(--white);
+}
 
-  padding: 2rem 1.25rem;
+.logoLink {
+  position: relative;
 
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 
-  gap: 1.2rem;
-}
-
-.logoCol + .logoCol {
-  border-left: 1px solid var(--blue-200);
-}
-
-/* ----------------------------------
-   Logo link
------------------------------------ */
-
-.logoLink {
-  position: relative;
+  gap: 1.5rem;
 
   width: 100%;
-  min-height: 70px;
+  min-height: 230px;
+  padding: 2rem;
 
+  color: inherit;
+  text-align: center;
+  text-decoration: none;
+
+  transition: background 200ms ease;
+}
+
+.logoLink:hover {
+  background: #f9fcff;
+}
+
+.logoLink:focus-visible {
+  outline: 2px solid var(--blue-800);
+  outline-offset: -3px;
+}
+
+/* ==========================================
+   LOGO IMAGE
+========================================== */
+
+.logoImageWrap {
   display: flex;
   align-items: center;
   justify-content: center;
 
-  text-decoration: none;
+  width: 100%;
+  max-width: 180px;
+  height: 95px;
 }
 
-/* ----------------------------------
-   Image
------------------------------------ */
-
 .logoImg {
-  width: min(125px, 100%);
-  height: 60px;
+  display: block;
+
+  width: 100%;
+  max-width: 170px;
+  height: 90px;
 
   object-fit: contain;
 
-  filter: grayscale(1);
-  opacity: 0.58;
-
-  transition:
-    filter 180ms ease,
-    opacity 180ms ease,
-    transform 180ms ease;
-}
-
-.logoLink:hover .logoImg,
-.logoLink:focus-visible .logoImg {
-  filter: grayscale(0);
-
+  filter: none;
   opacity: 1;
 
-  transform: translateY(-3px);
+  transition: transform 220ms ease;
 }
 
-/* ----------------------------------
-   Tiny hover pixel
------------------------------------ */
-
-.logoHoverPixel {
-  position: absolute;
-
-  left: 50%;
-  bottom: -5px;
-
-  width: 6px;
-  height: 6px;
-
-  background: var(--yellow-500);
-
-  opacity: 0;
-
-  transform: translate(-50%, 5px);
-
-  transition:
-    opacity 180ms ease,
-    transform 180ms ease;
+.logoLink:hover .logoImg {
+  transform: translateY(-4px);
 }
 
-.logoLink:hover .logoHoverPixel,
-.logoLink:focus-visible .logoHoverPixel {
-  opacity: 1;
-
-  transform: translate(-50%, 0);
-}
-
-.logoLink:focus-visible {
-  outline: 2px solid var(--yellow-500);
-  outline-offset: 6px;
-}
-
-/* ----------------------------------
-   Company name
------------------------------------ */
+/* ==========================================
+   COMPANY NAME
+========================================== */
 
 .companyName {
-  max-width: 150px;
+  max-width: 230px;
 
   color: var(--grey-600);
-
-  font-size: 0.78rem;
+  font-size: 0.82rem;
   font-weight: 700;
+  line-height: 1.5;
 
-  line-height: 1.4;
-
-  text-align: center;
-
-  letter-spacing: 0.01em;
+  transition: color 200ms ease;
 }
 
-/* ----------------------------------
-   Tablet
------------------------------------ */
-
-@media (max-width: 1100px) {
-  .trustedSection {
-    padding: var(--section-lg) 2rem;
-  }
-
-  .logoRow {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  .logoCol:nth-child(4),
-  .logoCol:nth-child(5),
-  .logoCol:nth-child(6) {
-    border-top: 1px solid var(--blue-200);
-  }
-
-  .logoCol:nth-child(4) {
-    border-left: 0;
-  }
+.logoLink:hover .companyName {
+  color: var(--blue-800);
 }
 
-/* ----------------------------------
-   Mobile
------------------------------------ */
+/* ==========================================
+   HOVER ARROW
+========================================== */
 
-@media (max-width: 650px) {
+.logoArrow {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+
+  color: var(--blue-700);
+  font-size: 1rem;
+
+  opacity: 0;
+  transform: translate(-4px, 4px);
+
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
+}
+
+.logoLink:hover .logoArrow,
+.logoLink:focus-visible .logoArrow {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1050px) {
   .trustedSection {
-    padding: var(--section-md) 1.25rem;
+    padding: 5rem 2rem;
+  }
+
+  .trustedHeader {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .headerDescription {
+    max-width: 600px;
   }
 
   .logoRow {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .logoCol {
-    min-height: 150px;
+  .logoLink {
+    min-height: 210px;
+  }
+}
 
-    padding: 1.5rem 1rem;
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 650px) {
+  .trustedSection {
+    padding: 4rem 1.25rem;
   }
 
-  .logoCol:nth-child(odd) {
-    border-left: 0;
+  .trustedHeader {
+    margin-bottom: 2.5rem;
   }
 
-  .logoCol:nth-child(n + 3) {
-    border-top: 1px solid var(--blue-200);
+  .heading {
+    font-size: clamp(2.3rem, 10vw, 3.5rem);
+  }
+
+  .logoRow {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .logoLink {
+    min-height: 175px;
+    padding: 1.5rem 0.75rem;
+    gap: 1rem;
+  }
+
+  .logoImageWrap {
+    max-width: 125px;
+    height: 70px;
   }
 
   .logoImg {
-    width: min(110px, 100%);
-    height: 54px;
+    max-width: 125px;
+    height: 65px;
   }
 
   .companyName {
-    font-size: 0.73rem;
+    font-size: 0.72rem;
+    line-height: 1.45;
+  }
+
+  .logoArrow {
+    top: 0.75rem;
+    right: 0.75rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* ==========================================
+   VERY SMALL MOBILE
+========================================== */
+
+@media (max-width: 380px) {
+  .logoLink {
+    min-height: 160px;
+    padding: 1.25rem 0.5rem;
+  }
+
+  .logoImageWrap {
+    max-width: 110px;
+  }
+
+  .logoImg {
+    max-width: 110px;
+  }
+
+  .companyName {
+    font-size: 0.68rem;
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .logoLink,
+  .logoImg,
+  .companyName,
+  .logoArrow {
+    transition: none !important;
   }
 }

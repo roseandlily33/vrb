@@ -10,6 +10,7 @@ export default function Card({
   className = "",
   children,
   bare = false,
+  variant = "default",
   ...props
 }) {
   if (bare) {
@@ -21,20 +22,38 @@ export default function Card({
   }
   return (
     <article
-      className={styles.serviceCard + (className ? ` ${className}` : "")}
-      key={title}
+      className={[
+        styles.serviceCard,
+        variant === "minimal" ? styles.minimal : "",
+        className || "",
+      ]
+        .filter(Boolean)
+        .join(" ")}
     >
-      <h3>
-        {icon}
-        {title}
-      </h3>
-      <p>{description}</p>
+      <div className={styles.cardContent}>
+        {icon && (
+          <div className={styles.iconContainer} aria-hidden="true">
+            {icon}
+          </div>
+        )}
+
+        <h3 className={styles.cardTitle}>{title}</h3>
+
+        {description && <p className={styles.cardDescription}>{description}</p>}
+
+        {children}
+      </div>
+
       {learnMoreLink && (
-        <Link href={learnMoreLink} className={styles.serviceLink}>
-          Learn More <FaArrowRight />
+        <Link
+          href={learnMoreLink}
+          className={styles.serviceLink}
+          aria-label={`Learn more about ${title}`}
+        >
+          <span>Explore Service</span>
+          <FaArrowRight aria-hidden="true" />
         </Link>
       )}
-      {children}
     </article>
   );
 }

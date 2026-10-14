@@ -2,53 +2,107 @@ import styles from "./AbouteMe.module.css";
 
 export default function AboutMe() {
   return (
-    <section className={styles.introSection}>
+    <section className={styles.introSection} aria-labelledby="intro-heading">
+      {/* Subtle background pixels */}
       <div className={styles.pixelComposition} aria-hidden="true">
         <span className={`${styles.pixel} ${styles.pixel1}`} />
         <span className={`${styles.pixel} ${styles.pixel2}`} />
         <span className={`${styles.pixel} ${styles.pixel3}`} />
         <span className={`${styles.pixel} ${styles.pixel4}`} />
-        <span className={`${styles.pixel} ${styles.pixel5}`} />
-        <span className={`${styles.pixel} ${styles.pixel6}`} />
 
         <span className={`${styles.pixelOutline} ${styles.outline1}`} />
         <span className={`${styles.pixelOutline} ${styles.outline2}`} />
       </div>
 
       <div className={styles.introInner}>
-        <div className={styles.introContent}>
-          <p className="eyebrowHeader">Design meets development</p>
+        {/* LEFT: INTRODUCTION */}
 
-          <h2>
-            I design and develop{" "}
-            <span className={styles.shimmeringText}>websites</span> that feel
-            clear, fast, and easy to use.
+        <div className={styles.introContent}>
+          <p className={styles.introEyebrow}>
+            <span className={styles.eyebrowPixel} aria-hidden="true" />
+            More than just a website
+          </p>
+
+          <h2 id="intro-heading">
+            Good design gets attention.{" "}
+            <span className={styles.highlightText}>
+              Thoughtful design makes it work.
+            </span>
           </h2>
 
           <p className={styles.introText}>
-            As a Halifax-based web designer and developer, I create custom
-            websites and scalable web applications for businesses in Nova Scotia
-            and across Canada, combining thoughtful design with clean, reliable
-            development.
+            A website does more than give your business a place online. It
+            shapes how people see your brand, find information and decide
+            whether to take the next step.
+          </p>
+
+          <p className={styles.introText}>
+            I bring design, development and user experience together to create
+            custom websites that look professional, feel intuitive and support
+            the businesses behind them.
           </p>
         </div>
 
-        <ul className={styles.introList}>
-          <li>
-            <span className={styles.listNumber}>01</span>
-            <span>Fast, performance-focused builds</span>
-          </li>
+        {/* RIGHT: CONNECTED PRINCIPLES */}
 
-          <li>
-            <span className={styles.listNumber}>02</span>
-            <span>Clean, scalable development</span>
-          </li>
+        <div className={styles.principles}>
+          <div className={styles.principlesHeader} aria-hidden="true">
+            <span>THE THINKING BEHIND THE WORK</span>
+            <span className={styles.headerPixel} />
+          </div>
 
-          <li>
-            <span className={styles.listNumber}>03</span>
-            <span>Thoughtful UX/UI decisions</span>
-          </li>
-        </ul>
+          <div className={styles.principlesList}>
+            <div className={styles.circuitTrack} aria-hidden="true" />
+
+            <div className={styles.principle}>
+              <div className={styles.principleMarker}>
+                <span className={styles.principleNumber}>01</span>
+              </div>
+
+              <div className={styles.principleContent}>
+                <h3>Understand the business</h3>
+                <p>
+                  Every project starts with understanding your goals, audience
+                  and what your website needs to accomplish.
+                </p>
+              </div>
+            </div>
+
+            <div className={styles.principle}>
+              <div className={styles.principleMarker}>
+                <span className={styles.principleNumber}>02</span>
+              </div>
+
+              <div className={styles.principleContent}>
+                <h3>Design around the user</h3>
+                <p>
+                  Clear navigation, thoughtful layouts and intuitive experiences
+                  help visitors find what they need.
+                </p>
+              </div>
+            </div>
+
+            <div className={styles.principle}>
+              <div className={styles.principleMarker}>
+                <span className={styles.principleNumber}>03</span>
+              </div>
+
+              <div className={styles.principleContent}>
+                <h3>Build with the bigger picture in mind</h3>
+                <p>
+                  Design and development decisions work together to create a
+                  website that's reliable, adaptable and ready to grow with your
+                  business.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div className={styles.principlesFooter}>
+            <span className={styles.footerPixel} aria-hidden="true" />
+            <span>Design + Development + Strategy</span>
+          </div>
+        </div>
       </div>
     </section>
   );

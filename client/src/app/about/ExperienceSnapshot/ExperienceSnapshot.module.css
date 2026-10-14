@@ -1,22 +1,29 @@
+/* ==========================================
+   EXPERIENCE SNAPSHOT
+========================================== */
+
 .experienceSection {
   position: relative;
+  isolation: isolate;
 
   width: 100%;
-
-  padding: var(--section-xl) 3rem;
-
   overflow: hidden;
 
-  background: var(--blue-950);
+  padding: clamp(5rem, 8vw, 8rem) clamp(1.25rem, 5vw, 5rem);
+
+  background:
+    radial-gradient(
+      ellipse at 25% 55%,
+      rgba(0, 84, 201, 0.16),
+      transparent 55%
+    ),
+    var(--blue-950);
 }
 
-/* ----------------------------------
-   Very subtle grid
------------------------------------ */
+/* Background grid */
 
 .experienceSection::before {
   content: "";
-
   position: absolute;
   inset: 0;
 
@@ -25,13 +32,12 @@
     linear-gradient(90deg, rgba(105, 185, 242, 0.025) 1px, transparent 1px);
 
   background-size: 46px 46px;
-
   pointer-events: none;
 }
 
-/* ----------------------------------
-   Inner
------------------------------------ */
+/* ==========================================
+   INNER
+========================================== */
 
 .experienceInner {
   position: relative;
@@ -39,315 +45,545 @@
 
   width: 100%;
   max-width: 1500px;
-
   margin: 0 auto;
 }
 
-/* ----------------------------------
-   Header
------------------------------------ */
+/* ==========================================
+   HEADER
+========================================== */
 
 .experienceHeader {
-  width: 100%;
-
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-
   gap: 2rem;
 
+  width: 100%;
   margin-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.sectionMarker {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.markerLine {
+  width: 42px;
+  height: 3px;
+  background: var(--yellow-500);
+}
+
+.markerPixel {
+  width: 8px;
+  height: 8px;
+  background: var(--blue-500);
 }
 
 .eyebrow {
   margin: 0 0 0.8rem;
 
   color: var(--yellow-500);
-
   font-size: 0.76rem;
   font-weight: 800;
-
   text-transform: uppercase;
   letter-spacing: 0.14em;
 }
 
-.experienceHeader h3 {
+.experienceHeader h2 {
   max-width: 700px;
-
   margin: 0;
 
   color: var(--white);
+  font-family: var(--font-heading);
 
   font-size: clamp(2.5rem, 5vw, 4.6rem);
   font-weight: 800;
-
   line-height: 1;
   letter-spacing: -0.05em;
 }
 
-/* ----------------------------------
-   Header detail
------------------------------------ */
+/* Header accent */
 
 .headerDetail {
   display: flex;
   align-items: center;
-
   gap: 0.65rem;
-
   padding-bottom: 0.5rem;
 }
 
 .detailLine {
   width: clamp(60px, 9vw, 130px);
   height: 1px;
-
   background: rgba(167, 216, 250, 0.35);
 }
 
 .detailPixel {
   width: 9px;
   height: 9px;
-
   background: var(--yellow-500);
 }
 
-/* ----------------------------------
-   Experience list
------------------------------------ */
+/* ==========================================
+   MAIN LAYOUT
+========================================== */
 
-.experienceList {
-  width: 100%;
-
-  margin: 0;
-  padding: 0;
-
+.experienceLayout {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns:
+    minmax(0, 0.9fr)
+    minmax(0, 1fr);
 
-  list-style: none;
-
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  align-items: center;
+  gap: clamp(3rem, 7vw, 8rem);
 }
 
-/* ----------------------------------
-   Experience item
------------------------------------ */
+/* ==========================================
+   ORBITAL VISUAL
+========================================== */
 
-.experienceItem {
+.experienceVisual {
   position: relative;
-
-  min-width: 0;
-  min-height: 300px;
-
-  padding: clamp(1.75rem, 3vw, 2.5rem);
-
-  display: flex;
-  flex-direction: column;
-
-  transition: background 180ms ease;
-}
-
-.experienceItem + .experienceItem {
-  border-left: 1px solid rgba(255, 255, 255, 0.16);
-}
-
-.experienceItem:hover {
-  background: rgba(255, 255, 255, 0.035);
-}
-
-/* small yellow accent */
-
-.experienceItem::after {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  bottom: -1px;
-
-  width: 0;
-  height: 3px;
-
-  background: var(--yellow-500);
-
-  transition: width 220ms ease;
-}
-
-.experienceItem:hover::after {
-  width: 52px;
-}
-
-/* ----------------------------------
-   Number + icon
------------------------------------ */
-
-.itemMeta {
-  width: 100%;
-
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-
-  gap: 1rem;
-
-  margin-bottom: clamp(3rem, 5vw, 5rem);
-}
-
-.itemNumber {
-  color: var(--blue-400);
-
-  font-size: 0.72rem;
-  font-weight: 800;
-
-  letter-spacing: 0.14em;
-}
-
-.iconWrapper {
-  width: 44px;
-  height: 44px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background: var(--blue-800);
+  width: 100%;
+  min-height: 480px;
+}
 
+.orbitScene {
+  position: relative;
+
+  width: min(100%, 480px);
+  aspect-ratio: 1 / 1;
+}
+
+/* Orbital rings */
+
+.orbitOne,
+.orbitTwo,
+.orbitThree {
+  position: absolute;
+
+  display: block;
+
+  border: 1px solid rgba(105, 185, 242, 0.38);
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.orbitOne {
+  inset: 19% 3%;
+
+  transform: rotate(-25deg);
+  animation: orbitOneMove 24s ease-in-out infinite alternate;
+}
+
+.orbitTwo {
+  inset: 7% 20%;
+
+  border-style: dashed;
+  border-color: rgba(105, 185, 242, 0.24);
+
+  transform: rotate(30deg);
+  animation: orbitTwoMove 28s ease-in-out infinite alternate;
+}
+
+.orbitThree {
+  inset: 30% 9%;
+
+  border-color: rgba(38, 155, 230, 0.22);
+
+  transform: rotate(40deg);
+}
+
+/* ==========================================
+   SKILL NODES
+========================================== */
+
+.skillNode {
+  position: absolute;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: clamp(68px, 7vw, 94px);
+  height: clamp(68px, 7vw, 94px);
+
+  border: 2px solid var(--blue-500);
+  border-radius: 50%;
+
+  background: var(--blue-950);
+
+  box-shadow: 0 0 0 10px rgba(27, 138, 228, 0.08);
+
+  transition:
+    transform 250ms ease,
+    border-color 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.skillNode::before {
+  content: "";
+  position: absolute;
+  inset: 9px;
+
+  border-radius: 50%;
+  background: rgba(27, 138, 228, 0.22);
+}
+
+.skillNumber {
+  position: relative;
+  z-index: 1;
+
+  color: var(--white);
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+}
+
+/* Node placement */
+
+.skillOne {
+  top: 36%;
+  left: 3%;
+}
+
+.skillTwo {
+  top: 8%;
+  left: 43%;
+
+  border-color: var(--yellow-500);
+}
+
+.skillThree {
+  right: 4%;
+  bottom: 17%;
+}
+
+/* ==========================================
+   PIXELS + DOTS
+========================================== */
+
+.orbitPixel,
+.orbitDot {
+  position: absolute;
+  display: block;
+  pointer-events: none;
+}
+
+.orbitPixel {
+  background: var(--blue-800);
+}
+
+.pixelOne {
+  top: 15%;
+  left: 23%;
+  width: 12px;
+  height: 12px;
+  background: var(--yellow-500);
+}
+
+.pixelTwo {
+  top: 28%;
+  right: 8%;
+  width: 18px;
+  height: 18px;
+}
+
+.pixelThree {
+  bottom: 12%;
+  left: 30%;
+  width: 9px;
+  height: 9px;
+  background: var(--blue-500);
+}
+
+.orbitDot {
+  border-radius: 50%;
+  background: var(--blue-500);
+}
+
+.dotOne {
+  top: 65%;
+  left: 16%;
+  width: 9px;
+  height: 9px;
+}
+
+.dotTwo {
+  right: 22%;
+  bottom: 5%;
+  width: 6px;
+  height: 6px;
+  background: var(--yellow-500);
+}
+
+/* ==========================================
+   EXPERIENCE LIST
+========================================== */
+
+.experienceList {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+/* ==========================================
+   EXPERIENCE ITEM
+========================================== */
+
+.experienceItem {
+  position: relative;
+
+  display: grid;
+  grid-template-columns: 76px minmax(0, 1fr);
+  align-items: start;
+  gap: 1.5rem;
+
+  min-width: 0;
+  padding: clamp(1.5rem, 2.8vw, 2.25rem) 0;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+
+  transition: padding-left 220ms ease;
+}
+
+.experienceItem:hover {
+  padding-left: 0.6rem;
+}
+
+/* ==========================================
+   NUMBER + ICON
+========================================== */
+
+.itemMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+
+.itemNumber {
+  color: var(--blue-500);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.iconWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 44px;
+  height: 44px;
+
+  background: var(--blue-800);
   color: var(--yellow-500);
 
   font-size: 1rem;
 
   transition:
-    background 180ms ease,
-    color 180ms ease,
-    transform 180ms ease;
+    background 200ms ease,
+    color 200ms ease,
+    transform 200ms ease;
+}
+
+.iconWrapper svg {
+  width: 1em;
+  height: 1em;
 }
 
 .experienceItem:hover .iconWrapper {
   background: var(--yellow-500);
-
   color: var(--blue-950);
-
   transform: translateY(-3px);
 }
 
-/* ----------------------------------
-   Content
------------------------------------ */
+/* ==========================================
+   CONTENT
+========================================== */
 
-.itemContent {
-  margin-top: auto;
-}
-
-.itemContent h4 {
-  max-width: 330px;
-
-  margin: 0 0 1rem;
+.itemContent h3 {
+  max-width: 420px;
+  margin: 0 0 0.75rem;
 
   color: var(--white);
-
-  font-size: clamp(1.35rem, 2vw, 1.75rem);
+  font-size: clamp(1.3rem, 1.8vw, 1.65rem);
   font-weight: 800;
-
-  line-height: 1.1;
+  line-height: 1.15;
   letter-spacing: -0.035em;
 }
 
 .itemContent p {
-  max-width: 40ch;
-
+  max-width: 55ch;
   margin: 0;
 
   color: var(--blue-200);
-
   font-size: 0.95rem;
   line-height: 1.7;
 }
 
-/* ----------------------------------
-   Tablet
------------------------------------ */
+/* ==========================================
+   ORBIT ANIMATIONS
+========================================== */
 
-@media (max-width: 900px) {
-  .experienceSection {
-    padding: var(--section-lg) 2rem;
+@keyframes orbitOneMove {
+  from {
+    transform: rotate(-25deg);
   }
 
-  .experienceList {
-    grid-template-columns: 1fr;
-  }
-
-  .experienceItem {
-    min-height: 0;
-
-    display: grid;
-    grid-template-columns: 100px minmax(0, 1fr);
-
-    gap: 2rem;
-
-    padding: 2rem 0;
-  }
-
-  .experienceItem + .experienceItem {
-    border-left: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.16);
-  }
-
-  .itemMeta {
-    margin: 0;
-
-    flex-direction: column;
-    justify-content: flex-start;
-
-    gap: 1.25rem;
-  }
-
-  .itemContent {
-    margin: 0;
-  }
-
-  .itemContent p {
-    max-width: 600px;
+  to {
+    transform: rotate(-12deg);
   }
 }
 
-/* ----------------------------------
-   Mobile
------------------------------------ */
+@keyframes orbitTwoMove {
+  from {
+    transform: rotate(30deg);
+  }
+
+  to {
+    transform: rotate(48deg);
+  }
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1000px) {
+  .experienceSection {
+    padding: 5rem 2rem;
+  }
+
+  .experienceLayout {
+    grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+    gap: 2rem;
+  }
+
+  .experienceVisual {
+    min-height: 360px;
+  }
+
+  .experienceItem {
+    grid-template-columns: 58px minmax(0, 1fr);
+    gap: 1rem;
+  }
+}
+
+/* ==========================================
+   SMALL TABLET
+========================================== */
+
+@media (max-width: 750px) {
+  .experienceLayout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .experienceVisual {
+    min-height: 0;
+  }
+
+  .orbitScene {
+    width: min(100%, 360px);
+  }
+
+  .skillNode {
+    width: 76px;
+    height: 76px;
+  }
+
+  .experienceList {
+    margin-top: 1rem;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
 
 @media (max-width: 600px) {
   .experienceSection {
-    padding: var(--section-lg) 1.25rem;
+    padding: 4rem 1.25rem;
   }
 
   .experienceHeader {
     margin-bottom: 2.5rem;
   }
 
+  .experienceHeader h2 {
+    font-size: clamp(2.5rem, 12vw, 3.7rem);
+  }
+
   .headerDetail {
     display: none;
   }
 
-  .experienceHeader h3 {
-    font-size: clamp(2.5rem, 12vw, 3.7rem);
+  .orbitScene {
+    width: min(100%, 290px);
+  }
+
+  .skillNode {
+    width: 62px;
+    height: 62px;
+  }
+
+  .skillNumber {
+    font-size: 1rem;
   }
 
   .experienceItem {
-    grid-template-columns: 1fr;
-
-    gap: 1.5rem;
-
-    padding: 1.75rem 0;
+    grid-template-columns: 55px minmax(0, 1fr);
+    gap: 1rem;
+    padding: 1.5rem 0;
   }
 
-  .itemMeta {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
+  .itemContent h3 {
+    font-size: 1.3rem;
   }
 
-  .itemContent h4 {
-    font-size: 1.35rem;
+  .itemContent p {
+    font-size: 0.94rem;
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .orbitOne,
+  .orbitTwo {
+    animation: none !important;
+  }
+
+  .experienceItem,
+  .iconWrapper,
+  .skillNode {
+    transition: none !important;
+  }
+
+  .experienceItem:hover {
+    padding-left: 0;
+  }
+
+  .experienceItem:hover .iconWrapper {
+    transform: none;
   }
 }

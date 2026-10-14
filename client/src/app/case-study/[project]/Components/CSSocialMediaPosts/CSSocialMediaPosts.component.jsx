@@ -50,149 +50,164 @@ const CSSocialMediaPosts = ({ posts = [] }) => {
 
   return (
     <>
-     <section
-  className={styles.gallery}
-  aria-label="Social media post gallery"
->
-  {posts.map((post, index) => (
-    <article
-      key={post.id}
-      className={`${styles.post} ${styles[`post${(index % 8) + 1}`]}`}
-      onClick={() => openPost(post)}
-      onKeyDown={(e) => handleTileKeyDown(e, post)}
-      role="button"
-      tabIndex={0}
-      aria-label={`View ${post.title || "social media post"}`}
-    >
-      {post.image && (
-        <div className={styles.imageWrap}>
-          <Image
-            src={post.image}
-            alt={post.title || "Social media post"}
-            loading="lazy"
-            height={300}
-            width={300}
-          />
-        </div>
-      )}
-
-      <div className={styles.overlay}>
-        <span className={styles.topIndex}>
-          {String(index + 1).padStart(2, "0")}
-        </span>
-
-        <div className={styles.overlayBottom}>
-          <div className={styles.meta}>
-            <h3 className={styles.title}>{post.title}</h3>
-
-            {post.date && (
-              <time className={styles.month}>
-                {formatMonth(post.date)}
-              </time>
+      <section
+        className={styles.gallery}
+        aria-label="Social media post gallery"
+      >
+        {posts.map((post, index) => (
+          <article
+            key={post.id}
+            className={`${styles.post} ${styles[`post${(index % 8) + 1}`]}`}
+            onClick={() => openPost(post)}
+            onKeyDown={(e) => handleTileKeyDown(e, post)}
+            role="button"
+            tabIndex={0}
+            aria-label={`View ${post.title || "social media post"}`}
+          >
+            {post.image && (
+              <div className={styles.imageWrap}>
+                <Image
+                  src={post.image}
+                  alt={post.title || "Social media post"}
+                  loading="lazy"
+                  height={600}
+                  width={600}
+                />
+              </div>
             )}
-          </div>
 
-          <span className={styles.viewLabel}>
-            View post
-            <span className={styles.viewPixel} aria-hidden="true" />
-          </span>
-        </div>
-      </div>
-    </article>
-  ))}
+            <div className={styles.overlay}>
+              <div className={styles.overlayTop}>
+                <span className={styles.topIndex}>
+                  {String(index + 1).padStart(2, "0")}
+                </span>
 
-  {active && (
-    <div
-      className={styles.modalOverlay}
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="social-post-modal-title"
-      onClick={(e) => {
-        if (e.target === e.currentTarget) {
-          setActive(null);
-        }
-      }}
-    >
-      <div className={styles.modal}>
-        <button
-          type="button"
-          className={styles.closeButton}
-          onClick={() => setActive(null)}
-          aria-label="Close post details"
-        >
-          <span aria-hidden="true">×</span>
-        </button>
+                <span className={styles.overlayPixel} aria-hidden="true" />
+              </div>
 
-        {active.image && (
-          <div className={styles.modalImage}>
-            <Image
-              src={active.image}
-              alt={active.title || "Social media post"}
-              width={800}
-              height={600}
-            />
+              <div className={styles.overlayBottom}>
+                <div className={styles.meta}>
+                  <span className={styles.postEyebrow}>
+                    SOCIAL MEDIA DESIGN
+                  </span>
+
+                  <h3 className={styles.title}>{post.title}</h3>
+
+                  {post.date && (
+                    <time className={styles.month}>
+                      {formatMonth(post.date)}
+                    </time>
+                  )}
+                </div>
+
+                <span className={styles.viewLabel}>
+                  View post
+                  <span className={styles.viewPixel} aria-hidden="true" />
+                </span>
+              </div>
+            </div>
+          </article>
+        ))}
+
+        {active && (
+          <div
+            className={styles.modalOverlay}
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="social-post-modal-title"
+            onClick={(e) => {
+              if (e.target === e.currentTarget) {
+                setActive(null);
+              }
+            }}
+          >
+            <div className={styles.modal}>
+              <button
+                type="button"
+                className={styles.closeButton}
+                onClick={() => setActive(null)}
+                aria-label="Close post details"
+              >
+                <span aria-hidden="true">×</span>
+              </button>
+
+              {active.image && (
+                <div className={styles.modalImage}>
+                  <div className={styles.modalImageGrid} aria-hidden="true" />
+
+                  <Image
+                    src={active.image}
+                    alt={active.title || "Social media post"}
+                    width={900}
+                    height={900}
+                  />
+                </div>
+              )}
+
+              <div className={styles.modalContent}>
+                <div className={styles.modalMarker} aria-hidden="true">
+                  <span className={styles.modalMarkerLine} />
+                  <span className={styles.modalMarkerPixel} />
+                </div>
+
+                <div className={styles.modalEyebrow}>
+                  Social Media / Selected Work
+                </div>
+
+                <div className={styles.modalHeader}>
+                  <h2
+                    id="social-post-modal-title"
+                    className={styles.modalTitle}
+                  >
+                    {active.title || "Social Media Design"}
+                  </h2>
+
+                  {active.date && (
+                    <time className={styles.modalMonth}>
+                      {formatMonth(active.date)}
+                    </time>
+                  )}
+                </div>
+
+                {active.description && (
+                  <p className={styles.modalDescription}>
+                    {active.description}
+                  </p>
+                )}
+
+                {(active.objective || active.highlight) && (
+                  <div className={styles.modalDetails}>
+                    {active.objective && (
+                      <div className={styles.detailBlock}>
+                        <span className={styles.detailLabel}>Objective</span>
+
+                        <p>{active.objective}</p>
+                      </div>
+                    )}
+
+                    {active.highlight && (
+                      <div className={styles.detailBlock}>
+                        <span className={styles.detailLabel}>Highlight</span>
+
+                        <p>{active.highlight}</p>
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                <div className={styles.modalFooter}>
+                  <span
+                    className={styles.modalFooterPixel}
+                    aria-hidden="true"
+                  />
+
+                  <span>DESIGN IN THE DETAILS</span>
+                </div>
+              </div>
+            </div>
           </div>
         )}
-
-        <div className={styles.modalContent}>
-          <div className={styles.modalMarker} aria-hidden="true">
-            <span className={styles.modalMarkerLine} />
-            <span className={styles.modalMarkerPixel} />
-          </div>
-
-          <div className={styles.modalEyebrow}>
-            Social Media
-          </div>
-
-          <div className={styles.modalHeader}>
-            <h2
-              id="social-post-modal-title"
-              className={styles.modalTitle}
-            >
-              {active.title}
-            </h2>
-
-            {active.date && (
-              <time className={styles.modalMonth}>
-                {formatMonth(active.date)}
-              </time>
-            )}
-          </div>
-
-          {active.description && (
-            <p className={styles.modalDescription}>
-              {active.description}
-            </p>
-          )}
-
-          {(active.objective || active.highlight) && (
-            <div className={styles.modalDetails}>
-              {active.objective && (
-                <div className={styles.detailBlock}>
-                  <span className={styles.detailLabel}>
-                    Objective
-                  </span>
-
-                  <p>{active.objective}</p>
-                </div>
-              )}
-
-              {active.highlight && (
-                <div className={styles.detailBlock}>
-                  <span className={styles.detailLabel}>
-                    Highlight
-                  </span>
-
-                  <p>{active.highlight}</p>
-                </div>
-              )}
-            </div>
-          )}
-        </div>
-      </div>
-    </div>
-  )}
-</section>
+      </section>
     </>
   );
 };

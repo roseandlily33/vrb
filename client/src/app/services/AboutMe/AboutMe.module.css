@@ -1,65 +1,65 @@
+/* ==========================================
+   ABOUT ME SECTION
+========================================== */
+
 .container {
   position: relative;
+  isolation: isolate;
 
   width: 100%;
-
   margin: 0;
-
-  padding: var(--section-xl) 3rem;
-
   overflow: hidden;
+
+  padding: clamp(5rem, 8vw, 8rem) clamp(1.5rem, 5vw, 5rem);
 
   background:
     radial-gradient(
-      circle at 88% 20%,
-      rgba(27, 138, 228, 0.07),
-      transparent 26%
+      circle at 92% 80%,
+      rgba(27, 138, 228, 0.06),
+      transparent 30%
     ),
     var(--white);
 }
 
+/* Subtle background grid */
+
 .container::before {
   content: "";
-
   position: absolute;
   inset: 0;
 
   background-image:
-    linear-gradient(
-      rgba(0, 84, 201, 0.018) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(0, 84, 201, 0.018) 1px,
-      transparent 1px
-    );
+    linear-gradient(rgba(0, 84, 201, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 84, 201, 0.018) 1px, transparent 1px);
 
   background-size: 46px 46px;
-
   pointer-events: none;
 }
+
+/* ==========================================
+   INNER LAYOUT
+========================================== */
 
 .inner {
   position: relative;
   z-index: 1;
 
-  width: 100%;
-  max-width: 1500px;
-
-  margin: 0 auto;
-
   display: grid;
-  grid-template-columns: minmax(220px, 0.55fr) minmax(0, 1.45fr);
-
-  gap: clamp(3rem, 8vw, 8rem);
+  grid-template-columns:
+    minmax(220px, 0.6fr)
+    minmax(0, 1.4fr);
 
   align-items: start;
+  gap: clamp(3rem, 8vw, 8rem);
+
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
 }
 
-/* ----------------------------------
-   Title
------------------------------------ */
+/* ==========================================
+   LEFT: TITLE
+========================================== */
 
 .titleBlock {
   position: relative;
@@ -68,23 +68,20 @@
 .marker {
   display: flex;
   align-items: center;
-
   gap: 0.6rem;
 
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.25rem;
 }
 
 .markerLine {
   width: 42px;
   height: 3px;
-
   background: var(--blue-800);
 }
 
 .markerPixel {
   width: 8px;
   height: 8px;
-
   background: var(--yellow-500);
 }
 
@@ -92,133 +89,138 @@
   margin: 0;
 
   color: var(--blue-950);
-
-  font-size: clamp(2.4rem, 4vw, 4rem);
+  font-family: var(--font-heading);
+  font-size: clamp(2.8rem, 5vw, 5rem);
   font-weight: 800;
-
-  line-height: 0.98;
-  letter-spacing: -0.05em;
+  line-height: 1;
+  letter-spacing: -0.055em;
 }
 
-/* ----------------------------------
-   Content
------------------------------------ */
+/* Decorative connection */
+
+.titleDecoration {
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+  max-width: 190px;
+
+  margin-top: 2.75rem;
+}
+
+.decorationLine {
+  flex: 1;
+  height: 1px;
+  background: var(--blue-200);
+}
+
+.decorationNode {
+  width: 9px;
+  height: 9px;
+  flex-shrink: 0;
+
+  background: var(--yellow-500);
+  box-shadow: 0 0 0 4px var(--blue-50);
+}
+
+/* ==========================================
+   RIGHT: CONTENT
+========================================== */
 
 .content {
   position: relative;
-
-  max-width: 900px;
-
-  padding-top: 0.15rem;
+  min-width: 0;
+  max-width: 950px;
+  padding-top: 0.3rem;
 }
 
 .text {
   max-width: 72ch;
-
   margin: 0;
 
   color: var(--grey-700);
-
-  font-size: clamp(1.05rem, 1.4vw, 1.2rem);
-
-  line-height: 1.85;
+  font-size: clamp(1.05rem, 1.5vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.9;
 }
 
-/* ----------------------------------
-   Pixel detail
------------------------------------ */
+/* ==========================================
+   ORBIT / CIRCUIT DETAIL
+========================================== */
 
-.pixels {
+.visual {
   position: relative;
 
-  width: 110px;
-  height: 70px;
+  width: 100%;
+  max-width: 560px;
 
   margin-top: clamp(2.5rem, 5vw, 4rem);
 }
 
-.pixelLarge,
-.pixelMedium,
-.pixelSmall {
-  position: absolute;
-
+.orbit {
   display: block;
+
+  width: 100%;
+  height: auto;
+
+  color: rgba(0, 84, 201, 0.35);
 }
 
-.pixelLarge {
-  left: 0;
-  bottom: 0;
-
-  width: 32px;
-  height: 32px;
-
-  background: var(--blue-800);
-}
-
-.pixelMedium {
-  left: 40px;
-  bottom: 14px;
-
-  width: 16px;
-  height: 16px;
-
-  background: var(--blue-500);
-}
-
-.pixelSmall {
-  left: 66px;
-  bottom: 32px;
-
-  width: 8px;
-  height: 8px;
-
-  background: var(--yellow-500);
-}
-
-/* ----------------------------------
-   Tablet
------------------------------------ */
+/* ==========================================
+   TABLET
+========================================== */
 
 @media (max-width: 900px) {
   .container {
-    padding: var(--section-lg) 2rem;
+    padding: 5rem 2rem;
   }
 
   .inner {
     grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
 
+  .title {
+    font-size: clamp(2.8rem, 8vw, 4rem);
+  }
+
+  .titleDecoration {
+    display: none;
+  }
+
+  .content {
+    max-width: 100%;
+    padding-top: 0;
+  }
+
+  .text {
+    max-width: 70ch;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 600px) {
+  .container {
+    padding: 4.5rem 1.25rem;
+  }
+
+  .inner {
     gap: 2rem;
   }
 
   .title {
-    font-size: clamp(2.5rem, 8vw, 3.5rem);
-  }
-
-  .content {
-    max-width: none;
-  }
-
-  .text {
-    max-width: 65ch;
-  }
-}
-
-/* ----------------------------------
-   Mobile
------------------------------------ */
-
-@media (max-width: 600px) {
-  .container {
-    padding: var(--section-lg) 1.25rem;
+    font-size: clamp(2.6rem, 11vw, 3.5rem);
   }
 
   .text {
     font-size: 1rem;
-
-    line-height: 1.75;
+    line-height: 1.8;
   }
 
-  .pixels {
+  .visual {
     margin-top: 2.5rem;
   }
 }

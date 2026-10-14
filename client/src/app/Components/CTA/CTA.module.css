@@ -1,46 +1,39 @@
+/* ==========================================
+   VRB CTA SECTION
+   Digital & Playful Design System
+========================================== */
+
 .ctaSection {
   position: relative;
+  isolation: isolate;
 
   width: 100%;
   overflow: hidden;
 
-  padding: var(--section-xl);
+  padding: clamp(6rem, 9vw, 9rem) clamp(1.5rem, 6vw, 6rem);
 
-  background:
-    radial-gradient(
-      circle at 85% 35%,
-      rgba(0, 84, 201, 0.28),
-      transparent 27%
-    ),
-    var(--blue-950);
+  background: var(--blue-950);
+  font-family: var(--font-body);
 }
 
-/* subtle technical grid */
+/* Subtle technical grid */
+
 .ctaSection::before {
   content: "";
-
   position: absolute;
   inset: 0;
 
   background-image:
-    linear-gradient(
-      rgba(105, 185, 242, 0.025) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(105, 185, 242, 0.025) 1px,
-      transparent 1px
-    );
+    linear-gradient(rgba(105, 185, 242, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(105, 185, 242, 0.035) 1px, transparent 1px);
 
-  background-size: 42px 42px;
-
+  background-size: 44px 44px;
   pointer-events: none;
 }
 
-/* ----------------------------------
-   Main layout
------------------------------------ */
+/* ==========================================
+   MAIN LAYOUT
+========================================== */
 
 .ctaInner {
   position: relative;
@@ -48,296 +41,379 @@
 
   width: 100%;
   max-width: 1500px;
-
   margin: 0 auto;
 
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 0.55fr);
+  grid-template-columns:
+    minmax(0, 1fr)
+    minmax(320px, 0.8fr);
 
-  gap: clamp(3rem, 8vw, 9rem);
-
+  gap: clamp(3rem, 6vw, 7rem);
   align-items: center;
 }
 
-/* ----------------------------------
-   Content
------------------------------------ */
+/* ==========================================
+   CONTENT
+========================================== */
 
 .ctaContent {
-  max-width: 850px;
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
 }
 
-.ctaContent :global(.eyebrowHeader) {
+/* Eyebrow */
+
+.ctaEyebrow {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  margin: 0 0 1.75rem;
+
+  color: var(--yellow-500);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.eyebrowPixel {
+  width: 9px;
+  height: 9px;
+  flex-shrink: 0;
+
+  background: var(--yellow-500);
+}
+
+/* ==========================================
+   HEADING
+========================================== */
+
+.ctaHeading {
+  max-width: 850px;
+
+  margin: 0;
+
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 5.8vw, 6rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.06em;
+  text-wrap: balance;
+}
+
+.ctaHeading span {
   color: var(--yellow-500);
 }
 
-.ctaHeading {
-  max-width: 800px;
-
-  margin: 1rem 0 1.5rem;
-
-  color: var(--white);
-
-  font-size: clamp(3rem, 6vw, 6rem);
-  font-weight: 800;
-
-  line-height: 0.96;
-  letter-spacing: -0.06em;
-}
+/* ==========================================
+   SUBTEXT
+========================================== */
 
 .ctaSubtext {
   max-width: 650px;
 
-  margin: 0;
+  margin: 2rem 0 0;
 
   color: var(--blue-200);
-
-  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  font-size: clamp(1rem, 1.25vw, 1.15rem);
   line-height: 1.8;
 }
 
-/* ----------------------------------
-   Buttons
------------------------------------ */
+/* ==========================================
+   BUTTONS
+========================================== */
 
 .ctaButtons {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-
   gap: 1rem;
 
   margin-top: 2.5rem;
 }
 
-/*
-  CTAButton remains untouched, so its
-  existing onClick behaviour still works.
-*/
-
 .secondaryBtn {
-  position: relative;
-
-  min-height: 46px;
-
-  padding: 0 1.4rem;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.75rem;
 
-  border: 1px solid rgba(255, 255, 255, 0.28);
+  min-height: 48px;
+  padding: 0.85rem 1.5rem;
+
+  border: 1px solid rgba(255, 255, 255, 0.35);
 
   background: transparent;
-
   color: var(--white);
 
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 700;
-
+  line-height: 1.3;
   text-decoration: none;
 
   transition:
-    background 160ms ease,
-    color 160ms ease,
-    border-color 160ms ease,
-    transform 160ms ease;
+    background 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease,
+    transform 200ms ease;
 }
 
-.secondaryBtn:hover,
-.secondaryBtn:focus-visible {
+.secondaryBtn span {
+  color: var(--yellow-500);
+  font-size: 1.1rem;
+  transition: transform 200ms ease;
+}
+
+.secondaryBtn:hover {
   background: var(--white);
-
   border-color: var(--white);
-
   color: var(--blue-950);
-
   transform: translateY(-2px);
 }
 
-/* ----------------------------------
-   Booking note
------------------------------------ */
+.secondaryBtn:hover span {
+  transform: translate(2px, -2px);
+}
+
+.secondaryBtn:focus-visible {
+  outline: 2px solid var(--yellow-500);
+  outline-offset: 4px;
+}
+
+/* ==========================================
+   SUPPORTING NOTE
+========================================== */
 
 .ctaNote {
   position: relative;
-
   width: fit-content;
 
-  margin: 1.75rem 0 0;
-  padding-left: 1.25rem;
+  margin: 2rem 0 0;
+  padding-left: 1.3rem;
 
   color: var(--blue-300);
-
-  font-size: 0.82rem;
-  font-weight: 600;
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1.6;
 }
 
 .ctaNote::before {
   content: "";
-
   position: absolute;
-
+  top: 0.55rem;
   left: 0;
-  top: 50%;
 
   width: 7px;
   height: 7px;
 
   background: var(--yellow-500);
-
-  transform: translateY(-50%);
 }
 
-/* ----------------------------------
-   Pixel composition
------------------------------------ */
+/* ==========================================
+   CIRCUIT + ORBIT ARTWORK
+========================================== */
 
 .ctaVisual {
   position: relative;
-
-  width: min(100%, 420px);
-  aspect-ratio: 1 / 1;
+  width: min(100%, 520px);
+  aspect-ratio: 520 / 460;
 
   justify-self: end;
+  pointer-events: none;
 }
 
-.pixel,
-.pixelOutline {
-  position: absolute;
+.ctaArtwork {
+  position: relative;
+  z-index: 2;
 
   display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
 }
 
-.pixelOne {
-  width: 42%;
-  height: 42%;
+/* Orbits */
 
-  top: 10%;
-  right: 8%;
+.orbitOuter {
+  stroke: var(--blue-600);
+  stroke-width: 2.5;
+  stroke-dasharray: 950;
+  stroke-dashoffset: 950;
 
-  background: var(--blue-800);
+  animation: drawOrbit 2.5s ease forwards;
 }
 
-.pixelTwo {
-  width: 28%;
-  height: 28%;
+.orbitInner {
+  stroke: var(--blue-800);
+  stroke-width: 1.5;
+  stroke-dasharray: 800;
+  stroke-dashoffset: 800;
 
-  top: 42%;
-  right: 42%;
-
-  background: var(--blue-500);
+  animation: drawOrbit 3s ease 0.3s forwards;
 }
 
-.pixelThree {
-  width: 15%;
-  height: 15%;
-
-  right: 22%;
-  bottom: 14%;
-
-  background: var(--yellow-500);
+@keyframes drawOrbit {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
-.pixelFour {
-  width: 8%;
-  height: 8%;
+/* Circuit paths */
 
-  top: 18%;
-  left: 12%;
+.circuitPath {
+  stroke: var(--blue-500);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 
-  background: var(--blue-500);
+  stroke-dasharray: 500;
+  stroke-dashoffset: 500;
+
+  animation: drawCircuit 2s ease 0.5s forwards;
 }
 
-.pixelFive {
-  width: 4%;
-  height: 4%;
-
-  left: 28%;
-  bottom: 16%;
-
-  background: var(--yellow-500);
+@keyframes drawCircuit {
+  to {
+    stroke-dashoffset: 0;
+  }
 }
 
-.outlineOne {
-  width: 35%;
-  height: 35%;
+/* Circuit nodes */
 
-  right: 0;
-  bottom: 4%;
-
-  border: 1px solid rgba(105, 185, 242, 0.55);
+.circuitNode {
+  fill: var(--blue-950);
+  stroke: var(--blue-500);
+  stroke-width: 2.5;
 }
 
-.outlineTwo {
-  width: 18%;
-  height: 18%;
-
-  top: 0;
-  left: 27%;
-
-  border: 1px solid rgba(255, 210, 31, 0.55);
+.nodeCenter {
+  fill: var(--white);
 }
 
-/* ----------------------------------
-   Tablet
------------------------------------ */
+/* Pixels */
 
-@media (max-width: 1000px) {
+.pixelBlue {
+  fill: var(--blue-800);
+}
+
+.pixelLight {
+  fill: var(--blue-500);
+}
+
+.pixelYellow {
+  fill: var(--yellow-500);
+}
+
+.pixelBlueSmall {
+  fill: var(--blue-700);
+}
+
+.pixelOutline {
+  stroke: rgba(105, 185, 242, 0.55);
+  stroke-width: 1.5;
+}
+
+.pixelOutlineYellow {
+  stroke: rgba(255, 210, 31, 0.65);
+  stroke-width: 1.5;
+}
+
+/* Subtle atmospheric glow */
+
+.visualGlow {
+  position: absolute;
+  z-index: 1;
+
+  width: 55%;
+  height: 55%;
+  top: 25%;
+  left: 25%;
+
+  background: rgba(0, 84, 201, 0.13);
+  filter: blur(75px);
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1100px) {
   .ctaSection {
-    padding: var(--section-lg);
+    padding: 6rem 3rem;
   }
 
   .ctaInner {
-    grid-template-columns: minmax(0, 1fr) 260px;
+    grid-template-columns:
+      minmax(0, 1fr)
+      minmax(260px, 0.7fr);
 
     gap: 3rem;
   }
 
   .ctaHeading {
-    font-size: clamp(3rem, 7vw, 4.8rem);
+    font-size: clamp(3rem, 6vw, 4.8rem);
   }
 }
 
-/* ----------------------------------
-   Smaller tablet
------------------------------------ */
+/* ==========================================
+   SMALL TABLET
+========================================== */
 
-@media (max-width: 800px) {
+@media (max-width: 850px) {
+  .ctaSection {
+    padding: 5rem 2.5rem;
+  }
+
   .ctaInner {
     grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .ctaContent {
+    max-width: 700px;
   }
 
   .ctaVisual {
-    width: 230px;
-
-    justify-self: start;
+    width: min(380px, 85%);
+    justify-self: end;
   }
 }
 
-/* ----------------------------------
-   Mobile
------------------------------------ */
+/* ==========================================
+   MOBILE
+========================================== */
 
 @media (max-width: 700px) {
   .ctaSection {
-    padding: var(--section-lg);
+    padding: 4.5rem 1.5rem;
+  }
+
+  .ctaInner {
+    gap: 2.5rem;
+  }
+
+  .ctaEyebrow {
+    margin-bottom: 1.25rem;
+    font-size: 0.7rem;
   }
 
   .ctaHeading {
-    font-size: clamp(2.7rem, 12vw, 4rem);
-
-    line-height: 1;
+    font-size: clamp(2.7rem, 11vw, 4rem);
+    line-height: 1.04;
   }
 
   .ctaSubtext {
+    margin-top: 1.5rem;
     font-size: 1rem;
+    line-height: 1.7;
   }
 
   .ctaButtons {
     flex-direction: column;
     align-items: stretch;
-
     gap: 0.75rem;
 
     margin-top: 2rem;
@@ -351,27 +427,50 @@
     width: 100%;
   }
 
-  .ctaVisual {
-    width: 180px;
+  .ctaNote {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+  }
 
-    margin-top: 1rem;
+  .ctaVisual {
+    width: min(300px, 85%);
+    justify-self: end;
   }
 }
 
-/* ----------------------------------
-   Very small mobile
------------------------------------ */
+/* ==========================================
+   VERY SMALL MOBILE
+========================================== */
 
 @media (max-width: 430px) {
   .ctaSection {
-    padding-inline: 1.25rem;
+    padding: 4rem 1.25rem;
   }
 
   .ctaHeading {
-    font-size: clamp(2.5rem, 13vw, 3.4rem);
+    font-size: clamp(2.5rem, 12vw, 3.4rem);
   }
 
   .ctaVisual {
-    width: 145px;
+    width: min(240px, 85%);
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .orbitOuter,
+  .orbitInner,
+  .circuitPath {
+    animation: none !important;
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+  }
+
+  .secondaryBtn,
+  .secondaryBtn span {
+    transition: none !important;
   }
 }

@@ -1,169 +1,169 @@
+
+/* =========================================================
+   CASE STUDY - PROJECT PHASES
+   ========================================================= */
+
 .phasesSection {
   position: relative;
-
+  isolation: isolate;
   width: 100%;
-
-  padding: var(--section-xl) var(--section-lg);
-
+  padding:
+    clamp(5rem, 9vw, 9rem)
+    clamp(1.25rem, 5vw, 4rem);
   overflow: hidden;
-
   background:
-    radial-gradient(
-      circle at 88% 12%,
-      rgba(27, 138, 228, 0.06),
-      transparent 27%
-    ),
     linear-gradient(
       180deg,
-      var(--white) 0%,
+      var(--blue-50) 0%,
+      var(--white) 55%,
       var(--blue-50) 100%
     );
 }
 
-/* ----------------------------------
-   Background grid
------------------------------------ */
-
 .phasesSection::before {
   content: "";
-
   position: absolute;
   inset: 0;
-
+  z-index: -1;
   background-image:
     linear-gradient(
-      rgba(0, 84, 201, 0.018) 1px,
+      rgba(0, 84, 201, 0.02) 1px,
       transparent 1px
     ),
     linear-gradient(
       90deg,
-      rgba(0, 84, 201, 0.018) 1px,
+      rgba(0, 84, 201, 0.02) 1px,
       transparent 1px
     );
-
-  background-size: 46px 46px;
-
+  background-size: 54px 54px;
   pointer-events: none;
 }
 
-.phasesSection > * {
+.phasesInner {
   position: relative;
-
-  z-index: 1;
-
-  width: 100%;
-  max-width: 1500px;
-
-  margin-left: auto;
-  margin-right: auto;
+  width: min(100%, 1280px);
+  margin: 0 auto;
 }
 
-/* ----------------------------------
-   Header
------------------------------------ */
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 .phasesHeader {
-  margin-bottom: clamp(3rem, 6vw, 5rem);
+  margin-bottom: clamp(3.5rem, 7vw, 6rem);
+}
+
+.phasesHeaderTop {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.sectionIndex {
+  color: var(--blue-800);
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .marker {
-  display: flex;
-
+  display: inline-flex;
   align-items: center;
-
-  gap: 0.55rem;
-
-  margin-bottom: 1rem;
+  gap: 6px;
 }
 
 .markerLine {
-  width: 38px;
-  height: 3px;
-
+  width: 40px;
+  height: 2px;
   background: var(--blue-800);
 }
 
 .markerPixel {
   width: 7px;
   height: 7px;
-
   background: var(--yellow-500);
 }
 
 .phasesHeader :global(.eyebrowHeader) {
-  margin: 0 0 0.8rem;
-
+  margin: 0 0 1rem;
   color: var(--blue-700);
-}
-
-.phasesHeader h2 {
-  max-width: 850px;
-
-  margin: 0;
-
-  color: var(--blue-950);
-
-  font-size: clamp(2.5rem, 4.6vw, 4.4rem);
-
+  font-family: var(--font-body);
+  font-size: 0.7rem;
   font-weight: 800;
-
-  line-height: 0.97;
-
-  letter-spacing: -0.055em;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
 }
 
-/* ----------------------------------
-   Phase list
------------------------------------ */
+.phasesHeadingRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 0.65fr);
+  align-items: end;
+  gap: clamp(2rem, 6vw, 6rem);
+}
+
+.phasesHeadingRow h2 {
+  max-width: 14ch;
+  margin: 0;
+  color: var(--blue-950);
+  font-family: var(--font-heading);
+  font-size: clamp(2.9rem, 5vw, 5.4rem);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+  text-wrap: balance;
+}
+
+.headingAccent {
+  color: var(--blue-800);
+}
+
+.phasesIntro {
+  max-width: 340px;
+  margin: 0 0 0.4rem;
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--blue-500);
+  color: var(--grey-600);
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  line-height: 1.8;
+}
+
+/* =========================================================
+   TIMELINE
+   ========================================================= */
 
 .stackedPhases {
-  width: 100%;
-
+  position: relative;
   display: flex;
   flex-direction: column;
-
   border-top: 1px solid var(--blue-200);
 }
 
-/* ----------------------------------
-   Individual phase
------------------------------------ */
-
 .eachPhase {
   position: relative;
-
-  width: 100%;
-
   border-bottom: 1px solid var(--blue-200);
-
-  transition: background 180ms ease;
+  transition: background 200ms ease;
 }
 
 .eachPhase:hover,
 .eachPhaseOpen {
-  background: rgba(230, 244, 254, 0.55);
+  background: rgba(255, 255, 255, 0.75);
 }
-
-/* yellow left indicator */
 
 .eachPhase::before {
   content: "";
-
   position: absolute;
-
   left: 0;
   top: 0;
   bottom: 0;
-
   width: 3px;
-
-  background: var(--yellow-500);
-
+  background: var(--blue-800);
   transform: scaleY(0);
-
-  transform-origin: center;
-
-  transition: transform 180ms ease;
+  transform-origin: top;
+  transition: transform 220ms ease;
 }
 
 .eachPhase:hover::before,
@@ -171,158 +171,145 @@
   transform: scaleY(1);
 }
 
-/* ----------------------------------
-   Main row
------------------------------------ */
-
 .phaseRow {
-  position: relative;
-
   display: grid;
-
-  grid-template-columns: 70px minmax(0, 1fr) 10px;
-
-  gap: clamp(1rem, 3vw, 2rem);
-
+  grid-template-columns: 90px minmax(0, 1fr) 10px;
   align-items: start;
-
-  padding: clamp(1.5rem, 3vw, 2.25rem) 1.5rem;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  padding: clamp(2rem, 4vw, 3.5rem) 1.5rem;
 }
 
-/* ----------------------------------
-   Number
------------------------------------ */
+/* =========================================================
+   TIMELINE INDEX
+   ========================================================= */
+
+.phaseIndexColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
 
 .phaseNumber {
-  padding-top: 0.35rem;
-
-  color: var(--blue-400);
-
-  font-size: 0.68rem;
-
+  color: var(--blue-800);
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3vw, 3rem);
   font-weight: 800;
-
-  letter-spacing: 0.13em;
+  line-height: 1;
+  letter-spacing: -0.06em;
 }
 
-/* ----------------------------------
-   Content
------------------------------------ */
+.phaseTimelinePixel {
+  width: 8px;
+  height: 8px;
+  background: var(--yellow-500);
+  box-shadow:
+    14px 0 0 var(--blue-500),
+    28px 0 0 var(--blue-200);
+}
+
+/* =========================================================
+   PHASE CONTENT
+   ========================================================= */
 
 .stackedPhaseCard {
-  min-width: 0;
-
   display: flex;
-
   flex-direction: column;
-
-  gap: 1.5rem;
+  min-width: 0;
 }
 
 .phaseMain {
   display: flex;
-
   flex-direction: column;
-
-  gap: 0.85rem;
+  gap: 1.25rem;
 }
 
 .phaseHeader {
-  width: 100%;
-
   display: flex;
-
   align-items: center;
   justify-content: space-between;
+  gap: 2rem;
+}
 
-  gap: 1.5rem;
+.phaseHeading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  min-width: 0;
+}
+
+.phaseOverline {
+  color: var(--blue-700);
+  font-family: var(--font-body);
+  font-size: 0.64rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
 }
 
 .phaseTitle {
+  margin: 0;
   color: var(--blue-950);
-
-  font-size: clamp(1.35rem, 2vw, 1.8rem);
-
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 2.5vw, 2.4rem);
   font-weight: 800;
-
-  line-height: 1.15;
-
-  letter-spacing: -0.025em;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
 }
 
 .phaseDesc {
   max-width: 760px;
-
   color: var(--grey-700);
-
-  font-size: clamp(0.98rem, 1.2vw, 1.06rem);
-
-  line-height: 1.75;
+  font-family: var(--font-body);
+  font-size: clamp(0.98rem, 1.2vw, 1.07rem);
+  line-height: 1.8;
 }
 
-/* ----------------------------------
-   Toggle
------------------------------------ */
+/* =========================================================
+   EXPAND BUTTON
+   ========================================================= */
 
 .phaseToggle {
-  flex-shrink: 0;
-
   display: inline-flex;
-
   align-items: center;
-
-  gap: 0.7rem;
-
+  gap: 1rem;
+  flex-shrink: 0;
   padding: 0;
-
   border: 0;
-
   background: transparent;
-
   color: var(--blue-800);
-
-  font: inherit;
-
+  font-family: var(--font-body);
   cursor: pointer;
 }
 
 .toggleLabel {
-  font-size: 0.78rem;
-
-  font-weight: 750;
-
-  letter-spacing: 0.02em;
+  font-size: 0.73rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .toggleIcon {
   position: relative;
-
-  width: 36px;
-  height: 36px;
-
   display: grid;
-
   place-items: center;
-
+  width: 44px;
+  height: 44px;
   border: 1px solid var(--blue-200);
-
   background: var(--white);
-
   transition:
     background 180ms ease,
-    border-color 180ms ease,
-    transform 180ms ease;
+    border-color 180ms ease;
 }
 
 .toggleIcon span {
   position: absolute;
-
-  width: 12px;
+  width: 13px;
   height: 2px;
-
   background: var(--blue-800);
-
-  transition: background 180ms ease;
+  transition:
+    transform 180ms ease,
+    background 180ms ease;
 }
 
 .toggleIcon span:last-child {
@@ -330,9 +317,8 @@
 }
 
 .phaseToggle:hover .toggleIcon {
-  background: var(--blue-950);
-
   border-color: var(--blue-950);
+  background: var(--blue-950);
 }
 
 .phaseToggle:hover .toggleIcon span {
@@ -340,88 +326,33 @@
 }
 
 .eachPhaseOpen .toggleIcon {
-  background: var(--yellow-500);
-
   border-color: var(--yellow-500);
-
-  transform: rotate(45deg);
+  background: var(--yellow-500);
 }
 
 .eachPhaseOpen .toggleIcon span {
   background: var(--blue-950);
 }
 
+.eachPhaseOpen .toggleIcon span:last-child {
+  transform: rotate(0);
+}
+
 .phaseToggle:focus-visible {
   outline: 2px solid var(--yellow-500);
-
-  outline-offset: 4px;
+  outline-offset: 5px;
 }
 
-/* ----------------------------------
-   Points
------------------------------------ */
-
-.phasePoints {
-  max-width: 760px;
-
-  margin: 0.5rem 0 0;
-
-  padding: 0;
-
-  display: flex;
-
-  flex-direction: column;
-
-  gap: 0;
-
-  list-style: none;
-
-  border-top: 1px solid var(--blue-200);
-}
-
-.phasePoint {
-  display: grid;
-
-  grid-template-columns: 8px minmax(0, 1fr);
-
-  gap: 0.8rem;
-
-  align-items: start;
-
-  padding: 0.9rem 0;
-
-  color: var(--grey-600);
-
-  font-size: 0.92rem;
-
-  line-height: 1.6;
-
-  border-bottom: 1px solid var(--blue-200);
-}
-
-.pointPixel {
-  width: 6px;
-  height: 6px;
-
-  margin-top: 0.48rem;
-
-  background: var(--blue-500);
-}
-
-/* ----------------------------------
-   Phase pixel
------------------------------------ */
+/* =========================================================
+   RIGHT PIXEL
+   ========================================================= */
 
 .phasePixel {
-  width: 7px;
-  height: 7px;
-
-  margin-top: 0.5rem;
-
+  width: 8px;
+  height: 8px;
+  margin-top: 1rem;
   justify-self: end;
-
-  background: var(--blue-500);
-
+  background: var(--blue-300);
   transition:
     background 180ms ease,
     transform 180ms ease;
@@ -430,75 +361,194 @@
 .eachPhase:hover .phasePixel,
 .eachPhaseOpen .phasePixel {
   background: var(--yellow-500);
-
   transform: scale(1.2);
 }
 
-/* ----------------------------------
-   Expanded content
------------------------------------ */
+/* =========================================================
+   EXPANDED CONTENT
+   ========================================================= */
+
+.phaseExpanded {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-top: 2.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--blue-200);
+}
+
+.expandedLabel {
+  color: var(--blue-800);
+  font-family: var(--font-body);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   KEY POINTS
+   ========================================================= */
+
+.phasePointsWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.phasePoints {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 2rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.phasePoint {
+  display: grid;
+  grid-template-columns: 8px minmax(0, 1fr);
+  align-items: start;
+  gap: 0.85rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--blue-200);
+  color: var(--grey-700);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.pointPixel {
+  width: 6px;
+  height: 6px;
+  margin-top: 0.5rem;
+  background: var(--blue-500);
+}
+
+/* =========================================================
+   CAROUSEL DOCUMENTATION
+   ========================================================= */
 
 .phaseMore {
-  width: 100%;
+  min-width: 0;
+}
 
-  padding-top: 0.75rem;
+.phaseGalleryHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
 
-  border-top: 1px solid var(--blue-200);
+.galleryCount {
+  color: var(--grey-500);
+  font-family: var(--font-body);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
 }
 
 .phaseCarouselWrap {
   width: 100%;
-
-  margin: 0;
-
-  padding: clamp(1rem, 2vw, 1.5rem);
-
-  background: var(--white);
-
+  min-width: 0;
+  padding: clamp(1rem, 2.5vw, 2rem);
   border: 1px solid var(--blue-200);
-
-  box-sizing: border-box;
+  background: var(--white);
+  box-shadow: 0 15px 45px rgba(0, 18, 51, 0.04);
 }
 
-/* ----------------------------------
-   Tablet
------------------------------------ */
+/* =========================================================
+   SECTION FOOTER
+   ========================================================= */
 
-@media (max-width: 900px) {
-  .phasesSection {
-    padding: var(--section-lg) var(--section-md);
+.phasesFooter {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+.phasesFooterLine {
+  width: 50px;
+  height: 1px;
+  background: var(--blue-300);
+}
+
+.phasesFooterPixel {
+  width: 7px;
+  height: 7px;
+  background: var(--yellow-500);
+}
+
+.phasesFooterText {
+  color: var(--grey-500);
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 950px) {
+  .phasesHeadingRow {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .phasesIntro {
+    max-width: 600px;
   }
 
   .phaseRow {
-    grid-template-columns: 52px minmax(0, 1fr) 8px;
-
+    grid-template-columns: 65px minmax(0, 1fr) 8px;
+    gap: 1.5rem;
     padding-inline: 1rem;
   }
 }
 
-/* ----------------------------------
-   Mobile
------------------------------------ */
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
 @media (max-width: 650px) {
   .phasesSection {
-    padding: var(--section-lg) 1.25rem;
+    padding: 5rem 1.25rem;
   }
 
   .phasesHeader {
+    margin-bottom: 3rem;
+  }
+
+  .phasesHeaderTop {
     margin-bottom: 2.5rem;
   }
 
-  .phasesHeader h2 {
-    font-size: clamp(2.2rem, 10vw, 3.3rem);
+  .phasesHeadingRow h2 {
+    font-size: clamp(2.5rem, 10vw, 3.7rem);
+  }
+
+  .phasesIntro {
+    font-size: 0.94rem;
   }
 
   .phaseRow {
-    grid-template-columns: 38px minmax(0, 1fr);
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+    padding: 2rem 0.5rem;
+  }
 
-    gap: 0.8rem;
+  .phaseIndexColumn {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
 
-    padding: 1.35rem 0.5rem;
+  .phaseNumber {
+    font-size: 2.2rem;
   }
 
   .phasePixel {
@@ -507,8 +557,11 @@
 
   .phaseHeader {
     align-items: flex-start;
-
     gap: 1rem;
+  }
+
+  .phaseTitle {
+    font-size: clamp(1.45rem, 6vw, 1.85rem);
   }
 
   .phaseToggle {
@@ -520,19 +573,38 @@
   }
 
   .toggleIcon {
-    width: 34px;
-    height: 34px;
-  }
-
-  .phaseTitle {
-    font-size: 1.3rem;
+    width: 38px;
+    height: 38px;
   }
 
   .phaseDesc {
     font-size: 0.95rem;
   }
 
+  .phaseExpanded {
+    margin-top: 2rem;
+    gap: 2rem;
+  }
+
+  .phasePoints {
+    grid-template-columns: 1fr;
+  }
+
   .phaseCarouselWrap {
     padding: 0.75rem;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .eachPhase,
+  .eachPhase::before,
+  .toggleIcon,
+  .toggleIcon span,
+  .phasePixel {
+    transition: none;
   }
 }

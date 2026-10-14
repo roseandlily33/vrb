@@ -1,76 +1,53 @@
+/* ==========================================
+   PROCESS SECTION
+========================================== */
+
 .processSection {
   position: relative;
-
+  isolation: isolate;
   width: 100%;
-
-  padding: var(--section-xl) 3rem;
-
   overflow: hidden;
 
-  background:
-    radial-gradient(
-      circle at 92% 8%,
-      rgba(27, 138, 228, 0.16),
-      transparent 28%
-    ),
-    var(--blue-950);
-}
+  padding: clamp(5rem, 8vw, 8rem) clamp(1.5rem, 5vw, 5rem);
 
-/* ----------------------------------
-   Technical background grid
------------------------------------ */
+  background: var(--blue-950);
+}
 
 .processSection::before {
   content: "";
-
   position: absolute;
   inset: 0;
 
   background-image:
-    linear-gradient(
-      rgba(105, 185, 242, 0.025) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(105, 185, 242, 0.025) 1px,
-      transparent 1px
-    );
+    linear-gradient(rgba(105, 185, 242, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(105, 185, 242, 0.025) 1px, transparent 1px);
 
   background-size: 46px 46px;
-
   pointer-events: none;
 }
-
-/* ----------------------------------
-   Inner
------------------------------------ */
 
 .processInner {
   position: relative;
   z-index: 1;
-
   width: 100%;
   max-width: 1500px;
-
   margin: 0 auto;
 }
 
-/* ----------------------------------
-   Header
------------------------------------ */
+/* ==========================================
+   HEADER
+========================================== */
 
 .processHeader {
-  width: 100%;
-
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.5fr);
-
-  gap: clamp(3rem, 8vw, 8rem);
+  grid-template-columns:
+    minmax(0, 1.2fr)
+    minmax(280px, 0.65fr);
 
   align-items: end;
+  gap: clamp(3rem, 7vw, 7rem);
 
-  margin-bottom: clamp(4rem, 7vw, 6rem);
+  margin-bottom: clamp(3.5rem, 6vw, 5.5rem);
 }
 
 .headerContent {
@@ -80,7 +57,6 @@
 .sectionMarker {
   display: flex;
   align-items: center;
-
   gap: 0.6rem;
 
   margin-bottom: 1.25rem;
@@ -89,14 +65,12 @@
 .markerLine {
   width: 42px;
   height: 3px;
-
   background: var(--yellow-500);
 }
 
 .markerPixel {
   width: 8px;
   height: 8px;
-
   background: var(--blue-500);
 }
 
@@ -104,339 +78,148 @@
   margin: 0 0 0.9rem;
 
   color: var(--yellow-500);
-
   font-size: 0.72rem;
   font-weight: 800;
-
-  text-transform: uppercase;
   letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .processHeader h2 {
-  max-width: 850px;
-
+  max-width: 900px;
   margin: 0;
 
   color: var(--white);
-
+  font-family: var(--font-heading);
   font-size: clamp(2.8rem, 5vw, 5rem);
   font-weight: 800;
-
-  line-height: 0.98;
+  line-height: 1.02;
   letter-spacing: -0.055em;
+  text-wrap: balance;
+}
+
+.headingHighlight {
+  color: var(--blue-500);
 }
 
 .meta {
-  max-width: 430px;
-
+  max-width: 450px;
   margin: 0;
 
   color: var(--blue-200);
-
-  font-size: 0.95rem;
-
-  line-height: 1.75;
+  font-size: clamp(0.95rem, 1.2vw, 1.08rem);
+  line-height: 1.8;
 }
 
-/* ----------------------------------
-   Timeline
------------------------------------ */
+/* ==========================================
+   FOOTER
+========================================== */
 
-.stepsWrapper {
-  position: relative;
-
-  width: 100%;
-
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-
-  gap: 0;
-
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-/* ----------------------------------
-   Step
------------------------------------ */
-
-.stepCard {
-  position: relative;
-
-  min-width: 0;
-  min-height: 330px;
-
-  padding: clamp(1.75rem, 3vw, 2.5rem);
-
+.processFooter {
   display: flex;
-  flex-direction: column;
-
-  gap: 0;
-
-  background: transparent;
-
-  border-radius: 0;
-
-  box-shadow: none;
-
-  overflow: hidden;
-
-  opacity: 0;
-
-  transform: translateY(30px);
-
-  transition:
-    background 180ms ease,
-    transform 180ms ease;
-}
-
-/* override old alternating layout */
-
-.left,
-.right {
-  flex-direction: column;
-}
-
-.stepCard + .stepCard {
-  border-left: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.stepCard:hover {
-  background: rgba(255, 255, 255, 0.035);
-}
-
-/* yellow hover line */
-
-.stepCard::after {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  bottom: -1px;
-
-  width: 0;
-  height: 3px;
-
-  background: var(--yellow-500);
-
-  transition: width 220ms ease;
-}
-
-.stepCard:hover::after {
-  width: 54px;
-}
-
-/* ----------------------------------
-   Number
------------------------------------ */
-
-.stepNumber {
-  width: auto;
-  height: auto;
-
-  margin: 0 0 clamp(3.5rem, 6vw, 5.5rem);
-
-  display: inline-flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
 
-  background: none;
-
-  border-radius: 0;
-
-  box-shadow: none;
-
-  color: var(--blue-400);
-
-  font-size: 0.72rem;
-  font-weight: 800;
-
-  line-height: 1;
-
-  letter-spacing: 0.14em;
-
-  transition: color 180ms ease;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
 }
 
-.stepCard:hover .stepNumber {
-  transform: none;
-
-  background: none;
-
-  box-shadow: none;
-
-  color: var(--yellow-500);
-}
-
-/* ----------------------------------
-   Step content
------------------------------------ */
-
-.stepContent {
-  width: 100%;
-
-  margin-top: auto;
-  padding: 0;
-
-  display: flex;
-  flex-direction: column;
-
-  gap: 0;
-}
-
-.stepTitle {
-  margin: 0 0 1rem;
-
-  color: white;
-
-  font-size: clamp(1.4rem, 2vw, 1.8rem);
-  font-weight: 800;
-
-  line-height: 1.05;
-  letter-spacing: -0.035em;
-}
-
-.stepDesc {
-  max-width: 38ch;
-
+.timelineNote {
+  max-width: 450px;
   margin: 0;
 
   color: var(--blue-200);
-
-  font-size: 0.93rem;
-
+  font-size: 0.85rem;
   line-height: 1.7;
 }
 
-/* ----------------------------------
-   Reveal animation
------------------------------------ */
+.processLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
 
-.visible {
-  animation: fadeInUpProcess 0.7s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  color: var(--white);
+  font-size: 0.9rem;
+  font-weight: 750;
+  text-decoration: none;
+
+  border-bottom: 2px solid var(--yellow-500);
+  padding-bottom: 0.5rem;
+
+  transition:
+    color 200ms ease,
+    gap 200ms ease;
 }
 
-@keyframes fadeInUpProcess {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.processLink svg {
+  color: var(--yellow-500);
+  transition: transform 200ms ease;
 }
 
-/* ----------------------------------
-   CTA
------------------------------------ */
-
-.processCta {
-  width: 100%;
-
-  margin-top: clamp(2.5rem, 5vw, 4rem);
-
-  display: flex;
-  justify-content: flex-end;
+.processLink:hover {
+  color: var(--blue-500);
 }
 
-/* ----------------------------------
-   Tablet
------------------------------------ */
+.processLink:hover svg {
+  transform: translateX(4px);
+}
+
+.processLink:focus-visible {
+  outline: 2px solid var(--yellow-500);
+  outline-offset: 5px;
+}
+
+/* ==========================================
+   TABLET
+========================================== */
 
 @media (max-width: 1050px) {
   .processSection {
-    padding: var(--section-lg) 2rem;
+    padding: 5rem 2rem;
   }
 
   .processHeader {
     grid-template-columns: 1fr;
-
     gap: 2rem;
   }
 
   .meta {
-    max-width: 620px;
-  }
-
-  .stepsWrapper {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .stepCard:nth-child(3) {
-    border-left: 0;
-
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-  }
-
-  .stepCard:nth-child(4) {
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
+    max-width: 650px;
   }
 }
 
-/* ----------------------------------
-   Mobile
------------------------------------ */
+/* ==========================================
+   MOBILE
+========================================== */
 
 @media (max-width: 650px) {
   .processSection {
-    padding: var(--section-lg) 1.25rem;
+    padding: 4.5rem 1.25rem;
   }
 
   .processHeader {
+    gap: 1.5rem;
     margin-bottom: 3rem;
   }
 
   .processHeader h2 {
-    font-size: clamp(2.6rem, 12vw, 4rem);
+    font-size: clamp(2.6rem, 11vw, 4rem);
   }
 
-  .stepsWrapper {
-    grid-template-columns: 1fr;
+  .processFooter {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.75rem;
   }
 
-  .stepCard {
-    min-height: 0;
-
-    padding: 1.75rem 0;
-
-    display: grid;
-    grid-template-columns: 50px minmax(0, 1fr);
-
-    gap: 1rem;
-
-    align-items: start;
+  .processLink {
+    font-size: 0.85rem;
   }
+}
 
-  .stepCard + .stepCard,
-  .stepCard:nth-child(3),
-  .stepCard:nth-child(4) {
-    border-left: 0;
-
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-  }
-
-  .stepNumber {
-    margin: 0;
-
-    padding-top: 0.3rem;
-  }
-
-  .stepContent {
-    margin: 0;
-  }
-
-  .stepTitle {
-    font-size: 1.4rem;
-  }
-
-  .stepDesc {
-    max-width: none;
-  }
-
-  .processCta {
-    justify-content: flex-start;
+@media (prefers-reduced-motion: reduce) {
+  .processLink,
+  .processLink svg {
+    transition: none !important;
   }
 }

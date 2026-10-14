@@ -1,84 +1,189 @@
+
+/* =========================================================
+   01. CONTACT INFORMATION PANEL
+   ========================================================= */
+
 .contactInfoSection {
   position: relative;
-
-  width: 100%;
+  isolation: isolate;
 
   display: flex;
   flex-direction: column;
 
-  gap: 0;
+  width: 100%;
+  min-width: 0;
 
-  padding: clamp(2rem, 4vw, 3rem);
+  padding: clamp(1.75rem, 3.5vw, 3rem);
 
-  background: var(--blue-50);
+  overflow: hidden;
 
-  border: 1px solid var(--blue-100);
+  background: var(--blue-950);
+  color: var(--white);
 
+  border: 1px solid var(--blue-950);
   box-sizing: border-box;
 }
 
-/* ----------------------------------
-   Header
------------------------------------ */
+/* Subtle technical grid */
+
+.contactInfoSection::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background-image:
+    linear-gradient(
+      rgba(105, 185, 242, 0.055) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(105, 185, 242, 0.055) 1px,
+      transparent 1px
+    );
+
+  background-size: 42px 42px;
+  pointer-events: none;
+}
+
+/* Blue corner accent */
+
+.contactInfoSection::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  width: 72px;
+  height: 3px;
+
+  background: var(--blue-500);
+}
+
+/* =========================================================
+   02. HEADER
+   ========================================================= */
 
 .infoHeader {
   position: relative;
-
-  width: 100%;
 
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
 
-  gap: 1.5rem;
+  gap: 1.25rem;
 
-  padding-bottom: 1.75rem;
+  padding-bottom: clamp(2rem, 3vw, 2.75rem);
 
-  border-bottom: 1px solid var(--blue-200);
+  border-bottom: 1px solid rgba(105, 185, 242, 0.22);
 }
+
+.headerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  min-width: 0;
+  max-width: 420px;
+}
+
+/* Eyebrow */
+
+.headerEyebrow {
+  display: inline-flex;
+  align-items: center;
+
+  gap: 0.7rem;
+  margin-bottom: 1.3rem;
+
+  color: var(--blue-500);
+
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 800;
+  line-height: 1.4;
+
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.headerMarker {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.headerMarker span {
+  display: block;
+  width: 7px;
+  height: 7px;
+
+  background: var(--blue-500);
+}
+
+.headerMarker span:last-child {
+  background: var(--yellow-500);
+  transform: translateY(-4px);
+}
+
+/* Main heading */
 
 .mainTitle {
   margin: 0;
 
-  color: var(--blue-950);
+  color: var(--white);
+  font-family: var(--font-heading);
 
-  font-size: clamp(1.6rem, 2vw, 2rem);
+  font-size: clamp(1.8rem, 2.8vw, 2.65rem);
   font-weight: 800;
 
-  line-height: 1.1;
-  letter-spacing: -0.035em;
+  line-height: 1.08;
+  letter-spacing: -0.045em;
 }
 
-/* ----------------------------------
-   Small pixel detail
------------------------------------ */
+/* Supporting description */
+
+.headerDescription {
+  max-width: 350px;
+
+  margin: 1rem 0 0;
+
+  color: rgba(255, 255, 255, 0.7);
+  font-family: var(--font-body);
+
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+/* =========================================================
+   03. DECORATIVE HEADER PIXELS
+   ========================================================= */
 
 .headerPixels {
   position: relative;
+  flex: 0 0 auto;
 
-  width: 38px;
-  height: 38px;
-
-  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
 }
 
 .headerPixelOne {
   position: absolute;
-
   top: 0;
   right: 0;
 
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
 
   background: var(--blue-800);
 }
 
 .headerPixelTwo {
   position: absolute;
-
-  left: 0;
   bottom: 0;
+  left: 0;
 
   width: 9px;
   height: 9px;
@@ -86,193 +191,290 @@
   background: var(--yellow-500);
 }
 
-/* ----------------------------------
-   Contact list
------------------------------------ */
+/* =========================================================
+   04. CONTENT SECTIONS
+   ========================================================= */
+
+.contactMethods,
+.projectInfo {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  min-width: 0;
+
+  gap: 0;
+  padding-top: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: center;
+
+  gap: 0.75rem;
+
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+.sectionIndex {
+  flex: 0 0 auto;
+
+  color: var(--yellow-500);
+
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+}
+
+.sectionLabel {
+  flex: 0 0 auto;
+
+  color: var(--white);
+  font-family: var(--font-heading);
+
+  font-size: 0.92rem;
+  font-weight: 750;
+  line-height: 1.4;
+}
+
+.sectionLine {
+  flex: 1;
+
+  min-width: 10px;
+  height: 1px;
+
+  background: rgba(105, 185, 242, 0.25);
+}
+
+/* =========================================================
+   05. CONTACT LIST
+   ========================================================= */
 
 .infoList {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
 
+  width: 100%;
   margin: 0;
   padding: 0;
 
   list-style: none;
-
-  display: flex;
-  flex-direction: column;
 }
 
-.infoItem {
-  width: 100%;
-
+.infoItem,
+.infoSection {
   display: grid;
-  grid-template-columns: 46px minmax(0, 1fr);
-
-  gap: 1rem;
+  grid-template-columns: 44px minmax(0, 1fr);
 
   align-items: start;
+  gap: 1rem;
+
+  width: 100%;
+  min-width: 0;
 
   padding: 1.5rem 0;
 
-  border-bottom: 1px solid var(--blue-100);
+  border-bottom: 1px solid rgba(105, 185, 242, 0.14);
 }
 
-.infoTextBlock {
-  min-width: 0;
-
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-
-  gap: 0.35rem;
+.infoItem:last-child {
+  border-bottom: 0;
 }
 
-/* ----------------------------------
-   Icons
------------------------------------ */
+/* =========================================================
+   06. ICONS
+   ========================================================= */
 
 .iconWrapper {
-  width: 42px;
-  height: 42px;
-
-  min-width: 42px;
-  min-height: 42px;
-
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background: var(--white);
+  width: 42px;
+  height: 42px;
 
-  border: 1px solid var(--blue-200);
+  flex-shrink: 0;
 
-  color: var(--blue-800);
+  color: var(--blue-500);
+
+  background: rgba(105, 185, 242, 0.09);
+  border: 1px solid rgba(105, 185, 242, 0.25);
+
+  transition:
+    background 180ms ease,
+    border-color 180ms ease,
+    color 180ms ease;
 }
 
 .iconWrapper svg,
 .icon {
-  color: var(--blue-800);
+  display: block;
 
-  font-size: 1rem;
+  width: 18px;
+  height: 18px;
+
+  color: currentColor;
 }
 
-/* ----------------------------------
-   Contact details
------------------------------------ */
+.infoItem:hover .iconWrapper {
+  color: var(--yellow-500);
+  background: rgba(105, 185, 242, 0.14);
+  border-color: rgba(255, 210, 31, 0.35);
+}
 
-.infoLabel {
+/* =========================================================
+   07. CONTACT TEXT
+   ========================================================= */
+
+.infoTextBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  gap: 0.4rem;
+
+  min-width: 0;
+}
+
+.infoLabel,
+.infoSectionTitle {
+  display: block;
+
   margin: 0;
 
-  color: var(--blue-950);
+  color: var(--white);
+  font-family: var(--font-body);
 
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   font-weight: 800;
-
-  letter-spacing: 0.04em;
+  line-height: 1.4;
 }
 
 .infoValue {
-  color: var(--grey-600);
+  color: rgba(255, 255, 255, 0.72);
 
-  font-size: 0.95rem;
-  font-weight: 500;
-  line-height: 1.55;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  font-weight: 400;
+  line-height: 1.65;
 
   text-decoration: none;
-
   overflow-wrap: anywhere;
 
-  transition:
-    color 160ms ease,
-    transform 160ms ease;
+  transition: color 180ms ease;
 }
 
-a.infoValue:hover,
+a.infoValue:hover {
+  color: var(--yellow-500);
+}
+
 a.infoValue:focus-visible {
-  color: var(--blue-800);
+  color: var(--yellow-500);
+
+  outline: 2px solid var(--yellow-500);
+  outline-offset: 4px;
 }
 
-/* ----------------------------------
-   Availability / response sections
------------------------------------ */
+/* =========================================================
+   08. AVAILABILITY / RESPONSE
+   ========================================================= */
 
-.infoSection {
-  width: 100%;
-
-  display: grid;
-  grid-template-columns: 46px minmax(0, 1fr);
-
-  gap: 1rem;
-
-  align-items: start;
-
-  padding: 1.75rem 0;
-
-  border-bottom: 1px solid var(--blue-100);
-}
-
-.infoSection:last-child {
-  padding-bottom: 0;
-
-  border-bottom: 0;
-}
-
-.infoSectionTitle {
-  margin: 0;
-
-  color: var(--blue-950);
-
-  font-size: 0.9rem;
-  font-weight: 800;
+.projectInfo {
+  margin-top: 0.25rem;
+  border-top: 1px solid rgba(105, 185, 242, 0.22);
 }
 
 .infoSectionText {
+  display: block;
   margin: 0;
 
-  color: var(--grey-600);
+  color: rgba(255, 255, 255, 0.7);
 
-  font-size: 0.94rem;
-  line-height: 1.65;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1.75;
 }
 
-/* ----------------------------------
-   Tablet
------------------------------------ */
+.infoSection:last-child {
+  border-bottom: 0;
+}
+
+/* =========================================================
+   09. DECORATIVE FOOTER
+   ========================================================= */
+
+.infoFooter {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  margin-top: auto;
+  padding-top: clamp(2rem, 4vw, 3rem);
+}
+
+.footerLine {
+  width: 44px;
+  height: 3px;
+  background: var(--blue-500);
+}
+
+.footerPixel {
+  width: 8px;
+  height: 8px;
+  background: var(--yellow-500);
+}
+
+/* =========================================================
+   10. TABLET
+   ========================================================= */
 
 @media (max-width: 1000px) {
   .contactInfoSection {
     max-width: none;
   }
+
+  .mainTitle {
+    font-size: clamp(1.8rem, 3vw, 2.4rem);
+  }
 }
 
-/* ----------------------------------
-   Mobile
------------------------------------ */
+/* =========================================================
+   11. MOBILE
+   ========================================================= */
 
 @media (max-width: 700px) {
   .contactInfoSection {
-    padding: 1.5rem;
+    padding: 1.75rem;
   }
 
   .infoItem,
   .infoSection {
     grid-template-columns: 40px minmax(0, 1fr);
-
     gap: 0.85rem;
+    padding: 1.25rem 0;
   }
 
   .iconWrapper {
     width: 38px;
     height: 38px;
+  }
 
-    min-width: 38px;
-    min-height: 38px;
+  .headerDescription {
+    font-size: 0.88rem;
+  }
+
+  .infoFooter {
+    padding-top: 2rem;
   }
 }
 
-/* ----------------------------------
-   Small mobile
------------------------------------ */
+/* =========================================================
+   12. SMALL MOBILE
+   ========================================================= */
 
 @media (max-width: 430px) {
   .contactInfoSection {
@@ -280,11 +482,37 @@ a.infoValue:focus-visible {
   }
 
   .mainTitle {
-    font-size: 1.45rem;
+    font-size: 1.85rem;
+  }
+
+  .headerPixels {
+    width: 25px;
+    height: 25px;
+  }
+
+  .headerPixelOne {
+    width: 14px;
+    height: 14px;
+  }
+
+  .headerPixelTwo {
+    width: 7px;
+    height: 7px;
   }
 
   .infoValue,
   .infoSectionText {
-    font-size: 0.9rem;
+    font-size: 0.88rem;
+  }
+}
+
+/* =========================================================
+   13. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .iconWrapper,
+  .infoValue {
+    transition: none;
   }
 }

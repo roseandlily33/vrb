@@ -1,298 +1,312 @@
+/* =========================================================
+   01. CONTACT PAGE
+   ========================================================= */
+
 .contactPage {
   width: 100%;
+  min-width: 0;
+  overflow: clip;
 
   background: var(--white);
 }
 
-/* ----------------------------------
-   Contact intro
------------------------------------ */
+/* =========================================================
+   02. CONTACT HERO
+   ========================================================= */
 
 .contactIntro {
   position: relative;
+  isolation: isolate;
 
   width: 100%;
   overflow: hidden;
 
-  padding: clamp(5rem, 9vw, 9rem) 3rem;
+  padding: clamp(5rem, 8vw, 8rem) clamp(1.25rem, 5vw, 4rem)
+    clamp(4.5rem, 7vw, 7rem);
 
-  background:
-    radial-gradient(
-      circle at 84% 38%,
-      rgba(0, 84, 201, 0.26),
-      transparent 27%
-    ),
-    var(--blue-950);
+  background: var(--blue-950);
 }
+
+/* Subtle technical grid */
 
 .contactIntro::before {
   content: "";
-
   position: absolute;
   inset: 0;
+  z-index: -2;
 
   background-image:
-    linear-gradient(
-      rgba(105, 185, 242, 0.025) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(105, 185, 242, 0.025) 1px,
-      transparent 1px
-    );
+    linear-gradient(rgba(105, 185, 242, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(105, 185, 242, 0.045) 1px, transparent 1px);
 
-  background-size: 46px 46px;
+  background-size: 48px 48px;
 
   pointer-events: none;
 }
 
+/* Soft blue lighting */
+
+.contactIntro::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+
+  top: -35%;
+  right: -15%;
+
+  width: 850px;
+  height: 850px;
+
+  border-radius: 50%;
+
+  background: radial-gradient(circle, rgba(0, 84, 201, 0.19), transparent 65%);
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   03. HERO LAYOUT
+   ========================================================= */
+
 .introInner {
   position: relative;
-  z-index: 2;
-
-  width: 100%;
-  max-width: 1500px;
-
-  margin: 0 auto;
+  z-index: 1;
 
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.45fr);
+  grid-template-columns:
+    minmax(0, 1.4fr)
+    minmax(340px, 0.8fr);
 
   align-items: center;
 
-  gap: clamp(3rem, 8vw, 8rem);
+  gap: clamp(3rem, 6vw, 7rem);
+
+  width: 100%;
+  max-width: 1400px;
+
+  margin: 0 auto;
 }
 
-/* ----------------------------------
-   Intro content
------------------------------------ */
+/* =========================================================
+   04. HERO MAIN CONTENT
+   ========================================================= */
 
 .introContent {
-  max-width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  min-width: 0;
+  max-width: 850px;
 }
 
-.introLabel {
-  display: flex;
+/* Eyebrow */
+
+.introEyebrow {
+  display: inline-flex;
   align-items: center;
 
   gap: 0.65rem;
 
-  margin-bottom: 1.5rem;
+  margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
+
+  color: var(--blue-500);
+
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1.4;
+
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .labelLine {
-  width: 42px;
+  flex: 0 0 auto;
+
+  width: 36px;
   height: 3px;
 
   background: var(--yellow-500);
 }
 
 .labelPixel {
-  width: 8px;
-  height: 8px;
+  flex: 0 0 auto;
+
+  width: 7px;
+  height: 7px;
 
   background: var(--blue-500);
 }
+
+/* Main heading */
 
 .introContent h1 {
   max-width: 850px;
-
   margin: 0;
 
   color: var(--white);
+  font-family: var(--font-heading);
 
-  font-size: clamp(3.8rem, 8vw, 7.5rem);
+  font-size: clamp(3.8rem, 6.8vw, 7rem);
   font-weight: 800;
 
-  line-height: 0.92;
+  line-height: 0.98;
   letter-spacing: -0.065em;
+
+  text-wrap: balance;
 }
 
-.introContent p {
-  max-width: 650px;
+.headingAccent {
+  color: var(--blue-500);
+}
 
-  margin: 2rem 0 0;
+/* Description */
+
+.introDescription {
+  max-width: 580px;
+
+  margin: clamp(1.5rem, 2.5vw, 2rem) 0 0;
 
   color: var(--blue-200);
+  font-family: var(--font-body);
 
-  font-size: clamp(1rem, 1.4vw, 1.15rem);
+  font-size: clamp(1rem, 1.25vw, 1.1rem);
+  font-weight: 400;
   line-height: 1.8;
 }
 
-/* ----------------------------------
-   Pixel composition
------------------------------------ */
+/* =========================================================
+   05. HERO ACTIONS
+   ========================================================= */
 
-.introPixels {
+.introActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 1.25rem 1.5rem;
+
+  margin-top: clamp(2rem, 3vw, 2.75rem);
+}
+
+.introButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 2rem;
+
+  min-height: 52px;
+  padding: 0.95rem 1.25rem;
+
+  background: var(--yellow-500);
+  color: var(--blue-950);
+
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 800;
+  line-height: 1.3;
+
+  text-decoration: none;
+
+  transition:
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.introButton:hover {
+  background: var(--white);
+  transform: translateY(-2px);
+}
+
+.introButton:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 4px;
+}
+
+.introButton span {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+.introActionNote {
+  max-width: 220px;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   06. HERO ASIDE
+   ========================================================= */
+
+.heroAside {
   position: relative;
 
-  width: min(100%, 350px);
-  aspect-ratio: 1 / 1;
+  display: flex;
+  flex-direction: column;
 
-  justify-self: end;
+  min-width: 0;
+  width: 100%;
+
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+
+  background: rgba(0, 84, 201, 0.075);
+
+  border: 1px solid rgba(105, 185, 242, 0.27);
+
+  backdrop-filter: blur(8px);
 }
 
-.pixel,
-.pixelOutline {
+/* Accent on the top edge */
+
+.heroAside::before {
+  content: "";
   position: absolute;
 
-  display: block;
-}
+  top: -1px;
+  left: -1px;
 
-.pixelOne {
-  width: 43%;
-  height: 43%;
-
-  top: 7%;
-  right: 5%;
-
-  background: var(--blue-800);
-}
-
-.pixelTwo {
-  width: 27%;
-  height: 27%;
-
-  top: 42%;
-  right: 39%;
-
-  background: var(--blue-500);
-}
-
-.pixelThree {
-  width: 14%;
-  height: 14%;
-
-  right: 20%;
-  bottom: 11%;
+  width: 58px;
+  height: 3px;
 
   background: var(--yellow-500);
 }
 
-.pixelFour {
-  width: 7%;
-  height: 7%;
+/* =========================================================
+   07. ASIDE HEADER
+   ========================================================= */
 
-  top: 17%;
-  left: 12%;
+.heroAsideHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
-  background: var(--blue-500);
+  gap: 1rem;
+
+  padding-bottom: 1.5rem;
+
+  border-bottom: 1px solid rgba(105, 185, 242, 0.2);
 }
 
-.outlineOne {
-  width: 34%;
-  height: 34%;
+.asideEyebrow {
+  color: var(--blue-500);
 
-  right: 0;
-  bottom: 2%;
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 800;
 
-  border: 1px solid rgba(105, 185, 242, 0.65);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
-.outlineTwo {
-  width: 17%;
-  height: 17%;
-
-  top: 0;
-  left: 25%;
-
-  border: 1px solid rgba(255, 210, 31, 0.65);
-}
-
-/* ----------------------------------
-   Form + contact information
------------------------------------ */
-
-.contactSection {
-  position: relative;
-
-  width: 100%;
-
-  padding: var(--section-xl) 3rem;
-
-  background:
-    linear-gradient(
-      90deg,
-      var(--white) 0%,
-      var(--white) 64%,
-      var(--blue-50) 64%,
-      var(--blue-50) 100%
-    );
-}
-
-.sideBySide {
-  width: 100%;
-  max-width: 1500px;
-
-  margin: 0 auto;
-
-  display: grid;
-  grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.65fr);
-
-  gap: clamp(3rem, 7vw, 7rem);
-
-  align-items: start;
-}
-
-/* ----------------------------------
-   Form side
------------------------------------ */
-
-.formColumn {
-  position: relative;
-
-  min-width: 0;
-}
-
-/* little structural detail above form */
-
-.formColumn::before {
-  content: "";
-
-  display: block;
-
-  width: 48px;
-  height: 4px;
-
-  margin-bottom: 2rem;
-
-  background: var(--blue-800);
-}
-
-/* ----------------------------------
-   Information side
------------------------------------ */
-
-.infoColumn {
-  position: relative;
-
-  min-width: 0;
-
-  padding-left: clamp(1rem, 3vw, 3rem);
-}
-
-.infoColumn::before {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  top: 0;
-  bottom: 0;
-
-  width: 1px;
-
-  background: var(--blue-200);
-}
-
-.infoColumn::after {
-  content: "";
-
-  position: absolute;
-
-  left: -4px;
-  top: 0;
+.asideHeaderPixel {
+  flex: 0 0 auto;
 
   width: 9px;
   height: 9px;
@@ -300,59 +314,230 @@
   background: var(--yellow-500);
 }
 
-/* ----------------------------------
-   Tablet
------------------------------------ */
+/* =========================================================
+   08. HERO STEPS
+   ========================================================= */
 
-@media (max-width: 1000px) {
-  .contactIntro {
-    padding: 6rem 2rem;
-  }
+.heroSteps {
+  display: flex;
+  flex-direction: column;
+}
 
+.heroStep {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr);
+
+  align-items: start;
+
+  gap: 1rem;
+
+  padding: 1.5rem 0;
+
+  border-bottom: 1px solid rgba(105, 185, 242, 0.16);
+}
+
+.stepNumber {
+  padding-top: 0.15rem;
+
+  color: var(--yellow-500);
+
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 800;
+
+  letter-spacing: 0.08em;
+}
+
+.stepContent {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.4rem;
+}
+
+.stepContent h2 {
+  margin: 0;
+
+  color: var(--white);
+  font-family: var(--font-heading);
+
+  font-size: 1.05rem;
+  font-weight: 750;
+  line-height: 1.3;
+}
+
+.stepContent p {
+  max-width: 300px;
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  font-family: var(--font-body);
+  font-size: 0.83rem;
+  font-weight: 400;
+  line-height: 1.65;
+}
+
+/* =========================================================
+   09. ASIDE FOOTER
+   ========================================================= */
+
+.heroAsideFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 1rem;
+
+  padding-top: 1.5rem;
+
+  color: var(--blue-200);
+
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.heroAsideFooter > span:last-child {
+  color: var(--yellow-500);
+  font-size: 1.15rem;
+}
+
+/* =========================================================
+   10. HERO BOTTOM ACCENT
+   ========================================================= */
+
+.heroBottomLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  display: flex;
+
+  width: 100%;
+  height: 4px;
+}
+
+.heroBottomLine span:first-child {
+  width: 85%;
+  background: var(--blue-800);
+}
+
+.heroBottomLine span:last-child {
+  flex: 1;
+  background: var(--yellow-500);
+}
+
+/* =========================================================
+   11. CONTACT FORM SECTION
+   ========================================================= */
+
+.contactSection {
+  position: relative;
+
+  width: 100%;
+
+  padding: var(--section-xl) clamp(1.25rem, 5vw, 4rem);
+
+  background: var(--blue-50);
+}
+
+/* =========================================================
+   12. FORM + INFORMATION LAYOUT
+   ========================================================= */
+
+.sideBySide {
+  display: grid;
+  grid-template-columns:
+    minmax(0, 1.45fr)
+    minmax(340px, 0.85fr);
+
+  align-items: start;
+
+  gap: clamp(1.5rem, 3vw, 3rem);
+
+  width: 100%;
+  max-width: 1400px;
+
+  margin: 0 auto;
+}
+
+.formColumn,
+.infoColumn {
+  position: relative;
+
+  min-width: 0;
+  width: 100%;
+}
+
+/* Keep child components within their columns */
+
+.formColumn > *,
+.infoColumn > * {
+  width: 100%;
+  max-width: none;
+}
+
+/* =========================================================
+   13. TABLET
+   ========================================================= */
+
+@media (max-width: 1100px) {
   .introInner {
-    grid-template-columns: minmax(0, 1fr) 220px;
+    grid-template-columns:
+      minmax(0, 1.2fr)
+      minmax(300px, 0.8fr);
 
     gap: 3rem;
   }
 
-  .introPixels {
-    width: 220px;
+  .introContent h1 {
+    font-size: clamp(3.5rem, 6vw, 5.5rem);
   }
 
-  .contactSection {
-    padding: var(--section-lg) 2rem;
+  .sideBySide {
+    grid-template-columns:
+      minmax(0, 1.25fr)
+      minmax(300px, 0.85fr);
+  }
+}
 
-    background: var(--white);
+/* =========================================================
+   14. SMALL TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .introInner {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .introContent {
+    max-width: 750px;
+  }
+
+  .introContent h1 {
+    font-size: clamp(3.8rem, 9vw, 6rem);
+  }
+
+  .heroAside {
+    max-width: 650px;
   }
 
   .sideBySide {
     grid-template-columns: 1fr;
-
-    gap: 4rem;
+    gap: 2rem;
   }
 
-  .infoColumn {
-    padding:
-      3rem
-      0
-      0;
-
-    border-top: 1px solid var(--blue-200);
-  }
-
-  .infoColumn::before {
-    display: none;
-  }
-
-  .infoColumn::after {
-    top: -5px;
-    left: 0;
+  .contactSection {
+    padding: var(--section-lg) clamp(1.25rem, 4vw, 2.5rem);
   }
 }
 
-/* ----------------------------------
-   Mobile
------------------------------------ */
+/* =========================================================
+   15. MOBILE
+   ========================================================= */
 
 @media (max-width: 700px) {
   .contactIntro {
@@ -360,56 +545,75 @@
   }
 
   .introInner {
-    grid-template-columns: 1fr;
-
     gap: 2.5rem;
   }
 
+  .introEyebrow {
+    font-size: 0.63rem;
+    letter-spacing: 0.1em;
+  }
+
   .introContent h1 {
-    font-size: clamp(3.4rem, 16vw, 5.5rem);
+    font-size: clamp(3.1rem, 13vw, 4.8rem);
   }
 
-  .introContent p {
-    margin-top: 1.5rem;
-
-    font-size: 1rem;
+  .introDescription {
+    font-size: 0.98rem;
+    line-height: 1.75;
   }
 
-  .introPixels {
-    width: 150px;
+  .introActions {
+    align-items: flex-start;
+    flex-direction: column;
+  }
 
-    justify-self: start;
+  .heroAside {
+    max-width: none;
+    padding: 1.5rem;
   }
 
   .contactSection {
-    padding:
-      var(--section-lg)
-      1.25rem;
-  }
-
-  .sideBySide {
-    gap: 3rem;
-  }
-
-  .formColumn::before {
-    margin-bottom: 1.5rem;
+    padding: var(--section-lg) 1.25rem;
   }
 }
 
-/* ----------------------------------
-   Small mobile
------------------------------------ */
+/* =========================================================
+   16. SMALL MOBILE
+   ========================================================= */
 
 @media (max-width: 430px) {
   .contactIntro {
-    padding-inline: 1.25rem;
+    padding: 4.5rem 1.25rem 3.5rem;
   }
 
   .introContent h1 {
-    font-size: clamp(3.1rem, 15vw, 4.4rem);
+    font-size: clamp(2.9rem, 12vw, 3.8rem);
   }
 
-  .introPixels {
-    width: 125px;
+  .introButton {
+    width: 100%;
+  }
+
+  .heroAside {
+    padding: 1.25rem;
+  }
+
+  .heroStep {
+    grid-template-columns: 25px minmax(0, 1fr);
+    gap: 0.75rem;
+  }
+}
+
+/* =========================================================
+   17. REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .introButton {
+    transition: none;
+  }
+
+  .introButton:hover {
+    transform: none;
   }
 }

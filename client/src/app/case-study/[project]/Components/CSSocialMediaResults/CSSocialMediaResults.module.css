@@ -1,734 +1,690 @@
+/* =========================================================
+   SOCIAL MEDIA PERFORMANCE
+   ========================================================= */
+
 .section {
   position: relative;
-
+  isolation: isolate;
   width: 100%;
-
-  padding: var(--section-xl) var(--section-lg);
-
+  padding: clamp(5rem, 9vw, 9rem) clamp(1.25rem, 5vw, 4rem);
   overflow: hidden;
-
   background:
     radial-gradient(
-      circle at 12% 15%,
-      rgba(27, 138, 228, 0.16),
+      circle at 88% 15%,
+      rgba(27, 138, 228, 0.07),
       transparent 30%
     ),
-    radial-gradient(
-      circle at 90% 80%,
-      rgba(0, 84, 201, 0.12),
-      transparent 24%
-    ),
-    var(--blue-950);
+    linear-gradient(180deg, var(--white) 0%, var(--blue-50) 100%);
 }
-
-/* ----------------------------------
-   Background grid
------------------------------------ */
 
 .section::before {
   content: "";
-
   position: absolute;
   inset: 0;
-
+  z-index: -1;
   background-image:
-    linear-gradient(
-      rgba(105, 185, 242, 0.025) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(105, 185, 242, 0.025) 1px,
-      transparent 1px
-    );
-
+    linear-gradient(rgba(0, 84, 201, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 84, 201, 0.02) 1px, transparent 1px);
   background-size: 46px 46px;
-
   pointer-events: none;
 }
 
 .sectionInner {
   position: relative;
-
   z-index: 1;
-
-  width: 100%;
-  max-width: 1500px;
-
+  width: min(100%, 1280px);
   margin: 0 auto;
 }
 
-/* ----------------------------------
-   Heading
------------------------------------ */
+/* =========================================================
+   HEADER
+   ========================================================= */
 
 .headingRow {
   display: flex;
-
   align-items: flex-end;
   justify-content: space-between;
-
   gap: clamp(2rem, 5vw, 5rem);
-
-  margin-bottom: clamp(3rem, 6vw, 5rem);
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
 }
 
 .headingBlock {
-  max-width: 780px;
+  min-width: 0;
+  flex: 1 1 auto;
 }
 
 .marker {
   display: flex;
-
   align-items: center;
-
   gap: 0.55rem;
-
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .markerLine {
-  width: 38px;
-  height: 3px;
-
-  background: var(--yellow-500);
+  width: 42px;
+  height: 2px;
+  background: var(--blue-800);
 }
 
 .markerPixel {
   width: 7px;
   height: 7px;
-
-  background: var(--blue-500);
+  background: var(--yellow-500);
 }
 
 .eyebrow {
   display: block;
-
-  margin-bottom: 0.8rem;
-
-  color: var(--blue-300);
-
-  font-family: var(--font-heading);
-
-  font-size: 0.68rem;
-
+  margin-bottom: 1rem;
+  color: var(--blue-700);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
   font-weight: 800;
-
-  letter-spacing: 0.12em;
-
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
 .heading {
+  max-width: 850px;
   margin: 0;
-
-  color: var(--white);
-
+  color: var(--blue-950);
   font-family: var(--font-heading);
-
-  font-size: clamp(2.6rem, 4.8vw, 4.6rem);
-
+  font-size: clamp(2.3rem, 3.6vw, 3.7rem);
   font-weight: 800;
-
-  line-height: 0.97;
-
-  letter-spacing: -0.055em;
+  line-height: 1.08;
+  letter-spacing: -0.05em;
+  text-wrap: balance;
 }
 
-/* ----------------------------------
-   Tabs
------------------------------------ */
+/* =========================================================
+   PERIOD TABS
+   ========================================================= */
 
 .tabs {
   display: flex;
-
-  align-items: stretch;
-
-  overflow-x: auto;
-
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  max-width: 100%;
 }
 
 .tab {
-  position: relative;
-
-  flex-shrink: 0;
-
-  min-height: 56px;
-
-  padding: 0.8rem 1rem;
-
   display: inline-flex;
-
   align-items: center;
-
-  gap: 0.65rem;
-
-  border: 0;
-  border-right: 1px solid rgba(255, 255, 255, 0.14);
-
-  background: transparent;
-
-  color: var(--blue-300);
-
+  gap: 0.75rem;
+  min-height: 48px;
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--blue-200);
+  background: var(--white);
+  color: var(--grey-700);
   font-family: var(--font-body);
-
-  font-size: 0.76rem;
-
+  font-size: 0.78rem;
   font-weight: 700;
-
-  white-space: nowrap;
-
   cursor: pointer;
-
   transition:
     background 180ms ease,
-    color 180ms ease;
-}
-
-.tab:first-child {
-  border-left: 1px solid rgba(255, 255, 255, 0.14);
-}
-
-.tab::after {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  right: 0;
-  bottom: -1px;
-
-  height: 3px;
-
-  background: var(--yellow-500);
-
-  transform: scaleX(0);
-
-  transform-origin: left;
-
-  transition: transform 180ms ease;
+    color 180ms ease,
+    border-color 180ms ease;
 }
 
 .tab:hover {
-  color: var(--white);
-
-  background: rgba(27, 138, 228, 0.06);
+  border-color: var(--blue-700);
+  color: var(--blue-800);
 }
 
 .activeTab {
+  border-color: var(--blue-950);
+  background: var(--blue-950);
   color: var(--white);
-
-  background: rgba(27, 138, 228, 0.1);
 }
 
-.activeTab::after {
-  transform: scaleX(1);
+.activeTab:hover {
+  color: var(--white);
 }
 
 .tabIndex {
   color: var(--blue-500);
-
-  font-size: 0.6rem;
-
+  font-size: 0.62rem;
   font-weight: 800;
-
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
 }
 
 .activeTab .tabIndex {
   color: var(--yellow-500);
 }
 
-.tab:focus-visible {
-  outline: 2px solid var(--yellow-500);
-
-  outline-offset: -2px;
+.tabText {
+  white-space: nowrap;
 }
 
-/* ----------------------------------
-   Main panel
------------------------------------ */
+.tab:focus-visible {
+  outline: 2px solid var(--blue-700);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   RESULTS DASHBOARD
+   ========================================================= */
 
 .resultsPanel {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-
-  display: grid;
-
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
-
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
-  border-left: 1px solid rgba(255, 255, 255, 0.14);
 }
 
-/* ----------------------------------
-   Featured result
------------------------------------ */
+/* =========================================================
+   FEATURED RESULT
+   ========================================================= */
 
 .feature {
   position: relative;
-
-  min-height: 430px;
-
-  padding: clamp(2rem, 4vw, 3.5rem);
-
+  isolation: isolate;
   display: flex;
-
   flex-direction: column;
-
-  justify-content: space-between;
-
+  min-height: 340px;
+  padding: clamp(1.75rem, 3.5vw, 3rem);
   overflow: hidden;
-
-  border-right: 1px solid rgba(255, 255, 255, 0.14);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
-
   background:
-    linear-gradient(
-      145deg,
-      rgba(27, 138, 228, 0.17) 0%,
-      rgba(0, 84, 201, 0.04) 65%
-    );
+    radial-gradient(
+      circle at 85% 40%,
+      rgba(27, 138, 228, 0.18),
+      transparent 40%
+    ),
+    var(--blue-950);
+  color: var(--white);
 }
 
 .feature::before {
   content: "";
-
   position: absolute;
-
-  width: 180px;
-  height: 180px;
-
-  right: -40px;
-  bottom: -40px;
-
-  border: 1px solid rgba(105, 185, 242, 0.16);
-
-  transform: rotate(8deg);
-
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(rgba(105, 185, 242, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(105, 185, 242, 0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
   pointer-events: none;
 }
 
+/* =========================================================
+   FEATURE TOP
+   ========================================================= */
+
 .featureTop {
-  position: relative;
-
-  z-index: 1;
-
   display: flex;
-
   align-items: center;
   justify-content: space-between;
-
-  gap: 1.5rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-.featureLabel {
-  color: var(--blue-300);
-
-  font-size: 0.68rem;
-
+.featureEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--blue-200);
+  font-family: var(--font-body);
+  font-size: 0.7rem;
   font-weight: 800;
-
   letter-spacing: 0.1em;
-
   text-transform: uppercase;
 }
 
-.date {
-  color: var(--blue-400);
-
-  font-size: 0.74rem;
-
-  font-weight: 600;
+.featureIndicator {
+  width: 7px;
+  height: 7px;
+  background: var(--yellow-500);
 }
+
+.date {
+  color: var(--blue-300);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+/* =========================================================
+   FEATURE CONTENT
+   ========================================================= */
 
 .featureContent {
-  position: relative;
-
-  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: clamp(2rem, 5vw, 5rem);
+  flex: 1;
+  padding-top: clamp(2.5rem, 5vw, 4rem);
 }
 
-.topPostTitle {
-  max-width: 14ch;
-
-  margin: 0 0 2rem;
-
-  color: var(--white);
-
-  font-family: var(--font-heading);
-
-  font-size: clamp(2rem, 3.8vw, 3.6rem);
-
-  font-weight: 800;
-
-  line-height: 1;
-
-  letter-spacing: -0.05em;
-}
-
-.topPostStats {
-  display: flex;
-
-  align-items: flex-end;
-
-  gap: clamp(2rem, 5vw, 4rem);
-}
-
-.primaryStat {
+.featureMain {
   min-width: 0;
 }
 
-.largeValue {
+.featureSmallLabel {
   display: block;
-
-  color: var(--white);
-
-  font-family: var(--font-heading);
-
-  font-size: clamp(3rem, 6vw, 5.4rem);
-
+  margin-bottom: 0.85rem;
+  color: var(--blue-400);
+  font-family: var(--font-body);
+  font-size: 0.63rem;
   font-weight: 800;
+  letter-spacing: 0.13em;
+}
 
-  line-height: 0.9;
+.topPostTitle {
+  max-width: 650px;
+  margin: 0;
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+  text-wrap: balance;
+}
 
-  letter-spacing: -0.06em;
+/* =========================================================
+   FEATURE STATS
+   ========================================================= */
+
+.topPostStats {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.5rem;
+  min-width: 0;
+}
+
+.primaryStat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.largeValue {
+  color: var(--yellow-500);
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 5vw, 5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.065em;
+  font-variant-numeric: tabular-nums;
 }
 
 .largeLabel {
-  display: block;
-
-  margin-top: 0.65rem;
-
-  color: var(--blue-300);
-
-  font-size: 0.68rem;
-
-  font-weight: 700;
-
-  letter-spacing: 0.1em;
-
+  color: var(--blue-200);
+  font-family: var(--font-body);
+  font-size: 0.73rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
 }
 
 .featureChange {
   display: flex;
-
   flex-direction: column;
-
-  gap: 0.5rem;
-
-  padding-bottom: 0.25rem;
+  align-items: flex-start;
+  gap: 0.35rem;
 }
 
-.featureChange > span:last-child {
-  color: var(--blue-300);
+.featureChangeValue {
+  color: var(--white);
+  font-size: 0.95rem;
+  font-weight: 800;
+}
 
-  font-size: 0.68rem;
+.featureChangeLabel {
+  color: var(--blue-300);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   FEATURE DECORATION
+   ========================================================= */
+
+.featureDecoration {
+  position: absolute;
+  top: 50%;
+  right: 2rem;
+  display: grid;
+  grid-template-columns: repeat(2, 12px);
+  gap: 8px;
+  opacity: 0.3;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.featureDecoration span {
+  width: 12px;
+  height: 12px;
+  background: var(--blue-500);
+}
+
+.featureDecoration span:nth-child(2) {
+  background: var(--yellow-500);
+}
+
+.featureDecoration span:nth-child(3) {
+  opacity: 0.45;
 }
 
 .featurePixel {
   position: absolute;
-
-  right: 1.5rem;
-  bottom: 1.5rem;
-
-  width: 9px;
-  height: 9px;
-
+  right: 1rem;
+  bottom: 1rem;
+  width: 7px;
+  height: 7px;
   background: var(--yellow-500);
 }
 
-/* ----------------------------------
-   Metrics
------------------------------------ */
+/* =========================================================
+   METRICS GRID
+   ========================================================= */
 
 .metrics {
   display: grid;
-
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1px;
+  padding: 1px;
+  margin-top: 1rem;
+  background: var(--blue-200);
 }
 
-/* ----------------------------------
-   Metric
------------------------------------ */
+/* =========================================================
+   INDIVIDUAL METRIC
+   ========================================================= */
 
 .metric {
   position: relative;
-
-  min-height: 215px;
-
-  padding: clamp(1.4rem, 2.5vw, 2rem);
-
   display: flex;
-
   flex-direction: column;
-
-  border-right: 1px solid rgba(255, 255, 255, 0.14);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
-
-  background: rgba(255, 255, 255, 0.015);
-
+  justify-content: space-between;
+  gap: 2.5rem;
+  min-width: 0;
+  min-height: 240px;
+  padding: clamp(1.5rem, 2.5vw, 2rem);
+  overflow: hidden;
+  background: var(--white);
   transition: background 180ms ease;
 }
 
-.metric:nth-child(2n) {
-  border-right: 0;
-}
-
 .metric:hover {
-  background: rgba(27, 138, 228, 0.07);
+  background: var(--blue-50);
 }
 
-.metric::after {
+.metric::before {
   content: "";
-
   position: absolute;
-
   left: 0;
-  bottom: -1px;
-
+  bottom: 0;
   width: 0;
   height: 3px;
-
   background: var(--yellow-500);
-
   transition: width 180ms ease;
 }
 
-.metric:hover::after {
-  width: 42px;
+.metric:hover::before {
+  width: 65px;
 }
 
-/* ----------------------------------
-   Metric header
------------------------------------ */
+/* =========================================================
+   METRIC HEADER
+   ========================================================= */
 
 .metricHeader {
   display: flex;
-
-  align-items: center;
-
-  gap: 0.7rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
 .metricNumber {
   color: var(--blue-500);
-
-  font-family: var(--font-heading);
-
-  font-size: 0.62rem;
-
+  font-family: var(--font-body);
+  font-size: 0.68rem;
   font-weight: 800;
+  letter-spacing: 0.1em;
+}
 
-  letter-spacing: 0.11em;
+.metricTopPixel {
+  width: 7px;
+  height: 7px;
+  background: var(--blue-500);
+  transition: background 180ms ease;
+}
+
+.metric:hover .metricTopPixel {
+  background: var(--yellow-500);
+}
+
+/* =========================================================
+   METRIC BODY
+   ========================================================= */
+
+.metricBody {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
 }
 
 .label {
-  color: var(--blue-300);
-
-  font-size: 0.68rem;
-
+  margin-bottom: 0.65rem;
+  color: var(--grey-600);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
   font-weight: 800;
-
-  letter-spacing: 0.08em;
-
+  letter-spacing: 0.09em;
   text-transform: uppercase;
 }
 
-/* ----------------------------------
-   Metric value
------------------------------------ */
-
 .metricValue {
-  margin-top: auto;
-
-  color: var(--white);
-
+  max-width: 100%;
+  color: var(--blue-950);
   font-family: var(--font-heading);
-
-  font-size: clamp(2.5rem, 4vw, 4rem);
-
+  font-size: clamp(2rem, 3.2vw, 3.5rem);
   font-weight: 800;
-
-  line-height: 0.95;
-
-  letter-spacing: -0.05em;
+  line-height: 1;
+  letter-spacing: -0.06em;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
 }
 
 .metricMeta {
   display: flex;
-
+  flex-wrap: wrap;
   align-items: center;
+  gap: 0.5rem 0.75rem;
+  margin-top: 0.85rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
 
-  gap: 0.6rem;
-
-  margin-top: 0.7rem;
-
+.sub {
+  color: var(--grey-600);
   font-size: 0.76rem;
 }
 
 .metricCaption {
-  margin-top: 0.65rem;
-
-  color: var(--blue-400);
-
-  font-size: 0.7rem;
-}
-
-.sub {
-  color: var(--blue-300);
-
-  font-weight: 600;
+  margin-top: 0.85rem;
+  color: var(--grey-600);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  line-height: 1.5;
 }
 
 .metricPixel {
   position: absolute;
-
-  top: 1.2rem;
-  right: 1.2rem;
-
+  right: 1rem;
+  bottom: 1rem;
   width: 6px;
   height: 6px;
-
   background: var(--blue-500);
-
-  transition:
-    background 180ms ease,
-    transform 180ms ease;
 }
 
-.metric:hover .metricPixel {
-  background: var(--yellow-500);
+/* =========================================================
+   DASHBOARD FOOTER
+   ========================================================= */
 
-  transform: scale(1.2);
-}
-
-/* ----------------------------------
-   Changes
------------------------------------ */
-
-.up,
-.down {
-  display: inline-flex;
-
+.dashboardFooter {
+  display: flex;
   align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
 
-  width: fit-content;
+.footerLine {
+  flex: 1;
+  height: 1px;
+  background: var(--blue-200);
+}
 
-  padding: 0.28rem 0.48rem;
-
-  border-radius: 0;
-
-  font-size: 0.7rem;
-
+.footerText {
+  color: var(--blue-500);
+  font-family: var(--font-body);
+  font-size: 0.6rem;
   font-weight: 800;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
 }
 
-.up {
-  color: #bff4ce;
-
-  background: rgba(78, 201, 176, 0.12);
-
-  border: 1px solid rgba(78, 201, 176, 0.28);
+.footerPixel {
+  width: 7px;
+  height: 7px;
+  background: var(--yellow-500);
 }
 
-.down {
-  color: #ffd3cd;
+/* =========================================================
+   TABLET
+   ========================================================= */
 
-  background: rgba(206, 145, 120, 0.12);
-
-  border: 1px solid rgba(206, 145, 120, 0.26);
-}
-
-/* ----------------------------------
-   Tablet
------------------------------------ */
-
-@media (max-width: 950px) {
-  .section {
-    padding: var(--section-lg) var(--section-md);
-  }
-
+@media (max-width: 1100px) {
   .headingRow {
-    align-items: flex-start;
-
     flex-direction: column;
+    align-items: flex-start;
+    gap: 2rem;
   }
 
-  .tabs {
-    max-width: 100%;
+  .metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .resultsPanel {
-    grid-template-columns: 1fr;
-  }
-
-  .feature {
-    min-height: 360px;
-
-    border-right: 0;
+  .metric {
+    min-height: 220px;
   }
 }
 
-/* ----------------------------------
-   Mobile
------------------------------------ */
+/* =========================================================
+   MOBILE
+   ========================================================= */
 
-@media (max-width: 650px) {
+@media (max-width: 700px) {
   .section {
-    padding: var(--section-lg) 1.25rem;
-  }
-
-  .headingRow {
-    margin-bottom: 2.5rem;
+    padding: 5rem 1.25rem;
   }
 
   .heading {
-    font-size: clamp(2.2rem, 10vw, 3.3rem);
+    font-size: clamp(2.2rem, 8vw, 3.2rem);
   }
 
   .tabs {
     width: 100%;
   }
 
-  .feature {
-    min-height: 320px;
-
-    padding: 1.5rem;
+  .tab {
+    flex: 1 1 auto;
+    justify-content: center;
   }
 
-  .featureTop {
-    align-items: flex-start;
+  .feature {
+    min-height: 0;
+    padding: 1.75rem;
+  }
 
-    flex-direction: column;
+  .featureContent {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-top: 2.5rem;
+  }
 
-    gap: 0.5rem;
+  .topPostTitle {
+    font-size: clamp(1.7rem, 6vw, 2.5rem);
   }
 
   .topPostStats {
-    align-items: flex-start;
-
-    flex-direction: column;
-
-    gap: 1.5rem;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 1.5rem 2.5rem;
   }
 
   .largeValue {
-    font-size: clamp(3rem, 15vw, 4.5rem);
+    font-size: clamp(2.8rem, 9vw, 4rem);
   }
 
+  .featureDecoration {
+    display: none;
+  }
+
+  .metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .metric {
+    min-height: 200px;
+    gap: 2rem;
+    padding: 1.4rem;
+  }
+
+  .metricValue {
+    font-size: clamp(1.8rem, 6vw, 2.6rem);
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
   .metrics {
     grid-template-columns: 1fr;
   }
 
   .metric {
-    min-height: 165px;
-
-    border-right: 0;
+    min-height: 180px;
   }
 
   .metricValue {
     font-size: 2.8rem;
+  }
+
+  .featureTop {
+    align-items: flex-start;
+  }
+
+  .topPostStats {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .tab {
+    justify-content: flex-start;
+    width: 100%;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .tab,
+  .metric,
+  .metric::before,
+  .metricTopPixel {
+    transition: none;
   }
 }

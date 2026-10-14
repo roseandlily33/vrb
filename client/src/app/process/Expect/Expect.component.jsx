@@ -30,8 +30,12 @@ const EXPECT_LIST = [
 
 export default function Expect() {
   return (
-    <section className={styles.expectSection}>
+    <section
+      className={styles.expectSection}
+      aria-labelledby="project-standards-title"
+    >
       <div className={styles.expectInner}>
+        {/* SECTION HEADER */}
         <div className={styles.expectHeader}>
           <div className={styles.sectionMarker} aria-hidden="true">
             <span className={styles.markerLine} />
@@ -40,7 +44,7 @@ export default function Expect() {
 
           <p className={styles.eyebrow}>Project Standards</p>
 
-          <h2 className={styles.heading}>
+          <h2 id="project-standards-title" className={styles.heading}>
             What you can expect
             <br />
             <span>at every stage.</span>
@@ -52,11 +56,12 @@ export default function Expect() {
           </p>
         </div>
 
+        {/* PROJECT STANDARDS */}
         <ul className={styles.expectList}>
           {EXPECT_LIST.map((item, index) => (
             <li className={styles.expectItem} key={item.title}>
               <div className={styles.itemTop}>
-                <span className={styles.itemNumber}>
+                <span className={styles.itemNumber} aria-hidden="true">
                   {String(index + 1).padStart(2, "0")}
                 </span>
 
@@ -68,6 +73,8 @@ export default function Expect() {
 
                 <p className={styles.itemDescription}>{item.description}</p>
               </div>
+
+              <span className={styles.cardAccent} aria-hidden="true" />
             </li>
           ))}
         </ul>

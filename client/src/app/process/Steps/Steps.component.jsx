@@ -25,8 +25,12 @@ const steps = [
 
 export default function Steps() {
   return (
-    <section className={styles.stepsSection}>
+    <section
+      className={styles.stepsSection}
+      aria-labelledby="process-steps-title"
+    >
       <div className={styles.stepsInner}>
+        {/* SECTION HEADER */}
         <div className={styles.stepsHeader}>
           <div className={styles.sectionMarker} aria-hidden="true">
             <span className={styles.markerLine} />
@@ -35,33 +39,39 @@ export default function Steps() {
 
           <p className={styles.eyebrow}>The Process</p>
 
-          <h2>
+          <h2 id="process-steps-title">
             From first idea
             <br />
             <span>to launch.</span>
           </h2>
+
+          <div className={styles.headerAccent} aria-hidden="true">
+            <span className={styles.accentLine} />
+            <span className={styles.accentDot} />
+          </div>
         </div>
 
+        {/* PROCESS TIMELINE */}
         <ol className={styles.stepsList}>
           {steps.map((step, idx) => (
             <li key={step.title} className={styles.stepItem}>
-              <div className={styles.stepNumberWrap}>
+              <div className={styles.stepNumberWrap} aria-hidden="true">
                 <span className={styles.stepNumber}>
                   {String(idx + 1).padStart(2, "0")}
                 </span>
+              </div>
 
+              <div className={styles.stepCard}>
                 <span className={styles.stepPixel} aria-hidden="true" />
+
+                <div className={styles.stepContent}>
+                  <h3 className={styles.stepTitle}>{step.title}</h3>
+
+                  <p className={styles.stepDesc}>{step.description}</p>
+                </div>
+
+                <span className={styles.cardCorner} aria-hidden="true" />
               </div>
-
-              <div className={styles.stepContent}>
-                <h3 className={styles.stepTitle}>{step.title}</h3>
-
-                <p className={styles.stepDesc}>{step.description}</p>
-              </div>
-
-              {/* <div className={styles.stepArrow} aria-hidden="true">
-                ↘
-              </div> */}
             </li>
           ))}
         </ol>

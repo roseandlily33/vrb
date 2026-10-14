@@ -1,102 +1,125 @@
+/* ==========================================
+   VRB SERVICES SECTION
+   Digital & Playful Design System
+========================================== */
+
 .servicesSection {
   position: relative;
+  isolation: isolate;
   width: 100%;
   overflow: hidden;
 
-  padding: var(--section-xl);
+  padding: clamp(6rem, 9vw, 9rem) clamp(1.5rem, 6vw, 6rem);
 
-  background:
-    linear-gradient(
-      180deg,
-      var(--blue-50) 0%,
-      var(--white) 28%,
-      var(--white) 100%
-    );
+  background: var(--blue-50);
+  font-family: var(--font-body);
 }
 
 .servicesInner {
+  position: relative;
+  z-index: 2;
+
   width: 100%;
   max-width: 1500px;
   margin: 0 auto;
 }
 
-/* ----------------------------------
-   Header
------------------------------------ */
+/* ==========================================
+   SECTION HEADER
+========================================== */
 
 .servicesHeader {
   position: relative;
 
   display: grid;
-  grid-template-columns: 140px minmax(0, 820px) 1fr;
-  gap: clamp(2rem, 5vw, 5rem);
+  grid-template-columns:
+    100px
+    minmax(0, 1fr)
+    220px;
 
   align-items: start;
+  gap: clamp(2rem, 4vw, 5rem);
 
-  margin-bottom: clamp(4rem, 7vw, 7rem);
+  margin-bottom: clamp(3.5rem, 6vw, 6rem);
 }
 
 .headerLabel {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
+  padding-top: 0.4rem;
 }
 
 .headerNumber {
+  color: var(--blue-800);
   font-size: 0.82rem;
   font-weight: 800;
-  letter-spacing: 0.13em;
-
-  color: var(--blue-700);
+  letter-spacing: 0.12em;
 }
 
 .headerLine {
-  width: 48px;
+  display: block;
+  width: 46px;
   height: 3px;
-
   background: var(--yellow-500);
 }
 
 .headerContent {
-  max-width: 820px;
+  min-width: 0;
+  max-width: 830px;
+}
+
+.servicesEyebrow {
+  margin: 0 0 1.3rem !important;
+
+  color: var(--blue-800) !important;
+  font-size: 0.76rem !important;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  line-height: 1.5 !important;
+  text-transform: uppercase;
 }
 
 .servicesHeader h2 {
-  margin: 0 0 1.5rem;
-
-  font-size: clamp(2.8rem, 5vw, 5rem);
-  line-height: 1;
-  letter-spacing: -0.055em;
+  margin: 0 0 1.8rem;
 
   color: var(--blue-950);
+  font-family: var(--font-heading);
+  font-size: clamp(2.8rem, 4.6vw, 5.1rem);
+  font-weight: 800;
+  line-height: 1.07;
+  letter-spacing: -0.06em;
+  text-wrap: balance;
+}
+
+.servicesHeader h2 span {
+  color: var(--blue-800);
 }
 
 .servicesHeader p {
-  max-width: 760px;
-
+  max-width: 730px;
   margin: 0;
 
   color: var(--grey-700);
-
-  font-size: clamp(1rem, 1.25vw, 1.15rem);
+  font-size: clamp(1rem, 1.2vw, 1.14rem);
   line-height: 1.8;
 }
 
 .servicesHeader p + p {
-  margin-top: 1.25rem;
+  margin-top: 1rem;
 }
 
-/* ----------------------------------
-   Header pixel cluster
------------------------------------ */
+/* ==========================================
+   HEADER PIXELS & CIRCUITS
+========================================== */
 
 .headerPixels {
   position: relative;
-
   width: 220px;
   height: 200px;
-
   justify-self: end;
+  pointer-events: none;
 }
 
 .pixel,
@@ -106,119 +129,106 @@
 }
 
 .pixelOne {
-  width: 72px;
-  height: 72px;
-
-  top: 18px;
-  right: 36px;
-
+  top: 12px;
+  right: 32px;
+  width: 64px;
+  height: 64px;
   background: var(--blue-950);
 }
 
 .pixelTwo {
-  width: 50px;
-  height: 50px;
-
-  top: 72px;
+  top: 67px;
   right: 86px;
-
+  width: 42px;
+  height: 42px;
   background: var(--blue-800);
 }
 
 .pixelThree {
-  width: 26px;
-  height: 26px;
-
-  top: 134px;
-  right: 32px;
-
+  top: 126px;
+  right: 25px;
+  width: 23px;
+  height: 23px;
   background: var(--yellow-500);
 }
 
 .pixelFour {
+  top: 83px;
+  right: 0;
   width: 82px;
   height: 82px;
-
-  top: 86px;
-  right: 0;
-
   border: 1px solid var(--blue-500);
 }
 
-/* ----------------------------------
-   Services grid
------------------------------------ */
+.headerCircuit {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.headerCircuit path {
+  stroke: var(--blue-700);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.headerCircuit circle {
+  fill: var(--blue-50);
+  stroke: var(--blue-700);
+  stroke-width: 2;
+}
+
+/* ==========================================
+   SERVICES GRID
+========================================== */
 
 .servicesGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
 
-  border-top: 1px solid var(--grey-200);
-  border-left: 1px solid var(--grey-200);
+  border-top: 1px solid var(--blue-200);
+  border-left: 1px solid var(--blue-200);
 }
 
 .serviceItem {
   position: relative;
-
   min-width: 0;
-
-  padding: 2.5rem;
-
-  border-right: 1px solid var(--grey-200);
-  border-bottom: 1px solid var(--grey-200);
+  padding: clamp(2rem, 3vw, 3rem);
 
   background: var(--white);
 
+  border-right: 1px solid var(--blue-200);
+  border-bottom: 1px solid var(--blue-200);
+
   transition:
-    transform 180ms ease,
-    background 180ms ease;
+    background 250ms ease,
+    box-shadow 250ms ease;
 }
 
 .serviceItem:hover {
   background: var(--blue-50);
+  box-shadow: inset 0 3px 0 var(--blue-800);
 }
 
-.serviceNumber {
-  display: block;
-
-  margin-bottom: 1.5rem;
-
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-
-  color: var(--blue-700);
-}
-
-/* if your Card already has its own background,
-   you may want to remove that background */
-.serviceItem :global(.card) {
-  background: transparent;
-  border: 0;
-  box-shadow: none;
-  padding: 0;
-}
-
-/* ----------------------------------
-   Tiny corner detail
------------------------------------ */
+/* Yellow corner pixel */
 
 .serviceItem::after {
   content: "";
-
   position: absolute;
+  top: 1rem;
+  right: 1rem;
 
   width: 7px;
   height: 7px;
 
-  top: 1.2rem;
-  right: 1.2rem;
-
   background: var(--blue-200);
 
   transition:
-    background 180ms ease,
-    transform 180ms ease;
+    background 250ms ease,
+    transform 250ms ease;
 }
 
 .serviceItem:hover::after {
@@ -226,17 +236,135 @@
   transform: translate(-3px, 3px);
 }
 
-/* ----------------------------------
-   Tablet
------------------------------------ */
+/* ==========================================
+   SERVICE NUMBER & CIRCUIT
+========================================== */
 
-@media (max-width: 1100px) {
+.serviceTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  margin-bottom: 2rem;
+}
+
+.serviceNumber {
+  color: var(--blue-800);
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+
+.serviceCircuit {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 72px;
+  height: 18px;
+}
+
+.circuitLine {
+  position: absolute;
+  left: 0;
+  right: 9px;
+  top: 50%;
+  height: 2px;
+
+  background: var(--blue-200);
+  transform: translateY(-50%);
+  overflow: hidden;
+}
+
+.circuitLine::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--blue-700);
+
+  transition: transform 500ms ease;
+}
+
+.serviceItem:hover .circuitLine::after,
+.serviceItem:focus-within .circuitLine::after {
+  transform: translateX(200%);
+}
+
+.circuitNode {
+  position: absolute;
+  top: 50%;
+  right: 0;
+
+  width: 12px;
+  height: 12px;
+
+  background: var(--white);
+  border: 2px solid var(--blue-500);
+  border-radius: 50%;
+
+  transform: translateY(-50%);
+
+  transition:
+    background 250ms ease,
+    border-color 250ms ease;
+}
+
+.serviceItem:hover .circuitNode,
+.serviceItem:focus-within .circuitNode {
+  background: var(--yellow-500);
+  border-color: var(--blue-800);
+}
+
+/* Prevent overflow from nested content */
+
+.serviceItem > * {
+  min-width: 0;
+}
+
+/* ==========================================
+   SECTION FOOTER
+========================================== */
+
+.servicesFooter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.9rem;
+
+  margin-top: 2rem;
+}
+
+.footerPixel {
+  display: block;
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  background: var(--yellow-500);
+}
+
+.servicesFooter p {
+  margin: 0;
+
+  color: var(--grey-600);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+/* ==========================================
+   LARGE TABLET
+========================================== */
+
+@media (max-width: 1200px) {
   .servicesSection {
-    padding: var(--section-lg);
+    padding: 6rem 3rem;
   }
 
   .servicesHeader {
-    grid-template-columns: 90px minmax(0, 1fr);
+    grid-template-columns: 75px minmax(0, 1fr);
+    gap: 2.5rem;
   }
 
   .headerPixels {
@@ -246,13 +374,21 @@
   .servicesGrid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .serviceItem {
+    padding: 2.5rem;
+  }
 }
 
-/* ----------------------------------
-   Small tablet
------------------------------------ */
+/* ==========================================
+   SMALL TABLET
+========================================== */
 
 @media (max-width: 800px) {
+  .servicesSection {
+    padding: 5rem 2rem;
+  }
+
   .servicesHeader {
     grid-template-columns: 1fr;
     gap: 1.5rem;
@@ -261,6 +397,7 @@
   .headerLabel {
     flex-direction: row;
     align-items: center;
+    padding-top: 0;
   }
 
   .headerLine {
@@ -268,31 +405,34 @@
   }
 
   .servicesHeader h2 {
-    font-size: clamp(2.7rem, 9vw, 4rem);
-  }
-}
-
-/* ----------------------------------
-   Mobile
------------------------------------ */
-
-@media (max-width: 700px) {
-  .servicesSection {
-    padding: var(--section-lg);
+    font-size: clamp(2.8rem, 7vw, 4.3rem);
   }
 
   .servicesHeader {
-    margin-bottom: 3rem;
+    margin-bottom: 3.5rem;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 700px) {
+  .servicesSection {
+    padding: 4.5rem 1.5rem;
+  }
+
+  .servicesHeader {
+    margin-bottom: 2.75rem;
   }
 
   .servicesHeader h2 {
-    margin-bottom: 1.25rem;
-
-    font-size: clamp(2.5rem, 11vw, 3.5rem);
+    font-size: clamp(2.4rem, 9.5vw, 3.5rem);
   }
 
   .servicesHeader p {
     font-size: 1rem;
+    line-height: 1.75;
   }
 
   .servicesGrid {
@@ -302,18 +442,51 @@
   .serviceItem {
     padding: 2rem 1.5rem;
   }
+
+  .serviceTop {
+    margin-bottom: 1.5rem;
+  }
+
+  .servicesFooter {
+    justify-content: flex-start;
+  }
 }
 
-/* ----------------------------------
-   Very small mobile
------------------------------------ */
+/* ==========================================
+   SMALL MOBILE
+========================================== */
 
 @media (max-width: 430px) {
   .servicesSection {
-    padding-inline: 1.25rem;
+    padding: 4rem 1.25rem;
+  }
+
+  .servicesHeader h2 {
+    font-size: clamp(2.2rem, 10vw, 3rem);
   }
 
   .serviceItem {
     padding: 1.75rem 1.25rem;
+  }
+
+  .serviceCircuit {
+    width: 56px;
+  }
+
+  .servicesFooter p {
+    font-size: 0.75rem;
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .serviceItem,
+  .serviceItem::after,
+  .circuitLine::after,
+  .circuitNode {
+    transition: none !important;
   }
 }

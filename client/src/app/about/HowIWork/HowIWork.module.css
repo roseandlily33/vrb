@@ -1,62 +1,120 @@
+/* ==========================================
+   HOW I WORK SECTION
+========================================== */
+
 .howIWorkSection {
+  position: relative;
+  isolation: isolate;
+
   width: 100%;
+  overflow: hidden;
 
-  padding: var(--section-xl) 3rem;
+  padding: clamp(5rem, 8vw, 8rem) clamp(1.25rem, 5vw, 5rem);
 
-  background: var(--blue-950);
+  background:
+    radial-gradient(
+      ellipse at 65% 55%,
+      rgba(0, 84, 201, 0.12),
+      transparent 55%
+    ),
+    var(--blue-950);
 }
 
+/* Subtle background grid */
+
+.howIWorkSection::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(rgba(105, 185, 242, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(105, 185, 242, 0.025) 1px, transparent 1px);
+
+  background-size: 46px 46px;
+  pointer-events: none;
+}
+
+/* ==========================================
+   INNER
+========================================== */
+
 .howIWorkInner {
+  position: relative;
+  z-index: 1;
+
   width: 100%;
   max-width: 1500px;
-
   margin: 0 auto;
 }
 
-/* ----------------------------------
-   Header
------------------------------------ */
+/* ==========================================
+   HEADER
+========================================== */
 
 .sectionHeader {
-  width: 100%;
-
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-
   gap: 2rem;
 
+  width: 100%;
   margin-bottom: clamp(3rem, 6vw, 5rem);
 }
+
+/* Marker */
+
+.sectionMarker {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  margin-bottom: 1.25rem;
+}
+
+.markerLine {
+  width: 42px;
+  height: 3px;
+  background: var(--yellow-500);
+}
+
+.markerPixel {
+  width: 8px;
+  height: 8px;
+  background: var(--blue-500);
+}
+
+/* Eyebrow */
 
 .eyebrow {
   margin: 0 0 0.8rem;
 
   color: var(--yellow-500);
-
   font-size: 0.78rem;
   font-weight: 800;
-
-  text-transform: uppercase;
   letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
-.sectionHeader h3 {
+/* Heading */
+
+.sectionHeader h2 {
   margin: 0;
 
   color: var(--white);
+  font-family: var(--font-heading);
 
   font-size: clamp(2.8rem, 5vw, 5rem);
   font-weight: 800;
-
-  line-height: 0.95;
+  line-height: 0.98;
   letter-spacing: -0.055em;
 }
+
+/* Header accent */
 
 .headerDetail {
   display: flex;
   align-items: center;
-
   gap: 0.65rem;
 
   padding-bottom: 0.5rem;
@@ -76,186 +134,363 @@
   background: var(--yellow-500);
 }
 
-/* ----------------------------------
-   Grid
------------------------------------ */
+/* ==========================================
+   TIMELINE
+========================================== */
+
+.approachTimeline {
+  position: relative;
+
+  width: 100%;
+  min-height: 420px;
+}
+
+/* Curved lines */
+
+.timelinePath {
+  position: absolute;
+  z-index: 0;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 220px;
+
+  overflow: visible;
+  pointer-events: none;
+}
+
+.pathMain {
+  stroke: var(--blue-500);
+  stroke-width: 2;
+  opacity: 0.7;
+}
+
+.pathSecondary {
+  stroke: var(--blue-700);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 10;
+  opacity: 0.45;
+}
+
+/* ==========================================
+   THREE-STAGE LAYOUT
+========================================== */
 
 .approachGrid {
-  width: 100%;
+  position: relative;
+  z-index: 1;
 
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(2rem, 4vw, 5rem);
 
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  width: 100%;
 }
 
-/* ----------------------------------
-   Item
------------------------------------ */
+/* ==========================================
+   INDIVIDUAL STAGE
+========================================== */
 
 .approachItem {
   position: relative;
 
-  min-width: 0;
-  min-height: 310px;
-
-  padding: clamp(1.75rem, 3vw, 2.75rem);
-
   display: flex;
   flex-direction: column;
 
-  transition: background 180ms ease;
+  min-width: 0;
 }
 
-.approachItem + .approachItem {
-  border-left: 1px solid rgba(255, 255, 255, 0.16);
+/* Stagger the nodes */
+
+.approachItem:nth-child(1) {
+  padding-top: 2.5rem;
 }
 
-.approachItem:hover {
-  background: rgba(255, 255, 255, 0.035);
+.approachItem:nth-child(2) {
+  padding-top: 7rem;
 }
 
-/* yellow accent at bottom */
-
-.approachItem::after {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  bottom: -1px;
-
-  width: 0;
-  height: 3px;
-
-  background: var(--yellow-500);
-
-  transition: width 220ms ease;
+.approachItem:nth-child(3) {
+  padding-top: 1rem;
 }
 
-.approachItem:hover::after {
-  width: 55px;
-}
+/* ==========================================
+   NODE AREA
+========================================== */
 
-/* ----------------------------------
-   Top detail
------------------------------------ */
+.nodeArea {
+  position: relative;
 
-.itemTop {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 
-  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+  height: 110px;
+  margin-bottom: 1.5rem;
 }
 
-.approachNumber {
-  color: var(--blue-400);
+/* Large circular milestone */
 
-  font-size: 0.72rem;
+.approachNode {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 96px;
+  height: 96px;
+
+  border: 2px solid var(--blue-500);
+  border-radius: 50%;
+
+  background: var(--blue-950);
+
+  box-shadow: 0 0 0 10px rgba(27, 138, 228, 0.08);
+
+  transition:
+    border-color 250ms ease,
+    transform 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.nodeInner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 70px;
+  height: 70px;
+
+  border-radius: 50%;
+  background: rgba(27, 138, 228, 0.18);
+
+  color: var(--white);
+  font-size: 1.4rem;
   font-weight: 800;
+  letter-spacing: -0.04em;
 
-  letter-spacing: 0.14em;
+  transition: background 250ms ease;
 }
+
+/* Yellow pixel beside node */
 
 .itemPixel {
-  width: 7px;
-  height: 7px;
+  position: absolute;
+
+  top: 10px;
+  left: 115px;
+
+  width: 9px;
+  height: 9px;
 
   background: var(--yellow-500);
 }
 
-/* ----------------------------------
-   Content
------------------------------------ */
+/* ==========================================
+   STAGE CONTENT
+========================================== */
 
-.approachItem h4 {
-  max-width: 300px;
+.approachContent {
+  max-width: 390px;
+}
 
+.approachContent h3 {
   margin: 0 0 1rem;
 
   color: var(--white);
-
-  font-size: clamp(1.35rem, 2vw, 1.8rem);
+  font-size: clamp(1.4rem, 2vw, 1.85rem);
   font-weight: 800;
-
-  line-height: 1.1;
+  line-height: 1.15;
   letter-spacing: -0.035em;
 }
 
-.approachItem p {
-  max-width: 42ch;
-
+.approachContent p {
   margin: 0;
 
   color: var(--blue-200);
-
   font-size: 0.96rem;
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
-/* ----------------------------------
-   Tablet
------------------------------------ */
+/* ==========================================
+   HOVER INTERACTIONS
+========================================== */
+
+.approachItem:hover .approachNode {
+  transform: translateY(-6px);
+
+  border-color: var(--yellow-500);
+
+  box-shadow:
+    0 0 0 12px rgba(27, 138, 228, 0.12),
+    0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+.approachItem:hover .nodeInner {
+  background: var(--blue-800);
+}
+
+/* ==========================================
+   TABLET
+========================================== */
 
 @media (max-width: 950px) {
   .howIWorkSection {
-    padding: var(--section-lg) 2rem;
+    padding: 5rem 2rem;
+  }
+
+  .approachTimeline {
+    min-height: 0;
   }
 
   .approachGrid {
     grid-template-columns: 1fr;
+    gap: 2.75rem;
+  }
+
+  .approachItem:nth-child(n) {
+    padding-top: 0;
   }
 
   .approachItem {
-    min-height: 0;
-
-    padding: 2rem 0;
+    display: grid;
+    grid-template-columns: 110px minmax(0, 1fr);
+    align-items: start;
+    gap: 1.5rem;
   }
 
-  .approachItem + .approachItem {
-    border-left: 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.16);
+  .nodeArea {
+    height: auto;
+    margin-bottom: 0;
   }
 
-  .itemTop {
-    margin-bottom: 1.75rem;
+  .approachNode {
+    width: 80px;
+    height: 80px;
   }
 
-  .approachItem p {
+  .nodeInner {
+    width: 58px;
+    height: 58px;
+    font-size: 1.15rem;
+  }
+
+  .itemPixel {
+    top: 0;
+    left: 90px;
+  }
+
+  /* Vertical connector */
+
+  .timelinePath {
+    display: none;
+  }
+
+  .approachTimeline::before {
+    content: "";
+    position: absolute;
+
+    top: 40px;
+    bottom: 40px;
+    left: 40px;
+
+    width: 2px;
+
+    background: linear-gradient(
+      to bottom,
+      var(--blue-500),
+      var(--blue-800),
+      var(--blue-500)
+    );
+  }
+
+  .approachContent {
     max-width: 700px;
+    padding-top: 0.75rem;
   }
 }
 
-/* ----------------------------------
-   Mobile
------------------------------------ */
+/* ==========================================
+   MOBILE
+========================================== */
 
 @media (max-width: 650px) {
   .howIWorkSection {
-    padding: var(--section-lg) 1.25rem;
+    padding: 4rem 1.25rem;
   }
 
   .sectionHeader {
     align-items: flex-start;
+    margin-bottom: 3rem;
+  }
 
-    margin-bottom: 2.5rem;
+  .sectionHeader h2 {
+    font-size: clamp(2.8rem, 12vw, 4rem);
   }
 
   .headerDetail {
     display: none;
   }
 
-  .sectionHeader h3 {
-    font-size: clamp(2.8rem, 13vw, 4rem);
+  .approachGrid {
+    gap: 2.5rem;
   }
 
   .approachItem {
-    padding: 1.75rem 0;
+    grid-template-columns: 72px minmax(0, 1fr);
+    gap: 1rem;
   }
 
-  .itemTop {
-    margin-bottom: 1.4rem;
+  .approachNode {
+    width: 62px;
+    height: 62px;
+  }
+
+  .nodeInner {
+    width: 46px;
+    height: 46px;
+    font-size: 0.95rem;
+  }
+
+  .itemPixel {
+    width: 7px;
+    height: 7px;
+
+    left: 65px;
+  }
+
+  .approachTimeline::before {
+    left: 31px;
+    top: 30px;
+    bottom: 30px;
+  }
+
+  .approachContent {
+    padding-top: 0.2rem;
+  }
+
+  .approachContent h3 {
+    font-size: 1.3rem;
+  }
+
+  .approachContent p {
+    font-size: 0.94rem;
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .approachNode,
+  .nodeInner {
+    transition: none !important;
+  }
+
+  .approachItem:hover .approachNode {
+    transform: none;
   }
 }

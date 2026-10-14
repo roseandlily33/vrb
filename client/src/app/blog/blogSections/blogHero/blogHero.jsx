@@ -20,17 +20,26 @@ const BlogHero = ({ title, eyebrow, description, date, readTime }) => {
       </div>
     );
   };
+
   return (
     <section className={styles.hero}>
+      {/* DECORATIVE ELEMENTS */}
+      <div className={styles.heroArtwork} aria-hidden="true">
+        <div className={styles.heroOrbit}>
+          <span className={styles.heroOrbitInner} />
+          <span className={styles.heroOrbitCore} />
+          <span className={styles.heroOrbitDot} />
+        </div>
+      </div>
+
       <HeroPixels />
 
       <div className={styles.heroInner}>
+        {/* ARTICLE METADATA */}
         <div className={styles.metaRow}>
           <span className={styles.category}>{eyebrow}</span>
 
-          <span className={styles.metaDivider} aria-hidden="true">
-            •
-          </span>
+          <span className={styles.metaDivider} aria-hidden="true" />
 
           <span className={styles.author}>
             Written by{" "}
@@ -42,21 +51,41 @@ const BlogHero = ({ title, eyebrow, description, date, readTime }) => {
             </Link>
           </span>
 
-          <span className={styles.metaDivider} aria-hidden="true">
-            •
-          </span>
+          <span className={styles.metaDivider} aria-hidden="true" />
 
           <span>{readTime}</span>
-          <span className={styles.metaDivider} aria-hidden="true">
-            •
-          </span>
+
+          <span className={styles.metaDivider} aria-hidden="true" />
 
           <span>{date}</span>
         </div>
 
-        <h1>{title}</h1>
+        {/* MAIN HEADING */}
+        <div className={styles.heroContent}>
+          <div className={styles.heroHeading}>
+            <h1>{title}</h1>
+          </div>
 
-        <p className={styles.intro}>{description}</p>
+          <div className={styles.heroDescription}>
+            <span className={styles.heroAccentLine} aria-hidden="true" />
+
+            <p className={styles.intro}>{description}</p>
+          </div>
+        </div>
+
+        {/* BOTTOM ARTICLE MARKER */}
+        <div className={styles.heroBottom}>
+          <div className={styles.heroBottomLabel}>
+            <span className={styles.heroBottomSquare} aria-hidden="true" />
+            <span>From the VRB Blog</span>
+          </div>
+
+          <span className={styles.heroBottomLine} aria-hidden="true" />
+
+          <span className={styles.heroBottomArrow} aria-hidden="true">
+            ↓
+          </span>
+        </div>
       </div>
     </section>
   );

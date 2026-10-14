@@ -1,291 +1,424 @@
+
+/* ==========================================
+   PROCESS CTA SECTION
+========================================== */
+
 .ctaSection {
   position: relative;
+  isolation: isolate;
+
   width: 100%;
   overflow: hidden;
 
-  padding: var(--section-xl);
+  padding:
+    clamp(5rem, 8vw, 8rem)
+    clamp(1.25rem, 5vw, 5rem);
 
-  background: var(--white);
+  background:
+    radial-gradient(
+      circle at 82% 45%,
+      rgba(27, 138, 228, 0.09),
+      transparent 35%
+    ),
+    var(--white);
 }
+
+/* Subtle background grid */
+
+.ctaSection::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(0, 84, 201, 0.018) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 84, 201, 0.018) 1px,
+      transparent 1px
+    );
+
+  background-size: 46px 46px;
+  pointer-events: none;
+}
+
+/* ==========================================
+   MAIN LAYOUT
+========================================== */
 
 .ctaWrapper {
   position: relative;
+  z-index: 1;
+
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+
+  gap: clamp(2rem, 5vw, 5rem);
 
   width: 100%;
   max-width: 1500px;
-
   margin: 0 auto;
-
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(360px, 0.72fr);
-
-  border-top: 1px solid var(--grey-200);
-  border-bottom: 1px solid var(--grey-200);
 }
 
-/* ----------------------------------
-   Left
------------------------------------ */
+/* ==========================================
+   LEFT CONTENT
+========================================== */
 
 .ctaLeft {
-  padding: clamp(3rem, 6vw, 6rem) clamp(2rem, 6vw, 6rem) clamp(3rem, 6vw, 6rem)
-    0;
-}
-
-.ctaLeft :global(.eyebrowHeader) {
-  color: var(--blue-700);
-}
-
-.ctaLeft h2 {
-  max-width: 700px;
-
-  margin: 1rem 0 1.4rem;
-
-  color: var(--blue-950);
-
-  font-size: clamp(2.8rem, 5.3vw, 5rem);
-  font-weight: 800;
-
-  line-height: 0.98;
-  letter-spacing: -0.055em;
-}
-
-.ctaLeft > p:last-child {
-  max-width: 620px;
-
-  margin: 0;
-
-  color: var(--grey-700);
-
-  font-size: clamp(1rem, 1.2vw, 1.1rem);
-  line-height: 1.8;
-}
-
-/* ----------------------------------
-   Right panel
------------------------------------ */
-
-.ctaRight {
-  position: relative;
-
-  min-height: 100%;
-
-  padding: clamp(3rem, 5vw, 5rem);
-
-  display: flex;
-  align-items: center;
-
-  background: var(--blue-50);
-
-  border-left: 1px solid var(--blue-100);
-
-  overflow: hidden;
-}
-
-.ctaActions {
   position: relative;
   z-index: 2;
 
-  width: 100%;
+  max-width: 760px;
+}
 
+.sectionMarker {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  gap: 0.6rem;
+
+  margin-bottom: 1.25rem;
+}
+
+.markerLine {
+  width: 42px;
+  height: 3px;
+
+  background: var(--blue-800);
+}
+
+.markerPixel {
+  width: 8px;
+  height: 8px;
+
+  background: var(--yellow-500);
+}
+
+.ctaLeft :global(.eyebrowHeader) {
+  margin: 0;
+
+  color: var(--blue-700);
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Heading */
+
+.ctaLeft h2 {
+  margin: 1rem 0 1.5rem;
+
+  color: var(--blue-950);
+  font-family: var(--font-heading);
+
+  font-size: clamp(3.2rem, 5.5vw, 5.5rem);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.06em;
+}
+
+.ctaLeft h2 span {
+  color: var(--blue-800);
+}
+
+/* Description */
+
+.ctaDescription {
+  max-width: 590px;
+  margin: 0;
+
+  color: var(--grey-700);
+  font-size: clamp(1rem, 1.3vw, 1.1rem);
+  line-height: 1.8;
+}
+
+/* ==========================================
+   CTA BUTTONS
+========================================== */
+
+.ctaActions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 
   gap: 1rem;
+  margin-top: 2.5rem;
 }
 
 .ctaActions > button {
-  min-width: 210px;
+  min-height: 48px;
 }
 
-/* ----------------------------------
-   Booking note
------------------------------------ */
+/* ==========================================
+   BOOKING NOTE
+========================================== */
 
 .ctaNote {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-
   gap: 0.7rem;
 
-  margin-top: 0.75rem;
+  margin-top: 1.75rem;
 
   color: var(--blue-900);
-
   font-size: 0.82rem;
   font-weight: 700;
+  line-height: 1.5;
 }
 
 .notePixel {
   width: 8px;
   height: 8px;
-
   flex-shrink: 0;
 
   background: var(--yellow-500);
 }
 
-/* ----------------------------------
-   Pixel detail
------------------------------------ */
+/* ==========================================
+   ORBITAL ILLUSTRATION
+========================================== */
 
-.pixelDetail {
+.ctaVisual {
+  position: relative;
+
+  width: 100%;
+  max-width: 580px;
+  aspect-ratio: 600 / 520;
+
+  justify-self: end;
+}
+
+.orbitSvg {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+
+  animation: orbitFloat 9s ease-in-out infinite;
+}
+
+/* Main ellipse */
+
+.orbitMain {
+  stroke: var(--blue-800);
+  stroke-width: 2;
+  opacity: 0.6;
+}
+
+/* Secondary ellipse */
+
+.orbitSecondary {
+  stroke: var(--blue-500);
+  stroke-width: 1.5;
+  stroke-dasharray: 6 10;
+  opacity: 0.65;
+}
+
+/* Inner circle */
+
+.orbitInner {
+  stroke: var(--blue-200);
+  stroke-width: 1.5;
+}
+
+/* Curved connecting line */
+
+.orbitPath {
+  stroke: var(--blue-500);
+  stroke-width: 1.5;
+  opacity: 0.45;
+}
+
+/* ==========================================
+   CENTER NODE
+========================================== */
+
+.centerCircle {
+  fill: var(--blue-950);
+}
+
+.centerInner {
+  fill: var(--blue-800);
+}
+
+.centerDot {
+  fill: var(--yellow-500);
+}
+
+/* ==========================================
+   ORBIT NODES
+========================================== */
+
+.nodeOne {
+  fill: var(--blue-800);
+}
+
+.nodeTwo {
+  fill: var(--yellow-500);
+}
+
+.nodeThree {
+  fill: var(--blue-500);
+}
+
+/* ==========================================
+   SVG PIXELS
+========================================== */
+
+.svgPixelOne {
+  fill: var(--blue-800);
+}
+
+.svgPixelTwo {
+  fill: var(--yellow-500);
+}
+
+.svgPixelThree {
+  fill: var(--blue-500);
+}
+
+/* ==========================================
+   ADDITIONAL PIXEL DETAILS
+========================================== */
+
+.visualPixels {
   position: absolute;
-
-  right: -30px;
-  bottom: -30px;
-
-  width: 220px;
-  height: 220px;
+  inset: 0;
 
   pointer-events: none;
 }
 
-.pixel,
-.pixelOutline {
+.visualPixels span {
   position: absolute;
   display: block;
 }
 
 .pixelOne {
-  width: 96px;
-  height: 96px;
+  top: 10%;
+  left: 15%;
 
-  right: 34px;
-  bottom: 34px;
+  width: 12px;
+  height: 12px;
 
-  background: var(--blue-800);
+  background: var(--yellow-500);
 }
 
 .pixelTwo {
-  width: 54px;
-  height: 54px;
+  right: 5%;
+  bottom: 15%;
 
-  right: 112px;
-  bottom: 112px;
+  width: 24px;
+  height: 24px;
 
   background: var(--blue-500);
 }
 
 .pixelThree {
-  width: 22px;
-  height: 22px;
+  top: 28%;
+  right: 8%;
 
-  right: 80px;
-  bottom: 138px;
+  width: 7px;
+  height: 7px;
 
-  background: var(--yellow-500);
+  background: var(--blue-800);
 }
 
-.pixelFour {
-  width: 82px;
-  height: 82px;
+/* ==========================================
+   ANIMATION
+========================================== */
 
-  right: 0;
-  bottom: 0;
+@keyframes orbitFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
 
-  border: 1px solid var(--blue-500);
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
-/* ----------------------------------
-   Tablet
------------------------------------ */
+/* ==========================================
+   TABLET
+========================================== */
 
-@media (max-width: 950px) {
+@media (max-width: 1000px) {
   .ctaSection {
-    padding: var(--section-lg);
+    padding: 5rem 2rem;
   }
 
   .ctaWrapper {
-    grid-template-columns: 1fr;
-  }
-
-  .ctaLeft {
-    padding: 3rem 0;
-  }
-
-  .ctaRight {
-    border-left: 0;
-    border-top: 1px solid var(--blue-100);
-
-    padding: 3rem;
-  }
-}
-
-/* ----------------------------------
-   Mobile
------------------------------------ */
-
-@media (max-width: 700px) {
-  .ctaSection {
-    padding: var(--section-lg);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.75fr);
+    gap: 2rem;
   }
 
   .ctaLeft h2 {
-    font-size: clamp(2.5rem, 11vw, 3.7rem);
+    font-size: clamp(3rem, 6vw, 4.5rem);
+  }
+}
+
+/* ==========================================
+   SMALL TABLET
+========================================== */
+
+@media (max-width: 800px) {
+  .ctaWrapper {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
 
-  .ctaLeft > p:last-child {
+  .ctaVisual {
+    width: min(100%, 400px);
+    justify-self: center;
+  }
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 650px) {
+  .ctaSection {
+    padding: 4rem 1.25rem;
+  }
+
+  .ctaLeft h2 {
+    font-size: clamp(2.7rem, 11vw, 4rem);
+  }
+
+  .ctaDescription {
     font-size: 1rem;
   }
 
-  .ctaRight {
-    padding: 2rem;
-  }
-
   .ctaActions {
+    flex-direction: column;
     align-items: stretch;
+    gap: 0.85rem;
+
+    margin-top: 2rem;
   }
 
   .ctaActions > * {
     width: 100%;
   }
 
-  .pixelDetail {
-    width: 150px;
-    height: 150px;
-
-    opacity: 0.8;
-  }
-
-  .pixelOne {
-    width: 66px;
-    height: 66px;
-  }
-
-  .pixelTwo {
-    width: 38px;
-    height: 38px;
-
-    right: 84px;
-    bottom: 84px;
-  }
-
-  .pixelThree {
-    width: 16px;
-    height: 16px;
-
-    right: 58px;
-    bottom: 106px;
-  }
-
-  .pixelFour {
-    width: 58px;
-    height: 58px;
+  .ctaVisual {
+    width: min(100%, 320px);
   }
 }
 
-@media (max-width: 430px) {
-  .ctaSection {
-    padding-inline: 1.25rem;
-  }
+/* ==========================================
+   REDUCED MOTION
+========================================== */
 
-  .ctaLeft h2 {
-    font-size: clamp(2.35rem, 12vw, 3.2rem);
-  }
-
-  .ctaRight {
-    padding: 1.5rem;
+@media (prefers-reduced-motion: reduce) {
+  .orbitSvg {
+    animation: none !important;
   }
 }

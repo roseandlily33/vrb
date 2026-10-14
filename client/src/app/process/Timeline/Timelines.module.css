@@ -1,104 +1,159 @@
+/* ==========================================
+   TIMELINE
+========================================== */
+
 .timelineSection {
+  position: relative;
   width: 100%;
 }
 
 .timelineRow {
-  width: 100%;
-
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
 
-  gap: var(--space-l);
+  width: 100%;
 }
 
-/* ----------------------------------
-   Card
------------------------------------ */
+/* ==========================================
+   TIMELINE STEP
+========================================== */
 
 .timelineStep {
   position: relative;
 
-  min-height: 240px;
-
-  padding: clamp(1.5rem, 2.5vw, 2rem);
-
   display: flex;
   flex-direction: column;
 
-  background: rgba(255, 255, 255, 0.92);
+  min-width: 0;
+  min-height: 300px;
 
-  box-shadow:
-    0 14px 40px rgba(0, 31, 77, 0.05);
+  padding: 0 clamp(1.5rem, 2.5vw, 2.5rem) 2rem;
 
-  overflow: hidden;
+  background: transparent;
 
-  transition:
-    transform 180ms ease,
-    box-shadow 180ms ease,
-    background 180ms ease;
+  border-left: 1px solid rgba(105, 185, 242, 0.13);
+
+  transition: background 200ms ease;
+}
+
+.timelineStep:first-child {
+  border-left: none;
+  padding-left: 0;
+}
+
+.timelineStep:last-child {
+  padding-right: 0;
 }
 
 .timelineStep:hover {
-  transform: translateY(-4px);
-
-  background: var(--white);
-
-  box-shadow:
-    0 20px 48px rgba(0, 31, 77, 0.09);
+  background: rgba(255, 255, 255, 0.025);
 }
 
-/* ----------------------------------
-   Top
------------------------------------ */
+/* ==========================================
+   CIRCUIT TRACK
+========================================== */
 
-.stepTop {
-  width: 100%;
+.stepTrack {
+  position: relative;
 
   display: flex;
   align-items: center;
-  justify-content: space-between;
+
+  width: 100%;
+  height: 18px;
 
   margin-bottom: 2rem;
+}
+
+.trackNode {
+  position: relative;
+  z-index: 2;
+
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+
+  background: var(--yellow-500);
+
+  border: 3px solid var(--blue-950);
+
+  box-shadow: 0 0 0 1px var(--blue-500);
+
+  transition:
+    background 200ms ease,
+    box-shadow 200ms ease;
+}
+
+.trackLine {
+  position: absolute;
+  z-index: 1;
+
+  left: 12px;
+  right: calc(-1 * clamp(1.5rem, 2.5vw, 2.5rem));
+  top: 50%;
+
+  height: 1px;
+
+  background: rgba(105, 185, 242, 0.45);
+  transform: translateY(-50%);
+}
+
+.timelineStep:last-child .trackLine {
+  display: none;
+}
+
+.timelineStep:hover .trackNode {
+  background: var(--white);
+  box-shadow:
+    0 0 0 1px var(--yellow-500),
+    0 0 18px rgba(255, 210, 31, 0.28);
+}
+
+/* ==========================================
+   NUMBER
+========================================== */
+
+.stepTop {
+  margin-bottom: 1.75rem;
 }
 
 .stepNumber {
   color: var(--blue-500);
 
-  font-size: 0.68rem;
+  font-size: 0.72rem;
   font-weight: 800;
-
   letter-spacing: 0.14em;
+
+  transition: color 200ms ease;
 }
 
-.stepPixel {
-  width: 7px;
-  height: 7px;
-
-  background: var(--yellow-500);
+.timelineStep:hover .stepNumber {
+  color: var(--yellow-500);
 }
 
-/* ----------------------------------
-   Icon
------------------------------------ */
+/* ==========================================
+   ICON
+========================================== */
 
 .iconWrapper {
-  width: 54px;
-  height: 54px;
-
   display: flex;
   align-items: center;
   justify-content: center;
 
-  margin-bottom: auto;
+  width: 56px;
+  height: 56px;
 
-  background: var(--blue-50);
+  margin-bottom: 2.5rem;
+
+  background: rgba(105, 185, 242, 0.09);
+  border: 1px solid rgba(105, 185, 242, 0.2);
 
   color: var(--blue-500);
 
   transition:
-    background 180ms ease,
-    color 180ms ease,
-    transform 180ms ease;
+    background 200ms ease,
+    color 200ms ease,
+    transform 200ms ease;
 }
 
 .icon {
@@ -106,7 +161,7 @@
   align-items: center;
   justify-content: center;
 
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 }
 
 .icon svg {
@@ -115,90 +170,186 @@
 }
 
 .timelineStep:hover .iconWrapper {
-  background: var(--blue-100);
-
-  color: var(--blue-700);
-
-  transform: translateY(-2px);
+  background: var(--blue-800);
+  color: var(--white);
+  transform: translateY(-3px);
 }
 
-/* ----------------------------------
-   Label
------------------------------------ */
+/* ==========================================
+   LABEL & TIME
+========================================== */
 
 .labelTimeWrapper {
-  margin-top: 3rem;
+  margin-top: auto;
 }
 
 .label {
-  margin-bottom: 0.45rem;
+  margin: 0 0 0.75rem;
 
-  color: var(--blue-950);
+  color: var(--white);
+  font-family: var(--font-heading);
 
-  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
   font-weight: 800;
-
-  line-height: 1.1;
-  letter-spacing: -0.03em;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
 }
 
 .time {
-  color: var(--blue-500);
+  margin: 0;
 
-  font-size: 0.82rem;
-  font-weight: 700;
+  color: var(--blue-200);
 
-  line-height: 1.4;
+  font-size: 0.85rem;
+  font-weight: 600;
+  line-height: 1.5;
 }
 
-/* ----------------------------------
-   Small accent
------------------------------------ */
-
-.timelineStep::after {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  bottom: 0;
-
-  width: 0;
-  height: 3px;
-
-  background: var(--yellow-500);
-
-  transition: width 200ms ease;
-}
-
-.timelineStep:hover::after {
-  width: 42px;
-}
-
-/* ----------------------------------
-   Tablet
------------------------------------ */
+/* ==========================================
+   TABLET
+========================================== */
 
 @media (max-width: 950px) {
   .timelineRow {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 3rem;
+  }
+
+  .timelineStep {
+    min-height: 280px;
+  }
+
+  .timelineStep:nth-child(odd) {
+    border-left: none;
+    padding-left: 0;
+  }
+
+  .timelineStep:nth-child(even) {
+    padding-right: 0;
+  }
+
+  .timelineStep:nth-child(even) .trackLine {
+    display: none;
   }
 }
 
-/* ----------------------------------
-   Mobile
------------------------------------ */
+/* ==========================================
+   MOBILE VERTICAL TIMELINE
+========================================== */
 
 @media (max-width: 600px) {
   .timelineRow {
     grid-template-columns: 1fr;
+    row-gap: 0;
   }
 
-  .timelineStep {
-    min-height: 190px;
+  .timelineStep,
+  .timelineStep:first-child,
+  .timelineStep:last-child {
+    display: grid;
+    grid-template-columns: 24px minmax(0, 1fr);
+    column-gap: 1.25rem;
+
+    min-height: 0;
+    padding: 0 0 2.75rem;
+
+    border-left: none;
   }
+
+  .timelineStep:last-child {
+    padding-bottom: 0;
+  }
+
+  /* Vertical circuit track */
+
+  .stepTrack {
+    grid-column: 1;
+    grid-row: 1 / span 3;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 24px;
+    height: 100%;
+    margin: 0;
+  }
+
+  .trackNode {
+    margin-top: 0.25rem;
+  }
+
+  .trackLine,
+  .timelineStep:nth-child(even) .trackLine {
+    display: block;
+
+    left: 50%;
+    right: auto;
+    top: 18px;
+    bottom: 0;
+
+    width: 1px;
+    height: auto;
+
+    transform: translateX(-50%);
+  }
+
+  .timelineStep:last-child .trackLine {
+    display: none;
+  }
+
+  /* Number */
+
+  .stepTop {
+    grid-column: 2;
+    grid-row: 1;
+
+    margin-bottom: 1rem;
+  }
+
+  /* Icon */
+
+  .iconWrapper {
+    grid-column: 2;
+    grid-row: 2;
+
+    width: 48px;
+    height: 48px;
+
+    margin-bottom: 1.25rem;
+  }
+
+  .icon {
+    font-size: 1.2rem;
+  }
+
+  /* Content */
 
   .labelTimeWrapper {
-    margin-top: 2rem;
+    grid-column: 2;
+    grid-row: 3;
+
+    margin: 0;
+  }
+
+  .label {
+    font-size: 1.45rem;
+  }
+
+  .time {
+    font-size: 0.83rem;
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .timelineStep,
+  .trackNode,
+  .stepNumber,
+  .iconWrapper {
+    transition: none !important;
   }
 }

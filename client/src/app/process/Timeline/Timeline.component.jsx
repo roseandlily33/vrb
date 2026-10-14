@@ -27,25 +27,36 @@ const steps = [
 
 export default function Timeline() {
   return (
-    <section className={styles.timelineSection}>
+    <section
+      className={styles.timelineSection}
+      aria-label="Project development stages"
+    >
       <div className={styles.timelineRow}>
         {steps.map((step, index) => (
           <div className={styles.timelineStep} key={step.label}>
+            {/* CONNECTED TIMELINE TRACK */}
+            <div className={styles.stepTrack} aria-hidden="true">
+              <span className={styles.trackNode} />
+              <span className={styles.trackLine} />
+            </div>
+
+            {/* STEP NUMBER */}
             <div className={styles.stepTop}>
               <span className={styles.stepNumber}>
                 {String(index + 1).padStart(2, "0")}
               </span>
-
-              <span className={styles.stepPixel} aria-hidden="true" />
             </div>
 
+            {/* ICON */}
             <div className={styles.iconWrapper} aria-hidden="true">
               <span className={styles.icon}>{step.icon}</span>
             </div>
 
+            {/* CONTENT */}
             <div className={styles.labelTimeWrapper}>
-              <div className={styles.label}>{step.label}</div>
-              <div className={styles.time}>{step.weeks}</div>
+              <h3 className={styles.label}>{step.label}</h3>
+
+              <p className={styles.time}>{step.weeks}</p>
             </div>
           </div>
         ))}

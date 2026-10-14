@@ -40,10 +40,14 @@ const CSHero = ({
 }) => {
   return (
     <section className={styles.heroCentered}>
+      {/* =====================================================
+      HERO BACKGROUND
+  ===================================================== */}
+
       {img && (
         <Image
           src={img}
-          alt={companyName + "Logo" || "Case Study Hero Image"}
+          alt=""
           aria-hidden="true"
           className={styles.heroWatermark}
           width={800}
@@ -52,97 +56,183 @@ const CSHero = ({
         />
       )}
 
+      <div className={styles.heroGraphics} aria-hidden="true">
+        <span className={styles.heroOrbit} />
+        <span className={styles.heroOrbitInner} />
+
+        <span className={styles.heroPixelOne} />
+        <span className={styles.heroPixelTwo} />
+        <span className={styles.heroPixelThree} />
+        <span className={styles.heroPixelFour} />
+        <span className={styles.heroPixelFive} />
+      </div>
+
+      {/* =====================================================
+      MAIN HERO CONTENT
+  ===================================================== */}
+
       <div className={styles.heroIntro}>
         <div className={styles.heroContent}>
-          <Breadcrumbs
-            current={companyName || "Case Study"}
-            firstLink="/work"
-            first="Work"
-          />
-          {topMenu && (
-            <CSTopMenu
-              activeKey="web"
-              items={[
-                {
-                  key: "web",
-                  label: "Web Design",
-                  description: "Homepage, UI concepts and layout decisions.",
-                },
-                {
-                  key: "social",
-                  label: "Social Media",
-                  description: "Social post concepts and marketing assets.",
-                  href: "/case-study/assuage/social-media",
-                },
-              ]}
+          {/* NAVIGATION */}
+
+          <div className={styles.heroNavigation}>
+            <Breadcrumbs
+              current={companyName || "Case Study"}
+              firstLink="/work"
+              first="Work"
             />
-          )}
 
-          <span className={styles.eyebrow}>{companyName || "Case Study"}</span>
+            {topMenu && (
+              <CSTopMenu
+                activeKey="web"
+                items={[
+                  {
+                    key: "web",
+                    label: "Web Design",
+                    description: "Homepage, UI concepts and layout decisions.",
+                  },
+                  {
+                    key: "social",
+                    label: "Social Media",
+                    description: "Social post concepts and marketing assets.",
+                    href: "/case-study/assuage/social-media",
+                  },
+                ]}
+              />
+            )}
+          </div>
 
-          <h1 className={styles.heroTitleCentered}>
-            {highlightText(title, highlightWords, styles.highlighted)}
-          </h1>
+          {/* PROJECT INTRODUCTION */}
 
-          {description && (
-            <p className={styles.heroDescription}>{description}</p>
-          )}
+          <div className={styles.heroHeadingBlock}>
+            <div className={styles.heroEyebrowRow}>
+              <span className={styles.heroEyebrowMarker} aria-hidden="true">
+                <span />
+                <span />
+              </span>
 
-          {(link || finalResults || seeProcess) && (
-            <div className={styles.heroActions}>
-              {link && (
-                <a
-                  href={link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.primaryAction}
-                >
-                  Visit Live Site <FiArrowRight />
-                </a>
-              )}
-
-              {finalResults && (
-                <a href={finalResults} className={styles.secondaryAction}>
-                  See Final Results <FiArrowRight />
-                </a>
-              )}
-
-              {seeProcess && (
-                <a href={seeProcess} className={styles.secondaryAction}>
-                  See Process <FiArrowRight />
-                </a>
-              )}
+              <span className={styles.eyebrow}>
+                {companyName || "Case Study"}
+              </span>
             </div>
-          )}
+
+            <h1 className={styles.heroTitleCentered}>
+              {highlightText(title, highlightWords, styles.highlighted)}
+            </h1>
+
+            {description && (
+              <div className={styles.heroDescriptionWrap}>
+                <span
+                  className={styles.heroDescriptionAccent}
+                  aria-hidden="true"
+                />
+
+                <p className={styles.heroDescription}>{description}</p>
+              </div>
+            )}
+
+            {/* ACTIONS */}
+
+            {(link || finalResults || seeProcess) && (
+              <div className={styles.heroActions}>
+                {link && (
+                  <a
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.primaryAction}
+                  >
+                    <span>Visit Live Site</span>
+                    <FiArrowRight aria-hidden="true" />
+                  </a>
+                )}
+
+                {finalResults && (
+                  <a href={finalResults} className={styles.secondaryAction}>
+                    <span>See Final Results</span>
+                    <FiArrowRight aria-hidden="true" />
+                  </a>
+                )}
+
+                {seeProcess && (
+                  <a href={seeProcess} className={styles.secondaryAction}>
+                    <span>See Process</span>
+                    <FiArrowRight aria-hidden="true" />
+                  </a>
+                )}
+              </div>
+            )}
+          </div>
         </div>
       </div>
+
+      {/* =====================================================
+      FULL-WIDTH PROJECT INFORMATION
+  ===================================================== */}
 
       <div className={styles.metaBand}>
-        <div className={styles.metaItem}>
-          <div className={styles.metaLabel}>Date</div>
-          <div className={styles.metaValue}>{date}</div>
-        </div>
+        <div className={styles.metaBandInner}>
+          <div className={styles.metaItem}>
+            <span className={styles.metaIndex} aria-hidden="true">
+              01
+            </span>
 
-        <div className={styles.metaItem}>
-          <div className={styles.metaLabel}>Status</div>
-          <div className={styles.metaValue}>{status}</div>
-        </div>
+            <div className={styles.metaItemContent}>
+              <span className={styles.metaLabel}>Date</span>
+              <span className={styles.metaValue}>{date}</span>
+            </div>
+          </div>
 
-        <div className={styles.metaItem}>
-          <div className={styles.metaLabel}>Type</div>
-          <div className={styles.metaValue}>{type}</div>
-        </div>
+          <div className={styles.metaItem}>
+            <span className={styles.metaIndex} aria-hidden="true">
+              02
+            </span>
 
-        <div className={styles.metaItem}>
-          <div className={styles.metaLabel}>Role</div>
-          <div className={styles.metaValue}>{role}</div>
+            <div className={styles.metaItemContent}>
+              <span className={styles.metaLabel}>Status</span>
+              <span className={styles.metaValue}>{status}</span>
+            </div>
+          </div>
+
+          <div className={styles.metaItem}>
+            <span className={styles.metaIndex} aria-hidden="true">
+              03
+            </span>
+
+            <div className={styles.metaItemContent}>
+              <span className={styles.metaLabel}>Type</span>
+              <span className={styles.metaValue}>{type}</span>
+            </div>
+          </div>
+
+          <div className={styles.metaItem}>
+            <span className={styles.metaIndex} aria-hidden="true">
+              04
+            </span>
+
+            <div className={styles.metaItemContent}>
+              <span className={styles.metaLabel}>Role</span>
+              <span className={styles.metaValue}>{role}</span>
+            </div>
+          </div>
         </div>
       </div>
+
+      {/* =====================================================
+      OPTIONAL PROJECT NOTE
+  ===================================================== */}
 
       {note && (
         <div className={styles.heroNote}>
-          <span className={styles.noteLabel}>Note</span>
-          <p>{note}</p>
+          <div className={styles.heroNoteInner}>
+            <div className={styles.heroNoteHeading}>
+              <span className={styles.heroNoteMarker} aria-hidden="true" />
+
+              <span className={styles.noteLabel}>Note</span>
+            </div>
+
+            <p>{note}</p>
+          </div>
         </div>
       )}
     </section>

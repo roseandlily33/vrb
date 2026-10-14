@@ -1,24 +1,33 @@
+
+/* ==========================================
+   WHAT YOU CAN EXPECT
+========================================== */
+
 .whyMeSection {
-  width: 100%;
-  max-width: 1500px;
-
-  margin: 0 auto;
-
-  padding: var(--section-xl) 3rem;
+  position: relative;
 
   display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  grid-template-columns:
+    minmax(0, 0.85fr)
+    minmax(0, 1.15fr);
 
-  gap: clamp(4rem, 8vw, 8rem);
+  align-items: center;
+  gap: clamp(3rem, 8vw, 8rem);
 
-  align-items: start;
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+
+  padding:
+    clamp(5rem, 8vw, 8rem)
+    clamp(1.25rem, 5vw, 5rem);
 
   background: var(--white);
 }
 
-/* ----------------------------------
-   Intro
------------------------------------ */
+/* ==========================================
+   INTRO
+========================================== */
 
 .whyIntro {
   max-width: 620px;
@@ -27,7 +36,6 @@
 .sectionMarker {
   display: flex;
   align-items: center;
-
   gap: 0.6rem;
 
   margin-bottom: 1.25rem;
@@ -36,14 +44,12 @@
 .markerLine {
   width: 42px;
   height: 3px;
-
   background: var(--blue-800);
 }
 
 .markerPixel {
   width: 8px;
   height: 8px;
-
   background: var(--yellow-500);
 }
 
@@ -51,196 +57,305 @@
   margin: 0.6rem 0 1.5rem;
 
   color: var(--blue-950);
+  font-family: var(--font-heading);
 
   font-size: clamp(2.4rem, 4vw, 4rem);
   font-weight: 800;
-
   line-height: 1;
   letter-spacing: -0.05em;
 }
 
 .whyP {
   max-width: 580px;
-
   margin: 0;
 
-  color: var(--grey-600);
-
+  color: var(--grey-600, #525b6b);
   font-size: 1rem;
   line-height: 1.8;
 }
 
-/* ----------------------------------
-   Expectation list
------------------------------------ */
+/* ==========================================
+   RIGHT VISUAL AREA
+========================================== */
+
+.whyVisual {
+  position: relative;
+  width: 100%;
+}
+
+/* ==========================================
+   VERTICAL LIST
+========================================== */
 
 .whyMeList {
-  width: 100%;
+  position: relative;
 
+  display: flex;
+  flex-direction: column;
+  gap: clamp(2rem, 4vw, 3rem);
+
+  width: 100%;
   margin: 0;
   padding: 0;
 
   list-style: none;
-
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-
-  border-top: 1px solid var(--blue-200);
-  border-left: 1px solid var(--blue-200);
 }
 
-.whyMeList li {
-  position: relative;
+/* Connecting line behind icons */
 
-  min-height: 230px;
-
-  padding: clamp(1.5rem, 2.5vw, 2rem);
-
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-
-  gap: 2.5rem;
-
-  background: var(--blue-50);
-
-  border-right: 1px solid var(--blue-200);
-  border-bottom: 1px solid var(--blue-200);
-
-  overflow: hidden;
-
-  transition:
-    background 180ms ease,
-    transform 180ms ease;
-}
-
-.whyMeList li:hover {
-  background: var(--white);
-
-  transform: translateY(-3px);
-}
-
-.whyMeList li::after {
+.whyMeList::before {
   content: "";
 
   position: absolute;
+  z-index: 0;
 
-  left: 0;
-  bottom: 0;
+  top: 45px;
+  bottom: 45px;
+  left: 45px;
 
-  width: 0;
-  height: 4px;
+  width: 2px;
 
-  background: var(--yellow-500);
-
-  transition: width 220ms ease;
+  background:
+    linear-gradient(
+      to bottom,
+      var(--blue-200),
+      var(--blue-500),
+      var(--blue-200)
+    );
 }
 
-.whyMeList li:hover::after {
-  width: 100%;
+/* ==========================================
+   INDIVIDUAL ITEM
+========================================== */
+
+.whyMeItem {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+
+  min-height: 105px;
 }
 
-/* ----------------------------------
-   Item top
------------------------------------ */
+/* ==========================================
+   CIRCULAR ICON AREA
+========================================== */
 
-.itemTop {
-  width: 100%;
-
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-
-  gap: 1rem;
-}
-
-.whyNumber {
-  color: var(--blue-600);
-
-  font-size: 0.72rem;
-  font-weight: 800;
-
-  letter-spacing: 0.14em;
-}
-
-.whyMeIcon {
-  width: 44px;
-  height: 44px;
+.iconArea {
+  position: relative;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  background: var(--blue-950);
+  width: 92px;
+  height: 92px;
+}
 
-  color: var(--yellow-500);
+/* Thin orbit */
 
-  font-size: 1rem;
+.iconOrbit {
+  position: absolute;
+  inset: 0;
+
+  border: 1px solid var(--blue-200);
+  border-radius: 50%;
 
   transition:
-    background 180ms ease,
-    color 180ms ease,
-    transform 180ms ease;
+    border-color 250ms ease,
+    transform 350ms ease;
 }
 
-.whyMeList li:hover .whyMeIcon {
-  background: var(--blue-800);
+/* Small orbit marker */
 
-  color: var(--white);
+.iconOrbit::after {
+  content: "";
 
-  transform: translateY(-3px);
+  position: absolute;
+
+  top: 5px;
+  right: 12px;
+
+  width: 9px;
+  height: 9px;
+
+  background: var(--yellow-500);
 }
 
-/* ----------------------------------
-   Text
------------------------------------ */
+/* Main circular icon */
+
+.whyMeIcon {
+  position: relative;
+  z-index: 1;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 64px;
+  height: 64px;
+
+  border-radius: 50%;
+
+  background: var(--blue-950);
+  color: var(--yellow-500);
+
+  font-size: 1.3rem;
+
+  transition:
+    background 250ms ease,
+    color 250ms ease,
+    transform 250ms ease;
+}
+
+.whyMeIcon svg {
+  width: 1em;
+  height: 1em;
+}
+
+/* ==========================================
+   ITEM CONTENT
+========================================== */
+
+.itemContent {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.65rem;
+
+  min-width: 0;
+}
+
+.whyNumber {
+  color: var(--blue-700);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
 
 .whyMeText {
-  max-width: 250px;
+  max-width: 420px;
 
   color: var(--blue-950);
-
-  font-size: clamp(1.15rem, 1.7vw, 1.4rem);
+  font-size: clamp(1.3rem, 2vw, 1.75rem);
   font-weight: 800;
-
-  line-height: 1.25;
-  letter-spacing: -0.025em;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
 }
 
-/* ----------------------------------
-   Tablet
------------------------------------ */
+/* ==========================================
+   HOVER INTERACTION
+========================================== */
+
+.whyMeItem:hover .iconOrbit {
+  transform: rotate(35deg);
+  border-color: var(--blue-500);
+}
+
+.whyMeItem:hover .whyMeIcon {
+  transform: scale(1.06);
+
+  background: var(--blue-800);
+  color: var(--white);
+}
+
+/* ==========================================
+   DECORATIVE PIXEL
+========================================== */
+
+.decorativePixel {
+  position: absolute;
+
+  right: 0;
+  bottom: 0;
+
+  width: 12px;
+  height: 12px;
+
+  background: var(--yellow-500);
+}
+
+/* ==========================================
+   TABLET
+========================================== */
 
 @media (max-width: 1000px) {
   .whyMeSection {
     grid-template-columns: 1fr;
-
     gap: 3.5rem;
+  }
 
-    padding-inline: 2rem;
+  .whyIntro {
+    max-width: 750px;
+  }
+
+  .whyVisual {
+    max-width: 750px;
   }
 }
 
-/* ----------------------------------
-   Mobile
------------------------------------ */
+/* ==========================================
+   MOBILE
+========================================== */
 
 @media (max-width: 700px) {
   .whyMeSection {
-    padding: var(--section-lg) 1.25rem;
-  }
-
-  .whyMeList {
-    grid-template-columns: 1fr;
-  }
-
-  .whyMeList li {
-    min-height: 170px;
-
-    padding: 1.5rem;
+    padding: 4rem 1.25rem;
+    gap: 3rem;
   }
 
   .whyHeading {
     font-size: clamp(2.5rem, 11vw, 3.7rem);
+  }
+
+  .whyMeList {
+    gap: 2rem;
+  }
+
+  .whyMeItem {
+    grid-template-columns: 76px minmax(0, 1fr);
+    gap: 1.25rem;
+
+    min-height: 80px;
+  }
+
+  .iconArea {
+    width: 72px;
+    height: 72px;
+  }
+
+  .whyMeIcon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.1rem;
+  }
+
+  .whyMeList::before {
+    left: 35px;
+    top: 35px;
+    bottom: 35px;
+  }
+
+  .whyMeText {
+    font-size: clamp(1.2rem, 5vw, 1.5rem);
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .iconOrbit,
+  .whyMeIcon {
+    transition: none !important;
+  }
+
+  .whyMeItem:hover .iconOrbit,
+  .whyMeItem:hover .whyMeIcon {
+    transform: none;
   }
 }

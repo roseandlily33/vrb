@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Hero from "../../Components/Hero/Hero.component";
-import styles from "../page.module.css";
+import styles from '../page.module.css';
 import { webDesignArticles } from "../articles";
 
 // primary keyword: web design
@@ -21,15 +21,16 @@ export default function WebDesignPage() {
         title="Practical web design: planning, layout and building with purpose."
         subText="Advice and examples for designing websites that work for customers."
       />
-      <nav className={styles.blogNav} aria-label="Blog topics">
+
+      {/* BLOG CATEGORY NAVIGATION */}
+      <nav
+        className={`${styles.blogNav} ${styles.categoryBlogNav}`}
+        aria-label="Blog topics"
+      >
         <span className={styles.blogNavLabel}>Blog Topics</span>
 
         <div className={styles.blogNavLinks}>
-          <Link
-            href="/blog/website-redesign"
-            className={styles.blogNavLink}
-            aria-current="page"
-          >
+          <Link href="/blog/website-redesign" className={styles.blogNavLink}>
             Website Redesign
           </Link>
 
@@ -46,19 +47,53 @@ export default function WebDesignPage() {
           </Link>
 
           <Link href="/blog/ux-ui-development" className={styles.blogNavLink}>
-            UX/UI & Development
+            UX/UI &amp; Development
           </Link>
+
           <Link href="/blog/social-media" className={styles.blogNavLink}>
             Social Media
           </Link>
+
           <Link href="/blog/website-maintenance" className={styles.blogNavLink}>
             Website Maintenance
           </Link>
         </div>
       </nav>
-      <section className={styles.postsSection}>
+
+      {/* BLOG CATEGORY CONTENT */}
+      <section
+        className={`${styles.postsSection} ${styles.categoryListing}`}
+        aria-labelledby="category-articles-heading"
+      >
+        <div className={styles.categoryListingHeader}>
+          <div className={styles.categoryListingIntro}>
+            <div className={styles.categorySectionMarker} aria-hidden="true">
+              <span />
+              <span />
+            </div>
+
+            <p className={styles.categoryEyebrow}>Explore Articles</p>
+
+            <h2 id="category-articles-heading">Web Design Articles</h2>
+          </div>
+
+          <div className={styles.categoryListingMeta}>
+            <span className={styles.categoryArticleCount}>
+              {String(posts?.length ?? 0).padStart(2, "0")}
+            </span>
+            <span>{posts?.length === 1 ? "Article" : "Articles"}</span>
+          </div>
+        </div>
+
         {posts?.length === 0 ? (
-          <p className={styles.excerpt}>No articles yet for Web Design.</p>
+          <div className={styles.categoryEmptyState}>
+            <p>No articles yet for Web Design.</p>
+
+            <Link href="/blog" className={styles.categoryBackLink}>
+              Explore other blog topics
+              <span aria-hidden="true">↗</span>
+            </Link>
+          </div>
         ) : (
           <div className={styles.postsGrid}>
             {posts?.map((p, i) => (
@@ -68,11 +103,13 @@ export default function WebDesignPage() {
                   i % 2 === 0 ? styles.lightCard : styles.darkCard
                 }`}
               >
+                {/* LARGE EDITORIAL NUMBER */}
                 <div className={styles.indexRail} aria-hidden="true">
                   {String(i + 1).padStart(2, "0")}
                 </div>
 
                 <div className={styles.cardBody}>
+                  {/* DECORATIVE PIXELS */}
                   <div className={styles.pixelCluster} aria-hidden="true">
                     <span className={styles.pixel1} />
                     <span className={styles.pixel2} />
@@ -81,6 +118,13 @@ export default function WebDesignPage() {
                     <span className={styles.pixel5} />
                   </div>
 
+                  {/* SUBTLE CIRCULAR GRAPHIC */}
+                  <div className={styles.categoryCardOrbit} aria-hidden="true">
+                    <span className={styles.categoryOrbitRing} />
+                    <span className={styles.categoryOrbitDot} />
+                  </div>
+
+                  {/* ARTICLE CONTENT */}
                   <div className={styles.cardContent}>
                     <p className={styles.category}>
                       {typeof p?.category === "string"
@@ -88,11 +132,19 @@ export default function WebDesignPage() {
                         : p?.category?.name || ""}
                     </p>
 
-                    <h3 className={styles.title}>{p.title}</h3>
+                    <h3 className={styles.title}>
+                      <Link
+                        href={`/blog/web-design/${p.slug}`}
+                        className={styles.categoryTitleLink}
+                      >
+                        {p.title}
+                      </Link>
+                    </h3>
 
                     <p className={styles.excerpt}>{p.description}</p>
                   </div>
 
+                  {/* ARTICLE FOOTER */}
                   <div className={styles.cardFooter}>
                     <span className={styles.footerLine} aria-hidden="true" />
 
@@ -100,8 +152,8 @@ export default function WebDesignPage() {
                       className={styles.readLink}
                       href={`/blog/web-design/${p.slug}`}
                     >
-                      Read
-                      <span aria-hidden="true">→</span>
+                      Read Article
+                      <span aria-hidden="true">↗</span>
                     </Link>
                   </div>
                 </div>
@@ -109,6 +161,13 @@ export default function WebDesignPage() {
             ))}
           </div>
         )}
+
+        <div className={styles.categoryBottomNav}>
+          <Link href="/blog" className={styles.categoryBackLink}>
+            <span aria-hidden="true">←</span>
+            All Blog Topics
+          </Link>
+        </div>
       </section>
     </main>
   );

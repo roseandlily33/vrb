@@ -1,399 +1,644 @@
+/* ==========================================
+   VRB INTRODUCTION SECTION
+   Connected Digital Design System
+========================================== */
+
 .introSection {
   position: relative;
+  isolation: isolate;
   width: 100%;
   overflow: hidden;
-
-  padding: var(--section-xl);
-
-  background:
-    radial-gradient(
-      circle at 12% 12%,
-      rgba(105, 185, 242, 0.08),
-      transparent 24%
-    ),
-    var(--white);
+  padding: clamp(6rem, 9vw, 9rem) clamp(1.5rem, 6vw, 6rem);
+  background: var(--white);
+  font-family: var(--font-body);
 }
 
-/* ----------------------------------
-   Main layout
------------------------------------ */
+/* ==========================================
+   MAIN LAYOUT
+========================================== */
 
 .introInner {
   position: relative;
   z-index: 2;
 
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: clamp(3rem, 7vw, 8rem);
+
   width: 100%;
   max-width: 1500px;
   margin: 0 auto;
-
-  display: grid;
-  grid-template-columns: minmax(280px, 0.62fr) minmax(0, 1fr);
-  gap: clamp(4rem, 8vw, 9rem);
-  align-items: end;
 }
 
-/* Push text into the right side */
+/* ==========================================
+   LEFT: INTRODUCTION CONTENT
+========================================== */
+
 .introContent {
-  grid-column: 2;
-  max-width: 900px;
-}
-
-/* ----------------------------------
-   Heading
------------------------------------ */
-
-.introInner h2 {
-  margin: 0;
-
-  font-size: clamp(2.8rem, 5vw, 5.4rem);
-  line-height: 1.02;
-  letter-spacing: -0.055em;
-  font-weight: 800;
-
-  color: var(--blue-950);
-  text-wrap: balance;
-}
-
-.introInner h2 span {
-  color: var(--blue-700);
-}
-
-/* ----------------------------------
-   Shimmer
------------------------------------ */
-
-.shimmeringText {
-  background: linear-gradient(
-    110deg,
-    var(--blue-800) 0%,
-    var(--blue-700) 24%,
-    var(--blue-500) 42%,
-    var(--blue-200) 50%,
-    var(--blue-500) 58%,
-    var(--blue-700) 76%,
-    var(--blue-800) 100%
-  );
-
-  background-size: 350% 100%;
-  background-position: 0% 0;
-
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-
-  animation: shimmerGradient 26.2s linear infinite;
-}
-
-@keyframes shimmerGradient {
-  0% {
-    background-position: 0% 0;
-  }
-
-  100% {
-    background-position: 350% 0;
-  }
-}
-
-/* ----------------------------------
-   Supporting text
------------------------------------ */
-
-.introText {
-  max-width: 760px;
-  margin: 2rem 0 0;
-
-  color: var(--grey-700);
-
-  font-size: clamp(1.05rem, 1.35vw, 1.22rem);
-  line-height: 1.8;
-}
-
-/* ----------------------------------
-   Feature list
------------------------------------ */
-
-.introList {
-  grid-column: 2;
-
-  list-style: none;
-  margin: 3.5rem 0 0;
-  padding: 2rem 0 0;
-
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 0;
-
-  border-top: 1px solid var(--grey-200);
-}
-
-.introList li {
   position: relative;
-
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-
-  padding: 0 2rem;
-
-  color: var(--blue-950);
-  font-weight: 700;
-  line-height: 1.45;
+  min-width: 0;
+  max-width: 760px;
 }
 
-.introList li:first-child {
-  padding-left: 0;
-}
+/* Eyebrow */
 
-.introList li:not(:last-child) {
-  border-right: 1px solid var(--grey-200);
-}
+.introEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
 
-.listNumber {
-  font-size: 0.75rem;
+  margin: 0 0 1.75rem;
+
+  color: var(--blue-800);
+  font-size: 0.76rem;
   font-weight: 800;
-  letter-spacing: 0.12em;
-
-  color: var(--blue-700);
+  line-height: 1.5;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
-/* ----------------------------------
-   Pixel composition
------------------------------------ */
-
-.pixelComposition {
-  position: absolute;
-  z-index: 1;
-
-  top: 0;
-  left: 0;
-
-  width: clamp(240px, 28vw, 470px);
-  height: clamp(240px, 34vw, 520px);
-
-  pointer-events: none;
-}
-
-.pixel {
-  position: absolute;
+.eyebrowPixel {
+  position: relative;
   display: block;
-}
-
-.pixel1 {
-  top: 0;
-  left: 0;
-
-  width: 118px;
-  height: 118px;
-
-  background: var(--blue-950);
-}
-
-.pixel2 {
-  top: 72px;
-  left: 82px;
-
-  width: 105px;
-  height: 105px;
-
+  width: 9px;
+  height: 9px;
+  flex-shrink: 0;
   background: var(--blue-800);
 }
 
-.pixel3 {
-  top: 0;
-  left: 118px;
-
-  width: 72px;
-  height: 72px;
-
-  background: var(--blue-300);
-}
-
-.pixel4 {
-  top: 177px;
-  left: 28px;
-
-  width: 54px;
-  height: 54px;
-
-  background: var(--blue-500);
-}
-
-.pixel5 {
-  top: 184px;
-  left: 187px;
-
-  width: 30px;
-  height: 30px;
-
+.eyebrowPixel::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 5px;
+  height: 5px;
   background: var(--yellow-500);
 }
 
-.pixel6 {
-  top: 265px;
-  left: 115px;
+/* Main heading */
 
+.introInner h2 {
+  margin: 0;
+  max-width: 760px;
+
+  color: var(--blue-950);
+  font-family: var(--font-heading);
+  font-size: clamp(2.8rem, 4.5vw, 5rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.055em;
+  text-wrap: balance;
+}
+
+.highlightText {
+  color: var(--blue-800);
+}
+
+/* Supporting paragraphs */
+
+.introText {
+  max-width: 660px;
+  margin: 1.7rem 0 0;
+
+  color: var(--grey-700);
+  font-size: clamp(1rem, 1.15vw, 1.14rem);
+  font-weight: 400;
+  line-height: 1.8;
+}
+
+.introText + .introText {
+  margin-top: 1rem;
+}
+
+/* ==========================================
+   RIGHT: CONNECTED PRINCIPLES
+========================================== */
+
+.principles {
+  position: relative;
+  min-width: 0;
+  padding: 2rem 2.25rem 1.75rem;
+
+  background: var(--blue-50);
+  border: 1px solid var(--blue-200);
+}
+
+/* Small blue corner pixel */
+
+.principles::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  right: -6px;
   width: 12px;
   height: 12px;
-
   background: var(--blue-800);
 }
 
+/* Bottom corner detail */
+
+.principles::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: -5px;
+  width: 9px;
+  height: 9px;
+  background: var(--yellow-500);
+}
+
+/* Header */
+
+.principlesHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  padding-bottom: 1.3rem;
+  margin-bottom: 1.75rem;
+
+  border-bottom: 1px solid var(--blue-200);
+
+  color: var(--blue-800);
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 0.13em;
+}
+
+.headerPixel {
+  display: block;
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  background: var(--yellow-500);
+}
+
+/* ==========================================
+   VERTICAL CIRCUIT
+========================================== */
+
+.principlesList {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Vertical connecting line */
+
+.circuitTrack {
+  position: absolute;
+  z-index: 0;
+  top: 23px;
+  bottom: 55px;
+  left: 23px;
+  width: 2px;
+
+  background: var(--blue-200);
+  overflow: hidden;
+}
+
+/* Animated travelling signal */
+
+.circuitTrack::after {
+  content: "";
+  position: absolute;
+  top: -35%;
+  left: 0;
+  width: 100%;
+  height: 35%;
+
+  background: var(--blue-700);
+
+  animation: circuitSignal 4s ease-in-out infinite;
+}
+
+@keyframes circuitSignal {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  85% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(420%);
+    opacity: 0;
+  }
+}
+
+/* ==========================================
+   INDIVIDUAL PRINCIPLES
+========================================== */
+
+.principle {
+  position: relative;
+  z-index: 1;
+
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  align-items: start;
+  gap: 1.3rem;
+
+  padding: 0 0 2.25rem;
+}
+
+.principle:last-child {
+  padding-bottom: 0;
+}
+
+/* Circuit marker */
+
+.principleMarker {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  background: var(--white);
+  border: 2px solid var(--blue-700);
+
+  transition:
+    background 250ms ease,
+    border-color 250ms ease,
+    transform 250ms ease;
+}
+
+/* Small attached node */
+
+.principleMarker::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  width: 8px;
+  height: 8px;
+  background: var(--yellow-500);
+  border: 2px solid var(--blue-50);
+  box-sizing: content-box;
+}
+
+.principleNumber {
+  color: var(--blue-800);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+
+  transition: color 250ms ease;
+}
+
+/* Principle text */
+
+.principleContent {
+  min-width: 0;
+  padding-top: 0.1rem;
+}
+
+.principleContent h3 {
+  margin: 0 0 0.6rem;
+
+  color: var(--blue-950);
+  font-family: var(--font-heading);
+  font-size: clamp(1.05rem, 1.3vw, 1.3rem);
+  font-weight: 800;
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+}
+
+.principleContent p {
+  max-width: 390px;
+  margin: 0;
+
+  color: var(--grey-600);
+  font-size: 0.91rem;
+  font-weight: 400;
+  line-height: 1.75;
+}
+
+/* Hover interaction */
+
+.principle:hover .principleMarker {
+  background: var(--blue-800);
+  border-color: var(--blue-800);
+  transform: translateY(-2px);
+}
+
+.principle:hover .principleNumber {
+  color: var(--white);
+}
+
+.principle:hover .principleContent h3 {
+  color: var(--blue-800);
+}
+
+/* ==========================================
+   PRINCIPLES FOOTER
+========================================== */
+
+.principlesFooter {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+
+  margin-top: 2rem;
+  padding-top: 1.3rem;
+
+  border-top: 1px solid var(--blue-200);
+
+  color: var(--blue-800);
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1.5;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.footerPixel {
+  display: block;
+  width: 8px;
+  height: 8px;
+  flex-shrink: 0;
+  background: var(--yellow-500);
+}
+
+/* ==========================================
+   BACKGROUND PIXEL COMPOSITION
+========================================== */
+
+.pixelComposition {
+  position: absolute;
+  z-index: 0;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 260px;
+  pointer-events: none;
+  opacity: 0.8;
+}
+
+.pixel,
 .pixelOutline {
   position: absolute;
   display: block;
+}
 
+/* Large outlined square */
+
+.pixel1 {
+  top: -70px;
+  left: -65px;
+  width: 170px;
+  height: 170px;
+  border: 1px solid var(--blue-200);
   background: transparent;
 }
 
+/* Medium light blue square */
+
+.pixel2 {
+  top: 45px;
+  left: 0;
+  width: 55px;
+  height: 55px;
+  background: var(--blue-100);
+}
+
+/* Strong blue pixel */
+
+.pixel3 {
+  top: 105px;
+  left: 62px;
+  width: 23px;
+  height: 23px;
+  background: var(--blue-800);
+}
+
+/* Small yellow pixel */
+
+.pixel4 {
+  top: 132px;
+  left: 90px;
+  width: 10px;
+  height: 10px;
+  background: var(--yellow-500);
+}
+
+/* Outlined accents */
+
 .outline1 {
-  top: 130px;
-  left: 145px;
-
-  width: 92px;
-  height: 92px;
-
-  border: 2px solid var(--yellow-500);
+  top: 85px;
+  left: 105px;
+  width: 55px;
+  height: 55px;
+  border: 1px solid var(--blue-300);
 }
 
 .outline2 {
-  top: 245px;
-  left: 54px;
-
-  width: 62px;
-  height: 62px;
-
+  top: 162px;
+  left: 35px;
+  width: 30px;
+  height: 30px;
   border: 1px solid var(--blue-500);
 }
 
-/* ----------------------------------
-   Tablet
------------------------------------ */
+/* ==========================================
+   LARGE TABLET
+========================================== */
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
   .introSection {
-    padding: var(--section-lg);
+    padding: 6rem 3rem;
   }
 
   .introInner {
-    grid-template-columns: minmax(220px, 0.45fr) minmax(0, 1fr);
-    gap: 3.5rem;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.95fr);
+    gap: 3rem;
   }
 
   .introInner h2 {
-    font-size: clamp(2.7rem, 5.5vw, 4.6rem);
+    font-size: clamp(2.7rem, 4.2vw, 4rem);
   }
 
-  .pixelComposition {
-    transform: scale(0.85);
-    transform-origin: top left;
+  .principles {
+    padding: 1.75rem;
   }
 
-  .introList li {
-    padding-inline: 1.4rem;
+  .principle {
+    gap: 1rem;
   }
 }
 
-/* ----------------------------------
-   Small tablet
------------------------------------ */
+/* ==========================================
+   TABLET
+========================================== */
 
-@media (max-width: 850px) {
+@media (max-width: 900px) {
   .introSection {
-    padding-top: 12rem;
+    padding: 6rem 2.5rem;
   }
 
   .introInner {
-    display: block;
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
   }
 
   .introContent {
     max-width: 760px;
   }
 
-  .introList {
-    margin-top: 3rem;
+  .introInner h2 {
+    font-size: clamp(3rem, 6vw, 4.5rem);
+  }
+
+  .principles {
+    max-width: 720px;
+  }
+
+  .principleContent p {
+    max-width: 560px;
   }
 
   .pixelComposition {
-    width: 280px;
-    height: 220px;
-    transform: scale(0.7);
+    opacity: 0.55;
   }
 }
 
-/* ----------------------------------
-   Mobile
------------------------------------ */
+/* ==========================================
+   MOBILE
+========================================== */
 
 @media (max-width: 700px) {
   .introSection {
-    padding:
-      10rem
-      1.5rem
-      4.5rem;
+    padding: 5rem 1.5rem;
+  }
+
+  .introInner {
+    gap: 2.5rem;
+  }
+
+  .introEyebrow {
+    margin-bottom: 1.3rem;
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
   }
 
   .introInner h2 {
-    font-size: clamp(2.5rem, 10vw, 3.5rem);
-    line-height: 1.04;
+    font-size: clamp(2.5rem, 9.5vw, 3.7rem);
+    line-height: 1.08;
   }
 
   .introText {
-    margin-top: 1.5rem;
+    margin-top: 1.4rem;
     font-size: 1rem;
+    line-height: 1.75;
   }
 
-  .introList {
-    grid-template-columns: 1fr;
-
-    margin-top: 2.5rem;
-    padding-top: 0;
-
-    border-top: none;
+  .introText + .introText {
+    margin-top: 0.9rem;
   }
 
-  .introList li {
-    padding: 1.15rem 0;
-
-    flex-direction: row;
-    align-items: flex-start;
-    gap: 1.25rem;
-
-    border-top: 1px solid var(--grey-200);
+  .principles {
+    padding: 1.5rem 1.25rem;
   }
 
-  .introList li:not(:last-child) {
-    border-right: 0;
+  .principlesHeader {
+    font-size: 0.63rem;
+    letter-spacing: 0.09em;
   }
 
-  .listNumber {
-    min-width: 28px;
-    padding-top: 0.1rem;
+  .principle {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 1rem;
+    padding-bottom: 2rem;
+  }
+
+  .principleMarker {
+    width: 42px;
+    height: 42px;
+  }
+
+  .circuitTrack {
+    left: 20px;
+    top: 21px;
+    bottom: 50px;
+  }
+
+  .principleContent h3 {
+    font-size: 1.05rem;
+  }
+
+  .principleContent p {
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+
+  .principlesFooter {
+    font-size: 0.62rem;
+    letter-spacing: 0.04em;
   }
 
   .pixelComposition {
-    transform: scale(0.58);
+    transform: scale(0.65);
     transform-origin: top left;
+    opacity: 0.45;
   }
 }
 
-/* ----------------------------------
-   Very small mobile
------------------------------------ */
+/* ==========================================
+   SMALL MOBILE
+========================================== */
 
 @media (max-width: 430px) {
   .introSection {
-    padding:
-      8.5rem
-      1.25rem
-      4rem;
+    padding: 4.5rem 1.25rem;
   }
 
   .introInner h2 {
-    font-size: clamp(2.3rem, 11vw, 3.1rem);
+    font-size: clamp(2.25rem, 10vw, 3rem);
   }
 
-  .pixelComposition {
-    transform: scale(0.5);
+  .principles {
+    padding: 1.25rem 1rem;
+  }
+
+  .principle {
+    gap: 0.85rem;
+  }
+
+  .principleContent p {
+    font-size: 0.85rem;
+  }
+
+  .principlesFooter {
+    font-size: 0.58rem;
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .circuitTrack::after {
+    animation: none !important;
+    display: none;
+  }
+
+  .principleMarker,
+  .principleNumber,
+  .principleContent h3 {
+    transition: none !important;
   }
 }

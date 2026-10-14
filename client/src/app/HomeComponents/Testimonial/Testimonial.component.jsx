@@ -7,49 +7,112 @@ const testimonial =
 
 export default function Testimonial() {
   return (
-    <section className={styles.testimonialSection}>
+    <section
+      className={styles.testimonialSection}
+      aria-label="Client testimonial"
+    >
       <div className={styles.testimonialInner}>
-        {/* <div className={styles.testimonialMarker} aria-hidden="true">
-          <span className={styles.markerNumber}>#02</span>
-          <span className={styles.markerLine} />
-        </div> */}
-
         <div className={styles.testimonialCard}>
-          <div className={styles.quoteMark} aria-hidden="true">
-            “
+          {/* QUOTE SYMBOL */}
+          <div className={styles.quoteDecoration} aria-hidden="true">
+            <span className={styles.quoteMark}>“</span>
+            <span className={styles.quotePixel} />
           </div>
 
+          {/* TESTIMONIAL CONTENT */}
           <div className={styles.testimonialContent}>
-            <p className="eyebrowHeader">Client Feedback</p>
+            <div className={styles.testimonialEyebrow}>
+              <span className={styles.eyebrowPixel} aria-hidden="true" />
+              <span>Client Feedback</span>
+            </div>
 
             <blockquote className={styles.quote}>{testimonial}</blockquote>
 
+            {/* CONNECTING CIRCUIT */}
+            <div className={styles.quoteCircuit} aria-hidden="true">
+              <span className={styles.circuitLine} />
+              <span className={styles.circuitNode} />
+            </div>
+
+            {/* CLIENT ATTRIBUTION */}
             <div className={styles.author}>
-              <Image
-                src="/ArielPerformance/ArielLogo.webp"
-                alt="Ariel Performance Horses Logo"
-                className={styles.authorImage}
-                width={100}
-                height={100}
-              />
+              <div className={styles.authorImageWrap}>
+                <Image
+                  src="/ArielPerformance/ArielLogo.webp"
+                  alt="Ariel Performance Horses logo"
+                  className={styles.authorImage}
+                  width={100}
+                  height={100}
+                />
+              </div>
 
-              <div>
-                <Link href="/case-study/ariel-performance-horses">
-                  <p className={styles.authorName}>Ariel Boesener</p>
+              <div className={styles.authorDetails}>
+                <Link
+                  href="/case-study/ariel-performance-horses"
+                  className={styles.authorLink}
+                >
+                  <span className={styles.authorName}>Ariel Boesener</span>
 
-                  <p className={styles.authorMeta}>
+                  <span className={styles.authorMeta}>
                     Ariel Boesener Performance Horses
-                  </p>
+                  </span>
                 </Link>
               </div>
             </div>
           </div>
 
-          <div className={styles.pixelCluster} aria-hidden="true">
-            <span className={`${styles.pixel} ${styles.pixelOne}`} />
-            <span className={`${styles.pixel} ${styles.pixelTwo}`} />
-            <span className={`${styles.pixel} ${styles.pixelThree}`} />
-            <span className={`${styles.pixelOutline} ${styles.pixelFour}`} />
+          {/* DECORATIVE ORBIT */}
+          <div className={styles.orbitDecoration} aria-hidden="true">
+            <svg viewBox="0 0 240 240" fill="none">
+              <ellipse
+                cx="120"
+                cy="120"
+                rx="108"
+                ry="48"
+                transform="rotate(-32 120 120)"
+                className={styles.orbitPath}
+              />
+
+              <ellipse
+                cx="120"
+                cy="120"
+                rx="85"
+                ry="35"
+                transform="rotate(-32 120 120)"
+                className={styles.orbitInner}
+              />
+
+              <path
+                d="M48 150H106L127 129H180"
+                className={styles.orbitCircuit}
+              />
+
+              <circle cx="180" cy="129" r="5" className={styles.orbitNode} />
+
+              <rect
+                x="166"
+                y="49"
+                width="31"
+                height="31"
+                className={styles.orbitPixel}
+              />
+
+              <rect
+                x="195"
+                y="84"
+                width="13"
+                height="13"
+                className={styles.orbitYellow}
+              />
+
+              <rect
+                x="39"
+                y="158"
+                width="15"
+                height="15"
+                className={styles.orbitSmallPixel}
+              />
+            </svg>
           </div>
         </div>
       </div>

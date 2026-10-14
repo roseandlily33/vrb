@@ -1,75 +1,68 @@
+/* ==========================================
+   PROCESS FAQ SECTION
+========================================== */
+
 .faqSection {
   position: relative;
+  isolation: isolate;
 
   width: 100%;
-
-  padding: var(--section-xl) 3rem;
-
   overflow: hidden;
+
+  padding: clamp(4.5rem, 7vw, 7rem) clamp(1.25rem, 5vw, 5rem);
 
   background:
     radial-gradient(
       circle at 90% 10%,
-      rgba(27, 138, 228, 0.08),
-      transparent 25%
+      rgba(27, 138, 228, 0.07),
+      transparent 30%
     ),
     var(--white);
 }
 
-/* ----------------------------------
-   Very subtle grid
------------------------------------ */
+/* Background grid */
 
 .faqSection::before {
   content: "";
-
   position: absolute;
   inset: 0;
 
   background-image:
-    linear-gradient(
-      rgba(0, 84, 201, 0.022) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(0, 84, 201, 0.022) 1px,
-      transparent 1px
-    );
+    linear-gradient(rgba(0, 84, 201, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 84, 201, 0.02) 1px, transparent 1px);
 
   background-size: 46px 46px;
-
   pointer-events: none;
 }
 
-/* ----------------------------------
-   Inner
------------------------------------ */
+/* ==========================================
+   INNER CONTAINER
+========================================== */
 
 .faqInner {
   position: relative;
   z-index: 1;
 
   width: 100%;
-  max-width: 1300px;
-
+  max-width: 1500px;
   margin: 0 auto;
 }
 
-/* ----------------------------------
-   Header
------------------------------------ */
+/* ==========================================
+   HEADER
+========================================== */
 
 .faqHeader {
-  max-width: 900px;
+  position: relative;
+  z-index: 2;
 
-  margin-bottom: clamp(3rem, 6vw, 5rem);
+  max-width: 900px;
+  margin-bottom: clamp(2.75rem, 5vw, 4rem);
 }
 
 .headerMarker {
   display: flex;
   align-items: center;
-
   gap: 0.6rem;
 
   margin-bottom: 1.25rem;
@@ -78,38 +71,38 @@
 .markerLine {
   width: 42px;
   height: 3px;
-
   background: var(--blue-800);
 }
 
 .markerPixel {
   width: 8px;
   height: 8px;
-
   background: var(--yellow-500);
 }
+
+/* Eyebrow */
 
 .eyebrow {
   margin: 0 0 1rem;
 
   color: var(--blue-700);
-
   font-size: 0.76rem;
   font-weight: 800;
-
-  text-transform: uppercase;
   letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
+
+/* Heading */
 
 .faqHeading {
   margin: 0;
 
   color: var(--blue-950);
+  font-family: var(--font-heading);
 
   font-size: clamp(2.8rem, 5vw, 4.8rem);
   font-weight: 800;
-
-  line-height: 0.98;
+  line-height: 1.02;
   letter-spacing: -0.055em;
 }
 
@@ -117,147 +110,126 @@
   color: var(--blue-800);
 }
 
-/* ----------------------------------
-   FAQ list
------------------------------------ */
+/* ==========================================
+   DECORATIVE ORBIT
+========================================== */
+
+.faqOrbit {
+  position: absolute;
+  z-index: 0;
+
+  top: -6rem;
+  right: -8rem;
+
+  width: min(46vw, 600px);
+
+  color: rgba(27, 138, 228, 0.2);
+
+  pointer-events: none;
+}
+
+.faqOrbit svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ==========================================
+   FAQ LIST
+========================================== */
 
 .faqList {
-  width: 100%;
+  position: relative;
+  z-index: 2;
 
   display: flex;
   flex-direction: column;
 
+  width: 100%;
   border-top: 1px solid var(--blue-200);
 }
 
-/* ----------------------------------
-   FAQ item
------------------------------------ */
+/* ==========================================
+   FAQ ITEM
+========================================== */
 
 .faqItem {
   position: relative;
-
   width: 100%;
 
   border-bottom: 1px solid var(--blue-200);
-
-  overflow: hidden;
+  background: transparent;
 
   transition: background 180ms ease;
-}
-
-/* yellow indicator */
-
-.faqItem::before {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  top: 0;
-  bottom: 0;
-
-  width: 3px;
-
-  background: var(--yellow-500);
-
-  transform: scaleY(0);
-
-  transform-origin: bottom;
-
-  transition: transform 200ms ease;
 }
 
 .faqItem:hover {
   background: var(--blue-50);
 }
 
-.faqItem:hover::before,
+.faqItem[open] {
+  background: rgba(242, 248, 255, 0.8);
+}
+
+/* Small blue indicator */
+
+.faqItem::before {
+  content: "";
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+  left: 0;
+
+  width: 3px;
+
+  background: var(--blue-800);
+
+  transform: scaleY(0);
+  transform-origin: center;
+
+  transition: transform 180ms ease;
+}
+
 .faqItem[open]::before {
   transform: scaleY(1);
 }
 
-.faqItem[open] {
-  background: rgba(242, 248, 255, 0.75);
-}
-
-/* ----------------------------------
-   Question / clickable row
------------------------------------ */
+/* ==========================================
+   QUESTION ROW
+========================================== */
 
 .faqQuestion {
-  width: 100%;
-
-  padding: clamp(1.5rem, 3vw, 2.25rem) 1.5rem;
-
-  display: grid;
-  grid-template-columns: 80px minmax(0, 1fr) 48px;
-
-  gap: clamp(1rem, 3vw, 2rem);
-
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+
+  width: 100%;
+  padding: clamp(1.4rem, 2.5vw, 2rem) 1.5rem;
 
   cursor: pointer;
-
   list-style: none;
-
-  transition:
-    padding-left 180ms ease,
-    background 180ms ease;
 }
-
-/* remove native marker */
 
 .faqQuestion::-webkit-details-marker {
   display: none;
 }
 
 .faqQuestion::marker {
-  display: none;
   content: "";
 }
 
-.faqItem:hover .faqQuestion {
-  padding-left: 2rem;
-}
-
-/* keyboard accessibility */
-
 .faqQuestion:focus-visible {
-  outline: 2px solid var(--yellow-500);
+  outline: 2px solid var(--blue-800);
   outline-offset: -2px;
 }
 
-/* ----------------------------------
-   Number
------------------------------------ */
-
-.faqNumber {
-  color: var(--blue-700);
-
-  font-size: 0.74rem;
-  font-weight: 800;
-
-  letter-spacing: 0.12em;
-
-  transition: color 180ms ease;
-}
-
-.faqItem[open] .faqNumber {
-  color: var(--blue-800);
-}
-
-/* ----------------------------------
-   Question text
------------------------------------ */
-
 .faqQuestionText {
   color: var(--blue-950);
-
-  font-size: clamp(1.05rem, 1.8vw, 1.3rem);
+  font-size: clamp(1.05rem, 1.7vw, 1.25rem);
   font-weight: 750;
-
-  line-height: 1.35;
+  line-height: 1.4;
 
   transition: color 180ms ease;
 }
@@ -267,43 +239,42 @@
   color: var(--blue-800);
 }
 
-/* ----------------------------------
-   Custom + button
------------------------------------ */
+/* ==========================================
+   CIRCULAR PLUS / MINUS
+========================================== */
 
 .faqToggle {
   position: relative;
-
-  width: 44px;
-  height: 44px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  justify-self: end;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
 
-  border: 1px solid var(--blue-300);
+  border: 1px solid var(--blue-200);
+  border-radius: 50%;
 
   background: var(--white);
 
   transition:
     background 180ms ease,
     border-color 180ms ease,
-    transform 220ms ease;
+    transform 180ms ease;
 }
 
 .toggleHorizontal,
 .toggleVertical {
   position: absolute;
-
   display: block;
 
   background: var(--blue-800);
 
   transition:
     background 180ms ease,
-    transform 220ms ease;
+    transform 180ms ease;
 }
 
 .toggleHorizontal {
@@ -317,127 +288,111 @@
 }
 
 .faqItem:hover .faqToggle {
-  background: var(--blue-950);
-
-  border-color: var(--blue-950);
+  border-color: var(--blue-800);
 }
-
-.faqItem:hover .toggleHorizontal,
-.faqItem:hover .toggleVertical {
-  background: var(--yellow-500);
-}
-
-/* open state */
 
 .faqItem[open] .faqToggle {
-  background: var(--yellow-500);
-
-  border-color: var(--yellow-500);
-
-  transform: rotate(45deg);
+  background: var(--blue-950);
+  border-color: var(--blue-950);
 }
 
 .faqItem[open] .toggleHorizontal,
 .faqItem[open] .toggleVertical {
-  background: var(--blue-950);
+  background: var(--yellow-500);
 }
 
-/* ----------------------------------
-   Answer
------------------------------------ */
+.faqItem[open] .toggleVertical {
+  transform: rotate(90deg);
+}
+
+/* ==========================================
+   ANSWER
+========================================== */
 
 .faqAnswer {
-  display: grid;
-
-  grid-template-rows: 0fr;
-
-  opacity: 0;
-
-  transition:
-    grid-template-rows 250ms ease,
-    opacity 220ms ease;
+  width: 100%;
 }
 
 .answerInner {
-  min-height: 0;
+  max-width: 850px;
 
-  overflow: hidden;
+  padding: 0 5.5rem 2rem 1.5rem;
 
-  max-width: 780px;
-
-  margin-left: calc(80px + clamp(1rem, 3vw, 2rem));
-
-  padding:
-    0
-    1.5rem
-    0;
-
-  color: var(--grey-600);
-
+  color: var(--grey-600, #525b6b);
   font-size: 1rem;
-
-  line-height: 1.75;
-
-  transition: padding 250ms ease;
+  line-height: 1.8;
 }
 
-.faqItem[open] .faqAnswer {
-  grid-template-rows: 1fr;
-
-  opacity: 1;
+.answerInner p {
+  margin: 0 0 0.85rem;
 }
 
-.faqItem[open] .answerInner {
-  padding-bottom: 2.25rem;
+.answerInner p:last-child {
+  margin-bottom: 0;
 }
 
-/* ----------------------------------
-   Bottom detail
------------------------------------ */
+.answerInner a {
+  color: var(--blue-800);
+  text-underline-offset: 3px;
+}
+
+/* ==========================================
+   FOOTER DETAIL
+========================================== */
 
 .faqFooter {
-  width: 100%;
-
-  margin-top: 2rem;
-
   display: flex;
   align-items: center;
   justify-content: flex-end;
-
   gap: 0.6rem;
+
+  width: 100%;
+  margin-top: 2rem;
 }
 
 .footerLine {
   width: 60px;
   height: 1px;
-
   background: var(--blue-200);
+}
+
+.footerDot {
+  width: 8px;
+  height: 8px;
+
+  border: 2px solid var(--blue-800);
+  border-radius: 50%;
 }
 
 .footerPixel {
   width: 8px;
   height: 8px;
-
   background: var(--yellow-500);
 }
 
-/* ----------------------------------
-   Tablet
------------------------------------ */
+/* ==========================================
+   TABLET
+========================================== */
 
 @media (max-width: 900px) {
   .faqSection {
-    padding: var(--section-lg) 2rem;
+    padding: 5rem 2rem;
+  }
+
+  .faqOrbit {
+    right: -10rem;
+    width: 500px;
+    opacity: 0.55;
   }
 }
 
-/* ----------------------------------
-   Mobile
------------------------------------ */
+/* ==========================================
+   MOBILE
+========================================== */
 
 @media (max-width: 650px) {
   .faqSection {
-    padding: var(--section-lg) 1.25rem;
+    padding: 4rem 1.25rem;
   }
 
   .faqHeader {
@@ -452,20 +407,17 @@
     display: none;
   }
 
+  .faqOrbit {
+    top: -3rem;
+    right: -12rem;
+
+    width: 400px;
+    opacity: 0.3;
+  }
+
   .faqQuestion {
-    grid-template-columns: 44px minmax(0, 1fr) 38px;
-
-    gap: 0.75rem;
-
-    padding: 1.4rem 0.75rem;
-  }
-
-  .faqItem:hover .faqQuestion {
-    padding-left: 0.75rem;
-  }
-
-  .faqNumber {
-    font-size: 0.68rem;
+    gap: 1rem;
+    padding: 1.35rem 0.75rem;
   }
 
   .faqQuestionText {
@@ -486,16 +438,22 @@
   }
 
   .answerInner {
-    max-width: none;
-
-    margin-left: calc(44px + 0.75rem);
-
-    padding-right: 0.75rem;
-
+    padding: 0 1rem 1.5rem 0.75rem;
     font-size: 0.94rem;
   }
+}
 
-  .faqItem[open] .answerInner {
-    padding-bottom: 1.5rem;
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .faqItem,
+  .faqItem::before,
+  .faqQuestionText,
+  .faqToggle,
+  .toggleHorizontal,
+  .toggleVertical {
+    transition: none !important;
   }
 }

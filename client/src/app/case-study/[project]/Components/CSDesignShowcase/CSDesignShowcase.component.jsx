@@ -27,10 +27,12 @@ export default function CSDesignShowcase({
   };
 
   return (
-    <section className={styles.section}>
+   
+<section className={styles.section}>
   <div className={styles.sectionInner}>
+    {/* HEADER */}
     <div className={styles.sectionHeader}>
-      <div>
+      <div className={styles.headerContent}>
         <div className={styles.headerMarker} aria-hidden="true">
           <span className={styles.markerLine} />
           <span className={styles.markerPixel} />
@@ -39,56 +41,98 @@ export default function CSDesignShowcase({
         <span className={styles.eyebrow}>Selected Work</span>
 
         <h2 className={styles.heading}>{title}</h2>
+
+        <p className={styles.headerDescription}>
+          A closer look at the visual decisions, details, and
+          thinking behind the finished experience.
+        </p>
       </div>
 
-      <div className={styles.counter}>
-        <span className={styles.current}>
-          {String(activeIndex + 1).padStart(2, "0")}
-        </span>
+      <div className={styles.counter} aria-label="Current showcase slide">
+        <span className={styles.counterLabel}>PROJECT VIEW</span>
 
-        <span className={styles.divider}>/</span>
+        <div className={styles.counterNumbers}>
+          <span className={styles.current}>
+            {String(activeIndex + 1).padStart(2, "0")}
+          </span>
 
-        <span className={styles.total}>
-          {String(showcase.length).padStart(2, "0")}
-        </span>
+          <span className={styles.divider}>/</span>
+
+          <span className={styles.total}>
+            {String(showcase.length).padStart(2, "0")}
+          </span>
+        </div>
       </div>
     </div>
 
+    {/* SHOWCASE */}
     <div className={styles.showcase}>
+      {/* IMAGE PANEL */}
       <div className={styles.visual}>
         <div className={styles.visualGrid} aria-hidden="true" />
 
-        {active.image && (
-          <Image
-            src={active.image}
-            alt={active.title || active.label || "Design showcase"}
-            className={styles.image}
-            width={800}
-            height={600}
-          />
-        )}
+        <div className={styles.visualTopBar}>
+          <span className={styles.visualTopLabel}>
+            DESIGN EXPLORATION
+          </span>
 
-        <div className={styles.visualLabel}>
-          <span className={styles.labelPixel} aria-hidden="true" />
-          {active.label || active.title}
+          <span className={styles.visualTopIndex}>
+            {String(activeIndex + 1).padStart(2, "0")}
+          </span>
+        </div>
+
+        <div className={styles.imageFrame}>
+          {active.image && (
+            <Image
+              src={active.image}
+              alt={active.title || active.label || "Design showcase"}
+              className={styles.image}
+              width={800}
+              height={600}
+            />
+          )}
+        </div>
+
+        <div className={styles.visualBottomBar}>
+          <div className={styles.visualLabel}>
+            <span className={styles.labelPixel} aria-hidden="true" />
+            {active.label || active.title}
+          </div>
+
+          <span className={styles.visualBottomDetail}>
+            VRB / CASE STUDY
+          </span>
         </div>
       </div>
 
+      {/* DETAILS PANEL */}
       <div className={styles.details}>
         <div className={styles.detailsTop}>
-          <span className={styles.slideLabel}>
-            {active.label || "Design"}
-          </span>
+          <div className={styles.detailsEyebrowRow}>
+            <span className={styles.slideLabel}>
+              {active.label || "Design"}
+            </span>
+
+            <span className={styles.detailsPixel} aria-hidden="true" />
+          </div>
 
           <h3 className={styles.title}>{active.title}</h3>
 
           {active.description && (
-            <p className={styles.description}>{active.description}</p>
+            <p className={styles.description}>
+              {active.description}
+            </p>
           )}
         </div>
 
+        {/* DESIGN DECISIONS */}
         {active.decisions?.length > 0 && (
           <div className={styles.decisions}>
+            <div className={styles.decisionsHeading}>
+              <span>DESIGN DECISIONS</span>
+              <span>{String(active.decisions.length).padStart(2, "0")}</span>
+            </div>
+
             {active.decisions.map((decision, index) => (
               <div
                 key={`${decision.title}-${index}`}
@@ -98,7 +142,7 @@ export default function CSDesignShowcase({
                   {String(index + 1).padStart(2, "0")}
                 </div>
 
-                <div>
+                <div className={styles.decisionContent}>
                   <h4>{decision.title}</h4>
                   <p>{decision.text}</p>
                 </div>
@@ -107,8 +151,9 @@ export default function CSDesignShowcase({
           </div>
         )}
 
+        {/* NAVIGATION */}
         <div className={styles.navigation}>
-          <div className={styles.dots}>
+          <div className={styles.dots} aria-label="Choose design">
             {showcase.map((item, index) => (
               <button
                 key={item.id || index}
@@ -121,7 +166,11 @@ export default function CSDesignShowcase({
                 }`}
                 aria-current={index === activeIndex ? "true" : undefined}
                 onClick={() => setActiveIndex(index)}
-              />
+              >
+                <span>
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+              </button>
             ))}
           </div>
 
@@ -137,7 +186,7 @@ export default function CSDesignShowcase({
 
             <button
               type="button"
-              className={styles.control}
+              className={`${styles.control} ${styles.nextControl}`}
               onClick={nextSlide}
               aria-label="Next design"
             >
@@ -147,7 +196,14 @@ export default function CSDesignShowcase({
         </div>
       </div>
     </div>
+
+    <div className={styles.sectionFooter} aria-hidden="true">
+      <span>VISUAL EXPLORATION</span>
+      <span className={styles.sectionFooterLine} />
+      <span className={styles.sectionFooterPixel} />
+    </div>
   </div>
 </section>
+
   );
 }

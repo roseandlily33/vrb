@@ -1,28 +1,32 @@
+
+/* ==========================================
+   PROJECT STANDARDS SECTION
+========================================== */
+
 .expectSection {
   position: relative;
+  isolation: isolate;
 
   width: 100%;
-
-  padding: var(--section-xl) 3rem;
-
   overflow: hidden;
+
+  padding:
+    clamp(4.5rem, 7vw, 7rem)
+    clamp(1.25rem, 5vw, 5rem);
 
   background:
     radial-gradient(
       circle at 90% 15%,
       rgba(27, 138, 228, 0.15),
-      transparent 30%
+      transparent 34%
     ),
     var(--blue-950);
 }
 
-/* ----------------------------------
-   Subtle grid
------------------------------------ */
+/* Subtle background grid */
 
 .expectSection::before {
   content: "";
-
   position: absolute;
   inset: 0;
 
@@ -38,13 +42,12 @@
     );
 
   background-size: 46px 46px;
-
   pointer-events: none;
 }
 
-/* ----------------------------------
-   Inner
------------------------------------ */
+/* ==========================================
+   INNER CONTAINER
+========================================== */
 
 .expectInner {
   position: relative;
@@ -52,24 +55,21 @@
 
   width: 100%;
   max-width: 1500px;
-
   margin: 0 auto;
 }
 
-/* ----------------------------------
-   Header
------------------------------------ */
+/* ==========================================
+   HEADER
+========================================== */
 
 .expectHeader {
   max-width: 880px;
-
-  margin-bottom: clamp(3.5rem, 7vw, 6rem);
+  margin-bottom: clamp(2.75rem, 5vw, 4rem);
 }
 
 .sectionMarker {
   display: flex;
   align-items: center;
-
   gap: 0.6rem;
 
   margin-bottom: 1.25rem;
@@ -89,209 +89,246 @@
   background: var(--blue-500);
 }
 
+/* Eyebrow */
+
 .eyebrow {
   margin: 0 0 1rem;
 
   color: var(--yellow-500);
-
   font-size: 0.76rem;
   font-weight: 800;
-
-  text-transform: uppercase;
   letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
+
+/* Heading */
 
 .heading {
   margin: 0;
 
   color: var(--white);
+  font-family: var(--font-heading);
 
   font-size: clamp(3rem, 5vw, 5rem);
   font-weight: 800;
-
-  line-height: 0.96;
+  line-height: 1.02;
   letter-spacing: -0.055em;
 }
 
 .heading span {
-  color: var(--blue-400);
+  color: var(--blue-500);
 }
+
+/* Introductory text */
 
 .intro {
   max-width: 620px;
-
   margin: 1.5rem 0 0;
 
   color: var(--blue-200);
-
   font-size: clamp(1rem, 1.3vw, 1.08rem);
-
   line-height: 1.75;
 }
 
-/* ----------------------------------
-   Standards grid
------------------------------------ */
+/* ==========================================
+   STANDARDS GRID
+========================================== */
 
 .expectList {
-  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.25rem;
 
+  width: 100%;
   margin: 0;
   padding: 0;
 
   list-style: none;
-
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-  border-left: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-/* ----------------------------------
-   Individual standard
------------------------------------ */
+/* ==========================================
+   INDIVIDUAL CARD
+========================================== */
 
 .expectItem {
   position: relative;
 
-  min-height: 260px;
-
-  padding: clamp(1.75rem, 3vw, 2.5rem);
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 2.5rem;
 
-  gap: 3rem;
+  min-width: 0;
+  min-height: 220px;
 
-  border-right: 1px solid rgba(255, 255, 255, 0.15);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  padding: clamp(1.5rem, 2.5vw, 2rem);
 
-  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid rgba(105, 185, 242, 0.18);
+  /* border-radius: 16px; */
+
+  background: rgba(255, 255, 255, 0.035);
 
   overflow: hidden;
 
   transition:
-    background 180ms ease,
-    transform 180ms ease;
+    background 220ms ease,
+    border-color 220ms ease,
+    transform 220ms ease,
+    box-shadow 220ms ease;
 }
 
 .expectItem:hover {
-  background: rgba(255, 255, 255, 0.045);
+  transform: translateY(-4px);
+
+  background: rgba(255, 255, 255, 0.065);
+  border-color: rgba(105, 185, 242, 0.45);
+
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.12);
 }
 
-/* yellow underline interaction */
-
-.expectItem::after {
-  content: "";
-
-  position: absolute;
-
-  left: 0;
-  bottom: 0;
-
-  width: 0;
-  height: 3px;
-
-  background: var(--yellow-500);
-
-  transition: width 220ms ease;
-}
-
-.expectItem:hover::after {
-  width: 100%;
-}
-
-/* ----------------------------------
-   Number + pixel
------------------------------------ */
+/* ==========================================
+   NUMBER AND PIXEL
+========================================== */
 
 .itemTop {
-  width: 100%;
-
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-
   gap: 1rem;
+
+  width: 100%;
 }
+
+/* Circular number badge */
 
 .itemNumber {
-  color: var(--blue-400);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 
-  font-size: 0.72rem;
+  width: 38px;
+  height: 38px;
+  flex-shrink: 0;
+
+  border: 1px solid rgba(105, 185, 242, 0.35);
+  border-radius: 50%;
+
+  background: rgba(27, 138, 228, 0.12);
+
+  color: var(--blue-200);
+  font-size: 0.68rem;
   font-weight: 800;
+  letter-spacing: 0.04em;
 
-  letter-spacing: 0.14em;
+  transition:
+    background 220ms ease,
+    border-color 220ms ease;
 }
+
+.expectItem:hover .itemNumber {
+  background: var(--blue-800);
+  border-color: var(--blue-500);
+}
+
+/* Signature yellow pixel */
 
 .itemPixel {
   width: 8px;
   height: 8px;
+  flex-shrink: 0;
 
   background: var(--yellow-500);
 }
 
-/* ----------------------------------
-   Content
------------------------------------ */
+/* ==========================================
+   CARD CONTENT
+========================================== */
 
 .itemContent {
-  max-width: 360px;
+  position: relative;
+  z-index: 1;
+
+  max-width: 380px;
 }
 
 .itemTitle {
-  margin: 0 0 0.85rem;
+  margin: 0 0 0.8rem;
 
   color: var(--white);
+  font-family: var(--font-heading);
 
-  font-size: clamp(1.25rem, 1.7vw, 1.55rem);
+  font-size: clamp(1.2rem, 1.7vw, 1.5rem);
   font-weight: 800;
-
-  line-height: 1.15;
-  letter-spacing: -0.03em;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
 }
 
 .itemDescription {
   margin: 0;
 
   color: var(--blue-200);
-
-  font-size: 0.96rem;
-
+  font-size: 0.95rem;
   line-height: 1.7;
 }
 
-/* ----------------------------------
-   Tablet
------------------------------------ */
+/* ==========================================
+   CORNER ACCENT
+========================================== */
+
+.cardAccent {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+
+  width: 55px;
+  height: 55px;
+
+  border-top: 1px solid rgba(105, 185, 242, 0.25);
+  border-left: 1px solid rgba(105, 185, 242, 0.25);
+  border-top-left-radius: 16px;
+
+  transform: translate(100%, 100%);
+
+  transition: transform 250ms ease;
+}
+
+.expectItem:hover .cardAccent {
+  transform: translate(0, 0);
+}
+
+/* ==========================================
+   TABLET
+========================================== */
 
 @media (max-width: 1000px) {
   .expectSection {
-    padding: var(--section-lg) 2rem;
+    padding: 5rem 2rem;
   }
 
   .expectList {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
+  .expectItem {
+    min-height: 210px;
+  }
 }
 
-/* ----------------------------------
-   Mobile
------------------------------------ */
+/* ==========================================
+   MOBILE
+========================================== */
 
 @media (max-width: 650px) {
   .expectSection {
-    padding: var(--section-lg) 1.25rem;
+    padding: 4rem 1.25rem;
   }
 
   .expectHeader {
-    margin-bottom: 3rem;
+    margin-bottom: 2.5rem;
   }
 
   .heading {
-    font-size: clamp(2.7rem, 12vw, 4rem);
+    font-size: clamp(2.7rem, 11vw, 4rem);
   }
 
   .heading br {
@@ -300,21 +337,38 @@
 
   .expectList {
     grid-template-columns: 1fr;
+    gap: 1rem;
   }
 
   .expectItem {
-    min-height: 200px;
+    min-height: 0;
+    gap: 2rem;
 
     padding: 1.5rem;
-
-    gap: 2.5rem;
+    border-radius: 12px;
   }
 
   .itemTitle {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
   }
 
   .itemDescription {
     font-size: 0.94rem;
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .expectItem,
+  .itemNumber,
+  .cardAccent {
+    transition: none !important;
+  }
+
+  .expectItem:hover {
+    transform: none;
   }
 }

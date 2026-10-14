@@ -76,6 +76,7 @@ export default async function PackageDetailPage({ params }) {
   return (
     <main>
       <div className={styles.packagePage}>
+        {/* BREADCRUMBS */}
         <div className={styles.breadcrumbs}>
           <Breadcrumbs
             current={match.pkg.title}
@@ -84,10 +85,26 @@ export default async function PackageDetailPage({ params }) {
           />
         </div>
 
-        {/* HERO */}
+        {/* =====================================
+        HERO
+    ===================================== */}
         <section className={styles.hero}>
+          <div className={styles.heroArtwork} aria-hidden="true">
+            <span className={styles.heroOrbit} />
+            <span className={styles.heroOrbitInner} />
+            <span className={styles.heroPixelOne} />
+            <span className={styles.heroPixelTwo} />
+            <span className={styles.heroPixelThree} />
+          </div>
+
           <div className={styles.heroContent}>
-            <span className={styles.eyebrow}>{meta.eyebrow}</span>
+            <div className={styles.heroTopline}>
+              <span className={styles.heroMarker} aria-hidden="true">
+                <span />
+                <span />
+              </span>
+              <span className={styles.eyebrow}>{meta.eyebrow}</span>
+            </div>
 
             <h1 className={styles.title}>{match.pkg.title}</h1>
 
@@ -96,15 +113,22 @@ export default async function PackageDetailPage({ params }) {
             <div className={styles.heroActions}>
               <a href="/contact" className={styles.primaryButton}>
                 Book a Consultation
+                <span aria-hidden="true">↗</span>
               </a>
 
               <a href="/work" className={styles.secondaryButton}>
                 View My Work
+                <span aria-hidden="true">→</span>
               </a>
             </div>
           </div>
 
           <aside className={styles.summaryCard}>
+            <div className={styles.summaryTopline}>
+              <span>Package Overview</span>
+              <span aria-hidden="true">↗</span>
+            </div>
+
             <div className={styles.summaryItem}>
               <span>Starting Investment</span>
               <strong>{match.pkg.startingAt}</strong>
@@ -119,10 +143,18 @@ export default async function PackageDetailPage({ params }) {
               <span>Best For</span>
               <p>{match.pkg.bestFor}</p>
             </div>
+
+            <div className={styles.summaryBottom} aria-hidden="true">
+              <span />
+              <span />
+              <span />
+            </div>
           </aside>
         </section>
 
-        {/* OVERVIEW */}
+        {/* =====================================
+        OVERVIEW / OUTCOME
+    ===================================== */}
         {match.pkg.deliverables && (
           <section className={styles.overviewSection}>
             <div className={styles.sectionIntro}>
@@ -132,13 +164,14 @@ export default async function PackageDetailPage({ params }) {
 
             <div className={styles.outcome}>
               <span className={styles.outcomeNumber}>01</span>
-
               <p>{match.pkg.deliverables}</p>
             </div>
           </section>
         )}
 
-        {/* FEATURES */}
+        {/* =====================================
+        FEATURES
+    ===================================== */}
         {match.pkg.features?.length > 0 && (
           <section className={styles.featureSection}>
             <div className={styles.featureHeader}>
@@ -150,6 +183,12 @@ export default async function PackageDetailPage({ params }) {
                 The key areas included in the scope of this service, tailored to
                 your website, application, or project.
               </p>
+
+              <div className={styles.featureHeaderAccent} aria-hidden="true">
+                <span />
+                <span />
+                <span />
+              </div>
             </div>
 
             <ol className={styles.featureList}>
@@ -160,18 +199,25 @@ export default async function PackageDetailPage({ params }) {
                   </span>
 
                   <span className={styles.featureText}>{feature}</span>
+
+                  <span className={styles.featureArrow} aria-hidden="true">
+                    ↗
+                  </span>
                 </li>
               ))}
             </ol>
           </section>
         )}
 
-        {/* INCLUDED / NOT INCLUDED */}
+        {/* =====================================
+        INCLUDED / NOT INCLUDED
+    ===================================== */}
         {(match.pkg.whatsIncluded?.length > 0 ||
           match.pkg.whatsNotIncluded?.length > 0) && (
           <section className={styles.scopeSection}>
             <div className={styles.scopeHeader}>
               <span className={styles.eyebrow}>Project Scope</span>
+
               <h2>What’s Included</h2>
 
               <p>
@@ -183,7 +229,12 @@ export default async function PackageDetailPage({ params }) {
             <div className={styles.comparisonGrid}>
               {match.pkg.whatsIncluded?.length > 0 && (
                 <div className={styles.listCard}>
-                  <span className={styles.cardLabel}>Included</span>
+                  <div className={styles.listCardTop}>
+                    <span className={styles.cardLabel}>Included</span>
+                    <span className={styles.listCardSymbol} aria-hidden="true">
+                      +
+                    </span>
+                  </div>
 
                   <h3>What You Receive</h3>
 
@@ -197,7 +248,12 @@ export default async function PackageDetailPage({ params }) {
 
               {match.pkg.whatsNotIncluded?.length > 0 && (
                 <div className={`${styles.listCard} ${styles.mutedCard}`}>
-                  <span className={styles.cardLabel}>Outside Scope</span>
+                  <div className={styles.listCardTop}>
+                    <span className={styles.cardLabel}>Outside Scope</span>
+                    <span className={styles.listCardSymbol} aria-hidden="true">
+                      −
+                    </span>
+                  </div>
 
                   <h3>Not Included</h3>
 
@@ -212,7 +268,9 @@ export default async function PackageDetailPage({ params }) {
           </section>
         )}
 
-        {/* PROJECT DETAILS */}
+        {/* =====================================
+        PROJECT DETAILS
+    ===================================== */}
         {(match.pkg.revisionLimits ||
           match.pkg.supportPeriod ||
           match.pkg.revisionAndHandoffSupport ||
@@ -227,7 +285,6 @@ export default async function PackageDetailPage({ params }) {
               {match.pkg.revisionLimits && (
                 <div className={styles.infoPanel}>
                   <span className={styles.panelNumber}>01</span>
-
                   <div>
                     <span className={styles.panelLabel}>Revisions</span>
                     <p>{match.pkg.revisionLimits}</p>
@@ -238,7 +295,6 @@ export default async function PackageDetailPage({ params }) {
               {match.pkg.supportPeriod && (
                 <div className={styles.infoPanel}>
                   <span className={styles.panelNumber}>02</span>
-
                   <div>
                     <span className={styles.panelLabel}>Support</span>
                     <p>{match.pkg.supportPeriod}</p>
@@ -249,7 +305,6 @@ export default async function PackageDetailPage({ params }) {
               {match.pkg.includedMockups && (
                 <div className={styles.infoPanel}>
                   <span className={styles.panelNumber}>03</span>
-
                   <div>
                     <span className={styles.panelLabel}>Included Mockups</span>
                     <p>{match.pkg.includedMockups}</p>
@@ -260,10 +315,9 @@ export default async function PackageDetailPage({ params }) {
               {match.pkg.revisionAndHandoffSupport && (
                 <div className={styles.infoPanel}>
                   <span className={styles.panelNumber}>04</span>
-
                   <div>
                     <span className={styles.panelLabel}>
-                      Revision & Handoff
+                      Revision &amp; Handoff
                     </span>
                     <p>{match.pkg.revisionAndHandoffSupport}</p>
                   </div>
@@ -273,15 +327,22 @@ export default async function PackageDetailPage({ params }) {
           </section>
         )}
 
-        {/* OPTIONAL ADD ONS */}
+        {/* =====================================
+        OPTIONAL ADD-ONS
+    ===================================== */}
         {match.pkg.optionalAddOns?.length > 0 && (
           <OptionalAddOns key={match.pkg.slug} pkg={match.pkg} />
         )}
 
-        {/* NOTE */}
+        {/* =====================================
+        SCOPE NOTE
+    ===================================== */}
         {match.pkg.note && (
           <aside className={styles.note}>
-            <span className={styles.noteLabel}>A Note About Scope</span>
+            <div className={styles.noteHeading}>
+              <span className={styles.noteMarker} aria-hidden="true" />
+              <span className={styles.noteLabel}>A Note About Scope</span>
+            </div>
 
             <p>{match.pkg.note}</p>
           </aside>

@@ -1,52 +1,50 @@
+/* ==========================================
+   TOOLS & TECHNOLOGIES
+========================================== */
+
 .tools {
   position: relative;
+  isolation: isolate;
 
   width: 100%;
-
-  padding: var(--section-xl) 3rem;
-
   overflow: hidden;
+
+  padding: clamp(5rem, 8vw, 8rem) clamp(1.25rem, 5vw, 5rem);
 
   background:
     radial-gradient(
-      circle at 90% 10%,
-      rgba(27, 138, 228, 0.14),
-      transparent 28%
+      ellipse at 85% 15%,
+      rgba(27, 138, 228, 0.16),
+      transparent 40%
+    ),
+    radial-gradient(
+      ellipse at 10% 85%,
+      rgba(0, 84, 201, 0.12),
+      transparent 45%
     ),
     var(--blue-950);
 
   color: var(--white);
 }
 
-/* ----------------------------------
-   Subtle technical grid
------------------------------------ */
+/* Technical background grid */
 
 .tools::before {
   content: "";
-
   position: absolute;
   inset: 0;
 
   background-image:
-    linear-gradient(
-      rgba(105, 185, 242, 0.025) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(105, 185, 242, 0.025) 1px,
-      transparent 1px
-    );
+    linear-gradient(rgba(105, 185, 242, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(105, 185, 242, 0.025) 1px, transparent 1px);
 
   background-size: 46px 46px;
-
   pointer-events: none;
 }
 
-/* ----------------------------------
-   Inner
------------------------------------ */
+/* ==========================================
+   INNER
+========================================== */
 
 .toolsInner {
   position: relative;
@@ -54,23 +52,20 @@
 
   width: 100%;
   max-width: 1500px;
-
   margin: 0 auto;
 }
 
-/* ----------------------------------
-   Header
------------------------------------ */
+/* ==========================================
+   HEADER
+========================================== */
 
 .toolsHeader {
-  width: 100%;
-
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-
   gap: 4rem;
 
+  width: 100%;
   margin-bottom: clamp(4rem, 7vw, 6rem);
 }
 
@@ -81,23 +76,19 @@
 .sectionMarker {
   display: flex;
   align-items: center;
-
   gap: 0.6rem;
-
   margin-bottom: 1.25rem;
 }
 
 .markerLine {
   width: 42px;
   height: 3px;
-
   background: var(--yellow-500);
 }
 
 .markerPixel {
   width: 8px;
   height: 8px;
-
   background: var(--blue-500);
 }
 
@@ -105,49 +96,42 @@
   margin: 0 0 0.8rem;
 
   color: var(--yellow-500);
-
   font-size: 0.76rem;
   font-weight: 800;
-
   text-transform: uppercase;
   letter-spacing: 0.14em;
 }
 
-.toolsHeader h3 {
+.toolsHeader h2 {
   margin: 0;
 
   color: var(--white);
+  font-family: var(--font-heading);
 
   font-size: clamp(2.8rem, 5vw, 5rem);
   font-weight: 800;
-
   line-height: 0.98;
   letter-spacing: -0.055em;
 }
 
 .toolsIntro {
   max-width: 620px;
-
   margin: 1.5rem 0 0;
-  padding: 0;
 
   color: var(--blue-200);
-
   font-size: clamp(1rem, 1.4vw, 1.1rem);
-
   line-height: 1.75;
 }
 
-/* ----------------------------------
-   Header pixels
------------------------------------ */
+/* ==========================================
+   HEADER PIXELS
+========================================== */
 
 .headerPixels {
   position: relative;
 
   width: 125px;
   height: 105px;
-
   flex-shrink: 0;
 }
 
@@ -156,7 +140,6 @@
 .pixelThree,
 .pixelOutline {
   position: absolute;
-
   display: block;
 }
 
@@ -200,154 +183,226 @@
   border: 1px solid rgba(167, 216, 250, 0.45);
 }
 
-/* ----------------------------------
-   Skill sections
------------------------------------ */
+/* ==========================================
+   CATEGORY SYSTEM
+========================================== */
 
 .skillSections {
-  width: 100%;
-
-  border-top: 1px solid rgba(255, 255, 255, 0.16);
-}
-
-.skillSection {
-  width: 100%;
-
-  display: grid;
-  grid-template-columns: minmax(190px, 0.3fr) minmax(0, 1fr);
-
-  gap: clamp(2rem, 5vw, 5rem);
-
-  padding: clamp(2rem, 4vw, 3.25rem) 0;
-
-  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
-}
-
-/* ----------------------------------
-   Category
------------------------------------ */
-
-.skillSectionHeader {
-  display: flex;
-  flex-direction: column;
-
-  gap: 0.9rem;
-}
-
-.sectionNumber {
-  color: var(--yellow-500);
-
-  font-size: 0.7rem;
-  font-weight: 800;
-
-  letter-spacing: 0.14em;
-}
-
-.skillSection h4 {
-  max-width: 250px;
-
-  margin: 0;
-
-  color: var(--white);
-
-  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
-  font-weight: 700;
-
-  line-height: 1.2;
-  letter-spacing: -0.025em;
-}
-
-/* ----------------------------------
-   Technologies
------------------------------------ */
-
-.skillsGrid {
-  width: 100%;
-
-  display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
-
-  gap: 0.75rem;
-}
-
-/* ----------------------------------
-   Individual technology
------------------------------------ */
-
-.skillItem {
   position: relative;
-
-  min-height: 48px;
-
-  display: inline-flex;
-  align-items: center;
-
-  gap: 0.7rem;
-
-  padding: 0.75rem 1rem;
-
-  background: rgba(255, 255, 255, 0.045);
-
-  border: 1px solid rgba(255, 255, 255, 0.14);
-
-  overflow: hidden;
-
-  transition:
-    background 180ms ease,
-    border-color 180ms ease,
-    transform 180ms ease;
+  width: 100%;
 }
 
-.skillItem:hover {
-  background: rgba(27, 138, 228, 0.12);
+/* Continuous connecting line */
 
-  border-color: rgba(105, 185, 242, 0.5);
-
-  transform: translateY(-2px);
-}
-
-/* tiny yellow hover detail */
-
-.skillItem::after {
+.skillSections::before {
   content: "";
 
   position: absolute;
+  top: 38px;
+  bottom: 38px;
+  left: 37px;
 
-  right: 0;
-  bottom: 0;
+  width: 1px;
 
-  width: 5px;
-  height: 5px;
-
-  background: var(--yellow-500);
-
-  opacity: 0;
-
-  transition: opacity 180ms ease;
+  background: linear-gradient(
+    to bottom,
+    rgba(105, 185, 242, 0.15),
+    rgba(105, 185, 242, 0.6),
+    rgba(105, 185, 242, 0.15)
+  );
 }
 
-.skillItem:hover::after {
-  opacity: 1;
+/* ==========================================
+   CATEGORY ROW
+========================================== */
+
+.skillSection {
+  position: relative;
+
+  display: grid;
+  grid-template-columns:
+    minmax(240px, 0.42fr)
+    minmax(0, 1fr);
+
+  align-items: start;
+  gap: clamp(2rem, 5vw, 5rem);
+
+  width: 100%;
+  padding: clamp(2rem, 4vw, 3.5rem) 0;
 }
 
-/* ----------------------------------
-   Technology icon
------------------------------------ */
+.skillSection + .skillSection {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
 
-.skillIcon {
-  width: 20px;
-  height: 20px;
+/* ==========================================
+   CATEGORY HEADER
+========================================== */
 
-  flex-shrink: 0;
+.skillSectionHeader {
+  position: relative;
+  z-index: 1;
 
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+
+/* Circular timeline marker */
+
+.categoryMarker {
   display: flex;
   align-items: center;
   justify-content: center;
 
-  color: var(--yellow-500);
+  width: 76px;
+  height: 76px;
+  flex-shrink: 0;
 
-  font-size: 1rem;
+  border: 1px solid rgba(105, 185, 242, 0.4);
+  border-radius: 50%;
+
+  background: var(--blue-950);
+
+  transition:
+    border-color 250ms ease,
+    transform 350ms ease;
+}
+
+.categoryDot {
+  width: 18px;
+  height: 18px;
+
+  border-radius: 50%;
+  background: var(--blue-500);
+
+  box-shadow: 0 0 0 8px rgba(105, 185, 242, 0.08);
+
+  transition:
+    background 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.skillSection:hover .categoryMarker {
+  border-color: var(--yellow-500);
+}
+
+.skillSection:hover .categoryDot {
+  background: var(--yellow-500);
+
+  box-shadow: 0 0 0 10px rgba(255, 210, 31, 0.1);
+}
+
+.categoryContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+
+  padding-top: 0.8rem;
+}
+
+.sectionNumber {
+  color: var(--yellow-500);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+}
+
+.skillSection h3 {
+  max-width: 250px;
+  margin: 0;
+
+  color: var(--white);
+  font-size: clamp(1.25rem, 1.8vw, 1.65rem);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.035em;
+}
+
+/* ==========================================
+   SKILL TRACKS
+========================================== */
+
+.skillsGrid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+
+  gap: 0.85rem;
+
+  width: 100%;
+  margin: 0;
+  padding: 0.5rem 0;
+
+  list-style: none;
+}
+
+/* ==========================================
+   INDIVIDUAL SKILL
+========================================== */
+
+.skillItem {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  min-height: 56px;
+  padding: 0.85rem 1.15rem;
+
+  border: 1px solid rgba(105, 185, 242, 0.2);
+
+  background: rgba(255, 255, 255, 0.035);
+
+  transform: translateY(calc((var(--skill-index) % 3) * 3px));
+
+  transition:
+    background 220ms ease,
+    border-color 220ms ease,
+    box-shadow 220ms ease,
+    translate 220ms ease;
+}
+
+/* Staggered positioning */
+
+.skillItem:nth-child(3n + 2) {
+  margin-top: 9px;
+}
+
+.skillItem:nth-child(4n + 3) {
+  margin-top: 17px;
+}
+
+.skillItem:hover {
+  translate: 0 -5px;
+
+  background: rgba(27, 138, 228, 0.15);
+  border-color: var(--blue-500);
+
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* ==========================================
+   SKILL ICON
+========================================== */
+
+.skillIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+
+  color: var(--yellow-500);
+  font-size: 1.1rem;
+
+  transition:
+    color 220ms ease,
+    transform 220ms ease;
 }
 
 .skillIcon svg {
@@ -355,88 +410,180 @@
   height: 1em;
 }
 
-/* ----------------------------------
-   Technology name
------------------------------------ */
+.skillItem:hover .skillIcon {
+  color: var(--white);
+  transform: scale(1.12);
+}
+
+/* ==========================================
+   SKILL NAME
+========================================== */
 
 .skillName {
-  color: var(--blue-100);
+  color: var(--blue-100, #e4f3ff);
 
   font-size: 0.9rem;
   font-weight: 600;
-
   line-height: 1.2;
+  white-space: nowrap;
 }
 
-/* ----------------------------------
-   Tablet
------------------------------------ */
+/* ==========================================
+   YELLOW PIXEL ACCENT
+========================================== */
 
-@media (max-width: 900px) {
-  .tools {
-    padding: var(--section-lg) 2rem;
+.skillAccent {
+  position: absolute;
+
+  right: -3px;
+  top: -3px;
+
+  width: 7px;
+  height: 7px;
+
+  background: var(--yellow-500);
+
+  opacity: 0;
+  transform: scale(0.5);
+
+  transition:
+    opacity 200ms ease,
+    transform 200ms ease;
+}
+
+.skillItem:hover .skillAccent {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width: 1000px) {
+  .skillSection {
+    grid-template-columns:
+      minmax(200px, 0.4fr)
+      minmax(0, 1fr);
+
+    gap: 2rem;
   }
+}
 
-  .toolsHeader {
-    margin-bottom: 3.5rem;
+/* ==========================================
+   SMALL TABLET
+========================================== */
+
+@media (max-width: 800px) {
+  .tools {
+    padding: 5rem 2rem;
   }
 
   .skillSection {
     grid-template-columns: 1fr;
-
-    gap: 1.75rem;
+    gap: 1.5rem;
   }
 
   .skillSectionHeader {
-    flex-direction: row;
     align-items: center;
-
-    gap: 1rem;
   }
 
-  .skillSection h4 {
-    max-width: none;
+  .categoryContent {
+    padding-top: 0;
+  }
+
+  .skillsGrid {
+    padding-left: 100px;
   }
 }
 
-/* ----------------------------------
-   Mobile
------------------------------------ */
+/* ==========================================
+   MOBILE
+========================================== */
 
 @media (max-width: 650px) {
   .tools {
-    padding: var(--section-lg) 1.25rem;
+    padding: 4rem 1.25rem;
   }
 
   .toolsHeader {
     margin-bottom: 3rem;
   }
 
+  .toolsHeader h2 {
+    font-size: clamp(2.7rem, 12vw, 4rem);
+  }
+
   .headerPixels {
     display: none;
   }
 
-  .toolsHeader h3 {
-    font-size: clamp(2.7rem, 12vw, 4rem);
-  }
-
-  .toolsIntro {
-    margin-top: 1.25rem;
+  .skillSections::before {
+    left: 27px;
+    top: 28px;
+    bottom: 28px;
   }
 
   .skillSection {
     padding: 2rem 0;
   }
 
+  .skillSectionHeader {
+    gap: 1.25rem;
+  }
+
+  .categoryMarker {
+    width: 56px;
+    height: 56px;
+  }
+
+  .categoryDot {
+    width: 14px;
+    height: 14px;
+  }
+
+  .skillSection h3 {
+    font-size: 1.3rem;
+  }
+
   .skillsGrid {
-    gap: 0.6rem;
+    gap: 0.65rem;
+    padding-left: 0;
   }
 
   .skillItem {
+    min-height: 48px;
     padding: 0.7rem 0.85rem;
+  }
+
+  .skillItem:nth-child(3n + 2),
+  .skillItem:nth-child(4n + 3) {
+    margin-top: 0;
   }
 
   .skillName {
     font-size: 0.85rem;
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .skillItem,
+  .skillIcon,
+  .skillAccent,
+  .categoryMarker,
+  .categoryDot {
+    transition: none !important;
+  }
+
+  .skillItem:hover {
+    translate: none;
+  }
+
+  .skillItem:hover .skillIcon {
+    transform: none;
   }
 }

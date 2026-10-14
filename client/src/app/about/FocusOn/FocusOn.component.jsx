@@ -27,46 +27,83 @@ const FocusOn = () => {
   ];
 
   return (
-    <section className={styles.focusSection}>
-      <div className={styles.focusInner}>
-        <div className={styles.focusHeader}>
-          <div>
-            <div className={styles.sectionMarker} aria-hidden="true">
-              <span className={styles.markerLine} />
-              <span className={styles.markerPixel} />
-            </div>
-
-            <p className="eyebrowHeader">Focus</p>
-
-            <h3>What I Focus On</h3>
-          </div>
-
-          <div className={styles.headerPixels} aria-hidden="true">
-            <span className={styles.pixelOne} />
-            <span className={styles.pixelTwo} />
-            <span className={styles.pixelThree} />
-          </div>
+    
+<section
+  className={styles.focusSection}
+  aria-labelledby="focus-heading"
+>
+  <div className={styles.focusInner}>
+    <div className={styles.focusHeader}>
+      <div>
+        <div className={styles.sectionMarker} aria-hidden="true">
+          <span className={styles.markerLine} />
+          <span className={styles.markerPixel} />
         </div>
 
-        <ul className={styles.focusList}>
-          {focuses.map((focus, index) => (
-            <li key={index} className={styles.focusItem}>
-              <div className={styles.focusTop}>
-                <span className={styles.focusNumber}>
-                  {String(index + 1).padStart(2, "0")}
-                </span>
+        <p className="eyebrowHeader">Focus</p>
 
-                <span className={styles.focusIcon} aria-hidden="true">
-                  {focus.icon}
-                </span>
-              </div>
-
-              <p>{focus.text}</p>
-            </li>
-          ))}
-        </ul>
+        <h2 id="focus-heading">What I Focus On</h2>
       </div>
-    </section>
+
+      {/* Decorative connection */}
+      <div className={styles.headerGraphic} aria-hidden="true">
+        <svg
+          viewBox="0 0 180 90"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M 5 62 C 50 62, 45 12, 100 28 S 145 75, 175 20"
+            className={styles.graphicPath}
+          />
+
+          <circle
+            cx="100"
+            cy="28"
+            r="8"
+            className={styles.graphicNode}
+          />
+
+          <circle
+            cx="175"
+            cy="20"
+            r="4"
+            className={styles.graphicDot}
+          />
+
+          <rect
+            x="22"
+            y="22"
+            width="10"
+            height="10"
+            className={styles.graphicPixel}
+          />
+        </svg>
+      </div>
+    </div>
+
+    <ul className={styles.focusList}>
+      {focuses.map((focus, index) => (
+        <li key={index} className={styles.focusItem}>
+          <div className={styles.focusTop}>
+            <span className={styles.focusNumber}>
+              {String(index + 1).padStart(2, "0")}
+            </span>
+
+            <span className={styles.focusIcon} aria-hidden="true">
+              {focus.icon}
+            </span>
+          </div>
+
+          <p>{focus.text}</p>
+
+          <span className={styles.focusAccent} aria-hidden="true" />
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
   );
 };
 

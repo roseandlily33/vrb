@@ -4,7 +4,7 @@ import { skills } from "./ToolsList";
 
 const ToolsTechnologies = () => {
   return (
-    <section className={styles.tools}>
+    <section className={styles.tools} aria-labelledby="tools-heading">
       <div className={styles.toolsInner}>
         <div className={styles.toolsHeader}>
           <div className={styles.headerContent}>
@@ -15,7 +15,7 @@ const ToolsTechnologies = () => {
 
             <p className={styles.eyebrow}>Technical Toolkit</p>
 
-            <h3>Tools & Technologies</h3>
+            <h2 id="tools-heading">Tools & Technologies</h2>
 
             <p className={styles.toolsIntro}>
               Focused on building high-performance, scalable web applications
@@ -35,24 +35,36 @@ const ToolsTechnologies = () => {
           {Object.entries(skills).map(([section, skillList], sectionIndex) => (
             <div key={section} className={styles.skillSection}>
               <div className={styles.skillSectionHeader}>
-                <span className={styles.sectionNumber}>
-                  {String(sectionIndex + 1).padStart(2, "0")}
-                </span>
+                <div className={styles.categoryMarker} aria-hidden="true">
+                  <span className={styles.categoryDot} />
+                </div>
 
-                <h4>{section}</h4>
+                <div className={styles.categoryContent}>
+                  <span className={styles.sectionNumber}>
+                    {String(sectionIndex + 1).padStart(2, "0")}
+                  </span>
+
+                  <h3>{section}</h3>
+                </div>
               </div>
 
-              <div className={styles.skillsGrid}>
-                {skillList.map((skill) => (
-                  <div key={skill.name} className={styles.skillItem}>
+              <ul className={styles.skillsGrid}>
+                {skillList.map((skill, index) => (
+                  <li
+                    key={skill.name}
+                    className={styles.skillItem}
+                    style={{ "--skill-index": index }}
+                  >
                     <span className={styles.skillIcon} aria-hidden="true">
                       {skill.icon}
                     </span>
 
                     <span className={styles.skillName}>{skill.name}</span>
-                  </div>
+
+                    <span className={styles.skillAccent} aria-hidden="true" />
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
           ))}
         </div>

@@ -5,20 +5,46 @@ import PrimaryButton from "@/app/Components/PrimaryButton/PrimaryButton.componen
 
 const PortfolioLink = () => {
   return (
-    <section className={styles.linkContainer}>
-      <div className={styles.words}>
-        <h2 className={styles.h2}>Want to see more of my work?</h2>
-        <p>Check out my full portfolio for more projects and case studies.</p>
+    <section
+      className={styles.linkContainer}
+      aria-labelledby="portfolio-cta-title"
+    >
+      <div className={styles.inner}>
+        <div className={styles.words}>
+          <div className={styles.eyebrow}>
+            <span className={styles.eyebrowLine} aria-hidden="true" />
+            <span className={styles.eyebrowPixel} aria-hidden="true" />
+            <span>Explore more</span>
+          </div>
+
+          <h2 id="portfolio-cta-title" className={styles.h2}>
+            There&apos;s more where that came from.
+          </h2>
+
+          <p>
+            Explore my full portfolio for more projects, case studies, and a
+            closer look at how I approach design and development.
+          </p>
+        </div>
+
+        <div className={styles.buttonWrapper}>
+          <a
+            href="https://victoriabenoit-portfolio.onrender.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.portfolioLink}
+            aria-label="Explore my full portfolio (opens in a new tab)"
+          >
+            <CTAButton>Explore my portfolio</CTAButton>
+          </a>
+        </div>
       </div>
-      <div className={styles.buttonWrapper}>
-        <a
-          href="https://victoriabenoit-portfolio.onrender.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          style={{ textDecoration: "none" }}
-        >
-          <CTAButton>View Portfolio</CTAButton>
-        </a>
+
+      <div className={styles.decorativePixels} aria-hidden="true">
+        <span />
+        <span />
+        <span />
+        <span />
       </div>
     </section>
   );

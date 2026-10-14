@@ -1,30 +1,35 @@
+/* ==========================================
+   VRB FEATURED PROJECT
+   Digital & Playful Design System
+========================================== */
+
 .projectsSection {
   position: relative;
+  isolation: isolate;
   width: 100%;
   overflow: hidden;
 
-  padding: var(--section-xl);
+  padding: clamp(6rem, 9vw, 9rem) clamp(1.5rem, 6vw, 6rem);
 
-  background:
-    radial-gradient(circle at 15% 40%, rgba(0, 84, 201, 0.2), transparent 27%),
-    radial-gradient(
-      circle at 90% 10%,
-      rgba(105, 185, 242, 0.08),
-      transparent 22%
-    ),
-    var(--blue-950);
+  background: var(--blue-950);
+  font-family: var(--font-body);
 }
+
+/* Subtle technical grid */
 
 .projectsSection::before {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 0;
 
   background-image:
-    linear-gradient(rgba(105, 185, 242, 0.025) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(105, 185, 242, 0.025) 1px, transparent 1px);
+    linear-gradient(rgba(105, 185, 242, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(105, 185, 242, 0.035) 1px, transparent 1px);
 
-  background-size: 46px 46px;
+  background-size: 48px 48px;
+
+  mask-image: linear-gradient(to right, transparent, black 65%);
 
   pointer-events: none;
 }
@@ -38,175 +43,246 @@
   margin: 0 auto;
 }
 
-/* ----------------------------------
-   Header
------------------------------------ */
+/* ==========================================
+   SECTION HEADER
+========================================== */
 
 .projectsHeader {
-  position: relative;
-
-  display: grid;
-  grid-template-columns: 120px minmax(0, 1fr) 220px;
-  align-items: end;
-  gap: clamp(2rem, 5vw, 5rem);
-
-  margin-bottom: clamp(3rem, 6vw, 5.5rem);
-}
-
-.projectLabel {
   display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 3rem;
+
+  margin-bottom: clamp(3.5rem, 6vw, 6rem);
 }
 
-.projectLabel > span:first-child {
-  color: var(--yellow-500);
+.headerContent {
+  max-width: 830px;
+}
 
-  font-size: 0.82rem;
+.sectionEyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+
+  margin-bottom: 1.5rem;
+
+  color: var(--yellow-500);
+  font-size: 0.76rem;
   font-weight: 800;
   letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
-.labelLine {
-  width: 46px;
-  height: 3px;
+.eyebrowPixel {
+  position: relative;
+  display: block;
+  width: 9px;
+  height: 9px;
+  background: var(--yellow-500);
+}
 
+.eyebrowPixel::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: -5px;
+
+  width: 5px;
+  height: 5px;
   background: var(--blue-500);
 }
 
 .projectsHeader h2 {
   margin: 0;
 
-  font-size: clamp(3rem, 5.5vw, 5.5rem);
-  line-height: 0.95;
-  letter-spacing: -0.06em;
-
   color: var(--white);
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 5.5vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.06em;
 }
 
-/* ----------------------------------
-   Header pixels
------------------------------------ */
+.projectsHeader h2 span {
+  color: var(--blue-500);
+}
 
-.headerPixels {
-  position: relative;
+.projectsHeader p {
+  max-width: 620px;
+  margin: 1.5rem 0 0;
 
+  color: var(--blue-200);
+  font-size: clamp(1rem, 1.2vw, 1.15rem);
+  line-height: 1.75;
+}
+
+/* ==========================================
+   HEADER CIRCUIT DECORATION
+========================================== */
+
+.headerDecoration {
   width: 200px;
-  height: 120px;
-
-  justify-self: end;
+  flex-shrink: 0;
+  opacity: 0.9;
 }
 
-.pixel,
-.pixelOutline {
-  position: absolute;
+.headerDecoration svg {
   display: block;
+  width: 100%;
+  height: auto;
 }
 
-.pixelOne {
-  width: 52px;
-  height: 52px;
-
-  right: 52px;
-  top: 0;
-
-  background: var(--blue-800);
+.decorCircuit {
+  stroke: var(--blue-500);
+  stroke-width: 2;
 }
 
-.pixelTwo {
-  width: 27px;
-  height: 27px;
-
-  right: 20px;
-  top: 53px;
-
-  background: var(--yellow-500);
+.decorCircuitSecondary {
+  stroke: var(--blue-800);
+  stroke-width: 2;
 }
 
-.pixelThree {
-  width: 14px;
-  height: 14px;
-
-  right: 92px;
-  top: 74px;
-
-  background: var(--blue-500);
+.decorNode {
+  fill: var(--blue-950);
+  stroke: var(--blue-500);
+  stroke-width: 2;
 }
 
-.pixelFour {
-  width: 63px;
-  height: 63px;
-
-  right: 0;
-  top: 18px;
-
-  border: 1px solid rgba(105, 185, 242, 0.6);
+.decorPixel {
+  fill: var(--blue-800);
 }
 
-/* ----------------------------------
-   Featured project layout
------------------------------------ */
+.decorYellow {
+  fill: var(--yellow-500);
+}
+
+/* ==========================================
+   FEATURED PROJECT LAYOUT
+========================================== */
 
 .featuredProjectCard {
   position: relative;
 
   display: grid;
-  grid-template-columns: minmax(0, 1.25fr) minmax(340px, 0.75fr);
+  grid-template-columns:
+    minmax(0, 1.15fr)
+    minmax(0, 0.85fr);
 
-  max-width: 1320px;
-  margin: 0 auto;
+  align-items: center;
+  gap: clamp(3rem, 5vw, 6rem);
 
-  overflow: visible;
-
-  background: transparent;
+  width: 100%;
 }
 
-/* ----------------------------------
-   Project image
------------------------------------ */
+/* ==========================================
+   PROJECT IMAGE AREA
+========================================== */
 
 .projectImageArea {
   position: relative;
+  min-width: 0;
 
-  padding: 0 clamp(1.5rem, 4vw, 4rem) clamp(1.5rem, 4vw, 4rem) 0;
+  padding: 0 1.5rem 1.5rem 0;
 }
 
 .projectImageWrap {
   position: relative;
   z-index: 2;
 
-  height: clamp(400px, 42vw, 620px);
-
+  width: 100%;
   overflow: hidden;
 
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: var(--blue-900);
+  border: 1px solid rgba(105, 185, 242, 0.25);
+
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.25);
+}
+
+/* ==========================================
+   BROWSER FRAME
+========================================== */
+
+.browserBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+
+  height: 42px;
+  padding: 0 1rem;
 
   background: var(--blue-900);
+  border-bottom: 1px solid rgba(105, 185, 242, 0.2);
+}
 
-  box-shadow:
-    0 35px 80px rgba(0, 0, 0, 0.3),
-    0 0 80px rgba(0, 84, 201, 0.12);
+.browserDots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.browserDots span {
+  width: 7px;
+  height: 7px;
+
+  background: var(--blue-500);
+  border-radius: 50%;
+}
+
+.browserDots span:nth-child(2) {
+  background: var(--blue-800);
+}
+
+.browserDots span:nth-child(3) {
+  background: var(--yellow-500);
+}
+
+.browserLabel {
+  color: var(--blue-300);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+
+.browserPixel {
+  display: block;
+  width: 8px;
+  height: 8px;
+  background: var(--yellow-500);
+}
+
+/* ==========================================
+   SCREENSHOT
+========================================== */
+
+.projectScreenshot {
+  position: relative;
+  width: 100%;
+  height: clamp(340px, 38vw, 560px);
+  overflow: hidden;
+
+  background: var(--white);
 }
 
 .projectImage {
+  display: block;
   width: 100%;
   height: 100%;
 
   object-fit: cover;
   object-position: top;
 
-  display: block;
-
   transition: transform 500ms ease;
 }
 
 .featuredProjectCard:hover .projectImage {
-  transform: scale(1.015);
+  transform: scale(1.025);
 }
 
-/* ----------------------------------
-   Pixels around image
------------------------------------ */
+/* ==========================================
+   IMAGE PIXELS
+========================================== */
 
 .imagePixelOne,
 .imagePixelTwo,
@@ -217,279 +293,375 @@
 
 .imagePixelOne {
   z-index: 1;
-
-  width: 110px;
-  height: 110px;
-
   right: 0;
   bottom: 0;
+
+  width: 105px;
+  height: 105px;
 
   background: var(--blue-800);
 }
 
 .imagePixelTwo {
   z-index: 3;
+  right: 90px;
+  bottom: 22px;
 
-  width: 35px;
-  height: 35px;
-
-  right: 95px;
-  bottom: 26px;
+  width: 28px;
+  height: 28px;
 
   background: var(--yellow-500);
 }
 
 .imagePixelThree {
   z-index: 3;
+  left: -12px;
+  top: 24%;
 
-  width: 17px;
-  height: 17px;
-
-  left: -17px;
-  top: 25%;
+  width: 16px;
+  height: 16px;
 
   background: var(--blue-500);
 }
 
-/* ----------------------------------
-   Project content
------------------------------------ */
+/* ==========================================
+   PROJECT CONTENT
+========================================== */
 
 .projectContent {
   position: relative;
+  min-width: 0;
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: flex-start;
 
-  padding: clamp(2rem, 5vw, 5rem) 0 clamp(2rem, 5vw, 5rem)
-    clamp(2rem, 5vw, 5rem);
+  padding-left: clamp(1.5rem, 3vw, 3rem);
+  border-left: 1px solid rgba(105, 185, 242, 0.2);
 }
 
-.projectContent::before {
-  content: "";
+/* ==========================================
+   PROJECT META
+========================================== */
 
-  position: absolute;
-  left: 0;
-  top: 18%;
-  bottom: 18%;
+.projectMeta {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
 
-  width: 1px;
-
-  background: rgba(255, 255, 255, 0.14);
+  width: 100%;
+  margin-bottom: 2rem;
 }
 
-.projectType {
-  margin: 0 0 1.25rem;
-
-  color: var(--yellow-500);
-
-  font-size: 0.78rem;
+.projectIndex {
+  color: var(--blue-500);
+  font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.12em;
+}
+
+.projectMetaLine {
+  flex: 1;
+  max-width: 90px;
+  height: 1px;
+  background: var(--blue-700);
+}
+
+/* ==========================================
+   PROJECT TYPE
+========================================== */
+
+.projectType {
+  margin: 0 0 1rem;
+
+  color: var(--yellow-500);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  line-height: 1.6;
   text-transform: uppercase;
 }
 
+/* ==========================================
+   PROJECT TITLE
+========================================== */
+
 .projectContent h3 {
   max-width: 540px;
-
   margin: 0 0 1.5rem;
 
   color: var(--white);
-
-  font-size: clamp(2.4rem, 4vw, 4rem);
-  line-height: 1;
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 3.8vw, 4rem);
   font-weight: 800;
-  letter-spacing: -0.05em;
+  line-height: 1.05;
+  letter-spacing: -0.055em;
 }
 
-.projectContent > p:not(.projectType) {
-  max-width: 540px;
+/* ==========================================
+   DESCRIPTION
+========================================== */
 
+.projectDescription {
+  max-width: 540px;
   margin: 0;
 
-  color: var(--blue-200);
-
+  color: var(--blue-100);
   font-size: 1.05rem;
   line-height: 1.8;
 }
 
-/* ----------------------------------
-   Tags
------------------------------------ */
+.projectDescriptionSecondary {
+  max-width: 540px;
+  margin: 1rem 0 0;
+
+  color: var(--blue-300);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+/* ==========================================
+   TECHNOLOGY TAGS
+========================================== */
 
 .projectTags {
   display: flex;
   flex-wrap: wrap;
-
   gap: 0.65rem;
 
   margin-top: 2rem;
 }
 
 .projectTags span {
-  padding: 0.5rem 0.9rem;
+  padding: 0.55rem 0.9rem;
 
-  border: 1px solid rgba(105, 185, 242, 0.28);
-  border-radius: 0;
+  color: var(--blue-200);
+  background: rgba(0, 84, 201, 0.15);
+  border: 1px solid rgba(105, 185, 242, 0.25);
 
-  background: rgba(0, 84, 201, 0.1);
-
-  color: var(--blue-300);
-
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.04em;
 }
 
-/* ----------------------------------
-   Link
------------------------------------ */
+/* ==========================================
+   PROJECT ACTION
+========================================== */
+
+.projectAction {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  width: 100%;
+  margin-top: 2.5rem;
+}
 
 .projectLink {
-  position: relative;
-
-  width: fit-content;
-
   display: inline-flex;
   align-items: center;
   gap: 0.75rem;
+  flex-shrink: 0;
 
-  margin-top: 2.5rem;
+  padding: 0.9rem 1.25rem;
 
-  color: var(--white);
-
-  font-size: 0.9rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-
-  text-decoration: none;
-}
-
-.projectLink::after {
-  content: "";
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -7px;
-
-  height: 2px;
-
+  color: var(--blue-950);
   background: var(--yellow-500);
 
-  transform: scaleX(0.35);
-  transform-origin: left;
+  font-size: 0.85rem;
+  font-weight: 800;
+  line-height: 1.5;
+  text-decoration: none;
 
-  transition: transform 180ms ease;
+  transition:
+    background 200ms ease,
+    transform 200ms ease;
+}
+
+.projectLink:hover {
+  background: var(--yellow-400);
+  transform: translateY(-2px);
+}
+
+.projectLink:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 4px;
 }
 
 .projectLink svg {
-  color: var(--yellow-500);
-
-  transition: transform 180ms ease;
-}
-
-.projectLink:hover::after {
-  transform: scaleX(1);
+  width: 14px;
+  height: 14px;
+  transition: transform 200ms ease;
 }
 
 .projectLink:hover svg {
-  transform: translateX(5px);
+  transform: translateX(4px);
 }
 
-/* ----------------------------------
-   Tablet
------------------------------------ */
+/* ==========================================
+   ACTION CIRCUIT
+========================================== */
+
+.actionCircuit {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  width: 85px;
+  height: 20px;
+}
+
+.actionCircuitLine {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 9px;
+
+  height: 2px;
+  background: var(--blue-700);
+
+  transform: translateY(-50%);
+  overflow: hidden;
+}
+
+.actionCircuitLine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+
+  background: var(--yellow-500);
+  transform: translateX(-100%);
+
+  transition: transform 450ms ease;
+}
+
+.actionCircuitNode {
+  position: absolute;
+  top: 50%;
+  right: 0;
+
+  width: 12px;
+  height: 12px;
+
+  background: var(--blue-950);
+  border: 2px solid var(--blue-500);
+  border-radius: 50%;
+
+  transform: translateY(-50%);
+
+  transition:
+    background 250ms ease,
+    border-color 250ms ease;
+}
+
+.projectAction:hover .actionCircuitLine::after {
+  transform: translateX(0);
+}
+
+.projectAction:hover .actionCircuitNode {
+  background: var(--yellow-500);
+  border-color: var(--yellow-500);
+}
+
+/* ==========================================
+   TABLET
+========================================== */
 
 @media (max-width: 1100px) {
   .projectsSection {
-    padding: var(--section-lg);
+    padding: 6rem 3rem;
+  }
+
+  .featuredProjectCard {
+    gap: 3rem;
+  }
+
+  .projectContent {
+    padding-left: 2rem;
+  }
+
+  .projectContent h3 {
+    font-size: clamp(2.3rem, 3.6vw, 3.5rem);
+  }
+
+  .actionCircuit {
+    display: none;
+  }
+}
+
+/* ==========================================
+   SMALL TABLET
+========================================== */
+
+@media (max-width: 850px) {
+  .projectsSection {
+    padding: 5.5rem 2rem;
   }
 
   .projectsHeader {
-    grid-template-columns: 90px minmax(0, 1fr);
+    margin-bottom: 3rem;
   }
 
-  .headerPixels {
+  .headerDecoration {
     display: none;
   }
 
   .featuredProjectCard {
-    grid-template-columns: minmax(0, 1fr) minmax(300px, 0.8fr);
-  }
-
-  .projectImageWrap {
-    height: clamp(360px, 45vw, 500px);
-  }
-
-  .projectContent {
-    padding-left: 3rem;
-  }
-}
-
-/* ----------------------------------
-   Small tablet
------------------------------------ */
-
-@media (max-width: 850px) {
-  .projectsHeader {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .projectLabel {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .featuredProjectCard {
-    grid-template-columns: 1fr;
+    gap: 3rem;
   }
 
   .projectImageArea {
-    padding-right: 2rem;
-    padding-bottom: 2rem;
+    padding-right: 1.5rem;
+    padding-bottom: 1.5rem;
   }
 
-  .projectImageWrap {
-    height: clamp(340px, 60vw, 520px);
+  .projectScreenshot {
+    height: clamp(350px, 55vw, 520px);
   }
 
   .projectContent {
-    padding: 3rem 0 0;
-  }
-
-  .projectContent::before {
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: auto;
-
-    width: 100%;
-    height: 1px;
+    padding: 0;
+    border-left: 0;
   }
 
   .projectContent h3 {
-    margin-top: 0;
+    font-size: clamp(2.6rem, 5vw, 3.7rem);
+  }
+
+  .projectDescription,
+  .projectDescriptionSecondary {
+    max-width: 680px;
   }
 }
 
-/* ----------------------------------
-   Mobile
------------------------------------ */
+/* ==========================================
+   MOBILE
+========================================== */
 
 @media (max-width: 700px) {
   .projectsSection {
-    padding: var(--section-lg);
+    padding: 4.5rem 1.5rem;
   }
 
   .projectsHeader {
     margin-bottom: 2.5rem;
   }
 
+  .sectionEyebrow {
+    font-size: 0.67rem;
+  }
+
   .projectsHeader h2 {
-    font-size: clamp(2.8rem, 12vw, 4rem);
+    font-size: clamp(2.7rem, 10vw, 4rem);
+  }
+
+  .projectsHeader p {
+    font-size: 1rem;
+  }
+
+  .featuredProjectCard {
+    gap: 2.5rem;
   }
 
   .projectImageArea {
@@ -497,54 +669,88 @@
     padding-bottom: 1rem;
   }
 
-  .projectImageWrap {
-    height: clamp(270px, 72vw, 390px);
+  .projectScreenshot {
+    height: clamp(260px, 65vw, 400px);
+  }
+
+  .browserBar {
+    height: 36px;
+    padding: 0 0.75rem;
+  }
+
+  .browserLabel {
+    font-size: 0.55rem;
   }
 
   .imagePixelOne {
-    width: 72px;
-    height: 72px;
+    width: 70px;
+    height: 70px;
   }
 
   .imagePixelTwo {
-    width: 24px;
-    height: 24px;
-
-    right: 60px;
-    bottom: 16px;
+    right: 57px;
+    bottom: 14px;
+    width: 22px;
+    height: 22px;
   }
 
   .imagePixelThree {
     display: none;
   }
 
-  .projectContent {
-    padding-top: 2.5rem;
-  }
-
   .projectContent h3 {
-    font-size: clamp(2.2rem, 10vw, 3.2rem);
+    font-size: clamp(2.3rem, 9vw, 3.3rem);
   }
 
-  .projectContent > p:not(.projectType) {
+  .projectDescription {
     font-size: 1rem;
+  }
+
+  .projectDescriptionSecondary {
+    font-size: 0.92rem;
+  }
+
+  .projectAction {
+    margin-top: 2rem;
   }
 }
 
-/* ----------------------------------
-   Very small mobile
------------------------------------ */
+/* ==========================================
+   SMALL MOBILE
+========================================== */
 
 @media (max-width: 430px) {
   .projectsSection {
-    padding-inline: 1.25rem;
+    padding: 4rem 1.25rem;
   }
 
-  .projectImageWrap {
-    height: 250px;
+  .projectsHeader h2 {
+    font-size: clamp(2.4rem, 10vw, 3rem);
+  }
+
+  .projectScreenshot {
+    height: 245px;
   }
 
   .projectTags span {
-    font-size: 0.72rem;
+    font-size: 0.7rem;
+  }
+
+  .projectLink {
+    padding: 0.85rem 1rem;
+  }
+}
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .projectImage,
+  .projectLink,
+  .projectLink svg,
+  .actionCircuitLine::after,
+  .actionCircuitNode {
+    transition: none !important;
   }
 }

@@ -25,49 +25,109 @@ const RelatedBlogs = ({ postTitle }) => {
     );
   }, [pathname]);
 
-  const currentPost = resolveRelatedSourcePost(postTitle, articles) || inferredPost;
+  const currentPost =
+    resolveRelatedSourcePost(postTitle, articles) || inferredPost;
   const relatedPosts = getRelatedPosts(currentPost, articles, 4);
 
   return (
     <section className={styles.relatedSection}>
-      <div className={styles.relatedHeader}>
-        <div>
-          <p className={styles.relatedEyebrow}>Keep Reading</p>
-          <h2>Related Articles</h2>
+      <div className={styles.relatedInner}>
+        {/* SECTION HEADER */}
+        <div className={styles.relatedHeader}>
+          <div className={styles.relatedHeading}>
+            <div className={styles.relatedTopline}>
+              <span className={styles.relatedMarker} aria-hidden="true">
+                <span />
+                <span />
+              </span>
+
+              <p className={styles.relatedEyebrow}>Keep Reading</p>
+            </div>
+
+            <h2>Related Articles</h2>
+
+            <p className={styles.relatedSubtitle}>
+              More ideas, insights, and practical advice to explore.
+            </p>
+          </div>
+
+          <Link href="/blog" className={styles.viewAllLink}>
+            View All Articles
+            <span aria-hidden="true">↗</span>
+          </Link>
         </div>
 
-        <Link href="/blog" className={styles.viewAllLink}>
-          View all articles →
-        </Link>
-      </div>
+        {/* HORIZONTAL ARTICLE SCROLLER */}
+        <div className={styles.relatedScroller}>
+          {relatedPosts.map((relatedPost, index) => (
+            <article
+              key={relatedPost.slug}
+              className={`${styles.relatedCard} ${
+                index % 2 === 0
+                  ? styles.relatedCardLight
+                  : styles.relatedCardDark
+              }`}
+            >
+              {/* CARD NUMBER */}
+              <div className={styles.relatedCardNumber} aria-hidden="true">
+                {String(index + 1).padStart(2, "0")}
+              </div>
 
-      <div className={styles.relatedScroller}>
-        {relatedPosts.map((relatedPost) => (
-          <article key={relatedPost.slug} className={styles.relatedCard}>
-            <div className={styles.relatedPixel} aria-hidden="true" />
+              {/* DECORATIVE GRAPHICS */}
+              <div className={styles.relatedPixel} aria-hidden="true">
+                <span />
+                <span />
+                <span />
+              </div>
 
-            <p className={styles.relatedCategory}>
-              {getCategoryName(relatedPost.category)}
-            </p>
+              <div className={styles.relatedOrbit} aria-hidden="true">
+                <span />
+              </div>
 
-            <h3>{relatedPost.title}</h3>
+              {/* ARTICLE CONTENT */}
+              <div className={styles.relatedCardContent}>
+                <p className={styles.relatedCategory}>
+                  {getCategoryName(relatedPost.category)}
+                </p>
 
-            <p className={styles.relatedDescription}>
-              {relatedPost.description}
-            </p>
+                <h3>
+                  <Link
+                    href={buildBlogPostPath(relatedPost)}
+                    className={styles.relatedTitleLink}
+                  >
+                    {relatedPost.title}
+                  </Link>
+                </h3>
 
-            <div className={styles.relatedFooter}>
-              <span>{relatedPost.readTime}</span>
+                <p className={styles.relatedDescription}>
+                  {relatedPost.description}
+                </p>
+              </div>
 
-              <Link
-                href={buildBlogPostPath(relatedPost)}
-                className={styles.relatedLink}
-              >
-                Read →
-              </Link>
-            </div>
-          </article>
-        ))}
+              {/* CARD FOOTER */}
+              <div className={styles.relatedFooter}>
+                <span className={styles.relatedReadTime}>
+                  {relatedPost.readTime}
+                </span>
+
+                <Link
+                  href={buildBlogPostPath(relatedPost)}
+                  className={styles.relatedLink}
+                >
+                  Read Article
+                  <span aria-hidden="true">↗</span>
+                </Link>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        {/* SCROLL HINT */}
+        <div className={styles.relatedScrollHint} aria-hidden="true">
+          <span>Explore More</span>
+          <span className={styles.relatedScrollLine} />
+          <span>→</span>
+        </div>
       </div>
     </section>
   );

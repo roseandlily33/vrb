@@ -49,54 +49,103 @@ export default function Services() {
     },
   ];
   return (
-    <section className={styles.servicesSection}>
+    <section
+      className={styles.servicesSection}
+      aria-labelledby="services-heading"
+    >
       <div className={styles.servicesInner}>
+        {/* =====================================
+        SECTION HEADER
+    ===================================== */}
+
         <div className={styles.servicesHeader}>
           <div className={styles.headerLabel}>
-            <span className={styles.headerNumber}>#01</span>
-            <span className={styles.headerLine}></span>
+            {/* <span className={styles.headerNumber}>#01</span> */}
+            <span className={styles.headerLine} aria-hidden="true" />
           </div>
 
           <div className={styles.headerContent}>
-            <h2>Services I offer</h2>
+            <p className={styles.servicesEyebrow}>What I can help you with</p>
+
+            <h2 id="services-heading">
+              Creative design.
+              <br />
+              <span>Thoughtful development.</span>
+            </h2>
 
             <p>
-              I provide freelance web design and development services for
-              businesses in Halifax, Nova Scotia, and across Canada. Projects
-              range from responsive business websites and UX/UI design to custom
-              web applications, platform development, website redesigns and
-              ongoing website maintenance.
+              Whether you're building your first website, refreshing an outdated
+              one or looking for something more custom, I offer web design and
+              development services tailored to your business.
             </p>
 
             <p>
-              From polished websites to custom functionality, I help turn ideas
-              into clean, usable digital experiences.
+              From planning the experience to bringing the final design to life,
+              I focus on creating websites that look professional, work well and
+              make sense for the people using them.
             </p>
           </div>
 
+          {/* Logo-inspired decorative pixels */}
           <div className={styles.headerPixels} aria-hidden="true">
             <span className={`${styles.pixel} ${styles.pixelOne}`} />
             <span className={`${styles.pixel} ${styles.pixelTwo}`} />
             <span className={`${styles.pixel} ${styles.pixelThree}`} />
             <span className={`${styles.pixelOutline} ${styles.pixelFour}`} />
+
+            <svg
+              className={styles.headerCircuit}
+              viewBox="0 0 220 200"
+              fill="none"
+            >
+              <path d="M15 145H72L95 122H155" />
+              <path d="M35 166H115L135 146H185" />
+              <circle cx="155" cy="122" r="5" />
+              <circle cx="185" cy="146" r="5" />
+            </svg>
           </div>
         </div>
+
+        {/* =====================================
+        SIX SERVICE CARDS
+    ===================================== */}
 
         <div className={styles.servicesGrid}>
           {services.map((service, index) => (
             <div className={styles.serviceItem} key={service.title}>
-              <span className={styles.serviceNumber}>
-                {String(index + 1).padStart(2, "0")}
-              </span>
+              <div className={styles.serviceTop}>
+                <span className={styles.serviceNumber}>
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+
+                <span className={styles.serviceCircuit} aria-hidden="true">
+                  <span className={styles.circuitLine} />
+                  <span className={styles.circuitNode} />
+                </span>
+              </div>
 
               <Card
                 icon={service.icon}
                 title={service.title}
                 description={service.description}
                 learnMoreLink="/services"
+                variant="minimal"
               />
             </div>
           ))}
+        </div>
+
+        {/* =====================================
+        SECTION FOOTER
+    ===================================== */}
+
+        <div className={styles.servicesFooter}>
+          <span className={styles.footerPixel} aria-hidden="true" />
+
+          <p>
+            Every project is different. The goal is to find the right solution
+            for your business.
+          </p>
         </div>
       </div>
     </section>

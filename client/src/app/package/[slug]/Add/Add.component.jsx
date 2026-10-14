@@ -83,7 +83,7 @@ const OptionalAddOns = ({ pkg = {} }) => {
   return (
     <>
       {uniqueOptionalAddOns?.length > 0 && (
-        <section className={styles.section}>
+        <section className={styles.section} style={{marginTop: "4rem"}}>
           <div className={styles.sectionHeader}>
             <span className={styles.eyebrow}>Flexible Options</span>
             <h2>Optional Add-Ons</h2>

@@ -72,89 +72,163 @@ export default function ContactForm() {
       name="contact"
       method="POST"
     >
+      {/* =========================================
+      FORM INTEGRATION
+  ========================================= */}
+
       <input type="hidden" name="form-name" value="contact" />
       <input type="hidden" name="bot-field" />
 
-      {/* <div className={styles.formHeader}>
-        <span className={styles.formLine} aria-hidden="true" />
-        <span className={styles.formPixel} aria-hidden="true" />
-      </div> */}
+      {/* =========================================
+      FORM INTRODUCTION
+  ========================================= */}
 
-      <Input
-        label="Name"
-        name="name"
-        value={form.name}
-        onChange={handleChange}
-        placeholder="Your name"
-        required
-        icon={<FiUser />}
-      />
+      <div className={styles.formIntro}>
+        <div className={styles.formEyebrow}>
+          <span className={styles.formMarker} aria-hidden="true">
+            <span />
+            <span />
+          </span>
 
-      <Input
-        label="Email"
-        name="email"
-        type="email"
-        value={form.email}
-        onChange={handleChange}
-        placeholder="you@email.com"
-        required
-        icon={<FiMail />}
-      />
+          <span>Start a Project</span>
+        </div>
 
-      <Textarea
-        label="Message"
-        name="message"
-        value={form.message}
-        onChange={handleChange}
-        placeholder="Tell me about your project..."
-        required
-        icon={<FiMessageCircle />}
-      />
+        <h2 className={styles.formTitle}>Tell me what you have in mind.</h2>
 
-      <div className={styles.rowFields}>
-        <Input
-          label="Budget"
-          name="budget"
-          value={form.budget}
-          onChange={handleChange}
-          placeholder="Estimated budget (optional)"
-          icon={<FiDollarSign />}
-        />
-
-        <Input
-          label="Timeline"
-          name="timeline"
-          value={form.timeline}
-          onChange={handleChange}
-          placeholder="Ideal timeline (optional)"
-          icon={<FiClock />}
-        />
+        <p className={styles.formDescription}>
+          Share a little about your project, what you're looking for, and how I
+          can help. You don't need to have everything figured out yet.
+        </p>
       </div>
 
-      <div className={styles.selectField}>
-        <label htmlFor="service">What do you need help with</label>
+      {/* =========================================
+      CONTACT DETAILS
+  ========================================= */}
 
-        <Select
-          name="service"
-          value={form.service}
-          onChange={handleChange}
-          required
-          icon={<FiHelpCircle />}
-        >
-          <option value="" disabled>
-            What do you need help with?
-          </option>
-          <option value="web">Web Development</option>
-          <option value="uiux">UI/UX Design</option>
-          <option value="performance">Performance</option>
-          <option value="other">Other</option>
-        </Select>
+      <div className={styles.formSection}>
+        <div className={styles.sectionHeading}>
+          <span className={styles.sectionIndex}>01</span>
+          <span className={styles.sectionLabel}>Your details</span>
+          <span className={styles.sectionLine} aria-hidden="true" />
+        </div>
+
+        <div className={styles.contactFields}>
+          <Input
+            label="Name"
+            name="name"
+            value={form.name}
+            onChange={handleChange}
+            placeholder="Your name"
+            required
+            icon={<FiUser />}
+          />
+
+          <Input
+            label="Email"
+            name="email"
+            type="email"
+            value={form.email}
+            onChange={handleChange}
+            placeholder="you@email.com"
+            required
+            icon={<FiMail />}
+          />
+        </div>
       </div>
+
+      {/* =========================================
+      PROJECT DETAILS
+  ========================================= */}
+
+      <div className={styles.formSection}>
+        <div className={styles.sectionHeading}>
+          <span className={styles.sectionIndex}>02</span>
+          <span className={styles.sectionLabel}>About your project</span>
+          <span className={styles.sectionLine} aria-hidden="true" />
+        </div>
+
+        <div className={styles.projectFields}>
+          <div className={styles.selectField}>
+            <label htmlFor="service">What do you need help with?</label>
+
+            <Select
+              name="service"
+              value={form.service}
+              onChange={handleChange}
+              required
+              icon={<FiHelpCircle />}
+            >
+              <option value="" disabled>
+                What do you need help with?
+              </option>
+              <option value="web">Web Development</option>
+              <option value="uiux">UI/UX Design</option>
+              <option value="performance">Performance</option>
+              <option value="other">Other</option>
+            </Select>
+          </div>
+
+          <Textarea
+            label="Message"
+            name="message"
+            value={form.message}
+            onChange={handleChange}
+            placeholder="Tell me about your project..."
+            required
+            icon={<FiMessageCircle />}
+          />
+        </div>
+      </div>
+
+      {/* =========================================
+      OPTIONAL PROJECT INFORMATION
+  ========================================= */}
+
+      <div className={styles.formSection}>
+        <div className={styles.sectionHeading}>
+          <span className={styles.sectionIndex}>03</span>
+          <span className={styles.sectionLabel}>A few more details</span>
+          <span className={styles.optionalLabel}>Optional</span>
+          <span className={styles.sectionLine} aria-hidden="true" />
+        </div>
+
+        <div className={styles.rowFields}>
+          <Input
+            label="Budget"
+            name="budget"
+            value={form.budget}
+            onChange={handleChange}
+            placeholder="Estimated budget (optional)"
+            icon={<FiDollarSign />}
+          />
+
+          <Input
+            label="Timeline"
+            name="timeline"
+            value={form.timeline}
+            onChange={handleChange}
+            placeholder="Ideal timeline (optional)"
+            icon={<FiClock />}
+          />
+        </div>
+      </div>
+
+      {/* =========================================
+      SUBMISSION
+  ========================================= */}
 
       <div className={styles.buttonDiv}>
+        <div className={styles.submitTop}>
+          <span className={styles.submitMarker} aria-hidden="true" />
+
+          <p className={styles.submitNote}>
+            Ready when you are. I'll get back to you as soon as I can.
+          </p>
+        </div>
+
         <PrimaryButton type="submit" disabled={submitting}>
           <span className={styles.submitContent}>
-            <FiSend />
+            <FiSend aria-hidden="true" />
             {submitting ? "Sending..." : "Send Message"}
           </span>
         </PrimaryButton>

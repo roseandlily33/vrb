@@ -62,76 +62,83 @@ const packageGroups = [
 
 export default function ExplorePackages() {
   return (
-<section className={styles.section}>
-  <div className={styles.sectionInner}>
-    <div className={styles.header}>
-      <div className={styles.headerContent}>
-        <div className={styles.sectionMarker} aria-hidden="true">
-          <span className={styles.markerLine} />
-          <span className={styles.markerPixel} />
-        </div>
-
-        <p className={styles.eyebrow}>Services & Packages</p>
-
-        <h2>Choose the right starting point</h2>
-      </div>
-
-      <div className={styles.headerDescription}>
-        <p>
-          Explore web design and development services based on the support you
-          need, from custom websites and UI/UX design to ongoing retainers and
-          add-ons.
-        </p>
-
-        <div className={styles.headerPixels} aria-hidden="true">
-          <span className={styles.pixelOne} />
-          <span className={styles.pixelTwo} />
-          <span className={styles.pixelThree} />
-        </div>
-      </div>
-    </div>
-
-    <div className={styles.grid}>
-      {packageGroups.map((item) => {
-        const Icon = item.icon;
-
-        return (
-          <Link href={item.href} className={styles.card} key={item.title}>
-            <div className={styles.cardTop}>
-              <div className={styles.iconWrap} aria-hidden="true">
-                <Icon />
-              </div>
-
-              <span className={styles.cardArrow} aria-hidden="true">
-                ↗
-              </span>
+    <section className={styles.section}>
+      <div className={styles.sectionInner}>
+        {/* SECTION HEADER */}
+        <div className={styles.header}>
+          <div className={styles.headerContent}>
+            <div className={styles.sectionMarker} aria-hidden="true">
+              <span className={styles.markerLine} />
+              <span className={styles.markerPixel} />
             </div>
 
-            <div className={styles.cardContent}>
-              <span className={styles.cardEyebrow}>{item.eyebrow}</span>
+            <p className={styles.eyebrow}>Services & Packages</p>
 
-              <h3>{item.title}</h3>
+            <h2>Choose the right starting point</h2>
+          </div>
 
-              <p>{item.description}</p>
+          <div className={styles.headerDescription}>
+            <p>
+              Every business has different needs. Explore the ways I can help,
+              from custom websites and thoughtful design to ongoing support,
+              improvements, and SEO.
+            </p>
+
+            <div className={styles.headerPixels} aria-hidden="true">
+              <span className={styles.pixelOne} />
+              <span className={styles.pixelTwo} />
+              <span className={styles.pixelThree} />
             </div>
+          </div>
+        </div>
 
-            <small>{item.meta}</small>
+        {/* PACKAGE GRID */}
+        <div className={styles.grid}>
+          {packageGroups.map((item) => {
+            const Icon = item.icon;
 
-            <span className={styles.cardAccent} aria-hidden="true" />
+            return (
+              <Link href={item.href} className={styles.card} key={item.title}>
+                <div className={styles.cardTop}>
+                  <div className={styles.iconWrap} aria-hidden="true">
+                    <Icon />
+                  </div>
+
+                  <span className={styles.cardArrow} aria-hidden="true">
+                    ↗
+                  </span>
+                </div>
+
+                <div className={styles.cardContent}>
+                  <span className={styles.cardEyebrow}>{item.eyebrow}</span>
+
+                  <h3>{item.title}</h3>
+
+                  <p>{item.description}</p>
+                </div>
+
+                {item.meta && (
+                  <div className={styles.cardFooter}>
+                    <small>{item.meta}</small>
+                  </div>
+                )}
+
+                <span className={styles.cardAccent} aria-hidden="true" />
+              </Link>
+            );
+          })}
+        </div>
+
+        {/* SECTION CTA */}
+        <div className={styles.ctaRow}>
+          <Link href="/package" className={styles.primaryLink}>
+            <span>View all packages</span>
+            <span className={styles.ctaArrow} aria-hidden="true">
+              →
+            </span>
           </Link>
-        );
-      })}
-    </div>
-
-    <div className={styles.ctaRow}>
-      <Link href="/package" className={styles.primaryLink}>
-        <span>View all packages</span>
-        <span className={styles.ctaArrow} aria-hidden="true">
-          →
-        </span>
-      </Link>
-    </div>
-  </div>
-</section>
+        </div>
+      </div>
+    </section>
   );
 }

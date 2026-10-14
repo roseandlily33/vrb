@@ -26,15 +26,18 @@ const faq = [
 
 export default function MiniFaq() {
   return (
-    <section className={styles.faqSection}>
+    <section className={styles.faqSection} aria-labelledby="faq-heading">
       <div className={styles.faqInner}>
+        {/* HEADER */}
         <div className={styles.faqHeader}>
-          <div className={styles.headerMarker} aria-hidden="true">
-            <span className={styles.markerLine} />
-            <span className={styles.markerPixel} />
-          </div>
+          <div className={styles.headerContent}>
+            <div className={styles.headerMarker} aria-hidden="true">
+              <span className={styles.markerLine} />
+              <span className={styles.markerPixel} />
+            </div>
 
-          <h2>Frequently asked questions</h2>
+            <h2 id="faq-heading">Frequently asked questions</h2>
+          </div>
 
           <p className={styles.meta}>
             A few quick answers to common questions about timelines, process,
@@ -42,14 +45,11 @@ export default function MiniFaq() {
           </p>
         </div>
 
+        {/* FAQ ACCORDION */}
         <div className={styles.faqList}>
           {faq.map((item, idx) => (
-            <details className={styles.faqItem} key={idx}>
+            <details className={styles.faqItem} key={`${item.q}-${idx}`}>
               <summary className={styles.question}>
-                <span className={styles.number}>
-                  #{String(idx + 1).padStart(2, "0")}
-                </span>
-
                 <span className={styles.questionText}>{item.q}</span>
 
                 <span className={styles.plus} aria-hidden="true">
@@ -59,7 +59,7 @@ export default function MiniFaq() {
               </summary>
 
               <div className={styles.answerWrap}>
-                <div className={styles.answerGrid}>
+                <div className={styles.answerInner}>
                   <div className={styles.answer}>{item.a}</div>
                 </div>
               </div>

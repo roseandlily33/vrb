@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import styles from "./Footer.module.css";
-import TertiaryButton from "../TertiaryButton/TertiaryButton.component";
+// import TertiaryButton from "../TertiaryButton/TertiaryButton.component";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -27,39 +27,52 @@ const Footer = () => {
     <footer className={styles.footer}>
       <div className={styles.footerInner}>
         <div className={styles.footerTop}>
+          {/* BRAND */}
           <div className={styles.brand}>
-            <Link href="/" aria-label="Home" className={styles.logoWrap}>
+            <Link
+              href="/"
+              aria-label="VRB Web Design and Development home"
+              className={styles.logoWrap}
+            >
               <Image
                 src="/VRBLogo.png"
-                alt="VRB Logo"
+                alt="VRB Web Design and Development"
                 className={styles.logo}
                 width={200}
                 height={200}
-                loading="eager"
               />
             </Link>
 
             <p className={styles.tagline}>
-              Designing and building clean, scalable user-focused websites.
+              Thoughtful design, practical development, and websites built
+              around your business.
             </p>
 
-            <div className={styles.availability}>
-              <span className={styles.availabilityPixel} />
-              <span>Currently booking new projects</span>
+            <Link href="/contact" className={styles.brandContact}>
+              <span className={styles.contactPixel} aria-hidden="true" />
+              Have a project in mind? Let's talk.
+              <FiArrowUpRight aria-hidden="true" />
+            </Link>
+
+            <div className={styles.brandCircuit} aria-hidden="true">
+              <span className={styles.circuitLine} />
+              <span className={styles.circuitNode} />
+              <span className={styles.circuitPixel} />
             </div>
           </div>
 
+          {/* NAVIGATION */}
           <div className={styles.footerNavigation}>
             <div className={styles.navigationGroup}>
-              <p className={styles.footerHeading}>Navigate</p>
+              <h2 className={styles.footerHeading}>Explore</h2>
 
               <nav
                 className={styles.linksSection}
-                aria-label="Footer Navigation"
+                aria-label="Footer navigation"
               >
                 {navLinks.map((link) => (
                   <Link
-                    key={link.label}
+                    key={link.href}
                     href={link.href}
                     className={styles.footerLink}
                   >
@@ -69,13 +82,21 @@ const Footer = () => {
               </nav>
             </div>
 
+            {/* CONNECT */}
             <div className={styles.navigationGroup}>
-              <p className={styles.footerHeading}>Connect</p>
+              <h2 className={styles.footerHeading}>Connect</h2>
+
+              <a
+                href="mailto:victoria@vrbwebdesignanddev.com"
+                className={styles.emailLink}
+              >
+                victoria@vrbwebdesignanddev.com
+              </a>
 
               <div className={styles.socials}>
                 <a
                   href="mailto:victoria@vrbwebdesignanddev.com"
-                  aria-label="Email"
+                  aria-label="Email VRB"
                 >
                   <FaEnvelope />
                 </a>
@@ -83,8 +104,8 @@ const Footer = () => {
                 <a
                   href="https://github.com/VRB-Web-Design-and-Development"
                   target="_blank"
-                  rel="noreferrer"
-                  aria-label="GitHub"
+                  rel="noopener noreferrer"
+                  aria-label="VRB on GitHub"
                 >
                   <FaGithub />
                 </a>
@@ -92,8 +113,8 @@ const Footer = () => {
                 <a
                   href="https://www.linkedin.com/company/116058547/"
                   target="_blank"
-                  rel="noreferrer"
-                  aria-label="LinkedIn"
+                  rel="noopener noreferrer"
+                  aria-label="VRB on LinkedIn"
                 >
                   <FaLinkedin />
                 </a>
@@ -101,8 +122,8 @@ const Footer = () => {
                 <a
                   href="https://www.facebook.com/profile.php?id=61589721155068"
                   target="_blank"
-                  rel="noreferrer"
-                  aria-label="Facebook"
+                  rel="noopener noreferrer"
+                  aria-label="VRB on Facebook"
                 >
                   <FaFacebook />
                 </a>
@@ -110,8 +131,8 @@ const Footer = () => {
                 <a
                   href="https://www.instagram.com/vrb_webdesignanddev/"
                   target="_blank"
-                  rel="noreferrer"
-                  aria-label="Instagram"
+                  rel="noopener noreferrer"
+                  aria-label="VRB on Instagram"
                 >
                   <FaInstagram />
                 </a>
@@ -122,56 +143,44 @@ const Footer = () => {
                   href="https://victoriabenoit-portfolio.onrender.com"
                   target="_blank"
                   rel="noopener noreferrer"
+                  className={styles.portfolioLink}
                 >
-                  <TertiaryButton as="span">
-                    My Portfolio
-                    <FiArrowUpRight
-                      style={{
-                        marginLeft: 8,
-                        verticalAlign: "middle",
-                      }}
-                      aria-hidden="true"
-                    />
-                  </TertiaryButton>
+                  My Personal Portfolio
+                  <FiArrowUpRight aria-hidden="true" />
                 </Link>
               </div>
             </div>
           </div>
         </div>
 
+        {/* BOTTOM BAR */}
         <div className={styles.bottomBar}>
-          <span>
+          <p className={styles.copyright}>
             © {new Date().getFullYear()} VRB Web Design and Development. All
             rights reserved.
-          </span>
+          </p>
 
-          <span className={styles.bottomMark}>
-            Design <span /> Develop <span /> Deliver
-          </span>
+          <div className={styles.bottomMark}>
+            <span>Design</span>
+            <span className={styles.markPixel} aria-hidden="true" />
+            <span>Develop</span>
+            <span className={styles.markPixel} aria-hidden="true" />
+            <span>Deliver</span>
+          </div>
         </div>
       </div>
 
+      {/* PIXEL FLOOR */}
       <div className={styles.pixelFloor} aria-hidden="true">
-        <span className={`${styles.pixel} ${styles.pixel1}`} />
-        <span className={`${styles.pixel} ${styles.pixel2}`} />
-        <span className={`${styles.pixel} ${styles.pixel3}`} />
-        <span className={`${styles.pixel} ${styles.pixel4}`} />
-        <span className={`${styles.pixel} ${styles.pixel5}`} />
-        <span className={`${styles.pixel} ${styles.pixel6}`} />
-        <span className={`${styles.pixel} ${styles.pixel7}`} />
-        <span className={`${styles.pixel} ${styles.pixel8}`} />
-        <span className={`${styles.pixel} ${styles.pixel9}`} />
-        <span className={`${styles.pixel} ${styles.pixel10}`} />
-        <span className={`${styles.pixel} ${styles.pixel11}`} />
-        <span className={`${styles.pixel} ${styles.pixel12}`} />
-        <span className={`${styles.pixel} ${styles.pixel13}`} />
-        <span className={`${styles.pixel} ${styles.pixel14}`} />
-        <span className={`${styles.pixel} ${styles.pixel15}`} />
-        <span className={`${styles.pixel} ${styles.pixel16}`} />
+        {Array.from({ length: 16 }, (_, index) => (
+          <span
+            key={index}
+            className={`${styles.pixel} ${styles[`pixel${index + 1}`]}`}
+          />
+        ))}
       </div>
     </footer>
   );
 };
-
 
 export default Footer;
