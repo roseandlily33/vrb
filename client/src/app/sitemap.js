@@ -46,6 +46,12 @@ export default function sitemap() {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}/case-study/yoda-seo`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: `${baseUrl}/case-study/ariel-performance-horses`,
       lastModified: new Date(),
       changeFrequency: "monthly",
@@ -53,6 +59,12 @@ export default function sitemap() {
     },
     {
       url: `${baseUrl}/case-study/inspection-pal`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/case-study/ip-seo`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
@@ -77,6 +89,12 @@ export default function sitemap() {
     },
     {
       url: `${baseUrl}/case-study/vrb-web`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/case-study/vrb-seo`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
