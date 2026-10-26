@@ -36,7 +36,7 @@ const CSHero = ({
   description = "",
   finalResults,
   seeProcess,
-  topMenu = false,
+  // topMenu = false,
 }) => {
   return (
     <section className={styles.heroCentered}>
@@ -81,7 +81,7 @@ const CSHero = ({
               firstLink="/work"
               first="Work"
             />
-
+{/* 
             {topMenu && (
               <CSTopMenu
                 activeKey="web"
@@ -99,7 +99,7 @@ const CSHero = ({
                   },
                 ]}
               />
-            )}
+            )} */}
           </div>
 
           {/* PROJECT INTRODUCTION */}

@@ -9,12 +9,25 @@ import CSKeyFeatures from "../Components/CSKeyFeatures/CSKeyFeatures.component";
 import { pages } from "./pages";
 // import Breadcrumbs from "../Components/Extras/Breadcrumbs/Breadcrumbs.component";
 import BackToTopButton from "@/app/Components/BackToTop/BackToTopButton";
+import CSNavigation from "../Components/CSNavigation/CSNavigation.component";
 
 const Assuage = () => {
   return (
     <section className={styles.mainContainer}>
       {/* <Breadcrumbs current="Assuage Wellness Centre" /> */}
-     
+      <CSNavigation
+        project="Assuage Wellness Centre"
+        items={[
+          {
+            label: "Web Design",
+            href: "/case-study/assuage",
+          },
+          {
+            label: "Social Media",
+            href: "/case-study/assuage/social-media",
+          },
+        ]}
+      />
       <CSHero
         img="/Assuage/AssuageLogoCircle.png"
         companyName="Assuage Wellness Centre"

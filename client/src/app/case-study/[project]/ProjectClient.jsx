@@ -7,13 +7,18 @@ import Vrb from "./Vrb/Vrb.component";
 import Assuage from "./Assuage/Assuage.component";
 import NewLine from "./NewLine/NewLine.component";
 import Anchor from "./Anchor/Anchor.component";
-
+import VrbSEO from "./VRB-SEO/page";
+import YodaSeoCaseStudy from "./Yoda-SEO/page";
+import IPSeoCaseStudy from "./IP-SEO/page";
 
 export default function ProjectPage() {
   const { project } = useParams();
-  
+
   if (project === "inspection-pal") {
     return <InspectionPal />;
+  }
+  if (project === "ip-seo") {
+    return <IPSeoCaseStudy />;
   }
   if (project === "ariel-performance-horses") {
     return <Ariel />;
@@ -21,8 +26,14 @@ export default function ProjectPage() {
   if (project === "yoda-safety-services") {
     return <Yoda />;
   }
+  if (project === "yoda-seo") {
+    return <YodaSeoCaseStudy />;
+  }
   if (project === "vrb-web") {
     return <Vrb />;
+  }
+  if (project === "vrb-seo") {
+    return <VrbSEO />;
   }
   if (project === "assuage") {
     return <Assuage />;
@@ -35,4 +46,3 @@ export default function ProjectPage() {
   }
   return <h2>No project found</h2>;
 }
-

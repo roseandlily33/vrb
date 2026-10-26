@@ -1,0 +1,498 @@
+
+.section {
+  position: relative;
+  overflow: hidden;
+  padding: var(--section-xl);
+  background: var(--blue-50);
+  color: var(--blue-950);
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 45%;
+  height: 450px;
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(
+      rgba(0, 84, 201, 0.045) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 84, 201, 0.045) 1px,
+      transparent 1px
+    );
+
+  background-size: 48px 48px;
+  mask-image: linear-gradient(90deg, transparent, black);
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* Header */
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 3rem;
+  margin-bottom: 3.5rem;
+}
+
+.headerContent {
+  max-width: 850px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--blue-800);
+}
+
+.eyebrowPixel {
+  width: 9px;
+  height: 9px;
+  background: var(--blue-800);
+}
+
+.title {
+  margin: 0 0 1.75rem;
+  font-family: var(--font-heading);
+  font-size: clamp(2.6rem, 4.3vw, 4.8rem);
+  font-weight: 750;
+  line-height: 1.12;
+  letter-spacing: -0.055em;
+  color: var(--blue-950);
+}
+
+.title span {
+  color: var(--blue-800);
+}
+
+.description {
+  max-width: 660px;
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 1.9;
+  color: var(--grey-600);
+}
+
+/* Work count */
+
+.workCount {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+  padding-bottom: 0.5rem;
+}
+
+.countNumber {
+  font-family: var(--font-heading);
+  font-size: clamp(3.5rem, 6vw, 6rem);
+  font-weight: 750;
+  line-height: 1;
+  letter-spacing: -0.07em;
+  color: var(--blue-800);
+}
+
+.countLabel {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 1.7;
+  color: var(--blue-950);
+}
+
+/* Filters */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid var(--blue-200);
+}
+
+.filterButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.75rem 1rem;
+  background: var(--white);
+  border: 1px solid var(--blue-200);
+  border-radius: 0;
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  font-weight: 500;
+  color: var(--blue-900);
+  cursor: pointer;
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.filterButton span {
+  font-size: 0.68rem;
+  color: var(--blue-700);
+}
+
+.filterButton:hover {
+  border-color: var(--blue-800);
+}
+
+.filterButton:focus-visible {
+  outline: 2px solid var(--blue-800);
+  outline-offset: 3px;
+}
+
+.filterActive {
+  background: var(--blue-950);
+  border-color: var(--blue-950);
+  color: var(--white);
+}
+
+.filterActive span {
+  color: var(--yellow-500);
+}
+
+/* Work cards */
+
+.workGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  align-items: start;
+}
+
+.workCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: clamp(1.5rem, 3vw, 2.25rem);
+  background: var(--white);
+  border: 1px solid var(--blue-200);
+  transition:
+    border-color var(--transition-normal),
+    box-shadow var(--transition-normal),
+    transform var(--transition-normal);
+}
+
+.workCard:hover {
+  border-color: var(--blue-700);
+  box-shadow: 7px 7px 0 var(--blue-100);
+  transform: translateY(-2px);
+}
+
+.cardTop {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.category {
+  display: inline-block;
+  padding: 0.45rem 0.65rem;
+  background: var(--blue-50);
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue-800);
+}
+
+.date {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  color: var(--grey-500);
+}
+
+.cardContent {
+  flex: 1;
+  padding-bottom: 1.5rem;
+}
+
+.cardContent h3 {
+  margin: 0 0 0.85rem;
+  font-family: var(--font-heading);
+  font-size: clamp(1.2rem, 1.7vw, 1.55rem);
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.025em;
+  color: var(--blue-950);
+}
+
+.cardContent p {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 0.87rem;
+  line-height: 1.85;
+  color: var(--grey-600);
+}
+
+/* Expandable details */
+
+.details {
+  border-top: 1px solid var(--grey-200);
+}
+
+.detailsToggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 0 0;
+  list-style: none;
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--blue-800);
+}
+
+.detailsToggle::-webkit-details-marker {
+  display: none;
+}
+
+.detailsToggle:focus-visible {
+  outline: 2px solid var(--blue-800);
+  outline-offset: 4px;
+}
+
+.toggleIcon {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.toggleIcon::before,
+.toggleIcon::after {
+  content: "";
+  position: absolute;
+  background: var(--blue-800);
+  transition: transform var(--transition-fast);
+}
+
+.toggleIcon::before {
+  top: 6px;
+  left: 0;
+  width: 14px;
+  height: 2px;
+}
+
+.toggleIcon::after {
+  top: 0;
+  left: 6px;
+  width: 2px;
+  height: 14px;
+}
+
+.details[open] .toggleIcon::after {
+  transform: rotate(90deg);
+}
+
+.detailsContent {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 1.5rem;
+}
+
+.detailGroup h4 {
+  margin: 0 0 0.65rem;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 650;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue-800);
+}
+
+.detailGroup p,
+.detailGroup li {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  line-height: 1.75;
+  color: var(--grey-600);
+}
+
+.detailGroup p {
+  margin: 0;
+}
+
+.detailGroup ul {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin: 0;
+  padding-left: 1.1rem;
+}
+
+.detailGroup li {
+  overflow-wrap: anywhere;
+}
+
+/* Decorative pixels */
+
+.cardAccent {
+  position: absolute;
+  top: -1px;
+  right: 1.5rem;
+  display: flex;
+  gap: 4px;
+}
+
+.cardAccent span {
+  width: 7px;
+  height: 7px;
+  background: var(--blue-700);
+}
+
+.cardAccent span:nth-child(2) {
+  background: var(--yellow-500);
+}
+
+.cardAccent span:nth-child(3) {
+  background: var(--blue-200);
+}
+
+/* Bottom detail */
+
+.bottomDetail {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--blue-200);
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--blue-800);
+}
+
+.detailLine {
+  flex: 1;
+  height: 1px;
+  background: var(--blue-200);
+}
+
+/* Tablet */
+
+@media (max-width: 1100px) {
+  .section {
+    padding: var(--section-lg);
+  }
+
+  .header {
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 850px) {
+  .section {
+    padding: 4rem 2rem;
+  }
+
+  .header {
+    align-items: flex-start;
+  }
+
+  .workGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 550px) {
+  .section {
+    padding: 3.5rem 1.25rem;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .eyebrow {
+    font-size: 0.65rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .title {
+    font-size: clamp(2.3rem, 10vw, 3.1rem);
+  }
+
+  .description {
+    font-size: 0.94rem;
+  }
+
+  .workCount {
+    padding: 0;
+  }
+
+  .countNumber {
+    font-size: 3.5rem;
+  }
+
+  .filters {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 1.25rem;
+    scrollbar-width: thin;
+  }
+
+  .filterButton {
+    flex-shrink: 0;
+  }
+
+  .workCard {
+    padding: 1.5rem;
+  }
+
+  .bottomDetail {
+    margin-top: 3rem;
+    gap: 1rem;
+    font-size: 0.58rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .workCard,
+  .filterButton,
+  .toggleIcon::before,
+  .toggleIcon::after {
+    transition: none;
+  }
+
+  .workCard:hover {
+    transform: none;
+  }
+}

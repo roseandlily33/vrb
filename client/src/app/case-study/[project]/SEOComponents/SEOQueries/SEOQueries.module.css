@@ -1,0 +1,513 @@
+
+.section {
+  position: relative;
+  overflow: hidden;
+  padding: var(--section-xl);
+  background: var(--blue-50);
+  color: var(--blue-950);
+}
+
+.container {
+  position: relative;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+/* Heading */
+
+.header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 3rem;
+  margin-bottom: 3.5rem;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  color: var(--blue-800);
+}
+
+.eyebrowPixel {
+  width: 9px;
+  height: 9px;
+  background: var(--blue-800);
+}
+
+.title {
+  margin: 0 0 1.75rem;
+  font-family: var(--font-heading);
+  font-size: clamp(2.6rem, 4.3vw, 4.8rem);
+  font-weight: 750;
+  line-height: 1.12;
+  letter-spacing: -0.055em;
+  color: var(--blue-950);
+}
+
+.title span {
+  color: var(--blue-800);
+}
+
+.description {
+  max-width: 680px;
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  line-height: 1.9;
+  color: var(--grey-600);
+}
+
+/* Query count */
+
+.headerStat {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-shrink: 0;
+  padding-bottom: 0.5rem;
+}
+
+.headerStatValue {
+  font-family: var(--font-heading);
+  font-size: clamp(3.5rem, 6vw, 6rem);
+  font-weight: 750;
+  line-height: 1;
+  letter-spacing: -0.07em;
+  color: var(--blue-800);
+  font-variant-numeric: tabular-nums;
+}
+
+.headerStatLabel {
+  font-family: var(--font-body);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  line-height: 1.7;
+  color: var(--blue-950);
+}
+
+/* Main table panel */
+
+.tablePanel {
+  background: var(--white);
+  border: 1px solid var(--blue-200);
+  box-shadow: 10px 10px 0 var(--blue-100);
+}
+
+.panelTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 1.75rem 2rem;
+  background: var(--blue-950);
+  color: var(--white);
+}
+
+.panelEyebrow {
+  display: block;
+  margin-bottom: 0.55rem;
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--blue-500);
+}
+
+.panelTop h3 {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: clamp(1.15rem, 2vw, 1.5rem);
+  font-weight: 650;
+  color: var(--white);
+}
+
+/* Snapshot selection */
+
+.snapshotControl {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.snapshotControl label {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: var(--blue-300);
+}
+
+.snapshotControl select {
+  min-width: 220px;
+  max-width: 100%;
+  padding: 0.75rem 2rem 0.75rem 0.9rem;
+  background: var(--blue-900);
+  border: 1px solid rgba(167, 216, 250, 0.35);
+  border-radius: 0;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.snapshotControl select:focus-visible {
+  outline: 2px solid var(--yellow-500);
+  outline-offset: 3px;
+}
+
+/* Search and comparison controls */
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid var(--grey-200);
+}
+
+.searchBox {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: min(100%, 380px);
+  padding: 0.8rem 1rem;
+  background: var(--grey-50);
+  border: 1px solid var(--grey-200);
+  color: var(--blue-800);
+}
+
+.searchBox:focus-within {
+  border-color: var(--blue-800);
+}
+
+.searchBox input {
+  width: 100%;
+  min-width: 0;
+  padding: 0;
+  border: 0;
+  outline: none;
+  background: transparent;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--blue-950);
+}
+
+.searchBox input::placeholder {
+  color: var(--grey-400);
+}
+
+.compareControl {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: var(--grey-700);
+  cursor: pointer;
+}
+
+.compareControl input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--blue-800);
+}
+
+/* Table */
+
+.tableScroll {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 760px;
+  font-family: var(--font-body);
+}
+
+.table thead {
+  background: var(--blue-50);
+}
+
+.table th {
+  padding: 1.1rem 1.25rem;
+  border-bottom: 1px solid var(--blue-200);
+  text-align: left;
+  font-size: 0.7rem;
+  font-weight: 650;
+  letter-spacing: 0.06em;
+  color: var(--blue-900);
+  white-space: nowrap;
+}
+
+.table th:not(:first-child),
+.table td:not(:first-child) {
+  text-align: right;
+}
+
+.sortButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0;
+  border: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+.sortButton span {
+  font-size: 0.9rem;
+  color: var(--blue-800);
+}
+
+.sortButton:focus-visible {
+  outline: 2px solid var(--blue-800);
+  outline-offset: 4px;
+}
+
+.table td {
+  padding: 1.15rem 1.25rem;
+  border-bottom: 1px solid var(--grey-200);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--grey-700);
+  font-variant-numeric: tabular-nums;
+}
+
+.table tbody tr {
+  transition: background var(--transition-fast);
+}
+
+.table tbody tr:hover {
+  background: var(--blue-50);
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.queryCell {
+  max-width: 440px;
+  font-weight: 600;
+  color: var(--blue-950) !important;
+  overflow-wrap: anywhere;
+}
+
+.positiveChange {
+  font-weight: 650;
+  color: #087f5b;
+}
+
+.negativeChange {
+  font-weight: 650;
+  color: #b54747;
+}
+
+.noChange {
+  color: var(--grey-500);
+}
+
+.emptyResults {
+  padding: 3rem 1rem !important;
+  text-align: center !important;
+  color: var(--grey-500);
+}
+
+/* Footer and pagination */
+
+.tableFooter {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.25rem 2rem;
+  border-top: 1px solid var(--grey-200);
+}
+
+.resultCount {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--grey-500);
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--blue-950);
+}
+
+.pagination button {
+  padding: 0.65rem 0.9rem;
+  background: var(--white);
+  border: 1px solid var(--blue-200);
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--blue-800);
+  cursor: pointer;
+}
+
+.pagination button:hover:not(:disabled) {
+  border-color: var(--blue-800);
+  background: var(--blue-50);
+}
+
+.pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pagination button:focus-visible {
+  outline: 2px solid var(--blue-800);
+  outline-offset: 3px;
+}
+
+/* Data note */
+
+.dataNote {
+  max-width: 900px;
+  margin: 2rem 0 0;
+  font-family: var(--font-body);
+  font-size: 0.76rem;
+  line-height: 1.8;
+  color: var(--grey-500);
+}
+
+/* Bottom detail */
+
+.bottomDetail {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-top: 5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--blue-200);
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: var(--blue-800);
+}
+
+.detailLine {
+  flex: 1;
+  height: 1px;
+  background: var(--blue-200);
+}
+
+/* Tablet */
+
+@media (max-width: 1100px) {
+  .section {
+    padding: var(--section-lg);
+  }
+}
+
+@media (max-width: 850px) {
+  .section {
+    padding: 4rem 2rem;
+  }
+
+  .header {
+    align-items: flex-start;
+  }
+
+  .panelTop,
+  .toolbar,
+  .tableFooter {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 550px) {
+  .section {
+    padding: 3.5rem 1.25rem;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .eyebrow {
+    font-size: 0.65rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .title {
+    font-size: clamp(2.3rem, 10vw, 3.1rem);
+  }
+
+  .description {
+    font-size: 0.94rem;
+  }
+
+  .headerStatValue {
+    font-size: 3.5rem;
+  }
+
+  .tablePanel {
+    box-shadow: 6px 6px 0 var(--blue-100);
+  }
+
+  .panelTop,
+  .toolbar,
+  .tableFooter {
+    padding: 1.25rem;
+  }
+
+  .snapshotControl {
+    width: 100%;
+  }
+
+  .snapshotControl select {
+    width: 100%;
+  }
+
+  .searchBox {
+    width: 100%;
+  }
+
+  .compareControl {
+    font-size: 0.75rem;
+  }
+
+  .table th,
+  .table td {
+    padding: 0.9rem 1rem;
+  }
+
+  .bottomDetail {
+    margin-top: 3rem;
+    font-size: 0.58rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .table tbody tr {
+    transition: none;
+  }
+}

@@ -1,5 +1,6 @@
 "use client";
 import styles from "../page.module.css";
+import CSNavigation from "../Components/CSNavigation/CSNavigation.component";
 import CSHero from "../Components/CSHero/CSHero.component";
 import CTA2 from "@/app/Components/CTA/CTA2/CTA2.component";
 import CSKeyPages from "../Components/CSKeyPages.component";
@@ -19,6 +20,19 @@ import CSPhases from "../Components/CSPhases/CSPhases.component";
 const Yoda = () => {
   return (
     <section className={styles.mainContainer}>
+      <CSNavigation
+        project="Yoda Safety Services"
+        items={[
+          {
+            label: "Development",
+            href: "/case-study/yoda-safety-services",
+          },
+          {
+            label: "SEO",
+            href: "/case-study/yoda-seo",
+          },
+        ]}
+      />
       {/* <Breadcrumbs current="Yoda Safety Services" /> */}
       <CSHero
         img="/YodaSafetyServices/Logo.png"

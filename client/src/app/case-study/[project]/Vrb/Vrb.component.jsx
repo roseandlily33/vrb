@@ -9,6 +9,7 @@ import CSProcess from "../Components/CSProcess/CSProcess.component";
 import CSResults from "../Components/CSResults/CSResults.component";
 import CSTechnologies from "../Components/CSTechnologies/CSTechnologies.component";
 import BackToTopButton from "@/app/Components/BackToTop/BackToTopButton";
+import CSNavigation from "../Components/CSNavigation/CSNavigation.component";
 import CSPhases from "../Components/CSPhases/CSPhases.component";
 import { results } from "./results";
 import { PhaseDescriptions } from "./pages";
@@ -16,6 +17,19 @@ import { PhaseDescriptions } from "./pages";
 const Vrb = () => {
   return (
     <section className={styles.mainContainer}>
+      <CSNavigation
+        project="VRB Web Design & Development"
+        items={[
+          {
+            label: "Development",
+            href: "/case-study/vrb-web",
+          },
+          {
+            label: "SEO",
+            href: "/case-study/vrb-seo",
+          },
+        ]}
+      />
       {/* <Breadcrumbs current="VRB Web Design and Development" /> */}
       <CSHero
         img="/VRBLogo.png"

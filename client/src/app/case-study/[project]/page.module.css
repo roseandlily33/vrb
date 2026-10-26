@@ -56,7 +56,8 @@
   align-items: center;
 }
 .mainContainer section {
-  padding: var(--section-lg);
+  padding: var(--section-md);
+  /* border: 2px solid blue; */
 }
 /* Removes the padding from the first child */
 .mainContainer section:first-child {

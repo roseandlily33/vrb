@@ -12,10 +12,24 @@ import { pages, PhaseDescriptions } from "./pages";
 // import Breadcrumbs from "../Components/Extras/Breadcrumbs/Breadcrumbs.component";
 import BackToTopButton from "@/app/Components/BackToTop/BackToTopButton";
 import CSPhases from "../Components/CSPhases/CSPhases.component";
+import CSNavigation from "../Components/CSNavigation/CSNavigation.component";
 
 const InspectionPal = () => {
   return (
     <section className={styles.mainContainer}>
+      <CSNavigation
+        project="Inspection Pal"
+        items={[
+          {
+            label: "Development",
+            href: "/case-study/inspection-pal",
+          },
+          {
+            label: "SEO",
+            href: "/case-study/ip-seo",
+          },
+        ]}
+      />
       {/* <Breadcrumbs current="InspectionPal" /> */}
       <CSHero
         img="/InspectionPal/Logo.png"
