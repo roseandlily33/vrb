@@ -847,3 +847,82 @@
     stroke-dashoffset: 0;
   }
 }
+
+/* ==========================================
+   SEARCH NAVIGATION
+========================================== */
+
+.desktopActions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.searchButton,
+.mobileSearchButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+
+  width: 42px;
+  height: 42px;
+
+  background: transparent;
+  border: 1px solid transparent;
+
+  color: var(--blue-950);
+  text-decoration: none;
+
+  transition:
+    color var(--transition-fast),
+    background var(--transition-fast),
+    border-color var(--transition-fast);
+}
+
+.searchButton:hover,
+.mobileSearchButton:hover {
+  color: var(--blue-800);
+  background: var(--blue-50);
+  border-color: var(--blue-200);
+}
+
+.searchActive {
+  color: var(--blue-800);
+  background: var(--blue-50);
+  border-color: var(--blue-200);
+}
+
+.searchButton:focus-visible,
+.mobileSearchButton:focus-visible {
+  outline: 2px solid var(--blue-800);
+  outline-offset: 3px;
+}
+
+/* Hide mobile search on desktop */
+
+.mobileSearchButton {
+  display: none;
+}
+
+/* Match this breakpoint to the one already
+   used by your navbar's mobile layout. */
+
+@media (max-width: 850px) {
+  .desktopActions {
+    display: none;
+  }
+
+  .mobileSearchButton {
+    display: flex;
+    margin-left: auto;
+    margin-right: 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .searchButton,
+  .mobileSearchButton {
+    transition: none;
+  }
+}

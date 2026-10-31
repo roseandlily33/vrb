@@ -21,6 +21,24 @@ const navLinks = [
   { label: "Contact", href: "/contact" },
 ];
 
+const SearchIcon = () => (
+  <svg
+    width="21"
+    height="21"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+    focusable="false"
+  >
+    <circle cx="10.8" cy="10.8" r="6.8" />
+    <path d="m16 16 5 5" />
+  </svg>
+);
+
 // ==========================================
 // CASE STUDIES
 // ==========================================
@@ -276,20 +294,33 @@ const Navbar = () => {
 
             if (link.label === "Contact") {
               return (
-                <Link
-                  href={link.href}
-                  key={link.href}
-                  className={`${styles.contactBtn} ${
-                    active ? styles.contactActive : ""
-                  }`}
-                  aria-current={active ? "page" : undefined}
-                >
-                  <span>{link.label}</span>
+                <div key="desktop-actions" className={styles.desktopActions}>
+                  <Link
+                    href="/search"
+                    className={`${styles.searchButton} ${
+                      matchesRoute("/search") ? styles.searchActive : ""
+                    }`}
+                    aria-label="Search website"
+                    aria-current={matchesRoute("/search") ? "page" : undefined}
+                    title="Search VRB"
+                  >
+                    <SearchIcon />
+                  </Link>
 
-                  <span className={styles.contactArrow} aria-hidden="true">
-                    ↗
-                  </span>
-                </Link>
+                  <Link
+                    href={link.href}
+                    className={`${styles.contactBtn} ${
+                      active ? styles.contactActive : ""
+                    }`}
+                    aria-current={active ? "page" : undefined}
+                  >
+                    <span>{link.label}</span>
+
+                    <span className={styles.contactArrow} aria-hidden="true">
+                      ↗
+                    </span>
+                  </Link>
+                </div>
               );
             }
 
@@ -315,6 +346,19 @@ const Navbar = () => {
         {/* ==================================
             HAMBURGER BUTTON
         ================================== */}
+
+        <Link
+          href="/search"
+          className={`${styles.mobileSearchButton} ${
+            matchesRoute("/search") ? styles.searchActive : ""
+          }`}
+          aria-label="Search website"
+          aria-current={matchesRoute("/search") ? "page" : undefined}
+          title="Search VRB"
+          onClick={closeMenu}
+        >
+          <SearchIcon />
+        </Link>
 
         <button
           id="mobile-menu-toggle"

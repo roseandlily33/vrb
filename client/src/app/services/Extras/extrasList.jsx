@@ -78,7 +78,7 @@ export const extrasList = [
 
     note: "This package focuses on identifying opportunities for improvement. Any design or development work can be completed separately as a follow-up project.",
   },
-  
+
   {
     title: "Performance Optimization",
     slug: "performance-optimization",
@@ -1493,5 +1493,78 @@ export const extrasList = [
       "Landing Pages",
       "Ongoing reporting",
     ],
+  },
+
+  {
+    title: "Progressive Web App (PWA) Development",
+    slug: "progressive-web-app-development",
+
+    seoTitle: "Progressive Web App (PWA) Development Services | VRB",
+
+    seoDescription:
+      "Turn your website into an installable Progressive Web App with app-like navigation, mobile-friendly functionality, and optional offline support.",
+
+    startingAt: "$1,200",
+    timeline: "1 - 3 Weeks",
+
+    bestFor:
+      "Businesses with an existing website or web application that want to offer a more app-like experience across desktop and mobile devices",
+
+    description:
+      "Extend your existing website or web application into a Progressive Web App (PWA) that users can install on supported devices. PWAs combine the flexibility of the web with app-like features such as home screen installation, standalone navigation, and optional offline functionality.",
+
+    type: "extras",
+    icon: FaMobileAlt,
+
+    deliverables:
+      "Configured and tested Progressive Web App with installation support, app icons, and agreed app-like functionality",
+
+    features: [
+      "Existing website compatibility review",
+      "Web app manifest configuration",
+      "App name, icons & splash screen setup",
+      "Home screen installation support",
+      "Standalone app display",
+      "Service worker configuration",
+      "Basic asset caching",
+      "Responsive interface review",
+      "Installation testing",
+      "Cross-device compatibility testing",
+    ],
+
+    whatsIncluded: [
+      "PWA compatibility assessment",
+      "Web app manifest setup",
+      "App icons & installation configuration",
+      "Service worker setup",
+      "Basic caching configuration",
+      "Standalone display configuration",
+      "Installation & functionality testing",
+      "Basic implementation documentation",
+    ],
+
+    whatsNotIncluded: [
+      "Complete website or application redesign",
+      "Native iOS or Android application development",
+      "Apple App Store or Google Play Store submission",
+      "Advanced offline functionality",
+      "Push notification systems",
+      "Device-specific native integrations",
+      "Ongoing application maintenance",
+    ],
+
+    revisionLimits: "2 rounds of revisions",
+
+    optionalAddOns: [
+      "Advanced offline functionality",
+      "Push notification integration",
+      "App-like navigation & UI improvements",
+      "Performance Optimization",
+      "Accessibility Improvements",
+      "Ongoing PWA maintenance",
+      "Mobile app packaging & store deployment",
+    ],
+
+    note: "PWA functionality depends on the existing website architecture and browser support. Installation behaviour, offline capabilities, and device integrations vary by platform. App store distribution and advanced functionality are scoped separately.",
   },
 ];

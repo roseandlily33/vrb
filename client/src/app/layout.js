@@ -5,6 +5,7 @@ import {
 import "./globals.css";
 import Navbar from "./Components/Navbar/Navbar.component";
 import Footer from "./Components/Footer/Footer.component";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 // Font imports and CSS variable setup
 const poppins = Poppins({
@@ -39,9 +40,18 @@ export default function RootLayout({ children }) {
         ${inter.variable}
       `}
     >
+{/* <script async src="https://www.googletagmanager.com/gtag/js?id=G-7500WGCFZ3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments)}
+  gtag('js', new Date());
+
+  gtag('config', 'G-7500WGCFZ3');
+</script> */}
       <body>
         <Navbar />
         {children}
+        <GoogleAnalytics gaId="G-7500WGCFZ3" />
         <Footer />
       </body>
     </html>
